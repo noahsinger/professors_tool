@@ -1,0 +1,41 @@
+<% content_for :header do %>
+	<h1>Grade Requests</h1>
+	<h4>All grade requests made</h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to '/admin' do %> <%= render :partial => "shared/back_link" %> <% end %></li>
+		<li><%= link_to '<span class="test">Clear All</span><span class="icon">&euro;</span>', destroy_all_admin_grade_requests_path, :confirm => 'Are you sure?', :method => :delete %></li>
+	</ul>
+</div>
+
+<div class="fancy">
+	<table>
+		<tr>
+			<th>Section</th>
+			<th>Enrollment</th>
+			<th>Email</th>
+			<th>Created At</th>
+		</tr>
+
+		<% for grade_request xxx@xxx.xxx %>
+			<% if grade_request.status == "denied" %>
+				<tr class="red_bg">
+			<% else %>
+				<tr>
+			<% end %>
+				<td><%=h grade_request.section.course.title %></td>
+				<%- if grade_request.enrollment -%>
+					<td><%=h grade_request.enrollment.student.last_name %>, <%=h grade_request.enrollment.student.first_name %></td>
+				<%- else -%>
+					<td></td>
+				<%- end -%>
+				<td><%=h grade_request.email %></td>
+				<td><%=show_short_date grade_request.created_at %> @ <%= show_time grade_request.created_at %></td>
+				<td><%= link_to 'Show', [:admin,grade_request] %></td>
+				<td><%= link_to 'Destroy', [:admin,grade_request], :confirm => 'Are you sure?', :method => :delete %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>

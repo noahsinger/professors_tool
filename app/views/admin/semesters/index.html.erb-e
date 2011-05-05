@@ -1,0 +1,43 @@
+<% content_for :header do %>
+	<h1>Semesters</h1>
+	<h4>Showing all</h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li>
+			<% link_to '/admin' do %><%= render :partial => 'shared/back_link' %><% end %>
+		</li>
+		<li>
+			<% link_to new_admin_semester_path do %> <%= render :partial => 'shared/new_link' %> <% end %>
+		</li>
+	</ul>
+</div>
+
+<div class="fancy">
+	<table>
+	  <tr>
+	    <th>Season</th>
+	    <th>Year</th>
+		<th>Dates</th>
+		<th>Student Count</th>
+	
+		<th></th>
+		<th></th>
+		<th></th>
+	  </tr>
+
+	<% for semester xxx@xxx.xxx %>
+		<tr>
+			<td><%=h semester.season %></td>
+			<td><%=h semester.year %></td>
+			<td><%= show_short_date semester.start_date %> to <%= show_short_date semester.end_date %></td>
+			<td><%= semester.student_count %></td>
+
+			<td class="nav"><%= link_to 'Show', [:admin,semester] %></td>
+			<td class="nav"><%= link_to 'Edit', edit_admin_semester_path(semester) %></td>
+			<td class="nav"><%= link_to 'Destroy', [:admin,semester], :confirm => 'Are you sure?', :method => :delete %></td>
+		</tr>
+	<% end %>
+	</table>
+</div>

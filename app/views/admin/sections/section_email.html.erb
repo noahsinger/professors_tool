@@ -1,0 +1,38 @@
+<% content_for :header do %>
+	<h1><%= @section.course.title %> xxx@xxx.xxx %>)</h1>
+xxx@xxx.xxx %></h2>
+	<h4><%= show_time(@section.start_time) %> - <%= xxx@xxx.xxx %></h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx @section ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+	</ul>
+</div>
+
+<% xxx@xxx.xxx :html => {:method => :get}) do |f| %>
+	<ol>
+		<li>
+			<span class="light">To: All Class Members of Section xxx@xxx.xxx %></span>
+		</li>
+		
+		<li>
+			<span class="light">Subject: Section Announcement from Ingenio.us.com</span>
+		</li>
+		
+		<li>
+			<label for="body">Body</label><br/>
+			<%= text_area_tag :body, '', {:rows => 20, :cols => 80} %>
+			<br/>
+			<span class="light"><%= @section.instructor.first_name %> xxx@xxx.xxx %><br/>
+xxx@xxx.xxx %></span>
+		</li>
+	
+	
+		<li class="submit_bar">
+			<%= f.submit "Send" %>
+		</li>
+	</ol>
+<% end %>
+
+

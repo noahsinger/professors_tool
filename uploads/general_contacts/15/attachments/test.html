@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>test</title>
+	
+	<script type="text/javascript" src="base64.js"></script>   
+	<script type="text/javascript" src="md5.js"></script>   
+	<script type="text/javascript" src="md5-legacy.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+		window.onload = function( ) {
+			var form = document.getElementById( "theform" );
+			form.onsubmit = function( ) {
+				return validate_form( form );
+			}
+		}
+	</script>
+	
+	<script type="text/javascript" charset="utf-8">
+		var _useChallenge = true;
+	
+		function validate_form( form ) {
+		  //trims white space of beginning and end of user_id
+		  // form.user_id.value = form.user_id.value.replace(/^\s*|\s*$/g,"");
+
+		  // if user_id is blank
+		  // if ( form.user_id.value == "" || form.password.value == "" ) {
+		    // alert( "Enter a username and password." );
+		    // return false;
+		  // }
+
+		  //what is challenge/response???
+		  //short-cut if challenge/response is disabled.
+		  if ( !_useChallenge ) {
+			alert( "!_useChallenge" );
+			//sets encoded_pw value from function in base54.js
+		    form.encoded_pw.value = base64encode( form.password.value );
+
+			//sets encoded_pw_unicode value from function in md5.js
+		    form.encoded_pw_unicode.value = b64_unicode( form.password.value );
+
+			//wipes out original password value
+		    // form.password.value =  "";
+
+			//stops validate_form function before the following can occur
+		    // return true;
+			return false;
+		  }
+
+		  //THIS SEEMS TO BE THE SECTION TO WORRY ABOUT
+
+		  //from md5-legacy.js do this with Digest::MD5.hexdigest in ruby (require digest/md5)
+		  var passwd_enc = hex_md5(form.password.value);
+		  form.passwd_enc.value = passwd_enc;
+
+		  //appends one_time_token value to passwd_enc (one_time_token value is given in the html)
+		  var final_to_encode = passwd_enc + form.one_time_token.value;
+		  form.final_to_encode.value = final_to_encode;
+
+		  //from md5-legacy.js
+		  form.encoded_pw.value = hex_md5(final_to_encode);
+		
+		/////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		  form.str2binl.value = str2binl(form.password.value);
+		  form.core_md5.value = core_md5(str2binl(form.password.value), form.password.value.length * 16);
+		  form.binl2hex.value = binl2hex(core_md5(str2binl(form.password.value), form.password.value.length * 16));
+		
+		  //from md5.js
+		  var encoded_pw_unicode = calcMD5(form.password.value);
+		  form.encoded_pw_unicode2.value = encoded_pw_unicode;
+
+		  //appends one_time_token to encoded_pw_unicode
+		  final_to_encode = encoded_pw_unicode + form.one_time_token.value;
+		  form.final_to_encode2.value = final_to_encode;
+
+		  //from md5.js
+		  form.encoded_pw_unicode.value = calcMD5(final_to_encode);
+
+		  //clears original password value
+		  // form.password.value = "";
+
+		  //returns that form should submit
+		  // return true;
+			return false;
+		}
+	</script>
+	
+</head>
+
+<body>
+	<form action="" method="get" accept-charset="utf-8" id="theform">
+		<textarea rows="50" cols="75" style="float: right;" id="console"></textarea>
+		
+		<input value="49FF34E7BF5BE610009669A8D7875A1A" name="one_time_token" type="hidden"/>
+		
+		<p><label for="password"><strong>Original Password:</strong> </label><input type="text" name="password" value="" id="password" size="50"/></p>
+		
+		<hr/>
+
+		<p><label for="passwd_enc">passwd_enc: </label><input type="text" name="passwd_enc" value="" id="passwd_enc" size="50"/></p>
+
+		<p><label for="final_to_encode">final_to_encode: </label><input type="text" name="final_to_encode" value="" id="final_to_encode" size="75"/></p>
+
+		<p><label for="encoded_pw"><strong>encoded_pw:</strong> </label><input type="text" name="encoded_pw" value="" id="encoded_pw" size="50"/></p>
+		
+		<hr/>
+		
+		<p><label for="str2binl">str2binl: </label><input type="text" name="str2binl" value="" id="str2binl" size="50"/></p>
+		
+		<p><label for="core_md5">core_md5: </label><input type="text" name="core_md5" value="" id="core_md5" size="50"/></p>
+		
+		<p><label for="binl2hex">binl2hex: </label><input type="text" name="binl2hex" value="" id="binl2hex" size="100"/></p>
+		
+		<p><label for="encoded_pw_unicode2">encoded_pw_unicode: </label><input type="text" name="encoded_pw_unicode2" value="" id="encoded_pw_unicode2" size="75"/></p>
+		
+		<p><label for="final_to_encode2">final_to_encode: </label><input type="text" name="final_to_encode2" value="" id="final_to_encode2" size="75"/></p>
+		
+		<p><label for="encoded_pw_unicode"><strong>encoded_pw_unicode:</strong> </label><input type="text" name="encoded_pw_unicode" value="" id="encoded_pw_unicode" size="50"/></p>
+		
+
+		<p><input type="submit" value="Continue &rarr;"></p>
+	</form>
+
+</body>
+</html>

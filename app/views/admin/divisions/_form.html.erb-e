@@ -1,0 +1,24 @@
+<% xxx@xxx.xxx do |f| %>
+	<%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :name %><br />
+			<%= f.text_field :name %>
+		</li>
+		<li>
+			<%= f.label :office_number %><br />
+			<%= f.text_field :office_number %>
+		</li>
+		<li>
+			<%= f.label :phone_number %><br />
+			<%= f.text_field :phone_number %>
+		</li>
+		<li>
+			<%= f.label :associate_dean %><br />
+			<%= f.text_field :associate_dean %>
+		</li>
+		<li class="submit_bar">
+			<%= f.submit submit_name %>
+		</li>
+	</ol>
+<% end %>

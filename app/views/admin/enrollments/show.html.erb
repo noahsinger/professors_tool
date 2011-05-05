@@ -1,0 +1,85 @@
+<% content_for :header do %>
+xxx@xxx.xxx %></h1>
+	<h2>Enrollment for <%= @section.meeting_days %> xxx@xxx.xxx %></h2>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx @section ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+	</ul>
+</div>
+
+<% 
+	possible = 0 
+	earned = 0
+%>
+
+
+<div class="fancy">
+	<table>
+		<tr>
+			<th>Assignment</th>
+			<th>Lab</th>
+			<th>Worth</th>
+			<th>Score</th>
+		</tr>
+xxx@xxx.xxx do |assignment| %>
+			<% 
+				work xxx@xxx.xxx :first, :conditions => ['assignment_id=?',assignment] )
+				earned += work.score if work
+				possible += assignment.worth
+			%>
+	
+			<tr>
+				<td>
+					<% if work %>
+						<%= link_to assignment.title, xxx@xxx.xxx @section, assignment, work ) %>
+					<% else %>
+						<%= assignment.title %>
+					<% end %>
+				</td>
+				<td><%= assignment.lab.title %></td>
+				<td><%= assignment.worth %></td>		
+				<td>
+					<% if work %>
+						<%= work.score %>
+					<% else %>
+						-
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+		<tr>
+			<td></td><td></td>
+			<td><%= possible %></td>
+			<td><%= earned %></td>
+		</tr>
+	</table>
+</div>
+
+<ul>
+	<li>
+		<span class="top_half">Current Score:</span>
+		<span class="bottom_half">
+			<%= @enrollment.current_average %>% - xxx@xxx.xxx %>
+			<!-- <%# number_to_percentage((earned / possible.to_f) * 100) %> - <%# score_to_letter (earned / possible.to_f) * 100 %> -->
+		</span>
+	</li>
+
+	<li>
+		<span class="top_half">Enrollment Status:</span>
+xxx@xxx.xxx = EnrollmentStatus.find( :all ) -%>
+	
+		<span class="bottom_half">
+			::
+xxx@xxx.xxx do |status| %>
+				<% xxx@xxx.xxx == status.name %>
+					<%= status.name %>
+				<% else %>
+					<%= link_to status.name, xxx@xxx.xxx @section, @enrollment, :enrollment => {:enrollment_status_id => status.id} ), :method => :put %>
+				<% end %>
+				::
+			<% end %>
+		</span>
+	</li>
+</ul>

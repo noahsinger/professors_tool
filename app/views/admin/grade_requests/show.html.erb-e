@@ -1,0 +1,29 @@
+<% content_for :header do %>
+	<h1>Grade Request </h1>
+	<h2>from xxx@xxx.xxx %></h2>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to admin_grade_requests_path do %> <%= render :partial => "shared/back_link" %> <% end %></li>
+	</ul>
+</div>
+
+<p>
+	<strong>Section:</strong>
+xxx@xxx.xxx %>
+</p>
+
+<p>
+	<strong>Enrollment:</strong>
+	<% xxx@xxx.xxx %>
+		<%=h @grade_request.enrollment.student.last_name %>, xxx@xxx.xxx %>
+	<% else %>
+		Email address did not match any known enrollments
+	<% end %>
+</p>
+
+<p>
+	<strong>Email:</strong>
+xxx@xxx.xxx %>
+</p>

@@ -1,0 +1,21 @@
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+	</ul>
+</div>
+
+
+<% xxx@xxx.xxx do |f| %>
+  <%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :syllabus_part, "Syllabus Section to Add" %><br />
+			<%=  select( "policy", "syllabus_part_id", SyllabusPart.find( :all ).collect {|s| [ s.name, s.id ] }, { :include_blank => true } ) %>
+		</li>
+		<li class="submit_bar">
+			<%= f.submit "Add" %>
+		</li>
+	</ol>
+<% end %>
+
+

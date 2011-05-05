@@ -1,0 +1,191 @@
+body {
+	margin: 0;
+	padding: 0;
+	-webkit-text-size-adjust:none;
+	font-family: Helvetica;
+}
+
+code {
+	font-size: .9em;
+	word-wrap: break-word;
+}
+
+th {
+	text-align: left;
+}
+
+.light {
+	font-size: 12px;
+	font-weight: normal;
+	color: #444;
+}
+
+.value {
+	color: #888;
+	float: right;
+}
+
+.edge2edge ul {
+	font-size:18px;
+	font-weight:bold;
+	color:black;
+	
+	margin: 0;
+	padding: 0;
+	
+	width: 320px;
+	background-color: white;
+/*	background-color: #999;*/
+/*	background-color: #d1e6ff;*/
+}
+
+
+.edge2edge ul li {
+	list-style-type: none;
+	
+	border-bottom-width:1px;
+	border-bottom-color:rgb(217,217,217);
+	border-bottom-style:solid;
+	
+	padding-top:13px;
+	padding-right:10px;
+	padding-bottom:14px;
+	padding-left:10px;
+}
+
+	.edge2edge ul li.alt {
+/*		background-color: #6196e9;*/
+/*		background-color: #6d84a2;*/
+	}
+	
+		.edge2edge ul li.alt a, .edge2edge ul li.alt a div {
+/*			color: #fff;*/
+		}
+		
+ul li span.arrow {
+	float: right;
+	position: relative;
+	left: 10px;
+}
+
+.edge2edge a, .rounded a {		
+	display: block;
+	
+	padding-top: 8px;
+	padding-right: 18px;
+	padding-bottom: 12px;
+	padding-left: 8px;
+	
+	margin-top: -11px;
+	margin-right: -8px;
+	margin-bottom: -12px;
+	margin-left: -8px;	  
+	
+	text-decoration: none;
+	color: black;
+}
+
+.secondary {
+	font-weight:normal;
+	line-height:20px;
+	font-size: 14px;
+	color: #444;
+}
+
+.edge2edge h1 {
+	color: #fff;
+	font-family: helvetica, arial, sans-serif;
+	margin: 0;
+	padding: 10px 10px 0 10px;
+	border-bottom: 1px solid rgb(217,217,217);
+	background: #6d84a2 url(../images/iPhoneToolbar.png) repeat-x;
+	height: 35px;
+	text-align: center;
+	font-size: 20px;
+}
+
+#back_button {
+	-webkit-border-image: url(../images/iPhoneBackButton.png) 0 8 0 14 stretch stretch;
+	border-width: 0 8px 0 14px;
+	left: 18px;
+	right: auto;
+}
+
+a.button {
+	background: none;
+	-webkit-border-bottom-left-radius: 0px 0px;
+	-webkit-border-bottom-right-radius: 0px 0px;
+	-webkit-border-image: url(../images/iPhoneButton.png) 0 5 0 5 stretch stretch;
+	-webkit-border-top-left-radius: 0px 0px;
+	-webkit-border-top-right-radius: 0px 0px;
+	border-width: 0px 5px 0px 5px;
+	color: white;
+	font-size: 12px;
+	height: 22px;
+	font-weight: bold;
+	padding: 8px 0 0 0px;
+	position: absolute;
+	right: 18px;
+	text-decoration: none;
+	text-shadow: rgba(0, 0, 0, 0.597656) 0px -1px 0px;
+	top: 18px;
+	color: #fff;
+}
+
+.rounded {
+	background-color: rgb(197,204,211);
+	padding: 10px 0 10px 0;
+	min-height: 290px;
+}
+
+	.rounded ul {
+		list-style: none;
+		background-color: #fff;
+		background-color: #fff;
+		border: 1px solid rgb(177,184,191);
+		margin: 0 10px 10px 10px;
+		padding: 0;
+		-webkit-border-radius: 8px 8px;	  
+	}
+	
+		.rounded ul:last-child {
+			margin: 0 10px 0 10px;
+		}
+	
+		.rounded ul li {
+			padding: 10px;
+			border-bottom: 1px solid rgb(217,217,217);
+			font-size: 20px;
+		}
+			
+			.rounded ul li:last-child {
+				border: 0;
+			}
+			
+		.rounded ul li p {
+			margin: 5px 0;
+			padding: 0;
+		}
+						
+	.rounded h1 {
+		font-size: 18px;
+		margin: 0 0 0 20px;
+		color: rgb(78,86,108);
+		font-weight: bold;
+	}
+	
+input[ type="text" ] {
+	font-size: 16px;
+	width: 260px;
+	height: 25px;
+	margin-bottom: -15px;
+	margin-top: 5px;
+}
+
+#errorExplanation {
+	margin: -10px -10px 0 -10px;
+}
+
+	#errorExplanation ul {
+		border: 0;
+	}

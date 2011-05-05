@@ -1,0 +1,42 @@
+<% content_for :header do %>
+xxx@xxx.xxx %></h1>
+xxx@xxx.xxx %></h2>
+<% end %>
+
+<%  
+	prev_step = @how_to.steps.find( :first, :conditions => xxx@xxx.xxx - 1])
+	next_step = @how_to.steps.find( :first, :conditions => xxx@xxx.xxx + 1])
+%>
+
+<div class="nav">
+	<ul class="nav">
+		<% if session[:referrer] %>
+			<li><% link_to session[:referrer] do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<% end %>
+	
+		<% if prev_step %>
+			<li>
+				<%= link_to( '<span class="text">Step ' + prev_step.position.to_s + ' - <span class="sub">Go back to the previous step</span></span><span class="icon">&laquo;</span>', xxx@xxx.xxx @how_to, prev_step )  ) %>
+			</li>
+		<% end %>
+		<% if next_step %>
+			<li><%= link_to( '<span class="text">Step ' + next_step.position.to_s + ' - <span class="sub">Move on to the next step</span></span><span class="icon">&raquo;</span>', xxx@xxx.xxx @how_to, next_step ), {:class => 'next'} ) %></li>
+		<% end %>
+	</ul>
+</div>
+
+<div id="tutorial_step">
+	<h3>Step xxx@xxx.xxx %></h3>
+	<h2>How to: xxx@xxx.xxx %></h2>
+xxx@xxx.xxx %></h1>
+	
+	<p>
+		<% xxx@xxx.xxx %>
+			<%= xxx@xxx.xxx ) %>
+		<% end %>
+	</p>
+		
+xxx@xxx.xxx %>
+	
+	<div class="clear"></div>
+</div>

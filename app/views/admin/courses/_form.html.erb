@@ -1,0 +1,48 @@
+<% xxx@xxx.xxx do |f| %>
+	<%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :title %><br />
+			<%= f.text_field :title %>
+		</li>
+
+		<li>
+			<%= f.label :description %><br />
+			<%= f.text_area :description %>
+		</li>
+
+		<li>
+			<%= f.label :discipline %><br />
+			<%= f.text_field :discipline %>
+		</li>
+
+		<li>
+			<%= f.label :number %><br />
+			<%= f.text_field :number %>
+		</li>
+
+		<li>
+			<%= f.label :credits %><br />
+			<%= f.text_field :credits %>
+		</li>
+
+		<li>
+			<%= f.label :prerequisite %><br/>
+			<%= f.text_field :prerequisite %>
+		</li>
+	
+		<li>
+			<%= f.label :next_course %><br/>
+			<%= f.text_field :next_course %>
+		</li>
+	
+		<li>
+			<%= f.label :required_materials %><br/>
+			<%= f.text_area :required_materials %>
+		</li>
+
+		<li class="submit_bar">
+			<%= f.submit submit_name %>
+		</li>
+	</ol>
+<% end %>

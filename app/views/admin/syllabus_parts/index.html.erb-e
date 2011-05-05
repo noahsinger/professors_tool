@@ -1,0 +1,32 @@
+<h3></h3>
+<h1>Syllabus Sections</h1>
+<h2></h2>
+
+<hr/>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Title</th>
+    <th>Description</th>
+
+	<th></th>
+	<th></th>
+  </tr>
+
+<% for syllabus_part xxx@xxx.xxx %>
+  <tr>
+    <td class="nav"><%=link_to syllabus_part.name, [:admin,syllabus_part] %></td>
+    <td><%=h syllabus_part.title %></td>
+    <td><%=h syllabus_part.description %></td>
+    <td class="nav"><%= link_to 'Edit', edit_admin_syllabus_part_path(syllabus_part) %></td>
+    <td class="nav"><%= link_to 'Destroy', [:admin,syllabus_part], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<p class="nav">
+	<% if session[:referrer] %>
+		<%= link_to 'Back', session[:referrer] %>
+	<% end %>
+</p>

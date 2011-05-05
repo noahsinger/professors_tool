@@ -1,0 +1,12 @@
+<% content_for :header do %>
+	<h1>Divisions</h1>
+	<h4>Add a new Division</h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to admin_divisions_path do %> <%= render :partial => "shared/back_link" %> <% end %></li>
+	</ul>
+</div>
+
+<%= render :partial => "form", :locals => {:submit_name => "Create"} %>

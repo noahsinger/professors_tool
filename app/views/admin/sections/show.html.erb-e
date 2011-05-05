@@ -1,0 +1,94 @@
+<% content_for :header do %>
+	<h1><%= @section.course.title %> xxx@xxx.xxx %>)</h1>
+xxx@xxx.xxx %></h2>
+	<h4><%= show_time(@section.start_time) %> - <%= xxx@xxx.xxx %></h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li> 
+		<li><% link_to [:edit, xxx@xxx.xxx @section] do %> <%= render :partial => 'shared/edit_link' %> <% end %></li>
+		<li><%= link_to '<span class="text">Assignments</span>', xxx@xxx.xxx @section ) %> </li>
+		<li><%= link_to '<span class="text">Email Section</span>', xxx@xxx.xxx @section ) %></li>
+	</ul>
+</div>
+
+
+<div class="fancy">
+	<table>
+		<tr>
+			<th>
+				Call number:
+			</th>
+			<th>
+				Section number:
+			</th>
+			<th>
+				in Session:
+			</th>
+		</tr>
+		<tr>			
+			<td>
+xxx@xxx.xxx %>
+			</td>
+			<td>
+xxx@xxx.xxx %>
+			</td>
+			<td>
+xxx@xxx.xxx %>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div class="fancy">
+	<table>
+		<tr>
+			<th xxx@xxx.xxx + 1 %>" class="nav">
+				<%= link_to 'Add Student', xxx@xxx.xxx @section ) %>
+			</th>
+			<th>
+				Name
+			</th>
+			<th>
+				Goes By
+			</th>
+			<th>
+				Email
+			</th>
+			<th></th>
+			<th></th>
+		</tr><% @section.students.each do |student| %><% enrollment = student.enrollments.find( :first, :conditions => ["section_id = xxx@xxx.xxx ) %>
+		<tr>
+			<td>
+				<%= link_to student.first_name + ' ' + student.middle_name + ' ' + student.last_name, xxx@xxx.xxx %>
+			</td>
+			<td>
+				<%=h student.goes_by %>
+			</td>
+			<td>
+				<%=h student.email %>
+			</td>
+			<td class="nav">
+				<%= link_to 'Show', admin_student_path(student) %>
+			</td>
+			<td class="nav">
+				<%= link_to 'De-Enroll', xxx@xxx.xxx @section, enrollment ), :method => :delete, :confirm => 'Are you sure?' %>
+			</td>
+		</tr><% end %>
+	</table>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+	var tcc = null;
+
+	function open_tcc_web( ) {
+		moveTo(0,0);
+		resizeTo((1024),screen.availHeight);
+		tcc = window.open( "https://sis.tulsacc.edu/faculty.htm" );
+		tcc.resizeTo((screen.availWidth - 1024), screen.availHeight);
+		tcc.moveTo(1024, 0);
+		
+		return false;
+	}
+</script>

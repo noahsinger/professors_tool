@@ -1,0 +1,9 @@
+<% courses = Course.all %>
+<div id="all_courses_links">
+	<ul>
+		<li class="header">All Courses</li>
+	<% courses.each do |course| %>
+		<li><%= link_to course.title, course %></li>
+	<% end %>
+	</ul>
+</div>

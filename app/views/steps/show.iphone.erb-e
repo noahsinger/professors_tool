@@ -1,0 +1,34 @@
+<% title "How to" + @how_to.title + ": Step " xxx@xxx.xxx %>
+
+<%  
+	prev_step = @how_to.steps.find( :first, :conditions => xxx@xxx.xxx - 1])
+	next_step = @how_to.steps.find( :first, :conditions => xxx@xxx.xxx + 1])
+%>
+
+<div class="edge2edge">
+	<h1>
+		Step xxx@xxx.xxx %>
+	</h1>
+	<% if prev_step %>
+		<%= link_to "Step " + prev_step.position.to_s, xxx@xxx.xxx @how_to, prev_step ), :id => 'back_button', :class => 'button' %>
+	<% else %>
+		<%= link_to 'Back', session[:referrer], :id => 'back_button', :class => 'button' %>
+	<% end %>
+	
+	<% if next_step %>
+		<%= link_to 'Step ' + next_step.position.to_s, xxx@xxx.xxx @how_to, next_step ), :class => 'button' %>
+	<% end %>
+</div>
+
+<div class="rounded">
+	<ul>
+		<% xxx@xxx.xxx %>
+			<li>
+				<%= xxx@xxx.xxx :width => "100%" ) %>
+			</li>
+		<% end %>
+		<li>
+xxx@xxx.xxx %>
+		</li>
+	</ul>
+</div>

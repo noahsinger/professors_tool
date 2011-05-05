@@ -1,0 +1,27 @@
+<% content_for :header do %>
+xxx@xxx.xxx %></h1>
+	<h2>for xxx@xxx.xxx %></h2>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+	</ul>
+</div>
+
+<% xxx@xxx.xxx :html => {:multipart => true}) do |f| %>
+	<%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :file %><br />
+			<%= f.file_field :file %>
+		</li>
+		<li>
+			<%= f.label :description %><br />
+			<%= f.text_field :description %>
+		</li>
+		<li class="submit_bar">
+			<%= f.submit "Update" %>
+		</li>
+	</ol>
+<% end %>

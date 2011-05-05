@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>section_announcement_template</title>
+	
+</head>
+
+<body>
+
+			<table style="border-collapse: collapse; background-color: #fff; color: #444; font-size: 14px; font-family: arial;">
+				<!-- top_bar -->
+				<tr style="height: 30px;">
+					<td style="background-color: #444; width: 120px; text-align: center;"></td>
+					<td style="background-color: #111; width: 200px;"></td>
+					<td style="background-color: #444;"></td>
+				</tr>
+
+				<!-- sep bar tween top_bar and header -->
+				<tr style="height: 10px;">
+					<td style="background-color: #fff;"></td>
+					<td style="background-color: #444;"></td>
+					<td style="background-color: #fff;"></td>
+				</tr>
+
+				<!-- header bar -->
+				<tr style="height: 150px;">
+					<td style="background-color: #444;"></td>
+					<td style="background-color: #111;"></td>
+					<td style="background-color: #444;">
+						<h1 style="font-size: 3em; line-height: 1em; margin: 0 20px; padding: 0; color: #eee;">
+							Section Annoucenment
+						</h1>
+						<h2 style="font-size: 1em; color: #ddd; margin: 5px 20px 20px 20px; padding: 0; color: #ddd;">
+							Course Title
+xxx@xxx.xxx %>
+						</h2>
+					</td>		
+				</tr>
+
+				<!-- start of content -->
+				<tr>
+					<td style="background-color: #fff;"></td>
+					<td style="background-color: #444;"></td>
+					<td style="background-color: #fff;">
+						<p style="margin: 20px 0 0 20px; line-height: 25px;">To: <strong>All Class Members of Section <%= @section.call_number %> of xxx@xxx.xxx %></strong></p>
+						<p style="margin: 0px 20px; line-height: 25px;">Subject: <strong>Section Announcement</strong></p>
+						<p style="margin: 30px 20px; line-height: 25px;">
+							This is the body text.
+xxx@xxx.xxx %>
+						</p>						
+						
+						<p style="margin: 20px 20px; line-height: 25px;">
+							Noah Singer<br/>
+							Assistant Professor
+							<%= @section.instructor.first_name %> xxx@xxx.xxx %><br/>
+xxx@xxx.xxx %>
+						</p>
+						
+					</td>
+				</tr>
+
+				<tr style="height: 30px;">
+					<td style="background-color: #444;"></td>
+					<td style="background-color: #111;"></td>
+					<td style="background-color: #444;">
+						<div style="padding: 0 0 0 20px">
+							<a style="color: #eee;" href="<%= APP_CONFIG['site_url'] %>">
+								ingenio.us.com
+							</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+</body>
+</html>

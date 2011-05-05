@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  author: MyString
+  publisher: MyString
+  isbn: MyString
+  course: 
+  required: false
+
+two:
+  title: MyString
+  author: MyString
+  publisher: MyString
+  isbn: MyString
+  course: 
+  required: false

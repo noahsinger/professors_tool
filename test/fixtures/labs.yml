@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+hello_world:
+  id: 1
+  course_id: 1
+  title: Hello World
+  objective: To print Hello World
+  instructions: Print hello world
+
+mind_bender:
+  id: 2
+  course_id: 1
+  title: Mind Bender
+  objective: To get your mind bent
+  instructions: Get your mond bent by doing this lab

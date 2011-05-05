@@ -1,0 +1,38 @@
+<% content_for :header do %>
+	<h1>Instructors</h1>
+	<h4>Listing all</h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to '/admin' do %> <%= render :partial => "shared/back_link" %> <% end %></li>
+		<li><% link_to new_admin_instructor_path do %> <%= render :partial => "shared/new_link" %> <% end %></li>
+	</ul>
+</div>
+
+<div class="fancy">
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Title</th>
+	    <th>Email</th>
+	    <th>Division</th>
+
+		<th></th>
+		<th></th>
+		<th></th>
+	  </tr>
+
+	<% for instructor xxx@xxx.xxx %>
+	  <tr>
+	    <td><%=h instructor.last_name %>, <%=h instructor.first_name %></td>
+	    <td><%=h instructor.title %></td>
+	    <td><%=h instructor.email %></td>
+	    <td><%=h instructor.division.name %></td>
+	    <td class="nav"><%= link_to 'Show', [:admin,instructor] %></td>
+	    <td class="nav"><%= link_to 'Edit', edit_admin_instructor_path(instructor) %></td>
+	    <td class="nav"><%= link_to 'Destroy', [:admin,instructor], :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>

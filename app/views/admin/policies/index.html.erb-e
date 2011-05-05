@@ -1,0 +1,65 @@
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function( ) {	
+		$("#policies").reorderTable( "<%= xxx@xxx.xxx ) %>", "<%= form_authenticity_token %>" );
+	});
+</script>
+
+<% content_for :header do %>
+	<h1>Policies</h1>
+	<h2>for xxx@xxx.xxx %></h2>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+	</ul>
+</div>
+
+<h4>Policies for<br/>this Course</h4>
+<div class="fancy">
+	<table>
+		<thead>
+			<tr>
+				<th>Syllabus Section</th>
+				<th></th>
+			</tr>
+		</thead>
+
+		<tbody id="policies">
+			<% for policy xxx@xxx.xxx %>
+				<%= render :partial => policy %>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<h4>Available<br/>Syllabus Sections</h4>
+<ul id="syllabus_parts">
+xxx@xxx.xxx do |syllabus_part| %>
+		<% if xxx@xxx.xxx :first, :conditions => ['syllabus_part_id=?', syllabus_part.id] ) %>
+			<%= render :partial => syllabus_part %>
+		<% end %>
+	<% end %>
+</ul>
+
+<h4>Create<br/>Syllabus Section</h4>
+<% form_for([:admin,SyllabusPart.new]) do |f| %>
+	<%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :name %><br />
+			<%= f.text_field :name %>
+		</li>
+		<li>
+			<%= f.label :title %><br />
+			<%= f.text_field :title %>
+		</li>
+		<li>
+			<%= f.label :description %><br />
+			<%= f.text_area :description %>
+		</li>
+		<li class="submit_bar">
+			<%= f.submit "Add" %>
+		</li>
+	</ol>
+<% end %>

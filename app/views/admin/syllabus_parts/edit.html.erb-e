@@ -1,0 +1,33 @@
+<% content_for :header do %>
+xxx@xxx.xxx %></h1>
+	<h4>Editing</h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to session[:referrer] do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+	</ul>
+</div>
+
+<% xxx@xxx.xxx do |f| %>
+	<%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :name %><br />
+			<%= f.text_field :name %>
+		</li>
+		<li>
+			<%= f.label :title %><br />
+			<%= f.text_field :title %>
+		</li>
+		<li>
+			<%= f.label :description %><br />
+			<%= f.text_area :description %>
+		</li>
+		<li class="submit_bar">
+			<%= f.submit "Update" %>
+		</li>
+	</ol>
+<% end %>
+
+

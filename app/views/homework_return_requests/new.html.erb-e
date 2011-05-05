@@ -1,0 +1,24 @@
+<% content_for :header do %>
+	<h1>Homework Return</h1>
+	<h2>for <%= @assignment.title %> of xxx@xxx.xxx %></h2>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx @section, @assignment ) do %> <%= render :partial => "shared/back_link" %> <% end %></li>
+	</ul>
+</div>
+
+<% xxx@xxx.xxx do |f| %>
+	<%= error_messages_for :homework_return_request, :header_message => 'Geez!  Can\'t you even fill a simple form out right?', :message => 'Bask in the glow of the mistakes you made filling out this form:' %>
+	<ol>
+		<li>
+			<div class="light">Your email address is required so that the lab you submit can be found.</div>
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+		</li>
+		<li class="submit_bar">
+			<%= f.submit "Send Request" %>
+		</li>
+	</ol>
+<% end %>

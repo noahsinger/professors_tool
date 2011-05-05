@@ -1,0 +1,100 @@
+<% content_for :header do %>
+xxx@xxx.xxx %></h1>
+	<h4>Course Information</h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to courses_path do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+	</ul>
+</div>
+
+<p>
+	<em>
+		The information shown on this page is simply that, information.  This information is related only to this course in
+		general, not to a specific class or instance of this course that is being offered.  The labs shown on this page are
+		those that I have created for this course, they are not those that are specifically assigned.  For actual class 
+		information, the information that my current students should be looking at, return to the 
+		<%= link_to 'homepage', '/' %> and choose a currently offered class.
+	</em>
+</p>
+
+<h4>Description:</h4>
+<p>
+xxx@xxx.xxx %>
+</p>
+
+<h4>Objectives:</h4>
+<ol>
+xxx@xxx.xxx do |objective| %>
+		<li><%= objective.description %></li>
+	<% end %>
+</ol>
+
+<% xxx@xxx.xxx > 0 %>
+	<h4>Course Materials:</h4>
+	<ul class="sliding">
+xxx@xxx.xxx do |material| %>
+			<li>
+				<% if material.file_file_name %>
+					<% link_to material.file.url do %>
+						<span class="top_half"><%= material.title + ' <span class="light">Download</span>' %></span>
+						<span class="bottom_half"><%= material.description %></span>
+					<% end %>
+				<% else %>
+					<a>
+						<span class="top_half"><%= material.title %></span>
+						<span class="bottom_half"><%= material.description %></span>
+					</a>
+				<% end %>
+				
+			</li>
+		<% end %>
+	</ul>
+<% end %>
+
+<% xxx@xxx.xxx > 0 %>
+	<h4>Potential Labs:</h4>
+	<ul class="sliding">
+xxx@xxx.xxx do |lab| %>
+			<% if lab.visible %>
+				<li>
+					<% link_to xxx@xxx.xxx lab) do %>
+						<span class="assignment_title"><%= lab.title %></span>
+						<span class="assignment_points">
+							<%= pluralize lab.worth, "point" %>
+						</span>
+					<% end %>
+				</li>				
+			<% end %>
+		<% end %>
+	</ul>
+<% end %>
+
+<% xxx@xxx.xxx > 0 %>
+	<h4>Tutorials:</h4>
+	<ul class="sliding">
+xxx@xxx.xxx do |howto| %>			
+			<li>
+				<% link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
+					<span class="top_half"><%= howto.title %></span>
+					<span class="bottom_half"><%= howto.description %></span>
+				<% end %>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
+
+<% xxx@xxx.xxx > 0 %>
+	<h4>Past occurrences of this course:</h4>
+	<ul class="sliding">
+xxx@xxx.xxx do |section| %>			
+			<li>
+				<% link_to semester_section_path( xxx@xxx.xxx section ) do %>
+					<span class="top_half"><%= section.semester.name %></span>
+					<span class="bottom_half"><%= section.enrollments.size %> enrolled</span>
+				<% end %>
+			</li>
+		<% end %>
+	</ul>
+<% end %>

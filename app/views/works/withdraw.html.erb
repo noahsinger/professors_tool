@@ -1,0 +1,21 @@
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to '/' do %> <%= render :partial => "shared/back_link" %> <% end %></li>
+	</ul>
+</div>
+
+<% xxx@xxx.xxx == "destroyed" %>
+	<p class="green">Your work has been withdrawn.</p>
+<% else %>
+	<% xxx@xxx.xxx == "no works" %>
+		<p class="red">Your work HAS NOT been withdrawn, are you sure you clicked the link in the correct email?</p>
+	<% else %>
+		<% xxx@xxx.xxx == "no code" %>
+			<p class="red">Quit messing around.</p>
+		<% else %>
+			<% xxx@xxx.xxx == "pastdue" %>
+				<p class="red">That assignment is past due so it cannot be withdrawn.</p>
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>

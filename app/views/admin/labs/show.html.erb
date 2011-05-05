@@ -1,0 +1,91 @@
+<% content_for :header do %>
+xxx@xxx.xxx %></h1>
+	<h2>for xxx@xxx.xxx %></h2>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/edit_link' %> <% end %></li>
+	</ul>
+</div>
+
+<h4>Visible:</h4>
+<p>
+xxx@xxx.xxx %>
+</p>
+
+<h4>Allow Uploads:</h4> 
+<p>
+xxx@xxx.xxx %>
+</p>
+
+<h4>Objective:</h4>
+<p>
+  xxx@xxx.xxx %>
+</p>
+
+<h4>Requirements:</h4>
+<div class="fancy">
+	<table id="requirements">
+		<% for requirement xxx@xxx.xxx %>
+			<%= render :partial => requirement %>
+		<% end %>
+		<tr class="last_row">
+			<td class="total">Total:</td>
+xxx@xxx.xxx %></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+</div>
+
+<h4>Add a Requirement</h4>
+<% xxx@xxx.xxx do |f| %>
+	<%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :description %><br />
+			<%= f.text_field :description %>
+		</li>
+		<li>
+			<%= f.label :points %><br />
+			<%= f.text_field :points %>
+		</li>
+		<li class="submit_bar">
+			<%= f.submit "Create" %>
+		</li>
+	</ol>
+<% end %>
+
+
+<!-- <ul class="link_bar"> -->
+	<!-- <li><%= link_to 'New requirement', xxx@xxx.xxx @lab ) %></li> -->
+<!-- </ul> -->
+
+<div class="clear"></div>
+
+<h4>Instructions:</h4>
+<div id="instructions">
+xxx@xxx.xxx %>
+</div>
+
+<h4>Lab Extras</h4>
+
+<div class="fancy">
+	<table>
+	<% for extra xxx@xxx.xxx %>
+	  <tr>
+	    <td class="nav"><%=link_to extra.file_file_name, extra.file.url %></td>
+	    <td><%=h extra.description %></td>
+	    <td class="nav"><%= link_to 'Edit', xxx@xxx.xxx %></td>
+	    <td class="nav"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>
+
+<ul class="link_bar">
+	<li><%= link_to 'New extra', xxx@xxx.xxx %></li>
+</ul>
+

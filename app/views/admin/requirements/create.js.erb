@@ -1,0 +1,15 @@
+//javascript to execute when create action completes
+$.jGrowl("<%= escape_javascript(flash.delete(:notice)) %>", { header: "Notice", life: 10000 });
+
+var last_row = $("#requirements .last_row").remove( );
+$("#requirements").append("<%= escape_javascript(render(:partial xxx@xxx.xxx %>");
+$("#requirements").append( last_row );
+
+$("#new_requirement")[0].reset();
+
+$("#submit_div a").fadeIn( 100 );
+$("#submit_div").css("height", 30);
+$("#submit_div").animate( {width: 300, paddingTop: 10, paddingRight: 20}, 1000 );
+
+$("#waiting_div").animate( {width: 0, paddingLeft: 0}, 1000 );
+$("#waiting_div span").fadeOut( );

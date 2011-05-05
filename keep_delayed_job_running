@@ -1,0 +1,12 @@
+# script to check and make sure that the delayed job worker is running at all times.
+
+ps waux | grep nms > $HOME/.$$processes
+grep delayed_job_worker $HOME/.$$processes > /dev/null
+
+if [ $? != 0 ]
+then
+  $HOME/ingenious/script/delayed_job_worker start production > /dev/null
+fi
+
+rm $HOME/.$$processes
+

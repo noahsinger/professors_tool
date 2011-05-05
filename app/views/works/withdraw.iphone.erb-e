@@ -1,0 +1,27 @@
+<% title "Withdraw Assignment" %>
+
+<div class="edge2edge">
+	<h1>Withdraw</h1>
+	<%= link_to @section.course.short_name, xxx@xxx.xxx @section ), :id => 'back_button', :class => 'button' %>
+</div>
+
+<div class="rounded">
+	<h1>Status</h1>
+	<ul>
+		<% xxx@xxx.xxx == "destroyed" %>
+			<li>Your work has been withdrawn.</li>
+		<% else %>
+			<% xxx@xxx.xxx == "no works" %>
+				<li>Your work HAS NOT been withdrawn, are you sure you clicked the link in the correct email?</li>
+			<% else %>
+				<% xxx@xxx.xxx == "no code" %>
+					<li>Quit messing around.</li>
+				<% else %>
+					<% xxx@xxx.xxx == "pastdue" %>
+						<li>That assignment is past due so it cannot be withdrawn.</li>
+					<% end %>
+				<% end %>
+			<% end %>
+		<% end %>
+	</ul>
+</div>

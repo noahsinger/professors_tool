@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+intro_to_jackassery:
+  id: 1
+  title: Introduction to Jackassery
+  description: This course is an introduction to...
+  discipline: JCK
+  number: 1003
+  credits: 3
+
+advanced_jackassery:
+  id: 2
+  title: Advanced Jackassery
+  description: This course coveres the advanced aspects of...
+  discipline: JCK
+  number: MyString
+  credits: 2003

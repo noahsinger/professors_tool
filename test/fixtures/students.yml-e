@@ -1,0 +1,22 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+stew:
+  id: 1
+  first_name: Stew
+  middle_name: E
+  last_name: Dent
+  email: xxx@xxx.xxx
+
+lia:
+  id: 2
+  first_name: Lia
+  middle_name: E
+  last_name: Earner
+  email: xxx@xxx.xxx
+
+pue:
+  id: 3
+  first_name: Pue
+  middle_name: 
+  last_name: Pill
+  email: xxx@xxx.xxx

@@ -1,0 +1,74 @@
+<% content_for :header do %>
+xxx@xxx.xxx %></h1>
+	<h2>for xxx@xxx.xxx %></h2>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx @section, @assignment ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/edit_link' %> <% end %></li>
+	</ul>
+</div>
+
+<ul>
+	<li>
+		<span class="top_half"><strong>Upload:</strong></span>
+		<span class="bottom_half">
+			<% xxx@xxx.xxx %>
+				<%= xxx@xxx.xxx @work.upload.url %>
+			<% else %>
+				No Upload
+			<% end %>  
+		</span>
+	</li>
+
+	<li>
+		<span class="top_half"><strong>Instructors Comments:</strong></span>
+		<span xxx@xxx.xxx %></p></span>
+	</li>
+</ul>
+
+<div class="fancy">
+	<table>
+		<tr>
+			<th>Requirement</th><th>Worth</th><th>Earned</th>
+		</tr>
+	
+		<%  
+			possible = 0
+			earned = 0
+		%>
+	
+xxx@xxx.xxx do |r| %>
+			<tr>
+				<td><%= r.description %></td>
+				<td><%= r.points %></td>
+			
+				<% 
+					awarded_point xxx@xxx.xxx :first, :conditions => ['requirement_id=?',r] )
+					possible += r.points
+					earned += awarded_point.points if awarded_point
+				%>
+			
+				<td><%= awarded_point.points if awarded_point %></td>
+			</tr>
+		<% end %>
+		<tr class="last_row">
+			<td></td>
+			<td><%= possible %></td>
+			<td><%= earned %></td>
+		</tr>
+	</table>
+</div>
+
+<ul>
+	<li>
+		<span class="top_half"><strong>Score: </strong></span>
+		<span class="bottom_half"><%= number_to_percentage((earned/possible.to_f)*100) %> - <%= score_to_letter ((earned/possible.to_f)*100) %></span>
+	</li>
+
+	<li>
+		<span class="top_half"><strong>Withdrawal code:</strong></span>
+		<span xxx@xxx.xxx %></span>
+	</li>
+</ul>

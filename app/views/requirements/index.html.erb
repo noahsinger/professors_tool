@@ -1,0 +1,22 @@
+<h1>Listing requirements</h1>
+
+<table>
+  <tr>
+    <th>Lab</th>
+    <th>Description</th>
+    <th>Points</th>
+  </tr>
+
+<% for requirement xxx@xxx.xxx %>
+  <tr>
+    <td><%=h requirement.lab.title %></td>
+    <td><%=h requirement.description %></td>
+    <td><%=h requirement.points %></td>
+    <td><%= link_to 'Show', xxx@xxx.xxx %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Back', xxx@xxx.xxx ) %>

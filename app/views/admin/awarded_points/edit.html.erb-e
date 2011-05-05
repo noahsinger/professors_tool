@@ -1,0 +1,16 @@
+<h1>Editing awarded_point</h1>
+
+<% xxx@xxx.xxx do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :points %><br />
+    <%= f.text_field :points %>
+  </p>
+  <p class="submit_bar">
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', xxx@xxx.xxx %> |
+<%= link_to 'Back', admin_semester_section_assignment_work_awarded_points_path %>

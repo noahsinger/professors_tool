@@ -1,0 +1,21 @@
+<h1>Email from Ingenio.us General Contact Form</h1>
+<p>
+	Subject: xxx@xxx.xxx %>
+</p>
+<p>
+	Return Email: xxx@xxx.xxx %>
+</p>
+<p>
+	<%= xxx@xxx.xxx %>
+</p>
+
+<hr/>
+
+<% xxx@xxx.xxx %>
+	<p>
+		<strong>Attachment included:</strong><br/>
+		Content-type: xxx@xxx.xxx %><br/>
+		Size: xxx@xxx.xxx %><br/>
+		Name: xxx@xxx.xxx %><br/>
+	</p>
+<% end %>

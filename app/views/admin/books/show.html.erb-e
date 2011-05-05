@@ -1,0 +1,31 @@
+<% content_for :header do %>
+xxx@xxx.xxx %></h1>
+	<h2>A book for xxx@xxx.xxx %></h2>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/edit_link' %> <% end %></li>
+	</ul>
+</div>
+
+<p>
+  <strong>Author:</strong>
+  xxx@xxx.xxx %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  xxx@xxx.xxx %>
+</p>
+
+<p>
+  <strong>Isbn:</strong>
+  xxx@xxx.xxx %>
+</p>
+
+<p>
+  <strong>Required:</strong>
+  xxx@xxx.xxx %>
+</p>

@@ -1,0 +1,30 @@
+<% xxx@xxx.xxx do |f| %>
+  <%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :year %><br />
+			<%= f.text_field :year %>
+		</li>
+
+		<li>
+			<%= f.label :season %><br />
+			<%= f.text_field :season %>
+		</li>
+
+		<li>
+			<%= f.label :start_date %><br />
+			<%= f.hidden_field :start_date %>
+			<div id="startdatepicker" class="datepicker jqueryui"></div>
+		</li>
+
+		<li>
+			<%= f.label :end_date %><br />
+			<%= f.hidden_field :end_date %>
+			<div id="enddatepicker" class="datepicker jqueryui"></div>
+		</li>
+		
+		<li class="submit_bar">
+			<%= f.submit submit_text %>
+		</li>
+	</ol>
+<% end %>

@@ -1,0 +1,17 @@
+development:
+    owner_email: xxx@xxx.xxx
+    banner_location: http://localhost:3000/images/sml_banner.png
+    site_url: http://localhost:3000
+    host: localhost:3000
+    rake_path: /usr/bin/rake
+    
+test:
+    owner_email: xxx@xxx.xxx
+    rake_path: /usr/local/bin/rake
+
+production:
+    owner_email: xxx@xxx.xxx
+    banner_location: http://www.ingenio.us.com/images/sml_banner.png
+    site_url: http://www.ingenio.us.com
+    host: www.ingenio.us.com
+    rake_path: /usr/bin/rake

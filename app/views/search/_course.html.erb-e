@@ -1,0 +1,1 @@
+<li>Course: <%= link_to course.title, course_path( course ) %></li>

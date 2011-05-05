@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+enrolled:
+  id: 1
+  name: enrolled
+
+withdrawn:
+  id: 2
+  name: withdrawn
+  
+dropped:
+  id: 3
+  name: dropped

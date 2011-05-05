@@ -1,0 +1,30 @@
+<% xxx@xxx.xxx :html => {:multipart => true}) do |f| %>
+	<%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :assignment %><br />
+			<%=  select( "work", "assignment_id", Assignment.find( :all ).collect {|s| [ s.title + ' - ' + s.lab.title, s.id ] }, { :include_blank => true } ) %>
+		</li>
+		<li>
+			<%= f.label :enrollment %><br />
+			<%=  select( "work", "enrollment_id", Enrollment.find( :all, :conditions => ['section_id = xxx@xxx.xxx ).collect {|s| [ s.student.last_name + ', ' + s.student.first_name, s.id ] }, { :include_blank => true } ) %>
+		</li>
+
+		<% xxx@xxx.xxx %>
+			<li>
+				<% xxx@xxx.xxx %>
+					<div class="light">Current upload: <%= xxx@xxx.xxx @work.upload.url %></div>
+				<% else %>
+					<div class="light">No upload included yet</div>
+				<% end %>
+				
+				<%= f.label :upload %>
+				<%= f.file_field :upload %>
+			</li>
+		<% end %>
+
+		<li class="submit_bar">
+			<%= f.submit submit_name %>
+		</li>
+	</ol>
+<% end %>

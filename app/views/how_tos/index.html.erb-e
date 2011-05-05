@@ -1,0 +1,15 @@
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+  </tr>
+
+<% for how_to xxx@xxx.xxx %>
+  <tr>
+    <td><%=h how_to.title %></td>
+    <td><%=h how_to.description %></td>
+    <td><%= link_to 'Show', xxx@xxx.xxx %></td>
+  </tr>
+<% end %>
+</table>

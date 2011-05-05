@@ -1,0 +1,62 @@
+#header {
+	display: none;
+}
+
+.nav {
+	display: none;
+}
+
+#footer {
+	display: none;
+}
+
+#back_bar {
+	display: none;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 11px;
+	width: 760px;
+}
+
+#top_bar {
+	display: none;
+}
+
+#page {
+	margin: 0;
+	padding: 0;
+}
+
+#content {
+	padding: 0px;
+}
+
+#assignment h1, #assignment h2 {
+	display: block;
+}
+
+h3 {
+	font-weight: bold;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+ul li {
+	margin: 0;
+	padding: 0;
+}
+
+ol li {
+	color: #888;
+	margin: 5px;
+}
+
+p {
+	line-height: 16px;
+}

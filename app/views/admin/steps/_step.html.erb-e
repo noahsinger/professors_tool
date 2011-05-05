@@ -1,0 +1,13 @@
+<tr id="<%= step.id %>">
+	<td>
+		<% if step.position %>
+			<%=h step.position %>
+		<% else %>
+			X
+		<% end %>
+	</td>
+	<td><%=h step.title %></td>
+	<td><%= link_to 'Show', xxx@xxx.xxx %></td>
+	<td><%= link_to 'Edit', xxx@xxx.xxx %></td>
+	<td><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>

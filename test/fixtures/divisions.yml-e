@@ -1,0 +1,8 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+bit:
+  id: 1
+  name: Business and Information Technology
+  office_number: MC426
+  phone_number: 595-7000
+  associate_dean: Sally Kovac

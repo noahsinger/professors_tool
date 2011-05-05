@@ -1,0 +1,30 @@
+xxx@xxx.xxx %></h3>
+<h1>New Tutorial</h1>
+<h2></h2>
+
+<hr/>
+
+<ul>
+	<li>
+		<%= link_to 'Create a New How To...', new_admin_how_to_path %><br/>
+		<span class="light"><%= link_to 'manage how to\'s', admin_how_tos_path %></span>
+	</li>
+</ul>
+
+<p>OR</p>
+
+<% xxx@xxx.xxx do |f| %>
+	<%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :how_to, "Select a HowTo to add as a Tutorial for this course" %><br />
+			<%= f.collection_select( :how_to_id, HowTo.find( :all ), :id, :title, :include_blank => true ) %>
+		</li>
+
+		<li class="submit_bar">
+			<%= f.submit "Create" %>
+		</li>
+	</ol>
+<% end %>
+
+<p class="nav"><%= link_to 'Back', xxx@xxx.xxx %></p>

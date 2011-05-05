@@ -1,0 +1,30 @@
+<% content_for :header do %>
+	<h1>Users</h1>
+	<h4>listing all</h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to new_admin_user_path do %> <%= render :partial => "shared/new_link" %> <% end %></li>
+	</ul>
+</div>
+
+<div class="fancy">
+	<table>
+	  <tr>
+	    <th>Username</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	  </tr>
+
+	<% for user xxx@xxx.xxx %>
+	  <tr>
+	    <td><%=h user.username %></td>
+	    <td><%= link_to 'Show', [:admin,user] %></td>
+	    <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+	    <td><%= link_to 'Destroy', [:admin,user], :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>

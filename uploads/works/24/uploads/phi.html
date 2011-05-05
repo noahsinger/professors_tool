@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="en-us" />
+		
+		<title>untitled</title>
+		
+		<meta name="ROBOTS" content="ALL" />
+		<meta http-equiv="imagetoolbar" content="no" />
+		<meta name="MSSmartTagsPreventParsing" content="true" />
+		<meta name="Copyright" content="(c) 2005 Copyright content:  Copyright design: Noah Singer" />
+		<!-- (c) Copyright 2005 by Noah Singer All Rights Reserved. -->
+		
+		<meta name="Keywords" content="__KEYWORDS__" />
+		<meta name="Description" content="__DESCRIPTION__" />
+		
+		<!-- <link href="/css/master.css" rel="stylesheet" type="text/css" media="all" /> -->
+		
+		<!-- import the DOM logic from external javascript files -->
+		<!--<script type="text/javascript" src="/js/basic.js"></script>-->
+ 					
+ 		<!-- KLUDGE:: Win IE 5 -->
+ 		<!-- corrects the unsightly Flash of Unstyled Content. See http://www.bluerobot.com/web/css/fouc.asp for more info -->
+ 		<script type="text/javascript"></script>
+ 		<!-- END KLUDGE:: -->
+
+        <style type="text/css" media="screen">
+        /* <![CDATA[ */
+            body {
+                margin: 0px;
+            }
+            
+            div {
+                position: absolute;
+                border: 1px solid blue;
+                height: 75px;
+            }
+        /* ]]> */
+        </style>
+        
+        <script type="text/javascript" language="javascript" charset="utf-8">
+        // <![CDATA[
+            function buildPage( ) {
+                var phi = 1.61803399;
+                var body = document.getElementsByTagName( "body" )[ 0 ];
+                
+                var left = 0;
+                for( var x = 1 ; left < window.innerWidth ; x++ ) {
+                    var div = document.createElement( "div" );
+                    left = (phi * (x*x*10));
+                    if( left > window.innerWidth ) return;
+                    div.style.left = left + "px";
+                    body.appendChild( div );
+                }
+            }
+        // ]]>
+        </script>
+	</head>
+	
+	<body id="" onload="">
+
+	<script type="text/javascript" language="javascript" charset="utf-8">
+	// <![CDATA[
+	   buildPage( );
+	// ]]>
+	</script>
+	
+	</body>
+</html>

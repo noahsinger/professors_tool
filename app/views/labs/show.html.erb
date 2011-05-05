@@ -1,0 +1,46 @@
+<% content_for :header do %>
+xxx@xxx.xxx %></h1>
+xxx@xxx.xxx %></h3>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><a href="javascript:pre_print( );"><span class="text">Print</span><span class="icon">&thorn;</span></a></li>
+	</ul>
+</div>
+
+<div id="assignment">
+xxx@xxx.xxx %></h2>
+xxx@xxx.xxx %></h1>
+
+	<p>
+	  <b>Objective:</b>
+	  xxx@xxx.xxx %>
+	</p>
+
+	<table>
+		<tr><th>Requirement</th><th>Worth</th></tr>
+xxx@xxx.xxx do |r| %>
+			<tr>
+				<td><%= r.description %></td><td><%= r.points %></td>
+			</tr>
+		<% end %>
+		<tr class="last_row"><td xxx@xxx.xxx %> points</td></tr>
+	</table>
+
+	<p><strong>Instructions:</strong></p>
+xxx@xxx.xxx %>
+	
+
+	<p>
+		<strong>Extras:</strong><br/>
+		<% xxx@xxx.xxx > 0 %>
+xxx@xxx.xxx do |extra| %>
+				<%= link_to extra.file_file_name, extra.file.url %><br/>
+			<% end %>
+		<% else %>
+			None
+		<% end %>
+	</p>
+</div>

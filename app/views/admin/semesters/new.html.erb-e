@@ -1,0 +1,24 @@
+<% content_for :head do %>
+	<%= stylesheet_link_tag 'jquery-ui-1.7.1.custom', :media => :all %>
+	<%= javascript_include_tag "jquery-ui-1.7.1.custom.min" %>
+	
+	<script type="text/javascript">
+		$(function() {
+			$("#startdatepicker").datepicker( { numberOfMonths: 2, inline: true, altField: '#semester_start_date' } );
+			$("#enddatepicker").datepicker( { numberOfMonths: 2, inline: true, altField: '#semester_end_date', defaultDate: "+3m" } );
+		});
+	</script>
+<% end %>
+
+<% content_for :header do %>
+	<h1>Create a new Semester</h1>
+	<h4>Create</h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to admin_semesters_path do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+	</ul>
+</div>
+
+<%= render :partial => 'form', :locals => {:submit_text => 'Create'} %>

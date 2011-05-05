@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>grade_request_template</title>
+	
+</head>
+
+<body style="margin: 0; padding: 0;">
+
+	<table style="border-collapse: collapse; background-color: #fff; color: #444; font-size: 1em; font-family: arial;">
+		<!-- top_bar -->
+		<tr style="height: 30px;">
+			<td style="background-color: #444; width: 120px; text-align: center;">
+				<a href="<%= APP_CONFIG['site_url'] %>" style="color: #ccc;">ingenio.us.com</a>
+			</td>
+			<td style="background-color: #111; width: 200px;"></td>
+			<td style="background-color: #444;"></td>
+		</tr>
+
+		<!-- sep bar tween top_bar and header -->
+		<tr style="height: 10px;">
+			<td style="background-color: #fff;"></td>
+			<td style="background-color: #444;"></td>
+			<td style="background-color: #fff;"></td>
+		</tr>
+
+		<!-- header bar -->
+		<tr style="height: 150px;">
+			<td style="background-color: #444;"></td>
+			<td style="background-color: #111;"></td>
+			<td style="background-color: #444;">
+				<h3 style="font-size: 1.2em; margin: 20px 20px 0 20px; padding: 0; color: #ccc;">
+					Introduction to xxx@xxx.xxx %>
+				</h3>
+				<h1 style="font-size: 3em; line-height: 1em; margin: 0 20px; padding: 0; color: #eee;">
+					Your Grades
+				</h1>
+				<h2 style="font-size: 1em; color: #ddd; margin: 4px 20px 20px 25px; padding: 0;">
+					Spring 2009<%= @enrollment.section.semester.season %> xxx@xxx.xxx %>
+				</h2>
+			</td>		
+		</tr>
+
+		<!-- start of content -->
+		<tr>
+			<td style="background-color: #fff;"></td>
+			<td style="background-color: #444;"></td>
+			<td style="background-color: #fff;">
+				<p style="margin: 10px 20px 10px 20px; line-height: 25px;">
+					Below you will find detailed information on your current grade in
+xxx@xxx.xxx %>.  If you have any questions about these grades
+					please <%= link_to 'contact your instructor', new_general_contact_url(:host => APP_CONFIG['host']) %>
+					immediately.
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #444;"></td>
+			<td style="background-color: #111;"></td>
+			<td style="background-color: #444; padding: 20px 0;">
+				<span style="font-size: 1.5em; padding: 0 0 0 20px; color: #eee;">Grade Summary</span>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #fff;"></td>
+			<td style="background-color: #444;"></td>
+			<td style="background-color: #fff;">
+				<!-- current grade display -->
+				<table style="margin: 20px 0 20px 20px;">
+					<tr>
+						<td colspan="2" style="color: #444;"><h3 style="font-size: 1.5em; margin: 0 20px 10px 0; padding: 0;">Your current grade is:</h3></td>
+						<td rowspan="4" style="vert-align: top; color: #444;"><span style="font-size: 8em; color: xxx@xxx.xxx %></span></td>
+					</tr>
+					<tr>
+xxx@xxx.xxx %></td>
+						<td>points assigned</td>
+					</tr>
+					<tr>
+						<td style="border-bottom: 1px solid xxx@xxx.xxx %></td>
+						<td style="border-bottom: 1px solid #444;">points earned</td>
+					</tr>
+					<tr>
+						<td><%= xxx@xxx.xxx %></td>
+						<td>average</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #444;"></td>
+			<td style="background-color: #111;"></td>
+			<td style="background-color: #444; padding: 20px 0;">
+				<span style="font-size: 1.5em; padding: 0 0 0 20px; color: #eee;">Assignment Details</span>
+			</td>
+		</tr>
+		<tr style="height: 15px;">
+			<td style="background-color: #fff;"></td>
+			<td style="background-color: #444;"></td>
+			<td style="background-color: #fff;"></td>
+		</tr>
+xxx@xxx.xxx do |assignment| %>	
+					<% work = xxx@xxx.xxx ) %>
+					<% if work and work.graded? %>
+						<tr>
+							<td style="background-color: #444;"></td>
+							<td style="background-color: #111;"></td>
+							<td style="background-color: #444; color: #eee;">					
+								<table style="margin: 20px 0 0 20px; width: 500px; padding: 0 0 30px 0; color: #eee;">
+									<tr>
+										<td colspan="2" style="font-weight: bold; font-size: 1.3em;"><%= assignment.title %> <%= assignment.lab.title %></td>
+										<td style="border: 1px solid #999; text-align: center; font-size: 1.5em;"><%= number_to_percentage ((work.score / work.assignment.worth.to_f)*100) %></td>
+									</tr>
+									<tr>
+										<td colspan="3" style="font-weight: bold; color: orange;">Instructors Comments:</td>
+									</tr>
+									<tr>
+										<td colspan="3"><p style="margin: 0 0 20px 0; color: orange;"><%= work.instructors_comments %></p></td>
+									</tr>
+									<tr>
+										<th style="text-align: left;">Requirements:</th>
+										<th style="text-align: left;">Worth</th>
+										<th style="text-align: left;">Earned</th>
+									</tr>
+									<% work.awarded_points.each do |p| %>
+										<tr>
+											<td style="width: 300px; border-bottom: 1px solid #eee;"><%= p.requirement.description %></td>
+											<td style="width: 100px; border-bottom: 1px solid #eee;"><%= p.requirement.points %></td>
+											<td style="width: 100px; border-bottom: 1px solid #eee;"><%= p.points %></td>
+										</tr>
+									<% end %>
+									<tr>
+										<td style="text-align: right;">Total:</td>
+										<td style="border-top: 1px solid #999;"><%= work.assignment.worth %></td>
+										<td style="border-top: 1px solid #999;"><%= work.score %></td>
+									</tr>
+								</table>		
+							</td>
+						</tr>
+					<% else %>
+						<% if assignment.overdue? %>
+							<tr>
+								<td style="background-color: #444;"></td>
+								<td style="background-color: #111;"></td>
+								<td style="background-color: #444; color: #eee;">
+									<table style="margin: 20px 0 0 20px; width: 500px; padding: 0 0 30px 0; color: #eee;">
+										<tr>
+											<td colspan="2" style="font-weight: bold; font-size: 1.3em;"><%= assignment.title %> <%= assignment.lab.title %></td>
+											<td style="border: 1px solid #999; text-align: center; font-size: 1.5em;">0</td>
+										</tr>
+										<tr>
+											<td colspan="3" style="font-weight: bold; color: orange;">Instructors Comments:</td>
+										</tr>
+										<tr>
+											<td colspan="3"><p style="margin: 0 0 20px 0; color: orange;">No work received</p></td>
+										</tr>
+										<tr>
+											<th style="text-align: left;">Requirements:</th>
+											<th style="text-align: left;">Worth</th>
+											<th style="text-align: left;">Earned</th>
+										</tr>
+										<% assignment.lab.requirements.each do |r| %>
+											<tr>
+												<td style="width: 300px; border-bottom: 1px solid #eee;"><%= r.description %></td>
+												<td style="width: 100px; border-bottom: 1px solid #eee;"><%= r.points %></td>
+												<td style="width: 100px; border-bottom: 1px solid #eee;">0</td>
+											</tr>
+										<% end %>
+										<tr>
+											<td style="text-align: right;">Total:</td>
+											<td style="border-top: 1px solid #eee;"><%= assignment.worth %></td>
+											<td style="border-top: 1px solid #eee;">0</td>
+										</tr>
+									</table>
+								</td>					
+							</tr>
+						<% end %>
+					<% end %>
+				</td>
+			</tr>
+			<tr style="height: 10px;">
+				<td style="background-color: #fff;"></td>
+				<td style="background-color: #444;"></td>
+				<td style="background-color: #fff;"></td>			
+			</tr>
+		<% end %>
+		<tr style="height: 30px;">
+			<td style="background-color: #444;"></td>
+			<td style="background-color: #111;"></td>
+			<td style="background-color: #444;">
+				<div style="padding: 0 0 0 20px">
+					<a style="color: #eee;" href="<%= APP_CONFIG['site_url'] %>">
+						Ingenio.us.com
+					</a>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>

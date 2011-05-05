@@ -1,0 +1,50 @@
+<% content_for :head do %>
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function( ) {	
+			$("#steps").reorderTable( "<%= xxx@xxx.xxx ) %>", "<%= form_authenticity_token %>" );
+		});
+	</script>
+<% end %>
+
+<% content_for :header do %>
+	<h1>How to: xxx@xxx.xxx %></h1>
+	<h4><%= xxx@xxx.xxx "step" %></h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to admin_how_tos_path do %> <%= render :partial => "shared/back_link" %> <% end %></li>
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => "shared/edit_link" %> <% end %></li>
+	</ul>
+</div>
+
+<h4>Description:</h4>
+<p>
+  xxx@xxx.xxx %>
+</p>
+
+<h4>Steps</h4>
+<div class="fancy">
+	<table>
+		<tbody id="steps">
+			<% for step xxx@xxx.xxx %>
+				<%= render :partial => step %>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<ul class="link_bar">
+	<li><%= link_to 'New step', xxx@xxx.xxx %></li>
+</ul>
+
+<h4>Is used by <%= xxx@xxx.xxx "Course" %>:</h4>
+<ul>
+xxx@xxx.xxx do |course| %>
+		<li>
+			<div class="top_half"><%= link_to course.title, admin_course_path(course) %></div>
+			<div class="bottom_half"></div>
+		</li>
+	<% end %>
+</ul>
+

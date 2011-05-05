@@ -1,0 +1,53 @@
+<% xxx@xxx.xxx :html => {:multipart => :true}) do |f| %>
+	<%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :first_name %><br />
+			<%= f.text_field :first_name %>
+		</li>
+	
+		<li>
+			<%= f.label :last_name %><br />
+			<%= f.text_field :last_name %>
+		</li>
+	
+		<li>
+			<%= f.label :title %><br />
+			<%= f.text_field :title %>
+		</li>
+	
+		<li>
+			<%= f.label :phone_number %><br />
+			<%= f.text_field :phone_number %>
+		</li>
+	
+		<li>
+			<%= f.label :office_number %><br />
+			<%= f.text_field :office_number %>
+		</li>
+	
+		<li>
+			<%= f.label :office_hours %><br/>
+			<%= f.file_field :office_hours %>
+		</li>
+
+		<li>
+			<%= f.label :email %><br />
+			<%= f.text_field :email %>
+		</li>
+	
+		<li>
+			<%= f.label :website %><br />
+			<%= f.text_field :website %>
+		</li>
+	
+		<li>
+			<%= f.label :division %><br />
+			<%=  select( "instructor", "division_id", Division.find( :all ).collect {|s| [ s.name, s.id ] }, { :include_blank => true } ) %>
+		</li>
+	
+		<li class="submit_bar">
+			<%= f.submit submit_name %>
+		</li>
+	</ol>
+<% end %>

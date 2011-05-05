@@ -1,0 +1,38 @@
+<% content_for :header do %>
+	<h1>Divisions</h1>
+	<h4>Listing all Divisions</h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to '/admin' do %> <%= render :partial => "shared/back_link" %> <% end %></li>
+		<li><% link_to new_admin_division_path do %> <%= render :partial => "shared/new_link" %> <% end %></li>
+	</ul>
+</div>
+
+<div class="fancy">
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Office number</th>
+	    <th>Phone number</th>
+	    <th>Associate dean</th>
+
+		<th></th>
+		<th></th>
+		<th></th>
+	  </tr>
+
+	<% for division xxx@xxx.xxx %>
+	  <tr>
+	    <td><%=h division.name %></td>
+	    <td><%=h division.office_number %></td>
+	    <td><%=h division.phone_number %></td>
+	    <td><%=h division.associate_dean %></td>
+	    <td class="nav"><%= link_to 'Show', [:admin,division] %></td>
+	    <td class="nav"><%= link_to 'Edit', edit_admin_division_path(division) %></td>
+	    <td class="nav"><%= link_to 'Destroy', [:admin,division], :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>

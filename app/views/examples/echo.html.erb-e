@@ -1,0 +1,2 @@
+<h2>All Values Received</h2>
+<p><%= debug params %></p>

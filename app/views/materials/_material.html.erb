@@ -1,0 +1,8 @@
+<% if material.file_file_name %>
+	<li class="material">
+		<h5><%= link_to material.title, material.file.url, {:title => material.description} %></h5>
+		<span class="bottom_half"><%= material.description %></span>
+	</li>
+<% else %>
+	<a title="<%= material.description %>"><%= material.title %></a>
+<% end %>

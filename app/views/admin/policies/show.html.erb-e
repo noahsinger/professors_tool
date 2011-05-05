@@ -1,0 +1,13 @@
+<p>
+  <b>Syllabus part:</b>
+  xxx@xxx.xxx %>
+</p>
+
+<p>
+  <b>Position on Syllabus:</b>
+  xxx@xxx.xxx %>
+</p>
+
+
+<%= link_to 'Edit', xxx@xxx.xxx %> |
+<%= link_to 'Back', xxx@xxx.xxx %>

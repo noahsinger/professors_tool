@@ -1,0 +1,18 @@
+<h3>Syllabus Part</h3>
+xxx@xxx.xxx %></h1>
+<h2></h2>
+
+<hr/>
+
+<p>
+  <strong>Title:</strong>
+  xxx@xxx.xxx %>
+</p>
+
+<p><strong>Description:</strong></p>
+xxx@xxx.xxx %>
+
+<p class="nav">
+	<%= link_to 'Back', admin_syllabus_parts_path %>
+	<%= link_to 'Edit', xxx@xxx.xxx %>
+</p>

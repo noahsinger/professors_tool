@@ -1,0 +1,60 @@
+jck1003_section_1:
+  id: 1
+  semester_id: 1
+  course_id: 1
+  call_number: 11111
+  section_number: 111
+  meeting_days: MW
+  start_time: 8:30am
+  end_time: 9:50am
+  start_date: <%= 5.months.ago %>
+  end_date: <%= 2.months.ago %>
+
+jck1003_section_2:
+  id: 2
+  semester_id: 1
+  course_id: 1
+  call_number: 22222
+  section_number: 222
+  meeting_days: TR
+  start_time: 11:30am
+  end_time: 12:50pm
+  start_date: <%= 5.months.ago %>
+  end_date: <%= 2.months.ago %>
+
+jck1003_section_3:
+  id: 3
+  semester_id: 2
+  course_id: 1
+  call_number: 33333
+  section_number: 333
+  meeting_days: MW
+  start_time: 8:30am
+  end_time: 9:50am
+  start_date: <%= 1.month.ago %>
+  end_date: <%= 2.months.from_now %>
+
+jck1003_section_4:
+  id: 4
+  semester_id: 2
+  course_id: 1
+  call_number: 44444
+  section_number: 444
+  meeting_days: TR
+  start_time: 11:30am
+  end_time: 12:50pm
+  start_date: <%= 1.month.ago %>
+  end_date: <%= 2.months.from_now %>
+
+jck2003_section_1:
+  id: 5
+  semester_id: 3
+  course_id: 2
+  call_number: 55555
+  section_number: 555
+  meeting_days: MW
+  start_time: 11:30am
+  end_time: 12:50pm
+  start_date: <%= 3.months.from_now %>
+  end_date: <%= 6.months.from_now %>
+  

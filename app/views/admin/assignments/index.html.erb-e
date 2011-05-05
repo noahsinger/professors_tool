@@ -1,0 +1,50 @@
+<% content_for :header do %>
+	<h1>Assignments for xxx@xxx.xxx %></h1>
+xxx@xxx.xxx %></h2>
+	<h4>Call Number: xxx@xxx.xxx %></h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx @section ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><% link_to xxx@xxx.xxx @section ) do %> <%= render :partial => 'shared/new_link' %> <% end %></li>
+	</ul>
+</div>
+
+<div class="fancy">
+	<table>
+	  <tr>
+	    <th>Title</th>
+	    <th>Duedate</th>
+		<th>Worth</th>
+		<th>Average</th>
+
+		<th></th>
+		<th></th>
+		<th></th>
+	  </tr>
+
+	<% for assignment xxx@xxx.xxx %>
+		<% if assignment.graded? %>
+			<% klass = 'class=""' %>
+		<% else %>
+			<% klass = 'class="red"' %>
+		<% end %>
+		<tr <%= klass %>>
+			<td class="nav">
+				<%= link_to assignment.title, xxx@xxx.xxx %>
+				<br/><span style="font-size: .7em;"><%=h assignment.lab.title %></span>
+			</td>
+			<td>
+				<%= show_short_date assignment.duedate %>
+				<br/><span style="font-size: .7em;"><%= distance_of_time_in_words_to_now( assignment.duedate ) if assignment.duedate > Time.now %></span>
+			</td>
+			<td><%= assignment.worth %></td>
+			<td><%= assignment.average %></td>
+			<td class="nav"><%= link_to 'Grade', xxx@xxx.xxx %></td>
+			<td class="nav"><%= link_to 'Edit', xxx@xxx.xxx %></td>
+			<td class="nav"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
+		</tr>
+	<% end %>
+	</table>
+</div>

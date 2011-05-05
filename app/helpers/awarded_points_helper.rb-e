@@ -1,0 +1,2 @@
+module AwardedPointsHelper
+end

@@ -1,0 +1,16 @@
+<% xxx@xxx.xxx %>
+
+<div class="edge2edge">
+	<h1>Grades</h1>
+	<%= link_to @section.course.short_name, xxx@xxx.xxx @section ), :id => 'back_button', :class => 'button' %>
+</div>
+<div class="rounded">
+	<ul>
+		<li>
+			<% xxx@xxx.xxx @section, @section.grade_requests.build]) do |f| %>
+				<%= error_messages_for :grade_request, :header_tag => 'li', :header_message => '<strong>Your Grade Request Failed</strong>', :message => '' %>
+				<%= f.text_field :email, :value => 'Your Email Address', :onfocus => 'this.value = ""', :autocapitalize => 'off', :autocorrect => 'off'%>
+			<% end %>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+stews_enrollment:
+  student: 1
+  section: 1
+  enrollment_status: 1
+
+pues_enrollment:
+  student: 3
+  section: 1
+  enrollment_status: 1

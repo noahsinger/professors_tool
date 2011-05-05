@@ -1,0 +1,30 @@
+<% content_for :header do %>
+	<h1>Objectives</h1>
+	<h2>for xxx@xxx.xxx %></h2>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+	</ul>
+</div>
+
+<ul id="objectives">	
+xxx@xxx.xxx do |objective| %>
+		<%= render :partial => objective %>
+	<% end %>
+</ul>
+
+<h4>Add New Objective</h4>
+<% xxx@xxx.xxx do |f| %>
+  <%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :description %><br />
+			<%= f.text_area :description %>
+		</li>
+		<li class="submit_bar">
+			<%= f.submit "Add" %>
+		</li>
+	</ol>
+<% end %>

@@ -1,0 +1,26 @@
+<% content_for :header do %>
+	<h1>New Enrollment</h1>
+	<h2>for xxx@xxx.xxx %></h2>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx @section ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+	</ul>
+</div>
+
+<% xxx@xxx.xxx do |f| %>
+	<%= f.error_messages %>
+	<ol>
+		<li>
+			<label for="email">Email Address: </label>
+			<%= text_field_tag 'email', '', {:size => 50} %>
+		</li>
+
+		<li class="submit_bar">
+			<%= f.submit "Enroll" %>
+		</li>
+	</ol>
+<% end %>
+
+

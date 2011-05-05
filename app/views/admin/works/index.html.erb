@@ -1,0 +1,95 @@
+<% content_for :header do %>
+	<h1>Student Submitted Work</h1>
+	<h2>for <%= @assignment.title %> - xxx@xxx.xxx %></h2>
+	<h4>in xxx@xxx.xxx %></h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/new_link' %> <% end %></li>
+		<li><% link_to xxx@xxx.xxx do %><span class="text">New for All<span class="sub">Add this work for all students</span></span><span class="icon">&#241;</span><% end %></li>
+	</ul>
+</div>
+
+<ul>
+	<li>
+		<span class="top_half">
+			<strong>Due: </strong>
+		</span>
+		<span class="bottom_half"><%= xxx@xxx.xxx %></span>
+	</li>
+	<li>
+		<span class="top_half"><strong>Worth: </strong></span>
+		<span class="bottom_half"><%= xxx@xxx.xxx "point" %></span>
+	</li>
+</ul>
+
+<h4>Submitted Work</h4>
+
+<% xxx@xxx.xxx > 0 %>
+	<div class="fancy">
+		<table>
+		  <tr>
+		    <th>Student</th>
+			<th>Submitted</th>
+			<th>Score</th>
+	
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		  </tr>
+
+		<% for work xxx@xxx.xxx %>
+		  <tr>
+			<td>
+				<% if work.enrollment %>
+			    	<%=h work.enrollment.student.last_name %>, <%=h work.enrollment.student.first_name %>
+				<% else %>
+					None (<%= link_to 'Edit', xxx@xxx.xxx %>)
+				<% end %>
+				<br/><span style="font-size: .7em; font-weight: normal;"><%=mail_to work.email, work.email, :subject => "#{@section.course.title} xxx@xxx.xxx %></span>
+			</td>
+	
+			<td>
+				<% diff = (work.assignment.duedate.to_date - work.created_at.to_date).to_i %>
+				<%= "#{pluralize diff.abs, 'day'} #{((diff < 0) ? 'late' : 'early')}" %><br/>
+				<span style="font-size: .6em;">(<%= work.created_at %>)</span>
+			</td>
+	
+			<% if work.awarded_points.size > 0 %>
+				<td><span class="green"><%= work.score %> (<%= number_to_percentage work.percentage, {:precision => 2} %>)</span></td>
+			<% else %>
+				<td><span class="red">-</span></td>
+			<% end %>	
+
+			<td class="nav"><%= link_to 'Grade', xxx@xxx.xxx %></td>
+		    <td class="nav"><%= link_to 'Show', xxx@xxx.xxx %></td>
+		    <td class="nav"><%= link_to 'Edit', xxx@xxx.xxx %></td>
+		    <td class="nav"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
+			<td class="nav"><%= link_to 'UnGrade', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
+		  </tr>
+		<% end %>
+		</table>
+	</div>
+<% else %>
+	<p>None</p>
+<% end %>
+
+<br/>
+
+<h4>Students<br/>Without Works</h4>
+<% xxx@xxx.xxx > 0 %>
+	<ul>
+xxx@xxx.xxx do |enrollment| %>
+			<li>
+				<span class="top_half"><%= mail_to enrollment.student.email, enrollment.student.last_name_first, :subject => "#{@section.course.title} xxx@xxx.xxx %></span>
+				<span class="bottom_half"></span>
+			</li>
+		<% end %>
+	</ul>
+<% else %>
+	<p>None</p>
+<% end %>

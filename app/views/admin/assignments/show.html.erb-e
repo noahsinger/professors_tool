@@ -1,0 +1,58 @@
+<% content_for :header do %>
+	<h1><%= @assignment.title %> - xxx@xxx.xxx %></h1>
+	<h2>Due <%= xxx@xxx.xxx %></h2>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx @section ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/edit_link' %> <% end %></li>
+	</ul>
+</div>
+
+<p>	
+	<% xxx@xxx.xxx %>
+		<span class="light">This lab is <span class="red">PASTDUE!</span></span>
+	<% else %>
+		Due in <%= xxx@xxx.xxx %>
+		<span class="light">(<%=h xxx@xxx.xxx ) %>)</span>
+	<% end %>
+</p>
+<p>
+	<% xxx@xxx.xxx %>
+		<span class="green">This assignment has been graded.</span>
+	<% end %>
+</p>
+
+<p>
+	<strong>Objective:</strong>
+xxx@xxx.xxx %>
+</p>
+
+<table>
+	<tr><th>Requirement</th><th>Worth</th></tr>
+xxx@xxx.xxx do |r| %>
+		<tr>
+			<td><%= r.description %></td><td><%= r.points %></td>
+		</tr>
+	<% end %>
+	<tr class="last_row"><td xxx@xxx.xxx %> points</td></tr>
+</table>
+
+<p>
+	<strong>Instructions:</strong>
+</p>
+
+<div id="instructions">
+xxx@xxx.xxx %>
+</div>
+
+<p>
+	<strong>Extras:</strong><br/>
+xxx@xxx.xxx do |extra| %>
+		<p>
+			<%= link_to extra.file_file_name, extra.file.url %><br/>
+			<span class="light"><%= extra.description %></span><br/>
+		</p>
+	<% end %>
+</p>

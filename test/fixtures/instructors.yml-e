@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+me:
+  first_name: Noah
+  last_name: Singer
+  title: Assistant Professor
+  phone_number: 595-7060
+  office_number: MCG34
+  email: xxx@xxx.xxx
+  website: ingenio.us.com
+  division_id: 1
+  
+other:  
+  first_name: Victrola
+  last_name: Firecracker
+  title: Instrcutor
+  phone_number: 595-5555
+  office_number: MCGXX
+  email: xxx@xxx.xxx
+  website: bb.tulsacc.edu
+  division_id: 1

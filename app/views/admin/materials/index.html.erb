@@ -1,0 +1,29 @@
+
+
+<div class="nav">
+	<ul class="nav">	
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/new_link' %> <% end %></li>
+	</ul>
+</div>
+
+<div class="fancy">
+	<table>
+	  <tr>
+	    <th>Title</th>
+	    <th>Description</th>
+	    <th>File</th>
+	  </tr>
+
+	<% for material xxx@xxx.xxx %>
+	  <tr>
+	    <td><%=h material.title %></td>
+	    <td><%=h material.description %></td>
+	    <td><%=h material.file %></td>
+	    <td><%= link_to 'Show', xxx@xxx.xxx %></td>
+	    <td><%= link_to 'Edit', xxx@xxx.xxx %></td>
+	    <td><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>

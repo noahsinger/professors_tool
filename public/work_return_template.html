@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>work_return_template</title>
+	
+</head>
+
+<body>
+
+		<% xxx@xxx.xxx %>
+			<% assignment xxx@xxx.xxx %>
+			<% section = assignment.section %>
+			<% semester = section.semester %>
+
+			<table style="border-collapse: collapse; background-color: #fff; color: #444; font-size: 14px; font-family: arial;">
+				<!-- top_bar -->
+				<tr style="height: 30px;">
+					<td style="background-color: #444; width: 120px; text-align: center;"></td>
+					<td style="background-color: #111; width: 200px;"></td>
+					<td style="background-color: #444;"></td>
+				</tr>
+
+				<!-- sep bar tween top_bar and header -->
+				<tr style="height: 10px;">
+					<td style="background-color: #fff;"></td>
+					<td style="background-color: #444;"></td>
+					<td style="background-color: #fff;"></td>
+				</tr>
+
+				<!-- header bar -->
+				<tr style="height: 150px;">
+					<td style="background-color: #444;"></td>
+					<td style="background-color: #111;"></td>
+					<td style="background-color: #444;">
+						<h3 style="font-size: 2em; margin: 20px 20px 0 20px; padding: 0; color: #ccc;">
+							<%= assignment.title %>
+						</h3>
+						<h1 style="font-size: 3em; line-height: 1em; margin: 0 20px; padding: 0; color: #eee;">
+							Submitted Homework 
+						</h1>
+						<h2 style="font-size: 1em; color: #ddd; margin: 5px 20px 20px 20px; padding: 0; color: #ddd;">
+							<%= section.course.title %>
+						</h2>
+					</td>		
+				</tr>
+
+				<!-- start of content -->
+				<tr>
+					<td style="background-color: #fff;"></td>
+					<td style="background-color: #444;"></td>
+					<td style="background-color: #fff;">
+						<p style="margin: 20px 20px; line-height: 25px;">
+							<strong>Here it is.</strong>  You requested a copy of the assignment that was submitted for 
+							<%= assignment.title %> from your email address.  The requested assignment is attached to this email.
+						</p>
+					</td>
+				</tr>
+
+				<tr>
+					<td style="background-color: #444;"></td>
+					<td style="background-color: #111;"></td>
+					<td style="background-color: #444;">
+						<h3 style="font-size: 1em; margin: 20px 20px 0 20px; padding: 0; color: #ccc;">Submitted Work Details:</h3>
+						<p style="margin: 0 20px 20px 20px; line-height: 20px; color: #eee; font-size: .8em;">
+							Name: xxx@xxx.xxx %><br/>
+							Size: <%= xxx@xxx.xxx %><br/>
+							Content-type: xxx@xxx.xxx %><br/>
+							<em style="color: orange;">Assignment file is attached</em>
+						</p>
+					</td>
+				</tr>
+
+				<tr style="height: 10px;">
+					<td style="background-color: #fff;"></td>
+					<td style="background-color: #444;"></td>
+					<td style="background-color: #fff;"></td>			
+				</tr>
+
+				<tr style="height: 30px;">
+					<td style="background-color: #444;"></td>
+					<td style="background-color: #111;"></td>
+					<td style="background-color: #444;">
+						<div style="padding: 0 0 0 20px">
+							<a style="color: #eee;" href="<%= APP_CONFIG['site_url'] %>">
+								Ingenio.us.com
+							</a>
+						</div>
+					</td>
+				</tr>
+			</table>	
+		<% else %>
+			<table style="border-collapse: collapse; background-color: #fff; color: #444; font-size: 14px; font-family: arial;">
+				<!-- top_bar -->
+				<tr style="height: 30px;">
+					<td style="background-color: #444; width: 120px; text-align: center;"></td>
+					<td style="background-color: #111; width: 200px;"></td>
+					<td style="background-color: #444;"></td>
+				</tr>
+
+				<!-- sep bar tween top_bar and header -->
+				<tr style="height: 10px;">
+					<td style="background-color: #fff;"></td>
+					<td style="background-color: #444;"></td>
+					<td style="background-color: #fff;"></td>
+				</tr>
+
+				<!-- header bar -->
+				<tr style="height: 150px;">
+					<td style="background-color: #444;"></td>
+					<td style="background-color: #111;"></td>
+					<td style="background-color: #444;">
+						<h1 style="font-size: 3em; line-height: 1em; margin: 0 20px; padding: 0; color: #eee;">
+							Homework Return 
+						</h1>
+					</td>		
+				</tr>
+
+				<!-- start of content -->
+				<tr>
+					<td style="background-color: #fff;"></td>
+					<td style="background-color: #444;"></td>
+					<td style="background-color: #fff;">
+						<p style="margin: 20px 20px; line-height: 25px;">
+							A request was made to have an assignment returned to this address.  Unfortunately, not work for this address could be found. 
+						</p>
+					</td>
+				</tr>
+
+				<tr style="height: 10px;">
+					<td style="background-color: #fff;"></td>
+					<td style="background-color: #444;"></td>
+					<td style="background-color: #fff;"></td>			
+				</tr>
+
+				<tr style="height: 30px;">
+					<td style="background-color: #444;"></td>
+					<td style="background-color: #111;"></td>
+					<td style="background-color: #444;">
+						<div style="padding: 0 0 0 20px">
+							<a style="color: #eee;" href="<%= APP_CONFIG['site_url'] %>">
+								Ingenio.us.com
+							</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+		<% end %>
+
+</body>
+</html>

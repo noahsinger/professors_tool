@@ -1,0 +1,12 @@
+<% xxx@xxx.xxx do |f| %>
+	<%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :name %><br />
+			<%= f.text_field :name %>
+		</li>
+		<li class="submit_bar">
+			<%= f.submit submit_name %>
+		</li>
+	</ol>
+<% end %>

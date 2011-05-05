@@ -1,0 +1,20 @@
+<% xxx@xxx.xxx do |f| %>
+  <%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :title %><br />
+			<%= f.text_field :title %>
+		</li>
+		<li>
+			<%= f.label :duedate %><br />
+			<%= f.datetime_select :duedate, {:default => 14.days.from_now} %>
+		</li>
+		<li>
+			<%= f.label :lab %><br />
+			<%= f.collection_select( :lab_id, Lab.find( :all, :conditions => ['course_id = xxx@xxx.xxx ), :id, :title, :include_blank => true ) %>
+		</li>
+		<li class="submit_bar">
+			<%= f.submit submit_name %>
+		</li>
+	</ol>
+<% end %>

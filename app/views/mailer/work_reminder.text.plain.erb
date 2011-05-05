@@ -1,0 +1,14 @@
+<%- assignment xxx@xxx.xxx -%>
+<%- section = assignment.section -%>
+<%- semester = section.semester -%>
+----------------------------------------------------------
+Your <%= assignment.title %> has Already Been Submitted for <%= section.course.title %>
+----------------------------------------------------------
+
+An attempt was just made to upload a new solution for <%= assignment.title %> for you.  If you didn't do this, don't worry, it wasn't 
+accepted.  If you are trying to replace your previous submission with a new one, you must first withdraw your previous submission.
+(<%= withdraw_semester_section_assignment_works_url(semester, section, assignment, :code xxx@xxx.xxx :host => APP_CONFIG['host']) %>)
+
+
+<%= APP_CONFIG['site_url'] %>
+

@@ -1,0 +1,69 @@
+
+<div id="footer">
+	<ul id="main">
+		<li><h3>General</h3></li>
+		<li><%= link_to_unless_current 'Current Classes (Home)', '/' %></li>
+		<li><%= link_to_unless_current 'All Semesters', semesters_path %></li>
+		<li><%= link_to_unless_current 'Contact', new_general_contact_path %></li>
+		
+		<% if @section xxx@xxx.xxx %>
+			<li><%= link_to 'Office xxx@xxx.xxx %></li>
+		<% end %>
+	</ul>
+	
+	<% if Semester.current %>
+		<% semester = Semester.current %>
+		<ul>
+			<li><h3><%= semester.name %> Classes</h3></li>
+			<% semester.sections.each do |section| %>
+				<li><%= link_to_unless_current section.course.title, semester_section_assignments_path( semester, section ) %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	
+	<ul>
+		<li><h3>All Courses</h3></li>
+		<% Course.find(:all).each do |course| %>
+			<li><%= link_to_unless_current course.title, course_path( course ) %></li>
+		<% end %>
+	</ul>
+	
+	<% if session[:user] %>
+		<ul>
+			<li><h3>Administrator</h3></li>
+			<li><%= link_to 'Signout', signout_admin_admin_path %></li>
+			<li><%= link_to 'Admin Home', '/admin' %></li>
+			<li><%= link_to 'Test Flash', '/examples/test_flash' %></li>
+			<li><%= link_to 'Test Exception', '/examples/test_exception' %></li>
+		</ul>
+	<% end %>
+	
+	<hr/>
+	
+	<div id="copyright">Copyright &copy; <%= Time.now.year %> Ingenio.us.com v1.1</div>
+	<br/>
+	<div class="ad" id="site5_ad">
+		<a href="http://www.site5.com/in.php?id=18633-48">
+			<span id="powered_by">POWERED BY</span>
+			<span id="site5">site5</span>
+			<span id="web_hosting">web hosting</span>
+		</a>
+	</div>
+
+	<div class="clear"></div>
+</div>
+
+
+<!-- ***************************************************************************************************************************** -->
+
+
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+	try {
+		var pageTracker = _gat._getTracker("UA-100379-13");
+		pageTracker._trackPageview();
+	} catch(err) {}
+</script>

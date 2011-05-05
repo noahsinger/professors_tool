@@ -1,0 +1,14 @@
+<% content_for :header do %>
+	<h1>New Section</h1>
+	<h2>for xxx@xxx.xxx %></h2>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+	</ul>
+</div>
+
+<%= render :partial xxx@xxx.xxx :locals => {:button_name => 'Create'} %>
+
+

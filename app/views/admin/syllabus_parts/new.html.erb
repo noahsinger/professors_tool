@@ -1,0 +1,30 @@
+<h3></h3>
+<h1>New Syllabus Part</h1>
+<h2></h2>
+
+<hr/>
+
+<% xxx@xxx.xxx do |f| %>
+	<%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :name %><br />
+			<%= f.text_field :name %>
+		</li>
+		<li>
+			<%= f.label :title %><br />
+			<%= f.text_field :title %>
+		</li>
+		<li>
+			<%= f.label :description %><br />
+			<%= f.text_area :description %>
+		</li>
+		<li class="submit_bar">
+			<%= f.submit "Create" %>
+		</li>
+	</ol>
+<% end %>
+
+<% if session[:referrer] %>
+	<p class="nav"><%= link_to 'Back', session[:referrer] %></p>
+<% end %>

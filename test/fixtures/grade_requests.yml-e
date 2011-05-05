@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  section: 
+  enrollment: 
+  email: MyString
+
+two:
+  section: 
+  enrollment: 
+  email: MyString

@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+stews_lab1:
+  assignment: 1
+  enrollment: 1
+  upload_file_name: test1.txt
+  upload_content_type: text/text
+  upload_file_size: 100
+  upload_updated_at: <%= Time.now %>
+
+pues_lab1:
+  assignment: 1
+  enrollment: 3
+  upload_file_name: test2.txt
+  upload_content_type: text/text
+  upload_file_size: 200
+  upload_updated_at: <%= Time.now %>

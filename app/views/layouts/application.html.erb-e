@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<title><%= render :partial => 'shared/title' %></title>
+	
+	<%= javascript_include_tag 'jquery' %>
+	<%= yield :head %>
+	<%= javascript_include_tag "jquery.easing" %>
+	<%= javascript_include_tag "jquery.tablednd_0_5" %>
+	<%= javascript_include_tag "jquery.jgrowl" %>
+	<%= javascript_include_tag 'application' %>
+	<%- unless css_naked? -%>
+		<%= javascript_include_tag "jquery.kwicks" %>
+		<%= javascript_include_tag "positionFooter.jQuery" %>
+		<%= javascript_include_tag "chrome" %>
+	<%- end -%>
+	
+	<%= stylesheet_link_tag 'reset', :media => :all %>
+	<%= stylesheet_link_tag 'scaffold', :media => :screen %>
+	<%= stylesheet_link_tag 'barred', :media => :all %>
+	<%= stylesheet_link_tag 'print', :media => :print %>
+	<%= stylesheet_link_tag 'jquery.jgrowl', :media => :screen %>
+	
+	<!--[if IE]>
+		<link rel="stylesheet" type="text/css" href="stylesheets/ie7.css" />
+	<![endif]-->
+</head>
+<body>
+	<%= render :partial => 'shared/top_bar' %>
+	
+	<div id="page">
+		<div id="back_bar"></div>
+		
+		<%- if css_naked? -%>
+			<div>
+				<strong>Today is CSS Naked Day!</strong> Which means that all stylesheets have been turned off for the day so that people can 
+				admire the HTML goodness that you don't get to see every day.  A well coded site will remain usable, if not attractive, even
+				without their styles in place. Enjoy and know that everything will be back to normal tomorrow.
+			</div>
+		<%- end -%>
+		
+		<div id="ie_warning">
+			<h3>This site doesn't work well in Internet Explorer.</h3>
+			<p>
+				I have not tested or made any real effect to make this site work correctly in Internet Explorer (IE).
+				Unfortunately, IE fails to implement many web standards that have been supported by virtually ALL other 
+				browsers for many years. I would recommend that you change to a different browser like 
+				<a href="http://www.getfirefox.com">FireFox</a>, 
+				<a href="http://www.apple.com/safari/download/">Safari</a>,
+				or <a href="http://www.opera.com/">Opera</a>.  All are free and very good.
+			</p>
+		</div>
+		
+		<div id="header"><%= render :partial => 'shared/header' %></div>
+		
+		<div id="content">
+			<noscript>
+				<ul id="javascript_warning">
+					<li>
+						You must enable javascript for this site to function properly!
+					</li>
+				</ul>
+			</noscript>
+			
+			<%= render :partial => 'shared/messages' %>
+
+			<%= yield  %>
+		</div>
+	</div>
+	
+	<hr/>
+	
+	<%= render :partial => 'shared/footer' %>
+</body>
+</html>

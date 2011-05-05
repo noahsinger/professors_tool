@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+do_well:
+  lab: 1
+  description: You need to do well
+  points: 50
+
+do_correctly:
+  lab: 1
+  description: You need to do things correctly
+  points: 50

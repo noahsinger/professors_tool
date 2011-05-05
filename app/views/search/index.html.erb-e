@@ -1,0 +1,27 @@
+<div class="nav">
+	<ul class="nav">
+		<li>
+			<% link_to '/' do %>
+				<%= render :partial => "shared/back_link" %>
+			<% end %>
+		</li>
+	</ul>
+</div>
+
+<ul class="search_listings">
+	<% if @courses.size < 1 and @assignments.size < 1 xxx@xxx.xxx < 1 %>
+		<p>
+			No data could be found that matches your search criteria.
+		</p>
+	<% end %>
+	
+xxx@xxx.xxx do |course| %>
+		<%= render :partial => 'course', :locals => {:course => course} %>
+	<% end %>
+xxx@xxx.xxx do |assignment| %>
+		<%= render :partial => 'assignment', :locals => {:assignment => assignment} %>
+	<% end %>
+xxx@xxx.xxx do |how_to| %>
+		<%= render :partial => 'how_to', :locals => {:how_to => how_to} %>
+	<% end %>
+</ul>

@@ -1,0 +1,37 @@
+<% content_for :header do %>
+	<h1>Contact</h1>
+	<h4>Complete the form below to send your instructor and email</h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to '/' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+	</ul>
+</div>
+
+<% xxx@xxx.xxx :html => {:multipart => :true}) do |f| %>
+	<%= f.error_messages( :header_message => 'This email could not be sent for the following reasons:' ) %>
+	<ol>
+		<li>
+			<div class="light">Please provide your email address so a return email can be sent to you if needed.</div>
+			<%= f.label :return_email, 'Your Email Address' %><br/>
+			<%= f.text_field :return_email %>
+		</li>
+		<li>
+			<%= f.label :subject %><br/>
+			<%= f.text_field :subject %>
+		</li>
+		<li>
+			<%= f.label :body %><br/>
+			<%= f.text_area :body %>
+		</li>
+		<li>
+			<div class="light">Students!  DO NOT use this form for submitting your homework.  Instead, return to the homepage, click on your class, select the assignment, and then click the submit homework link.</div>
+			<%= f.label :attachment %><br/>
+			<%= f.file_field :attachment %>
+		</li>
+		<li class="submit_bar">
+			<%= f.submit "Send" %>
+		</li>
+	</ol>
+<% end %>

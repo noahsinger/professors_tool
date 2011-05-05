@@ -1,0 +1,1 @@
+<span class="text">Show - <span class="sub">Display this <%= controller.controller_name.titleize.singularize %></span></span>

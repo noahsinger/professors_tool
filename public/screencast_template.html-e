@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>
+			ScreenCast
+		</title>
+		<script src="/javascripts/jquery.js?1233012838" type="text/javascript">
+</script>
+		<script src="/javascripts/jquery.easing.js?1232166959" type="text/javascript">
+</script>
+		<script src="/javascripts/jquery.tablednd_0_5.js?1215786439" type="text/javascript">
+</script>
+		<script src="/javascripts/jquery.jgrowl.js?1219088012" type="text/javascript">
+</script>
+		<script src="/javascripts/application.js?1242227982" type="text/javascript">
+</script>
+		<script src="/javascripts/jquery.kwicks.js?1232161153" type="text/javascript">
+</script>
+		<script src="/javascripts/positionFooter.jQuery.js?1238006261" type="text/javascript">
+</script>
+		<script src="/javascripts/chrome.js?1242227929" type="text/javascript">
+</script>
+		<link href="/stylesheets/reset.css?1222798824" media="all" rel="stylesheet" type="text/css" />
+		<link href="/stylesheets/scaffold.css?1233246912" media="screen" rel="stylesheet" type="text/css" />
+		<link href="/stylesheets/barred.css?1239901314" media="all" rel="stylesheet" type="text/css" />
+		<link href="/stylesheets/print.css?1243863658" media="print" rel="stylesheet" type="text/css" />
+		<link href="/stylesheets/jquery.jgrowl.css?1232409032" media="screen" rel="stylesheet" type="text/css" /><!--[if IE]>
+		<link rel="stylesheet" type="text/css" href="stylesheets/ie7.css" />
+	<![endif]-->
+	</head>
+	<body>
+		<div id="top_bar">
+			<h1>
+				<a href="/">Ingenio.us.com</a>
+			</h1>
+			<div class="clear"></div>
+		</div>
+		<div id="page">
+			<div id="back_bar"></div>
+			<div id="ie_warning">
+				<h3>
+					This site doesn't work well in Internet Explorer.
+				</h3>
+				<p>
+					I have not tested or made any real effect to make this site work correctly in Internet Explorer (IE). Unfortunately, IE fails to implement many web standards that have been supported by virtually ALL other browsers for many years. I would recommend that you change to a different browser like <a href="http://www.getfirefox.com">FireFox</a>, <a href="http://www.apple.com/safari/download/">Safari</a>, or <a href="http://www.opera.com/">Opera</a>. All are free and very good.
+				</p>
+			</div>
+			<div id="header"></div>
+			<div id="content">
+				<noscript>
+				<ul id="javascript_warning">
+					<li>You must enable javascript for this site to function properly!
+					</li>
+				</ul></noscript>
+				<div class="nav">
+					<ul class="nav">
+						<li>
+							<a href="/semesters/4-Summer2009/sections/10-Scripting/assignments"><span class="text">Back - <span class="sub">Return to where you were</span></span></a>
+						</li>
+						<li>
+							<a href="javascript:pre_print(%20);"><span class="text">Print</span><span class="icon">þ</span></a>
+						</li>
+					</ul>
+				</div>
+
+				<div id="screencast">
+					<object width="800" height="600">
+						<param name="allowfullscreen" value="true" />
+						<param name="allowscriptaccess" value="always" />
+						<param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=6039170&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=ff9933&amp;fullscreen=1" />
+						<embed src="http://vimeo.com/moogaloop.swf?clip_id=6039170&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=ff9933&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="700" height="525" />
+					</object>
+				</div>
+				
+			</div>
+		</div>
+		<hr />
+		<div id="footer">
+			<ul id="main">
+				<li>
+					<h3>
+						General
+					</h3>
+				</li>
+				<li>
+					<a href="/">Current Classes (Home)</a>
+				</li>
+				<li>
+					<a href="/semesters">All Semesters</a>
+				</li>
+				<li>
+					<a href="/general_contacts/new">Contact</a>
+				</li>
+				<li>
+					<a href="/office_hours/1/original/Spring_2009_Class_and_Office_Hours.pdf?1231961284">Office Hours</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<h3>
+						Fall 2010 Classes
+					</h3>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<h3>
+						All Courses
+					</h3>
+				</li>
+				<li>
+					<a href="/courses/1-Introduction-to-Java-Programming">Introduction to Java Programming</a>
+				</li>
+				<li>
+					<a href="/courses/2-XHTML">XHTML</a>
+				</li>
+				<li>
+					<a href="/courses/3-Introduction-to-UNIX-Linux">Introduction to UNIX/Linux</a>
+				</li>
+				<li>
+					<a href="/courses/4-Scripting">Scripting</a>
+				</li>
+				<li>
+					<a href="/courses/5-Introduction-to-MacOS">Introduction to MacOS</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<h3>
+						Administrator
+					</h3>
+				</li>
+				<li>
+					<a href="/admin/admin/signout">Signout</a>
+				</li>
+				<li>
+					<a href="/admin">Admin Home</a>
+				</li>
+				<li>
+					<a href="/examples/test_flash">Test Flash</a>
+				</li>
+				<li>
+					<a href="/examples/test_exception">Test Exception</a>
+				</li>
+			</ul>
+			<hr />
+			<div id="copyright">
+				Copyright © 2009 Ingenio.us.com v1.1
+			</div><br />
+			<div class="ad" id="site5_ad">
+				<a href="http://www.site5.com/in.php?id=18633-48"><span id="powered_by">POWERED BY</span> <span id="site5">site5</span> <span id="web_hosting">web hosting</span></a>
+			</div>
+			<div class="clear"></div>
+		</div><!-- ***************************************************************************************************************************** -->
+		<script type="text/javascript">
+//<![CDATA[
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		//]]>
+		</script><script type="text/javascript">
+//<![CDATA[
+		try {
+		var pageTracker = _gat._getTracker("UA-100379-13");
+		pageTracker._trackPageview();
+		} catch(err) {}
+		//]]>
+		</script>
+	</body>
+</html>

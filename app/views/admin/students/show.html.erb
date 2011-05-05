@@ -1,0 +1,43 @@
+<% content_for :header do %>
+xxx@xxx.xxx %></h1>
+xxx@xxx.xxx %></h2>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to admin_students_path do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/edit_link' %> <% end %></li>
+	</ul>
+</div>
+
+<div class="fancy">
+	<table>
+		<tr>
+			<th>Course/Section</th>
+			<th>Students Final Score</th>
+			<th>Semester</th>
+			<th>Section Status</th>
+			<th>Student Status</th>
+		</tr>
+xxx@xxx.xxx do |section| %>
+			<tr>
+				<td><%= link_to( section.meeting_days + " :: " + section.course.title, admin_semester_section_path(section.semester,section) ) %></td>
+				<td><%= xxx@xxx.xxx ) * 100) %></td>
+				<td><%= section.semester.name %></td>
+
+					<% if section.is_past %>
+						<td>Complete</td>
+					<% else %>
+						<% if section.is_future %>
+							<td>Has Not Started</td>
+						<% else %>
+							<td>In Session</td>
+						<% end %>
+					<% end %>
+				
+					<% enrollment xxx@xxx.xxx :first, :conditions => ["section_id = ?", section.id] ) %>
+					<td><%= enrollment.enrollment_status.name %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>

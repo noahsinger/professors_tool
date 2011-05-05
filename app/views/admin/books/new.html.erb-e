@@ -1,0 +1,41 @@
+<% content_for :header do %>
+	<h1>Add a New Book</h1>
+	<h2>for xxx@xxx.xxx %></h2>
+<% end %>
+
+<div class="nav">
+	<ul class=nav>
+		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+	</ul>
+</div>
+
+<% xxx@xxx.xxx do |f| %>
+	<%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :title %><br />
+			<%= f.text_field :title %>
+		</li>
+		<li>
+			<%= f.label :author %><br />
+			<%= f.text_field :author %>
+		</li>
+		<li>
+			<%= f.label :publisher %><br />
+			<%= f.text_field :publisher %>
+		</li>
+		<li>
+			<%= f.label :isbn %><br />
+			<%= f.text_field :isbn %>
+		</li>
+		<li>
+			<%= f.label :required %>
+			<%= f.check_box :required %>
+		</li>
+		<li class="submit_bar">
+			<%= f.submit "Create" %>
+		</li>
+	</ol>
+<% end %>
+
+

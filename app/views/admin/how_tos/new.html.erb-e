@@ -1,0 +1,30 @@
+<% content_for :header do %>
+	<h1>How to's</h1>
+	<h4>create new</h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<% if session[:referrer] %>
+			<li><%= link_to 'Back', session[:referrer] %></li>
+		<% end %>
+	</ul>
+</div>
+
+<% xxx@xxx.xxx do |f| %>
+	<%= f.error_messages %>
+	<ol>
+		<li>
+			<%= f.label :title %><br />
+			<%= f.text_field :title %>
+		</li>
+		<li>
+			<%= f.label :description %><br />
+			<%= f.text_area :description %>
+		</li>
+		<li class="submit_bar">
+			<%= f.submit "Create" %>
+		</li>
+	</ol>
+<% end %>
+

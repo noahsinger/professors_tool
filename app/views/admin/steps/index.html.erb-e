@@ -1,0 +1,19 @@
+<h1>Listing Steps for "HowTo: xxx@xxx.xxx %>"</h1>
+
+<table>
+	<thead>	
+		<tr>
+			<th>Title</th>
+		</tr>
+	</thead>
+
+	<tbody id="steps">
+		<% for step xxx@xxx.xxx %>
+			<%= render :partial => step %>
+		<% end %>
+	</tbody>
+</table>
+<p><em>Drag and drop to change order.</em></p>
+<br />
+<%= link_to 'Back', xxx@xxx.xxx ) %> |
+<%= link_to 'New step', new_admin_how_to_step_path %>

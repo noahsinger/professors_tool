@@ -1,0 +1,46 @@
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function( ) {	
+		$("#tutorials").reorderTable( "<%= xxx@xxx.xxx ) %>", "<%= form_authenticity_token %>" );
+	});
+</script>
+
+<% content_for :header do %>
+	<h1>Tutorials</h1>
+	<h2>for xxx@xxx.xxx %></h2>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to xxx@xxx.xxx ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><% link_to new_admin_course_tutorial_path do %> <%= render :partial => "shared/new_link" %> <% end %></li>
+	</ul>
+</div>
+
+<h4>Assigned Tutorials:</h4>
+<div class="fancy">
+	<table>
+		<thead>
+			<tr>
+				<th>HowTo</th>
+			</tr>
+		</thead>
+		<tbody id="tutorials">
+			<% for tutorial xxx@xxx.xxx %>
+				<%= render :partial => tutorial %>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<h4>Available Tutorials:</h4>
+<ul id="how_tos">
+xxx@xxx.xxx do |how_to| %>
+		<% if xxx@xxx.xxx :first, :conditions => ['how_to_id=?', how_to.id] ) %>
+			<%= render :partial => how_to %>
+		<% end %>
+	<% end %>
+</ul>
+
+<ul class="link_bar">
+	<li><%= link_to "Modify How To's", admin_how_tos_path %></li>
+</ul>

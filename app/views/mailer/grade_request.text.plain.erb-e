@@ -1,0 +1,58 @@
+------------------------------------------------------------------------------------------------
+Your Grades for <%= @enrollment.section.course.title %> xxx@xxx.xxx %>
+------------------------------------------------------------------------------------------------
+
+Below you will find detailed information on your current grade in
+xxx@xxx.xxx %>.  If you have any questions about these grades
+please contact your instructor (<%= new_general_contact_url(:host => APP_CONFIG['host']) %>)
+immediately.
+
+============================
+Grade Summary
+----------------------------
+Your current grade is: xxx@xxx.xxx %>
+
+There have been xxx@xxx.xxx %> points assigned
+and you have earned xxx@xxx.xxx %> points leaving you
+with a <%= xxx@xxx.xxx %> average.
+============================
+
+Assignment Details
+xxx@xxx.xxx do |assignment| -%>	
+<%- work = xxx@xxx.xxx ) -%>
+<%- if work and work.graded? -%>
+<%= assignment.title %> <%= assignment.lab.title %>
+Your Score: <%= number_to_percentage ((work.score / work.assignment.worth.to_f)*100) %>
+
+----------------------------------------------------
+Instructors Comments:
+<%= work.instructors_comments %>
+----------------------------------------------------
+
+<%- work.awarded_points.each do |p| -%>
+<%= p.requirement.description %> (<%= p.points %> out of <%= p.requirement.points %> )
+<%- end -%>
+<%- else -%>
+<%- if assignment.overdue? -%>
+<%= assignment.title %> <%= assignment.lab.title %>
+Your Score: -
+
+----------------------------------------------------
+Instructors Comments:
+No grade exists for this work.  There are several possibilities.  One is that you didn't turn in 
+anything for this assignment.  Another is that you did turn something in but it simply hasn't been 
+graded yet.  If you're certain that there should be a grade here, you know you turned your assignment
+in and you know that it's been graded, then you should contact your instructor about it.
+--------------------------------------------------
+
+<%- assignment.lab.requirements.each do |r| -%>
+<%= r.description %> (- out of <%= r.points %>)
+<%- end -%>
+<%- end -%>
+<%- end -%>
+---------------------------------------------------------------------------------------------------
+<%- end -%>
+
+
+<%= APP_CONFIG['site_url'] %>
+
