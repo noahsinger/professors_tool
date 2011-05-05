@@ -7936,3 +7936,190 @@ Rendered shared/_messages (0.1ms)
   [4;36;1mCourse Load (0.3ms)[0m   [0;1mSELECT * FROM "courses" [0m
 Rendered shared/_footer (89.7ms)
 Completed in 132ms (View: 45, DB: 67) | 200 OK [http://localhost/admin/courses/1-How-to-Program/policies]
+  [4;36;1mSemester Load (3.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSemester Load (0.2ms)[0m   [0mSELECT * FROM "semesters" ORDER BY semesters.id DESC LIMIT 1[0m
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSemester Load (0.2ms)[0m   [0mSELECT * FROM "semesters" ORDER BY semesters.id DESC LIMIT 1[0m
+
+
+Processing SectionsController#index (for 127.0.0.1 at 2011-05-05 12:09:10) [GET]
+  Parameters: {"semester_id"=>1}
+  [4;36;1mSemester Load (0.9ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;35;1mSection Load (11.9ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+Rendering template within layouts/application
+Rendering sections/index
+  [4;36;1mCourse Load (0.7ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendered shared/_title (1.3ms)
+Rendered shared/_top_bar (11.2ms)
+Rendered shared/_header (1.0ms)
+Rendered shared/_messages (1.4ms)
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY semesters.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY semesters.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (8.0ms)
+Completed in 529ms (View: 243, DB: 14) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-05-05 12:09:11) [GET]
+
+ActionController::RoutingError (No route matches "/categories" with {:method=>:get}):
+  /Users/noah/.rvm/rubies/ruby-1.8.7-p330/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/noah/.rvm/rubies/ruby-1.8.7-p330/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/noah/.rvm/rubies/ruby-1.8.7-p330/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/noah/.rvm/rubies/ruby-1.8.7-p330/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/noah/.rvm/rubies/ruby-1.8.7-p330/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/noah/.rvm/rubies/ruby-1.8.7-p330/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/noah/.rvm/rubies/ruby-1.8.7-p330/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/noah/.rvm/rubies/ruby-1.8.7-p330/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/noah/.rvm/rubies/ruby-1.8.7-p330/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/noah/.rvm/rubies/ruby-1.8.7-p330/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SectionsController#index (for 127.0.0.1 at 2011-05-05 12:11:36) [GET]
+  Parameters: {"semester_id"=>1}
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+Rendering template within layouts/application
+Rendering sections/index
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.3ms)
+  [4;35;1mSemester Load (0.2ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSemester Load (0.1ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY semesters.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY semesters.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (5.4ms)
+Completed in 117ms (View: 25, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing Admin::AdminController#index (for 127.0.0.1 at 2011-05-05 12:11:46) [GET]
+  [4;36;1mSemester Load (0.9ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date desc[0m
+Rendering template within layouts/application
+Rendering admin/admin/index
+  [4;35;1mSemester Load (0.2ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSemester Load (0.1ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY semesters.id DESC LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "semesters" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "courses" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "students" [0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "instructors" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollment_statuses" [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "divisions" [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "general_contacts" [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "grade_requests" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "homework_return_requests" [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY semesters.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY semesters.id DESC LIMIT 1[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCourse Load (0.3ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (18.2ms)
+Completed in 168ms (View: 151, DB: 9) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::InstructorsController#index (for 127.0.0.1 at 2011-05-05 12:11:50) [GET]
+  [4;35;1mInstructor Load (1.0ms)[0m   [0mSELECT * FROM "instructors" [0m
+Rendering template within layouts/application
+Rendering admin/instructors/index
+Rendered shared/_back_link (1.2ms)
+Rendered shared/_new_link (1.1ms)
+  [4;36;1mDivision Load (0.2ms)[0m   [0;1mSELECT * FROM "divisions" WHERE ("divisions"."id" = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY semesters.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY semesters.id DESC LIMIT 1[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.3ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (94.4ms)
+Completed in 226ms (View: 214, DB: 2) | 200 OK [http://localhost/admin/instructors]
+
+
+Processing Admin::InstructorsController#edit (for 127.0.0.1 at 2011-05-05 12:11:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" WHERE ("instructors"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/instructors/edit
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".instructor_id = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_show_link (1.1ms)
+  [4;36;1mDivision Load (0.2ms)[0m   [0;1mSELECT * FROM "divisions" [0m
+Rendered admin/instructors/_form (13.6ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY semesters.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY semesters.id DESC LIMIT 1[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.4ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (102.0ms)
+Completed in 196ms (View: 185, DB: 2) | 200 OK [http://localhost/admin/instructors/1/edit]
+
+
+Processing Admin::InstructorsController#update (for 127.0.0.1 at 2011-05-05 12:12:19) [PUT]
+  Parameters: {"instructor"=>{"title"=>"Assistant Professor", "office_hours"=>#<File:/var/folders/4M/4MlAE3m2Fxqliow3Cp6SN++++TI/-Tmp-/RackMultipart20110505-35391-odbi9r-0>, "office_number"=>"MCG34", "division_id"=>"1", "phone_number"=>"918-595-7060", "website"=>"http://ingenio.us.com", "last_name"=>"Singer", xxx@xxx.xxx "first_name"=>"Noah"}, "authenticity_token"=>"NxD8JNw5o0/TePw5lzNkprzhbLwn+KBOKGDFlKnBYHs=", "id"=>"1"}
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" WHERE ("instructors"."id" = 1) [0m
+[paperclip] Paperclip attachment office_hours on Instructor initialized.
+[paperclip] Assigning #<File:/var/folders/4M/4MlAE3m2Fxqliow3Cp6SN++++TI/-Tmp-/RackMultipart20110505-35391-odbi9r-0> to office_hours
+[paperclip] Queueing the existing files for office_hours for deletion.
+[paperclip] Writing attributes for "office_hours"
+[paperclip] Uploaded file content type is application/pdf
+[paperclip] Post-processing office_hours
+  [4;35;1mInstructor Update (0.5ms)[0m   [0mUPDATE "instructors" SET "updated_at" = '2011-05-05 17:12:19', "office_hours_updated_at" = '2011-05-05 17:12:19', "office_hours_file_size" = 35525, "office_hours_file_name" = 'Spring_2011_Class_and_Office_Hours.pdf' WHERE "id" = 1[0m
+[paperclip] Saving attachments.
+[paperclip] Saving files for office_hours
+[paperclip] Deleting files for office_hours
+[paperclip] -> /Users/noah/Desktop/1.2/public/office_hours/1/original/OfficeHours.pdf
+[paperclip] Writing files for office_hours
+[paperclip] -> /Users/noah/Desktop/1.2/public/office_hours/1/original/Spring_2011_Class_and_Office_Hours.pdf
+Redirected to http://localhost:3000/admin/instructors/1
+Completed in 72ms (DB: 1) | 302 Found [http://localhost/admin/instructors/1]
+
+
+Processing Admin::InstructorsController#show (for 127.0.0.1 at 2011-05-05 12:12:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" WHERE ("instructors"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/instructors/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".instructor_id = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (1.1ms)
+[paperclip] Paperclip attachment office_hours on Instructor initialized.
+  [4;36;1mDivision Load (0.2ms)[0m   [0;1mSELECT * FROM "divisions" WHERE ("divisions"."id" = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY semesters.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY semesters.id DESC LIMIT 1[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.3ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (99.9ms)
+Completed in 151ms (View: 140, DB: 2) | 200 OK [http://localhost/admin/instructors/1]
