@@ -4,10 +4,11 @@
 		<li><h3>General</h3></li>
 		<li><%= link_to_unless_current 'Current Classes (Home)', '/' %></li>
 		<li><%= link_to_unless_current 'All Semesters', semesters_path %></li>
+
 		<li><%= link_to_unless_current 'Contact', new_general_contact_path %></li>
 		
-		<% if @section xxx@xxx.xxx %>
-			<li><%= link_to 'Office xxx@xxx.xxx %></li>
+		<% Instructor.all.each do |instructor| %>
+			<li><%= link_to instructor.name, instructor %></li>
 		<% end %>
 	</ul>
 	

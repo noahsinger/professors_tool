@@ -77,6 +77,9 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :homework_return_requests, :collection => {:destroy_all => :delete}
   end
 
+  map.resources :instructors
+  # map.connect 'instructors/:id', :controller => 'instructors', :action => 'show'
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

@@ -876,3 +876,46 @@ padding: 0;
 	padding: 3em;
 /*	background-color: #444;*/
 }
+
+.vcard div, .vcard a.url {
+	margin: 15px 0 0 10px;
+	display: block;
+}
+
+	.vcard .fn {
+		width: inherit;
+		font-size: 3em;
+		color: #444;
+		margin: 40px 0 20px 5px;
+	}
+	
+	.vcard .honorific-prefix {
+		color: #777;
+		margin-top: 5px;
+		font-size: .9em;
+	}
+	
+	.vcard .org {
+		color: #666;
+	}
+	
+	.vcard .note {
+		margin-bottom: 20px;
+	}
+	
+		.vcard .note strong {
+
+		}
+	
+	.vcard .contact {
+		padding: 10px 0 10px 30px;
+		color: #eee;
+		background-color: #000;
+		opacity: .7;
+		margin: 0 0 30px 0;
+		font-size: .8em;
+	}
+		
+	.contact .vcard .tel, .contact .vcard .email, .contact .vcard a.url, .contact .vcard .note {
+		margin: 10px 0;
+	}

@@ -90,7 +90,7 @@ xxx@xxx.xxx do |howto| %>
 	<ul class="sliding">
 xxx@xxx.xxx do |section| %>			
 			<li>
-				<% link_to semester_section_path( xxx@xxx.xxx section ) do %>
+				<% link_to semester_section_path( section.semester, section ) do %>
 					<span class="top_half"><%= section.semester.name %></span>
 					<span class="bottom_half"><%= section.enrollments.size %> enrolled</span>
 				<% end %>
