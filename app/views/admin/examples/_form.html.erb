@@ -1,0 +1,20 @@
+<% xxx@xxx.xxx :html => {:multipart => true}) do |f| %>
+  <%= f.error_messages %>
+	<ol>
+	  <li>
+	    <%= f.label :name %><br />
+	    <%= f.text_field :name %>
+	  </li>
+	  <li>
+	    <%= f.label :description %><br />
+	    <%= f.text_area :description %>
+	  </li>
+	  <li>
+	    <%= f.label :file %><br />
+	    <%= f.file_field :file %>
+	  </li>
+	  <li class="submit_bar">
+	    <%= f.submit submit_name %>
+	  </li>
+	</ol>
+<% end %>

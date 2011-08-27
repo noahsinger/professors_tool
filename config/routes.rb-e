@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :examples
+
   # no namespace ##########################################    
   map.resources :general_contacts # , :member => {:download => :get}
   
@@ -39,6 +41,7 @@ ActionController::Routing::Routes.draw do |map|
       semesters.resources :sections do |sections|
         sections.resources :students
         sections.resources :enrollments
+        sections.resources :examples
         
         sections.resources :assignments do |assignments|
           assignments.resources :works, :member => {:grade => :get, :record_score => :put, :destroy_grade => :delete}, :collection => {:new_for_all => :get}

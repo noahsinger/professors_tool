@@ -9,6 +9,7 @@ class Section < ActiveRecord::Base
   has_many :enrollments, :dependent => :destroy
   has_many :students, :through => :enrollments
   has_many :grade_requests, :dependent => :destroy, :order => 'created_at desc'
+  has_many :examples, :dependent => :destroy, :order => 'created_at desc'
   
   validates_presence_of :course
   validates_presence_of :call_number
