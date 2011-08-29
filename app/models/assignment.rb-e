@@ -58,7 +58,8 @@ class Assignment < ActiveRecord::Base
   end
   
   def self.visible
-   xxx@xxx.xxx = Assignment.find(:all, :joins => [:lab], :conditions => 'labs.visible = 1', :order => 'duedate desc')
+    xxx@xxx.xxx = Assignment.find(:all, :joins => [:lab], :conditions => 'labs.visible = 1', :order => 'duedate desc')
+   xxx@xxx.xxx = Assignment.find(:all, :joins => [:lab], :conditions => ["labs.visible = ?", true], :order => 'duedate desc')
   end
   
   def to_ical_event

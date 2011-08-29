@@ -44,8 +44,12 @@ class HomeworkReturnRequestsController < ApplicationController
       target = Time.now.ago( 600 ) # 10 minutes ago
       
       xxx@xxx.xxx
-        
-        if prev_request and prev_request.created_at > target
+        xxx@xxx.xxx == "removed"
+         xxx@xxx.xxx :status => 'denied'
+          @homework_return_request xxx@xxx.xxx
+          flash[:notice] = "That assignment's attachment is not longer stored on this site as it's more than 1 year old."
+          format.html { xxx@xxx.xxx }
+        elsif prev_request and prev_request.created_at > target
           #dont send email, display error
          xxx@xxx.xxx :status => 'denied'
           @homework_return_request xxx@xxx.xxx

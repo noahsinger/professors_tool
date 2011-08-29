@@ -19,7 +19,7 @@ class WorksController < ApplicationController
   
   def status
     if params[:email] and params[:email] != ""
-      flash[:notice] = "An homework status email has been sent to your address"
+      flash[:notice] = "A homework status email has been sent to your address"
       @work xxx@xxx.xxx
       email = xxx@xxx.xxx params[:email] )
       Mailer.deliver( email )

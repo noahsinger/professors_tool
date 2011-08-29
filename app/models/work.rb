@@ -13,7 +13,7 @@ class Work < ActiveRecord::Base
   validates_format_of( :email, 
                        :with => xxx@xxx.xxx 
                        :on => :create, 
-                       :message=>"has an invalid format.")
+                       :message=>"has an invalid format." )
 
   after_create :generate_withdrawal_code
     

@@ -129,13 +129,18 @@ function submit_button_replace( waiting_text ) {
 					link.appendChild( document.createTextNode(input.value) );
 					
 					link.onclick = function( ) {
-						// hide_submit_button( );
 						$("form").submit( );
 					}
 											
 					div.appendChild( link );
 					parent.appendChild( div );
 					parent.appendChild( waiting_div );
+					
+					$("input[type=text],input[type=password],select").keydown( function( event ) {
+						if(event.keyCode==13) {
+							$("form").submit( );
+						}
+					});
 				}
 			}
 		}
