@@ -34,7 +34,6 @@ $(document).ready(function( ) {
 	$("#new_requirement").submitWithAjax( );
 	
 	// replace_crud_links( );
-	
 	// setup_search_field( );
 	check_for_ie( );
 }); //end document ready
