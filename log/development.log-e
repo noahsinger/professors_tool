@@ -39618,3 +39618,33 @@ Rendered shared/_messages (0.1ms)
   [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
 Rendered shared/_footer (20.3ms)
 Completed in 164ms (View: 152, DB: 5) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::AdminController#index (for 127.0.0.1 at 2011-09-01 14:43:11) [GET]
+  [4;35;1mSemester Load (0.8ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date desc LIMIT 2[0m
+Rendering template within layouts/application
+Rendering admin/admin/index
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "semesters" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "courses" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "students" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "instructors" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "enrollment_statuses" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "divisions" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "general_contacts" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "grade_requests" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "homework_return_requests" [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.2ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.5ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (19.8ms)
+Completed in 167ms (View: 157, DB: 4) | 200 OK [http://localhost/admin]
