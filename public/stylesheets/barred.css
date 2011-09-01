@@ -295,11 +295,24 @@ ul li span.top_half {
 		float: left;
 		margin-top: 10px;
 	}
+	
+	ul li div.top_half p {
+		padding: 10px 0 0 3px;
+	}
 
 ul li span.bottom_half {
 	display: block;
 	padding: 0 10px 10px;
 }
+
+ul li div.bottom_half {
+/*	border: 1px solid red;*/
+	padding: 0 0 3px 0;
+}
+
+	ul li div.bottom_half a {
+		display: inline;
+	}
 
 ul.sliding li span.bottom_half a {
 	border: 1px solid red;

@@ -37201,3 +37201,2420 @@ Rendered shared/_messages (0.1ms)
   [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
 Rendered shared/_footer (118.4ms)
 Completed in 133ms (View: 128, DB: 2) | 200 OK [http://localhost/admin/admin/signin]
+
+
+Processing Admin::CoursesController#index (for 127.0.0.1 at 2011-09-01 08:59:01) [GET]
+  [4;35;1mCourse Load (0.8ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendering template within layouts/application
+Rendering admin/courses/index
+Rendered shared/_back_link (13.6ms)
+Rendered shared/_new_link (10.3ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (50.2ms)
+Completed in 306ms (View: 291, DB: 2) | 200 OK [http://localhost/admin/courses]
+
+
+Processing Admin::CoursesController#show (for 127.0.0.1 at 2011-09-01 08:59:06) [GET]
+  Parameters: {"id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/courses/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".course_id = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (8.7ms)
+  [4;35;1mLab Load (0.3ms)[0m   [0mSELECT * FROM "labs" WHERE ("labs".course_id = 1) [0m
+  [4;36;1mMaterial Load (17.9ms)[0m   [0;1mSELECT * FROM "materials" WHERE ("materials".course_id = 1) [0m
+  [4;35;1mTutorial Load (0.5ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;36;1mHowTo Load (0.2ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+  [4;35;1mObjective Load (0.7ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".course_id = 1) [0m
+  [4;36;1mPolicy Load (0.4ms)[0m   [0;1mSELECT * FROM "policies" WHERE ("policies".course_id = 1) ORDER BY position[0m
+  [4;35;1mBook Load (0.1ms)[0m   [0mSELECT * FROM "books" WHERE ("books".course_id = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (18.0ms)
+Completed in 243ms (View: 211, DB: 21) | 200 OK [http://localhost/admin/courses/1-How-to-Program]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 08:59:09) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mTutorial Load (0.3ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;35;1mHowTo Load (0.2ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.2ms)
+  [4;36;1mHowTo Load (0.2ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (4.4ms)
+  [4;35;1mTutorial Load (0.2ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (116.8ms)
+Completed in 162ms (View: 136, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::HowTosController#index (for 127.0.0.1 at 2011-09-01 08:59:18) [GET]
+  [4;35;1mHowTo Load (0.7ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.3ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (193.6ms)
+Completed in 217ms (View: 206, DB: 2) | 200 OK [http://localhost/admin/how_tos]
+
+
+Processing Admin::HowTosController#index (for 127.0.0.1 at 2011-09-01 08:59:54) [GET]
+  [4;35;1mHowTo Load (0.7ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.2ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (129.2ms)
+Completed in 151ms (View: 141, DB: 2) | 200 OK [http://localhost/admin/how_tos]
+
+
+Processing Admin::HowTosController#index (for 127.0.0.1 at 2011-09-01 09:00:36) [GET]
+  [4;35;1mHowTo Load (0.7ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.2ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.3ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (104.3ms)
+Completed in 219ms (View: 211, DB: 2) | 200 OK [http://localhost/admin/how_tos]
+
+
+Processing Admin::HowTosController#index (for 127.0.0.1 at 2011-09-01 09:02:48) [GET]
+  [4;35;1mHowTo Load (0.7ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (131.3ms)
+Completed in 151ms (View: 142, DB: 2) | 200 OK [http://localhost/admin/how_tos]
+
+
+Processing Admin::HowTosController#index (for 127.0.0.1 at 2011-09-01 09:03:04) [GET]
+  [4;35;1mHowTo Load (0.7ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (110.7ms)
+Completed in 130ms (View: 119, DB: 2) | 200 OK [http://localhost/admin/how_tos]
+
+
+Processing Admin::HowTosController#index (for 127.0.0.1 at 2011-09-01 09:03:31) [GET]
+  [4;35;1mHowTo Load (0.8ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.4ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.2ms)
+Rendered shared/_header (0.2ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.6ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (199.6ms)
+Completed in 227ms (View: 212, DB: 3) | 200 OK [http://localhost/admin/how_tos]
+
+
+Processing Admin::HowTosController#index (for 127.0.0.1 at 2011-09-01 09:03:41) [GET]
+  [4;35;1mHowTo Load (1.4ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.3ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (134.8ms)
+Completed in 156ms (View: 142, DB: 3) | 200 OK [http://localhost/admin/how_tos]
+
+
+Processing Admin::HowTosController#index (for 127.0.0.1 at 2011-09-01 09:03:48) [GET]
+  [4;35;1mHowTo Load (1.2ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (113.9ms)
+Completed in 133ms (View: 122, DB: 3) | 200 OK [http://localhost/admin/how_tos]
+
+
+Processing Admin::HowTosController#index (for 127.0.0.1 at 2011-09-01 09:03:55) [GET]
+  [4;35;1mHowTo Load (0.7ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.4ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (131.9ms)
+Completed in 151ms (View: 139, DB: 2) | 200 OK [http://localhost/admin/how_tos]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 09:04:03) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mTutorial Load (0.3ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;35;1mHowTo Load (0.2ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.2ms)
+  [4;36;1mHowTo Load (0.1ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (3.7ms)
+  [4;35;1mTutorial Load (0.2ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (114.3ms)
+Completed in 169ms (View: 125, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::CoursesController#show (for 127.0.0.1 at 2011-09-01 09:04:05) [GET]
+  Parameters: {"id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/courses/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".course_id = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (0.1ms)
+  [4;35;1mLab Load (0.2ms)[0m   [0mSELECT * FROM "labs" WHERE ("labs".course_id = 1) [0m
+  [4;36;1mMaterial Load (0.2ms)[0m   [0;1mSELECT * FROM "materials" WHERE ("materials".course_id = 1) [0m
+  [4;35;1mTutorial Load (0.3ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;36;1mHowTo Load (0.1ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".course_id = 1) [0m
+  [4;36;1mPolicy Load (0.3ms)[0m   [0;1mSELECT * FROM "policies" WHERE ("policies".course_id = 1) ORDER BY position[0m
+  [4;35;1mBook Load (0.1ms)[0m   [0mSELECT * FROM "books" WHERE ("books".course_id = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.3ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (18.7ms)
+Completed in 189ms (View: 149, DB: 3) | 200 OK [http://localhost/admin/courses/1-How-to-Program]
+
+
+Processing Admin::CoursesController#index (for 127.0.0.1 at 2011-09-01 09:04:08) [GET]
+  [4;35;1mCourse Load (4.3ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendering template within layouts/application
+Rendering admin/courses/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (118.9ms)
+Completed in 165ms (View: 135, DB: 5) | 200 OK [http://localhost/admin/courses]
+
+
+Processing Admin::AdminController#index (for 127.0.0.1 at 2011-09-01 09:04:10) [GET]
+  [4;35;1mSemester Load (0.8ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date desc[0m
+Rendering template within layouts/application
+Rendering admin/admin/index
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "semesters" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "courses" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "students" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "instructors" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollment_statuses" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "divisions" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "general_contacts" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "grade_requests" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "homework_return_requests" [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (20.0ms)
+Completed in 185ms (View: 152, DB: 3) | 200 OK [http://localhost/admin]
+
+
+Processing SectionsController#index (for 127.0.0.1 at 2011-09-01 09:04:20) [GET]
+  Parameters: {"semester_id"=>1}
+  [4;35;1mSemester Load (0.1ms)[0m   [0mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+Rendering template within layouts/application
+Rendering sections/index
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.3ms)
+  [4;35;1mInstructor Load (0.2ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (11.6ms)
+Completed in 142ms (View: 44, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing AssignmentsController#index (for 127.0.0.1 at 2011-09-01 09:04:22) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012", "section_id"=>"1-How-to-Program"}
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections"."id" = 1) [0m
+  [4;36;1mAssignment Load (0.5ms)[0m   [0;1mSELECT "assignments".* FROM "assignments" INNER JOIN "labs" ON "labs".id = "assignments".lab_id WHERE (labs.visible = 't') AND ("assignments".section_id = 1) ORDER BY duedate desc[0m
+Rendering template within layouts/application
+Rendering assignments/index
+  [4;35;1mCourse Load (0.3ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendered shared/_back_link (0.1ms)
+  [4;36;1mLab Load (0.2ms)[0m   [0;1mSELECT * FROM "labs" WHERE ("labs"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "labs" WHERE ("labs"."id" = 1) [0m
+  [4;36;1mSQL (12.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "examples" WHERE ("examples".section_id = 1) [0m
+  [4;35;1mExample Load (0.3ms)[0m   [0mSELECT * FROM "examples" WHERE ("examples".section_id = 1) ORDER BY created_at desc[0m
+[paperclip] Paperclip attachment file on Example initialized.
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "how_tos" INNER JOIN "tutorials" ON "how_tos".id = "tutorials".how_to_id WHERE (("tutorials".course_id = 1)) [0m
+  [4;35;1mHowTo Load (0.1ms)[0m   [0mSELECT "how_tos".* FROM "how_tos" INNER JOIN "tutorials" ON "how_tos".id = "tutorials".how_to_id WHERE (("tutorials".course_id = 1)) [0m
+  [4;36;1mStep Load (0.4ms)[0m   [0;1mSELECT * FROM "steps" WHERE ("steps".how_to_id = 1) ORDER BY position LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "materials" WHERE ("materials".course_id = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (94.0ms)
+Completed in 380ms (View: 246, DB: 16) | 200 OK [http://localhost/semesters/1-Fall2012/sections/1-How-to-Program/assignments]
+
+
+Processing AssignmentsController#index (for 127.0.0.1 at 2011-09-01 09:04:32) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012", "section_id"=>"1-How-to-Program"}
+  [4;35;1mSemester Load (0.1ms)[0m   [0mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections"."id" = 1) [0m
+  [4;35;1mAssignment Load (0.3ms)[0m   [0mSELECT "assignments".* FROM "assignments" INNER JOIN "labs" ON "labs".id = "assignments".lab_id WHERE (labs.visible = 't') AND ("assignments".section_id = 1) ORDER BY duedate desc[0m
+Rendering template within layouts/application
+Rendering assignments/index
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendered shared/_back_link (0.1ms)
+  [4;35;1mLab Load (0.2ms)[0m   [0mSELECT * FROM "labs" WHERE ("labs"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "labs" WHERE ("labs"."id" = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "examples" WHERE ("examples".section_id = 1) [0m
+  [4;36;1mExample Load (0.2ms)[0m   [0;1mSELECT * FROM "examples" WHERE ("examples".section_id = 1) ORDER BY created_at desc[0m
+[paperclip] Paperclip attachment file on Example initialized.
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "how_tos" INNER JOIN "tutorials" ON "how_tos".id = "tutorials".how_to_id WHERE (("tutorials".course_id = 1)) [0m
+  [4;36;1mHowTo Load (0.1ms)[0m   [0;1mSELECT "how_tos".* FROM "how_tos" INNER JOIN "tutorials" ON "how_tos".id = "tutorials".how_to_id WHERE (("tutorials".course_id = 1)) [0m
+  [4;35;1mStep Load (0.3ms)[0m   [0mSELECT * FROM "steps" WHERE ("steps".how_to_id = 1) ORDER BY position LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "materials" WHERE ("materials".course_id = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.2ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (14.5ms)
+Completed in 199ms (View: 156, DB: 3) | 200 OK [http://localhost/semesters/1-Fall2012/sections/1-How-to-Program/assignments]
+
+
+Processing GradeRequestsController#new (for 127.0.0.1 at 2011-09-01 09:04:36) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012", "section_id"=>"1-How-to-Program"}
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections"."id" = 1 AND ("sections".semester_id = 1)) [0m
+Rendering template within layouts/application
+Rendering grade_requests/new
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.2ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (14.2ms)
+Completed in 172ms (View: 35, DB: 2) | 200 OK [http://localhost/semesters/1-Fall2012/sections/1-How-to-Program/grade_requests/new]
+
+
+Processing AssignmentsController#show (for 127.0.0.1 at 2011-09-01 09:04:48) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012", "section_id"=>"1-How-to-Program", "id"=>"1-Lab02"}
+  [4;36;1mSemester Load (0.1ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections"."id" = 1) [0m
+  [4;36;1mAssignment Load (0.2ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 1 AND ("assignments".section_id = 1)) ORDER BY duedate desc[0m
+Rendering template within layouts/application
+Rendering assignments/show
+  [4;35;1mLab Load (0.2ms)[0m   [0mSELECT * FROM "labs" WHERE ("labs"."id" = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendered shared/_back_link (0.1ms)
+  [4;35;1mWork Load (1.0ms)[0m   [0mSELECT * FROM "works" WHERE ("works".assignment_id = 1) [0m
+  [4;36;1mRequirement Load (0.3ms)[0m   [0;1mSELECT * FROM "requirements" WHERE ("requirements".lab_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "extras" WHERE ("extras".lab_id = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.4ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (14.6ms)
+Completed in 388ms (View: 364, DB: 4) | 200 OK [http://localhost/semesters/1-Fall2012/sections/1-How-to-Program/assignments/1-Lab02]
+
+
+Processing AssignmentsController#index (for 127.0.0.1 at 2011-09-01 09:04:53) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012", "section_id"=>"1-How-to-Program"}
+  [4;35;1mSemester Load (0.2ms)[0m   [0mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections"."id" = 1) [0m
+  [4;35;1mAssignment Load (0.3ms)[0m   [0mSELECT "assignments".* FROM "assignments" INNER JOIN "labs" ON "labs".id = "assignments".lab_id WHERE (labs.visible = 't') AND ("assignments".section_id = 1) ORDER BY duedate desc[0m
+Rendering template within layouts/application
+Rendering assignments/index
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendered shared/_back_link (0.1ms)
+  [4;35;1mLab Load (0.2ms)[0m   [0mSELECT * FROM "labs" WHERE ("labs"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "labs" WHERE ("labs"."id" = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "examples" WHERE ("examples".section_id = 1) [0m
+  [4;36;1mExample Load (0.2ms)[0m   [0;1mSELECT * FROM "examples" WHERE ("examples".section_id = 1) ORDER BY created_at desc[0m
+[paperclip] Paperclip attachment file on Example initialized.
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "how_tos" INNER JOIN "tutorials" ON "how_tos".id = "tutorials".how_to_id WHERE (("tutorials".course_id = 1)) [0m
+  [4;36;1mHowTo Load (0.1ms)[0m   [0;1mSELECT "how_tos".* FROM "how_tos" INNER JOIN "tutorials" ON "how_tos".id = "tutorials".how_to_id WHERE (("tutorials".course_id = 1)) [0m
+  [4;35;1mStep Load (0.2ms)[0m   [0mSELECT * FROM "steps" WHERE ("steps".how_to_id = 1) ORDER BY position LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "materials" WHERE ("materials".course_id = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.6ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (84.2ms)
+Completed in 235ms (View: 124, DB: 3) | 200 OK [http://localhost/semesters/1-Fall2012/sections/1-How-to-Program/assignments]
+
+
+Processing SectionsController#index (for 127.0.0.1 at 2011-09-01 09:04:54) [GET]
+  Parameters: {"semester_id"=>1}
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+Rendering template within layouts/application
+Rendering sections/index
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.8ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (12.4ms)
+Completed in 46ms (View: 31, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing AssignmentsController#index (for 127.0.0.1 at 2011-09-01 09:04:57) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012", "section_id"=>"3-Blahing-your-Blah"}
+  [4;35;1mSemester Load (0.1ms)[0m   [0mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections"."id" = 3) [0m
+  [4;35;1mAssignment Load (0.3ms)[0m   [0mSELECT "assignments".* FROM "assignments" INNER JOIN "labs" ON "labs".id = "assignments".lab_id WHERE (labs.visible = 't') AND ("assignments".section_id = 3) ORDER BY duedate desc[0m
+Rendering template within layouts/application
+Rendering assignments/index
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+Rendered shared/_back_link (0.1ms)
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "examples" WHERE ("examples".section_id = 3) [0m
+  [4;36;1mExample Load (0.3ms)[0m   [0;1mSELECT * FROM "examples" WHERE ("examples".section_id = 3) ORDER BY created_at desc[0m
+[paperclip] Paperclip attachment file on Example initialized.
+[paperclip] Paperclip attachment file on Example initialized.
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "how_tos" INNER JOIN "tutorials" ON "how_tos".id = "tutorials".how_to_id WHERE (("tutorials".course_id = 2)) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "materials" WHERE ("materials".course_id = 2) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.2ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (12.6ms)
+Completed in 162ms (View: 45, DB: 2) | 200 OK [http://localhost/semesters/1-Fall2012/sections/3-Blahing-your-Blah/assignments]
+
+
+Processing SectionsController#index (for 127.0.0.1 at 2011-09-01 09:05:02) [GET]
+  Parameters: {"semester_id"=>1}
+  [4;36;1mSemester Load (33.7ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+Rendering template within layouts/application
+Rendering sections/index
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.3ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.3ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (12.5ms)
+Completed in 82ms (View: 30, DB: 35) | 200 OK [http://localhost/]
+
+
+Processing SemestersController#index (for 127.0.0.1 at 2011-09-01 09:05:06) [GET]
+  [4;35;1mSemester Load (0.8ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date desc[0m
+Rendering template within layouts/application
+Rendering semesters/index
+Rendered shared/_back_link (0.1ms)
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.3ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (28.9ms)
+Completed in 146ms (View: 138, DB: 2) | 200 OK [http://localhost/semesters]
+
+
+Processing InstructorsController#show (for 127.0.0.1 at 2011-09-01 09:05:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" WHERE ("instructors"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering instructors/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".instructor_id = 1) [0m
+Rendered shared/_back_link (0.1ms)
+  [4;36;1mDivision Load (0.1ms)[0m   [0;1mSELECT * FROM "divisions" WHERE ("divisions"."id" = 1) [0m
+[paperclip] Paperclip attachment office_hours on Instructor initialized.
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.3ms)
+  [4;35;1mInstructor Load (0.2ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (20.3ms)
+Completed in 129ms (View: 120, DB: 2) | 200 OK [http://localhost/instructors/1]
+
+
+Processing CoursesController#show (for 127.0.0.1 at 2011-09-01 09:05:15) [GET]
+  Parameters: {"id"=>"1-How-to-Program"}
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering courses/show
+Rendered shared/_back_link (0.1ms)
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".course_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "materials" WHERE ("materials".course_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "labs" WHERE ("labs".course_id = 1) [0m
+  [4;36;1mLab Load (0.1ms)[0m   [0;1mSELECT * FROM "labs" WHERE ("labs".course_id = 1) [0m
+  [4;35;1mRequirement Load (0.2ms)[0m   [0mSELECT * FROM "requirements" WHERE ("requirements".lab_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "how_tos" INNER JOIN "tutorials" ON "how_tos".id = "tutorials".how_to_id WHERE (("tutorials".course_id = 1)) [0m
+  [4;35;1mHowTo Load (0.1ms)[0m   [0mSELECT "how_tos".* FROM "how_tos" INNER JOIN "tutorials" ON "how_tos".id = "tutorials".how_to_id WHERE (("tutorials".course_id = 1)) [0m
+  [4;36;1mStep Load (0.3ms)[0m   [0;1mSELECT * FROM "steps" WHERE ("steps".how_to_id = 1) ORDER BY position LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".course_id = 1) [0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".course_id = 1) [0m
+  [4;35;1mSemester Load (0.2ms)[0m   [0mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 1) [0m
+  [4;36;1mSemester Load (0.1ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 2) [0m
+  [4;35;1mSemester Load (0.1ms)[0m   [0mSELECT * FROM "semesters" WHERE ("semesters"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 4) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.3ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (12.7ms)
+Completed in 176ms (View: 162, DB: 4) | 200 OK [http://localhost/courses/1-How-to-Program]
+
+
+Processing Admin::AdminController#index (for 127.0.0.1 at 2011-09-01 09:05:25) [GET]
+  [4;35;1mSemester Load (0.8ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date desc[0m
+Rendering template within layouts/application
+Rendering admin/admin/index
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "semesters" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "courses" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "students" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "instructors" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollment_statuses" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "divisions" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "general_contacts" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "grade_requests" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "homework_return_requests" [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (87.4ms)
+Completed in 135ms (View: 126, DB: 3) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::AdminController#index (for 127.0.0.1 at 2011-09-01 09:05:36) [GET]
+  [4;35;1mSemester Load (1.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date desc[0m
+Rendering template within layouts/application
+Rendering admin/admin/index
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "semesters" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "courses" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "students" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "instructors" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollment_statuses" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "divisions" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "general_contacts" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "grade_requests" [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "homework_return_requests" [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (20.1ms)
+Completed in 178ms (View: 169, DB: 3) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::AdminController#index (for 127.0.0.1 at 2011-09-01 09:05:45) [GET]
+  [4;35;1mSemester Load (2.1ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date desc[0m
+Rendering template within layouts/application
+Rendering admin/admin/index
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "semesters" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "courses" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "students" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "instructors" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollment_statuses" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "divisions" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "general_contacts" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "grade_requests" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "homework_return_requests" [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (20.9ms)
+Completed in 170ms (View: 159, DB: 4) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::AdminController#index (for 127.0.0.1 at 2011-09-01 09:05:53) [GET]
+  [4;35;1mSemester Load (0.8ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date desc[0m
+Rendering template within layouts/application
+Rendering admin/admin/index
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "semesters" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "courses" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "students" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "instructors" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollment_statuses" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "divisions" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "general_contacts" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "grade_requests" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "homework_return_requests" [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (96.5ms)
+Completed in 157ms (View: 141, DB: 3) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::AdminController#index (for 127.0.0.1 at 2011-09-01 09:06:00) [GET]
+  [4;35;1mSemester Load (0.9ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date desc[0m
+Rendering template within layouts/application
+Rendering admin/admin/index
+  [4;36;1mSemester Load (0.4ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "semesters" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "courses" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "students" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "instructors" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollment_statuses" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "divisions" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "general_contacts" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "grade_requests" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "homework_return_requests" [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (19.2ms)
+Completed in 182ms (View: 172, DB: 4) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::SemestersController#index (for 127.0.0.1 at 2011-09-01 09:06:08) [GET]
+  [4;35;1mSemester Load (0.8ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date desc[0m
+Rendering template within layouts/application
+Rendering admin/semesters/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.2ms)
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 3) [0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 2) [0m
+  [4;35;1mSection Load (0.1ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 4) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.2ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (21.0ms)
+Completed in 153ms (View: 54, DB: 3) | 200 OK [http://localhost/admin/semesters]
+
+
+Processing Admin::AdminController#index (for 127.0.0.1 at 2011-09-01 09:06:11) [GET]
+  [4;36;1mSemester Load (0.9ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date desc[0m
+Rendering template within layouts/application
+Rendering admin/admin/index
+  [4;35;1mSemester Load (0.2ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "semesters" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "courses" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "students" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "instructors" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "enrollment_statuses" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "divisions" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "general_contacts" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "grade_requests" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "homework_return_requests" [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.2ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (89.6ms)
+Completed in 138ms (View: 127, DB: 3) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::SectionsController#index (for 127.0.0.1 at 2011-09-01 09:06:13) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012"}
+  [4;36;1mSemester Load (0.1ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+Rendering template within layouts/application
+Rendering admin/sections/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".semester_id = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 3) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (108.6ms)
+Completed in 177ms (View: 142, DB: 2) | 200 OK [http://localhost/admin/semesters/1-Fall2012/sections]
+
+
+Processing Admin::SectionsController#show (for 127.0.0.1 at 2011-09-01 09:06:16) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012", "id"=>"1-How-to-Program"}
+  [4;36;1mSemester Load (0.1ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections"."id" = 1 AND ("sections".semester_id = 1)) [0m
+Rendering template within layouts/application
+Rendering admin/sections/show
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (0.2ms)
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "students" INNER JOIN "enrollments" ON "students".id = "enrollments".student_id WHERE (("enrollments".section_id = 1)) [0m
+  [4;36;1mStudent Load (0.1ms)[0m   [0;1mSELECT "students".* FROM "students" INNER JOIN "enrollments" ON "students".id = "enrollments".student_id WHERE (("enrollments".section_id = 1)) [0m
+  [4;35;1mEnrollment Load (0.1ms)[0m   [0mSELECT * FROM "enrollments" WHERE ("enrollments".student_id = 1 AND (section_id = 1)) LIMIT 1[0m
+Rendered shared/_title (0.6ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (94.7ms)
+Completed in 156ms (View: 135, DB: 2) | 200 OK [http://localhost/admin/semesters/1-Fall2012/sections/1-How-to-Program]
+
+
+Processing Admin::AssignmentsController#index (for 127.0.0.1 at 2011-09-01 09:06:20) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012", "section_id"=>"1-How-to-Program"}
+  [4;35;1mSemester Load (0.2ms)[0m   [0mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections"."id" = 1) [0m
+  [4;35;1mAssignment Load (0.3ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".section_id = 1) ORDER BY duedate desc, duedate desc[0m
+Rendering template within layouts/application
+Rendering admin/assignments/index
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+  [4;35;1mWork Load (0.3ms)[0m   [0mSELECT * FROM "works" WHERE ("works".assignment_id = 1) [0m
+  [4;36;1mLab Load (0.2ms)[0m   [0;1mSELECT * FROM "labs" WHERE ("labs"."id" = 1) [0m
+  [4;35;1mRequirement Load (0.3ms)[0m   [0mSELECT * FROM "requirements" WHERE ("requirements".lab_id = 1) [0m
+  [4;36;1mWork Load (0.2ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works".assignment_id = 3) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "awarded_points" WHERE ("awarded_points".work_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "labs" WHERE ("labs"."id" = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "requirements" WHERE ("requirements".lab_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "requirements" WHERE ("requirements".lab_id = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (13.2ms)
+Completed in 187ms (View: 164, DB: 3) | 200 OK [http://localhost/admin/semesters/1-Fall2012/sections/1-How-to-Program/assignments]
+
+
+Processing Admin::AssignmentsController#show (for 127.0.0.1 at 2011-09-01 09:06:24) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012", "section_id"=>"1-How-to-Program", "id"=>"1-Lab02"}
+  [4;36;1mSemester Load (0.4ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections"."id" = 1) [0m
+  [4;36;1mAssignment Load (0.2ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 1 AND ("assignments".section_id = 1)) ORDER BY duedate desc[0m
+Rendering template within layouts/application
+Rendering admin/assignments/show
+  [4;35;1mLab Load (0.2ms)[0m   [0mSELECT * FROM "labs" WHERE ("labs"."id" = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (0.1ms)
+  [4;35;1mWork Load (0.2ms)[0m   [0mSELECT * FROM "works" WHERE ("works".assignment_id = 1) [0m
+  [4;36;1mRequirement Load (0.2ms)[0m   [0;1mSELECT * FROM "requirements" WHERE ("requirements".lab_id = 1) [0m
+  [4;35;1mExtra Load (0.1ms)[0m   [0mSELECT * FROM "extras" WHERE ("extras".lab_id = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.5ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (15.1ms)
+Completed in 180ms (View: 154, DB: 3) | 200 OK [http://localhost/admin/semesters/1-Fall2012/sections/1-How-to-Program/assignments/1-Lab02]
+
+
+Processing Admin::AssignmentsController#index (for 127.0.0.1 at 2011-09-01 09:06:26) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012", "section_id"=>"1-How-to-Program"}
+  [4;35;1mSemester Load (0.1ms)[0m   [0mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections"."id" = 1) [0m
+  [4;35;1mAssignment Load (0.3ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".section_id = 1) ORDER BY duedate desc, duedate desc[0m
+Rendering template within layouts/application
+Rendering admin/assignments/index
+  [4;36;1mCourse Load (0.3ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.2ms)
+  [4;35;1mWork Load (0.2ms)[0m   [0mSELECT * FROM "works" WHERE ("works".assignment_id = 1) [0m
+  [4;36;1mLab Load (1.1ms)[0m   [0;1mSELECT * FROM "labs" WHERE ("labs"."id" = 1) [0m
+  [4;35;1mRequirement Load (0.3ms)[0m   [0mSELECT * FROM "requirements" WHERE ("requirements".lab_id = 1) [0m
+  [4;36;1mWork Load (0.3ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works".assignment_id = 3) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "awarded_points" WHERE ("awarded_points".work_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "labs" WHERE ("labs"."id" = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "requirements" WHERE ("requirements".lab_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "requirements" WHERE ("requirements".lab_id = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.4ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (19.0ms)
+Completed in 240ms (View: 193, DB: 5) | 200 OK [http://localhost/admin/semesters/1-Fall2012/sections/1-How-to-Program/assignments]
+
+
+Processing Admin::WorksController#index (for 127.0.0.1 at 2011-09-01 09:06:30) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012", "section_id"=>"1-How-to-Program", "assignment_id"=>"1-Lab02"}
+  [4;36;1mSemester Load (0.1ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections"."id" = 1) [0m
+  [4;36;1mAssignment Load (0.2ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments"."id" = 1) [0m
+  [4;35;1mWork Load (0.3ms)[0m   [0mSELECT * FROM "works" WHERE ("works".assignment_id = 1) [0m
+  [4;36;1mEnrollment Load (0.3ms)[0m   [0;1mSELECT * FROM "enrollments" WHERE ("enrollments".section_id = 1) [0m
+  [4;35;1mWork Load (0.2ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."assignment_id" = 1) AND ("works".enrollment_id = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering admin/works/index
+  [4;36;1mLab Load (0.3ms)[0m   [0;1mSELECT * FROM "labs" WHERE ("labs"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.2ms)
+  [4;36;1mRequirement Load (0.3ms)[0m   [0;1mSELECT * FROM "requirements" WHERE ("requirements".lab_id = 1) [0m
+  [4;35;1mStudent Load (0.4ms)[0m   [0mSELECT * FROM "students" WHERE ("students"."id" = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.4ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.6ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.5ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (114.8ms)
+Completed in 306ms (View: 157, DB: 5) | 200 OK [http://localhost/admin/semesters/1-Fall2012/sections/1-How-to-Program/assignments/1-Lab02/works]
+
+
+Processing Admin::AssignmentsController#index (for 127.0.0.1 at 2011-09-01 09:06:35) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012", "section_id"=>"1-How-to-Program"}
+  [4;35;1mSemester Load (0.1ms)[0m   [0mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections"."id" = 1) [0m
+  [4;35;1mAssignment Load (0.3ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".section_id = 1) ORDER BY duedate desc, duedate desc[0m
+Rendering template within layouts/application
+Rendering admin/assignments/index
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.2ms)
+  [4;35;1mWork Load (0.2ms)[0m   [0mSELECT * FROM "works" WHERE ("works".assignment_id = 1) [0m
+  [4;36;1mLab Load (0.1ms)[0m   [0;1mSELECT * FROM "labs" WHERE ("labs"."id" = 1) [0m
+  [4;35;1mRequirement Load (0.2ms)[0m   [0mSELECT * FROM "requirements" WHERE ("requirements".lab_id = 1) [0m
+  [4;36;1mWork Load (0.2ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works".assignment_id = 3) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "awarded_points" WHERE ("awarded_points".work_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "labs" WHERE ("labs"."id" = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "requirements" WHERE ("requirements".lab_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "requirements" WHERE ("requirements".lab_id = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.2ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (12.3ms)
+Completed in 167ms (View: 145, DB: 3) | 200 OK [http://localhost/admin/semesters/1-Fall2012/sections/1-How-to-Program/assignments]
+
+
+Processing Admin::SectionsController#show (for 127.0.0.1 at 2011-09-01 09:06:37) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012", "id"=>"1-How-to-Program"}
+  [4;36;1mSemester Load (0.1ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections"."id" = 1 AND ("sections".semester_id = 1)) [0m
+Rendering template within layouts/application
+Rendering admin/sections/show
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (0.2ms)
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "students" INNER JOIN "enrollments" ON "students".id = "enrollments".student_id WHERE (("enrollments".section_id = 1)) [0m
+  [4;36;1mStudent Load (0.1ms)[0m   [0;1mSELECT "students".* FROM "students" INNER JOIN "enrollments" ON "students".id = "enrollments".student_id WHERE (("enrollments".section_id = 1)) [0m
+  [4;35;1mEnrollment Load (0.1ms)[0m   [0mSELECT * FROM "enrollments" WHERE ("enrollments".student_id = 1 AND (section_id = 1)) LIMIT 1[0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (13.1ms)
+Completed in 185ms (View: 135, DB: 2) | 200 OK [http://localhost/admin/semesters/1-Fall2012/sections/1-How-to-Program]
+
+
+Processing Admin::SectionsController#index (for 127.0.0.1 at 2011-09-01 09:06:38) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012"}
+  [4;35;1mSemester Load (0.1ms)[0m   [0mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+Rendering template within layouts/application
+Rendering admin/sections/index
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".semester_id = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.2ms)
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 3) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.3ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (104.2ms)
+Completed in 159ms (View: 138, DB: 2) | 200 OK [http://localhost/admin/semesters/1-Fall2012/sections]
+
+
+Processing Admin::AdminController#index (for 127.0.0.1 at 2011-09-01 09:06:40) [GET]
+  [4;35;1mSemester Load (0.8ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date desc[0m
+Rendering template within layouts/application
+Rendering admin/admin/index
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "semesters" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "courses" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "students" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "instructors" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollment_statuses" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "divisions" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "general_contacts" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "grade_requests" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "homework_return_requests" [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.3ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (20.0ms)
+Completed in 165ms (View: 154, DB: 4) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::CoursesController#index (for 127.0.0.1 at 2011-09-01 09:06:42) [GET]
+  [4;35;1mCourse Load (20.3ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendering template within layouts/application
+Rendering admin/courses/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.8ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.4ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (125.2ms)
+Completed in 170ms (View: 138, DB: 22) | 200 OK [http://localhost/admin/courses]
+
+
+Processing Admin::CoursesController#show (for 127.0.0.1 at 2011-09-01 09:06:45) [GET]
+  Parameters: {"id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/courses/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".course_id = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (0.1ms)
+  [4;35;1mLab Load (0.2ms)[0m   [0mSELECT * FROM "labs" WHERE ("labs".course_id = 1) [0m
+  [4;36;1mMaterial Load (0.2ms)[0m   [0;1mSELECT * FROM "materials" WHERE ("materials".course_id = 1) [0m
+  [4;35;1mTutorial Load (0.2ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;36;1mHowTo Load (0.2ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".course_id = 1) [0m
+  [4;36;1mPolicy Load (0.2ms)[0m   [0;1mSELECT * FROM "policies" WHERE ("policies".course_id = 1) ORDER BY position[0m
+  [4;35;1mBook Load (0.1ms)[0m   [0mSELECT * FROM "books" WHERE ("books".course_id = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (19.7ms)
+Completed in 167ms (View: 151, DB: 3) | 200 OK [http://localhost/admin/courses/1-How-to-Program]
+
+
+Processing Admin::ObjectivesController#index (for 127.0.0.1 at 2011-09-01 09:06:54) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".course_id = 1) [0m
+Rendering template within layouts/application
+Rendering admin/objectives/index
+Rendered shared/_back_link (0.1ms)
+Rendered admin/objectives/_objective (3.5ms)
+Rendered shared/_title (0.2ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (28.1ms)
+Completed in 152ms (View: 135, DB: 1) | 200 OK [http://localhost/admin/courses/1-How-to-Program/objectives]
+
+
+Processing Admin::CoursesController#show (for 127.0.0.1 at 2011-09-01 09:06:56) [GET]
+  Parameters: {"id"=>"1-How-to-Program"}
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/courses/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".course_id = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (0.1ms)
+  [4;36;1mLab Load (0.2ms)[0m   [0;1mSELECT * FROM "labs" WHERE ("labs".course_id = 1) [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM "materials" WHERE ("materials".course_id = 1) [0m
+  [4;36;1mTutorial Load (0.2ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;35;1mHowTo Load (0.2ms)[0m   [0mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".course_id = 1) [0m
+  [4;35;1mPolicy Load (0.7ms)[0m   [0mSELECT * FROM "policies" WHERE ("policies".course_id = 1) ORDER BY position[0m
+  [4;36;1mBook Load (0.1ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books".course_id = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (19.3ms)
+Completed in 166ms (View: 148, DB: 3) | 200 OK [http://localhost/admin/courses/1-How-to-Program]
+
+
+Processing Admin::ObjectivesController#index (for 127.0.0.1 at 2011-09-01 09:07:04) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".course_id = 1) [0m
+Rendering template within layouts/application
+Rendering admin/objectives/index
+Rendered shared/_back_link (0.1ms)
+Rendered admin/objectives/_objective (3.0ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.3ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (97.2ms)
+Completed in 121ms (View: 107, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/objectives]
+
+
+Processing Admin::CoursesController#show (for 127.0.0.1 at 2011-09-01 09:07:14) [GET]
+  Parameters: {"id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/courses/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".course_id = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (0.1ms)
+  [4;35;1mLab Load (0.2ms)[0m   [0mSELECT * FROM "labs" WHERE ("labs".course_id = 1) [0m
+  [4;36;1mMaterial Load (0.2ms)[0m   [0;1mSELECT * FROM "materials" WHERE ("materials".course_id = 1) [0m
+  [4;35;1mTutorial Load (0.2ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;36;1mHowTo Load (0.2ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".course_id = 1) [0m
+  [4;36;1mPolicy Load (0.2ms)[0m   [0;1mSELECT * FROM "policies" WHERE ("policies".course_id = 1) ORDER BY position[0m
+  [4;35;1mBook Load (0.1ms)[0m   [0mSELECT * FROM "books" WHERE ("books".course_id = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (107.4ms)
+Completed in 186ms (View: 171, DB: 3) | 200 OK [http://localhost/admin/courses/1-How-to-Program]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 09:07:17) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mTutorial Load (0.3ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;35;1mHowTo Load (0.2ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+  [4;36;1mHowTo Load (0.2ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (7.0ms)
+  [4;35;1mTutorial Load (0.3ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.3ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (115.7ms)
+Completed in 154ms (View: 130, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::HowTosController#index (for 127.0.0.1 at 2011-09-01 09:07:20) [GET]
+  [4;35;1mHowTo Load (0.7ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (128.4ms)
+Completed in 148ms (View: 137, DB: 2) | 200 OK [http://localhost/admin/how_tos]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 09:08:30) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mTutorial Load (0.3ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;35;1mHowTo Load (0.1ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+  [4;36;1mHowTo Load (0.2ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (4.1ms)
+  [4;35;1mTutorial Load (0.3ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (29.2ms)
+Completed in 160ms (View: 40, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::HowTosController#index (for 127.0.0.1 at 2011-09-01 09:08:35) [GET]
+  [4;35;1mHowTo Load (0.7ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (104.9ms)
+Completed in 212ms (View: 113, DB: 2) | 200 OK [http://localhost/admin/how_tos]
+
+
+Processing Admin::HowTosController#new (for 127.0.0.1 at 2011-09-01 09:08:37) [GET]
+Rendering template within layouts/application
+Rendering admin/how_tos/new
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.2ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (134.1ms)
+Completed in 174ms (View: 146, DB: 1) | 200 OK [http://localhost/admin/how_tos/new]
+
+
+Processing Admin::HowTosController#create (for 127.0.0.1 at 2011-09-01 09:08:57) [POST]
+  Parameters: {"how_to"=>{"title"=>"This is a new How_to", "description"=>"This how to will teach you something."}, "authenticity_token"=>"lcfhkTa4IVUTwFhco4LcGWWrmhw6O1xGh3Fk96mHBbA="}
+  [4;36;1mHowTo Create (1.2ms)[0m   [0;1mINSERT INTO "how_tos" ("created_at", "title", "updated_at", "description") VALUES('2011-09-01 14:08:57', 'This is a new How_to', '2011-09-01 14:08:57', 'This how to will teach you something.')[0m
+Redirected to http://localhost:3000/admin/how_tos/2-This-is-a-new-How-to
+Completed in 117ms (DB: 1) | 302 Found [http://localhost/admin/how_tos]
+
+
+Processing Admin::HowTosController#show (for 127.0.0.1 at 2011-09-01 09:08:57) [GET]
+  Parameters: {"id"=>"2-This-is-a-new-How-to"}
+  [4;35;1mHowTo Load (0.1ms)[0m   [0mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "steps" WHERE ("steps".how_to_id = 2) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (0.1ms)
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "courses" INNER JOIN "tutorials" ON "courses".id = "tutorials".course_id WHERE (("tutorials".how_to_id = 2)) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT "courses".* FROM "courses" INNER JOIN "tutorials" ON "courses".id = "tutorials".course_id WHERE (("tutorials".how_to_id = 2)) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (107.2ms)
+Completed in 238ms (View: 227, DB: 2) | 200 OK [http://localhost/admin/how_tos/2-This-is-a-new-How-to]
+
+
+Processing Admin::StepsController#new (for 127.0.0.1 at 2011-09-01 09:09:00) [GET]
+  Parameters: {"how_to_id"=>"2-This-is-a-new-How-to"}
+  [4;36;1mHowTo Load (0.2ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering admin/steps/new
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCourse Load (0.3ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.3ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.3ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (140.2ms)
+Completed in 168ms (View: 152, DB: 2) | 200 OK [http://localhost/admin/how_tos/2-This-is-a-new-How-to/steps/new]
+
+
+Processing Admin::StepsController#create (for 127.0.0.1 at 2011-09-01 09:09:13) [POST]
+  Parameters: {"step"=>{"title"=>"Blah Blah Blah", "instructions"=>"This blah will blah the blah."}, "authenticity_token"=>"lcfhkTa4IVUTwFhco4LcGWWrmhw6O1xGh3Fk96mHBbA=", "how_to_id"=>"2-This-is-a-new-How-to"}
+  [4;36;1mHowTo Load (0.2ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 2) [0m
+[paperclip] Paperclip attachment image on Step initialized.
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 2) [0m
+  [4;36;1mStep Create (0.4ms)[0m   [0;1mINSERT INTO "steps" ("position", "created_at", "image_file_name", "title", "image_file_size", "updated_at", "image_content_type", "how_to_id", "instructions", "image_updated_at") VALUES(NULL, '2011-09-01 14:09:13', NULL, 'Blah Blah Blah', NULL, '2011-09-01 14:09:13', NULL, 2, 'This blah will blah the blah.', NULL)[0m
+[paperclip] Saving attachments.
+[paperclip] Saving files for image
+[paperclip] Deleting files for image
+[paperclip] Writing files for image
+Redirected to http://localhost:3000/admin/how_tos/2-This-is-a-new-How-to
+Completed in 41ms (DB: 1) | 302 Found [http://localhost/admin/how_tos/2-This-is-a-new-How-to/steps]
+
+
+Processing Admin::HowTosController#show (for 127.0.0.1 at 2011-09-01 09:09:13) [GET]
+  Parameters: {"id"=>"2-This-is-a-new-How-to"}
+  [4;35;1mHowTo Load (0.1ms)[0m   [0mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "steps" WHERE ("steps".how_to_id = 2) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (0.1ms)
+  [4;35;1mStep Load (0.2ms)[0m   [0mSELECT * FROM "steps" WHERE ("steps".how_to_id = 2) ORDER BY position[0m
+Rendered admin/steps/_step (4.3ms)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "courses" INNER JOIN "tutorials" ON "courses".id = "tutorials".course_id WHERE (("tutorials".how_to_id = 2)) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT "courses".* FROM "courses" INNER JOIN "tutorials" ON "courses".id = "tutorials".course_id WHERE (("tutorials".how_to_id = 2)) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (107.5ms)
+Completed in 244ms (View: 234, DB: 2) | 200 OK [http://localhost/admin/how_tos/2-This-is-a-new-How-to]
+
+
+Processing Admin::StepsController#sort (for 127.0.0.1 at 2011-09-01 09:09:19) [POST]
+  Parameters: {"steps"=>["2"], "authenticity_token"=>"lcfhkTa4IVUTwFhco4LcGWWrmhw6O1xGh3Fk96mHBbA=", "how_to_id"=>"2-This-is-a-new-How-to"}
+  [4;35;1mHowTo Load (0.1ms)[0m   [0mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 2) [0m
+  [4;36;1mStep Load (0.3ms)[0m   [0;1mSELECT * FROM "steps" WHERE ("steps".how_to_id = 2) ORDER BY position[0m
+  [4;35;1mStep Update (0.2ms)[0m   [0mUPDATE "steps" SET "updated_at" = '2011-09-01 14:09:19', "position" = 1 WHERE "id" = 2[0m
+[paperclip] Saving attachments.
+[paperclip] Paperclip attachment image on Step initialized.
+[paperclip] Saving files for image
+[paperclip] Deleting files for image
+[paperclip] Writing files for image
+Rendering admin/steps/sort
+  [4;36;1mStep Load (0.4ms)[0m   [0;1mSELECT * FROM "steps" WHERE ("steps".how_to_id = 2) ORDER BY position[0m
+Rendered admin/steps/_step (4.8ms)
+Completed in 81ms (View: 12, DB: 1) | 200 OK [http://localhost/admin/how_tos/2-This-is-a-new-How-to/steps/sort]
+
+
+Processing Admin::HowTosController#index (for 127.0.0.1 at 2011-09-01 09:09:23) [GET]
+  [4;35;1mHowTo Load (0.8ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.2ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (152.5ms)
+Completed in 174ms (View: 164, DB: 2) | 200 OK [http://localhost/admin/how_tos]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 09:09:26) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mTutorial Load (0.3ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;35;1mHowTo Load (0.2ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+  [4;36;1mHowTo Load (0.2ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (3.7ms)
+  [4;35;1mTutorial Load (0.2ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+  [4;36;1mTutorial Load (0.1ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=2)) ORDER BY position LIMIT 1[0m
+Rendered admin/how_tos/_how_to (3.6ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.4ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (104.2ms)
+Completed in 236ms (View: 122, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 09:10:34) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mTutorial Load (0.3ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;36;1mHowTo Load (0.1ms)[0m   [0;1mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.2ms)
+  [4;35;1mHowTo Load (0.2ms)[0m   [0mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (3.7ms)
+  [4;36;1mTutorial Load (0.2ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+  [4;35;1mTutorial Load (0.1ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=2)) ORDER BY position LIMIT 1[0m
+Rendered admin/how_tos/_how_to (2.7ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.5ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (115.9ms)
+Completed in 155ms (View: 134, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 09:10:38) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mTutorial Load (0.3ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;35;1mHowTo Load (0.2ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.2ms)
+  [4;36;1mHowTo Load (0.2ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (4.3ms)
+  [4;35;1mTutorial Load (0.2ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+  [4;36;1mTutorial Load (0.1ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=2)) ORDER BY position LIMIT 1[0m
+Rendered admin/how_tos/_how_to (2.7ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (30.1ms)
+Completed in 163ms (View: 141, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 09:11:24) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mTutorial Load (0.2ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;36;1mHowTo Load (0.2ms)[0m   [0;1mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (2.2ms)
+  [4;35;1mHowTo Load (0.2ms)[0m   [0mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (4.0ms)
+  [4;36;1mTutorial Load (0.2ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+  [4;35;1mTutorial Load (0.1ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=2)) ORDER BY position LIMIT 1[0m
+Rendered admin/how_tos/_how_to (3.5ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (101.3ms)
+Completed in 146ms (View: 123, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 09:12:15) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mTutorial Load (0.3ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;35;1mHowTo Load (0.2ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+  [4;36;1mHowTo Load (0.3ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (4.3ms)
+  [4;35;1mTutorial Load (0.2ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+  [4;36;1mTutorial Load (0.1ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=2)) ORDER BY position LIMIT 1[0m
+Rendered admin/how_tos/_how_to (3.5ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (29.1ms)
+Completed in 176ms (View: 141, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 09:12:56) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mTutorial Load (0.3ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;36;1mHowTo Load (0.1ms)[0m   [0;1mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+  [4;35;1mHowTo Load (0.2ms)[0m   [0mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (3.6ms)
+  [4;36;1mTutorial Load (0.2ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+  [4;35;1mTutorial Load (0.1ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=2)) ORDER BY position LIMIT 1[0m
+Rendered admin/how_tos/_how_to (2.8ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (102.6ms)
+Completed in 135ms (View: 117, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 09:13:07) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mTutorial Load (0.3ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;35;1mHowTo Load (0.1ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+  [4;36;1mHowTo Load (0.1ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (3.7ms)
+  [4;35;1mTutorial Load (0.2ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+  [4;36;1mTutorial Load (0.1ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=2)) ORDER BY position LIMIT 1[0m
+Rendered admin/how_tos/_how_to (2.7ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.4ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (123.1ms)
+Completed in 157ms (View: 137, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 09:13:36) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mTutorial Load (0.2ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;36;1mHowTo Load (0.1ms)[0m   [0;1mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+  [4;35;1mHowTo Load (0.1ms)[0m   [0mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (4.0ms)
+  [4;36;1mTutorial Load (0.2ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+  [4;35;1mTutorial Load (0.1ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=2)) ORDER BY position LIMIT 1[0m
+Rendered admin/how_tos/_how_to (2.7ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (99.8ms)
+Completed in 131ms (View: 114, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 09:14:07) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mTutorial Load (0.3ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;35;1mHowTo Load (0.1ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+  [4;36;1mHowTo Load (0.1ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (3.6ms)
+  [4;35;1mTutorial Load (0.2ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+  [4;36;1mTutorial Load (0.1ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=2)) ORDER BY position LIMIT 1[0m
+Rendered admin/how_tos/_how_to (3.3ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (120.8ms)
+Completed in 157ms (View: 138, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 09:14:17) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mTutorial Load (0.3ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;36;1mHowTo Load (0.2ms)[0m   [0;1mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.2ms)
+  [4;35;1mHowTo Load (0.2ms)[0m   [0mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (4.8ms)
+  [4;36;1mTutorial Load (0.2ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+  [4;35;1mTutorial Load (0.1ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=2)) ORDER BY position LIMIT 1[0m
+Rendered admin/how_tos/_how_to (3.4ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (99.0ms)
+Completed in 231ms (View: 120, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 09:14:33) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mTutorial Load (0.2ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;35;1mHowTo Load (0.1ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+  [4;36;1mHowTo Load (0.1ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (5.3ms)
+  [4;35;1mTutorial Load (0.3ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+  [4;36;1mTutorial Load (0.1ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=2)) ORDER BY position LIMIT 1[0m
+Rendered admin/how_tos/_how_to (3.4ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (118.9ms)
+Completed in 160ms (View: 139, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::CoursesController#show (for 127.0.0.1 at 2011-09-01 09:17:02) [GET]
+  Parameters: {"id"=>"1-How-to-Program"}
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/courses/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".course_id = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (0.1ms)
+  [4;36;1mLab Load (0.2ms)[0m   [0;1mSELECT * FROM "labs" WHERE ("labs".course_id = 1) [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM "materials" WHERE ("materials".course_id = 1) [0m
+  [4;36;1mTutorial Load (0.2ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;35;1mHowTo Load (0.1ms)[0m   [0mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+  [4;36;1mObjective Load (0.1ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".course_id = 1) [0m
+  [4;35;1mPolicy Load (0.2ms)[0m   [0mSELECT * FROM "policies" WHERE ("policies".course_id = 1) ORDER BY position[0m
+  [4;36;1mBook Load (0.1ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books".course_id = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.2ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.4ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (97.3ms)
+Completed in 248ms (View: 138, DB: 3) | 200 OK [http://localhost/admin/courses/1-How-to-Program]
+
+
+Processing Admin::ObjectivesController#index (for 127.0.0.1 at 2011-09-01 09:17:06) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".course_id = 1) [0m
+Rendering template within layouts/application
+Rendering admin/objectives/index
+Rendered shared/_back_link (0.1ms)
+Rendered admin/objectives/_objective (4.2ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (124.1ms)
+Completed in 154ms (View: 138, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/objectives]
+
+
+Processing Admin::ObjectivesController#index (for 127.0.0.1 at 2011-09-01 09:17:12) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".course_id = 1) [0m
+Rendering template within layouts/application
+Rendering admin/objectives/index
+Rendered shared/_back_link (0.1ms)
+Rendered admin/objectives/_objective (5.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (114.0ms)
+Completed in 148ms (View: 132, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/objectives]
+
+
+Processing Admin::ObjectivesController#index (for 127.0.0.1 at 2011-09-01 09:17:48) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".course_id = 1) [0m
+Rendering template within layouts/application
+Rendering admin/objectives/index
+Rendered shared/_back_link (0.1ms)
+Rendered admin/objectives/_objective (3.4ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.4ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (117.8ms)
+Completed in 143ms (View: 128, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/objectives]
+
+
+Processing Admin::ObjectivesController#index (for 127.0.0.1 at 2011-09-01 09:17:59) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mObjective Load (0.2ms)[0m   [0;1mSELECT * FROM "objectives" WHERE ("objectives".course_id = 1) [0m
+Rendering template within layouts/application
+Rendering admin/objectives/index
+Rendered shared/_back_link (0.1ms)
+Rendered admin/objectives/_objective (3.2ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.2ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (29.1ms)
+Completed in 55ms (View: 41, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/objectives]
+
+
+Processing Admin::ObjectivesController#index (for 127.0.0.1 at 2011-09-01 09:18:06) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mObjective Load (0.2ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".course_id = 1) [0m
+Rendering template within layouts/application
+Rendering admin/objectives/index
+Rendered shared/_back_link (0.1ms)
+Rendered admin/objectives/_objective (5.0ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (116.4ms)
+Completed in 145ms (View: 129, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/objectives]
+
+
+Processing Admin::CoursesController#show (for 127.0.0.1 at 2011-09-01 09:18:48) [GET]
+  Parameters: {"id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/courses/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".course_id = 1) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (0.1ms)
+  [4;35;1mLab Load (0.2ms)[0m   [0mSELECT * FROM "labs" WHERE ("labs".course_id = 1) [0m
+  [4;36;1mMaterial Load (0.2ms)[0m   [0;1mSELECT * FROM "materials" WHERE ("materials".course_id = 1) [0m
+  [4;35;1mTutorial Load (0.2ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;36;1mHowTo Load (0.1ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+  [4;35;1mObjective Load (0.1ms)[0m   [0mSELECT * FROM "objectives" WHERE ("objectives".course_id = 1) [0m
+  [4;36;1mPolicy Load (0.2ms)[0m   [0;1mSELECT * FROM "policies" WHERE ("policies".course_id = 1) ORDER BY position[0m
+  [4;35;1mBook Load (0.1ms)[0m   [0mSELECT * FROM "books" WHERE ("books".course_id = 1) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (18.1ms)
+Completed in 158ms (View: 146, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program]
+
+
+Processing Admin::TutorialsController#index (for 127.0.0.1 at 2011-09-01 09:19:02) [GET]
+  Parameters: {"course_id"=>"1-How-to-Program"}
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mTutorial Load (0.4ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1) ORDER BY position[0m
+  [4;35;1mHowTo Load (0.3ms)[0m   [0mSELECT * FROM "how_tos" [0m
+Rendering template within layouts/application
+Rendering admin/tutorials/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+  [4;36;1mHowTo Load (0.2ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 1) [0m
+Rendered admin/tutorials/_tutorial (3.7ms)
+  [4;35;1mTutorial Load (0.2ms)[0m   [0mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=1)) ORDER BY position LIMIT 1[0m
+  [4;36;1mTutorial Load (0.1ms)[0m   [0;1mSELECT * FROM "tutorials" WHERE ("tutorials".course_id = 1 AND (how_to_id=2)) ORDER BY position LIMIT 1[0m
+Rendered admin/how_tos/_how_to (3.5ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.2ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (96.7ms)
+Completed in 225ms (View: 114, DB: 2) | 200 OK [http://localhost/admin/courses/1-How-to-Program/tutorials]
+
+
+Processing Admin::HowTosController#edit (for 127.0.0.1 at 2011-09-01 09:22:58) [GET]
+  Parameters: {"id"=>"2-This-is-a-new-How-to"}
+  [4;36;1mHowTo Load (0.1ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/edit
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_show_link (55.6ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.2ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (86.2ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (122.9ms)
+Completed in 205ms (View: 109, DB: 87) | 200 OK [http://localhost/admin/how_tos/2-This-is-a-new-How-to/edit]
+
+
+Processing Admin::HowTosController#show (for 127.0.0.1 at 2011-09-01 09:23:01) [GET]
+  Parameters: {"id"=>"2-This-is-a-new-How-to"}
+  [4;36;1mHowTo Load (0.2ms)[0m   [0;1mSELECT * FROM "how_tos" WHERE ("how_tos"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering admin/how_tos/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "steps" WHERE ("steps".how_to_id = 2) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (0.1ms)
+  [4;36;1mStep Load (0.2ms)[0m   [0;1mSELECT * FROM "steps" WHERE ("steps".how_to_id = 2) ORDER BY position[0m
+Rendered admin/steps/_step (2.8ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "courses" INNER JOIN "tutorials" ON "courses".id = "tutorials".course_id WHERE (("tutorials".how_to_id = 2)) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT "courses".* FROM "courses" INNER JOIN "tutorials" ON "courses".id = "tutorials".course_id WHERE (("tutorials".how_to_id = 2)) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.3ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.4ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCourse Load (0.3ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (42.7ms)
+Completed in 192ms (View: 180, DB: 3) | 200 OK [http://localhost/admin/how_tos/2-This-is-a-new-How-to]
+
+
+Processing Admin::AssignmentsController#index (for 127.0.0.1 at 2011-09-01 10:08:24) [GET]
+  Parameters: {"semester_id"=>"1-Fall2012", "section_id"=>"1-How-to-Program"}
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 1) [0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections"."id" = 1) [0m
+Redirected to http://localhost:3000/admin/admin/signin
+Filter chain halted as [:authenticate] rendered_or_redirected.
+Completed in 169ms (DB: 0) | 302 Found [http://localhost/admin/semesters/1-Fall2012/sections/1-How-to-Program/assignments]
+
+
+Processing Admin::AdminController#signin (for 127.0.0.1 at 2011-09-01 10:08:24) [GET]
+Rendering template within layouts/application
+Rendering admin/admin/signin
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.8ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (151.7ms)
+Completed in 162ms (View: 157, DB: 2) | 200 OK [http://localhost/admin/admin/signin]
+
+
+Processing Admin::AdminController#index (for 127.0.0.1 at 2011-09-01 14:40:35) [GET]
+  [4;35;1mSemester Load (1.1ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date desc[0m
+Rendering template within layouts/application
+Rendering admin/admin/index
+  [4;36;1mSemester Load (0.2ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "semesters" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "courses" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "students" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "instructors" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollment_statuses" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "divisions" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "general_contacts" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "grade_requests" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "homework_return_requests" [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (36.3ms)
+Completed in 196ms (View: 174, DB: 3) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::SemestersController#index (for 127.0.0.1 at 2011-09-01 14:41:08) [GET]
+  [4;35;1mSemester Load (1.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date desc[0m
+Rendering template within layouts/application
+Rendering admin/semesters/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.1ms)
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 3) [0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 2) [0m
+  [4;35;1mSection Load (0.1ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 4) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.2ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.3ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (21.0ms)
+Completed in 141ms (View: 129, DB: 3) | 200 OK [http://localhost/admin/semesters/]
+
+
+Processing Admin::SemestersController#show (for 127.0.0.1 at 2011-09-01 14:41:14) [GET]
+  Parameters: {"id"=>"3-Fall1997"}
+  [4;36;1mSemester Load (0.1ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering admin/semesters/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".semester_id = 3) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (0.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.3ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (21.5ms)
+Completed in 140ms (View: 127, DB: 1) | 200 OK [http://localhost/admin/semesters/3-Fall1997]
+
+
+Processing Admin::SemestersController#index (for 127.0.0.1 at 2011-09-01 14:41:17) [GET]
+  [4;35;1mSemester Load (0.8ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date desc[0m
+Rendering template within layouts/application
+Rendering admin/semesters/index
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.2ms)
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 3) [0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 2) [0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 4) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;35;1mInstructor Load (0.4ms)[0m   [0mSELECT * FROM "instructors" [0m
+  [4;36;1mSemester Load (0.5ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;35;1mCourse Load (0.3ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" [0m
+Rendered shared/_footer (31.6ms)
+Completed in 215ms (View: 183, DB: 4) | 200 OK [http://localhost/admin/semesters]
+
+
+Processing Admin::SemestersController#show (for 127.0.0.1 at 2011-09-01 14:41:23) [GET]
+  Parameters: {"id"=>"3-Fall1997"}
+  [4;36;1mSemester Load (0.1ms)[0m   [0;1mSELECT * FROM "semesters" WHERE ("semesters"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering admin/semesters/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".semester_id = 3) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_edit_link (0.1ms)
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.2ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.4ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.3ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (110.1ms)
+Completed in 136ms (View: 124, DB: 2) | 200 OK [http://localhost/admin/semesters/3-Fall1997]
+
+
+Processing Admin::SectionsController#index (for 127.0.0.1 at 2011-09-01 14:41:26) [GET]
+  Parameters: {"semester_id"=>"3-Fall1997"}
+  [4;35;1mSemester Load (0.2ms)[0m   [0mSELECT * FROM "semesters" WHERE ("semesters"."id" = 3) [0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM "sections" WHERE ("sections".semester_id = 3) [0m
+Rendering template within layouts/application
+Rendering admin/sections/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "sections" WHERE ("sections".semester_id = 3) [0m
+Rendered shared/_back_link (0.1ms)
+Rendered shared/_new_link (0.2ms)
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollments" WHERE ("enrollments".section_id = 4) [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.1ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mSemester Load (0.4ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (117.1ms)
+Completed in 286ms (View: 199, DB: 3) | 200 OK [http://localhost/admin/semesters/3-Fall1997/sections]
+
+
+Processing Admin::AdminController#index (for 127.0.0.1 at 2011-09-01 14:41:30) [GET]
+  [4;35;1mSemester Load (0.8ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date desc[0m
+Rendering template within layouts/application
+Rendering admin/admin/index
+  [4;36;1mSemester Load (1.4ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "semesters" [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "courses" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "students" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "instructors" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "enrollment_statuses" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "divisions" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "general_contacts" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "grade_requests" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "homework_return_requests" [0m
+Rendered shared/_title (0.1ms)
+Rendered shared/_top_bar (0.1ms)
+Rendered shared/_header (0.2ms)
+Rendered shared/_messages (0.1ms)
+  [4;36;1mInstructor Load (0.3ms)[0m   [0;1mSELECT * FROM "instructors" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "semesters" ORDER BY start_date[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM "sections" WHERE ("sections".semester_id = 1) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" WHERE ("courses"."id" = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM "courses" WHERE ("courses"."id" = 2) [0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM "courses" [0m
+Rendered shared/_footer (20.3ms)
+Completed in 164ms (View: 152, DB: 5) | 200 OK [http://localhost/admin]
