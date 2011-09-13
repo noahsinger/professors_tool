@@ -29,6 +29,7 @@ xxx@xxx.xxx %></h1>
 					Removed
 				<% xxx@xxx.xxx %>
 					<%= xxx@xxx.xxx @work.upload.url %>
+					<%# link_to @work.upload_file_name, xxx@xxx.xxx %>
 				<% else %>
 					No Upload
 				<% end %>  

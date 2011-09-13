@@ -42,7 +42,7 @@ class Admin::ExamplesControllerTest < ActionController::TestCase
   test "should update example" do
     put :update, :id => examples(:one).to_param, :section_id => sections(:jck1003_section_1), :semester_id => sections(:jck1003_section_1).semester_id,
     :example => { :name => 'blah blah' }
-    assert_redirected_to assert_redirected_to admin_semester_section_example_path(assigns(:semester),assigns(:section),assigns(:example))
+    assert_redirected_to admin_semester_section_example_path(assigns(:semester),assigns(:section),assigns(:example))
   end
 
   test "should destroy example" do

@@ -44,7 +44,7 @@ ActionController::Routing::Routes.draw do |map|
         sections.resources :examples
         
         sections.resources :assignments do |assignments|
-          assignments.resources :works, :member => {:grade => :get, :record_score => :put, :destroy_grade => :delete}, :collection => {:new_for_all => :get}
+          assignments.resources :works, :member => {:grade => :get, :record_score => :put, :destroy_grade => :delete, :download => :get}, :collection => {:new_for_all => :get}
           assignments.resources :works do |works|
             works.resources :awarded_points
           end
