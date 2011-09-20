@@ -8,4 +8,14 @@ one:
   image_content_type: image/jpg
   image_file_size: 500
   image_updated_at: <%= Time.now %>
-  how_to: 
+  how_to_id: 1
+  
+two:
+  title: MyString
+  instructions: MyText
+  position: 2
+  image_file_name: test.jpg
+  image_content_type: image/jpg
+  image_file_size: 500
+  image_updated_at: <%= Time.now %>
+  how_to_id: 1 

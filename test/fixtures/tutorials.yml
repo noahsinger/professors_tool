@@ -2,10 +2,10 @@
 
 one:
   position: 1
-  course: 
-  how_to: 
+  course_id: 1 
+  how_to_id: 1
 
 two:
-  position: 1
-  course: 
-  how_to: 
+  position: 2
+  course_id: 1 
+  how_to_id: 1

@@ -77,10 +77,5 @@ class Assignment < ActiveRecord::Base
   	event.sequence    0
   	
   	event
-  end
-  
-  def self.search q
-    assignments = Assignment.find( :all, :include => ['lab'], :conditions => 'assignments.title like "%' + q + '%" or labs.title like "%' + q + '%" or labs.instructions like "%' + q + '%"' )
-  end
-  
+  end  
 end

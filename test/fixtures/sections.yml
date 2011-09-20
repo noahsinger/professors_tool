@@ -1,5 +1,6 @@
 jck1003_section_1:
   id: 1
+  instructor_id: 1
   semester_id: 1
   course_id: 1
   call_number: 11111
@@ -13,6 +14,7 @@ jck1003_section_1:
 jck1003_section_2:
   id: 2
   semester_id: 1
+  instructor_id: 2
   course_id: 1
   call_number: 22222
   section_number: 222
@@ -25,6 +27,7 @@ jck1003_section_2:
 jck1003_section_3:
   id: 3
   semester_id: 2
+  instructor_id: 1
   course_id: 1
   call_number: 33333
   section_number: 333
@@ -37,6 +40,7 @@ jck1003_section_3:
 jck1003_section_4:
   id: 4
   semester_id: 2
+  instructor_id: 2
   course_id: 1
   call_number: 44444
   section_number: 444
@@ -49,6 +53,7 @@ jck1003_section_4:
 jck2003_section_1:
   id: 5
   semester_id: 3
+  instructor_id: 1
   course_id: 2
   call_number: 55555
   section_number: 555

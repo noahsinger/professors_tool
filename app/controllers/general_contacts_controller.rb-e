@@ -21,7 +21,8 @@ class GeneralContactsController < ApplicationController
       xxx@xxx.xxx
        xxx@xxx.xxx
         flash[:notice] = 'Contact Email was successfully sent.'
-        format.html { redirect_to(:controller => "sections", :action => 'index', :semester_id => Semester.current.id) }
+        # format.html { redirect_to(:controller => "sections", :action => 'index', :semester_id => Semester.current.id) }
+        format.html { redirect_to(semester_sections_url(Semester.current) ) }
         format.xml  { render :xml => @general_contact, :status => :created, :location xxx@xxx.xxx }
       else
         format.html { render :action => "new" }

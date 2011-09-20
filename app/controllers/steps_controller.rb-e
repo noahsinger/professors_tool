@@ -12,17 +12,6 @@ class StepsController < ApplicationController
    xxx@xxx.xxx = HowTo.find( params[:how_to_id] )
   end
   
-  # GET /steps
-  # GET /steps.xml
-  def index
-   xxx@xxx.xxx = Step.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
   # GET /steps/1
   # GET /steps/1.xml
   def show

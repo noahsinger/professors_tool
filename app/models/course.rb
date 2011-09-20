@@ -22,8 +22,4 @@ class Course < ActiveRecord::Base
   def short_name
     self.discipline + self.number
   end
-  
-  def self.search q
-    courses = Course.find( :all, :conditions => 'title like "%' + q + '%" or description like "%' + q + '%"' )
-  end
 end

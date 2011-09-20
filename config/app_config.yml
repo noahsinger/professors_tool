@@ -8,6 +8,8 @@ development:
 test:
     owner_email: xxx@xxx.xxx
     rake_path: /usr/local/bin/rake
+    host: localhost:3000
+    site_url: http://localhost:3000
 
 production:
     owner_email: xxx@xxx.xxx

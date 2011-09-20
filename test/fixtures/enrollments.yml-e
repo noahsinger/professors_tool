@@ -1,11 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 stews_enrollment:
-  student: 1
-  section: 1
-  enrollment_status: 1
+  id: 1
+  student_id: 1
+  section_id: 1
+  enrollment_status_id: 1
 
 pues_enrollment:
-  student: 3
-  section: 1
-  enrollment_status: 1
+  id: 2
+  student_id: 3
+  section_id: 1
+  enrollment_status_id: 1
