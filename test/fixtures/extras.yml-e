@@ -5,5 +5,5 @@ download_1:
   file_content_type: text/text
   file_file_size: 50
   file_updated_at: <%= Time.now %>
-  lab: 1
+  lab_id: 1
   description: Download this to help with lab1

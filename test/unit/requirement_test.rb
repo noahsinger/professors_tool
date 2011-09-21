@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class RequirementTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  test "requirements exist" do
+    assert_equal 3, Requirement.count
   end
 end

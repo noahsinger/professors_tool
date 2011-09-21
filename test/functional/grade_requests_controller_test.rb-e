@@ -12,7 +12,7 @@ class GradeRequestsControllerTest < ActionController::TestCase
     # assert_difference('ActionMailer::Base.deliveries.size') do
     assert_difference('Delayed::Job.all.size') do
       assert_difference('GradeRequest.count') do
-        post :create, :grade_request => { :email => sections(:jck1003_section_1).enrollments.first.student.email }, 
+        post :create, :grade_request => { :email => sections(:jck1003_section_1).enrollments.first.student.email },
         		 					:semester_id => sections(:jck1003_section_1).semester.id, 
         		 					:section_id => sections(:jck1003_section_1).id
       end

@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class ExtraTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  test "extras exist" do
+    assert_equal 1, Extra.count
   end
 end

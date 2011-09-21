@@ -4,7 +4,7 @@ one:
   return_email: xxx@xxx.xxx
   subject: This is test 1
   body: This is the first test
-  attachment_file_name: nil
+  attachment_file_name:
   attachment_content_type: nil
   attachment_file_size: nil
   attachment_updated_at: nil

@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class LabTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  test "labs exist" do
+    assert_equal 2, Lab.count
+  end
+  
+  test "labs have worth" do
+    assert_respond_to Lab.first, :worth
+    assert_equal 100, Lab.find(1).worth
   end
 end

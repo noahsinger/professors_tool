@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class PolicyTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  test "policies exist" do
+    assert_equal 2, Policy.count
   end
 end

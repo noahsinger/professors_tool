@@ -1,14 +1,12 @@
 require 'test_helper'
 
 class CourseTest < ActiveSupport::TestCase
-  fixtures :courses
-  
   def test_create
-    assert_equal Course.count, 2
+    assert_equal 2, Course.count
   end
   
   def test_short_name
-    assert_equal Course.find( 1 ).short_name, courses(:intro_to_jackassery).discipline + courses(:intro_to_jackassery).number
+    assert_equal courses(:intro_to_jackassery).discipline + courses(:intro_to_jackassery).number, Course.find( 1 ).short_name
   end
   
   def test_invalid

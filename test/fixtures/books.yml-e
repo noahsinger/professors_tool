@@ -5,7 +5,7 @@ one:
   author: MyString
   publisher: MyString
   isbn: MyString
-  course: 
+  course_id: 1 
   required: false
 
 two:
@@ -13,5 +13,5 @@ two:
   author: MyString
   publisher: MyString
   isbn: MyString
-  course: 
+  course_id: 2 
   required: false

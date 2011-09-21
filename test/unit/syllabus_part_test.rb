@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class SyllabusPartTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  test "syllabus parts exist" do
+    assert_equal 2, SyllabusPart.count
   end
 end

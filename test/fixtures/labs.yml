@@ -6,6 +6,7 @@ hello_world:
   title: Hello World
   objective: To print Hello World
   instructions: Print hello world
+  visible: true
 
 mind_bender:
   id: 2
@@ -13,3 +14,4 @@ mind_bender:
   title: Mind Bender
   objective: To get your mind bent
   instructions: Get your mond bent by doing this lab
+  visible: true

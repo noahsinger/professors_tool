@@ -1,6 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 stews_lab1:
+  id: 1
   assignment_id: 1
   enrollment_id: 1
   upload_file_name: test1.txt
@@ -10,6 +11,7 @@ stews_lab1:
   withdrawal_code: 999
 
 pues_lab1:
+  id: 2
   assignment_id: 2
   enrollment_id: 3
   upload_file_name: test2.txt

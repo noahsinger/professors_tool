@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class ObjectiveTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  test "objectives exist" do
+    assert_equal 2, Objective.count
   end
 end

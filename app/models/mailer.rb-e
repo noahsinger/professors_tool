@@ -12,32 +12,12 @@ class Mailer < ActionMailer::Base
     
     # Attachments
     if contact.attachment_file_name
-      # part :content_type => "multipart/mixed" do |p|
-      #   p.attachment :content_type => "application/octet-stream", 
-      #                :body => File.read(contact.attachment.to_file.path),
-      #                :filename => contact.attachment_file_name
-      # end
       logger.info "***Appending Attachment"
       attachment "application/octet-stream" do |a|
           a.body = File.read(contact.attachment.to_file.path)
           a.filename = contact.attachment_file_name
       end
     end
-    
-    # content_type      "multipart/mixed"
-    # 
-    # part "text/html" do |p|
-    #   p.body = render_message("general_contact.text.html.erb", :contact => contact)
-    # end
-    # 
-    # if contact.attachment_file_name
-    #   attachment contact.attachment_content_type do |a|
-    #     a.body = File.read(contact.attachment.path) 
-    #     a.filename = contact.attachment_file_name
-    #     a.content_disposition = "attachment"
-    #     a.transfer_encoding = "base64"
-    #   end
-    # end
   end
 
   def work_submitted( work, submitting_address )
@@ -63,17 +43,6 @@ class Mailer < ActionMailer::Base
     from              xxx@xxx.xxx
     body              :work => work
     
-    # content_type      "multipart/mixed"
-    # content_type    "multipart/alternative"
-
-    # part :content_type => "text/html", :body => render_message("work_return.html.erb", :work => work)
-    # part :content_type => "text/plain", :body => render_message("work_return.plain.erb", :work => work)
-    
-    # part "text/plain" do |p|
-    #   p.body = render_message("work_return.plain.erb", :work => work)
-    #   p.transfer_encoding = "base64"
-    # end
-
     if work and work.upload_file_name
       attachment :content_type => work.upload_content_type, :body => File.read(work.upload.path), :filename => work.upload_file_name
     end

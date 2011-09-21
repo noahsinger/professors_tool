@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class EnrollmentStatusTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  test "enrollment statuses exist" do
+    assert_equal 3, EnrollmentStatus.count
   end
 end

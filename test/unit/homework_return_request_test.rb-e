@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class HomeworkReturnRequestTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "homework return requests exist" do
+    assert_equal 2, HomeworkReturnRequest.count
   end
 end

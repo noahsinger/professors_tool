@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class MaterialTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  test "materials exist" do
+    assert_equal 1, Material.count
   end
 end

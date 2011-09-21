@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  work: 
-  requirement: 
-  points: 1
+  work_id: 1 
+  requirement_id: 1 
+  points: 50
 
 two:
-  work: 
-  requirement: 
-  points: 1
+  work_id: 1 
+  requirement_id: 2 
+  points: 50

@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class AwardedPointTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  test "awarded points exist" do
+    assert_equal 2, AwardedPoint.count
   end
 end

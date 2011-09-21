@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class DivisionTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  test "divisions exist" do
+    assert_equal 1, Division.count
   end
 end

@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class HowToTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  test "how to's exist" do
+    assert_equal 2, HowTo.count
   end
 end

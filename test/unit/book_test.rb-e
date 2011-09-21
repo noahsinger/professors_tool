@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class BookTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  test "books exist" do
+    assert_equal 2, Book.count
   end
 end

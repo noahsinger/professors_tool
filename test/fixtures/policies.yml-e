@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  syllabus_part: 
-  course: 
+  syllabus_part_id: 1 
+  course_id: 1 
   position: 1
 
 two:
-  syllabus_part: 
-  course: 
+  syllabus_part_id: 2 
+  course_id: 1 
   position: 1

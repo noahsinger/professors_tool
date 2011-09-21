@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class GradeRequestTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "grade requests exist" do
+    assert_equal 2, GradeRequest.count
   end
 end
