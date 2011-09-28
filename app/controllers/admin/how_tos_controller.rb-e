@@ -1,5 +1,6 @@
 class Admin::HowTosController < ApplicationController
   before_filter :authenticate
+  
   before_filter :store_referrer
   
   def store_referrer

@@ -184,18 +184,14 @@ class Admin::WorksController < ApplicationController
         if @work.awarded_points.size xxx@xxx.xxx
           #create a new set of awarded points for it
           params[:awarded_points].each do |ap|
-            awarded_point = AwardedPoint.new
-            awarded_point.work xxx@xxx.xxx
-            awarded_point.requirement = Requirement.find( ap[0] )
-            awarded_point.points = ap[1]
-            awarded_point.save
+            awarded_point = AwardedPoint.create
+            awarded_point.update_attributes(:work xxx@xxx.xxx :requirement => Requirement.find(ap[0]), :points => ap[1])
           end
         else
           #change the awarded points that already go with this work
           params[:awarded_points].each do |ap|
             existing_point xxx@xxx.xxx :first, :conditions => ['requirement_id=?', ap[0]])
-            existing_point.points = ap[1]
-            existing_point.save
+            existing_point.update_attribute( :points, ap[1] )
           end
         end
         

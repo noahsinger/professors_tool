@@ -35,56 +35,6 @@ class Admin::GeneralContactsController < ApplicationController
     end
   end
 
-  # GET /general_contacts/new
-  # GET /general_contacts/new.xml
-  def new
-   xxx@xxx.xxx = GeneralContact.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
-  # GET /general_contacts/1/edit
-  def edit
-   xxx@xxx.xxx = GeneralContact.find(params[:id])
-  end
-
-  # POST /general_contacts
-  # POST /general_contacts.xml
-  def create
-   xxx@xxx.xxx = GeneralContact.new(params[:general_contact])
-
-    respond_to do |format|
-      xxx@xxx.xxx
-        flash[:notice] = 'GeneralContact was successfully created.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { render :xml => @general_contact, :status => :created, :location xxx@xxx.xxx }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /general_contacts/1
-  # PUT /general_contacts/1.xml
-  def update
-   xxx@xxx.xxx = GeneralContact.find(params[:id])
-
-    respond_to do |format|
-      xxx@xxx.xxx
-        flash[:notice] = 'GeneralContact was successfully updated.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /general_contacts/1
   # DELETE /general_contacts/1.xml
   def destroy

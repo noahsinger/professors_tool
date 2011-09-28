@@ -11,4 +11,8 @@ class ExamplesController < ApplicationController
     flash[:notice] = 'This is a test flash message.'
     redirect_to semester_section_assignments_path( Semester.current, Semester.current.sections.first )
   end
+  
+  def echo
+    
+  end
 end

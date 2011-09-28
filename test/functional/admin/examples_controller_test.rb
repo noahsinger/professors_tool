@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class Admin::ExamplesControllerTest < ActionController::TestCase
+  cannot_access_actions
+  
   def setup
     login_as(:admin)
   end
@@ -22,11 +24,11 @@ class Admin::ExamplesControllerTest < ActionController::TestCase
       :example => { 
         :name => 'Something',
         :description => "something",
-        :file => "test.txt"
+        :file => fixture_file_upload('files/file.zip', 'application/zip')
       }
     end
 
-    admin_semester_section_example_path(assigns(:semester),assigns(:section),assigns(:example))
+    assert_redirected_to admin_semester_section_example_path(assigns(:semester),assigns(:section),assigns(:example))
   end
 
   test "should show example" do

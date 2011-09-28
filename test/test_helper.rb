@@ -39,4 +39,19 @@ class ActiveSupport::TestCase
   def login_as(user)
    xxx@xxx.xxx = user ? users(user).id : nil
   end
+  
+  def logout
+   xxx@xxx.xxx = nil
+  end
+  
+  def self.cannot_access_actions(actions = {:index => :get, :show => :get, :new => :get, :create => :post, :edit => :get, :update => :post, :destroy => :delete})
+    actions.each do |action, request|
+      define_method("test_cannot_access_#{action}") do
+        logout
+        send( request, action )
+        assert_response :redirect
+        assert_redirected_to signin_admin_admin_path    
+      end
+		end
+  end
 end

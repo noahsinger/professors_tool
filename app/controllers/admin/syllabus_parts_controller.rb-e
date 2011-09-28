@@ -1,5 +1,6 @@
 class Admin::SyllabusPartsController < ApplicationController
   before_filter :authenticate
+  
   before_filter :store_referrer
   
   def store_referrer
@@ -8,17 +9,6 @@ class Admin::SyllabusPartsController < ApplicationController
     end
   end
   
-  # GET /syllabus_parts
-  # GET /syllabus_parts.xml
-  def index
-   xxx@xxx.xxx = SyllabusPart.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
   # GET /syllabus_parts/1
   # GET /syllabus_parts/1.xml
   def show
@@ -26,17 +16,6 @@ class Admin::SyllabusPartsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
-  # GET /syllabus_parts/new
-  # GET /syllabus_parts/new.xml
-  def new
-   xxx@xxx.xxx = SyllabusPart.new
-
-    respond_to do |format|
-      format.html # new.html.erb
       format.xml  { render :xml xxx@xxx.xxx }
     end
   end

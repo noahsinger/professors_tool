@@ -1,23 +1,11 @@
 class Admin::BooksController < ApplicationController
-  before_filter :authenticate
-  
+  before_filter :authenticate  
   before_filter :load_course
   
   def load_course
    xxx@xxx.xxx = Course.find( params[:course_id] )
   end
   
-  # GET /books
-  # GET /books.xml
-  def index
-    @books xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
   # GET /books/1
   # GET /books/1.xml
   def show

@@ -12,17 +12,6 @@ class Admin::EnrollmentStatusesController < ApplicationController
     end
   end
 
-  # GET /enrollment_statuses/1
-  # GET /enrollment_statuses/1.xml
-  def show
-   xxx@xxx.xxx = EnrollmentStatus.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
   # GET /enrollment_statuses/new
   # GET /enrollment_statuses/new.xml
   def new

@@ -1,5 +1,6 @@
 class Admin::ObjectivesController < ApplicationController
   before_filter :authenticate
+  
   before_filter :load_course
   
   def load_course
@@ -13,17 +14,6 @@ class Admin::ObjectivesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
-  # GET /objectives/1
-  # GET /objectives/1.xml
-  def show
-    @objective xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html # show.html.erb
       format.xml  { render :xml xxx@xxx.xxx }
     end
   end

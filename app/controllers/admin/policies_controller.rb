@@ -1,5 +1,6 @@
 class Admin::PoliciesController < ApplicationController
   before_filter :authenticate
+  
   before_filter :load_course
   before_filter :clear_referrer
   
@@ -25,17 +26,6 @@ class Admin::PoliciesController < ApplicationController
     end
   end
 
-  # GET /policies/1
-  # GET /policies/1.xml
-  def show
-    @policy xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
   # GET /policies/new
   # GET /policies/new.xml
   def new
@@ -45,11 +35,6 @@ class Admin::PoliciesController < ApplicationController
       format.html # new.html.erb
       format.xml  { render :xml xxx@xxx.xxx }
     end
-  end
-
-  # GET /policies/1/edit
-  def edit
-    @policy xxx@xxx.xxx
   end
 
   # POST /policies
@@ -64,23 +49,6 @@ class Admin::PoliciesController < ApplicationController
         format.xml  { render :xml => @policy, :status => :created, :location xxx@xxx.xxx }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /policies/1
-  # PUT /policies/1.xml
-  def update
-    @policy xxx@xxx.xxx
-
-    respond_to do |format|
-      xxx@xxx.xxx
-        flash[:notice] = 'Policy was successfully updated.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
         format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
       end
     end

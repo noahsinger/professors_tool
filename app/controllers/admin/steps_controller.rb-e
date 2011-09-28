@@ -6,17 +6,6 @@ class Admin::StepsController < ApplicationController
   def load_howto
    xxx@xxx.xxx = HowTo.find( params[:how_to_id] )
   end
-  
-  # GET /steps
-  # GET /steps.xml
-  def index
-    @steps xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
 
   # GET /steps/1
   # GET /steps/1.xml

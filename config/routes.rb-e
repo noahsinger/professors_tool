@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :examples
+  # map.resources :examples
 
   # no namespace ##########################################    
   map.resources :general_contacts # , :member => {:download => :get}

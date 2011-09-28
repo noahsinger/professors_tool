@@ -1,7 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  course: 1
+  course_id: 1
   title: Download 1
   description: This is a download you need for the course
   file_file_name: test.txt

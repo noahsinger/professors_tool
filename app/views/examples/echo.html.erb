@@ -1,2 +1,13 @@
+<% content_for :header do %>
+	<h1>Examples</h1>
+	<h4>Echo</h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><% link_to '/' do %> <%= render :partial => "shared/back_link" %> <% end %></li>
+	</ul>
+</div>
+
 <h2>All Values Received</h2>
 <p><%= debug params %></p>

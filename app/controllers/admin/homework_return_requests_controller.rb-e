@@ -1,4 +1,6 @@
 class Admin::HomeworkReturnRequestsController < ApplicationController
+  before_filter :authenticate
+  
   # GET /homework_return_requests
   # GET /homework_return_requests.xml
   def index

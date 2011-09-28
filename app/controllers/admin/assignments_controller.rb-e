@@ -1,7 +1,7 @@
 class Admin::AssignmentsController < ApplicationController
+  before_filter :authenticate
   before_filter :load_semester
   before_filter :load_section
-  before_filter :authenticate
   
   def load_semester
    xxx@xxx.xxx = Semester.find( params[:semester_id] )

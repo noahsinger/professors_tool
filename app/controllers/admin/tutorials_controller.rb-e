@@ -1,5 +1,6 @@
 class Admin::TutorialsController < ApplicationController
   before_filter :authenticate  
+
   before_filter :load_course
   before_filter :clear_referrer
   
@@ -22,67 +23,6 @@ class Admin::TutorialsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
-  # GET /tutorials/1
-  # GET /tutorials/1.xml
-  def show
-    @tutorial xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
-  # GET /tutorials/new
-  # GET /tutorials/new.xml
-  def new
-    @tutorial xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
-  # GET /tutorials/1/edit
-  def edit
-    @tutorial xxx@xxx.xxx
-  end
-
-  # POST /tutorials
-  # POST /tutorials.xml
-  def create
-    @tutorial xxx@xxx.xxx
-
-    respond_to do |format|
-      xxx@xxx.xxx
-        flash[:notice] = 'Tutorial was successfully created.'
-        format.html { xxx@xxx.xxx )) }
-        format.xml  { render :xml => @tutorial, :status => :created, :location xxx@xxx.xxx }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /tutorials/1
-  # PUT /tutorials/1.xml
-  def update
-   xxx@xxx.xxx = Tutorial.find(params[:id])
-
-    respond_to do |format|
-      xxx@xxx.xxx
-        flash[:notice] = 'Tutorial was successfully updated.'
-        format.html { xxx@xxx.xxx )) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
-      end
     end
   end
 

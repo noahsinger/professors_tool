@@ -12,28 +12,6 @@ class Admin::ExtrasController < ApplicationController
    xxx@xxx.xxx = Lab.find( params[:lab_id] )
   end
   
-  # GET /extras
-  # GET /extras.xml
-  def index
-    @extras xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
-  # GET /extras/1
-  # GET /extras/1.xml
-  def show
-    @extra xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
   # GET /extras/new
   # GET /extras/new.xml
   def new
