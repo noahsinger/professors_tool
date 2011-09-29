@@ -1,6 +1,4 @@
 class SectionsController < ApplicationController
-  include ExceptionNotifiable
-  
   before_filter :load_semester
   
   def load_semester

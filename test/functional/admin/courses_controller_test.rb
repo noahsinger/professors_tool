@@ -19,15 +19,14 @@ class Admin::CoursesControllerTest < ActionController::TestCase
   end
 
   def test_should_create_course
-    login_as(:admin)
     assert_difference('Course.count') do
       post :create, :course => { 
-                                :title => "Introduction to Jackassery",
-                                :description => "This course is an introduction to...",
-                                :discipline => "JCK",
-                                :number => "1003",
-                                :credits => "3"
-                               }
+                    :title => "Introduction to Jackassery",
+                    :description => "This course is an introduction to...",
+                    :discipline => "JCK",
+                    :number => "1003",
+                    :credits => "3"
+                   }
     end
 
     assert_redirected_to admin_course_path(assigns(:course))

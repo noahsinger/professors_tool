@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class Admin::EnrollmentStatusesControllerTest < ActionController::TestCase
-  cannot_access_actions( {:index => :get, :new => :get, :create => :post, :edit => :get, :update => :post, :destroy => :delete} )
+  cannot_access_actions([:id => 1], {:index => :get, :new => :get, :create => :post, :edit => :get, :update => :put, :destroy => :delete})
   
   def setup
     login_as(:admin)

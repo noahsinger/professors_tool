@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class Admin::WorksControllerTest < ActionController::TestCase
-  cannot_access_actions
+  cannot_access_actions([:id => 4, :section_id => 3, :semester_id => 2, :assignment_id => 1], {:index => :get, :show => :get, :new => :get, :create => :post, :edit => :get, :update => :put, :destroy => :delete, :grade => :get, :destroy_grade => :delete, :record_score => :post})
   
   def setup
     login_as(:admin)

@@ -1,12 +1,12 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 	<h1><%= xxx@xxx.xxx 'Section' %></h1>
 	<h2>of xxx@xxx.xxx %></h2>
 <% end %>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to '/admin' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-		<li><% link_to xxx@xxx.xxx ) do %> <%= render :partial => 'shared/new_link' %> <% end %></li>
+		<li><%= link_to '/admin' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><%= link_to xxx@xxx.xxx ) do %> <%= render :partial => 'shared/new_link' %> <% end %></li>
 	</ul>
 </div>
 

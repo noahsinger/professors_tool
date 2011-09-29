@@ -42,7 +42,7 @@ xxx@xxx.xxx %></li>
 		<ul>
 xxx@xxx.xxx do |extra| %>
 				<li>
-					<% link_to extra.file.url do %>
+					<%= link_to extra.file.url do %>
 						<%= extra.file_file_name %><br/>
 						<span class="light"><%= extra.description %></span>
 					<% end %>

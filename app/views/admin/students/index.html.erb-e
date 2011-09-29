@@ -1,11 +1,11 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 	<h1>Students</h1>
 	<h4>Listing All</h4>
 <% end %>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to '/admin' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><%= link_to '/admin' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 	</ul>
 </div>
 

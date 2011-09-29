@@ -1,15 +1,15 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 	<h1>Homework Return</h1>
 	<h2>for <%= @assignment.title %> of xxx@xxx.xxx %></h2>
 <% end %>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to xxx@xxx.xxx @section, @assignment ) do %> <%= render :partial => "shared/back_link" %> <% end %></li>
+		<li><%= link_to xxx@xxx.xxx @section, @assignment ) do %> <%= render :partial => "shared/back_link" %> <% end %></li>
 	</ul>
 </div>
 
-<% xxx@xxx.xxx do |f| %>
+<%= xxx@xxx.xxx do |f| %>
 	<%= error_messages_for :homework_return_request, :header_message => 'Geez!  Can\'t you even fill a simple form out right?', :message => 'Bask in the glow of the mistakes you made filling out this form:' %>
 	<ol>
 		<li>

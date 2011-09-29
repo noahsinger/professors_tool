@@ -17,13 +17,18 @@ class Work < ActiveRecord::Base
 
   after_create :generate_withdrawal_code
     
-  def validate 
-    errors.add :upload, "must be present" if self.assignment.lab.allow_uploads and self.upload_file_name.blank?
+  class UploadValidator < ActiveModel::Validator
+    def validate( record )
+      if record.assignment.lab.allow_uploads and record.upload_file_name.blank?
+        record.errors[:upload] << (options[:message] || "must be present")
+      end
+    end
   end
-  
+    
+  validates_with UploadValidator
+    
   def generate_withdrawal_code
-    self.withdrawal_code = Digest::SHA256.hexdigest(self.assignment.title+self.assignment.lab.title+self.id.to_s)
-    self.save
+    update_attribute(:withdrawal_code, withdrawal_code = Digest::SHA256.hexdigest(self.assignment.title+self.assignment.lab.title+self.id.to_s))
   end
   
   def graded?
@@ -56,16 +61,11 @@ class Work < ActiveRecord::Base
   end
   
   def send_submitted_email submitting_address
-    email = Mailer::create_work_submitted( self, submitting_address )
-    # Mailer.deliver( email )
-    Mailer.send_later :deliver, email
+    StudentMailer.delay.work_submitted( self, submitting_address )
   end
   
   def send_reminder_email # submitting_address
-    # email = Mailer::create_work_reminder( self, submitting_address )
-    email = Mailer::create_work_reminder( self )
-    # Mailer.deliver( email )
-    Mailer.send_later :deliver, email
+    StudentMailer.delay.work_reminder( self )
   end
   
 end

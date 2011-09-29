@@ -1,6 +1,4 @@
 class GradeRequestsController < ApplicationController
-  include ExceptionNotifiable
-  
   before_filter :load_semester
   before_filter :load_section
   
@@ -28,7 +26,7 @@ class GradeRequestsController < ApplicationController
   # POST /grade_requests.xml
   def create
   	# get previous requests made by someone with this email address
-    prev_request xxx@xxx.xxx :first, :conditions => ['email = ?', params[:grade_request][:email]])
+    prev_request xxx@xxx.xxx = ?', params[:grade_request][:email]).first
     
     # create the grade request
    xxx@xxx.xxx @section.grade_requests.build( params[:grade_request] )
@@ -56,9 +54,7 @@ class GradeRequestsController < ApplicationController
             format.html { render :action => "new" }
             format.iphone { render :action => "new" }
           else
-            email = xxx@xxx.xxx )
-            # Mailer.deliver( email )
-            Mailer.send_later :deliver, email
+            xxx@xxx.xxx )
 
            xxx@xxx.xxx :status => 'sent'
             flash[:notice] = "A grade email has been sent to your email address"

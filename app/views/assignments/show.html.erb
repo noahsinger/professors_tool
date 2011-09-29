@@ -1,4 +1,4 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 	<h1><%= @assignment.title %> - xxx@xxx.xxx %></h1>
 xxx@xxx.xxx %></h3>
 xxx@xxx.xxx %></h4>
@@ -6,11 +6,11 @@ xxx@xxx.xxx %></h4>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to xxx@xxx.xxx @section ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><%= link_to xxx@xxx.xxx @section ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 
 		<% xxx@xxx.xxx %>
-			<li><%= link_to '<span class="text">Submit - <span class="sub">Turn in a homework assignment</span></span>', xxx@xxx.xxx @section, @assignment ) %></li>
-			<li><%= link_to '<span class="text">Return - <span class="sub">Request a copy of your homework be sent back to you</span></span>', xxx@xxx.xxx %></li>
+			<li><%= link_to slide_link("Submit","Turn in a homework assignment"), xxx@xxx.xxx @section, @assignment ) %></li>
+			<li><%= link_to slide_link("Return","Request a copy of your homework be sent back to you"), xxx@xxx.xxx %></li>
 		<% end %>
 
 		<li><a href="javascript:pre_print( );"><span class="text">Print - <span class="sub">Format and print this assignment</span></span></a></li>

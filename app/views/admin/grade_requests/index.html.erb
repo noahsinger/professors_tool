@@ -1,11 +1,11 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 	<h1>Grade Requests</h1>
 	<h4>All grade requests made</h4>
 <% end %>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to '/admin' do %> <%= render :partial => "shared/back_link" %> <% end %></li>
+		<li><%= link_to '/admin' do %> <%= render :partial => "shared/back_link" %> <% end %></li>
 		<li><%= link_to '<span class="test">Clear All</span><span class="icon">&euro;</span>', destroy_all_admin_grade_requests_path, :confirm => 'Are you sure?', :method => :delete %></li>
 	</ul>
 </div>

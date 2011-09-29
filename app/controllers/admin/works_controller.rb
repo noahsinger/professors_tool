@@ -84,7 +84,7 @@ class Admin::WorksController < ApplicationController
   
   def new_for_all
    xxx@xxx.xxx do |e|
-      unless e.works.find( :first, :conditions => ['assignment_id = xxx@xxx.xxx )
+      unless e.works.where('assignment_id = xxx@xxx.xxx
         @work xxx@xxx.xxx
        xxx@xxx.xxx = e.student.email
        xxx@xxx.xxx = e
@@ -190,7 +190,7 @@ class Admin::WorksController < ApplicationController
         else
           #change the awarded points that already go with this work
           params[:awarded_points].each do |ap|
-            existing_point xxx@xxx.xxx :first, :conditions => ['requirement_id=?', ap[0]])
+            existing_point xxx@xxx.xxx ap[0]).first
             existing_point.update_attribute( :points, ap[1] )
           end
         end

@@ -1,6 +1,4 @@
 class GeneralContactsController < ApplicationController
-  include ExceptionNotifiable
-  
   # GET /general_contacts/new
   # GET /general_contacts/new.xml
   def new

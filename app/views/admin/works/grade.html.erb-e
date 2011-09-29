@@ -1,11 +1,11 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 xxx@xxx.xxx %></h1>
 	<h2>for xxx@xxx.xxx %></h2>
 <% end %>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to xxx@xxx.xxx @section, @assignment ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><%= link_to xxx@xxx.xxx @section, @assignment ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 	</ul>
 </div>
 
@@ -38,7 +38,7 @@ xxx@xxx.xxx %></h1>
 	<% end %>
 </ul>
 
-<% form_for( :work, @work, :url => xxx@xxx.xxx :html => {:method => :put} ) do |f| %>
+<%= form_for( @work, :as => :work, :url => xxx@xxx.xxx :html => {:method => :put} ) do |f| %>
 	<%= f.error_messages %>
 	<ol>
 		<li>

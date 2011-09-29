@@ -1,4 +1,4 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 xxx@xxx.xxx %></h1>
 xxx@xxx.xxx %></h2>
 <% end %>
@@ -11,7 +11,7 @@ xxx@xxx.xxx %></h2>
 <div class="nav">
 	<ul class="nav">
 		<% if session[:referrer] %>
-			<li><% link_to session[:referrer] do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+			<li><%= link_to session[:referrer] do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 		<% end %>
 	
 		<% if prev_step %>

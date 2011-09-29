@@ -1,8 +1,8 @@
-<% content_for :head do %>
+<%= content_for :head do %>
 	<link rel="alternate" type="application/rss+xml" title="<%= @section.meeting_days + " " + @section.course.title + " Assignments for " + " " + @semester.name %>" href="<%= xxx@xxx.xxx @section, :format => :rss ) %>" />
 <% end %>
 
-<% content_for :header do %>
+<%= content_for :header do %>
 xxx@xxx.xxx %></h1>
 xxx@xxx.xxx %></h4>
 	
@@ -13,9 +13,9 @@ xxx@xxx.xxx %></h4>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to '/' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-		<li><%= link_to '<span class="text">Syllabus - <span class="sub">View and print the class syllabus</span></span>', xxx@xxx.xxx @section ) %></li>
-		<li><%= link_to '<span class="text">Grades - <span class="sub">Request your grades for this class</span></span>', xxx@xxx.xxx @section ) %></li>
+		<li><%= link_to '/' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><%= link_to slide_link("Syllabus", "View and print the class syllabus"), xxx@xxx.xxx @section ) %></li>
+		<li><%= link_to slide_link("Grades","Request your grades for this class"), xxx@xxx.xxx @section ) %></li>
 	</ul>
 </div>
 
@@ -26,7 +26,7 @@ xxx@xxx.xxx %></h4>
 	<ul class="sliding">
 xxx@xxx.xxx do |assignment| %>
 			<li>
-				<% link_to xxx@xxx.xxx @section, assignment) do %>
+				<%= link_to xxx@xxx.xxx @section, assignment) do %>
 					<span class="assigned_date">assigned on <%= show_short_date(assignment.created_at) %></span>
 					<span class="assignment_title"><%= assignment.title + " :: " + assignment.lab.title %></span>
 					<span class="due_date">
@@ -56,7 +56,7 @@ xxx@xxx.xxx do |assignment| %>
 	<ul class="sliding">
 xxx@xxx.xxx do |example| %>
 			<li>
-				<% link_to example.file.url do %>
+				<%= link_to example.file.url do %>
 					<span class="top_half"><%= example.name %></span>
 					<span class="bottom_half"><%= example.description %></span>
 				<% end %>
@@ -70,7 +70,7 @@ xxx@xxx.xxx do |example| %>
 	<ul class="sliding">
 xxx@xxx.xxx do |howto| %>			
 			<li>
-				<% link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
+				<%= link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
 					<span class="top_half"><%= howto.title %></span>
 					<span class="bottom_half"><%= howto.description %></span>
 				<% end %>
@@ -85,12 +85,12 @@ xxx@xxx.xxx do |howto| %>
 xxx@xxx.xxx do |material| %>
 			<li>
 				<% if material.file_file_name %>
-					<% link_to material.file.url do %>
+					<%= link_to material.file.url do %>
 						<span class="top_half"><%= material.title + ' <span class="light">Download</span>' %></span>
 						<span class="bottom_half"><%= material.description %></span>
 					<% end %>
 				<% elsif material.description =~ /^http:\/\// %>
-					<% link_to material.description do %>
+					<%= link_to material.description do %>
 						<span class="top_half"><%= material.title %></span>
 						<span class="bottom_half"><%= material.description %></span>
 					<% end %>

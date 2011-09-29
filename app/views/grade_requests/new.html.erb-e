@@ -1,15 +1,15 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 	<h1>Request your grades</h1>
 	<h2>for xxx@xxx.xxx %></h2>
 <% end %>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to xxx@xxx.xxx @section ) do %> <%= render :partial => "shared/back_link" %> <% end %></li>
+		<li><%= link_to xxx@xxx.xxx @section ) do %> <%= render :partial => "shared/back_link" %> <% end %></li>
 	</ul>
 </div>
 
-<% xxx@xxx.xxx @section, @grade_request]) do |f| %>
+<%= xxx@xxx.xxx @section, @grade_request]) do |f| %>
 	<%= error_messages_for :grade_request, :header_message => 'Uh oh!  You\'ve really done it now.  It\'s going to take us hours to straighten this mess out.', :message => 'Here are a few of the many things you\'ve done wrong today:' %>
 	<ol>
 		<li>

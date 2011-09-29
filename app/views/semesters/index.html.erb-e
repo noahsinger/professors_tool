@@ -1,11 +1,11 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 	<h1>Semesters</h1>
 	<h4>all semesters</h4>
 <% end %>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to '/' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><%= link_to '/' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 	</ul>
 </div>
 
@@ -13,7 +13,7 @@
 <ul class="sliding">
 	<% for semester xxx@xxx.xxx %>
 		<li>
-			<% link_to semester_sections_path( semester ) do %>
+			<%= link_to semester_sections_path( semester ) do %>
 				<span class="top_half">
 					<%= semester.name %>
 					<% if semester == Semester.current %>

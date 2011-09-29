@@ -14,7 +14,7 @@ class Admin::AssignmentsController < ApplicationController
   # GET /assignments
   # GET /assignments.xml
   def index
-    @assignments xxx@xxx.xxx :order => 'duedate desc')
+    @assignments xxx@xxx.xxx desc')
 
     respond_to do |format|
       format.html # index.html.erb

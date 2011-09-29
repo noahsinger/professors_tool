@@ -1,4 +1,4 @@
-<% xxx@xxx.xxx do |f| %>
+<%= xxx@xxx.xxx do |f| %>
   <%= f.error_messages %>
 	<ol>
 		<li>

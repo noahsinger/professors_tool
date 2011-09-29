@@ -11,8 +11,9 @@ class GeneralContact < ActiveRecord::Base
                     :default_url => ''
                     
   def send_email
-    email = Mailer::create_general_contact( self )
-    # Mailer.deliver( email )
-    Mailer.send_later :deliver, email
+    AdminMailer.delay.general_contact( self )
+    # email = AdminMailer.general_contact( self )
+    # AdminMailer.send_later.deliver( email )
+    # AdminMailer.delay.deliver( email )
   end
 end

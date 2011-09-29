@@ -1,4 +1,4 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 	<h1>Semesters</h1>
 	<h4>Showing all</h4>
 <% end %>
@@ -6,10 +6,10 @@
 <div class="nav">
 	<ul class="nav">
 		<li>
-			<% link_to '/admin' do %><%= render :partial => 'shared/back_link' %><% end %>
+			<%= link_to '/admin' do %><%= render :partial => 'shared/back_link' %><% end %>
 		</li>
 		<li>
-			<% link_to new_admin_semester_path do %> <%= render :partial => 'shared/new_link' %> <% end %>
+			<%= link_to new_admin_semester_path do %> <%= render :partial => 'shared/new_link' %> <% end %>
 		</li>
 	</ul>
 </div>

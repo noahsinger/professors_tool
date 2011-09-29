@@ -1,6 +1,4 @@
 class WorksController < ApplicationController
-  include ExceptionNotifiable
-  
   before_filter :load_semester
   before_filter :load_section
   before_filter :load_assignment
@@ -17,20 +15,6 @@ class WorksController < ApplicationController
    xxx@xxx.xxx = Assignment.find( params[:assignment_id] )
   end  
   
-  def status
-    if params[:email] and params[:email] != ""
-      flash[:notice] = "A homework status email has been sent to your address"
-      @work xxx@xxx.xxx
-      email = xxx@xxx.xxx params[:email] )
-      Mailer.deliver( email )
-      redirect_to( xxx@xxx.xxx )
-    else
-      respond_to do |format|
-        format.html # status.html.erb
-      end
-    end
-  end
-
   # GET /works/new
   # GET /works/new.xml
   def new
@@ -52,15 +36,15 @@ class WorksController < ApplicationController
       @work.assignment_id xxx@xxx.xxx
       
       # try to find the student who this assignment belongs to (based on the submitting email address)
-      student = Student.find( :first, :conditions => ['email=?', params[:work][:email]])
+      student = Student.where('email=?', params[:work][:email]).first
       
       if student
         # if a student is found with a matching email address attribute the assignment to them
-        @work.enrollment = student.enrollments.find( :first, :conditions => xxx@xxx.xxx )
+        @work.enrollment = xxx@xxx.xxx
       end
       
       # check if a work has already been submitted from this submission address
-      prev_works xxx@xxx.xxx :all, :conditions => ['email=?', params[:work][:email]] )
+      prev_works xxx@xxx.xxx params[:work][:email])
 
       # if the work wasn't previously submitted
       if prev_works.size == 0
@@ -71,7 +55,7 @@ class WorksController < ApplicationController
           # send the student an email including the withdrawal link
          xxx@xxx.xxx params[:work][:email]
         
-          format.html { xxx@xxx.xxx }
+          format.html { xxx@xxx.xxx } 
           format.xml  { render :xml => @work, :status => :created, :location xxx@xxx.xxx }
         else
           format.html { render :action => "new" }
@@ -93,7 +77,7 @@ class WorksController < ApplicationController
    xxx@xxx.xxx = ""
     
     if params[:code]
-      @works xxx@xxx.xxx :all, :conditions => ['withdrawal_code=?',params[:code]])
+      @works xxx@xxx.xxx
       
       xxx@xxx.xxx > 0
        xxx@xxx.xxx do |work|

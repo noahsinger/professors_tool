@@ -1,10 +1,8 @@
 class CoursesController < ApplicationController
-  include ExceptionNotifiable
-  
   # GET /courses
   # GET /courses.xml
   def index
-   xxx@xxx.xxx = Course.find(:all)
+   xxx@xxx.xxx = Course.all
 
     respond_to do |format|
       format.html # index.html.erb

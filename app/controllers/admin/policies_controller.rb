@@ -18,7 +18,7 @@ class Admin::PoliciesController < ApplicationController
   # GET /policies.xml
   def index
     @policies xxx@xxx.xxx
-   xxx@xxx.xxx = SyllabusPart.find(:all, :order => 'name')
+   xxx@xxx.xxx = SyllabusPart.order('name')
 
     respond_to do |format|
       format.html # index.html.erb

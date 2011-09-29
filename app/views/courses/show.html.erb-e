@@ -1,11 +1,11 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 xxx@xxx.xxx %></h1>
 	<h4>Course Information</h4>
 <% end %>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to courses_path do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><%= link_to courses_path do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 	</ul>
 </div>
 
@@ -37,7 +37,7 @@ xxx@xxx.xxx do |objective| %>
 xxx@xxx.xxx do |material| %>
 			<li>
 				<% if material.file_file_name %>
-					<% link_to material.file.url do %>
+					<%= link_to material.file.url do %>
 						<span class="top_half"><%= material.title + ' <span class="light">Download</span>' %></span>
 						<span class="bottom_half"><%= material.description %></span>
 					<% end %>
@@ -59,7 +59,7 @@ xxx@xxx.xxx do |material| %>
 xxx@xxx.xxx do |lab| %>
 			<% if lab.visible %>
 				<li>
-					<% link_to xxx@xxx.xxx lab) do %>
+					<%= link_to xxx@xxx.xxx lab) do %>
 						<span class="assignment_title"><%= lab.title %></span>
 						<span class="assignment_points">
 							<%= pluralize lab.worth, "point" %>
@@ -76,7 +76,7 @@ xxx@xxx.xxx do |lab| %>
 	<ul class="sliding">
 xxx@xxx.xxx do |howto| %>			
 			<li>
-				<% link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
+				<%= link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
 					<span class="top_half"><%= howto.title %></span>
 					<span class="bottom_half"><%= howto.description %></span>
 				<% end %>
@@ -90,7 +90,7 @@ xxx@xxx.xxx do |howto| %>
 	<ul class="sliding">
 xxx@xxx.xxx do |section| %>			
 			<li>
-				<% link_to semester_section_path( section.semester, section ) do %>
+				<%= link_to semester_section_path( section.semester, section ) do %>
 					<span class="top_half"><%= section.semester.name %></span>
 					<span class="bottom_half"><%= section.enrollments.size %> enrolled</span>
 				<% end %>

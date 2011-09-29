@@ -1,6 +1,4 @@
 class HomeworkReturnRequestsController < ApplicationController
-  include ExceptionNotifiable
-  
   before_filter :load_semester
   before_filter :load_section
   before_filter :load_assignment
@@ -31,7 +29,7 @@ class HomeworkReturnRequestsController < ApplicationController
   # POST /homework_return_requests
   # POST /homework_return_requests.xml
   def create
-    prev_request xxx@xxx.xxx :first, :conditions => ['email = ?', params[:homework_return_request][:email]])
+    prev_request xxx@xxx.xxx = ?', params[:homework_return_request][:email]).first
     @homework_return_request xxx@xxx.xxx
 
     @work xxx@xxx.xxx
@@ -56,9 +54,7 @@ class HomeworkReturnRequestsController < ApplicationController
          xxx@xxx.xxx :email, 'was used to make a homework return request just a short while ago.  Do you think that something has happened to your assignment in that short amount of time?  Please wait a while before making this request again.'
           format.html { render :action => "new" }
         else
-          email = xxx@xxx.xxx params[:homework_return_request][:email] )
-          # Mailer.deliver( email )
-          Mailer.send_later :deliver, email
+          xxx@xxx.xxx params[:homework_return_request][:email] )
           
          xxx@xxx.xxx :status => 'sent'
 

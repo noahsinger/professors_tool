@@ -1,11 +1,11 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 	<h1>Users</h1>
 	<h4>listing all</h4>
 <% end %>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to new_admin_user_path do %> <%= render :partial => "shared/new_link" %> <% end %></li>
+		<li><%= link_to new_admin_user_path do %> <%= render :partial => "shared/new_link" %> <% end %></li>
 	</ul>
 </div>
 

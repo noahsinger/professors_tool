@@ -5,7 +5,7 @@
 	<ul class="formList">
 xxx@xxx.xxx do |section| %>
 			<li>
-				<% link_to xxx@xxx.xxx section ) do %>
+				<%= link_to xxx@xxx.xxx section ) do %>
 					<%= section.course.title %>
 					<div class="secondary">
 						<%= section.meeting_days_and_times %>

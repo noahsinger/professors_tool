@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class Admin::SyllabusPartsControllerTest < ActionController::TestCase
-  cannot_access_actions
+  cannot_access_actions([:id => 1],{:create => :post, :show => :get, :edit => :get, :update => :put, :destroy => :delete})
   
   def setup
     login_as(:admin)
@@ -9,6 +9,8 @@ class Admin::SyllabusPartsControllerTest < ActionController::TestCase
   end
   
   test "should create syllabus part" do
+    session[:referrer] = 'test.com'
+    
     assert_difference('SyllabusPart.count') do
       post :create, 
             :syllabus_part => { 
@@ -20,7 +22,7 @@ class Admin::SyllabusPartsControllerTest < ActionController::TestCase
   
     assert_not_nil assigns(:syllabus_part)
   
-    assert_response :success
+    assert_redirected_to session[:referrer]
   end
   
   test "should show syllabus part" do

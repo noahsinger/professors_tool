@@ -1,6 +1,4 @@
 class StepsController < ApplicationController
-  include ExceptionNotifiable
-    
   before_filter :load_course
   before_filter :load_howto
   

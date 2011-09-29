@@ -1,4 +1,4 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 	<h1>Student Submitted Work</h1>
 	<h2>for <%= @assignment.title %> - xxx@xxx.xxx %></h2>
 	<h4>in xxx@xxx.xxx %></h4>
@@ -6,9 +6,9 @@
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/new_link' %> <% end %></li>
-		<li><% link_to xxx@xxx.xxx do %><span class="text">New for All<span class="sub">Add this work for all students</span></span><span class="icon">&#241;</span><% end %></li>
+		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/new_link' %> <% end %></li>
+		<li><%= link_to xxx@xxx.xxx do %><span class="text">New for All<span class="sub">Add this work for all students</span></span><span class="icon">&#241;</span><% end %></li>
 	</ul>
 </div>
 

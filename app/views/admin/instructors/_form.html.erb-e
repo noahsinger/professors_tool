@@ -1,4 +1,4 @@
-<% xxx@xxx.xxx :html => {:multipart => :true}) do |f| %>
+<%= xxx@xxx.xxx :html => {:multipart => :true}) do |f| %>
 	<%= f.error_messages %>
 	<ol>
 		<li>

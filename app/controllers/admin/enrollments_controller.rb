@@ -33,7 +33,7 @@ class Admin::EnrollmentsController < ApplicationController
   end
   
   def create
-   xxx@xxx.xxx = Student.find( :first, :conditions => ["email = ?", params[:email]] )
+   xxx@xxx.xxx = Student.where("email = ?", params[:email]).first
     
     respond_to do |format|
       xxx@xxx.xxx
@@ -41,7 +41,7 @@ class Admin::EnrollmentsController < ApplicationController
         @enrollment.student_id xxx@xxx.xxx
         @enrollment.section_id xxx@xxx.xxx
         
-       xxx@xxx.xxx = EnrollmentStatus.find( :first, :conditions => "name = 'Enrolled'" )
+       xxx@xxx.xxx = EnrollmentStatus.where("name = 'Enrolled'").first
         @enrollment.enrollment_status xxx@xxx.xxx
         
        xxx@xxx.xxx

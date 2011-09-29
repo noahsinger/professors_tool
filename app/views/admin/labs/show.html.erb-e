@@ -1,12 +1,12 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 xxx@xxx.xxx %></h1>
 	<h2>for xxx@xxx.xxx %></h2>
 <% end %>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/edit_link' %> <% end %></li>
+		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/edit_link' %> <% end %></li>
 	</ul>
 </div>
 
@@ -41,7 +41,7 @@ xxx@xxx.xxx %></td>
 </div>
 
 <h4>Add a Requirement</h4>
-<% xxx@xxx.xxx do |f| %>
+<%= xxx@xxx.xxx do |f| %>
 	<%= f.error_messages %>
 	<ol>
 		<li>

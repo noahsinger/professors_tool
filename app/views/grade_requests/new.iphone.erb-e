@@ -7,7 +7,7 @@
 <div class="rounded">
 	<ul>
 		<li>
-			<% xxx@xxx.xxx @section, @section.grade_requests.build]) do |f| %>
+			<%= xxx@xxx.xxx @section, @section.grade_requests.build]) do |f| %>
 				<%= error_messages_for :grade_request, :header_tag => 'li', :header_message => '<strong>Your Grade Request Failed</strong>', :message => '' %>
 				<%= f.text_field :email, :value => 'Your Email Address', :onfocus => 'this.value = ""', :autocapitalize => 'off', :autocorrect => 'off'%>
 			<% end %>

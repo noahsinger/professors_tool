@@ -1,6 +1,4 @@
 class ExamplesController < ApplicationController
-  include ExceptionNotifiable
-  
   protect_from_forgery :except => :echo
   
   def test_exception

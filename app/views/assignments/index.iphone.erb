@@ -14,7 +14,7 @@ xxx@xxx.xxx %>
 		<ul>
 xxx@xxx.xxx do |assignment| %>
 				<li>
-					<% link_to xxx@xxx.xxx @section, assignment) do %>
+					<%= link_to xxx@xxx.xxx @section, assignment) do %>
 						<div class="secondary">
 							<%= assignment.lab.title %>
 						</div>
@@ -41,7 +41,7 @@ xxx@xxx.xxx do |assignment| %>
 		<ul>
 xxx@xxx.xxx do |howto| %>			
 				<li>
-					<% link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
+					<%= link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
 						<%= howto.title %>
 						<div class="secondary"><%= howto.description %></div>
 					<% end %>
@@ -69,7 +69,7 @@ xxx@xxx.xxx do |material| %>
 	<h1>Request Your Grade</h1>
 	<ul>
 		<li>
-			<% xxx@xxx.xxx @section, @section.grade_requests.build]) do |f| %>
+			<%= xxx@xxx.xxx @section, @section.grade_requests.build]) do |f| %>
 				<%= error_messages_for :grade_request, :header_message => 'Uh oh!  You\'ve really done it now.  It\'s going to take us hours to straighten this mess out.', :message => 'Here are a few of the many things you\'ve done wrong today:' %>
 				<%= f.text_field :email, :value => 'Your Email Address', :onfocus => 'this.value = ""', :autocapitalize => 'off', :autocorrect => 'off' %>
 			<% end %>

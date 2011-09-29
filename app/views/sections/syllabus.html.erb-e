@@ -1,11 +1,11 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 xxx@xxx.xxx %></h1>
 	<h4>Syllabus</h4>
 <% end %>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 		<li><a href="javascript:pre_print( );"><span class="text">Print</span><span class="icon">&thorn;</span></a></li>
 	</ul>
 </div>

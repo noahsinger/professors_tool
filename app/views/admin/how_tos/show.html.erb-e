@@ -1,4 +1,4 @@
-<% content_for :head do %>
+<%= content_for :head do %>
 	<script type="text/javascript" charset="utf-8">
 		$(document).ready(function( ) {	
 			$("#steps").reorderTable( "<%= xxx@xxx.xxx ) %>", "<%= form_authenticity_token %>" );
@@ -6,15 +6,15 @@
 	</script>
 <% end %>
 
-<% content_for :header do %>
+<%= content_for :header do %>
 	<h1>How to: xxx@xxx.xxx %></h1>
 	<h4><%= xxx@xxx.xxx "step" %></h4>
 <% end %>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to admin_how_tos_path do %> <%= render :partial => "shared/back_link" %> <% end %></li>
-		<li><% link_to xxx@xxx.xxx do %> <%= render :partial => "shared/edit_link" %> <% end %></li>
+		<li><%= link_to admin_how_tos_path do %> <%= render :partial => "shared/back_link" %> <% end %></li>
+		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => "shared/edit_link" %> <% end %></li>
 	</ul>
 </div>
 

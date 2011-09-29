@@ -1,11 +1,11 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 	<h1>Courses</h1>
 	<h4>All courses offered through this site</h4>
 <% end %>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to '/' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><%= link_to '/' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 	</ul>
 </div>
 
@@ -17,7 +17,7 @@
 <ul class="sliding">
 xxx@xxx.xxx do |course| %>		
 		<li>
-			<% link_to course_path( course ) do %>
+			<%= link_to course_path( course ) do %>
 				<span class="class_short_name"><%= course.short_name %></span>
 				<span class="class_long_name"><%= course.title %></span>
 				<span class="class_credits"><%= pluralize course.credits, "credit" %></span>

@@ -4,7 +4,7 @@ class Admin::HomeworkReturnRequestsController < ApplicationController
   # GET /homework_return_requests
   # GET /homework_return_requests.xml
   def index
-   xxx@xxx.xxx = HomeworkReturnRequest.find(:all, :order => 'created_at desc')
+   xxx@xxx.xxx = HomeworkReturnRequest.order('created_at desc')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -36,7 +36,7 @@ class Admin::HomeworkReturnRequestsController < ApplicationController
   end
   
   def destroy_all
-   xxx@xxx.xxx = HomeworkReturnRequest.find( :all )
+   xxx@xxx.xxx = HomeworkReturnRequest.all
    xxx@xxx.xxx do |request|
       request.destroy
     end

@@ -4,7 +4,7 @@ class Admin::SemestersController < ApplicationController
   # GET /semesters
   # GET /semesters.xml
   def index
-   xxx@xxx.xxx = Semester.find(:all, :order => 'start_date desc')
+   xxx@xxx.xxx = Semester.order('start_date desc')
 
     respond_to do |format|
       format.html # index.html.erb

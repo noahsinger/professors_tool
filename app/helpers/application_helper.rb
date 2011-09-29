@@ -1,10 +1,4 @@
-# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  # def css_naked?
-  #   true
-  #   false
-  # end
-  
   def show_time datetime
     datetime.strftime '%I:%M %p'
   end
@@ -45,5 +39,9 @@ module ApplicationHelper
     content_for :title do 
       text
     end
+  end
+  
+  def slide_link( text, subtext )
+    "<span class=\"text\">#{text} - <span class=\"sub\">#{subtext}</span></span>".html_safe
   end
 end

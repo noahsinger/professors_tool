@@ -4,7 +4,7 @@ class Admin::EnrollmentStatusesController < ApplicationController
   # GET /enrollment_statuses
   # GET /enrollment_statuses.xml
   def index
-   xxx@xxx.xxx = EnrollmentStatus.find(:all)
+   xxx@xxx.xxx = EnrollmentStatus.all
 
     respond_to do |format|
       format.html # index.html.erb

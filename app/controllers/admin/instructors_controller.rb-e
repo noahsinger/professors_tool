@@ -4,7 +4,7 @@ class Admin::InstructorsController < ApplicationController
   # GET /instructors
   # GET /instructors.xml
   def index
-   xxx@xxx.xxx = Instructor.find(:all)
+   xxx@xxx.xxx = Instructor.all
 
     respond_to do |format|
       format.html # index.html.erb

@@ -13,7 +13,7 @@ class Admin::StudentsController < ApplicationController
   end
   
   def index
-   xxx@xxx.xxx = Student.find(:all, :order => 'last_name')
+   xxx@xxx.xxx = Student.order('last_name')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -64,7 +64,7 @@ class Admin::StudentsController < ApplicationController
         @enrollment.student_id xxx@xxx.xxx
         @enrollment.section_id xxx@xxx.xxx
         
-       xxx@xxx.xxx = EnrollmentStatus.find( :first, :conditions => "name = 'Enrolled'" )
+       xxx@xxx.xxx = EnrollmentStatus.where("name = 'Enrolled'").first
         @enrollment.enrollment_status xxx@xxx.xxx
         
        xxx@xxx.xxx

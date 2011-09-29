@@ -1,15 +1,15 @@
-<% content_for :header do %>
+<%= content_for :header do %>
 xxx@xxx.xxx %></h1>
 	<h4>Editing</h4>
 <% end %>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to session[:referrer] do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><%= link_to session[:referrer] do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 	</ul>
 </div>
 
-<% xxx@xxx.xxx do |f| %>
+<%= xxx@xxx.xxx do |f| %>
 	<%= f.error_messages %>
 	<ol>
 		<li>

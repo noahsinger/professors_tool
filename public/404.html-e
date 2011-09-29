@@ -1,133 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>
-			Ingenio.us :: Error 404 - Page Not Found
-		</title>
-		<link href="/stylesheets/reset.css?404" media="all" rel="stylesheet" type="text/css" />
-		<link href="/stylesheets/scaffold.css?404" media="screen" rel="stylesheet" type="text/css" />
-		<link href="/stylesheets/barred.css?404" media="all" rel="stylesheet" type="text/css" />
-		<link href="/stylesheets/print.css?404" media="print" rel="stylesheet" type="text/css" />
-		<link href="/stylesheets/jquery.jgrowl.css?404" media="screen" rel="stylesheet" type="text/css" />
-		<script src="/javascripts/jquery.js?404" type="text/javascript"></script>
-		<script src="/javascripts/jquery.easing.js?404" type="text/javascript"></script>
-		<script src="/javascripts/jquery.jgrowl.js?404" type="text/javascript"></script>
-		<script src="/javascripts/jquery.kwicks.js?404" type="text/javascript"></script>
-		<script src="/javascripts/jquery.tablednd_0_5.js?404" type="text/javascript"></script>
-		<script src="/javascripts/application.js?404" type="text/javascript"></script>
-		<script src="/javascripts/chrome.js?404" type="text/javascript"></script>
-		<!--[if IE]>
-			<link rel="stylesheet" type="text/css" href="stylesheets/ie7.css" />
-		<![endif]-->
-	</head>
-	<body>
-		<div id="top_bar">
-			<h1>
-				<a href="/">Ingenio.us.com</a>
-			</h1>
-			<div class="clear"></div>
-		</div>
-		<div id="page">
-			<div id="back_bar"></div>
-			<div id="ie_warning">
-				<h3>
-					This site doesn't work well in Internet Explorer.
-				</h3>
-				<p>
-					I have not tested or made any real effect to make this site work correctly in Internet Explorer (IE). Unfortunately, IE fails to implement many web standards that have been supported by virtually ALL other browsers for many years. Due to this, IE is a consistent pain in my neck and I do not plan of spending my time or dumbing down my site just to make it site function in IE. I would recommend that you change to a different browser like <a href="http://www.getfirefox.com">FireFox</a>, <a href="http://www.apple.com/safari/download/">Sarafi</a>, or <a href="http://www.opera.com/">Opera</a>. All are free and very good.
-				</p>
-			</div>
-			<div id="header">
-				<h2>
-					Error 404
-				</h2>
-				<h1>
-					Page Not Found
-				</h1>
-			</div>
-			<div id="content">
-				<noscript>
-				<ul id="javascript_warning">
-					<li>You must enable javascript for this site to function properly!
-					</li>
-				</ul></noscript>
-				<div class="nav">
-					<ul class="nav">
-						<li>
-							<a href="/"><span class="text">Home</span><span class="icon">«</span></a>
-						</li>
-					</ul>
-				</div>
-				<div class="clear"></div>
-				<br/>
-				
-				<h2>
-					Error 404:
-				</h2>
-				
-				<ul>
-					<li>
-						<br/>
-						<p>
-							We are dreadfully sorry but the page you requested could not be located. We thought we had that page lying around here somewhere but now that we look for it we can't seem to turn it up. You know what that's like, right? Seriously though, we are going to make someone suffer for the inconvenience you've been put through due to our failure. As a matter of fact, I'm going to go beat our webmaster right now!
-						</p>
-						<p>
-							While the beatings commence, you can use the Home link at the top of the page to get to a page that does exist.
-						</p>
-						<p>
-							Oh wait. I just thought of another possibility. Maybe the page does exist just not in this particular cosmi. I wonder if you were to use the Home link above to go back to the sites homepage and then re-click you links if you might find yourself in a different worldtrack where that page does exist? I would guess it's worth a try.  This particular narrative doesn't seem to be of any real productive use anyway.
-						</p>
-						<br/>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="clear"></div>
-		<div id="footer">
-			<ul id="main">
-				<li>
-					<a href="/">Current Classes <span class="light">(Home)</span></a>
-				</li>
-				<li>
-					<a href="/courses">Courses</a>
-				</li>
-				<li>
-					<a href="/semesters">Semesters</a>
-				</li>
-				<li>
-					<a href="/general_contacts/new">Contact</a>
-				</li>
-				<li>
-					<a href="/office_hours/1/original/61020-org.jpg?1231274476">Office Hours</a>
-				</li>
-			</ul>
-			<div id="copyright">Copyright &copy; <%= Time.now.year %> Ingenio.us.com v1.1</div>
-			<br/>
-			<div class="ad" id="site5_ad">
-				<a href="http://www.site5.com/in.php?id=18633-48">
-					<span id="powered_by">POWERED BY</span>
-					<span id="site5">site5</span>
-					<span id="web_hosting">web hosting</span>
-				</a>
-			</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The page you were looking for doesn't exist (404)</title>
+  <style type="text/css">
+    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+    div.dialog {
+      width: 25em;
+      padding: 0 4em;
+      margin: 4em auto 0 auto;
+      border: 1px solid #ccc;
+      border-right-color: #999;
+      border-bottom-color: #999;
+    }
+    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+  </style>
+</head>
 
-			<div class="clear"></div>
-		</div>
-		<script type="text/javascript">
-			//<![CDATA[
-				var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-				document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-			//]]>
-		</script>
-		<script type="text/javascript">
-			//<![CDATA[
-				try {
-					var pageTracker = _gat._getTracker("UA-100379-13");
-					pageTracker._trackPageview();
-					} catch(err) {}
-			//]]>
-		</script>
-	</body>
+<body>
+  <!-- This file lives in public/404.html -->
+  <div class="dialog">
+    <h1>The page you were looking for doesn't exist.</h1>
+    <p>You may have mistyped the address or the page may have moved.</p>
+  </div>
+</body>
 </html>

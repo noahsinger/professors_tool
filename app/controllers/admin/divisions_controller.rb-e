@@ -4,7 +4,7 @@ class Admin::DivisionsController < ApplicationController
   # GET /divisions
   # GET /divisions.xml
   def index
-   xxx@xxx.xxx = Division.find(:all)
+   xxx@xxx.xxx = Division.all
 
     respond_to do |format|
       format.html # index.html.erb

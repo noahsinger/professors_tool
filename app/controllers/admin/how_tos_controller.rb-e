@@ -12,7 +12,7 @@ class Admin::HowTosController < ApplicationController
   # GET /how_tos
   # GET /how_tos.xml
   def index
-   xxx@xxx.xxx = HowTo.find(:all)
+   xxx@xxx.xxx = HowTo.all
 
     respond_to do |format|
       format.html # index.html.erb

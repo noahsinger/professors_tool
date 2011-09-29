@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(username, password)    
-    user = User.find(:first, :conditions => ['username = ?', username])
+    user = User.where('username = ?', username).first
     if user.blank? || Digest::SHA256.hexdigest(password + user.password_salt) != user.password_hash
       raise "Username or password is invalid"
     end

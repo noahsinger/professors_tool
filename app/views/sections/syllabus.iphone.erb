@@ -80,7 +80,7 @@ xxx@xxx.xxx %>
 	<ul>
 xxx@xxx.xxx do |book| %>
 			<li>
-				<% link_to 'http://www.amazon.com/exec/obidos/ASIN/' + book.isbn + '/ingeniouscom-20', :target => '_blank' do %>
+				<%= link_to 'http://www.amazon.com/exec/obidos/ASIN/' + book.isbn + '/ingeniouscom-20', :target => '_blank' do %>
 					<em>
 						<% if book.required %>
 							Required text:

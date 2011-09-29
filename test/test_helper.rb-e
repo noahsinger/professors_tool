@@ -1,34 +1,8 @@
 ENV["RAILS_ENV"] = "test"
-require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
-require 'test_help'
+require File.expand_path('../../config/environment', __FILE__)
+require 'rails/test_help'
 
-# class Test::Unit::TestCase
 class ActiveSupport::TestCase
-  # Transactional fixtures accelerate your tests by wrapping each test method
-  # in a transaction that's rolled back on completion.  This ensures that the
-  # test database remains unchanged so your fixtures don't have to be reloaded
-  # between every test method.  Fewer database queries means faster tests.
-  #
-  # Read Mike Clark's excellent walkthrough at
-  #   http://clarkware.com/cgi/blosxom/2005/10/24#Rails10FastTesting
-  #
-  # Every Active Record database supports transactions except MyISAM tables
-  # in MySQL.  Turn off transactional fixtures in this case; however, if you
-  # don't care one way or the other, switching from MyISAM to InnoDB tables
-  # is recommended.
-  #
-  # The only drawback to using transactional fixtures is when you actually 
-  # need to test transactions.  Since your test is bracketed by a transaction,
-  # any transactions started in your code will be automatically rolled back.
-  self.use_transactional_fixtures = true
-
-  # Instantiated fixtures are slow, but give xxx@xxx.xxx where otherwise you
-  # would need people(:david).  If you don't want to migrate your existing
-  # test cases which use xxx@xxx.xxx style and don't mind the speed hit (each
-  # instantiated fixtures translates to a database query per test method),
-  # then set this back to true.
-  self.use_instantiated_fixtures  = false
-
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
@@ -44,14 +18,21 @@ class ActiveSupport::TestCase
    xxx@xxx.xxx = nil
   end
   
-  def self.cannot_access_actions(actions = {:index => :get, :show => :get, :new => :get, :create => :post, :edit => :get, :update => :post, :destroy => :delete})
+  def self.cannot_access_actions(route_parts = [:id => 1], actions = {:index => :get, :show => :get, :new => :get, :create => :post, :edit => :get, :update => :put, :destroy => :delete})
     actions.each do |action, request|
       define_method("test_cannot_access_#{action}") do
         logout
-        send( request, action )
+        
+        if ["index","new","create"].index( action )
+          assert_routing({:path => "/#{@controller.controller_path}/#{action}", :method => request},{:controller xxx@xxx.xxx :action => action })
+        elsif ["show","edit","update","destroy"].index( action )
+          assert_routing({:path => "/#{@controller.controller_path}/1/#{action}", :method => request},{:controller xxx@xxx.xxx :action => action, :id => 1 })
+        end
+        
+        send( request, action, *route_parts )
         assert_response :redirect
-        assert_redirected_to signin_admin_admin_path    
+        assert_redirected_to signin_admin_admin_index_path    
       end
-		end
+    end
   end
 end

@@ -24,7 +24,7 @@
 	
 	<ul>
 		<li><h3>All Courses</h3></li>
-		<% Course.find(:all).each do |course| %>
+		<% Course.all.each do |course| %>
 			<li><%= link_to_unless_current course.title, course_path( course ) %></li>
 		<% end %>
 	</ul>
@@ -32,7 +32,7 @@
 	<% if session[:user] %>
 		<ul>
 			<li><h3>Administrator</h3></li>
-			<li><%= link_to 'Signout', signout_admin_admin_path %></li>
+			<li><%= link_to 'Signout', signout_admin_admin_index_path %></li>
 			<li><%= link_to 'Admin Home', '/admin' %></li>
 			<li><%= link_to 'Test Flash', '/examples/test_flash' %></li>
 			<li><%= link_to 'Test Exception', '/examples/test_exception' %></li>
@@ -41,7 +41,7 @@
 	
 	<hr/>
 	
-	<div id="copyright">Copyright &copy; <%= Time.now.year %> Ingenio.us.com v1.3</div>
+	<div id="copyright">Copyright &copy; <%= Time.now.year %> Ingenio.us.com v2.0</div>
 	<br/>
 	<div class="ad" id="site5_ad">
 		<a href="http://www.site5.com/in.php?id=18633-48">

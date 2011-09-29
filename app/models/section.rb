@@ -76,10 +76,10 @@ class Section < ActiveRecord::Base
 
   def send_email body
     self.enrollments.each do |e|
-      email = Mailer::create_section_email( self, e.student.email, body )
-      # Mailer.deliver( email )
-      Mailer.send_later :deliver, email
-      logger.info("[section email] email sent to #{e.student.email}")
+      StudentMailer.delay.section_email( self, e.student.email, body )
+      # email = Mailer.section_email( self, e.student.email, body )
+      # Mailer.send_later.deliver email
+      # logger.info("[section email] email sent to #{e.student.email}")
     end
   end
   

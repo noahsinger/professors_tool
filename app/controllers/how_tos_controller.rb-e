@@ -1,6 +1,4 @@
 class HowTosController < ApplicationController
-  include ExceptionNotifiable
-  
   before_filter :load_course
   
   def load_course

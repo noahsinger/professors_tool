@@ -4,14 +4,14 @@
 	});
 </script>
 
-<% content_for :header do %>
+<%= content_for :header do %>
 	<h1>Policies</h1>
 	<h2>for xxx@xxx.xxx %></h2>
 <% end %>
 
 <div class="nav">
 	<ul class="nav">
-		<li><% link_to xxx@xxx.xxx ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+		<li><%= link_to xxx@xxx.xxx ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 	</ul>
 </div>
 
@@ -43,7 +43,7 @@ xxx@xxx.xxx do |syllabus_part| %>
 </ul>
 
 <h4>Create<br/>Syllabus Section</h4>
-<% form_for([:admin,SyllabusPart.new]) do |f| %>
+<%= form_for([:admin,SyllabusPart.new]) do |f| %>
 	<%= f.error_messages %>
 	<ol>
 		<li>

@@ -1,136 +1,207 @@
-ActionController::Routing::Routes.draw do |map|
-  # map.resources :examples
-
+Ingenious20::Application.routes.draw do
   # no namespace ##########################################    
-  map.resources :general_contacts # , :member => {:download => :get}
+  resources :general_contacts
+  resources :instructors
   
   # semesters namespace #######################################
-  map.resources :semesters do |semesters|
-    semesters.resources :sections, :member => {:syllabus => :get} # <-- was member = :request_grades => :get
-    semesters.resources :sections do |sections|
-      sections.resources :grade_requests
-      sections.resources :assignments do |assignments|
-        assignments.resources :works, :collection => {:status => :get, :withdraw => :get} # <-- was collection = :work_return => :get
-        assignments.resources :homework_return_requests
+  resources :semesters do
+    resources :sections do
+      member do
+         get 'syllabus'
+      end
+    end
+    resources :sections do
+      resources :grade_requests
+      resources :assignments do
+        resources :works do
+          collection do
+             get 'withdraw'
+          end
+        end
+        resources :homework_return_requests
       end
     end
   end
   
   # courses namespace #######################################
-  map.resources :courses do |courses|
-    courses.resources :sections    
+  resources :courses do
+    resources :sections    
     
-    courses.resources :how_tos do |howto|
-      howto.resources :steps
+    resources :how_tos do
+      resources :steps
     end
     
-    courses.resources :labs do |labs|
-      labs.resources :requirements
+    resources :labs do
+      resources :requirements
     end
   end
     
   # admin namespace #######################################
-  map.namespace :admin do |admin|
+  namespace :admin do
     
-    admin.resources :admin, :collection => {:signin => :get, :signout => :get}
+    resources :students
+    resources :enrollment_statuses
+    resources :divisions
+    resources :instructors
+    resources :syllabus_parts
+    resources :users
     
-    admin.resources :general_contacts, :collection => {:destroy_all => :delete}
+    resources :admin do
+      collection do
+        get 'signin'
+        post 'signin', :as => :signin
+        get 'signout'
+      end
+    end
     
-    admin.resources :semesters do |semesters|
-      semesters.resources :sections, :member => {:section_email => :get}
-      semesters.resources :sections do |sections|
-        sections.resources :students
-        sections.resources :enrollments
-        sections.resources :examples
+    resources :general_contacts do
+      collection do
+        delete :destroy_all
+      end
+    end
+    
+    resources :semesters do
+      resources :sections do
+        member do
+          get 'section_email'
+        end
+      end
+      
+      resources :sections do
+        resources :students
+        resources :enrollments
+        resources :examples
         
-        sections.resources :assignments do |assignments|
-          assignments.resources :works, :member => {:grade => :get, :record_score => :put, :destroy_grade => :delete, :download => :get}, :collection => {:new_for_all => :get}
-          assignments.resources :works do |works|
-            works.resources :awarded_points
+        resources :assignments do
+          resources :works do
+            member do
+              get 'grade'
+              put 'record_score'
+              delete 'destroy_grade'
+              get 'download'
+            end
+            
+            collection do
+                get 'new_for_all'
+            end
+          end
+          resources :works do
+            resources :awarded_points
           end
         end
       end
     end
     
-    admin.resources :courses do |courses|
-      courses.resources :materials
-      courses.resources :books
-      courses.resources :tutorials, :collection => {:sort => :post, :add_how_to => :post}
-      courses.resources :objectives
-      courses.resources :policies, :collection => {:sort => :post, :add_syllabus_part => :post}
+    resources :courses do
+      resources :materials
+      resources :books
+      resources :tutorials do
+        collection do
+          post 'sort'
+          post 'add_how_to'
+        end
+      end
+      
+      resources :objectives
+      resources :policies do
+        collection do
+          post 'sort'
+          post 'add_syllabus_part'
+        end
+      end
             
-      courses.resources :labs do |labs|
-        labs.resources :requirements
-        labs.resources :extras
+      resources :labs do
+        resources :requirements
+        resources :extras
       end
     end
 
-    admin.resources :students
-    admin.resources :enrollment_statuses
-    admin.resources :divisions
-    admin.resources :instructors
-
-    admin.resources :how_tos do |howto|
-      howto.resources :steps, :collection => {:sort => :post}
+    resources :how_tos do
+      resources :steps do
+        collection do
+          post 'sort'
+        end
+      end
     end
     
-    admin.resources :syllabus_parts
-    admin.resources :users
-    admin.resources :grade_requests, :collection => {:destroy_all => :delete}
-    admin.resources :homework_return_requests, :collection => {:destroy_all => :delete}
+    resources :grade_requests do
+      collection do
+        delete 'destroy_all'
+      end
+    end
+    
+    resources :homework_return_requests do
+      collection do
+        delete 'destroy_all'
+      end
+    end
   end
+  
+  match 'admin' => 'admin/admin#index', :as => :admin
 
-  map.resources :instructors
-  # map.connect 'instructors/:id', :controller => 'instructors', :action => 'show'
+  if Semester.current
+    root :to => "sections#index", :semester_id => Semester.current.id
+  else
+    root :to => "sections#index"
+  end
+  
+  # map.connect 'examples/echo', :controller => 'examples', :action => 'echo', :conditions => { :method => [:get, :post] }
+  match 'examples/echo' => 'examples#echo', :method => [:get, :post]
 
-  # The priority is based upon order of creation: first created -> highest priority.
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
 
   # Sample of regular route:
-    # map.connect 'products/:id', :controller => 'catalog', :action => 'view'
-  # map.connect 'admin', :controller => '/admin/sections', :action => 'index', :semester_id => Semester.current.id
-  map.connect 'admin', :controller => '/admin/admin', :action => 'index'
-
+  #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
-  # This route can be invoked with purchase_url(:id => product.id)  
+  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+  # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   map.resources :products
+  #   resources :products
 
   # Sample resource route with options:
-  #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
+  #   resources :products do
+  #     member do
+  #       get 'short'
+  #       post 'toggle'
+  #     end
+  #
+  #     collection do
+  #       get 'sold'
+  #     end
+  #   end
 
   # Sample resource route with sub-resources:
-  #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
+  #   resources :products do
+  #     resources :comments, :sales
+  #     resource :seller
+  #   end
+
   # Sample resource route with more complex sub-resources
-  #   map.resources :products do |products|
-  #     products.resources :comments
-  #     products.resources :sales, :collection => { :recent => :get }
+  #   resources :products do
+  #     resources :comments
+  #     resources :sales do
+  #       get 'recent', :on => :collection
+  #     end
   #   end
 
   # Sample resource route within a namespace:
-  #   map.namespace :admin do |admin|
-  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-  #     admin.resources :products
+  #   namespace :admin do
+  #     # Directs /admin/products/* to Admin::ProductsController
+  #     # (app/controllers/admin/products_controller.rb)
+  #     resources :products
   #   end
 
-  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  if Semester.current
-    map.root :controller => "/sections", :action => 'index', :semester_id => Semester.current.id
-  else
-    map.root :controller => "/semesters", :action => 'index'
-  end
-  
-  map.connect 'examples/echo', :controller => 'examples', :action => 'echo', :conditions => { :method => [:get, :post] }
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  # root :to => "welcome#index"
 
   # See how all your routes lay out with "rake routes"
 
-  # Install the default routes as the lowest priority.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
-  
-  # map.connect '/works/*path', :controller => 'redirector', :action => 'works'
+  # This is a legacy wild controller route that's not recommended for RESTful applications.
+  # Note: This route will make all actions in every controller accessible via GET requests.
+  # match ':controller(/:action(/:id(.:format)))'
 end

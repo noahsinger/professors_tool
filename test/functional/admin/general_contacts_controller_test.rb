@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class Admin::GeneralContactsControllerTest < ActionController::TestCase
-  cannot_access_actions
+  cannot_access_actions([:id => 1], {:index => :get, :show => :get, :destroy => :delete, :destroy_all => :delete})
   
   def setup
     login_as(:admin)

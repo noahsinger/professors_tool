@@ -16,7 +16,7 @@ class Admin::GeneralContactsController < ApplicationController
   # GET /general_contacts
   # GET /general_contacts.xml
   def index
-   xxx@xxx.xxx = GeneralContact.find(:all, :order => 'created_at desc')
+   xxx@xxx.xxx = GeneralContact.order('created_at desc')
 
     respond_to do |format|
       format.html # index.html.erb

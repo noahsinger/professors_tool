@@ -4,7 +4,7 @@ class Admin::GradeRequestsController < ApplicationController
   # GET /grade_requests
   # GET /grade_requests.xml
   def index
-   xxx@xxx.xxx = GradeRequest.find(:all, :order => 'created_at desc')
+   xxx@xxx.xxx = GradeRequest.order('created_at desc')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -36,7 +36,7 @@ class Admin::GradeRequestsController < ApplicationController
   end
   
   def destroy_all
-   xxx@xxx.xxx = GradeRequest.find( :all )
+   xxx@xxx.xxx = GradeRequest.all
    xxx@xxx.xxx do |grade_request|
       grade_request.destroy
     end

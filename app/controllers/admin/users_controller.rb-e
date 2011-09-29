@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
-   xxx@xxx.xxx = User.find(:all)
+   xxx@xxx.xxx = User.all
 
     respond_to do |format|
       format.html # index.html.erb

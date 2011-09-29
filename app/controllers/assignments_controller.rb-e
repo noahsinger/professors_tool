@@ -1,6 +1,4 @@
 class AssignmentsController < ApplicationController
-  include ExceptionNotifiable
-  
   before_filter :load_semester
   before_filter :load_section
   before_filter :clear_referrer
