@@ -6,7 +6,7 @@
 <div class="nav">
 	<ul class="nav">
 		<li><%= link_to '/admin' do %> <%= render :partial => "shared/back_link" %> <% end %></li>
-		<li><%= link_to '<span class="test">Clear All</span><span class="icon">&euro;</span>', destroy_all_admin_grade_requests_path, :confirm => 'Are you sure?', :method => :delete %></li>
+		<li><%= link_to '<span class="text">Clear All</span><span class="icon">&euro;</span>'.html_safe, destroy_all_admin_grade_requests_path, :confirm => 'Are you sure?', :method => :delete %></li>
 	</ul>
 </div>
 
