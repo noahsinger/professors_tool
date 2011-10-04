@@ -17,7 +17,7 @@ xxx@xxx.xxx %>
 <p>
 	<strong>Enrollment:</strong>
 	<% xxx@xxx.xxx %>
-		<%=h @grade_request.enrollment.student.last_name %>, xxx@xxx.xxx %>
+		<%= @grade_request.enrollment.student.last_name %>, xxx@xxx.xxx %>
 	<% else %>
 		Email address did not match any known enrollments
 	<% end %>

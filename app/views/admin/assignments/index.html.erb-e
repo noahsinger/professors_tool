@@ -33,7 +33,7 @@ xxx@xxx.xxx %></h2>
 		<tr <%= klass %>>
 			<td class="nav">
 				<%= link_to assignment.title, xxx@xxx.xxx %>
-				<br/><span style="font-size: .7em;"><%=h assignment.lab.title %></span>
+				<br/><span style="font-size: .7em;"><%= assignment.lab.title %></span>
 			</td>
 			<td>
 				<%= show_short_date assignment.duedate %>

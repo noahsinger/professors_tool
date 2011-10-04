@@ -17,9 +17,9 @@
 
 	<% for material xxx@xxx.xxx %>
 	  <tr>
-	    <td><%=h material.title %></td>
-	    <td><%=h material.description %></td>
-	    <td><%=h material.file %></td>
+	    <td><%= material.title %></td>
+	    <td><%= material.description %></td>
+	    <td><%= material.file %></td>
 	    <td><%= link_to 'Show', xxx@xxx.xxx %></td>
 	    <td><%= link_to 'Edit', xxx@xxx.xxx %></td>
 	    <td><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>

@@ -25,10 +25,10 @@
 
 	<% for instructor xxx@xxx.xxx %>
 	  <tr>
-	    <td><%=h instructor.last_name %>, <%=h instructor.first_name %></td>
-	    <td><%=h instructor.title %></td>
-	    <td><%=h instructor.email %></td>
-	    <td><%=h instructor.division.name %></td>
+	    <td><%= instructor.last_name %>, <%= instructor.first_name %></td>
+	    <td><%= instructor.title %></td>
+	    <td><%= instructor.email %></td>
+	    <td><%= instructor.division.name %></td>
 	    <td class="nav"><%= link_to 'Show', [:admin,instructor] %></td>
 	    <td class="nav"><%= link_to 'Edit', edit_admin_instructor_path(instructor) %></td>
 	    <td class="nav"><%= link_to 'Destroy', [:admin,instructor], :confirm => 'Are you sure?', :method => :delete %></td>

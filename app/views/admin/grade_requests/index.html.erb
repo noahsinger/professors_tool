@@ -25,13 +25,13 @@
 			<% else %>
 				<tr>
 			<% end %>
-				<td><%=h grade_request.section.course.title %></td>
+				<td><%= grade_request.section.course.title %></td>
 				<%- if grade_request.enrollment -%>
-					<td><%=h grade_request.enrollment.student.last_name %>, <%=h grade_request.enrollment.student.first_name %></td>
+					<td><%= grade_request.enrollment.student.last_name %>, <%= grade_request.enrollment.student.first_name %></td>
 				<%- else -%>
 					<td></td>
 				<%- end -%>
-				<td><%=h grade_request.email %></td>
+				<td><%= grade_request.email %></td>
 				<td><%=show_short_date grade_request.created_at %> @ <%= show_time grade_request.created_at %></td>
 				<td><%= link_to 'Show', [:admin,grade_request] %></td>
 				<td><%= link_to 'Destroy', [:admin,grade_request], :confirm => 'Are you sure?', :method => :delete %></td>

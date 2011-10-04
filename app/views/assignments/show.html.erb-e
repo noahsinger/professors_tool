@@ -25,7 +25,7 @@ xxx@xxx.xxx %></h4>
 	
 	<% xxx@xxx.xxx  %>
 		<p>Due in <%= xxx@xxx.xxx %><br/>
-		<span class="light">(<%=h xxx@xxx.xxx ) %>)</span></p>
+		<span class="light">(<%= xxx@xxx.xxx ) %>)</span></p>
 	<% end %>
 
 	<% xxx@xxx.xxx %>

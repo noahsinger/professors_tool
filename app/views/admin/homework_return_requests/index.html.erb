@@ -25,11 +25,11 @@
 		<% else %>
 			<tr>
 		<% end %>
-	    <td><%=h homework_return_request.email %></td>
-	    <td><%=h homework_return_request.assignment.title %> <%=h homework_return_request.assignment.lab.title %></td>
+	    <td><%= homework_return_request.email %></td>
+	    <td><%= homework_return_request.assignment.title %> <%= homework_return_request.assignment.lab.title %></td>
 	    <td>
 			<% if homework_return_request.enrollment %>
-				<%=h homework_return_request.enrollment.student.last_name %>, <%=h homework_return_request.enrollment.student.first_name %>
+				<%= homework_return_request.enrollment.student.last_name %>, <%= homework_return_request.enrollment.student.first_name %>
 			<% else %>
 				No Enrollment Found
 			<% end %>

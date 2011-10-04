@@ -21,9 +21,9 @@ xxx@xxx.xxx %></h2>
 
 xxx@xxx.xxx do |example| %>
 	  <tr>
-	    <td><%=h example.name %></td>
+	    <td><%= example.name %></td>
 	    <td><%= truncate example.description %></td>
-			<td><%=h show_date_and_time(example.created_at) %></td>
+			<td><%= show_date_and_time(example.created_at) %></td>
 	    <td><%= link_to 'Show', xxx@xxx.xxx %></td>
 	    <td><%= link_to 'Edit', xxx@xxx.xxx %></td>
 	    <td><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>

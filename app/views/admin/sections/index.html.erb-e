@@ -28,12 +28,12 @@
 	<% for section xxx@xxx.xxx %>
 	  <tr>
 	    <td class="nav">
-			<%=link_to section.course.title + "<br/>" + section.call_number + " / " + section.section_number, xxx@xxx.xxx section] %><br/>
+			<%=link_to "#{section.course.title}<br/>#{section.call_number} / #{section.section_number}".html_safe, xxx@xxx.xxx section] %><br/>
 		</td>
-		<td><%=h section.room_number %></td>
-	    <td><%=h section.meeting_days %></td>
-	    <td><%=h show_time( section.start_time ) %> - <%=h show_time( section.end_time )  %></td>
-	    <td><%=h show_short_date( section.start_date ) %> - <%=h show_short_date( section.end_date ) %></td>
+		<td><%= section.room_number %></td>
+	    <td><%= section.meeting_days %></td>
+	    <td><%= show_time( section.start_time ) %> - <%= show_time( section.end_time )  %></td>
+	    <td><%= show_short_date( section.start_date ) %> - <%= show_short_date( section.end_date ) %></td>
 		<td><%= section.in_session %></td>
 		<td><%= section.enrollments.size %></td>
 

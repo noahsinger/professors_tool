@@ -20,8 +20,8 @@
 
 	<% for general_contact xxx@xxx.xxx %>
 	  <tr>
-	    <td><%=h general_contact.return_email %></td>
-	    <td><%=h general_contact.subject %></td>
+	    <td><%= general_contact.return_email %></td>
+	    <td><%= general_contact.subject %></td>
 	    <td>
 			<% if general_contact.attachment %>
 				<%= link_to general_contact.attachment_file_name, general_contact.attachment.url %>

@@ -46,7 +46,7 @@
 		  <tr>
 			<td>
 				<% if work.enrollment %>
-			    	<%=h work.enrollment.student.last_name %>, <%=h work.enrollment.student.first_name %>
+			    	<%= work.enrollment.student.last_name %>, <%= work.enrollment.student.first_name %>
 				<% else %>
 					None (<%= link_to 'Edit', xxx@xxx.xxx %>)
 				<% end %>

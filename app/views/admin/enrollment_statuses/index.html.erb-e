@@ -21,7 +21,7 @@
 
 	<% for enrollment_status xxx@xxx.xxx %>
 	  <tr>
-	    <td><%=h enrollment_status.name %></td>
+	    <td><%= enrollment_status.name %></td>
 	    <td class="nav"><%= link_to 'Edit', edit_admin_enrollment_status_path(enrollment_status) %></td>
 	    <td class="nav"><%= link_to 'Destroy', [:admin,enrollment_status], :confirm => 'Are you sure?', :method => :delete %></td>
 	  </tr>

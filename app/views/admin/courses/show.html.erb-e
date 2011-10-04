@@ -31,7 +31,7 @@ xxx@xxx.xxx %>
 	<% for lab xxx@xxx.xxx %>
 	  <tr>
 	    <td class="nav"><%=link_to lab.title, xxx@xxx.xxx %></td>
-	    <td><%=h lab.objective %></td>
+	    <td><%= lab.objective %></td>
 		<td><%= lab.visible %></td>
 		<td><%= lab.allow_uploads %></td>
 	    <td class="nav"><%= link_to 'Edit', xxx@xxx.xxx %></td>
@@ -65,7 +65,7 @@ xxx@xxx.xxx %>
 	<% for material xxx@xxx.xxx %>
 	  <tr>
 	    <td class="nav"><%=link_to material.title, xxx@xxx.xxx %></td>
-	    <td><%=h material.description %></td>
+	    <td><%= material.description %></td>
 	    <td class="nav"><%=link_to material.file_file_name, material.file.url %></td>
 	    <td class="nav"><%= link_to 'Edit', xxx@xxx.xxx %></td>
 	    <td class="nav"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
@@ -125,7 +125,7 @@ xxx@xxx.xxx %></td>
 		<table>
 		<% for objective xxx@xxx.xxx %>
 		  <tr>
-		    <td><%=h objective.description %></td>
+		    <td><%= objective.description %></td>
 		  </tr>
 		<% end %>
 		</table>
@@ -144,7 +144,7 @@ xxx@xxx.xxx %></td>
 			<tbody>
 				<% for policy xxx@xxx.xxx %>
 					<tr id="<%= policy.id %>">
-						<td><%=h policy.syllabus_part.name %></td>
+						<td><%= policy.syllabus_part.name %></td>
 					</tr>
 				<% end %>
 			</tbody>
@@ -175,10 +175,10 @@ xxx@xxx.xxx %></td>
 		<% for book xxx@xxx.xxx %>
 		  <tr>
 		    <td class="nav"><%=link_to book.title, xxx@xxx.xxx %></td>
-		    <td><%=h book.author %></td>
-		    <td><%=h book.publisher %></td>
-		    <td><%=h book.isbn %></td>
-		    <td><%=h book.required %></td>
+		    <td><%= book.author %></td>
+		    <td><%= book.publisher %></td>
+		    <td><%= book.isbn %></td>
+		    <td><%= book.required %></td>
 		    <td class="nav"><%= link_to 'Edit', xxx@xxx.xxx %></td>
 		    <td class="nav"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
 		  </tr>

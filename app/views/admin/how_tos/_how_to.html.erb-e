@@ -8,6 +8,6 @@
 		<%= link_to 'Edit', edit_admin_how_to_path(how_to) %> |
 		<%= link_to 'Destroy', [:admin,how_to], :confirm => 'Are you sure?', :method => :delete %>
 		
-		<p><%=h how_to.description %></p>
+		<p><%= how_to.description %></p>
 	</div>
 </li>

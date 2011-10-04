@@ -77,7 +77,7 @@ xxx@xxx.xxx %>
 	<% for extra xxx@xxx.xxx %>
 	  <tr>
 	    <td class="nav"><%=link_to extra.file_file_name, extra.file.url %></td>
-	    <td><%=h extra.description %></td>
+	    <td><%= extra.description %></td>
 	    <td class="nav"><%= link_to 'Edit', xxx@xxx.xxx %></td>
 	    <td class="nav"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
 	  </tr>

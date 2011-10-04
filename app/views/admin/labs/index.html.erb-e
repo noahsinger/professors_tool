@@ -10,8 +10,8 @@
 
 <% for lab xxx@xxx.xxx %>
   <tr>
-    <td><%=h lab.title %></td>
-    <td><%=h lab.objective %></td>
+    <td><%= lab.title %></td>
+    <td><%= lab.objective %></td>
 	<td><%= lab.visible %></td>
 	<td><%= lab.allow_uploads %></td>
     <td><%= link_to 'Show', xxx@xxx.xxx %></td>

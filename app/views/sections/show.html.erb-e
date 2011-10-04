@@ -3,7 +3,7 @@
 xxx@xxx.xxx %></h2>
 
 <h1>
-  <%=h @section.course.title %>  <%= xxx@xxx.xxx %>
+  <%= @section.course.title %>  <%= xxx@xxx.xxx %>
 </h1>
 
 <p>

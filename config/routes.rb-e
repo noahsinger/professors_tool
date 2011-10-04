@@ -142,7 +142,7 @@ Ingenious20::Application.routes.draw do
   if Semester.current
     root :to => "sections#index", :semester_id => Semester.current.id
   else
-    root :to => "sections#index"
+    root :to => "semesters#index"
   end
   
   # map.connect 'examples/echo', :controller => 'examples', :action => 'echo', :conditions => { :method => [:get, :post] }

@@ -25,11 +25,11 @@
 
 	<% for student xxx@xxx.xxx %>
 	  <tr>
-	    <td><%=h student.first_name %></td>
-	    <td><%=h student.middle_name %></td>
-	    <td><%=h student.last_name %></td>
-		<td><%=h student.goes_by %></td>
-	    <td><%=h student.email %></td>
+	    <td><%= student.first_name %></td>
+	    <td><%= student.middle_name %></td>
+	    <td><%= student.last_name %></td>
+		<td><%= student.goes_by %></td>
+	    <td><%= student.email %></td>
 	    <td class="nav"><%= link_to 'Show', [:admin,student] %></td>
 	    <td class="nav"><%= link_to 'Edit', edit_admin_student_path(student) %></td>
 	    <td class="nav"><%= link_to 'Destroy', [:admin,student], :confirm => 'Are you sure?', :method => :delete %></td>

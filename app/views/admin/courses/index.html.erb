@@ -26,10 +26,10 @@
 	<% for course xxx@xxx.xxx %>
 	  <tr>
 	    <td class="nav"><%= link_to course.title, [:admin,course] %></td>
-	    <td><%=h course.short_name %></td>
-	    <td><%=h course.credits %></td>
-		<td><%=h course.prerequisite %></td>
-		<td><%=h course.next_course %></td>
+	    <td><%= course.short_name %></td>
+	    <td><%= course.credits %></td>
+		<td><%= course.prerequisite %></td>
+		<td><%= course.next_course %></td>
 	    <td class="nav"><%= link_to 'Edit', edit_admin_course_path(course) %></td>
 	    <td class="nav"><%= link_to 'Destroy', [:admin,course], :confirm => 'Are you sure?', :method => :delete %></td>
 	  </tr>

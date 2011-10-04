@@ -20,7 +20,7 @@
 
 	<% for user xxx@xxx.xxx %>
 	  <tr>
-	    <td><%=h user.username %></td>
+	    <td><%= user.username %></td>
 	    <td><%= link_to 'Show', [:admin,user] %></td>
 	    <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
 	    <td><%= link_to 'Destroy', [:admin,user], :confirm => 'Are you sure?', :method => :delete %></td>

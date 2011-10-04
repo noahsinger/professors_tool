@@ -16,11 +16,11 @@ xxx@xxx.xxx %></h2>
 	
 		<% if prev_step %>
 			<li>
-				<%= link_to( '<span class="text">Step ' + prev_step.position.to_s + ' - <span class="sub">Go back to the previous step</span></span><span class="icon">&laquo;</span>', xxx@xxx.xxx @how_to, prev_step )  ) %>
+				<%= link_to( "<span class=\"text\">Step #{prev_step.position.to_s} - <span class=\"sub\">Go back to the previous step</span></span><span class=\"icon\">&laquo;</span>", xxx@xxx.xxx @how_to, prev_step )  ) %>
 			</li>
 		<% end %>
 		<% if next_step %>
-			<li><%= link_to( '<span class="text">Step ' + next_step.position.to_s + ' - <span class="sub">Move on to the next step</span></span><span class="icon">&raquo;</span>', xxx@xxx.xxx @how_to, next_step ), {:class => 'next'} ) %></li>
+			<li><%= link_to( "<span class=\"text\">Step #{next_step.position.to_s} - <span class=\"sub\">Move on to the next step</span></span><span class=\"icon\">&raquo;</span>", xxx@xxx.xxx @how_to, next_step ), {:class => 'next'} ) %></li>
 		<% end %>
 	</ul>
 </div>

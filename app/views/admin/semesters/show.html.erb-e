@@ -7,7 +7,7 @@ xxx@xxx.xxx %></h1>
 	<ul class="nav">
 		<li><%= link_to admin_semesters_path do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 		<li><%= link_to xxx@xxx.xxx ) do %> <%= render :partial => 'shared/edit_link' %> <% end %></li>
-		<li><%= link_to '<span class="text">Sections</span><span class="icon">&pound;</span>', xxx@xxx.xxx ) %></li>
+		<li><%= link_to '<span class="text">Sections</span><span class="icon">&pound;</span>'.html_safe, xxx@xxx.xxx ) %></li>
 	</ul>
 </div>
 

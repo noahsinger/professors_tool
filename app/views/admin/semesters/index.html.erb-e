@@ -29,8 +29,8 @@
 
 	<% for semester xxx@xxx.xxx %>
 		<tr>
-			<td><%=h semester.season %></td>
-			<td><%=h semester.year %></td>
+			<td><%= semester.season %></td>
+			<td><%= semester.year %></td>
 			<td><%= show_short_date semester.start_date %> to <%= show_short_date semester.end_date %></td>
 			<td><%= semester.student_count %></td>
 

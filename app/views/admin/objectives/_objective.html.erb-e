@@ -1,6 +1,6 @@
 <li>
 	<div class="top_half">
-		<p><%=h objective.description %></p>
+		<p><%= objective.description %></p>
 	</div>
 	<div class="bottom_half">
 		<%= link_to 'Edit', xxx@xxx.xxx %>

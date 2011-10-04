@@ -9,6 +9,10 @@ gem "RedCloth"
 gem 'delayed_job'
 gem 'paperclip'
 
+group :development, :test do	
+	gem 'capybara'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
