@@ -10,18 +10,11 @@
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 	
-	<%= javascript_include_tag "jquery-1.6.4.min", "rails" %>
+	<%= javascript_include_tag 'application' %>
+
 	<%= yield :head %>
-	<%= javascript_include_tag "jquery.easing", "jquery.tablednd_0_5", "jquery.jgrowl", "application" %>
-	<%- unless css_naked? -%>
-		<%= javascript_include_tag "jquery.kwicks", "positionFooter.jQuery", "chrome" %>
-	<%- end -%>
 	
-	<%= stylesheet_link_tag 'reset', :media => :all %>
-	<%= stylesheet_link_tag 'scaffold', :media => :screen %>
-	<%= stylesheet_link_tag 'barred', :media => :all %>
-	<%= stylesheet_link_tag 'print', :media => :print %>
-	<%= stylesheet_link_tag 'jquery.jgrowl', :media => :screen %>
+	<%= stylesheet_link_tag 'application' %>
 	
 	<%= csrf_meta_tag %>
 	

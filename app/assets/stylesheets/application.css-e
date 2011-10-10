@@ -1,0 +1,8 @@
+/*
+*= require reset
+*= require scaffold
+*= require barred
+*= require jquery.jgrowl 
+*= require_self 
+* require_tree . 
+*/

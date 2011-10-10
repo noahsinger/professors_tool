@@ -11,16 +11,31 @@ Ingenious20::Application.configure do
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
-  config.action_view.debug_rjs             = true
+
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
-end
+  
+  # Do not compress assets  
+  config.assets.compress = false  
 
+  # Expands the lines which load the assets  
+  config.assets.debug = true
+    
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "mail.ingenio.us.com",
+    :port  => 25, 
+    :domain  => 'ingenio.us.com',
+    :user_name  => xxx@xxx.xxx
+    :password  => 'th1515451t3!',
+    :authentication  => :login
+  }
+end

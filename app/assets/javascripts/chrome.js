@@ -109,7 +109,7 @@ function submit_button_replace( waiting_text ) {
 		for( var x = 0 ; x < inputs.length ; x++ ) {
 			if( inputs[ x ].type == "submit" ) {
 				
-				if( inputs[ x ].id != null && inputs[ x ].id != "" ) {
+				if( inputs[x].name == "commit") {
 					var div = document.createElement( "div" );
 					div.setAttribute( "id", "submit_div" );
 					
@@ -120,13 +120,12 @@ function submit_button_replace( waiting_text ) {
 					wspan.appendChild( text );
 					waiting_div.appendChild( wspan );
 					
-					var input = document.getElementById( inputs[ x ].id );
-					var parent = input.parentNode;
+					var parent = inputs[x].parentNode;
 										
 					var link = document.createElement( "a" );
 					link.setAttribute( "href", "javascript:void( );" );
 					link.setAttribute( "id", "submit_link" );
-					link.appendChild( document.createTextNode(input.value) );
+					link.appendChild( document.createTextNode(inputs[x].value) );
 					
 					link.onclick = function( ) {
 						$("form").submit( );
@@ -170,13 +169,6 @@ function stripe_tables( ) {
 			});
 		}
 	});
-	
-	// $('table tr:odd').addClass('alt');
-	// $('table tr').mouseover(function( ) {
-	// 	$(this).addClass('over');
-	// }).mouseout( function( ) {
-	// 	$(this).removeClass('over');
-	// })
 }
 
 function pre_print( ) { 

@@ -15,8 +15,18 @@ test:
   pool: 5
   timeout: 5000
 
+# production:
+#   adapter: sqlite3
+#   database: db/production.sqlite3
+#   pool: 5
+#   timeout: 5000
+
+######################
+
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+    adapter: mysql
+    database: nms_production
+    username: nms_genious
+    password: QH1rv6K,GZQi
+    host: localhost
+    pool: 5

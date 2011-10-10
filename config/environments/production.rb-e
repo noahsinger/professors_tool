@@ -46,4 +46,23 @@ Ingenious20::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  # Compress JavaScript and CSS  
+  config.assets.compress = true  
+
+  # Don't fallback to assets pipeline  
+  config.assets.compile = false  
+
+  # Generate digests for assets URLs  
+  config.assets.digest = true
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "localhost",
+    :port  => 25, 
+    :domain  => 'ingenio.us.com',
+    :user_name  => xxx@xxx.xxx
+    :password  => 'th1515451t3!',
+    :authentication  => :login
+  }
 end
