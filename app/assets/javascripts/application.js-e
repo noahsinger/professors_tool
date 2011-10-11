@@ -1,8 +1,8 @@
+//= require google_analytics
 //= require jquery  
 //= require jquery_ujs
 //= require jquery.easing
 //= require jquery.tablednd_0_5
-//= require jquery.jgrowl
 //= require_self  
 //= require jquery.kwicks
 //= require positionFooter.jQuery

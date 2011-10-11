@@ -36,7 +36,6 @@ class Admin::RequirementsController < ApplicationController
     respond_to do |format|
       xxx@xxx.xxx
         flash[:notice] = 'Requirement was successfully created.'
-        # format.html { xxx@xxx.xxx }
         format.html { xxx@xxx.xxx }
         format.js
         format.xml  { render :xml => @requirement, :status => :created, :location xxx@xxx.xxx }
@@ -55,7 +54,6 @@ class Admin::RequirementsController < ApplicationController
     respond_to do |format|
       xxx@xxx.xxx
         flash[:notice] = 'Requirement was successfully updated.'
-        # format.html { xxx@xxx.xxx }
         format.html { xxx@xxx.xxx }
         format.xml  { head :ok }
       else

@@ -12,15 +12,17 @@
 		</li>
 
 		<li>
-			<%= f.label :start_date %><br />
-			<%= f.hidden_field :start_date %>
-			<div id="startdatepicker" class="datepicker jqueryui"></div>
-		</li>
-
-		<li>
-			<%= f.label :end_date %><br />
-			<%= f.hidden_field :end_date %>
-			<div id="enddatepicker" class="datepicker jqueryui"></div>
+			<div style="float: left; margin-right: 20px;">
+				<%= f.label :start_date %><br />
+				<%= f.hidden_field :start_date %>
+				<div id="startdatepicker" class="datepicker jqueryui"></div>
+			</div>
+			<div style="float: left;">
+				<%= f.label :end_date %><br />
+				<%= f.hidden_field :end_date %>
+				<div id="enddatepicker" class="datepicker jqueryui"></div>
+			</div>
+			<div class="clear"></div>
 		</li>
 		
 		<li class="submit_bar">

@@ -51,7 +51,7 @@ class HomeworkReturnRequestsController < ApplicationController
           #dont send email, display error
          xxx@xxx.xxx :status => 'denied'
           @homework_return_request xxx@xxx.xxx
-         xxx@xxx.xxx :email, 'was used to make a homework return request just a short while ago.  Do you think that something has happened to your assignment in that short amount of time?  Please wait a while before making this request again.'
+         xxx@xxx.xxx :email, 'was used to make a homework return request just a short while ago. Please wait a while before making this request again.'
           format.html { render :action => "new" }
         else
           xxx@xxx.xxx params[:homework_return_request][:email] )

@@ -4,7 +4,7 @@
 	
 	<script type="text/javascript">
 		$(function() {
-			$("#startdatepicker").datepicker( { numberOfMonths: 2, 
+			$("#startdatepicker").datepicker( { numberOfMonths: 1, 
 												inline: true, 
 												altField: '#semester_start_date',
 												dateFormat: 'yy-mm-dd',
@@ -12,7 +12,7 @@
 												defaultDate: new Date('<%= xxx@xxx.xxx ) %>')
 											  } );
 											
-			$("#enddatepicker").datepicker( { numberOfMonths: 2, 
+			$("#enddatepicker").datepicker( { numberOfMonths: 1, 
 											  inline: true, 
 											  altField: '#semester_end_date',
 											  dateFormat: 'yy-mm-dd',

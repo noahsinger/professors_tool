@@ -72,7 +72,6 @@ class Admin::PoliciesController < ApplicationController
         policy.update_attribute(:position, position + 1) unless policy.position == position + 1
       end
     end
-    # render :nothing => true, :status => 200
     
     respond_to do |format|
       format.html { render :nothing => true, :status => 200 }
@@ -89,7 +88,7 @@ class Admin::PoliciesController < ApplicationController
         format.js
         format.html { render :nothing => true, :status => 200 }
       else
-        flash[:notice] = 'There was a problem creating the policy.'
+        flash[:error] = 'There was a problem creating the policy.'
         format.html { render :action => "new" }
       end
     end 

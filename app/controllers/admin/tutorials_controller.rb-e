@@ -44,7 +44,6 @@ class Admin::TutorialsController < ApplicationController
         t.update_attribute(:position, position + 1) unless t.position == position + 1
       end
     end
-    # render :nothing => true, :status => 200
     
     respond_to do |format|
       format.html { render :nothing => true, :status => 200 }
@@ -62,7 +61,7 @@ class Admin::TutorialsController < ApplicationController
         format.js
         format.html { render :nothing => true, :status => 200 }
       else
-        flash[:notice] = 'There was a problem creating the tutorial.'
+        flash[:error] = 'There was a problem creating the tutorial.'
         format.html { render :action => "new" }
       end
     end     

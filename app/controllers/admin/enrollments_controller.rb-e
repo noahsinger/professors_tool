@@ -62,7 +62,6 @@ class Admin::EnrollmentsController < ApplicationController
     respond_to do |format|
       xxx@xxx.xxx
         flash[:notice] = 'Enrollment was successfully updated with status.'
-        # format.html { xxx@xxx.xxx }
         format.html { xxx@xxx.xxx }
         format.xml  { head :ok }
       else

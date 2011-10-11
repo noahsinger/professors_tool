@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
         session[:user] = User.authenticate( params[:user][:username], params[:user][:password] ).id
         redirect_to :action => session[:intended_action], :controller => session[:intended_controller], :id => session[:intended_id]
       rescue
-        flash[:notice] = "Your username or password are incorrect"
+        flash[:error] = "Your username or password are incorrect"
       end
     end
   end

@@ -1,6 +1,5 @@
-<% if flash[:notice] %>
-	<script type="text/javascript" charset="utf-8">
-		$.jGrowl("<%= flash[:notice] %>", { header: "Notice", life: 10000 });
-	</script>
-	<% flash[:notice] = nil %>
+<% flash.each do |type, msg| %>
+	<p id="flash" class="<%= type %>">
+		<%= msg %>
+	</p>
 <% end %>

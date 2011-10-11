@@ -51,7 +51,6 @@ class Admin::SyllabusPartsController < ApplicationController
     respond_to do |format|
       xxx@xxx.xxx
         flash[:notice] = 'SyllabusPart was successfully updated.'
-        # format.html { xxx@xxx.xxx }
         format.html {redirect_to( session[:referrer] )}
         format.xml  { head :ok }
       else
@@ -68,7 +67,6 @@ class Admin::SyllabusPartsController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
-      # format.html { redirect_to(admin_syllabus_parts_url) }
       format.html {redirect_to(session[:referrer])}
       format.xml  { head :ok }
     end

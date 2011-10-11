@@ -26,7 +26,9 @@ $(document).ready(function( ) {
 	remove_navigation_hyphens( );
 	add_navigation_glyphs( );
 	
-	$("#footer").positionFooter(true); 
+	setTimeout('$("#flash").slideDown( )', 1000);
+	
+	$("#footer").positionFooter();
 });
 
 function add_navigation_glyphs( ) {

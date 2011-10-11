@@ -50,7 +50,7 @@ class GradeRequestsController < ApplicationController
             #dont send email, display error
            xxx@xxx.xxx :status => 'denied'
             @grade_request xxx@xxx.xxx
-           xxx@xxx.xxx :email, 'was used to request grades a very short time ago.  What?, do you think I\'m just sitting here changing grades all the time? Please wait awhile before trying again.'
+           xxx@xxx.xxx :email, 'was used to request grades a very short time ago. Please wait awhile before trying again.'
             format.html { render :action => "new" }
             format.iphone { render :action => "new" }
           else

@@ -4,8 +4,8 @@
 	
 	<script type="text/javascript">
 		$(function() {
-			$("#startdatepicker").datepicker( { numberOfMonths: 2, inline: true, altField: '#semester_start_date' } );
-			$("#enddatepicker").datepicker( { numberOfMonths: 2, inline: true, altField: '#semester_end_date', defaultDate: "+3m" } );
+			$("#startdatepicker").datepicker( { numberOfMonths: 1, inline: true, altField: '#semester_start_date' } );
+			$("#enddatepicker").datepicker( { numberOfMonths: 1, inline: true, altField: '#semester_end_date', defaultDate: "+3m" } );
 		});
 	</script>
 <% end %>
