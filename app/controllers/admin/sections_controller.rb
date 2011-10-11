@@ -1,3 +1,5 @@
+require 'CSV'
+
 class Admin::SectionsController < ApplicationController
   before_filter :authenticate    
   before_filter :load_semester
@@ -106,4 +108,43 @@ class Admin::SectionsController < ApplicationController
       end
     end    
   end
+  
+  def export_gradebook
+    @section xxx@xxx.xxx
+    
+    csv_string = CSV.generate do |csv|
+      assignments xxx@xxx.xxx
+      
+      assignments_header = ["assignments"]
+      assignments_header << assignments.map {|assignment| "#{assignment.title} - #{assignment.lab.title}"}
+      csv << assignments_header.flatten
+      
+      worth_header = ["worth"]
+      worth_header << assignments.map {|assignment| assignment.worth}
+      csv << worth_header.flatten
+      
+     xxx@xxx.xxx do |enrollment|
+        line = []
+        line << enrollment.student.last_name_first
+        
+        assignments.each do |assignment|
+          work = enrollment.works.where("assignment_id = ?", assignment.id).limit(1)
+          if work.first
+            line << work.first.score
+          else
+            line << "-"
+          end
+        end
+        
+        csv << line
+      end
+    end
+    
+    render :text => "<pre>#{csv_string}</pre>"
+  end
 end
+
+
+
+
+

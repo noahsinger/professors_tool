@@ -64,6 +64,7 @@ Ingenious20::Application.routes.draw do
       resources :sections do
         member do
           get 'section_email'
+          get 'export_gradebook'
         end
       end
       

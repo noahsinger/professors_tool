@@ -195,7 +195,6 @@ class Admin::WorksController < ApplicationController
           end
         end
         
-        flash[:notice] = 'The grade has been recorded.'
         format.html { xxx@xxx.xxx @section, @assignment )) }
         format.xml  { head :ok }
       else

@@ -80,16 +80,6 @@ xxx@xxx.xxx %>
 	</table>
 </div>
 
-<script type="text/javascript" charset="utf-8">
-	var tcc = null;
-
-	function open_tcc_web( ) {
-		moveTo(0,0);
-		resizeTo((1024),screen.availHeight);
-		tcc = window.open( "https://sis.tulsacc.edu/faculty.htm" );
-		tcc.resizeTo((screen.availWidth - 1024), screen.availHeight);
-		tcc.moveTo(1024, 0);
-		
-		return false;
-	}
-</script>
+<ul>
+	<li><%= link_to 'Export Gradebook', xxx@xxx.xxx %></li>
+</ul>

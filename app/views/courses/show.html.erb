@@ -9,7 +9,7 @@ xxx@xxx.xxx %></h1>
 	</ul>
 </div>
 
-<p>
+<p style="font-size: .7em;">
 	<em>
 		The information shown on this page is simply that, information.  This information is related only to this course in
 		general, not to a specific class or instance of this course that is being offered.  The labs shown on this page are
@@ -18,6 +18,16 @@ xxx@xxx.xxx %></h1>
 		<%= link_to 'homepage', '/' %> and choose a currently offered class.
 	</em>
 </p>
+
+<h4>Waiting List</h4>
+<ul class="sliding">
+	<li>
+		<%= link_to '' do %>
+			<span class="top_half">Get on the Waiting List</span>
+			<span class="bottom_half">Registering on the waiting list will cause an email to be sent<br/> to you automatically the next time this course is offered.</span>
+		<% end %>
+	</li>
+</ul>
 
 <h4>Description:</h4>
 <p>
@@ -91,8 +101,7 @@ xxx@xxx.xxx do |howto| %>
 xxx@xxx.xxx do |section| %>			
 			<li>
 				<%= link_to semester_section_path( section.semester, section ) do %>
-					<span class="top_half"><%= section.semester.name %></span>
-					<span class="bottom_half"><%= section.enrollments.size %> enrolled</span>
+					<%= section.semester.name %> <span style="font-size: .7em;">(<%= section.enrollments.size %> enrolled)</span>
 				<% end %>
 			</li>
 		<% end %>
