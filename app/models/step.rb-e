@@ -7,6 +7,12 @@ class Step < ActiveRecord::Base
   validates_presence_of :instructions
   validates_presence_of :how_to
   
+  before_create :set_position
+  
+  def set_position
+    self.position = self.how_to.last_used_step + 1
+  end
+  
   def to_param
     "#{id}-#{title.gsub(/[^a-z0-9]+/i, '-')}"
   end

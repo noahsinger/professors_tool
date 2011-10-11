@@ -9,4 +9,13 @@ class HowTo < ActiveRecord::Base
   def to_param
     "#{id}-#{title.gsub(/[^a-z0-9]+/i, '-')}"
   end
+  
+  def last_used_step
+    last_step = steps.order(:position).last
+    if last_step and not last_step.position.nil?
+      last_step.position
+    else
+      0
+    end
+  end
 end
