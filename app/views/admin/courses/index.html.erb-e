@@ -15,21 +15,16 @@
 	  <tr>
 	    <th>Title</th>
 	    <th>Course ID</th>
-	    <th>Credits</th>
-		<th>Prerequisite</th>
-		<th>Next Course</th>
-	
-		<th></th>
-		<th></th>
+	    <th>Waiters</th>	
+			<th></th>
+			<th></th>
 	  </tr>
 
 	<% for course xxx@xxx.xxx %>
 	  <tr>
 	    <td class="nav"><%= link_to course.title, [:admin,course] %></td>
 	    <td><%= course.short_name %></td>
-	    <td><%= course.credits %></td>
-		<td><%= course.prerequisite %></td>
-		<td><%= course.next_course %></td>
+	    <td><%= link_to course.waiters.count, admin_course_waiters_path(course) %></td>
 	    <td class="nav"><%= link_to 'Edit', edit_admin_course_path(course) %></td>
 	    <td class="nav"><%= link_to 'Destroy', [:admin,course], :confirm => 'Are you sure?', :method => :delete %></td>
 	  </tr>

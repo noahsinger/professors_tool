@@ -53,6 +53,7 @@ class Admin::SectionsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+       xxx@xxx.xxx
         flash[:notice] = 'Section was successfully created.'
         format.html { xxx@xxx.xxx }
         format.xml  { render :xml => @section, :status => :created, :location xxx@xxx.xxx }

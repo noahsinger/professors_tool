@@ -8,6 +8,7 @@ class Course < ActiveRecord::Base
   has_many :objectives
   has_many :policies, :order => :position
   has_many :syllabus_parts, :through => :policies
+  has_many :waiters
   
   validates_presence_of :title
   validates_presence_of :description

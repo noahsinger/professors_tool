@@ -22,7 +22,7 @@ xxx@xxx.xxx %></h1>
 <h4>Waiting List</h4>
 <ul class="sliding">
 	<li>
-		<%= link_to '' do %>
+		<%= link_to xxx@xxx.xxx do %>
 			<span class="top_half">Get on the Waiting List</span>
 			<span class="bottom_half">Registering on the waiting list will cause an email to be sent<br/> to you automatically the next time this course is offered.</span>
 		<% end %>

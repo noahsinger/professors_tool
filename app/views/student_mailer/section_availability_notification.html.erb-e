@@ -1,0 +1,33 @@
+<%- course xxx@xxx.xxx -%>
+
+<div style="width: 400px; font-family: helvetica, arial, sans-serif;">
+	<h1>Course Notification</h1>
+	<p>
+		This email is in response to a request you made to be notified when a section of
+		<%= course.title %> is going to be offered at Tulsa Community College.
+	</p>
+	
+	<p>
+		A new section of <%= course.title %> was just created and will be offered during
+		the <%= @section.semester.name %> semester which begins on <%= xxx@xxx.xxx %>.
+	</p>
+	
+	<h2>Class Details</h2>
+	<p>
+		Course name: <%= course.title %><br/>
+		Course number: <%= course.short_name %><br/>
+		Section number (CRN): xxx@xxx.xxx %><br/>
+		Meeting Days/Times: xxx@xxx.xxx %>
+	</p>
+	
+	<p>
+		If you are interested in enrolling in this class you can visit any <a href="http://tulsacc.edu">TCC campus</a>
+		or <a href="https://banweb.tulsacc.edu/">enroll online</a> using the above information.
+	</p>
+	
+	<p>
+		If you have any additional questions about the class please feel free to <%= link_to 'contact me', new_general_contact_url(:host => APP_CONFIG['host']) %>.
+	</p>
+
+	<p><%= link_to "Ingenio.us.com", APP_CONFIG['site_url'] %></p>
+</div>

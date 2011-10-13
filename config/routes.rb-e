@@ -26,6 +26,7 @@ Ingenious20::Application.routes.draw do
   # courses namespace #######################################
   resources :courses do
     resources :sections    
+    resources :waiters
     
     resources :how_tos do
       resources :steps
@@ -94,6 +95,7 @@ Ingenious20::Application.routes.draw do
     end
     
     resources :courses do
+      resources :waiters
       resources :materials
       resources :books
       resources :tutorials do

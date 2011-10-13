@@ -31,4 +31,9 @@ class StudentMailer < ActionMailer::Base
    xxx@xxx.xxx = section
     mail( :to => address, :subject => 'Section Annoucement from Ingenio.us.com', :from => xxx@xxx.xxx )
   end
+  
+  def section_availability_notification(section, email)
+   xxx@xxx.xxx = section
+    mail( :to => email, :subject => "A new section of #{section.course.title} has been added to the schedule", :from => xxx@xxx.xxx )
+  end
 end

@@ -48,4 +48,17 @@ class SectionTest < ActiveSupport::TestCase
   test "sections have a to_ical method" do
     assert_respond_to Section.find(1), :to_ical
   end
+  
+  test "new section will notify students waiting for that course and then destroy them" do
+    section = sections(:jck1003_section_1)
+    assert_respond_to section, :notify_waiters
+    
+    assert_equal 2, section.course.waiters.count
+    
+    assert_difference('Delayed::Job.all.size', section.course.waiters.count) do
+      section.notify_waiters
+    end
+    
+    assert_equal 0, section.course.waiters.count
+  end
 end

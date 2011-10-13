@@ -73,13 +73,17 @@ class Section < ActiveRecord::Base
       false
     end
   end
+  
+  def notify_waiters
+    self.course.waiters.all.each do |waiter|
+      StudentMailer.delay.section_availability_notification(self, waiter.email)
+      waiter.destroy
+    end
+  end
 
   def send_email body
     self.enrollments.each do |e|
       StudentMailer.delay.section_email( self, e.student.email, body )
-      # email = Mailer.section_email( self, e.student.email, body )
-      # Mailer.send_later.deliver email
-      # logger.info("[section email] email sent to #{e.student.email}")
     end
   end
   

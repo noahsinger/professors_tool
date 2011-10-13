@@ -1,0 +1,20 @@
+<%= content_for :header do %>
+	<h1>Waiter for</h1>
+xxx@xxx.xxx %></h4>
+<% end %>
+
+<div class="nav">
+	<ul class="nav">
+		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+	</ul>
+</div>
+
+<p>
+  <b>Email:</b>
+  xxx@xxx.xxx %>
+</p>
+
+<p>
+  <b>Created:</b>
+  <%= xxx@xxx.xxx %>
+</p>
