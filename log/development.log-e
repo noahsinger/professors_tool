@@ -56221,3 +56221,281 @@ Served asset /application.css - 200 OK (1ms)
 
 Started GET "/assets/chrome.js?body=1" for 127.0.0.1 at 2011-10-28 13:03:05 -0500
 Served asset /chrome.js - 304 Not Modified (3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-28 13:09:38 -0500
+  Processing by SectionsController#index as HTML
+  Parameters: {"semester_id"=>1}
+  [1m[35mSemester Load (0.1ms)[0m  SELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+Rendered sections/index.html.erb within layouts/application (105.8ms)
+Rendered shared/_title.html.erb (0.1ms)
+Completed 500 Internal Server Error in 375ms
+
+ActionView::Template::Error (couldn't find file 'jquery.easing'
+  (in /Users/noah/Sites/ingenio.us/ingenious2.2/app/assets/javascripts/application.js:4)):
+    12: 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    13:   <![endif]-->
+    14: 	
+    15: 	<%= javascript_include_tag 'application' %>
+    16: 
+    17: 	<%= yield :head %>
+    18: 	
+  sprockets (2.0.2) lib/sprockets/context.rb:100:in `resolve'
+  sprockets (2.0.2) lib/sprockets/context.rb:140:in `require_asset'
+  sprockets (2.0.2) lib/sprockets/directive_processor.rb:214:in `process_require_directive'
+  sprockets (2.0.2) lib/sprockets/directive_processor.rb:164:in `block in process_directives'
+  sprockets (2.0.2) lib/sprockets/directive_processor.rb:162:in `each'
+  sprockets (2.0.2) lib/sprockets/directive_processor.rb:162:in `process_directives'
+  sprockets (2.0.2) lib/sprockets/directive_processor.rb:97:in `evaluate'
+  tilt (1.3.3) lib/tilt/template.rb:76:in `render'
+  sprockets (2.0.2) lib/sprockets/context.rb:175:in `block in evaluate'
+  sprockets (2.0.2) lib/sprockets/context.rb:172:in `each'
+  sprockets (2.0.2) lib/sprockets/context.rb:172:in `evaluate'
+  sprockets (2.0.2) lib/sprockets/bundled_asset.rb:171:in `build_dependency_context_and_body'
+  sprockets (2.0.2) lib/sprockets/bundled_asset.rb:135:in `dependency_context'
+  sprockets (2.0.2) lib/sprockets/bundled_asset.rb:194:in `build_dependencies_paths_and_assets'
+  sprockets (2.0.2) lib/sprockets/bundled_asset.rb:141:in `dependency_paths'
+  sprockets (2.0.2) lib/sprockets/bundled_asset.rb:61:in `mtime'
+  sprockets (2.0.2) lib/sprockets/asset.rb:58:in `block in encode_with'
+  sprockets (2.0.2) lib/sprockets/asset.rb:57:in `each'
+  sprockets (2.0.2) lib/sprockets/asset.rb:57:in `encode_with'
+  sprockets (2.0.2) lib/sprockets/bundled_asset.rb:43:in `encode_with'
+  sprockets (2.0.2) lib/sprockets/caching.rb:52:in `cache_asset'
+  sprockets (2.0.2) lib/sprockets/environment.rb:82:in `build_asset'
+  sprockets (2.0.2) lib/sprockets/trail.rb:102:in `find_asset_in_path'
+  sprockets (2.0.2) lib/sprockets/base.rb:101:in `find_asset'
+  sprockets (2.0.2) lib/sprockets/environment.rb:72:in `find_asset'
+  sprockets (2.0.2) lib/sprockets/base.rb:110:in `[]'
+  actionpack (3.1.0) lib/sprockets/helpers/rails_helper.rb:124:in `asset_for'
+  actionpack (3.1.0) lib/sprockets/helpers/rails_helper.rb:28:in `block in javascript_include_tag'
+  actionpack (3.1.0) lib/sprockets/helpers/rails_helper.rb:27:in `collect'
+  actionpack (3.1.0) lib/sprockets/helpers/rails_helper.rb:27:in `javascript_include_tag'
+  app/views/layouts/application.html.erb:15:in `_app_views_layouts_application_html_erb___2518429964694962031_70272837753080'
+  actionpack (3.1.0) lib/action_view/template.rb:144:in `block in render'
+  activesupport (3.1.0) lib/active_support/notifications.rb:55:in `instrument'
+  actionpack (3.1.0) lib/action_view/template.rb:142:in `render'
+  actionpack (3.1.0) lib/action_view/renderer/template_renderer.rb:52:in `render_with_layout'
+  actionpack (3.1.0) lib/action_view/renderer/template_renderer.rb:38:in `render_template'
+  actionpack (3.1.0) lib/action_view/renderer/template_renderer.rb:12:in `block in render'
+  actionpack (3.1.0) lib/action_view/renderer/abstract_renderer.rb:22:in `wrap_formats'
+  actionpack (3.1.0) lib/action_view/renderer/template_renderer.rb:9:in `render'
+  actionpack (3.1.0) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.1.0) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.1.0) lib/abstract_controller/rendering.rb:120:in `_render_template'
+  actionpack (3.1.0) lib/action_controller/metal/streaming.rb:250:in `_render_template'
+  actionpack (3.1.0) lib/abstract_controller/rendering.rb:114:in `render_to_body'
+  actionpack (3.1.0) lib/action_controller/metal/renderers.rb:30:in `render_to_body'
+  actionpack (3.1.0) lib/action_controller/metal/compatibility.rb:43:in `render_to_body'
+  actionpack (3.1.0) lib/abstract_controller/rendering.rb:99:in `render'
+  actionpack (3.1.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.1.0) lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  activesupport (3.1.0) lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /Users/noah/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/benchmark.rb:310:in `realtime'
+  activesupport (3.1.0) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.1.0) lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  actionpack (3.1.0) lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+  activerecord (3.1.0) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  actionpack (3.1.0) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.1.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.1.0) lib/action_controller/metal/mime_responds.rb:268:in `block in retrieve_response_from_mimes'
+  actionpack (3.1.0) lib/action_controller/metal/mime_responds.rb:195:in `call'
+  actionpack (3.1.0) lib/action_controller/metal/mime_responds.rb:195:in `respond_to'
+  app/controllers/sections_controller.rb:13:in `index'
+  actionpack (3.1.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.1.0) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.1.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.1.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.1.0) lib/active_support/callbacks.rb:425:in `_run__4283558087969787027__process_action__1541442227889571849__callbacks'
+  activesupport (3.1.0) lib/active_support/callbacks.rb:386:in `_run_process_action_callbacks'
+  activesupport (3.1.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.1.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.1.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.1.0) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.1.0) lib/active_support/notifications.rb:53:in `block in instrument'
+  activesupport (3.1.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.1.0) lib/active_support/notifications.rb:53:in `instrument'
+  actionpack (3.1.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.1.0) lib/action_controller/metal/params_wrapper.rb:201:in `process_action'
+  activerecord (3.1.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.1.0) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.1.0) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.1.0) lib/action_controller/metal.rb:193:in `dispatch'
+  actionpack (3.1.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.1.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (3.1.0) lib/action_dispatch/routing/route_set.rb:65:in `call'
+  actionpack (3.1.0) lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+  actionpack (3.1.0) lib/action_dispatch/routing/route_set.rb:29:in `call'
+  rack-mount (0.8.3) lib/rack/mount/route_set.rb:152:in `block in call'
+  rack-mount (0.8.3) lib/rack/mount/code_generation.rb:96:in `block in recognize'
+  rack-mount (0.8.3) lib/rack/mount/code_generation.rb:75:in `optimized_each'
+  rack-mount (0.8.3) lib/rack/mount/code_generation.rb:95:in `recognize'
+  rack-mount (0.8.3) lib/rack/mount/route_set.rb:141:in `call'
+  actionpack (3.1.0) lib/action_dispatch/routing/route_set.rb:531:in `call'
+  actionpack (3.1.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.3.4) lib/rack/etag.rb:23:in `call'
+  rack (1.3.4) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.1.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.1.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.1.0) lib/action_dispatch/middleware/flash.rb:243:in `call'
+  rack (1.3.4) lib/rack/session/abstract/id.rb:195:in `context'
+  rack (1.3.4) lib/rack/session/abstract/id.rb:190:in `call'
+  actionpack (3.1.0) lib/action_dispatch/middleware/cookies.rb:326:in `call'
+  activerecord (3.1.0) lib/active_record/query_cache.rb:62:in `call'
+  activerecord (3.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:477:in `call'
+  actionpack (3.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (3.1.0) lib/active_support/callbacks.rb:392:in `_run_call_callbacks'
+  activesupport (3.1.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.1.0) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+  actionpack (3.1.0) lib/action_dispatch/middleware/reloader.rb:68:in `call'
+  rack (1.3.4) lib/rack/sendfile.rb:101:in `call'
+  actionpack (3.1.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.1.0) lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+  railties (3.1.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.3.4) lib/rack/methodoverride.rb:24:in `call'
+  rack (1.3.4) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.1.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.3.4) lib/rack/lock.rb:15:in `call'
+  actionpack (3.1.0) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.1.0) lib/rails/engine.rb:455:in `call'
+  railties (3.1.0) lib/rails/rack/content_length.rb:16:in `call'
+  railties (3.1.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.3.4) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/noah/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /Users/noah/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /Users/noah/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered xxx@xxx.xxx (1.7ms)
+Rendered xxx@xxx.xxx (1.4ms)
+Rendered xxx@xxx.xxx within rescues/layout (17.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-28 13:11:09 -0500
+  Processing by SectionsController#index as HTML
+  Parameters: {"semester_id"=>1}
+  [1m[35mSemester Load (0.1ms)[0m  SELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSection Load (0.3ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+Rendered sections/index.html.erb within layouts/application (112.3ms)
+Rendered shared/_title.html.erb (0.1ms)
+Compiled application.js  (4ms)  (pid 59719)
+Compiled waiters.js  (223ms)  (pid 59719)
+Compiled application.css  (8ms)  (pid 59719)
+Compiled scaffolds.css  (48ms)  (pid 59719)
+Compiled waiters.css  (2ms)  (pid 59719)
+Rendered shared/_top_bar.html.erb (0.2ms)
+Rendered shared/_header.html.erb (0.1ms)
+Rendered shared/_messages.html.erb (0.1ms)
+  [1m[35mInstructor Load (0.2ms)[0m  SELECT "instructors".* FROM "instructors" 
+  [1m[36mSemester Load (0.2ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered shared/_footer.html.erb (100.2ms)
+Completed 200 OK in 707ms (Views: 602.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-28 13:11:10 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-28 13:11:10 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-28 13:11:10 -0500
+Served asset /application.js - 200 OK (23ms)
+
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2011-10-28 13:11:10 -0500
+Served asset /google_analytics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.7.1.custom.min.js?body=1" for 127.0.0.1 at 2011-10-28 13:11:10 -0500
+Served asset /jquery-ui-1.7.1.custom.min.js - 200 OK (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-10-28 13:11:10 -0500
+Served asset /scaffolds.css - 200 OK (6ms)
+
+
+Started GET "/assets/jquery-ui-1.7.1.custom.css?body=1" for 127.0.0.1 at 2011-10-28 13:11:10 -0500
+Served asset /jquery-ui-1.7.1.custom.css - 200 OK (4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-28 13:11:10 -0500
+Served asset /application.css - 200 OK (2ms)
+
+
+Started GET "/assets/positionFooter.jQuery.js?body=1" for 127.0.0.1 at 2011-10-28 13:11:10 -0500
+Served asset /positionFooter.jQuery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/waiters.css?body=1" for 127.0.0.1 at 2011-10-28 13:11:10 -0500
+Served asset /waiters.css - 200 OK (4ms)
+
+
+Started GET "/assets/waiters.js?body=1" for 127.0.0.1 at 2011-10-28 13:11:10 -0500
+Served asset /waiters.js - 200 OK (3ms)
+
+
+Started GET "/semesters/1-Fall2012/sections/1-How-to-Program/assignments" for 127.0.0.1 at 2011-10-28 13:11:36 -0500
+  Processing by AssignmentsController#index as HTML
+  Parameters: {"semester_id"=>"1-Fall2012", "section_id"=>"1-How-to-Program"}
+  [1m[36mSemester Load (0.1ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1[0m  [["id", "1-Fall2012"]]
+  [1m[35mSection Load (0.1ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."id" = ? LIMIT 1  [["id", "1-How-to-Program"]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1mSELECT "assignments".* FROM "assignments" INNER JOIN "labs" ON "labs"."id" = "assignments"."lab_id" WHERE "assignments"."section_id" = 1 AND (labs.visible = 't') ORDER BY duedate desc[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+Rendered shared/_back_link.html.erb (0.3ms)
+  [1m[36mLab Load (0.2ms)[0m  [1mSELECT "labs".* FROM "labs" WHERE "labs"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "labs".* FROM "labs" WHERE "labs"."id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "examples" WHERE "examples"."section_id" = 1[0m
+  [1m[35mExample Load (0.2ms)[0m  SELECT "examples".* FROM "examples" WHERE "examples"."section_id" = 1 ORDER BY created_at desc
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "how_tos" INNER JOIN "tutorials" ON "how_tos"."id" = "tutorials"."how_to_id" WHERE "tutorials"."course_id" = 1[0m
+  [1m[35mHowTo Load (0.1ms)[0m  SELECT "how_tos".* FROM "how_tos" INNER JOIN "tutorials" ON "how_tos"."id" = "tutorials"."how_to_id" WHERE "tutorials"."course_id" = 1
+  [1m[36mStep Load (0.3ms)[0m  [1mSELECT "steps".* FROM "steps" WHERE "steps"."how_to_id" = 1 ORDER BY position LIMIT 1[0m
+[paperclip] Duplicate URL for file with /system/:attachment/:id/:style/:filename. This will clash with attachment defined in Example class
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "materials" WHERE "materials"."course_id" = 1
+Rendered assignments/index.html.erb within layouts/application (421.4ms)
+Rendered shared/_title.html.erb (0.1ms)
+Rendered shared/_top_bar.html.erb (0.1ms)
+Rendered shared/_header.html.erb (0.0ms)
+Rendered shared/_messages.html.erb (0.0ms)
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT "instructors".* FROM "instructors" [0m
+  [1m[35mSemester Load (0.3ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mSection Load (0.1ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered shared/_footer.html.erb (90.1ms)
+Completed 200 OK in 814ms (Views: 517.0ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-28 13:11:37 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-28 13:11:37 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-28 13:11:37 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-28 13:11:37 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/positionFooter.jQuery.js?body=1" for 127.0.0.1 at 2011-10-28 13:11:37 -0500
+Served asset /positionFooter.jQuery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2011-10-28 13:11:37 -0500
+Served asset /google_analytics.js - 304 Not Modified (0ms)
