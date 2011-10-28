@@ -1,4 +1,4 @@
-Ingenious20::Application.configure do
+Ingenious::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # The production environment is meant for finished, "live" apps.

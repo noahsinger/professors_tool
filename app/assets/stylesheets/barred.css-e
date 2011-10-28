@@ -147,6 +147,7 @@ line-height: .95em;
 #javascript_warning {
 margin-left: -330px;
 }
+
 #javascript_warning li {
 height: 110px;
 color: #fff;
@@ -230,8 +231,7 @@ color: #FF5C00;
 }
 
 h1 {
-/*	font-family: arial,helvetica,sans-serif;*/
-	font-family: Miso,arial,helvetica,sans-serif;
+font-family: Miso,arial,helvetica,sans-serif;
 line-height: 1em;
 font-weight: 400;
 font-size: 1.1em;
@@ -264,6 +264,7 @@ h6 {
 font-weight: 400;
 font-size: .6em;
 }
+
 /* --------------------------- 
 ul 
 --------------------------- */
@@ -335,7 +336,6 @@ padding: 0 10px 10px;
 }
 
 ul li div.bottom_half {
-/*	border: 1px solid red;*/
 	padding: 0 0 3px 0;
 }
 
@@ -957,6 +957,10 @@ margin: 0 0 30px 0;
 font-size: .8em;
 }
 		
-	.contact .vcard .tel, .contact .vcard .email, .contact .vcard a.url, .contact .vcard .note {
-margin: 10px 0;
+.contact .vcard .tel, .contact .vcard .email, .contact .vcard a.url, .contact .vcard .note {
+	margin: 10px 0;
+}
+
+@media screen and (max-width: 480px) {
+  
 }

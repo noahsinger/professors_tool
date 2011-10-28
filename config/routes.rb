@@ -1,4 +1,4 @@
-Ingenious20::Application.routes.draw do
+Ingenious::Application.routes.draw do
   # no namespace ##########################################    
   resources :general_contacts
   resources :instructors

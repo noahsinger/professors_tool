@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :adjust_format_for_iphone
+  # before_filter :adjust_format_for_iphone
     
   def call_rake( task, options = {} )
     options[:rails_env] ||= Rails.env

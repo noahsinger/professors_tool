@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Ingenious20::Application.load_tasks
+Ingenious::Application.load_tasks

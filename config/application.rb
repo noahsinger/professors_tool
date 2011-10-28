@@ -12,7 +12,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)  
 end
 
-module Ingenious20
+module Ingenious
   class Application < Rails::Application
     # Enable the asset pipeline  
     config.assets.enabled = true  

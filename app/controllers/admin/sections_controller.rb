@@ -53,8 +53,9 @@ class Admin::SectionsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        num_waiters xxx@xxx.xxx
        xxx@xxx.xxx
-        flash[:notice] = 'Section was successfully created.'
+        flash[:notice] = "Section was successfully created and #{num_waiters} were notified."
         format.html { xxx@xxx.xxx }
         format.xml  { render :xml => @section, :status => :created, :location xxx@xxx.xxx }
       else

@@ -54947,3 +54947,1277 @@ Served asset /chrome.js - 304 Not Modified (0ms)
   [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100126191742')
   [1m[36m (3.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110825202123')[0m
   [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110825213621')
+  [1m[36mSemester Load (0.2ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mSemester Load (0.2ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (49.3ms)[0m  [1mCREATE TABLE "assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "duedate" datetime, "section_id" integer, "lab_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "awarded_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "work_id" integer, "requirement_id" integer, "points" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "books" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "author" varchar(255), "publisher" varchar(255), "isbn" varchar(255), "course_id" integer, "required" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "discipline" varchar(255), "number" varchar(255), "credits" integer, "created_at" datetime, "updated_at" datetime, "prerequisite" varchar(255), "next_course" varchar(255), "required_materials" text) 
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" datetime, "locked_at" datetime, "failed_at" datetime, "locked_by" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "divisions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "office_number" varchar(255), "phone_number" varchar(255), "associate_dean" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "enrollment_statuses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "enrollments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "section_id" integer, "enrollment_status_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "examples" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "file" varchar(255), "section_id" integer, "created_at" datetime, "updated_at" datetime, "file_file_name" varchar(255), "file_content_type" varchar(255), "file_file_size" integer, "file_updated_at" datetime) [0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "extras" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "lab_id" integer, "description" varchar(255), "created_at" datetime, "updated_at" datetime, "file_file_name" varchar(255), "file_content_type" varchar(255), "file_file_size" integer, "file_updated_at" datetime) 
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "general_contacts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "return_email" varchar(255), "subject" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime) [0m
+  [1m[35m (3.2ms)[0m  CREATE TABLE "grade_requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "section_id" integer, "enrollment_id" integer, "email" varchar(255), "created_at" datetime, "updated_at" datetime, "status" varchar(255)) 
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "homework_return_requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "assignment_id" integer, "enrollment_id" integer, "created_at" datetime, "updated_at" datetime, "status" varchar(255)) [0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "how_tos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "instructors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "title" varchar(255), "phone_number" varchar(255), "office_number" varchar(255), "email" varchar(255), "website" varchar(255), "division_id" integer, "created_at" datetime, "updated_at" datetime, "office_hours_file_name" varchar(255), "office_hours_content_type" varchar(255), "office_hours_file_size" integer, "office_hours_updated_at" datetime) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "labs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "title" varchar(255), "objective" varchar(255), "instructions" text, "created_at" datetime, "updated_at" datetime, "visible" boolean, "allow_uploads" boolean) 
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "materials" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "title" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "file_file_name" varchar(255), "file_content_type" varchar(255), "file_file_size" integer, "file_updated_at" datetime) [0m
+  [1m[35m (4.7ms)[0m  CREATE TABLE "objectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "course_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "policies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "syllabus_part_id" integer, "course_id" integer, "position" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "requirements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "lab_id" integer, "description" varchar(255), "points" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "semester_id" integer, "course_id" integer, "call_number" varchar(255), "section_number" varchar(255), "meeting_days" varchar(255), "created_at" datetime, "updated_at" datetime, "start_date" date, "end_date" date, "start_time" time, "end_time" time, "instructor_id" integer, "room_number" varchar(255)) [0m
+  [1m[35m (4.6ms)[0m  CREATE TABLE "semesters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "year" integer, "season" varchar(255), "created_at" datetime, "updated_at" datetime, "start_date" date, "end_date" date) 
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "steps" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "instructions" text, "position" integer, "how_to_id" integer, "created_at" datetime, "updated_at" datetime, "image_file_name" varchar(255), "image_content_type" varchar(255), "image_file_size" integer, "image_updated_at" datetime) [0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "middle_name" varchar(255), "last_name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "goes_by" varchar(255)) 
+  [1m[36m (5.2ms)[0m  [1mCREATE TABLE "syllabus_parts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "title" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (6.1ms)[0m  CREATE TABLE "tutorials" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "course_id" integer, "how_to_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (5.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password_hash" varchar(255), "password_salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "waiters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "course_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("waiters")[0m
+  [1m[35m (4.9ms)[0m  CREATE INDEX "index_waiters_on_course_id" ON "waiters" ("course_id")
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "assignment_id" integer, "enrollment_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255), "instructors_comments" text, "upload_file_name" varchar(255), "upload_content_type" varchar(255), "upload_file_size" integer, "upload_updated_at" datetime, "withdrawal_code" varchar(255)) [0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (4.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (4.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111012140952')
+  [1m[36m (4.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080826212943')[0m
+  [1m[35m (4.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080826213410')
+  [1m[36m (4.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080826214130')[0m
+  [1m[35m (4.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080827200836')
+  [1m[36m (3.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080828211107')[0m
+  [1m[35m (3.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080903192939')
+  [1m[36m (4.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904131137')[0m
+  [1m[35m (4.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904131156')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904131318')[0m
+  [1m[35m (4.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904131332')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904131403')[0m
+  [1m[35m (3.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904131413')
+  [1m[36m (4.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904195355')[0m
+  [1m[35m (4.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904195406')
+  [1m[36m (4.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904200224')[0m
+  [1m[35m (4.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904200235')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904200304')[0m
+  [1m[35m (3.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904200320')
+  [1m[36m (3.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080906122855')[0m
+  [1m[35m (4.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080908131603')
+  [1m[36m (4.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080908134056')[0m
+  [1m[35m (4.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080909211750')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080913030212')[0m
+  [1m[35m (3.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080915020123')
+  [1m[36m (4.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080916205401')[0m
+  [1m[35m (4.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080916213727')
+  [1m[36m (4.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080917142824')[0m
+  [1m[35m (4.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080917144744')
+  [1m[36m (3.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080917145736')[0m
+  [1m[35m (3.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080917152600')
+  [1m[36m (3.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080918191455')[0m
+  [1m[35m (4.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080918204932')
+  [1m[36m (4.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081110201353')[0m
+  [1m[35m (4.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081110205105')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081111200126')[0m
+  [1m[35m (4.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081112205650')
+  [1m[36m (3.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081112210405')[0m
+  [1m[35m (3.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113163559')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113163628')[0m
+  [1m[35m (4.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113164256')
+  [1m[36m (4.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113164903')[0m
+  [1m[35m (4.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113185836')
+  [1m[36m (3.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113190041')[0m
+  [1m[35m (3.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113205446')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113213529')[0m
+  [1m[35m (4.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081117201147')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081118213351')[0m
+  [1m[35m (4.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081119192443')
+  [1m[36m (3.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081120215105')[0m
+  [1m[35m (2.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081124151026')
+  [1m[36m (4.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081124210706')[0m
+  [1m[35m (4.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081124211024')
+  [1m[36m (4.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081124211445')[0m
+  [1m[35m (4.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20090128211310')
+  [1m[36m (4.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20090128211721')[0m
+  [1m[35m (4.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20090129163512')
+  [1m[36m (3.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20090129214822')[0m
+  [1m[35m (2.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20090130185724')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20090130203900')[0m
+  [1m[35m (3.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100126191742')
+  [1m[36m (4.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110825202123')[0m
+  [1m[35m (4.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110825213621')
+  [1m[36mSemester Load (0.2ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mSemester Load (0.2ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "duedate" datetime, "section_id" integer, "lab_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "awarded_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "work_id" integer, "requirement_id" integer, "points" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "books" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "author" varchar(255), "publisher" varchar(255), "isbn" varchar(255), "course_id" integer, "required" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "discipline" varchar(255), "number" varchar(255), "credits" integer, "created_at" datetime, "updated_at" datetime, "prerequisite" varchar(255), "next_course" varchar(255), "required_materials" text) 
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" datetime, "locked_at" datetime, "failed_at" datetime, "locked_by" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "divisions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "office_number" varchar(255), "phone_number" varchar(255), "associate_dean" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "enrollment_statuses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "enrollments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "section_id" integer, "enrollment_status_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "examples" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "file" varchar(255), "section_id" integer, "created_at" datetime, "updated_at" datetime, "file_file_name" varchar(255), "file_content_type" varchar(255), "file_file_size" integer, "file_updated_at" datetime) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "extras" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "lab_id" integer, "description" varchar(255), "created_at" datetime, "updated_at" datetime, "file_file_name" varchar(255), "file_content_type" varchar(255), "file_file_size" integer, "file_updated_at" datetime) 
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "general_contacts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "return_email" varchar(255), "subject" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime) [0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "grade_requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "section_id" integer, "enrollment_id" integer, "email" varchar(255), "created_at" datetime, "updated_at" datetime, "status" varchar(255)) 
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "homework_return_requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "assignment_id" integer, "enrollment_id" integer, "created_at" datetime, "updated_at" datetime, "status" varchar(255)) [0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "how_tos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "instructors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "title" varchar(255), "phone_number" varchar(255), "office_number" varchar(255), "email" varchar(255), "website" varchar(255), "division_id" integer, "created_at" datetime, "updated_at" datetime, "office_hours_file_name" varchar(255), "office_hours_content_type" varchar(255), "office_hours_file_size" integer, "office_hours_updated_at" datetime) [0m
+  [1m[35m (4.1ms)[0m  CREATE TABLE "labs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "title" varchar(255), "objective" varchar(255), "instructions" text, "created_at" datetime, "updated_at" datetime, "visible" boolean, "allow_uploads" boolean) 
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "materials" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "title" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "file_file_name" varchar(255), "file_content_type" varchar(255), "file_file_size" integer, "file_updated_at" datetime) [0m
+  [1m[35m (4.4ms)[0m  CREATE TABLE "objectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "course_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "policies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "syllabus_part_id" integer, "course_id" integer, "position" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (5.1ms)[0m  CREATE TABLE "requirements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "lab_id" integer, "description" varchar(255), "points" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "semester_id" integer, "course_id" integer, "call_number" varchar(255), "section_number" varchar(255), "meeting_days" varchar(255), "created_at" datetime, "updated_at" datetime, "start_date" date, "end_date" date, "start_time" time, "end_time" time, "instructor_id" integer, "room_number" varchar(255)) [0m
+  [1m[35m (4.2ms)[0m  CREATE TABLE "semesters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "year" integer, "season" varchar(255), "created_at" datetime, "updated_at" datetime, "start_date" date, "end_date" date) 
+  [1m[36m (5.2ms)[0m  [1mCREATE TABLE "steps" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "instructions" text, "position" integer, "how_to_id" integer, "created_at" datetime, "updated_at" datetime, "image_file_name" varchar(255), "image_content_type" varchar(255), "image_file_size" integer, "image_updated_at" datetime) [0m
+  [1m[35m (4.6ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "middle_name" varchar(255), "last_name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "goes_by" varchar(255)) 
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "syllabus_parts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "title" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (4.4ms)[0m  CREATE TABLE "tutorials" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "course_id" integer, "how_to_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (5.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password_hash" varchar(255), "password_salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (4.8ms)[0m  CREATE TABLE "waiters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "course_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("waiters")[0m
+  [1m[35m (3.6ms)[0m  CREATE INDEX "index_waiters_on_course_id" ON "waiters" ("course_id")
+  [1m[36m (5.9ms)[0m  [1mCREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "assignment_id" integer, "enrollment_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255), "instructors_comments" text, "upload_file_name" varchar(255), "upload_content_type" varchar(255), "upload_file_size" integer, "upload_updated_at" datetime, "withdrawal_code" varchar(255)) [0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (4.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (3.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111012140952')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080826212943')[0m
+  [1m[35m (3.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080826213410')
+  [1m[36m (3.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080826214130')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080827200836')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080828211107')[0m
+  [1m[35m (3.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080903192939')
+  [1m[36m (2.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904131137')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904131156')
+  [1m[36m (3.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904131318')[0m
+  [1m[35m (3.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904131332')
+  [1m[36m (3.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904131403')[0m
+  [1m[35m (4.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904131413')
+  [1m[36m (3.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904195355')[0m
+  [1m[35m (4.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904195406')
+  [1m[36m (3.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904200224')[0m
+  [1m[35m (4.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904200235')
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904200304')[0m
+  [1m[35m (3.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904200320')
+  [1m[36m (3.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080906122855')[0m
+  [1m[35m (4.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080908131603')
+  [1m[36m (3.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080908134056')[0m
+  [1m[35m (3.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080909211750')
+  [1m[36m (4.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080913030212')[0m
+  [1m[35m (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080915020123')
+  [1m[36m (4.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080916205401')[0m
+  [1m[35m (3.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080916213727')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080917142824')[0m
+  [1m[35m (3.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080917144744')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080917145736')[0m
+  [1m[35m (3.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080917152600')
+  [1m[36m (4.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080918191455')[0m
+  [1m[35m (4.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080918204932')
+  [1m[36m (3.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081110201353')[0m
+  [1m[35m (3.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081110205105')
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081111200126')[0m
+  [1m[35m (3.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081112205650')
+  [1m[36m (3.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081112210405')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113163559')
+  [1m[36m (3.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113163628')[0m
+  [1m[35m (4.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113164256')
+  [1m[36m (3.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113164903')[0m
+  [1m[35m (3.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113185836')
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113190041')[0m
+  [1m[35m (4.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113205446')
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113213529')[0m
+  [1m[35m (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081117201147')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081118213351')[0m
+  [1m[35m (3.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081119192443')
+  [1m[36m (3.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081120215105')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081124151026')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081124210706')[0m
+  [1m[35m (3.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081124211024')
+  [1m[36m (3.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081124211445')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20090128211310')
+  [1m[36m (4.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20090128211721')[0m
+  [1m[35m (4.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20090129163512')
+  [1m[36m (3.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20090129214822')[0m
+  [1m[35m (3.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20090130185724')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20090130203900')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100126191742')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110825202123')[0m
+  [1m[35m (4.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110825213621')
+  [1m[36mSemester Load (0.2ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mSemester Load (0.2ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (48.8ms)[0m  [1mCREATE TABLE "assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "duedate" datetime, "section_id" integer, "lab_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "awarded_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "work_id" integer, "requirement_id" integer, "points" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "books" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "author" varchar(255), "publisher" varchar(255), "isbn" varchar(255), "course_id" integer, "required" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (4.3ms)[0m  CREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "discipline" varchar(255), "number" varchar(255), "credits" integer, "created_at" datetime, "updated_at" datetime, "prerequisite" varchar(255), "next_course" varchar(255), "required_materials" text) 
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" datetime, "locked_at" datetime, "failed_at" datetime, "locked_by" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "divisions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "office_number" varchar(255), "phone_number" varchar(255), "associate_dean" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "enrollment_statuses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "enrollments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "section_id" integer, "enrollment_status_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "examples" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "file" varchar(255), "section_id" integer, "created_at" datetime, "updated_at" datetime, "file_file_name" varchar(255), "file_content_type" varchar(255), "file_file_size" integer, "file_updated_at" datetime) [0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "extras" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "lab_id" integer, "description" varchar(255), "created_at" datetime, "updated_at" datetime, "file_file_name" varchar(255), "file_content_type" varchar(255), "file_file_size" integer, "file_updated_at" datetime) 
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "general_contacts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "return_email" varchar(255), "subject" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime) [0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "grade_requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "section_id" integer, "enrollment_id" integer, "email" varchar(255), "created_at" datetime, "updated_at" datetime, "status" varchar(255)) 
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "homework_return_requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "assignment_id" integer, "enrollment_id" integer, "created_at" datetime, "updated_at" datetime, "status" varchar(255)) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "how_tos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "instructors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "title" varchar(255), "phone_number" varchar(255), "office_number" varchar(255), "email" varchar(255), "website" varchar(255), "division_id" integer, "created_at" datetime, "updated_at" datetime, "office_hours_file_name" varchar(255), "office_hours_content_type" varchar(255), "office_hours_file_size" integer, "office_hours_updated_at" datetime) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "labs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "title" varchar(255), "objective" varchar(255), "instructions" text, "created_at" datetime, "updated_at" datetime, "visible" boolean, "allow_uploads" boolean) 
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "materials" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "title" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "file_file_name" varchar(255), "file_content_type" varchar(255), "file_file_size" integer, "file_updated_at" datetime) [0m
+  [1m[35m (4.9ms)[0m  CREATE TABLE "objectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "course_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "policies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "syllabus_part_id" integer, "course_id" integer, "position" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "requirements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "lab_id" integer, "description" varchar(255), "points" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "semester_id" integer, "course_id" integer, "call_number" varchar(255), "section_number" varchar(255), "meeting_days" varchar(255), "created_at" datetime, "updated_at" datetime, "start_date" date, "end_date" date, "start_time" time, "end_time" time, "instructor_id" integer, "room_number" varchar(255)) [0m
+  [1m[35m (4.6ms)[0m  CREATE TABLE "semesters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "year" integer, "season" varchar(255), "created_at" datetime, "updated_at" datetime, "start_date" date, "end_date" date) 
+  [1m[36m (5.4ms)[0m  [1mCREATE TABLE "steps" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "instructions" text, "position" integer, "how_to_id" integer, "created_at" datetime, "updated_at" datetime, "image_file_name" varchar(255), "image_content_type" varchar(255), "image_file_size" integer, "image_updated_at" datetime) [0m
+  [1m[35m (3.9ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "middle_name" varchar(255), "last_name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "goes_by" varchar(255)) 
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "syllabus_parts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "title" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (5.1ms)[0m  CREATE TABLE "tutorials" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "course_id" integer, "how_to_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (5.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password_hash" varchar(255), "password_salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.9ms)[0m  CREATE TABLE "waiters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "course_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("waiters")[0m
+  [1m[35m (4.9ms)[0m  CREATE INDEX "index_waiters_on_course_id" ON "waiters" ("course_id")
+  [1m[36m (5.6ms)[0m  [1mCREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "assignment_id" integer, "enrollment_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255), "instructors_comments" text, "upload_file_name" varchar(255), "upload_content_type" varchar(255), "upload_file_size" integer, "upload_updated_at" datetime, "withdrawal_code" varchar(255)) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (4.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111012140952')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080826212943')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080826213410')
+  [1m[36m (3.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080826214130')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080827200836')
+  [1m[36m (4.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080828211107')[0m
+  [1m[35m (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080903192939')
+  [1m[36m (2.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904131137')[0m
+  [1m[35m (3.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904131156')
+  [1m[36m (3.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904131318')[0m
+  [1m[35m (4.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904131332')
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904131403')[0m
+  [1m[35m (4.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904131413')
+  [1m[36m (3.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904195355')[0m
+  [1m[35m (3.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904195406')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904200224')[0m
+  [1m[35m (4.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904200235')
+  [1m[36m (3.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904200304')[0m
+  [1m[35m (3.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904200320')
+  [1m[36m (3.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080906122855')[0m
+  [1m[35m (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080908131603')
+  [1m[36m (3.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080908134056')[0m
+  [1m[35m (3.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080909211750')
+  [1m[36m (3.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080913030212')[0m
+  [1m[35m (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080915020123')
+  [1m[36m (3.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080916205401')[0m
+  [1m[35m (2.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080916213727')
+  [1m[36m (2.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080917142824')[0m
+  [1m[35m (3.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080917144744')
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080917145736')[0m
+  [1m[35m (3.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080917152600')
+  [1m[36m (3.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080918191455')[0m
+  [1m[35m (4.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080918204932')
+  [1m[36m (3.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081110201353')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081110205105')
+  [1m[36m (2.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081111200126')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081112205650')
+  [1m[36m (3.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081112210405')[0m
+  [1m[35m (3.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113163559')
+  [1m[36m (3.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113163628')[0m
+  [1m[35m (3.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113164256')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113164903')[0m
+  [1m[35m (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113185836')
+  [1m[36m (4.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113190041')[0m
+  [1m[35m (3.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113205446')
+  [1m[36m (3.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113213529')[0m
+  [1m[35m (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081117201147')
+  [1m[36m (4.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081118213351')[0m
+  [1m[35m (3.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081119192443')
+  [1m[36m (3.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081120215105')[0m
+  [1m[35m (4.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081124151026')
+  [1m[36m (3.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081124210706')[0m
+  [1m[35m (3.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081124211024')
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081124211445')[0m
+  [1m[35m (4.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20090128211310')
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20090128211721')[0m
+  [1m[35m (3.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20090129163512')
+  [1m[36m (3.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20090129214822')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20090130185724')
+  [1m[36m (3.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20090130203900')[0m
+  [1m[35m (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100126191742')
+  [1m[36m (3.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110825202123')[0m
+  [1m[35m (3.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110825213621')
+  [1m[36mSemester Load (0.5ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mSemester Load (0.2ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "duedate" datetime, "section_id" integer, "lab_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "awarded_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "work_id" integer, "requirement_id" integer, "points" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "books" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "author" varchar(255), "publisher" varchar(255), "isbn" varchar(255), "course_id" integer, "required" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "discipline" varchar(255), "number" varchar(255), "credits" integer, "created_at" datetime, "updated_at" datetime, "prerequisite" varchar(255), "next_course" varchar(255), "required_materials" text) 
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" datetime, "locked_at" datetime, "failed_at" datetime, "locked_by" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "divisions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "office_number" varchar(255), "phone_number" varchar(255), "associate_dean" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "enrollment_statuses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "enrollments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "section_id" integer, "enrollment_status_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "examples" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "file" varchar(255), "section_id" integer, "created_at" datetime, "updated_at" datetime, "file_file_name" varchar(255), "file_content_type" varchar(255), "file_file_size" integer, "file_updated_at" datetime) [0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "extras" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "lab_id" integer, "description" varchar(255), "created_at" datetime, "updated_at" datetime, "file_file_name" varchar(255), "file_content_type" varchar(255), "file_file_size" integer, "file_updated_at" datetime) 
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "general_contacts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "return_email" varchar(255), "subject" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime) [0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "grade_requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "section_id" integer, "enrollment_id" integer, "email" varchar(255), "created_at" datetime, "updated_at" datetime, "status" varchar(255)) 
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "homework_return_requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "assignment_id" integer, "enrollment_id" integer, "created_at" datetime, "updated_at" datetime, "status" varchar(255)) [0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "how_tos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "instructors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "title" varchar(255), "phone_number" varchar(255), "office_number" varchar(255), "email" varchar(255), "website" varchar(255), "division_id" integer, "created_at" datetime, "updated_at" datetime, "office_hours_file_name" varchar(255), "office_hours_content_type" varchar(255), "office_hours_file_size" integer, "office_hours_updated_at" datetime) [0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "labs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "title" varchar(255), "objective" varchar(255), "instructions" text, "created_at" datetime, "updated_at" datetime, "visible" boolean, "allow_uploads" boolean) 
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "materials" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "title" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "file_file_name" varchar(255), "file_content_type" varchar(255), "file_file_size" integer, "file_updated_at" datetime) [0m
+  [1m[35m (4.5ms)[0m  CREATE TABLE "objectives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "course_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "policies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "syllabus_part_id" integer, "course_id" integer, "position" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "requirements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "lab_id" integer, "description" varchar(255), "points" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "semester_id" integer, "course_id" integer, "call_number" varchar(255), "section_number" varchar(255), "meeting_days" varchar(255), "created_at" datetime, "updated_at" datetime, "start_date" date, "end_date" date, "start_time" time, "end_time" time, "instructor_id" integer, "room_number" varchar(255)) [0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "semesters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "year" integer, "season" varchar(255), "created_at" datetime, "updated_at" datetime, "start_date" date, "end_date" date) 
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "steps" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "instructions" text, "position" integer, "how_to_id" integer, "created_at" datetime, "updated_at" datetime, "image_file_name" varchar(255), "image_content_type" varchar(255), "image_file_size" integer, "image_updated_at" datetime) [0m
+  [1m[35m (4.5ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "middle_name" varchar(255), "last_name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "goes_by" varchar(255)) 
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "syllabus_parts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "title" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.5ms)[0m  CREATE TABLE "tutorials" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "course_id" integer, "how_to_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password_hash" varchar(255), "password_salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (4.6ms)[0m  CREATE TABLE "waiters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "course_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("waiters")[0m
+  [1m[35m (3.4ms)[0m  CREATE INDEX "index_waiters_on_course_id" ON "waiters" ("course_id")
+  [1m[36m (5.3ms)[0m  [1mCREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "assignment_id" integer, "enrollment_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255), "instructors_comments" text, "upload_file_name" varchar(255), "upload_content_type" varchar(255), "upload_file_size" integer, "upload_updated_at" datetime, "withdrawal_code" varchar(255)) [0m
+  [1m[35m (4.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (3.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (2.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111012140952')
+  [1m[36m (3.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080826212943')[0m
+  [1m[35m (3.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080826213410')
+  [1m[36m (3.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080826214130')[0m
+  [1m[35m (3.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080827200836')
+  [1m[36m (2.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080828211107')[0m
+  [1m[35m (3.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080903192939')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904131137')[0m
+  [1m[35m (4.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904131156')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904131318')[0m
+  [1m[35m (4.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904131332')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904131403')[0m
+  [1m[35m (3.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904131413')
+  [1m[36m (2.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904195355')[0m
+  [1m[35m (2.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904195406')
+  [1m[36m (4.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904200224')[0m
+  [1m[35m (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904200235')
+  [1m[36m (3.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080904200304')[0m
+  [1m[35m (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080904200320')
+  [1m[36m (2.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080906122855')[0m
+  [1m[35m (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080908131603')
+  [1m[36m (3.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080908134056')[0m
+  [1m[35m (3.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080909211750')
+  [1m[36m (3.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080913030212')[0m
+  [1m[35m (2.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080915020123')
+  [1m[36m (3.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080916205401')[0m
+  [1m[35m (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080916213727')
+  [1m[36m (3.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080917142824')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080917144744')
+  [1m[36m (4.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080917145736')[0m
+  [1m[35m (3.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080917152600')
+  [1m[36m (3.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20080918191455')[0m
+  [1m[35m (3.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20080918204932')
+  [1m[36m (2.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081110201353')[0m
+  [1m[35m (3.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081110205105')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081111200126')[0m
+  [1m[35m (2.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081112205650')
+  [1m[36m (3.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081112210405')[0m
+  [1m[35m (3.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113163559')
+  [1m[36m (3.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113163628')[0m
+  [1m[35m (3.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113164256')
+  [1m[36m (3.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113164903')[0m
+  [1m[35m (2.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113185836')
+  [1m[36m (3.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113190041')[0m
+  [1m[35m (3.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081113205446')
+  [1m[36m (3.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081113213529')[0m
+  [1m[35m (3.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081117201147')
+  [1m[36m (3.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081118213351')[0m
+  [1m[35m (4.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081119192443')
+  [1m[36m (3.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081120215105')[0m
+  [1m[35m (3.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081124151026')
+  [1m[36m (3.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081124210706')[0m
+  [1m[35m (3.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20081124211024')
+  [1m[36m (2.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20081124211445')[0m
+  [1m[35m (2.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20090128211310')
+  [1m[36m (3.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20090128211721')[0m
+  [1m[35m (2.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20090129163512')
+  [1m[36m (3.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20090129214822')[0m
+  [1m[35m (2.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20090130185724')
+  [1m[36m (2.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20090130203900')[0m
+  [1m[35m (3.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100126191742')
+  [1m[36m (2.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110825202123')[0m
+  [1m[35m (3.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110825213621')
+  [1m[36mSemester Load (0.8ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mSemester Load (0.2ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36mSemester Load (0.2ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mSemester Load (0.2ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-28 09:28:25 -0500
+  Processing by SectionsController#index as HTML
+  Parameters: {"semester_id"=>1}
+  [1m[36mSemester Load (15.2ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSection Load (26.3ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1
+  [1m[36mCourse Load (0.6ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+Rendered sections/index.html.erb within layouts/application (139.0ms)
+Rendered shared/_title.html.erb (0.5ms)
+Rendered shared/_top_bar.html.erb (0.4ms)
+Rendered shared/_header.html.erb (0.3ms)
+Rendered shared/_messages.html.erb (0.3ms)
+  [1m[36mInstructor Load (0.6ms)[0m  [1mSELECT "instructors".* FROM "instructors" [0m
+  [1m[35mSemester Load (0.2ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered shared/_footer.html.erb (88.8ms)
+Completed 200 OK in 710ms (Views: 526.0ms | ActiveRecord: 44.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-28 09:28:26 -0500
+Served asset /jquery.js - 200 OK (25ms)
+
+
+Started GET "/assets/jquery.easing.js?body=1" for 127.0.0.1 at 2011-10-28 09:28:26 -0500
+Served asset /jquery.easing.js - 200 OK (54ms)
+
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2011-10-28 09:28:26 -0500
+Served asset /jquery.tablednd_0_5.js - 200 OK (6ms)
+
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2011-10-28 09:28:26 -0500
+Served asset /google_analytics.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-28 09:28:26 -0500
+Served asset /jquery_ujs.js - 200 OK (4ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2011-10-28 09:28:26 -0500
+Served asset /reset.css - 200 OK (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-28 09:28:26 -0500
+Served asset /application.js - 200 OK (63ms)
+
+
+Started GET "/assets/jquery.kwicks.js?body=1" for 127.0.0.1 at 2011-10-28 09:28:26 -0500
+Served asset /jquery.kwicks.js - 200 OK (4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-28 09:28:26 -0500
+Served asset /application.css - 200 OK (14ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2011-10-28 09:28:26 -0500
+Served asset /scaffold.css - 200 OK (3ms)
+
+
+Started GET "/assets/barred.css?body=1" for 127.0.0.1 at 2011-10-28 09:28:26 -0500
+Served asset /barred.css - 200 OK (5ms)
+
+
+Started GET "/assets/positionFooter.jQuery.js?body=1" for 127.0.0.1 at 2011-10-28 09:28:26 -0500
+Served asset /positionFooter.jQuery.js - 200 OK (2ms)
+
+
+Started GET "/assets/chrome.js?body=1" for 127.0.0.1 at 2011-10-28 09:28:26 -0500
+Served asset /chrome.js - 200 OK (3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-28 09:28:36 -0500
+  Processing by SectionsController#index as HTML
+  Parameters: {"semester_id"=>1}
+  [1m[35mSemester Load (0.1ms)[0m  SELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+Rendered sections/index.iphone.erb within layouts/application (114.0ms)
+Completed 200 OK in 446ms (Views: 345.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/iphone.css?body=1" for 127.0.0.1 at 2011-10-28 09:28:37 -0500
+Served asset /iphone.css - 200 OK (31ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-28 09:28:37 -0500
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/iphone.application.js?body=1" for 127.0.0.1 at 2011-10-28 09:28:37 -0500
+Served asset /iphone.application.js - 200 OK (8ms)
+
+
+Started GET "/images/iPhoneToolbar.png" for 127.0.0.1 at 2011-10-28 09:28:37 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/iPhoneToolbar.png"):
+  actionpack (3.1.0) lib/action_dispatch/middleware/show_exceptions.rb:53:in `call'
+  railties (3.1.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.3.4) lib/rack/methodoverride.rb:24:in `call'
+  rack (1.3.4) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.1.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.3.4) lib/rack/lock.rb:15:in `call'
+  actionpack (3.1.0) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.1.0) lib/rails/engine.rb:455:in `call'
+  railties (3.1.0) lib/rails/rack/content_length.rb:16:in `call'
+  railties (3.1.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.3.4) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/noah/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /Users/noah/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /Users/noah/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered xxx@xxx.xxx within rescues/layout (0.7ms)
+
+
+Started GET "/images/iPhoneArrow.png" for 127.0.0.1 at 2011-10-28 09:28:37 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/iPhoneArrow.png"):
+  actionpack (3.1.0) lib/action_dispatch/middleware/show_exceptions.rb:53:in `call'
+  railties (3.1.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.3.4) lib/rack/methodoverride.rb:24:in `call'
+  rack (1.3.4) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.1.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.3.4) lib/rack/lock.rb:15:in `call'
+  actionpack (3.1.0) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.1.0) lib/rails/engine.rb:455:in `call'
+  railties (3.1.0) lib/rails/rack/content_length.rb:16:in `call'
+  railties (3.1.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.3.4) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/noah/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /Users/noah/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /Users/noah/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered xxx@xxx.xxx within rescues/layout (0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-28 09:29:38 -0500
+  Processing by SectionsController#index as HTML
+  Parameters: {"semester_id"=>1}
+  [1m[35mSemester Load (0.1ms)[0m  SELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+Rendered sections/index.html.erb within layouts/application (108.2ms)
+Rendered shared/_title.html.erb (0.1ms)
+Rendered shared/_top_bar.html.erb (0.1ms)
+Rendered shared/_header.html.erb (0.0ms)
+Rendered shared/_messages.html.erb (0.1ms)
+  [1m[35mInstructor Load (0.3ms)[0m  SELECT "instructors".* FROM "instructors" 
+  [1m[36mSemester Load (0.3ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered shared/_footer.html.erb (86.0ms)
+Completed 200 OK in 298ms (Views: 202.0ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:38 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:38 -0500
+Served asset /jquery.tablednd_0_5.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.easing.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:38 -0500
+Served asset /jquery.easing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:38 -0500
+Served asset /google_analytics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:38 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/barred.css?body=1" for 127.0.0.1 at 2011-10-28 09:29:39 -0500
+Served asset /barred.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-28 09:29:39 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:39 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2011-10-28 09:29:39 -0500
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/positionFooter.jQuery.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:39 -0500
+Served asset /positionFooter.jQuery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2011-10-28 09:29:39 -0500
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.kwicks.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:39 -0500
+Served asset /jquery.kwicks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/chrome.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:39 -0500
+Served asset /chrome.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-28 09:29:44 -0500
+  Processing by SectionsController#index as HTML
+  Parameters: {"semester_id"=>1}
+  [1m[36mSemester Load (0.1ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+Rendered sections/index.html.erb within layouts/application (158.0ms)
+Rendered shared/_title.html.erb (0.1ms)
+Rendered shared/_top_bar.html.erb (0.1ms)
+Rendered shared/_header.html.erb (0.0ms)
+Rendered shared/_messages.html.erb (0.1ms)
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT "instructors".* FROM "instructors" [0m
+  [1m[35mSemester Load (0.3ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered shared/_footer.html.erb (92.7ms)
+Completed 200 OK in 304ms (Views: 260.1ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:45 -0500
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.easing.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:45 -0500
+Served asset /jquery.easing.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:45 -0500
+Served asset /jquery.tablednd_0_5.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:45 -0500
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:45 -0500
+Served asset /google_analytics.js - 200 OK (0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2011-10-28 09:29:45 -0500
+Served asset /reset.css - 200 OK (0ms)
+
+
+Started GET "/assets/barred.css?body=1" for 127.0.0.1 at 2011-10-28 09:29:45 -0500
+Served asset /barred.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-28 09:29:45 -0500
+Served asset /application.css - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:45 -0500
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.kwicks.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:45 -0500
+Served asset /jquery.kwicks.js - 200 OK (0ms)
+
+
+Started GET "/assets/positionFooter.jQuery.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:45 -0500
+Served asset /positionFooter.jQuery.js - 200 OK (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2011-10-28 09:29:45 -0500
+Served asset /scaffold.css - 200 OK (0ms)
+
+
+Started GET "/assets/chrome.js?body=1" for 127.0.0.1 at 2011-10-28 09:29:45 -0500
+Served asset /chrome.js - 200 OK (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-28 09:31:48 -0500
+  Processing by SectionsController#index as HTML
+  Parameters: {"semester_id"=>1}
+  [1m[35mSemester Load (0.1ms)[0m  SELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+Rendered sections/index.html.erb within layouts/application (107.1ms)
+Rendered shared/_title.html.erb (48.6ms)
+Compiled barred.css  (0ms)  (pid 56321)
+Compiled application.css  (19ms)  (pid 56321)
+Rendered shared/_top_bar.html.erb (0.1ms)
+Rendered shared/_header.html.erb (0.0ms)
+Rendered shared/_messages.html.erb (0.1ms)
+  [1m[35mInstructor Load (0.2ms)[0m  SELECT "instructors".* FROM "instructors" 
+  [1m[36mSemester Load (0.2ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered shared/_footer.html.erb (37.5ms)
+Completed 200 OK in 409ms (Views: 305.6ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-28 09:31:49 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.easing.js?body=1" for 127.0.0.1 at 2011-10-28 09:31:49 -0500
+Served asset /jquery.easing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2011-10-28 09:31:49 -0500
+Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-28 09:31:49 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2011-10-28 09:31:49 -0500
+Served asset /google_analytics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2011-10-28 09:31:49 -0500
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/barred.css?body=1" for 127.0.0.1 at 2011-10-28 09:31:49 -0500
+Served asset /barred.css - 200 OK (28ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-28 09:31:49 -0500
+Served asset /application.css - 200 OK (153ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-28 09:31:49 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2011-10-28 09:31:49 -0500
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/positionFooter.jQuery.js?body=1" for 127.0.0.1 at 2011-10-28 09:31:49 -0500
+Served asset /positionFooter.jQuery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.kwicks.js?body=1" for 127.0.0.1 at 2011-10-28 09:31:49 -0500
+Served asset /jquery.kwicks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/chrome.js?body=1" for 127.0.0.1 at 2011-10-28 09:31:49 -0500
+Served asset /chrome.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-28 09:32:00 -0500
+  Processing by SectionsController#index as HTML
+  Parameters: {"semester_id"=>1}
+  [1m[36mSemester Load (0.1ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+Rendered sections/index.html.erb within layouts/application (108.6ms)
+Rendered shared/_title.html.erb (0.1ms)
+Compiled barred.css  (0ms)  (pid 56321)
+Compiled application.css  (3ms)  (pid 56321)
+Rendered shared/_top_bar.html.erb (0.1ms)
+Rendered shared/_header.html.erb (0.0ms)
+Rendered shared/_messages.html.erb (0.0ms)
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT "instructors".* FROM "instructors" [0m
+  [1m[35mSemester Load (0.2ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered shared/_footer.html.erb (89.9ms)
+Completed 200 OK in 316ms (Views: 218.1ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-28 09:32:00 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.easing.js?body=1" for 127.0.0.1 at 2011-10-28 09:32:00 -0500
+Served asset /jquery.easing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-28 09:32:00 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2011-10-28 09:32:00 -0500
+Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2011-10-28 09:32:00 -0500
+Served asset /google_analytics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-28 09:32:00 -0500
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/barred.css?body=1" for 127.0.0.1 at 2011-10-28 09:32:00 -0500
+Served asset /barred.css - 200 OK (13ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2011-10-28 09:32:00 -0500
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-28 09:32:00 -0500
+Served asset /application.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.kwicks.js?body=1" for 127.0.0.1 at 2011-10-28 09:32:00 -0500
+Served asset /jquery.kwicks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/chrome.js?body=1" for 127.0.0.1 at 2011-10-28 09:32:00 -0500
+Served asset /chrome.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/positionFooter.jQuery.js?body=1" for 127.0.0.1 at 2011-10-28 09:32:00 -0500
+Served asset /positionFooter.jQuery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2011-10-28 09:32:00 -0500
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-28 09:33:08 -0500
+  Processing by SectionsController#index as HTML
+  Parameters: {"semester_id"=>1}
+  [1m[35mSemester Load (1.2ms)[0m  SELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1[0m
+  [1m[35mCourse Load (0.6ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+Rendered sections/index.html.erb within layouts/application (114.4ms)
+Rendered shared/_title.html.erb (0.1ms)
+Rendered shared/_top_bar.html.erb (0.1ms)
+Rendered shared/_header.html.erb (0.0ms)
+Rendered shared/_messages.html.erb (0.1ms)
+  [1m[35mInstructor Load (0.2ms)[0m  SELECT "instructors".* FROM "instructors" 
+  [1m[36mSemester Load (0.3ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered shared/_footer.html.erb (87.3ms)
+Completed 200 OK in 367ms (Views: 231.9ms | ActiveRecord: 31.9ms)
+
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2011-10-28 09:33:08 -0500
+Served asset /google_analytics.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-28 09:33:08 -0500
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-28 09:33:08 -0500
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2011-10-28 09:33:08 -0500
+Served asset /jquery.tablednd_0_5.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.easing.js?body=1" for 127.0.0.1 at 2011-10-28 09:33:08 -0500
+Served asset /jquery.easing.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-28 09:33:08 -0500
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2011-10-28 09:33:09 -0500
+Served asset /reset.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2011-10-28 09:33:09 -0500
+Served asset /scaffold.css - 200 OK (0ms)
+
+
+Started GET "/assets/barred.css?body=1" for 127.0.0.1 at 2011-10-28 09:33:09 -0500
+Served asset /barred.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-28 09:33:09 -0500
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.kwicks.js?body=1" for 127.0.0.1 at 2011-10-28 09:33:09 -0500
+Served asset /jquery.kwicks.js - 200 OK (0ms)
+
+
+Started GET "/assets/positionFooter.jQuery.js?body=1" for 127.0.0.1 at 2011-10-28 09:33:09 -0500
+Served asset /positionFooter.jQuery.js - 200 OK (0ms)
+
+
+Started GET "/assets/chrome.js?body=1" for 127.0.0.1 at 2011-10-28 09:33:09 -0500
+Served asset /chrome.js - 200 OK (0ms)
+
+
+Started GET "/semesters/1-Fall2012/sections/3-Blahing-your-Blah/assignments" for 127.0.0.1 at 2011-10-28 09:33:23 -0500
+  Processing by AssignmentsController#index as HTML
+  Parameters: {"semester_id"=>"1-Fall2012", "section_id"=>"3-Blahing-your-Blah"}
+  [1m[36mSemester Load (0.1ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1[0m  [["id", "1-Fall2012"]]
+  [1m[35mSection Load (0.1ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."id" = ? LIMIT 1  [["id", "3-Blahing-your-Blah"]]
+  [1m[36mAssignment Load (18.2ms)[0m  [1mSELECT "assignments".* FROM "assignments" INNER JOIN "labs" ON "labs"."id" = "assignments"."lab_id" WHERE "assignments"."section_id" = 3 AND (labs.visible = 't') ORDER BY duedate desc[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+Rendered shared/_back_link.html.erb (0.3ms)
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "examples" WHERE "examples"."section_id" = 3[0m
+  [1m[35mExample Load (0.2ms)[0m  SELECT "examples".* FROM "examples" WHERE "examples"."section_id" = 3 ORDER BY created_at desc
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "how_tos" INNER JOIN "tutorials" ON "how_tos"."id" = "tutorials"."how_to_id" WHERE "tutorials"."course_id" = 2[0m
+[paperclip] Duplicate URL for file with /system/:attachment/:id/:style/:filename. This will clash with attachment defined in Example class
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "materials" WHERE "materials"."course_id" = 2
+Rendered assignments/index.html.erb within layouts/application (318.1ms)
+Rendered shared/_title.html.erb (0.2ms)
+Rendered shared/_top_bar.html.erb (0.1ms)
+Rendered shared/_header.html.erb (0.0ms)
+Rendered shared/_messages.html.erb (0.0ms)
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT "instructors".* FROM "instructors" [0m
+  [1m[35mSemester Load (0.3ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mSection Load (0.1ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered shared/_footer.html.erb (86.4ms)
+Completed 200 OK in 735ms (Views: 426.3ms | ActiveRecord: 26.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-28 09:33:24 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/barred.css?body=1" for 127.0.0.1 at 2011-10-28 09:33:24 -0500
+Served asset /barred.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-28 09:35:48 -0500
+  Processing by SectionsController#index as HTML
+  Parameters: {"semester_id"=>1}
+  [1m[35mSemester Load (2.8ms)[0m  SELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1[0m
+  [1m[35mCourse Load (0.7ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+Rendered sections/index.html.erb within layouts/application (113.7ms)
+Rendered shared/_title.html.erb (0.1ms)
+Rendered shared/_top_bar.html.erb (0.1ms)
+Rendered shared/_header.html.erb (0.0ms)
+Rendered shared/_messages.html.erb (0.1ms)
+  [1m[35mInstructor Load (0.2ms)[0m  SELECT "instructors".* FROM "instructors" 
+  [1m[36mSemester Load (0.2ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered shared/_footer.html.erb (87.2ms)
+Completed 200 OK in 328ms (Views: 209.0ms | ActiveRecord: 23.2ms)
+
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2011-10-28 09:35:48 -0500
+Served asset /google_analytics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-28 09:35:48 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-28 09:35:48 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2011-10-28 09:35:48 -0500
+Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-28 09:35:48 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.easing.js?body=1" for 127.0.0.1 at 2011-10-28 09:35:48 -0500
+Served asset /jquery.easing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2011-10-28 09:35:48 -0500
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2011-10-28 09:35:48 -0500
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-28 09:35:48 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/positionFooter.jQuery.js?body=1" for 127.0.0.1 at 2011-10-28 09:35:48 -0500
+Served asset /positionFooter.jQuery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/chrome.js?body=1" for 127.0.0.1 at 2011-10-28 09:35:48 -0500
+Served asset /chrome.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/barred.css?body=1" for 127.0.0.1 at 2011-10-28 09:35:48 -0500
+Served asset /barred.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.kwicks.js?body=1" for 127.0.0.1 at 2011-10-28 09:35:48 -0500
+Served asset /jquery.kwicks.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-28 09:36:06 -0500
+  Processing by SectionsController#index as HTML
+  Parameters: {"semester_id"=>1}
+  [1m[36mSemester Load (0.1ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+Rendered sections/index.html.erb within layouts/application (111.0ms)
+Rendered shared/_title.html.erb (0.1ms)
+Rendered shared/_top_bar.html.erb (0.1ms)
+Rendered shared/_header.html.erb (0.0ms)
+Rendered shared/_messages.html.erb (0.0ms)
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT "instructors".* FROM "instructors" [0m
+  [1m[35mSemester Load (0.2ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered shared/_footer.html.erb (89.1ms)
+Completed 200 OK in 309ms (Views: 208.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:07 -0500
+Served asset /google_analytics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:07 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:07 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:07 -0500
+Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.easing.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:07 -0500
+Served asset /jquery.easing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:07 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2011-10-28 09:36:07 -0500
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-28 09:36:07 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/chrome.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:07 -0500
+Served asset /chrome.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2011-10-28 09:36:07 -0500
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.kwicks.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:07 -0500
+Served asset /jquery.kwicks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/positionFooter.jQuery.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:07 -0500
+Served asset /positionFooter.jQuery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/barred.css?body=1" for 127.0.0.1 at 2011-10-28 09:36:07 -0500
+Served asset /barred.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-28 09:36:36 -0500
+  Processing by SectionsController#index as HTML
+  Parameters: {"semester_id"=>1}
+  [1m[35mSemester Load (0.1ms)[0m  SELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSection Load (0.3ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+Rendered sections/index.html.erb within layouts/application (109.2ms)
+Rendered shared/_title.html.erb (0.1ms)
+Rendered shared/_top_bar.html.erb (0.1ms)
+Rendered shared/_header.html.erb (0.0ms)
+Rendered shared/_messages.html.erb (0.0ms)
+  [1m[35mInstructor Load (0.2ms)[0m  SELECT "instructors".* FROM "instructors" 
+  [1m[36mSemester Load (0.3ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered shared/_footer.html.erb (87.6ms)
+Completed 200 OK in 309ms (Views: 204.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:36 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:36 -0500
+Served asset /google_analytics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:36 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.easing.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:36 -0500
+Served asset /jquery.easing.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:36 -0500
+Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:36 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2011-10-28 09:36:36 -0500
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/barred.css?body=1" for 127.0.0.1 at 2011-10-28 09:36:37 -0500
+Served asset /barred.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-28 09:36:37 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/positionFooter.jQuery.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:37 -0500
+Served asset /positionFooter.jQuery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/chrome.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:37 -0500
+Served asset /chrome.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2011-10-28 09:36:37 -0500
+Served asset /scaffold.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.kwicks.js?body=1" for 127.0.0.1 at 2011-10-28 09:36:37 -0500
+Served asset /jquery.kwicks.js - 304 Not Modified (0ms)
+  [1m[36mSemester Load (0.2ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mSemester Load (0.2ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36mSemester Load (0.2ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mSemester Load (0.2ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+
+
+Started GET "/" for 127.0.0.1 at 2011-10-28 13:03:04 -0500
+  Processing by SectionsController#index as HTML
+  Parameters: {"semester_id"=>1}
+  [1m[36mSemester Load (16.1ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+Rendered sections/index.html.erb within layouts/application (135.6ms)
+Rendered shared/_title.html.erb (0.5ms)
+Compiled barred.css  (0ms)  (pid 59719)
+Compiled application.css  (3ms)  (pid 59719)
+Rendered shared/_top_bar.html.erb (0.4ms)
+Rendered shared/_header.html.erb (0.3ms)
+Rendered shared/_messages.html.erb (0.3ms)
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT "instructors".* FROM "instructors" [0m
+  [1m[35mSemester Load (0.2ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered shared/_footer.html.erb (34.6ms)
+Completed 200 OK in 517ms (Views: 353.2ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2011-10-28 13:03:05 -0500
+Served asset /google_analytics.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-28 13:03:05 -0500
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-28 13:03:05 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.easing.js?body=1" for 127.0.0.1 at 2011-10-28 13:03:05 -0500
+Served asset /jquery.easing.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2011-10-28 13:03:05 -0500
+Served asset /jquery.tablednd_0_5.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2011-10-28 13:03:05 -0500
+Served asset /reset.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2011-10-28 13:03:05 -0500
+Served asset /scaffold.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/barred.css?body=1" for 127.0.0.1 at 2011-10-28 13:03:05 -0500
+Served asset /barred.css - 200 OK (12ms)
+
+
+Started GET "/assets/positionFooter.jQuery.js?body=1" for 127.0.0.1 at 2011-10-28 13:03:05 -0500
+Served asset /positionFooter.jQuery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.kwicks.js?body=1" for 127.0.0.1 at 2011-10-28 13:03:05 -0500
+Served asset /jquery.kwicks.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-28 13:03:05 -0500
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-28 13:03:05 -0500
+Served asset /application.css - 200 OK (1ms)
+
+
+Started GET "/assets/chrome.js?body=1" for 127.0.0.1 at 2011-10-28 13:03:05 -0500
+Served asset /chrome.js - 304 Not Modified (3ms)
