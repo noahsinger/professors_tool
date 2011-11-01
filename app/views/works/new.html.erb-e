@@ -1,31 +1,35 @@
 <%= content_for :header do %>
 	<h1>Submit xxx@xxx.xxx %></h1>
-	<h2>for xxx@xxx.xxx %></h2>
+	for xxx@xxx.xxx %>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
+<nav>
+	<h1>Navigation</h1>
+	<ul>
 		<li><%= link_to xxx@xxx.xxx @section, @assignment ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 	</ul>
-</div>
+</nav>
 
-<%= xxx@xxx.xxx :html => {:multipart => true}) do |f| %>
-	<%= error_messages_for :work, :header_message => 'You call this a Homework Submission?', :message => 'Here are the things you did wrong:' %>
-	<ol>
-		<li>
-			<div class="light">Your email address is required so that the lab you submit can be identified as your own.</div>
-			<%= f.label :email %>
-			<%= f.text_field :email %>
-		</li>
-
-		<li>
-			<div class="light">Please select the file that you wish to submit as your assignment.  Only one file can be submitted so if your work includes more than one file, zip them together into one file.</div>
-			<%= f.label :upload %>
-			<%= f.file_field :upload %>
-		</li>
+<section>
+	<h1>Complete the Form</h1>
+	<%= xxx@xxx.xxx :html => {:multipart => true}) do |f| %>
+		<%= error_messages_for :work %>
+		<ol>
+			<li>
+				Your email address is required so that the lab you submit can be identified as your own.
+				<%= f.label :email %>
+				<%= f.text_field :email %>
+			</li>
 	
-		<li class="submit_bar">
-		 	<%= f.submit "Upload" %>
-		</li>
-	</ol>
-<% end %>
+			<li>
+				Please select the file that you wish to submit as your assignment.  Only one file can be submitted so if your work includes more than one file, zip them together into one file.
+				<%= f.label :upload %>
+				<%= f.file_field :upload %>
+			</li>
+		
+			<li>
+				<%= f.submit "Upload" %>
+			</li>
+		</ol>
+	<% end %>
+</section>

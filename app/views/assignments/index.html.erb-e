@@ -2,105 +2,115 @@
 	<link rel="alternate" type="application/rss+xml" title="<%= @section.meeting_days + " " + @section.course.title + " Assignments for " + " " + @semester.name %>" href="<%= xxx@xxx.xxx @section, :format => :rss ) %>" />
 <% end %>
 
+<%# header %>
 <%= content_for :header do %>
 xxx@xxx.xxx %></h1>
-xxx@xxx.xxx %></h4>
+xxx@xxx.xxx %>
 	
-	<div class="bubbled">
-		<%= link_to( 'ICAL', xxx@xxx.xxx :format => :ics, :protocol => 'webcal'), :class => 'icon', :title => 'Subscribe to this classes assignments calendar using Outlook or iCal' ) %>
-	</div> 	
+	<%= link_to( 'ICAL', xxx@xxx.xxx :format => :ics, :protocol => 'webcal'), :class => 'icon', :title => 'Subscribe to this classes assignments calendar using Outlook or iCal' ) %>
 <% end %>
+<%# ### %>
 
-<div class="nav">
-	<ul class="nav">
+<nav>
+	<h1>Navigation</h1>
+	<ul>
 		<li><%= link_to '/' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 		<li><%= link_to slide_link("Syllabus", "View and print the class syllabus"), xxx@xxx.xxx @section ) %></li>
 		<li><%= link_to slide_link("Grades","Request your grades for this class"), xxx@xxx.xxx @section ) %></li>
 	</ul>
-</div>
+</nav>
 
-<div class="clear"></div>
-
-<h4>Assignments:</h4>
-<% xxx@xxx.xxx > 0 %>
-	<ul class="sliding">
+<section>
+	<h1>Course Information</h1>
+	<article>
+		<h1>Assignments</h1>
+		<% xxx@xxx.xxx > 0 %>
+			<ul>
 xxx@xxx.xxx do |assignment| %>
-			<li>
-				<%= link_to xxx@xxx.xxx @section, assignment) do %>
-					<span class="assigned_date">assigned on <%= show_short_date(assignment.created_at) %></span>
-					<span class="assignment_title"><%= assignment.title + " :: " + assignment.lab.title %></span>
-					<span class="due_date">
-						<% if assignment.duedate > Time.now %>
-							Due on <%= show_short_date( assignment.duedate ) %>
-						<% else %>
-							pastdue
+					<li>
+						<%= link_to xxx@xxx.xxx @section, assignment) do %>
+							<span class="assigned_date">assigned on <%= show_short_date(assignment.created_at) %></span>
+							<span class="assignment_title"><%= assignment.title + " :: " + assignment.lab.title %></span>
+							<span class="due_date">
+								<% if assignment.duedate > Time.now %>
+									Due on <%= show_short_date( assignment.duedate ) %>
+								<% else %>
+									pastdue
+								<% end %>
+							</span>
 						<% end %>
-					</span>
+					</li>				
 				<% end %>
-			</li>				
+			</ul>
+		<% else %>
+			<p>
+				No Assignments are currently available for this class. You can 
+				Subscribe to this class's 
+				<%= link_to( 'RSS' , xxx@xxx.xxx :format => :rss) ) %> 
+				feed or Subscribe to this class's 
+				<%= link_to( 'ICAL', xxx@xxx.xxx :format => :ics, :protocol => 'webcal') ) %> 
+				feed to monitor when new assignments are posted.
+			</p>
 		<% end %>
-	</ul>
-<% else %>
-	<p>
-		No Assignments are currently available for this class. You can 
-		Subscribe to this class's 
-		<%= link_to( 'RSS' , xxx@xxx.xxx :format => :rss) ) %> 
-		feed or Subscribe to this class's 
-		<%= link_to( 'ICAL', xxx@xxx.xxx :format => :ics, :protocol => 'webcal') ) %> 
-		feed to monitor when new assignments are posted.
-	</p>
-<% end %>
-
-<% xxx@xxx.xxx > 0 %>
-	<h4>Examples:</h4>
-	<ul class="sliding">
+	</article>
+	
+	<article>
+		<% xxx@xxx.xxx > 0 %>
+			<h1>Examples</h1>
+			<ul>
 xxx@xxx.xxx do |example| %>
-			<li>
-				<%= link_to example.file.url do %>
-					<span class="top_half"><%= example.name %></span>
-					<span class="bottom_half"><%= example.description %></span>
+					<li>
+						<%= link_to example.file.url do %>
+							<span class="top_half"><%= example.name %></span>
+							<span class="bottom_half"><%= example.description %></span>
+						<% end %>
+					</li>
 				<% end %>
-			</li>
+			</ul>
 		<% end %>
-	</ul>
-<% end %>
+	</article>
 
-<% xxx@xxx.xxx > 0 %>
-	<h4>Tutorials:</h4>
-	<ul class="sliding">
+	<article>
+		<% xxx@xxx.xxx > 0 %>
+			<h1>Tutorials</h1>
+			<ul class="sliding">
 xxx@xxx.xxx do |howto| %>			
-			<li>
-				<%= link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
-					<span class="top_half"><%= howto.title %></span>
-					<span class="bottom_half"><%= howto.description %></span>
+					<li>
+						<%= link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
+							<span class="top_half"><%= howto.title %></span>
+							<span class="bottom_half"><%= howto.description %></span>
+						<% end %>
+					</li>
 				<% end %>
-			</li>
+			</ul>
 		<% end %>
-	</ul>
-<% end %>
+	</article>
 
-<% xxx@xxx.xxx > 0 %>
-	<h4>Course Materials:</h4>
-	<ul class="sliding">
+	<article>
+		<% xxx@xxx.xxx > 0 %>
+			<h1>Course Materials</h1>
+			<ul>
 xxx@xxx.xxx do |material| %>
-			<li>
-				<% if material.file_file_name %>
-					<%= link_to material.file.url do %>
-						<span class="top_half"><%= material.title + ' <span class="light">Download</span>' %></span>
-						<span class="bottom_half"><%= material.description %></span>
-					<% end %>
-				<% elsif material.description =~ /^http:\/\// %>
-					<%= link_to material.description do %>
-						<span class="top_half"><%= material.title %></span>
-						<span class="bottom_half"><%= material.description %></span>
-					<% end %>
-				<% else %>
-					<a>
-						<span class="top_half"><%= material.title %></span>
-						<span class="bottom_half"><%= material.description %></span>
-					</a>
+					<li>
+						<% if material.file_file_name %>
+							<%= link_to material.file.url do %>
+								<span class="top_half"><%= material.title + ' <span class="light">Download</span>' %></span>
+								<span class="bottom_half"><%= material.description %></span>
+							<% end %>
+						<% elsif material.description =~ /^http:\/\// %>
+							<%= link_to material.description do %>
+								<span class="top_half"><%= material.title %></span>
+								<span class="bottom_half"><%= material.description %></span>
+							<% end %>
+						<% else %>
+							<a>
+								<span class="top_half"><%= material.title %></span>
+								<span class="bottom_half"><%= material.description %></span>
+							</a>
+						<% end %>
+					</li>
 				<% end %>
-			</li>
+			</ul>
 		<% end %>
-	</ul>
-<% end %>
+	</article>
+</section>

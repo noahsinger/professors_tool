@@ -74,31 +74,3 @@ function replace_crud_links( ) {
 		}
 	});
 }
-
-// function setup_search_field( ) {
-// 	$("#search").css( "width", 110 );
-// 	$("#q").css( "width", 65 );
-// 	
-// 	$("#q").focus( function( ) {
-// 		if( $(this).attr("value") == "Search ..." ) {
-// 			$(this).attr("value", "");
-// 		}
-// 		
-// 		$("#search").animate( {width: 550}, 500 );
-// 		$(this).animate( {width: 500}, 500 );
-// 		
-// 		$("#page, #footer, #top_bar").animate( {opacity: '.2'}, 500 );
-// 	});
-// 	
-// 	$("#q").blur( function( ) {
-// 		if( $(this).attr("value") == "" ) {
-// 			$(this).attr("value", "Search ...");
-// 		}
-// 
-// 		$("#search").animate( {width: 110}, 500 );
-// 		$(this).animate( {width: 65}, 500 );
-// 		
-// 		$("#page").animate( {opacity: '1'}, 500 );
-// 		$("#footer, #top_bar").animate( {opacity: '.8'}, 500 );
-// 	});
-// }

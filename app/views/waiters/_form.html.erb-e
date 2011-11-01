@@ -2,12 +2,12 @@
 	<%= error_messages_for :waiter, :header_message => 'Your request could not be processed for the following reasons' %>
 	<ol>
 	  <li>
-			<div class="light">Please provide an email address where you can be contacted.</div>
+			Please provide an email address where you can be contacted.
 	    <%= f.label :email %>
 	    <%= f.text_field :email %>
 	  </li>
 
-	  <li class="submit_bar">
+	  <li>
 	    <%= f.submit 'Submit' %>
 	  </li>
 	</ol>

@@ -1,15 +1,16 @@
 <%= content_for :header do %>
 xxx@xxx.xxx %></h1>
-	<h4>Course Information</h4>
+	Course Information
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
+<nav>
+	<h1>Navigation</h1>
+	<ul>
 		<li><%= link_to courses_path do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 	</ul>
-</div>
+</nav>
 
-<p style="font-size: .7em;">
+<p>
 	<em>
 		The information shown on this page is simply that, information.  This information is related only to this course in
 		general, not to a specific class or instance of this course that is being offered.  The labs shown on this page are
@@ -19,91 +20,106 @@ xxx@xxx.xxx %></h1>
 	</em>
 </p>
 
-<h4>Waiting List</h4>
-<ul class="sliding">
-	<li>
-		<%= link_to xxx@xxx.xxx do %>
-			<span class="top_half">Get on the Waiting List</span>
-			<span class="bottom_half">Registering on the waiting list will cause an email to be sent<br/> to you automatically the next time this course is offered.</span>
-		<% end %>
-	</li>
-</ul>
+<section>
+	<h1>Course Details</h1>
+	<article>
+		<h1>Waiting List</h1>
+		<ul>
+			<li>
+				<%= link_to xxx@xxx.xxx do %>
+					<h2>Get on the Waiting List</h2>
+					Registering on the waiting list will cause an email to be sent<br/> to you automatically the next time this course is offered.
+				<% end %>
+			</li>
+		</ul>
+	</article>
 
-<h4>Description:</h4>
-<p>
+	<article>
+		<h1>Description</h1>
+		<p>
 xxx@xxx.xxx %>
-</p>
-
-<h4>Objectives:</h4>
-<ol>
+		</p>
+	</article>
+		
+	<article>
+		<h1>Objectives</h1>
+		<ol>
 xxx@xxx.xxx do |objective| %>
-		<li><%= objective.description %></li>
-	<% end %>
-</ol>
-
-<% xxx@xxx.xxx > 0 %>
-	<h4>Course Materials:</h4>
-	<ul class="sliding">
-xxx@xxx.xxx do |material| %>
-			<li>
-				<% if material.file_file_name %>
-					<%= link_to material.file.url do %>
-						<span class="top_half"><%= material.title + ' <span class="light">Download</span>' %></span>
-						<span class="bottom_half"><%= material.description %></span>
-					<% end %>
-				<% else %>
-					<a>
-						<span class="top_half"><%= material.title %></span>
-						<span class="bottom_half"><%= material.description %></span>
-					</a>
-				<% end %>
-				
-			</li>
-		<% end %>
-	</ul>
-<% end %>
-
-<% xxx@xxx.xxx > 0 %>
-	<h4>Potential Labs:</h4>
-	<ul class="sliding">
-xxx@xxx.xxx do |lab| %>
-			<% if lab.visible %>
-				<li>
-					<%= link_to xxx@xxx.xxx lab) do %>
-						<span class="assignment_title"><%= lab.title %></span>
-						<span class="assignment_points">
-							<%= pluralize lab.worth, "point" %>
-						</span>
-					<% end %>
-				</li>				
+				<li><%= objective.description %></li>
 			<% end %>
-		<% end %>
-	</ul>
-<% end %>
+		</ol>
+	</article>
 
-<% xxx@xxx.xxx > 0 %>
-	<h4>Tutorials:</h4>
-	<ul class="sliding">
+	<% xxx@xxx.xxx > 0 %>
+		<article>
+			<h1>Course Materials</h1>
+			<ul>
+xxx@xxx.xxx do |material| %>
+					<li>
+						<% if material.file_file_name %>
+							<%= link_to material.file.url do %>
+								<h2><%= "#{material.title} Download" %></h2>
+								<%= material.description %>
+							<% end %>
+						<% else %>
+							<a>
+								<%= material.title %>
+								<%= material.description %>
+							</a>
+						<% end %>
+					</li>
+				<% end %>
+			</ul>
+		</article>
+	<% end %>
+	
+
+	<% xxx@xxx.xxx > 0 %>
+		<article>
+			<h1>Potential Labs</h1>
+			<ul>
+xxx@xxx.xxx do |lab| %>
+					<% if lab.visible %>
+						<li>
+							<%= link_to xxx@xxx.xxx lab) do %>
+								<h2><%= lab.title %></h2>
+								<%= pluralize lab.worth, "point" %>
+							<% end %>
+						</li>				
+					<% end %>
+				<% end %>
+			</ul>
+		</article>
+	<% end %>
+
+	<% xxx@xxx.xxx > 0 %>
+		<article>
+			<h1>Tutorials</h1>
+			<ul>
 xxx@xxx.xxx do |howto| %>			
-			<li>
-				<%= link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
-					<span class="top_half"><%= howto.title %></span>
-					<span class="bottom_half"><%= howto.description %></span>
+					<li>
+						<%= link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
+							<h2><%= howto.title %></h2>
+							<%= howto.description %>
+						<% end %>
+					</li>
 				<% end %>
-			</li>
-		<% end %>
-	</ul>
-<% end %>
+			</ul>
+		</article>
+	<% end %>
 
-<% xxx@xxx.xxx > 0 %>
-	<h4>Past occurrences of this course:</h4>
-	<ul class="sliding">
+	<% xxx@xxx.xxx > 0 %>
+		<article>
+			<h1>Past occurrences of this course</h1>
+			<ul>
 xxx@xxx.xxx do |section| %>			
-			<li>
-				<%= link_to semester_section_path( section.semester, section ) do %>
-					<%= section.semester.name %> <span style="font-size: .7em;">(<%= section.enrollments.size %> enrolled)</span>
+					<li>
+						<%= link_to semester_section_path( section.semester, section ) do %>
+							<%= section.semester.name %> (<%= section.enrollments.size %> enrolled)
+						<% end %>
+					</li>
 				<% end %>
-			</li>
-		<% end %>
-	</ul>
-<% end %>
+			</ul>
+		</article>
+	<% end %>
+</section>

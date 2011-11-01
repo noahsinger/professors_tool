@@ -3,10 +3,14 @@
 xxx@xxx.xxx %></h2>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
+<nav>
+	<h1>Navigation</h1>
+	<ul>
 		<li><%= xxx@xxx.xxx do %> <%= render :partial => "shared/back_link" %> <% end %></li>
 	</ul>
-</div>
+</nav>
 
-<%= render 'form' %>
+<section>
+	<h1>Complete the Form</h1>
+	<%= render 'form' %>
+</section>

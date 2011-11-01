@@ -18,8 +18,8 @@ class SectionsControllerTest < ActionController::TestCase
     assert_redirected_to xxx@xxx.xxx @section)
   end
 
-  def test_should_get_syllabus
-    get :syllabus, :semester_id => @semester.id, :id xxx@xxx.xxx
-    assert_response :success
-  end
+  # def test_should_get_syllabus
+  #   get :syllabus, :semester_id => @semester.id, :id xxx@xxx.xxx
+  #   assert_response :success
+  # end
 end

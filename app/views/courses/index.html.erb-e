@@ -1,20 +1,21 @@
 <%= content_for :header do %>
 	<h1>Courses</h1>
-	<h4>All courses offered through this site</h4>
+	All courses offered through this site
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
+<nav>
+	<h1>Navigation</h1>
+	<ul>
 		<li><%= link_to '/' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 	</ul>
-</div>
+</nav>
 
 <p>
 	The following is a list of all Courses available through this website which are those taught by Noah Singer.  For other TCC classes please visit
 	the <%= link_to 'TCC website', 'http://www.tulsacc.edu' %>.
 </p>
 
-<ul class="sliding">
+<ul>
 xxx@xxx.xxx do |course| %>		
 		<li>
 			<%= link_to course_path( course ) do %>

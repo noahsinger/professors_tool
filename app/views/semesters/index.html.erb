@@ -1,27 +1,27 @@
 <%= content_for :header do %>
 	<h1>Semesters</h1>
-	<h4>all semesters</h4>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
+<nav>
+	<h1>Navigation</h1>
+	<ul>
 		<li><%= link_to '/' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 	</ul>
-</div>
+</nav>
 
-<h4>Choose a semester to see it's sections:</h4>
-<ul class="sliding">
-	<% for semester xxx@xxx.xxx %>
-		<li>
-			<%= link_to semester_sections_path( semester ) do %>
-				<span class="top_half">
-					<%= semester.name %>
-					<% if semester == Semester.current %>
-						<span class="light">(current)</span>
-					<% end %>
-				</span>
-				<span class="bottom_half"><%= show_short_date semester.start_date %> thru <%= show_short_date semester.end_date %></span>
-			<% end %>
-		</li>
-	<% end %>
-</ul>
+<section>
+	<h1>All Semesters</h1>
+	<ul>
+		<% for semester xxx@xxx.xxx %>
+			<li>
+				<%= link_to semester_sections_path( semester ) do %>
+						<h2><%= semester.name %></h2>
+						<% if semester == Semester.current %>
+							(current)
+						<% end %>
+					<%= show_short_date semester.start_date %> thru <%= show_short_date semester.end_date %>
+				<% end %>
+			</li>
+		<% end %>
+	</ul>
+</section>

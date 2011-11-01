@@ -1,11 +1,12 @@
 <%= content_for :header do %>
 	<h1><%= @assignment.title %> - xxx@xxx.xxx %></h1>
-xxx@xxx.xxx %></h3>
-xxx@xxx.xxx %></h4>
+xxx@xxx.xxx %>
+xxx@xxx.xxx %>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
+<nav>
+	<h1>Navigation</h1>
+	<ul>
 		<li><%= link_to xxx@xxx.xxx @section ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
 
 		<% xxx@xxx.xxx %>
@@ -15,28 +16,28 @@ xxx@xxx.xxx %></h4>
 
 		<li><a href="javascript:pre_print( );"><span class="text">Print - <span class="sub">Format and print this assignment</span></span></a></li>
 	</ul>
-</div>
+</nav>
 
-<div id="assignment">
-
+<section>
 	<% if @assignment.overdue? and xxx@xxx.xxx %>
-		<p>This lab is <span class="red">PASTDUE!</span></p>
+		<p>This lab is <strong>PASTDUE!</strong></p>
 	<% end %>
 	
-	<% xxx@xxx.xxx  %>
-		<p>Due in <%= xxx@xxx.xxx %><br/>
-		<span class="light">(<%= xxx@xxx.xxx ) %>)</span></p>
+	<% xxx@xxx.xxx %>
+		<p>
+			Due in <%= xxx@xxx.xxx %>
+			(<%= xxx@xxx.xxx ) %>)
+		</p>
 	<% end %>
 
 	<% xxx@xxx.xxx %>
-		<p><span class="green">This assignment has been graded.</span></p>
+		<p>This assignment has been graded.</p>
 	<% end %>
 	
-xxx@xxx.xxx %></h1>
-xxx@xxx.xxx %></h2>
+	<h1>Description</h1>
 	
 	<p>
-		<strong>Objective</strong><br/>
+		<strong>Objective</strong>
 xxx@xxx.xxx %>
 	</p>
 
@@ -47,26 +48,26 @@ xxx@xxx.xxx do |r| %>
 				<td><%= r.description %></td><td><%= r.points %></td>
 			</tr>
 		<% end %>
-		<tr class="last_row"><td xxx@xxx.xxx %> points</td></tr>
+xxx@xxx.xxx %> points</td></tr>
 	</table>
 
 	<p>
 		<strong>Instructions</strong>
 	</p>
 
-	<div id="instructions">
+	<div>
 xxx@xxx.xxx %>
 	</div>
 
 	<% xxx@xxx.xxx > 0 %>
-	<div>
-		<strong>Extras:</strong><br/>
+		<div>
+			<strong>Extras:</strong><br/>
 xxx@xxx.xxx do |extra| %>
-			<p>
-				<%= link_to extra.file_file_name, extra.file.url %><br/>
-				<span class="light"><%= extra.description %></span><br/>
-			</p>
-		<% end %>
-	</div>
+				<p>
+					<%= link_to extra.file_file_name, extra.file.url %>
+					<%= extra.description %>
+				</p>
+			<% end %>
+		</div>
 	<% end %>
-</div>
+</section>

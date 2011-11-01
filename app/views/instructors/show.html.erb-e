@@ -1,15 +1,17 @@
 <%= content_for :header do %>
 xxx@xxx.xxx %></h1>
-	<h4><%= xxx@xxx.xxx "section" %></h4>
+	<%= xxx@xxx.xxx "section" %>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
+<nav>
+	<h1>Navigation</h1>
+	<ul>
 		<li><%= link_to '/' do %> <%= render :partial => "shared/back_link" %> <% end %></li>
 	</ul>
-</div>
+</nav>
 
-<div class="vcard">
+<section class="vcard">
+	<h1>Contact Information</h1>
 	<div xxx@xxx.xxx %></div>
 	<div xxx@xxx.xxx %></div>
 	<div class="org">Tulsa Community College - xxx@xxx.xxx %> Division</div>
@@ -21,4 +23,4 @@ xxx@xxx.xxx %></h1>
 		<%= xxx@xxx.xxx @instructor.website, :class => "url" %>	
 		<div class="note"><strong><%= link_to( 'office xxx@xxx.xxx )%></strong></div>
 	</div>
-</div>
+</section>

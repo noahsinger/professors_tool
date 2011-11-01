@@ -5,7 +5,6 @@
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 	<meta name="viewport" content="width=device-width" />
 	
-	
 	<title><%= render :partial => 'shared/title' %></title>
 	
 	<!--[if IE]>
@@ -13,63 +12,30 @@
   <![endif]-->
 	
 	<%= javascript_include_tag 'application' %>
-
 	<%= yield :head %>
-	
 	<%= stylesheet_link_tag 'application' %>
-	
 	<%= csrf_meta_tag %>
-	
-	<!--[if IE]>
-		<link rel="stylesheet" type="text/css" href="stylesheets/ie7.css" />
-	<![endif]-->
 </head>
 <body>
-	<%= render :partial => 'shared/top_bar' %>
-	
 	<div id="page">
-		<div id="back_bar"></div>
+		<header>
+			<h1><%= link_to 'Ingenio.us.com', root_path %></h1>
+			<%= yield :header %>
+		</header>
 		
-		<%- if css_naked? -%>
-			<div>
-				<strong>Today is CSS Naked Day!</strong> Which means that all stylesheets have been turned off for the day so that people can 
-				admire the HTML goodness that you don't get to see every day.  A well coded site will remain usable, if not attractive, even
-				without their styles in place. Enjoy and know that everything will be back to normal tomorrow.
-			</div>
-		<%- end -%>
+		<noscript>
+			<ul id="javascript_warning">
+				<li>
+					You must enable javascript for this site to function properly!
+				</li>
+			</ul>
+		</noscript>
 		
-		<div id="ie_warning">
-			<h3>This site doesn't work well in Internet Explorer.</h3>
-			<p>
-				I have not tested or made any real effect to make this site work correctly in Internet Explorer (IE).
-				Unfortunately, IE fails to implement many web standards that have been supported by virtually ALL other 
-				browsers for many years. I would recommend that you change to a different browser like 
-				<a href="http://www.apple.com/safari/download/">Safari</a>,
-				<a href="http://www.google.com/chrome">Chrome</a>,
-				<a href="http://www.getfirefox.com">FireFox</a>, 
-				or <a href="http://www.opera.com/">Opera</a>.  All are free and very good.
-			</p>
-		</div>
-		
-		<div id="header"><%= render :partial => 'shared/header' %></div>
-		
-		<div id="content">
-			<noscript>
-				<ul id="javascript_warning">
-					<li>
-						You must enable javascript for this site to function properly!
-					</li>
-				</ul>
-			</noscript>
-			
-			<%= render :partial => 'shared/messages' %>
+		<%= render :partial => 'shared/messages' %>
 
-			<%= yield  %>
-		</div>
+		<%= yield  %>
+		
+		<footer><%= render :partial => 'shared/footer' %></footer>
 	</div>
-	
-	<hr/>
-	
-	<%= render :partial => 'shared/footer' %>
 </body>
 </html>
