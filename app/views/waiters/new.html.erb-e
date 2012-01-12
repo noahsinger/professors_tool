@@ -1,16 +1,19 @@
 <%= content_for :header do %>
-	<h1>Waiting for</h1>
-xxx@xxx.xxx %></h2>
+	<h1>Waiting list</h1>
 <% end %>
 
-<nav>
-	<h1>Navigation</h1>
-	<ul>
-		<li><%= xxx@xxx.xxx do %> <%= render :partial => "shared/back_link" %> <% end %></li>
-	</ul>
-</nav>
+
 
 <section>
-	<h1>Complete the Form</h1>
+	<nav>
+		<h1>Navigation</h1>
+		<%= link_to xxx@xxx.xxx class: "icon back" %>
+	</nav>
+	
+	<header>
+xxx@xxx.xxx %></p>
+		<h1>Get Notified</h1>
+	</header>
+
 	<%= render 'form' %>
 </section>

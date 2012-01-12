@@ -1,48 +1,13 @@
-<ul id="main">
-	<li>General</li>
-	<li><%= link_to_unless_current 'Current Classes (Home)', '/' %></li>
-	<li><%= link_to_unless_current 'All Semesters', semesters_path %></li>
+<div class="content">
+	<div id="copyright">Copyright &copy; 2009 - <%= Time.now.year %> Ingenio.us.com v2.2</div>
 
-	<li><%= link_to_unless_current 'Contact', new_general_contact_path %></li>
-	
-	<% Instructor.all.each do |instructor| %>
-		<li><%= link_to instructor.name, instructor %></li>
-	<% end %>
-</ul>
-
-<% if Semester.current %>
-	<% semester = Semester.current %>
 	<ul>
-		<li><%= semester.name %> Classes</li>
-		<% semester.sections.each do |section| %>
-			<li><%= link_to_unless_current section.course.title, semester_section_assignments_path( semester, section ) %></li>
+		<li><%= link_to 'Semesters', semesters_path %></li>
+		<li><%= link_to 'Instructors', instructors_path %></li>
+		<li><%= link_to 'Courses', courses_path %></li>
+		<% if session[:user] %>
+			<li><%= link_to 'Admin', admin_admin_index_path %></li>
+			<li><%= link_to 'Signout', signout_admin_admin_index_path %></li>
 		<% end %>
 	</ul>
-<% end %>
-
-<ul>
-	<li>All Courses</li>
-	<% Course.all.each do |course| %>
-		<li><%= link_to_unless_current course.title, course_path( course ) %></li>
-	<% end %>
-</ul>
-
-<% if session[:user] %>
-	<ul>
-		<li>Administrator</li>
-		<li><%= link_to 'Signout', signout_admin_admin_index_path %></li>
-		<li><%= link_to 'Admin Home', '/admin' %></li>
-		<li><%= link_to 'Test Flash', '/examples/test_flash' %></li>
-		<li><%= link_to 'Test Exception', '/examples/test_exception' %></li>
-	</ul>
-<% end %>
-
-<div id="copyright">Copyright &copy; <%= Time.now.year %> Ingenio.us.com v2.2</div>
-
-<div class="ad" id="site5_ad">
-	<a href="http://www.site5.com/in.php?id=18633-48">
-		<span id="powered_by">POWERED BY</span>
-		<span id="site5">site5</span>
-		<span id="web_hosting">web hosting</span>
-	</a>
 </div>

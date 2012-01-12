@@ -1,0 +1,24 @@
+<%= content_for :header do %>
+xxx@xxx.xxx %> Materials</h1>
+<% end %>
+
+<section>
+	<nav>
+		<h1>Navigation</h1>
+		<%= link_to xxx@xxx.xxx :back, class: "icon back" %>
+	</nav>
+		
+	<article>	
+		<ul>
+xxx@xxx.xxx do |material| %>
+				<li>
+					<%= link_to xxx@xxx.xxx material) do %>
+						<div class="course_number"><%= material.created_at.to_s(:short) %></div>
+						<h2><%= material.title %></h2>
+						<p><%= material.description %></p>
+					<% end %>
+				</li>		
+			<% end %>		
+		</ul>
+	</article>
+</section>

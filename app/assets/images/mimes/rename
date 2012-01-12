@@ -1,0 +1,12 @@
+#!/bin/bash
+
+for name in *
+do
+  echo "$name" | grep "Mimes" > /dev/null
+  if [ $? == 0 ]
+  then
+    pure_name=`echo $name | cut -c13-`
+    # echo $pure_name
+		mv $name $pure_name
+  fi
+done

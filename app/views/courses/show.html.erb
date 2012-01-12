@@ -1,123 +1,104 @@
 <%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-	Course Information
+	<h1>Course Details</h1>
 <% end %>
 
-<nav>
-	<h1>Navigation</h1>
-	<ul>
-		<li><%= link_to courses_path do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-	</ul>
-</nav>
 
-<p>
-	<em>
+<section>
+	<nav>
+		<h1>Navigation</h1>
+		<%= link_to "Home", courses_path, class: "icon back" %>
+	</nav>
+
+	<header>
+		<p><%= xxx@xxx.xxx "credit" %></p>
+xxx@xxx.xxx %></h1>
+	</header>
+	
+	
+	
+	<p id="disclaimer">
 		The information shown on this page is simply that, information.  This information is related only to this course in
 		general, not to a specific class or instance of this course that is being offered.  The labs shown on this page are
 		those that I have created for this course, they are not those that are specifically assigned.  For actual class 
 		information, the information that my current students should be looking at, return to the 
 		<%= link_to 'homepage', '/' %> and choose a currently offered class.
-	</em>
-</p>
-
-<section>
-	<h1>Course Details</h1>
-	<article>
-		<h1>Waiting List</h1>
+	</p>
+	
+	
+	<nav id="resources">
+		<h1>Resources</h1>
+	
 		<ul>
-			<li>
-				<%= link_to xxx@xxx.xxx do %>
-					<h2>Get on the Waiting List</h2>
-					Registering on the waiting list will cause an email to be sent<br/> to you automatically the next time this course is offered.
-				<% end %>
-			</li>
+			<li><h2><%= link_to 'Get on the Waiting List', xxx@xxx.xxx class: "icon email" %></h2></li>
+			<li><h2><%= link_to 'Course Materials', xxx@xxx.xxx class: "icon wrench" %></h2></li>
 		</ul>
-	</article>
-
-	<article>
-		<h1>Description</h1>
-		<p>
-xxx@xxx.xxx %>
-		</p>
-	</article>
 		
-	<article>
-		<h1>Objectives</h1>
-		<ol>
-xxx@xxx.xxx do |objective| %>
-				<li><%= objective.description %></li>
-			<% end %>
-		</ol>
-	</article>
-
-	<% xxx@xxx.xxx > 0 %>
-		<article>
-			<h1>Course Materials</h1>
-			<ul>
-xxx@xxx.xxx do |material| %>
-					<li>
-						<% if material.file_file_name %>
-							<%= link_to material.file.url do %>
-								<h2><%= "#{material.title} Download" %></h2>
-								<%= material.description %>
+		<% xxx@xxx.xxx > 0 %>
+			<article id="tutorials">
+				<header><h1>Tutorials</h1></header>
+				<ul>
+xxx@xxx.xxx do |howto| %>			
+						<li>
+							<%= link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
+								<h2><%= howto.title %></h2>
 							<% end %>
-						<% else %>
-							<a>
-								<%= material.title %>
-								<%= material.description %>
-							</a>
-						<% end %>
-					</li>
+						</li>
+					<% end %>
+				</ul>
+			</article>
+		<% end %>	
+		
+		<% xxx@xxx.xxx > 0 %>
+			<article>
+				<header><h1>Past occurrences</h1></header>
+				<ul>
+xxx@xxx.xxx do |section| %>			
+						<li>
+							<%= link_to semester_section_path( section.semester, section ) do %>
+								<h2><%= section.semester.name %> (<%= section.enrollments.size %> enrolled)</h2>
+							<% end %>
+						</li>
+					<% end %>
+				</ul>
+			</article>
+		<% end %>
+	</nav>
+	
+	
+	<article id="course_objectives">
+		<header id="objectives_header"><h1>Objectives</h1></header>
+		<div class="content">
+			<ol>
+xxx@xxx.xxx do |objective| %>
+					<li><%= objective.description %></li>
 				<% end %>
-			</ul>
-		</article>
-	<% end %>
+			</ol>
+		</div>
+	</article>
+	
+
+	<article id="course_description">
+		<header id="description_header"><h1>Course Description</h1></header>
+		<div class="content">
+			<%= xxx@xxx.xxx %>
+		</div>
+	</article>
+	
 	
 
 	<% xxx@xxx.xxx > 0 %>
-		<article>
-			<h1>Potential Labs</h1>
+		<article id="assignments">
+			<header><h1>Potential Assignments</h1></header>
 			<ul>
 xxx@xxx.xxx do |lab| %>
 					<% if lab.visible %>
-						<li>
+						<li class="overdue">
 							<%= link_to xxx@xxx.xxx lab) do %>
+								<p><%= pluralize lab.worth, "point" %></p>
 								<h2><%= lab.title %></h2>
-								<%= pluralize lab.worth, "point" %>
 							<% end %>
 						</li>				
 					<% end %>
-				<% end %>
-			</ul>
-		</article>
-	<% end %>
-
-	<% xxx@xxx.xxx > 0 %>
-		<article>
-			<h1>Tutorials</h1>
-			<ul>
-xxx@xxx.xxx do |howto| %>			
-					<li>
-						<%= link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
-							<h2><%= howto.title %></h2>
-							<%= howto.description %>
-						<% end %>
-					</li>
-				<% end %>
-			</ul>
-		</article>
-	<% end %>
-
-	<% xxx@xxx.xxx > 0 %>
-		<article>
-			<h1>Past occurrences of this course</h1>
-			<ul>
-xxx@xxx.xxx do |section| %>			
-					<li>
-						<%= link_to semester_section_path( section.semester, section ) do %>
-							<%= section.semester.name %> (<%= section.enrollments.size %> enrolled)
-						<% end %>
-					</li>
 				<% end %>
 			</ul>
 		</article>

@@ -1,0 +1,159 @@
+body.print {
+	background: none;
+		
+	#page {
+		width: auto;
+		margin: 0 50px;
+		
+		nav, #assignment_status, #resources, footer, header {
+			display: none;
+		}
+		
+		header {
+			width: auto;
+		}
+		
+		section header {
+			display: block;
+			background: none;
+			box-shadow: none;
+			margin: 30px 0 0 0;
+		
+			h1, p {
+				color: #000;
+				margin: 0;
+				padding: 0;
+			}
+		}
+		
+		#outer_container {
+			width: auto;
+			background: none;
+			padding: 0;
+		
+			#inner_container {
+				width: auto;
+				background: none;	
+				padding: 0;
+				
+				#details {
+					float: none;
+					margin: 0;
+					
+					#requirements {
+						float: none;
+						background: none;
+						box-shadow: none;
+						width: auto;
+						
+						background-color: #eee;
+						padding: 20px;
+						
+						header {
+							float: none;
+							background: none;
+							box-shadow: none;
+							width: auto;
+							top: 0;
+							margin-bottom: 30px;
+							
+							h1 {
+								border: 0;
+								margin: 0;
+								padding: 0;
+							}
+						}
+			
+						table {
+							color: #000;
+							margin: 0;
+							width: 100%;
+							
+							td {
+								padding: 10px 0;
+							}
+						}
+					}
+				}
+		
+				#assignment {
+					margin: 0;
+					width: auto;
+					
+					#extras {
+						display: none;
+					}
+					
+					#assignment_objective {
+						background: none;
+						box-shadow: none;
+						width: auto;
+						
+						strong, p {
+							color: #000;
+							margin: 0;
+							padding: 0;
+						}
+					}
+
+					#instructions_header {
+						margin: 0;
+						width: auto;
+						position: block;
+						
+						h1 {
+							border: 0;
+							margin: 0;
+						}
+					}
+					
+					#instructions {
+						float: none;
+						position: block;
+						top: 0;
+						box-shadow: none;
+						background: none;
+						margin: 0;
+						padding: 0;
+						
+						h1,h2 {
+							margin: 20px 0 0 0;
+						}
+						
+						p {
+							margin: 20px 0 0 0;
+							padding: 0;
+						}
+						
+						code {
+							display: block;
+							background-color: #eee;
+							padding: 0 10px 30px 10px;
+						}
+						
+						table {
+							border-collapse: collapse;
+							
+							td {
+								border: 1px solid #eee;
+								padding: 5px 10px;
+							}
+							
+							th {
+								text-align: left;
+							}
+						}
+					}
+				} // #assignment
+				
+				article#syllabus {
+					box-shadow: none;
+					
+					&:before, &:after {
+						box-shadow: none;
+					}
+				} // article#syllabus
+			} // #inner_container
+		} // #outer_container
+	} // #page
+} // body.print

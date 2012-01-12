@@ -1,24 +1,25 @@
 <%= content_for :header do %>
 	<h1>Login</h1>
-	<h4>Admin</h4>
 <% end %>
 
-<div class="clear"></div>
-<br/>
 <%= form_for :user, :action => :signin do |f| %>
 	<ol>
 		<li>
-			<%= f.label :username %>
-			<%= f.text_field :username %>
+			<div class="details">
+				<%= f.label :username %>
+			</div>
+			<div class="field"><%= f.text_field :username %></div>
 		</li>
 	
 		<li>
-			<%= f.label :password %>
-			<%= f.password_field :password %>
+			<div class="details">
+				<%= f.label :password %>
+			</div>
+			<div class="field"><%= f.password_field :password %></div>
 		</li>
 	
-		<li class="submit_bar">
-			<%= f.submit 'Sign in' %>
+		<li class="action">
+			<div><%= f.submit 'Sign in' %></div>
 		</li>
 	</ol>
 <% end %>

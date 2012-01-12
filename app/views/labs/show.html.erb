@@ -1,45 +1,72 @@
 <%= content_for :header do %>
 xxx@xxx.xxx %></h1>
-xxx@xxx.xxx %>
 <% end %>
 
-<nav>
-	<h1>Navigation</h1>
-	<ul>
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-		<li><a href="javascript:pre_print( );"><span class="text">Print</span><span class="icon">&thorn;</span></a></li>
-	</ul>
-</nav>
+
 
 <section>
-	<h1>Description</h1>
+	<nav>
+		<h1>Navigation</h1>
+		<%= link_to 'Back', xxx@xxx.xxx class: "icon back" %>
+	</nav>
+	
+	
+	<header>
+		<p><%= xxx@xxx.xxx 'point' %></p>
+xxx@xxx.xxx %></h1>
+	</header>
 
-	<p>
-	  <b>Objective:</b>
-	  xxx@xxx.xxx %>
-	</p>
 
-	<table>
-		<tr><th>Requirement</th><th>Worth</th></tr>
+	<div id="details">
+		<section id="requirements">
+			<header><h1>Requirements</h1></header>
+			<table>
 xxx@xxx.xxx do |r| %>
-			<tr>
-				<td><%= r.description %></td><td><%= r.points %></td>
-			</tr>
-		<% end %>
-		<tr class="last_row"><td xxx@xxx.xxx %> points</td></tr>
-	</table>
+					<tr>
+						<td><%= r.description %></td><td><%= r.points %></td>
+					</tr>
+				<% end %>
+xxx@xxx.xxx %> pts</td></tr>
+			</table>
+		</section>
+	</div>
+	
 
-	<p><strong>Instructions:</strong></p>
-xxx@xxx.xxx %>
+	<article id="assignment">
+		<div id="assignment_objective">
+			<strong>Objective</strong>
+xxx@xxx.xxx %></p>
+		</div>
 
-	<p>
-		<strong>Extras:</strong><br/>
+		<header id="instructions_header"><h1>Instructions</h1></header>
+		<div id="instructions">
+			<%= xxx@xxx.xxx %>
+		</div>
+
 		<% xxx@xxx.xxx > 0 %>
+			<div id="extras">
+				<header><h2>Extras</h2></header>
+				<ul>
 xxx@xxx.xxx do |extra| %>
-				<%= link_to extra.file_file_name, extra.file.url %><br/>
-			<% end %>
-		<% else %>
-			None
+						<li>
+							<%= link_to extra.file.url do %>
+								<p><%= extra.description %></p>
+								<h3><%= extra.file_file_name %></h3>
+							<% end %>
+						</li>
+					<% end %>
+				</ul>
+			</div>
 		<% end %>
-	</p>
+	</article>
+	
+	<nav id="resources">
+		<h1>Resources</h1>
+		<ul>
+			<li><a href="#" id="print" class="icon file">Print this Lab</a></li>
+			<% if session[:user] %>
+			<li><%= link_to 'Edit this Lab', xxx@xxx.xxx @lab) %></li>
+			<% end %>			
+		</ul>
+	</nav>
 </section>

@@ -2,6 +2,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   # before_filter :adjust_format_for_iphone
+
+  def markdown(text)
+    options = [:hard_wrap, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
+    Redcarpet.new(text, *options).to_html.html_safe
+  end
+  
+  helper_method :markdown
     
   def call_rake( task, options = {} )
     options[:rails_env] ||= Rails.env

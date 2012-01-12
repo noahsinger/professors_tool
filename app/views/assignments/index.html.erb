@@ -2,115 +2,89 @@
 	<link rel="alternate" type="application/rss+xml" title="<%= @section.meeting_days + " " + @section.course.title + " Assignments for " + " " + @semester.name %>" href="<%= xxx@xxx.xxx @section, :format => :rss ) %>" />
 <% end %>
 
-<%# header %>
 <%= content_for :header do %>
 xxx@xxx.xxx %></h1>
-xxx@xxx.xxx %>
-	
-	<%= link_to( 'ICAL', xxx@xxx.xxx :format => :ics, :protocol => 'webcal'), :class => 'icon', :title => 'Subscribe to this classes assignments calendar using Outlook or iCal' ) %>
 <% end %>
-<%# ### %>
-
-<nav>
-	<h1>Navigation</h1>
-	<ul>
-		<li><%= link_to '/' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-		<li><%= link_to slide_link("Syllabus", "View and print the class syllabus"), xxx@xxx.xxx @section ) %></li>
-		<li><%= link_to slide_link("Grades","Request your grades for this class"), xxx@xxx.xxx @section ) %></li>
-	</ul>
-</nav>
 
 <section>
-	<h1>Course Information</h1>
-	<article>
-		<h1>Assignments</h1>
+	<nav>
+		<h1>Navigation</h1>
+		<%= link_to( 'Home', root_path, class: 'icon back' ) %>
+		<%= link_to( 'RSS' , xxx@xxx.xxx :format => :rss), class: 'icon rss' ) %>
+		<%= link_to( 'ICAL', xxx@xxx.xxx :format => :ics, :protocol => 'webcal'), title: 'Subscribe to this classes assignments calendar using Outlook or iCal', class: 'icon ical' ) %>
+	</nav>
+
+
+	<header>
+xxx@xxx.xxx %></p>
+xxx@xxx.xxx %></h1>
+	</header>
+
+
+	<nav id="resources">
+		<h1>Resources</h1>
+		<ul>
+			<li><h2><%= link_to "View the Syllabus", xxx@xxx.xxx @section ), class: "icon file" %></h2></li>
+			<li><h2><%= link_to "Email the Instructor", new_general_contact_path, class: "icon email" %></h2></li>
+			<li><h2><%= link_to "Request Your Grades", xxx@xxx.xxx @section ), class: "icon star" %></h2></li>
+			<% xxx@xxx.xxx > 0 %>
+				<li><h2><%= link_to 'Materials', xxx@xxx.xxx class: "icon wrench" %></h2></li>
+			<% end %>
+			<% xxx@xxx.xxx > 0 %>
+				<li><h2><%= link_to 'Examples', xxx@xxx.xxx class: "icon cog" %></h2></li>
+			<% end %>
+		</ul>
+		
+		<% xxx@xxx.xxx > 0 %>
+			<article id="tutorials">
+				<header><h1>Tutorials</h1></header>
+				<ul>
+xxx@xxx.xxx do |howto| %>			
+						<li>
+							<%= link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
+								<h2><%= howto.title %></h2>
+							<% end %>
+						</li>
+					<% end %>
+				</ul>
+			</article>
+		<% end %>
+	</nav>
+
+
+	<article id="assignments">
+		<header><h1>Assignments</h1></header>
 		<% xxx@xxx.xxx > 0 %>
 			<ul>
 xxx@xxx.xxx do |assignment| %>
-					<li>
+					<% unless assignment.overdue? %>
+						<li class="reminder">Due in <%= distance_of_time_in_words(Time.now, assignment.duedate) %></li>
+					<% end %>
+					
+					<li class="<%= "overdue" if assignment.overdue? %>">
 						<%= link_to xxx@xxx.xxx @section, assignment) do %>
-							<span class="assigned_date">assigned on <%= show_short_date(assignment.created_at) %></span>
-							<span class="assignment_title"><%= assignment.title + " :: " + assignment.lab.title %></span>
-							<span class="due_date">
-								<% if assignment.duedate > Time.now %>
+							<p>
+								<% unless assignment.overdue? %>
 									Due on <%= show_short_date( assignment.duedate ) %>
 								<% else %>
 									pastdue
 								<% end %>
-							</span>
+							</p>
+							<h2><span><%= assignment.title %></span> <%= assignment.lab.title %></h2>
 						<% end %>
-					</li>				
+					</li>
 				<% end %>
 			</ul>
 		<% else %>
 			<p>
 				No Assignments are currently available for this class. You can 
-				Subscribe to this class's 
+				Subscribe to this classes 
 				<%= link_to( 'RSS' , xxx@xxx.xxx :format => :rss) ) %> 
-				feed or Subscribe to this class's 
+				feed or 
 				<%= link_to( 'ICAL', xxx@xxx.xxx :format => :ics, :protocol => 'webcal') ) %> 
 				feed to monitor when new assignments are posted.
 			</p>
 		<% end %>
 	</article>
-	
-	<article>
-		<% xxx@xxx.xxx > 0 %>
-			<h1>Examples</h1>
-			<ul>
-xxx@xxx.xxx do |example| %>
-					<li>
-						<%= link_to example.file.url do %>
-							<span class="top_half"><%= example.name %></span>
-							<span class="bottom_half"><%= example.description %></span>
-						<% end %>
-					</li>
-				<% end %>
-			</ul>
-		<% end %>
-	</article>
 
-	<article>
-		<% xxx@xxx.xxx > 0 %>
-			<h1>Tutorials</h1>
-			<ul class="sliding">
-xxx@xxx.xxx do |howto| %>			
-					<li>
-						<%= link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
-							<span class="top_half"><%= howto.title %></span>
-							<span class="bottom_half"><%= howto.description %></span>
-						<% end %>
-					</li>
-				<% end %>
-			</ul>
-		<% end %>
-	</article>
-
-	<article>
-		<% xxx@xxx.xxx > 0 %>
-			<h1>Course Materials</h1>
-			<ul>
-xxx@xxx.xxx do |material| %>
-					<li>
-						<% if material.file_file_name %>
-							<%= link_to material.file.url do %>
-								<span class="top_half"><%= material.title + ' <span class="light">Download</span>' %></span>
-								<span class="bottom_half"><%= material.description %></span>
-							<% end %>
-						<% elsif material.description =~ /^http:\/\// %>
-							<%= link_to material.description do %>
-								<span class="top_half"><%= material.title %></span>
-								<span class="bottom_half"><%= material.description %></span>
-							<% end %>
-						<% else %>
-							<a>
-								<span class="top_half"><%= material.title %></span>
-								<span class="bottom_half"><%= material.description %></span>
-							</a>
-						<% end %>
-					</li>
-				<% end %>
-			</ul>
-		<% end %>
-	</article>
 </section>

@@ -11,6 +11,7 @@ Ingenious::Application.routes.draw do
       end
     end
     resources :sections do
+      resources :examples
       resources :grade_requests
       resources :assignments do
         resources :works do
@@ -27,6 +28,7 @@ Ingenious::Application.routes.draw do
   resources :courses do
     resources :sections    
     resources :waiters
+    resources :materials
     
     resources :how_tos do
       resources :steps

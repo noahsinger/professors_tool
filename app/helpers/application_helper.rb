@@ -41,7 +41,7 @@ module ApplicationHelper
     end
   end
   
-  def slide_link( text, subtext )
-    "<span class=\"text\">#{text} - <span class=\"sub\">#{subtext}</span></span>".html_safe
+  def slide_link( x, y )
+    
   end
 end

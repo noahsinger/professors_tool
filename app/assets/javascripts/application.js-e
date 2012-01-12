@@ -38,8 +38,11 @@ $(document).ready(function( ) {
 	$("#new_syllabus_part").submitWithAjax( );
 	$("#new_requirement").submitWithAjax( );
 	
-	// replace_crud_links( );
-	// setup_search_field( );
+	$("pre[lang=ruby]").snippet("ruby",{style:"zellner",transparent:true,showNum:false,menu:false});
+	$("pre[lang=javascript]").snippet("javascript",{style:"zellner",transparent:true,showNum:false,menu:false});
+	$("pre[lang=java]").snippet("java",{style:"zellner",transparent:true,showNum:false,menu:false});
+	$("pre[lang=php]").snippet("php",{style:"zellner",transparent:true,showNum:false,menu:false});
+	
 	check_for_ie( );
 }); //end document ready
 
@@ -57,20 +60,4 @@ function add_syllabus_part( url, id, token ) {
 
 function add_tutorial( url, id, token ) {
 	$.post(url, "how_to_id=" + id + '&authenticity_token=' + encodeURIComponent(token), null, "script");
-}
-
-function replace_crud_links( ) {
-	$('table tr td a').each( function( ) {
-		if( $(this).html( ) == 'Destroy' ) {
-			$(this).html( '<span class="delete_link">&#10006;</span>' );
-		}
-		
-		if( $(this).html( ) == 'Edit' ) {
-			$(this).html( '<span class="edit_link">&#9998;</span>' );
-		}
-
-		if( $(this).html( ) == 'Show' ) {
-			$(this).html( '<span class="show_link">&#9732;</span>' );
-		}
-	});
 }

@@ -1,28 +1,31 @@
 <%= content_for :header do %>
 	<h1>Courses</h1>
-	All courses offered through this site
 <% end %>
 
-<nav>
-	<h1>Navigation</h1>
-	<ul>
-		<li><%= link_to '/' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-	</ul>
-</nav>
 
-<p>
-	The following is a list of all Courses available through this website which are those taught by Noah Singer.  For other TCC classes please visit
-	the <%= link_to 'TCC website', 'http://www.tulsacc.edu' %>.
-</p>
+<section>
+	<h1>Courses</h1>
+	
+	
+	<nav>
+		<h1>Navigation</h1>
+		<%= link_to "Home", '/', class: "icon back" %>
+	</nav>
+	
 
-<ul>
+	<article>
+		<ul>
 xxx@xxx.xxx do |course| %>		
-		<li>
-			<%= link_to course_path( course ) do %>
-				<span class="class_short_name"><%= course.short_name %></span>
-				<span class="class_long_name"><%= course.title %></span>
-				<span class="class_credits"><%= pluralize course.credits, "credit" %></span>
+				<li>
+					<%= link_to course_path( course ) do %>
+						<div class="course_number"><%= course.short_name %></div>
+						<h2>
+							<%= course.title %>
+						</h2>
+						<p><%= pluralize course.credits, "credit" %></p>
+					<% end %>
+				</li>
 			<% end %>
-		</li>
-	<% end %>
-</ul>
+		</ul>
+	</article>
+</section>

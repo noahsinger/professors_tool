@@ -4,22 +4,24 @@
   <meta charset="utf-8" />
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
 	
 	<title><%= render :partial => 'shared/title' %></title>
 	
 	<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+	<![endif]-->
 	
 	<%= javascript_include_tag 'application' %>
 	<%= yield :head %>
-	<%= stylesheet_link_tag 'application' %>
+	<%= stylesheet_link_tag 'application', :media => :all %>
 	<%= csrf_meta_tag %>
 </head>
-<body>
+<body id="<%= controller_name %>_<%= action_name %>">
 	<div id="page">
 		<header>
-			<h1><%= link_to 'Ingenio.us.com', root_path %></h1>
+			<div id="title"><%= link_to 'Ingeni<span>o.</span>us'.html_safe, root_path %></div>
 			<%= yield :header %>
 		</header>
 		
@@ -33,7 +35,11 @@
 		
 		<%= render :partial => 'shared/messages' %>
 
-		<%= yield  %>
+		<div id="outer_container">
+			<div id="inner_container">
+				<%= yield  %>
+			</div>
+		</div>
 		
 		<footer><%= render :partial => 'shared/footer' %></footer>
 	</div>

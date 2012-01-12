@@ -1,73 +1,88 @@
 <%= content_for :header do %>
-	<h1><%= @assignment.title %> - xxx@xxx.xxx %></h1>
-xxx@xxx.xxx %>
-xxx@xxx.xxx %>
+xxx@xxx.xxx %></h1>
 <% end %>
 
-<nav>
-	<h1>Navigation</h1>
-	<ul>
-		<li><%= link_to xxx@xxx.xxx @section ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-
-		<% xxx@xxx.xxx %>
-			<li><%= link_to slide_link("Submit","Turn in a homework assignment"), xxx@xxx.xxx @section, @assignment ) %></li>
-			<li><%= link_to slide_link("Return","Request a copy of your homework be sent back to you"), xxx@xxx.xxx %></li>
-		<% end %>
-
-		<li><a href="javascript:pre_print( );"><span class="text">Print - <span class="sub">Format and print this assignment</span></span></a></li>
-	</ul>
-</nav>
-
 <section>
-	<% if @assignment.overdue? and xxx@xxx.xxx %>
-		<p>This lab is <strong>PASTDUE!</strong></p>
-	<% end %>
+	<nav>
+		<h1>Navigation</h1>
+		<%= link_to @section.course.title, xxx@xxx.xxx @section ), class: 'icon back' %>
+	</nav>
 	
-	<% xxx@xxx.xxx %>
-		<p>
-			Due in <%= xxx@xxx.xxx %>
-			(<%= xxx@xxx.xxx ) %>)
-		</p>
-	<% end %>
-
-	<% xxx@xxx.xxx %>
-		<p>This assignment has been graded.</p>
-	<% end %>
 	
-	<h1>Description</h1>
+	<header>
+		<p>Due: <%= xxx@xxx.xxx ) %></p>
+		<h1><%= @assignment.title %> - xxx@xxx.xxx %></h1>
+	</header>
 	
-	<p>
-		<strong>Objective</strong>
-xxx@xxx.xxx %>
-	</p>
-
-	<table>
-		<tr><th>Requirement</th><th>Worth</th></tr>
-xxx@xxx.xxx do |r| %>
-			<tr>
-				<td><%= r.description %></td><td><%= r.points %></td>
-			</tr>
-		<% end %>
-xxx@xxx.xxx %> points</td></tr>
-	</table>
-
-	<p>
-		<strong>Instructions</strong>
-	</p>
-
-	<div>
-xxx@xxx.xxx %>
-	</div>
-
-	<% xxx@xxx.xxx > 0 %>
-		<div>
-			<strong>Extras:</strong><br/>
-xxx@xxx.xxx do |extra| %>
-				<p>
-					<%= link_to extra.file_file_name, extra.file.url %>
-					<%= extra.description %>
-				</p>
+	
+	<div id="details">
+		<div id="assignment_status">
+			<% xxx@xxx.xxx %>
+				<p class="reminder">Due in <%= xxx@xxx.xxx %></p>
 			<% end %>
 		</div>
-	<% end %>
+
+
+		<section id="requirements">
+			<header><h1>Requirements</h1></header>
+			<table>
+xxx@xxx.xxx do |r| %>
+					<tr>
+						<td><%= r.description %></td><td><%= r.points %> pts</td>
+					</tr>
+				<% end %>
+xxx@xxx.xxx %> pts</td></tr>
+			</table>
+		</section>
+	</div>
+	
+	
+
+	<article id="assignment">
+		<div id="assignment_objective">
+			<strong>Objective</strong>
+xxx@xxx.xxx %></p>
+		</div>
+	
+
+		<header id="instructions_header"><h1>Instructions</h1></header>
+
+		<div id="instructions">
+			<%= xxx@xxx.xxx %>
+		</div>
+
+		<% xxx@xxx.xxx > 0 %>
+			<div id="extras">
+				<header><h2>Extras</h2></header>
+				<ul>
+xxx@xxx.xxx do |extra| %>
+						<li>
+							<%= link_to extra.file.url do %>
+								<p><%= extra.description %></p>
+								<h3><%= extra.file_file_name %></h3>
+							<% end %>
+						</li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>		
+	</article>
+	
+	
+	<nav id="resources">
+		<h1>Resources</h1>
+		<ul>
+			<% xxx@xxx.xxx %>
+				<li><%= link_to "Submit Your Solution", xxx@xxx.xxx @section, @assignment ), class: "icon upload" %></li>
+				<li><%= link_to "Request Return Copy", xxx@xxx.xxx class: "icon download" %></li>
+			<% end %>
+
+			<li><a href="#" id="print" class="icon file">Print this Assignment</a></li>
+			<% if session[:user] %>
+				<li><%= link_to 'Edit this Assignment', xxx@xxx.xxx %></li>
+				<li><%= link_to 'Edit this Lab', xxx@xxx.xxx @assignment.lab) %></li>
+			<% end %>
+		</ul>
+	</nav>
+
 </section>

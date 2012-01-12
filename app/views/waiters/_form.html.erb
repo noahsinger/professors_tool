@@ -1,14 +1,18 @@
 <%= xxx@xxx.xxx do |f| %>
+	<h1>Please Complete the Form</h1>
 	<%= error_messages_for :waiter, :header_message => 'Your request could not be processed for the following reasons' %>
 	<ol>
 	  <li>
-			Please provide an email address where you can be contacted.
-	    <%= f.label :email %>
-	    <%= f.text_field :email %>
+		<div class="details">  
+			<%= f.label :email %>
+			<p>Please provide an email address where you can be contacted.</p>
+		</div>
+		
+	    <div class="field"><%= f.text_field :email, placeholder: "first_last@mail.tulsacc.edu", data: {mask: xxx@xxx.xxx %></div>
 	  </li>
 
-	  <li>
-	    <%= f.submit 'Submit' %>
+	  <li class="action">
+	    <div><%= f.submit 'Submit' %></div>
 	  </li>
 	</ol>
 <% end %>

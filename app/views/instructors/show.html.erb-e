@@ -1,26 +1,47 @@
 <%= content_for :header do %>
 xxx@xxx.xxx %></h1>
-	<%= xxx@xxx.xxx "section" %>
 <% end %>
 
-<nav>
-	<h1>Navigation</h1>
-	<ul>
-		<li><%= link_to '/' do %> <%= render :partial => "shared/back_link" %> <% end %></li>
-	</ul>
-</nav>
+
 
 <section class="vcard">
-	<h1>Contact Information</h1>
-	<div xxx@xxx.xxx %></div>
-	<div xxx@xxx.xxx %></div>
-	<div class="org">Tulsa Community College - xxx@xxx.xxx %> Division</div>
-	<div class="note">Metro Campus xxx@xxx.xxx %></strong></div>
+	<nav>
+		<h1>Navigation</h1>
+		<ul>
+			<li><%= link_to 'Back', '/', class: "icon back" %></li>
+		</ul>
+	</nav>
 	
-	<div class="contact">
-		<div xxx@xxx.xxx %></div>
-		<div class="email"><%= xxx@xxx.xxx %></div>
-		<%= xxx@xxx.xxx @instructor.website, :class => "url" %>	
-		<div class="note"><strong><%= link_to( 'office xxx@xxx.xxx )%></strong></div>
-	</div>
+	<header>
+xxx@xxx.xxx %></p>
+xxx@xxx.xxx %></h1>
+	</header>
+	
+	<article id="contact_information">
+		<header id="contact_header"><h1>Contact Information</h1></header>
+		
+		<div id="contact_details">
+			<%= image_tag 'tcc_logo_150.png', :class => 'tcc_logo' %>
+			<p class="org">Tulsa Community College</p>
+			<p xxx@xxx.xxx %></p>
+			
+			<p xxx@xxx.xxx %></p>
+xxx@xxx.xxx %> Division</p>
+		
+			<section class="contact">
+				<p class="tel"><a href="tel:<%= @instructor.phone_number xxx@xxx.xxx %></a></p>
+				<p class="email"><%= xxx@xxx.xxx %></p>
+				<p><%= xxx@xxx.xxx @instructor.website, :class => "url" %></p>
+				<p class="note office_hours"><strong><%= link_to( 'office xxx@xxx.xxx )%></strong></p>
+			</section>
+			
+			<hr/>
+			
+			<p class="note address">Metro Campus - xxx@xxx.xxx %></strong></p>
+			<p class="street-address">909 S Boston Ave</p>
+			<p><span class="locality">Tulsa</span>, <span class="region">OK</span>  <span class="postal-code">74135</span></p>
+		</div>
+		
+		
+	</article>
 </section>

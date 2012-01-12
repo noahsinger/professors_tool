@@ -1,6 +1,5 @@
 <%= content_for :header do %>
 xxx@xxx.xxx %></h1>
-	<%= show_short_date(@semester.start_date) %> - <%= xxx@xxx.xxx %>
 <% end %>
 
 <section>
@@ -10,8 +9,9 @@ xxx@xxx.xxx %></h1>
 xxx@xxx.xxx do |section| %>
 				<li>
 					<%= link_to xxx@xxx.xxx section) do %>
-						<h2><%= section.course.short_name %> <%= section.course.title %></h2>
-						<%= section.meeting_days_and_times %>
+						<div class="course_number"><%= section.course.short_name %></div>
+						<h2><%= section.course.title %></h2>
+						<p><%= section.meeting_days_and_times %></p>
 					<% end %>
 				</li>		
 			<% end %>		

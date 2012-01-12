@@ -1,6 +1,16 @@
 class ExamplesController < ApplicationController
   protect_from_forgery :except => :echo
   
+  before_filter :load_section
+  
+  def load_section
+   xxx@xxx.xxx = Section.find params[:section_id]
+  end
+  
+  def index
+    @examples xxx@xxx.xxx
+  end
+  
   def test_exception
     raise "Boom!"
   end

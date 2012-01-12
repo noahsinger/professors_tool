@@ -1,0 +1,24 @@
+<%= content_for :header do %>
+	<h1>Instructors</h1>
+<% end %>
+
+<section>
+	<nav>
+		<h1>Navigation</h1>
+		<%= link_to "Back", :back, class: "icon back" %>
+	</nav>
+		
+	<article>	
+		<ul>
+xxx@xxx.xxx do |instructor| %>
+				<li>
+					<%= link_to instructor_path(instructor) do %>
+					<div class="course_number"><%= instructor.title %></div>
+						<h2><%= instructor.name %></h2>
+						<p><%=  %></p>
+					<% end %>
+				</li>		
+			<% end %>		
+		</ul>
+	</article>
+</section>

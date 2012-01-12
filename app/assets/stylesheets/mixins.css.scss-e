@@ -1,0 +1,123 @@
+// ----------------------------
+// slitted main containers
+// ----------------------------
+
+@mixin slitted {
+	position: relative;
+	margin: 0 auto;		
+	background-image: url(left_slit.png), url(right_slit.png);
+	background-position: top left, top right;
+	padding: 0 8px 0 8px;
+	background-size: 27px 100%;
+	background-repeat: no-repeat;
+}
+
+
+// -------------------------------------
+// general common styles for giant green tabs (headers and footer)
+// -------------------------------------
+@mixin giant_tab_style {
+xxx@xxx.xxx grad( #82A169, #57784B );
+	font-size: .75em;
+	color: #fff;
+	font-family: 'HelveticaNeue-UltraLight', helvetica, arial, sans-serif;
+	letter-spacing: 1px;
+}
+
+@mixin paper_effect {
+	position: relative;
+	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+	
+	&:before, &:after {
+		position: absolute;
+		width: 40%;
+		height: 10px;
+		content: ' ';
+		left: 12px;
+		bottom: 12px;
+		background: transparent;
+		-webkit-transform: skew(-5deg) rotate(-5deg);
+		-moz-transform: skew(-5deg) rotate(-5deg);
+		-ms-transform: skew(-5deg) rotate(-5deg);
+		-o-transform: skew(-5deg) rotate(-5deg);
+		transform: skew(-5deg) rotate(-5deg);
+		-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+		-moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+		z-index: -1;
+	}
+	
+	&:after {
+		left: auto;
+		right: 12px;
+		-webkit-transform: skew(5deg) rotate(5deg);
+		-moz-transform: skew(5deg) rotate(5deg);
+		-ms-transform: skew(5deg) rotate(5deg);
+		-o-transform: skew(5deg) rotate(5deg);
+		transform: skew(5deg) rotate(5deg);
+	}
+}
+
+
+// -------------------------------------
+// shadows for tabs
+// -------------------------------------
+@mixin left_tab_shadow {
+	box-shadow: 3px 1px 5px 1px #444, inset 13px 0px 10px -8px #555;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+
+
+@mixin right_tab_shadow {
+	box-shadow: -3px 1px 5px 1px #444, inset -13px 0px 10px -8px #555;
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+}
+
+
+// ---------------------------------
+// borders (for debugging)
+// ---------------------------------
+@mixin debug_border {
+/*	border: 1px solid yellow;*/
+}
+
+
+// ---------------------------------
+// positioning related
+// ---------------------------------
+@mixin outset_left {
+	margin-left: -13.4%; // (-80.4px / 600px)
+}
+
+@mixin outset_right {
+	margin-right: -13.4%; // (-80.4px / 600px)
+}
+
+@mixin full_width {
+	width: 126.5%;
+	margin-left: -13.266666666667%; // (79px / 600px)
+}
+
+
+// ---------------------------------
+// font families
+// ---------------------------------
+@mixin helvetica_family {
+	font-family: helvetica, arial, sans-serif;
+}
+
+@mixin georgia_family {
+	font-family: georgia, serif;
+}
+
+@mixin neue_family {
+	font-family: 'HelveticaNeue-UltraLight', helvetica, arial, sans-serif;
+}
+
+@mixin walkway_family {
+	font-family: 'WalkwaySemiBoldRegular', helvetica, arial, sans-serif;
+}

@@ -1,0 +1,24 @@
+<%= content_for :header do %>
+xxx@xxx.xxx %> Examples</h1>
+<% end %>
+
+<section>
+	<nav>
+		<h1>Navigation</h1>
+		<%= link_to "#{@section.course.title}", xxx@xxx.xxx @section), class: "icon back" %>
+	</nav>
+		
+	<article>	
+		<ul>
+xxx@xxx.xxx do |example| %>
+				<li>
+					<%= link_to xxx@xxx.xxx @section, example) do %>
+						<!--<div class="course_number"><%= example.created_at.to_s(:short) %></div>-->
+						<h2><%= example.name %></h2>
+						<p><%= example.description %></p>
+					<% end %>
+				</li>		
+			<% end %>		
+		</ul>
+	</article>
+</section>

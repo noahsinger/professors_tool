@@ -8,6 +8,7 @@ gem "icalendar"
 gem "RedCloth"
 gem 'delayed_job'
 gem 'paperclip'
+gem 'redcarpet'
 
 # Gems used only for assets and not required
 # in production environments by default.

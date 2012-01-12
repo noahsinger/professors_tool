@@ -1,40 +1,54 @@
 <%= content_for :header do %>
 	<h1>Contact</h1>
-	Complete the form below to send your instructor an email
 <% end %>
 
-<nav>
-	<h1>Navigation</h1>
-	<ul>
-		<li><%= link_to '/' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-	</ul>
-</nav>
-
 <section>
-	<h1>Complete the form</h1>
+	<nav>
+		<h1>Navigation</h1>
+		<%= link_to 'Home', root_path, class: "icon back" %>
+	</nav>
+	
+	
+	<header>
+		<p><%=  %></p>
+		<h1>Instructor Contact Form</h1>
+	</header>
+
+	
 	<%= xxx@xxx.xxx :html => {:multipart => :true}) do |f| %>
+		<h1>Complete the form</h1>
 		<%= f.error_messages( :header_message => 'This email could not be sent for the following reasons:' ) %>
 		<ol>
 			<li>
-				Please provide your email address so a return email can be sent to you if needed.
-				<%= f.label :return_email, 'Your Email Address' %>
-				<%= f.text_field :return_email %>
+				<div class="details">
+					<%= f.label :return_email, 'Your Email Address' %>
+					<p>Please provide your email address so a return email can be sent to you if needed.</p>
+				</div>
+				<div class="field"><%= f.text_field :return_email %></div>
 			</li>
 			<li>
-				<%= f.label :subject %>
-				<%= f.text_field :subject %>
+				<div class="details">
+					<%= f.label :subject %>
+				</div>
+				<div class="field"><%= f.text_field :subject %></div>
+			</li>
+			<li class="textarea">
+				<div class="details">
+					<%= f.label :body %>
+					<p>Please be concise and include the details that are needed to provide you with an answer that will be beneficial.</p>
+				</div>
+				<div class="field"><%= f.text_area :body %></div>
 			</li>
 			<li>
-				<%= f.label :body %>
-				<%= f.text_area :body %>
+				<div class="details">
+					<%= f.label :attachment %>
+					<p>Students! <strong>DO NOT</strong> use this form for submitting your homework.  Instead, return to the homepage, click on your class, select the assignment, and then click the submit homework link.</p>
+				</div>
+				<div class="file field"><span class="prompt">Click to Browse</span><%= f.file_field :attachment %></div>
+				<div class="filename"></div>
 			</li>
-			<li>
-				Students!  DO NOT use this form for submitting your homework.  Instead, return to the homepage, click on your class, select the assignment, and then click the submit homework link.
-				<%= f.label :attachment %>
-				<%= f.file_field :attachment %>
-			</li>
-			<li>
-				<%= f.submit "Send" %>
+			<li class="action">
+				<div><%= f.submit "Send" %></div>
 			</li>
 		</ol>
 	<% end %>
