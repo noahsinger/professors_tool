@@ -1,36 +1,15 @@
 <%= content_for :header do %>
+<% end %>
+
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+	</nav>
+	
+	<header>
+		<p>for xxx@xxx.xxx %></p>
 xxx@xxx.xxx %></h1>
-	<h2>for xxx@xxx.xxx %></h2>
-<% end %>
+	</header>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/show_link' %> <% end %></li>
-	</ul>
-</div>
-
-<%= xxx@xxx.xxx :html => {:multipart => true}) do |f| %>
-	<%= f.error_messages %>
-	<ol>
-		<li>
-			<%= f.label :title %><br />
-			<%= f.text_field :title %>
-		</li>
-		<li>
-			<%= f.label :description %><br />
-			<%= f.text_area :description %>
-		</li>
-		<li>
-			<% xxx@xxx.xxx %>
-				<span class="light">Current File: <%= xxx@xxx.xxx @material.file.url %></span><br/>
-			<% end %>
-			<%= f.label :file %><br />
-			<%= f.file_field :file %>
-		</li>
-		<li class="submit_bar">
-			<%= f.submit "Update" %>
-		</li>
-	</ol>
-<% end %>
-
+	<%= render "form" %>
+</section>

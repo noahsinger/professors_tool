@@ -21,8 +21,9 @@ $total-width: $_gridsystem-width;
 	    content:"";
 	    display:table;
 	}
+	
 	&:after {
-	    clear:both;
+	    clear: both;
 	}
 }
 

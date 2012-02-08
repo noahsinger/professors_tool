@@ -3,11 +3,9 @@ xxx@xxx.xxx %></h1>
 	<h4><%= xxx@xxx.xxx "section" %></h4>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
+<nav>
 		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => "shared/back_link" %> <% end %></li>
 		<li><%= link_to admin_instructors_path do %> <%= render :partial => "shared/show_link" %> <% end %></li>
-	</ul>
-</div>
+	</nav>
 
 <%= render :partial => "form", :locals => {:submit_name => 'Update'} %>

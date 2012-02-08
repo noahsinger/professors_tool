@@ -1,13 +1,5 @@
 <li id="how_to_<%= how_to.id.to_s %>" class="how_to">
-	<div class="top_half">
-		<%=link_to how_to.title, [:admin,how_to] %>
-		
-	</div>
-	<div class="bottom_half">
-		<%= link_to_function 'Add', 'add_tutorial( "' + xxx@xxx.xxx ) + '", "' + how_to.id.to_s + '", "' + form_authenticity_token + '" )' %> |
-		<%= link_to 'Edit', edit_admin_how_to_path(how_to) %> |
-		<%= link_to 'Destroy', [:admin,how_to], :confirm => 'Are you sure?', :method => :delete %>
-		
-		<p><%= how_to.description %></p>
+	<div>
+		<%= link_to_function "Add \"#{how_to.title}\" to this course", 'add_tutorial( "' + xxx@xxx.xxx ) + '", "' + how_to.id.to_s + '", "' + form_authenticity_token + '" )' %>
 	</div>
 </li>

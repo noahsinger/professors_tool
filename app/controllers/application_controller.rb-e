@@ -4,8 +4,9 @@ class ApplicationController < ActionController::Base
   # before_filter :adjust_format_for_iphone
 
   def markdown(text)
-    options = [:hard_wrap, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
-    Redcarpet.new(text, *options).to_html.html_safe
+    options = {:hard_wrap => true, :autolink => true, :no_intraemphasis => true, :fenced_code => true, :gh_blockcode => true}
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
+    markdown.render(text).html_safe
   end
   
   helper_method :markdown

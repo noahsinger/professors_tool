@@ -1,85 +1,87 @@
 <%= content_for :header do %>
-	<h1><%= @section.course.title %> xxx@xxx.xxx %>)</h1>
-xxx@xxx.xxx %></h2>
-	<h4><%= show_time(@section.start_time) %> - <%= xxx@xxx.xxx %></h4>
+	<h1>Section</h1>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li> 
-		<li><%= link_to [:edit, xxx@xxx.xxx @section] do %> <%= render :partial => 'shared/edit_link' %> <% end %></li>
-		<li><%= link_to slide_link("Assignments",""), xxx@xxx.xxx @section ) %> </li>
-		<li><%= link_to slide_link("Examples",""), xxx@xxx.xxx @section ) %></li>
-		<li><%= link_to slide_link("Email Section",""), xxx@xxx.xxx @section ) %></li>
+<section>
+	<nav>
+			<%= link_to 'Back', xxx@xxx.xxx ), :class => 'icon back' %>
+			<%= link_to 'Edit', [:edit, xxx@xxx.xxx @section], :class => 'icon edit' %>
+	</nav>
+	
+	<header>
+		<p><%= @section.meeting_days %> <%= show_time(@section.start_time) %> - <%= xxx@xxx.xxx %></p>
+		<h1><%= @section.course.title %> xxx@xxx.xxx %>)</h1>
+	</header>
+
+
+	<div class="fancy">
+		<table>
+			<tr>
+				<th>
+					Call number:
+				</th>
+				<th>
+					Section number:
+				</th>
+				<th>
+					Room:
+				</th>
+				<th>Days</th>
+				<th>Times</th>
+				<th>Dates</th>
+			</tr>
+			<tr>			
+				<td>
+xxx@xxx.xxx %>
+				</td>
+				<td>
+xxx@xxx.xxx %>
+				</td>
+				<td>
+xxx@xxx.xxx %>
+				</td>
+xxx@xxx.xxx %></td>
+				<td><%= @section.start_time.to_s(:time) %> - xxx@xxx.xxx %></td>
+				<td><%= @section.start_date %> - xxx@xxx.xxx %></td>
+			</tr>
+		</table>
+	</div>
+
+	<ul class="actions">
+		<li><%= link_to "Assignments", xxx@xxx.xxx @section ) %></li>
+		<li><%= link_to "Examples", xxx@xxx.xxx @section ) %></li>
+		<li><%= link_to "Email Section", xxx@xxx.xxx @section ) %></li>
+		<li><%= link_to 'Export Gradebook', xxx@xxx.xxx %></li>
+		<li><%= link_to 'Add Student', xxx@xxx.xxx @section ) %></li>
+		<li><%= link_to 'Modify this Course', xxx@xxx.xxx ) %></li>
 	</ul>
-</div>
 
-
-<div class="fancy">
-	<table>
-		<tr>
-			<th>
-				Call number:
-			</th>
-			<th>
-				Section number:
-			</th>
-			<th>
-				in Session:
-			</th>
-		</tr>
-		<tr>			
-			<td>
-xxx@xxx.xxx %>
-			</td>
-			<td>
-xxx@xxx.xxx %>
-			</td>
-			<td>
-xxx@xxx.xxx %>
-			</td>
-		</tr>
-	</table>
-</div>
-
-<div class="fancy">
-	<table>
-		<tr>
-			<th xxx@xxx.xxx + 1 %>" class="nav">
-				<%= link_to 'Add Student', xxx@xxx.xxx @section ) %>
-			</th>
-			<th>
-				Name
-			</th>
-			<th>
-				Goes By
-			</th>
-			<th>
-				Email
-			</th>
-			<th></th>
-			<th></th>
-		</tr><% @section.students.each do |student| %><% enrollment = student.enrollments.find( :first, :conditions => ["section_id = xxx@xxx.xxx ) %>
-		<tr>
-			<td>
-				<%= link_to student.first_name + ' ' + student.middle_name + ' ' + student.last_name, xxx@xxx.xxx %>
-			</td>
-			<td>
-				<%= student.goes_by %>
-			</td>
-			<td>
-				<%= student.email %>
-			</td>
-			<td class="nav">
-				<%= link_to 'Show', admin_student_path(student) %>
-			</td>
-			<td class="nav">
-				<%= link_to 'De-Enroll', xxx@xxx.xxx @section, enrollment ), :method => :delete, :confirm => 'Are you sure?' %>
-			</td>
-		</tr><% end %>
-	</table>
-</div>
-
-<ul>
-	<li><%= link_to 'Export Gradebook', xxx@xxx.xxx %></li>
-</ul>
+	<div class="fancy">
+		<table>
+			<tr>
+				<th>
+					Name
+				</th>
+				<th>
+					Email
+				</th>
+				<th></th>
+				<th></th>
+			</tr><% @section.students.each do |student| %><% enrollment = student.enrollments.find( :first, :conditions => ["section_id = xxx@xxx.xxx ) %>
+			<tr>
+				<td>
+					<%= link_to student.first_name + ' ' + student.middle_name + ' ' + student.last_name, xxx@xxx.xxx %>
+				</td>
+				<td>
+					<%= mail_to student.email %>
+				</td>
+				<td class="show">
+					<%= link_to 'History', admin_student_path(student) %>
+				</td>
+				<td class="deenroll">
+					<%= link_to 'De-Enroll', xxx@xxx.xxx @section, enrollment ), :method => :delete, :confirm => 'Are you sure?' %>
+				</td>
+			</tr><% end %>
+		</table>
+	</div>
+</section>

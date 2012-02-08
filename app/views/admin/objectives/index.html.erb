@@ -1,30 +1,31 @@
 <%= content_for :header do %>
-	<h1>Objectives</h1>
-	<h2>for xxx@xxx.xxx %></h2>
+xxx@xxx.xxx %></h1>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-	</ul>
-</div>
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx ), :class => "icon back" %>
+	</nav>
+	
+	<header>
+		<p>Objectives for</p>
+xxx@xxx.xxx %></h1>
+	</header>
 
-<ul id="objectives">	
+	<div class="fancy">
+		<table id="objectives">
 xxx@xxx.xxx do |objective| %>
-		<%= render :partial => objective %>
-	<% end %>
-</ul>
+				<%= render :partial => objective %>
+			<% end %>
+		</table>
+	</div>
 
-<h4>Add New Objective</h4>
-<%= xxx@xxx.xxx do |f| %>
-  <%= f.error_messages %>
-	<ol>
-		<li>
-			<%= f.label :description %><br />
-			<%= f.text_area :description %>
-		</li>
-		<li class="submit_bar">
-			<%= f.submit "Add" %>
-		</li>
-	</ol>
-<% end %>
+	<%= xxx@xxx.xxx do |f| %>
+		<ol>
+			<li class="textarea"><div class="details"><%= f.label :description, "Add a New Objective" %><p></p></div><div class="field"><%= f.text_area :description %></div></li>
+			<li class="action">
+				<div><%= f.submit "Add" %></div>
+			</li>
+		</ol>
+	<% end %>
+</section>

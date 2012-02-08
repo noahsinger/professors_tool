@@ -1,109 +1,101 @@
 <%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-	<h2>for xxx@xxx.xxx %></h2>
+	<h1>Grading</h1>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx @section, @assignment ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-	</ul>
-</div>
-
-<ul>
-	<li>
-		<span class="top_half"><strong>Submitted by:</strong></span>
-		<span class="bottom_half">
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx @section, @assignment ), :class => "icon back"%>
+	</nav>
+	
+	<header>
+xxx@xxx.xxx %></p>
+		<h1>
 			<% xxx@xxx.xxx %>
 				<%= @work.enrollment.student.last_name %>, xxx@xxx.xxx %>
 			<% else %>
 				Unknown
-			<% end %>
-		</span>
-	</li>
-
-	<% xxx@xxx.xxx %>
-		<li>
-			<span class="top_half"><strong>Upload:</strong></span>
-			<span class="bottom_half">
+			<% end %> 
+			-
+xxx@xxx.xxx %>
+		
+			<% xxx@xxx.xxx %>
+				::
+			
 				<% xxx@xxx.xxx == "removed" %>
 					Removed
 				<% xxx@xxx.xxx %>
 					<%= xxx@xxx.xxx @work.upload.url %>
-					<%# link_to @work.upload_file_name, xxx@xxx.xxx %>
 				<% else %>
 					No Upload
 				<% end %>  
-			</span>
-		</li>
-	<% end %>
-</ul>
+			<% end %>
+		</h1>		
+	</header>
 
-<%= form_for( @work, :as => :work, :url => xxx@xxx.xxx :html => {:method => :put} ) do |f| %>
-	<%= f.error_messages %>
-	<ol>
-		<li>
-			<div class="fancy">
-				<table>
-					<tr>
-						<th>Requirement</th>
-						<th>Worth</th>
-						<th>Awarded</th>
-					</tr>
-xxx@xxx.xxx do |r| %>
+	<%= form_for( @work, :as => :work, :url => xxx@xxx.xxx :html => {:method => :put} ) do |f| %>
+		<%= xxx@xxx.xxx %>
+		<ol>
+			<li>
+				<div class="fancy">
+					<table>
 						<tr>
-							<td><label for="awarded_points[<%= r.id %>]"><%= r.description %></label></td>
-							<td><%= r.points %></td>
-				
-							<% x xxx@xxx.xxx :first, :conditions => ['requirement_id = ?', r]) || r %>
-				
-							<td><%= text_field :awarded_points, r.id, :max_length => 3, :size => 4, :value => x.points, :class => 'awarded_points_field'  %></td>
+							<th>Requirement</th>
+							<th>Worth</th>
+							<th>Awarded</th>
 						</tr>
-					<% end %>
-					<tr>
-						<td></td>
-						<td>
+xxx@xxx.xxx do |r| %>
+							<tr>
+								<td><label for="awarded_points[<%= r.id %>]"><%= r.description %></label></td>
+								<td><%= r.points %></td>
+				
+								<% x xxx@xxx.xxx :first, :conditions => ['requirement_id = ?', r]) || r %>
+				
+								<td><%= text_field :awarded_points, r.id, :max_length => 3, :size => 4, :value => x.points, :class => 'awarded_points_field'  %></td>
+							</tr>
+						<% end %>
+						<tr>
+							<td></td>
+							<td>
 xxx@xxx.xxx %>
-						</td>
-						<td>
-							<span xxx@xxx.xxx %></span>
-						</td>
-					</tr>
-				</table>
-			</div>
-		</li>
+							</td>
+							<td>
+								<span xxx@xxx.xxx %></span>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</li>
 		
-		<li>
-			<%= f.label :instructors_comments %><br/>
-			<%= f.text_area :instructors_comments %>
-		</li>
+			<li><div class="details"><%= f.label :instructors_comments %><p></p></div><div class="field"><%= f.text_area :instructors_comments %></div></li>
 
-		<li class="submit_bar">
-			<%= f.submit "Record Score" %>
-		</li>
-	</ol>
-<% end %>
+			<li class="action">
+				<div><%= f.submit "Record Score" %></div>
+			</li>
+		</ol>
+	<% end %>
 
 
 
-<script type="text/javascript" charset="utf-8">
-	$(".awarded_points_field").each( function(i) {
-		$(this).blur( function(x) {
-			var total = find_total( );
-			show_total( total );
-		});
-	});
-	
-	function find_total( ) {
-		var total = 0;
-		
+	<script type="text/javascript" charset="utf-8">
 		$(".awarded_points_field").each( function(i) {
-			total += parseInt($(this).attr('value'));
+			$(this).blur( function(x) {
+				var total = find_total( );
+				show_total( total );
+			});
 		});
-		
-		return total;
-	}
 	
-	function show_total( total ) {
-		$("#running_total").html( total );
-	}
-</script>
+		function find_total( ) {
+			var total = 0;
+		
+			$(".awarded_points_field").each( function(i) {
+				total += parseInt($(this).attr('value'));
+			});
+		
+			return total;
+		}
+	
+		function show_total( total ) {
+			$("#running_total").html( total );
+		}
+	</script>
+</section>

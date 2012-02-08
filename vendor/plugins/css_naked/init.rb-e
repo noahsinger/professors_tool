@@ -1,1 +1,0 @@
-require 'css_naked'

@@ -1,29 +1,25 @@
 <%= content_for :header do %>
 xxx@xxx.xxx %></h1>
-	<h2>for xxx@xxx.xxx %></h2>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx @lab ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-	</ul>
-</div>
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx @lab ), :class => "icon back"%>
+	</nav>
 
-<%= xxx@xxx.xxx do |f| %>
-	<%= f.error_messages %>
-	<ol>
-		<li>
-			<%= f.label :description %><br />
-			<%= f.text_field :description %>
-		</li>
-		<li>
-			<%= f.label :points %><br />
-			<%= f.text_field :points %>
-		</li>
-		<li class="submit_bar">
-			<%= f.submit "Create" %>
-		</li>
-	</ol>
-<% end %>
+	<header>
+xxx@xxx.xxx %></p>
+xxx@xxx.xxx %></h1>
+	</header>
 
-
+	<%= xxx@xxx.xxx do |f| %>
+	<%= xxx@xxx.xxx %>
+		<ol>
+			<li><div class="details"><%= f.label :description %><p></p></div><div class="field"><%= f.text_field :description %></div></li>
+			<li><div class="details"><%= f.label :points %><p></p></div><div class="field"><%= f.text_field :points %></div></li>
+			<li class="action">
+				<div><%= f.submit "Create" %></div>
+			</li>
+		</ol>
+	<% end %>
+</section>

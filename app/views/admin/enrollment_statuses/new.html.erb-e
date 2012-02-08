@@ -3,10 +3,8 @@
 	<h4>Add a new status</h4>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
+<nav>
 		<li><%= link_to admin_enrollment_statuses_path do %> <%= render :partial => "shared/back_link" %> <% end %></li>
-	</ul>
-</div>
+	</nav>
 
 <%= render :partial => "form", :locals => {:submit_name => 'Create'} %>

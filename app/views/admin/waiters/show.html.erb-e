@@ -3,11 +3,9 @@
 xxx@xxx.xxx %></h4>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-	</ul>
-</div>
+<nav>
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+	</nav>
 
 <p>
   <b>Email:</b>

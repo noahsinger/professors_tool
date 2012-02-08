@@ -3,27 +3,16 @@ xxx@xxx.xxx %></h1>
 	<h4>Editing</h4>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
+<nav>
 		<li><%= link_to session[:referrer] do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-	</ul>
-</div>
+	</nav>
 
 <%= xxx@xxx.xxx do |f| %>
-	<%= f.error_messages %>
+<%= xxx@xxx.xxx %>
 	<ol>
-		<li>
-			<%= f.label :name %><br />
-			<%= f.text_field :name %>
-		</li>
-		<li>
-			<%= f.label :title %><br />
-			<%= f.text_field :title %>
-		</li>
-		<li>
-			<%= f.label :description %><br />
-			<%= f.text_area :description %>
-		</li>
+		<li><div class="details"><%= f.label :name %><p></p></div><div class="field"><%= f.text_field :name %></div></li>
+		<li><div class="details"><%= f.label :title %><p></p></div><div class="field"><%= f.text_field :title %></div></li>
+		<li><div class="details"><%= f.label :description %><p></p></div><div class="field"><%= f.text_area :description %></div></li>
 		<li class="submit_bar">
 			<%= f.submit "Update" %>
 		</li>

@@ -240,6 +240,15 @@ xxx@xxx.xxx neue_family;
 					background-image: url(ical_active.png);
 				}
 			}
+						
+			&.edit {
+				background-image: url( edit.png );
+				background-position: 0 3px;
+				padding-top: 0;
+				padding-left: 20px;
+				float: right;
+			}
+			
 		}
 		
 xxx@xxx.xxx clearfix;
@@ -546,7 +555,7 @@ xxx@xxx.xxx helvetica_family;
 	// -------------------------------
 	// assignments section
 	// -------------------------------
-	article#assignments, article#assignment, article#course_objectives, article#course_description, article#contact_information {
+	article#assignments, article#assignment, article#course_objectives, article#course_description, article#contact_information, article#semesters {
 xxx@xxx.xxx outset_left;
 		width: 80%; // (480px / 600px)
 xxx@xxx.xxx clearfix;
@@ -755,7 +764,7 @@ xxx@xxx.xxx georgia_family;
 			// -------------------------------
 			// overdue assignments tab changes
 			// -------------------------------
-			li.overdue {
+			li.overdue, li.current {
 xxx@xxx.xxx grad( #E7C158, #76642E );
 				
 				p {
@@ -841,7 +850,7 @@ xxx@xxx.xxx outset_left;
 	width: 100%;
 	
 xxx@xxx.xxx clearfix;
-	
+		
 	h1 {
 		display: none;
 	} // end h1
@@ -861,12 +870,8 @@ xxx@xxx.xxx clearfix;
 xxx@xxx.xxx clearfix;
 xxx@xxx.xxx left_tab_shadow;
 			margin-bottom: 20px;
-xxx@xxx.xxx grad( #82A169, #57784B );
-xxx@xxx.xxx grad( $yellow_light, $yellow_dark );
 xxx@xxx.xxx color_grad;
 			
-//			display: table;
-
 
 			// -----------------------
 			// left side of the field tab
@@ -874,7 +879,6 @@ xxx@xxx.xxx color_grad;
 			div.details {
 				float: left;
 				width: 40%;
-//				border-right: 1px inset darken(#57784B, 10%);
 				border-right-width: 1px;
 				border-right-style: inset;
 				
@@ -933,6 +937,21 @@ xxx@xxx.xxx neue_family;
 					font-size: 1.1em;
 					color: #fff;
 				}
+				
+				input[type=checkbox] {
+					margin-top: 23px;
+					margin-left: 20px;
+				}
+				
+				select {
+					background-color: #889883;
+					border: 2px inset #ccc;
+					padding: 10px 15px;
+					
+					font-size: 1.1em;
+					color: #fff;
+					margin: 20px 0 0 20px;
+				}
 			} // end div.field
 			
 			
@@ -951,7 +970,6 @@ xxx@xxx.xxx neue_family;
 				color: #fff;
 				font-size: .8em;
 xxx@xxx.xxx neue_family;
-//				padding: 10px;
 				
 				div.field_with_errors {
 					height: 100%;
@@ -960,7 +978,6 @@ xxx@xxx.xxx neue_family;
 				
 				input {
 					opacity: 0;
-//					background-color: red;
 					height: 100%;
 					width: 100%;
 					position: relative;
@@ -996,6 +1013,7 @@ xxx@xxx.xxx neue_family;
 				border: 0;
 				float: none;
 				text-align: left;
+				padding-bottom: 0;
 			}
 			
 			div.field {
@@ -1003,7 +1021,9 @@ xxx@xxx.xxx neue_family;
 				width: 100%;
 				
 				textarea {
-					width: 85%;
+					height: 200px;
+					width: 92%;
+					line-height: 30px;
 				}
 			}
 		}
@@ -1014,10 +1034,8 @@ xxx@xxx.xxx neue_family;
 		// -----------------------
 		li.action {
 			width: 25%;
-xxx@xxx.xxx grad( $green_light, $green_dark );
 			
 			div {
-//				border-right: 1px inset darken(#57784B, 10%);
 				border-right-width: 1px;
 				border-right-style: inset;
 				 
@@ -1259,7 +1277,7 @@ xxx@xxx.xxx georgia_family;
 // -----------------------
 // Homepage (Section index) Styles
 // -----------------------
-body#sections_index, body#materials_index, body#semesters_index, body#examples_index, body#courses_index, body#instructors_index {
+body#sections_index.student, body#materials_index.student, body#semesters_index.student, body#examples_index.student, body#courses_index.student, body#instructors_index.student {
 
 		
 	// ----------------------------
@@ -1371,3 +1389,207 @@ xxx@xxx.xxx neue_family;
 		} // end ul
 	} // end section
 } // end body#sections
+
+
+// ----------------------------
+// flash messages
+// ----------------------------
+p.flash {
+	background-color: $blue_light;
+		
+xxx@xxx.xxx left_tab_shadow;
+	width: 50%;
+	color: #fff;
+	padding: 10px 20px;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	
+	&.error {
+xxx@xxx.xxx grad( $red_light, $red_dark );	
+	}
+}
+
+
+// ----------------------------
+// fancy tables
+// ----------------------------
+div.fancy table {
+	border-collapse: separate;
+	border-spacing: 10px;
+	width: 99.8%;
+	margin-left: 1px;
+	margin-bottom: 20px;
+xxx@xxx.xxx giant_tab_style;
+	box-shadow: 0px 2px 2px #555, inset 10px 0px 20px -8px #555, inset -10px 0px 20px -8px #555;
+	
+	a {
+		color: #fff;
+	}
+		
+	th {
+		text-align: left;
+		padding: 10px 0 0 10px;
+	}
+	
+	tr {
+		
+		td {
+			padding: 10px;
+			background-color: #669966;
+			border: 2px inset #ccc;
+			text-shadow: 2px 2px 2px #000;
+		
+			&:first-child {
+				padding-left: 10px
+			}
+			
+			&:last-child {
+				padding-right: 20px;
+			}
+			
+			&.title, &.enrollments, &.days {
+				font-size: 1.1em;
+			}
+			
+			&.status, &.edit, &.destroy, &.show, &.deenroll, &.grade, &.ungrade {
+				border: 1px outset #eee;
+				text-align: center;
+				background-color: transparent;
+				text-shadow: none;
+				padding: 0;
+
+				&:hover {
+					background-color: #0a0;
+				}
+				
+				a {
+					display: block;
+					padding: 10px;
+				}
+			}
+			
+			&.status {
+				width: 5px;
+				border: 0;
+				
+				&:hover {
+					background-color: transparent;
+				}
+			}
+			
+			&.enrollments, &.days, &.worth, &.avg {
+				text-align: center;
+			}
+			
+			&.blank {
+				text-align: right;
+				background-color: transparent;
+				border: 0;
+			}
+		}
+	}
+}
+
+ul.actions {
+	li {
+xxx@xxx.xxx color_grad;
+		width: 40%;
+		margin-bottom: 20px;
+		
+		a {
+			color: #fff;
+			display: block;
+			padding: 10px 20px;
+		}
+		
+		//for alternating sides
+		//odd
+		&:nth-child( 2n + 1 ) {
+			float: left;
+xxx@xxx.xxx left_tab_shadow;
+			padding-right: 20px;
+			
+			a {
+				border-right-style: solid;
+				border-right-width: 1px;
+			}
+		}
+								
+		//even
+		&:nth-child( 2n ) {
+			float: right;
+			text-align: right;
+xxx@xxx.xxx right_tab_shadow;
+			padding-left: 20px;
+			
+			a {
+				border-left-style: solid;
+				border-left-width: 1px;
+			}
+		}
+	}
+	
+	&:after {
+		content: ".";
+		display: block;
+		clear: both;
+		height: 0;
+		visibility: hidden;
+	}
+}
+
+.admin_comments {	
+xxx@xxx.xxx paper_effect;
+	
+	background-color: #fff;
+	
+	padding: 30px;
+	margin: 30px;
+}
+
+.admin article.course_info {
+	h1 {
+xxx@xxx.xxx grad( $blue_light, $blue_dark );
+		background-color: $blue_light;
+		
+xxx@xxx.xxx outset_left;
+xxx@xxx.xxx left_tab_shadow;
+		width: 50%;
+		color: #fff;
+		padding: 10px 20px;
+		margin-top: 40px;
+		margin-bottom: 20px;
+	}
+}
+
+// ------------------------------
+// forms that fall within the details sections of a page
+// ------------------------------
+.admin #details {
+	form {
+		margin: 0;
+		
+		li {
+			background: none;
+			box-shadow: none;
+			
+			input {
+				width: 80%;
+			}
+						
+			// -----------------------
+			// special for the submit button
+			// -----------------------
+			&.action {
+				width: 100%;
+				div {
+					border: 0;
+					input {						
+						text-align: right;
+					}
+				}
+			}
+			
+		}
+	}
+}

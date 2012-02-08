@@ -1,4 +1,4 @@
 <tr id="<%= tutorial.id %>">
 	<td><%= tutorial.how_to.title %></td>
-	<td><%= link_to 'Remove', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
+	<td class="destroy"><%= link_to 'Remove from this Course', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
 </tr>

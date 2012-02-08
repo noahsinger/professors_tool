@@ -3,36 +3,19 @@ xxx@xxx.xxx %></h1>
 	<h2>A book for xxx@xxx.xxx %></h2>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+<nav>
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
 		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/show_link' %> <% end %></li>
-	</ul>
-</div>
+	</nav>
 
 <%= xxx@xxx.xxx do |f| %>
-  <%= f.error_messages %>
+  <%= xxx@xxx.xxx %>
 	<ol>
-		<li>
-			<%= f.label :title %><br />
-			<%= f.text_field :title %>
-		</li>
-		<li>
-			<%= f.label :author %><br />
-			<%= f.text_field :author %>
-		</li>
-		<li>
-			<%= f.label :publisher %><br />
-			<%= f.text_field :publisher %>
-		</li>
-		<li>
-			<%= f.label :isbn %><br />
-			<%= f.text_field :isbn %>
-		</li>
-		<li>
-			<%= f.label :required %>
-			<%= f.check_box :required %>
-		</li>
+		<li><div class="details"><%= f.label :title %><p></p></div><div class="field"><%= f.text_field :title %></div></li>
+		<li><div class="details"><%= f.label :author %><p></p></div><div class="field"><%= f.text_field :author %></div></li>
+		<li><div class="details"><%= f.label :publisher %><p></p></div><div class="field"><%= f.text_field :publisher %></div></li>
+		<li><div class="details"><%= f.label :isbn %><p></p></div><div class="field"><%= f.text_field :isbn %></div></li>
+		<li><div class="details"><%= f.label :required %><p></p></div><div class="field"><%= f.check_box :required %></div></li>
 		<li class="submit_bar">
 			<%= f.submit "Update" %>
 		</li>

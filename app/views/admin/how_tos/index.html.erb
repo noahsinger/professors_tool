@@ -1,27 +1,32 @@
 <%= content_for :header do %>
 	<h1>How to's</h1>
-	<h4>Listing all</h4>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
+<section>
+	<nav>
 		<% if session[:referrer] %>
-			<li><%= link_to session[:referrer] do %> <%= render :partial => "shared/back_link" %> <% end %></li>
+			<%= link_to "Back", session[:referrer], class: "icon back" %>
 		<% end %>
-		<li>
-			<%= link_to new_admin_how_to_path do %> <%= render :partial => "shared/new_link" %> <% end %>
-		</li>
-	</ul>
-</div>
+	</nav>
+	
+	<header>
+		<p>Managing</p>
+		<h1>How to's</h1>
+	</header>
 
-<ul>
-	<% for how_to xxx@xxx.xxx %>
-		<li>
-			<div class="top_half"><%= link_to how_to.title, admin_how_to_path(how_to) %></div>
-			<div class="bottom_half">
-				<%= link_to 'Edit', edit_admin_how_to_path(how_to) %> |
-				<%= link_to 'Destroy', [:admin,how_to], :confirm => 'Are you sure?', :method => :delete %>
-			</div>
-		</li>
-	<% end %>
-</ul>
+	<ul class="actions">
+		<li><%= link_to "Create a New How To", new_admin_how_to_path %></li>
+	</ul>
+
+	<div class="fancy">
+		<table>
+xxx@xxx.xxx do |how_to| %>
+				<tr>
+					<td><%= link_to how_to.title, admin_how_to_path(how_to) %></td>
+					<td class="edit"><%= link_to 'Edit', edit_admin_how_to_path(how_to) %></td>
+					<td class="destroy"><%= link_to 'Destroy', [:admin,how_to], :confirm => 'Are you sure?', :method => :delete %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</section>

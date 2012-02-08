@@ -1,8 +1,6 @@
-<div class="nav">
-	<ul class="nav">
+<nav>
 		<li><%= link_to '/' do %> <%= render :partial => "shared/back_link" %> <% end %></li>
-	</ul>
-</div>
+	</nav>
 
 <% xxx@xxx.xxx == "destroyed" %>
 	<p class="green">Your work has been withdrawn.</p>

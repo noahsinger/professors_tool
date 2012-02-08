@@ -1,13 +1,16 @@
 <%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-	<h4>This course has been occurred <%= xxx@xxx.xxx 'time' %></h4>
+	<h1>Edit Course</h1>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to admin_courses_path do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/show_link' %> <% end %></li>
-	</ul>
-</div>
+<section>
+	<nav>
+		<%= link_to 'Back', admin_courses_path, :class => "icon back" %>
+	</nav>
+	
+	<header>
+		<p>This course has been occurred <%= xxx@xxx.xxx 'time' %></p>
+		<h1>Edit xxx@xxx.xxx %></h1>
+	</header>
 
-<%= render :partial => 'form', :locals => {:submit_name => 'Update'} %>
+	<%= render :partial => 'form', :locals => {:submit_name => 'Update'} %>
+</section>

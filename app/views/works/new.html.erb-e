@@ -18,7 +18,7 @@ xxx@xxx.xxx %></p>
 		
 	<%= xxx@xxx.xxx :html => {:multipart => true}) do |f| %>
 		<h1>Complete the Form</h1>
-		<%= error_messages_for :work %>
+		<%= xxx@xxx.xxx %>
 		<ol>
 			<li>
 				<div class="details">

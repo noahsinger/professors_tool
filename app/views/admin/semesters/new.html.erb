@@ -15,10 +15,8 @@
 	<h4>Create</h4>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to admin_semesters_path do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-	</ul>
-</div>
+<nav>
+		<%= link_to 'Back', admin_semesters_path, :class => "icon back" %>
+	</nav>
 
 <%= render :partial => 'form', :locals => {:submit_text => 'Create'} %>

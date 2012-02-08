@@ -17,7 +17,7 @@
 	
 	<%= xxx@xxx.xxx :html => {:multipart => :true}) do |f| %>
 		<h1>Complete the form</h1>
-		<%= f.error_messages( :header_message => 'This email could not be sent for the following reasons:' ) %>
+		<%= xxx@xxx.xxx %>
 		<ol>
 			<li>
 				<div class="details">

@@ -3,12 +3,10 @@ xxx@xxx.xxx %></h1>
 	<h4><%= xxx@xxx.xxx "section" %></h4>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
+<nav>
 		<li><%= link_to admin_instructors_path do %> <%= render :partial => "shared/back_link" %> <% end %></li>
 		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => "shared/edit_link" %> <% end %></li>
-	</ul>
-</div>
+	</nav>
 
 <p>
   <b>Phone number:</b>

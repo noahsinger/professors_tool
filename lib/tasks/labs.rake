@@ -8,7 +8,7 @@ namespace :labs do
     puts "#{count} labs stored on the site"
   end
   
-  desc "Clear labs > 1 year old"
+  desc "Clear labs > 2 year old"
   task :clear => :environment do
     current = Semester.current
     Section.all.each do |section|
@@ -40,6 +40,21 @@ namespace :labs do
               
               puts "#{work.upload_file_name} uploaded by #{student_name} was removed (#{course_name}, #{semester_name})"
             end
+          end
+        end
+      end
+    end
+  end
+  
+  desc "labs in need of some grading"
+  task :needs_grading => :environment do
+    Work.all.each do |work|
+      unless work.graded?
+        if work.assignment.section.semester == Semester.current
+          if work.enrollment
+            puts "Ungraded work - #{work.assignment.section.meeting_days} #{work.assignment.section.course.title} (#{work.assignment.section.semester.short_name}) - #{work.enrollment.student.last_name_first}"
+          else
+            puts "Ungraded work - #{work.assignment.section.meeting_days} #{work.assignment.section.course.title} (#{work.assignment.section.semester.short_name}) - Unknown Student"
           end
         end
       end

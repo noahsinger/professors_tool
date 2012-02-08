@@ -1,12 +1,16 @@
 <%= content_for :header do %>
-	<h1>New xxx@xxx.xxx %></h1>
-	<h2>for xxx@xxx.xxx %></h2>
+	<h1>New Work</h1>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx @section, @assignment ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-	</ul>
-</div>
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx @section, @assignment ), :class => "icon back"%>
+	</nav>
+	
+	<header>
+		<p>for xxx@xxx.xxx %></p>
+		<h1>New xxx@xxx.xxx %></h1>
+	</header>
 
-<%= render :partial => 'form', :locals => {:submit_name => 'Create'} %>
+	<%= render :partial => 'form', :locals => {:submit_name => 'Create'} %>
+</section>

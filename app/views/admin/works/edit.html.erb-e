@@ -3,12 +3,10 @@ xxx@xxx.xxx %></h1>
 	<h2>for xxx@xxx.xxx %></h2>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
+<nav>
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back"%>
 		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/show_link' %> <% end %></li>
-	</ul>
-</div>
+	</nav>
 
 <%= render :partial => 'form', :locals => {:submit_name => 'Update'} %>
 

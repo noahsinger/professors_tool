@@ -1,7 +1,5 @@
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-	</ul>
-</div>
+<nav>
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+	</nav>
 
 <%= render :partial => 'form', :locals => {:submit_name => 'Create'} %>

@@ -1,48 +1,24 @@
 <%= xxx@xxx.xxx do |f| %>
-	<%= f.error_messages %>
+	<%= xxx@xxx.xxx %>
 	<ol>
-		<li>
-			<%= f.label :title %><br />
-			<%= f.text_field :title %>
-		</li>
+		<li><div class="details"><%= f.label :title %><p></p></div><div class="field"><%= f.text_field :title %></div></li>
 
-		<li>
-			<%= f.label :description %><br />
-			<%= f.text_area :description %>
-		</li>
+		<li class="textarea"><div class="details"><%= f.label :description %><p></p></div><div class="field"><%= f.text_area :description %></div></li>
 
-		<li>
-			<%= f.label :discipline %><br />
-			<%= f.text_field :discipline %>
-		</li>
+		<li><div class="details"><%= f.label :discipline %><p></p></div><div class="field"><%= f.text_field :discipline %></div></li>
 
-		<li>
-			<%= f.label :number %><br />
-			<%= f.text_field :number %>
-		</li>
+		<li><div class="details"><%= f.label :number %><p></p></div><div class="field"><%= f.text_field :number %></div></li>
 
-		<li>
-			<%= f.label :credits %><br />
-			<%= f.text_field :credits %>
-		</li>
+		<li><div class="details"><%= f.label :credits %><p></p></div><div class="field"><%= f.text_field :credits %></div></li>
 
-		<li>
-			<%= f.label :prerequisite %><br/>
-			<%= f.text_field :prerequisite %>
-		</li>
+		<li><div class="details"><%= f.label :prerequisite %><p></p></div><div class="field"><%= f.text_field :prerequisite %></div></li>
 	
-		<li>
-			<%= f.label :next_course %><br/>
-			<%= f.text_field :next_course %>
-		</li>
+		<li><div class="details"><%= f.label :next_course %><p></p></div><div class="field"><%= f.text_field :next_course %></div></li>
 	
-		<li>
-			<%= f.label :required_materials %><br/>
-			<%= f.text_area :required_materials %>
-		</li>
+		<li class="textarea"><div class="details"><%= f.label :required_materials %><p></p></div><div class="field"><%= f.text_area :required_materials %></div></li>
 
-		<li class="submit_bar">
-			<%= f.submit submit_name %>
+		<li class="action">
+			<div><%= f.submit submit_name %></div>
 		</li>
 	</ol>
 <% end %>

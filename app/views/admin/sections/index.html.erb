@@ -1,45 +1,53 @@
 <%= content_for :header do %>
-	<h1><%= xxx@xxx.xxx 'Section' %></h1>
-	<h2>of xxx@xxx.xxx %></h2>
+	<h1>Sections</h1>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to '/admin' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-		<li><%= link_to xxx@xxx.xxx ) do %> <%= render :partial => 'shared/new_link' %> <% end %></li>
+<section>
+	<nav>
+		<h1>Navigation</h1>
+		<%= link_to 'Back', '/admin', :class => "icon back" %>
+	</nav>
+
+	<header>
+		<p><%= xxx@xxx.xxx 'Section' %></p>
+xxx@xxx.xxx %></h1>
+	</header>
+
+	<ul class="actions">
+		<li><%= link_to 'New Section', xxx@xxx.xxx ) %></li>
 	</ul>
-</div>
 
-<div class="fancy">
-	<table>
-	  <tr>
-	    <th>Course</th>
-		<th>Room Number</th>
-	    <th>Meeting days</th>
-	    <th>Time</th>
-	    <th>Dates</th>
-		<th>In Session</th>
-		<th>Enrollments</th>
+	<div class="fancy">
+		<table>
+		  <tr>
+			<th></th>
+		    <th>Course</th>
+			<th>Days</th>
+			<th>Enrolled</th>
 	
-		<th></th>
-		<th></th>
-	  </tr>
+			<th></th>
+			<th></th>
+		  </tr>
 
-	<% for section xxx@xxx.xxx %>
-	  <tr>
-	    <td class="nav">
-			<%=link_to "#{section.course.title}<br/>#{section.call_number} / #{section.section_number}".html_safe, xxx@xxx.xxx section] %><br/>
-		</td>
-		<td><%= section.room_number %></td>
-	    <td><%= section.meeting_days %></td>
-	    <td><%= show_time( section.start_time ) %> - <%= show_time( section.end_time )  %></td>
-	    <td><%= show_short_date( section.start_date ) %> - <%= show_short_date( section.end_date ) %></td>
-		<td><%= section.in_session %></td>
-		<td><%= section.enrollments.size %></td>
+		<% for section xxx@xxx.xxx %>
+		  <tr>
+			<td class="status">
+				<% if section.in_session %>
+				<%= image_tag 'circle_green.png', :style => "width: 20px" %>
+				<% else %>
+					<%= image_tag 'circle_red.png', :style => "width: 20px" %>
+				<% end %>
+			</td>
+		    <td class="title">
+				<%=link_to "#{section.course.title}", xxx@xxx.xxx section] %><br/>
+			</td>
+		    <td class="days"><%= section.meeting_days %></td>
+			<td class="enrollments"><%= section.enrollments.size %></td>
 
-	    <td class="nav"><%= link_to 'Edit', [:edit, xxx@xxx.xxx section] %></td>
-	    <td class="nav"><%= link_to 'Destroy', xxx@xxx.xxx section], :confirm => 'Are you sure?', :method => :delete %></td>
-	  </tr>
-	<% end %>
-	</table>
-</div>
+		    <td class="edit"><%= link_to 'Edit', [:edit, xxx@xxx.xxx section] %></td>
+		    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx section], :confirm => 'Are you sure?', :method => :delete %></td>
+		  </tr>
+		<% end %>
+		</table>
+	</div>
+</section>

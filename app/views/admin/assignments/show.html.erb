@@ -1,58 +1,82 @@
+<%# admin assignment show %>
+
 <%= content_for :header do %>
-	<h1><%= @assignment.title %> - xxx@xxx.xxx %></h1>
-	<h2>Due <%= xxx@xxx.xxx %></h2>
+xxx@xxx.xxx %></h1>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx @section ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/edit_link' %> <% end %></li>
-	</ul>
-</div>
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx @section ), :class => "icon back" %>
+	</nav>
 
-<p>	
-	<% xxx@xxx.xxx %>
-		<span class="light">This lab is <span class="red">PASTDUE!</span></span>
-	<% else %>
-		Due in <%= xxx@xxx.xxx %>
-		<span class="light">(<%= xxx@xxx.xxx ) %>)</span>
-	<% end %>
-</p>
-<p>
-	<% xxx@xxx.xxx %>
-		<span class="green">This assignment has been graded.</span>
-	<% end %>
-</p>
 
-<p>
-	<strong>Objective:</strong>
-xxx@xxx.xxx %>
-</p>
+	<header>
+		<p>Due: <%= xxx@xxx.xxx ) %></p>
+		<h1><%= @assignment.title %> - xxx@xxx.xxx %></h1>
+	</header>
+	
 
-<table>
-	<tr><th>Requirement</th><th>Worth</th></tr>
+	<div id="details">
+		<div id="assignment_status">
+			<% xxx@xxx.xxx %>
+				<p class="reminder">Due in <%= xxx@xxx.xxx %></p>
+			<% end %>
+		</div>
+
+
+		<section id="requirements">
+			<header><h1>Requirements</h1></header>
+			<table>
 xxx@xxx.xxx do |r| %>
-		<tr>
-			<td><%= r.description %></td><td><%= r.points %></td>
-		</tr>
-	<% end %>
-	<tr class="last_row"><td xxx@xxx.xxx %> points</td></tr>
-</table>
+					<tr>
+						<td><%= r.description %></td><td><%= r.points %> pts</td>
+					</tr>
+				<% end %>
+xxx@xxx.xxx %> pts</td></tr>
+			</table>
+		</section>
+	</div>
+	
 
-<p>
-	<strong>Instructions:</strong>
-</p>
+	<article id="assignment">
+		<div id="assignment_objective">
+			<strong>Objective</strong>
+xxx@xxx.xxx %></p>
+		</div>
+	
 
-<div id="instructions">
-xxx@xxx.xxx %>
-</div>
+		<header id="instructions_header"><h1>Instructions</h1></header>
 
-<p>
-	<strong>Extras:</strong><br/>
+		<div id="instructions">
+			<%= xxx@xxx.xxx %>
+		</div>
+
+		<% xxx@xxx.xxx > 0 %>
+			<div id="extras">
+				<header><h2>Extras</h2></header>
+				<ul>
 xxx@xxx.xxx do |extra| %>
-		<p>
-			<%= link_to extra.file_file_name, extra.file.url %><br/>
-			<span class="light"><%= extra.description %></span><br/>
-		</p>
-	<% end %>
-</p>
+						<li>
+							<%= link_to extra.file.url do %>
+								<p><%= extra.description %></p>
+								<h3><%= extra.file_file_name %></h3>
+							<% end %>
+						</li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>		
+	</article>
+	
+	<nav id="resources">
+		<h1>Resources</h1>
+		<ul>
+			<li><a href="#" id="print" class="icon file">Print this Assignment</a></li>
+			<% if session[:user] %>
+				<li><%= link_to 'Edit this Assignment', xxx@xxx.xxx %></li>
+				<li><%= link_to 'Edit this Lab', xxx@xxx.xxx @assignment.lab) %></li>
+			<% end %>
+		</ul>
+	</nav>
+	
+</section>

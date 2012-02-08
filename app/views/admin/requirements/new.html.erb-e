@@ -1,20 +1,12 @@
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx @lab ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-	</ul>
-</div>
+<nav>
+		<%= link_to 'Back', xxx@xxx.xxx @lab ), :class => "icon back"%>
+	</nav>
 
 <%= xxx@xxx.xxx do |f| %>
-	<%= f.error_messages %>
+	<%= xxx@xxx.xxx %>
 	<ol>
-		<li>
-			<%= f.label :description %><br />
-			<%= f.text_field :description %>
-		</li>
-		<li>
-			<%= f.label :points %><br />
-			<%= f.text_field :points %>
-		</li>
+		<li><div class="details"><%= f.label :description %><p></p></div><div class="field"><%= f.text_field :description %></div></li>
+		<li><div class="details"><%= f.label :points %><p></p></div><div class="field"><%= f.text_field :points %></div></li>
 		<li class="submit_bar">
 			<%= f.submit "Create" %>
 		</li>

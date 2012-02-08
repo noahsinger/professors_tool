@@ -9,11 +9,11 @@
 		<h1>Admin</h1>
 	</header>
 	
-	<article id="assignment">
+	<article id="semesters">
 		<header><h1>View Semesters</h1></header>
 		<ul>
 xxx@xxx.xxx do |semester| %>
-				<li>
+			<li class="<%= "current" if semester == Semester.current %>">
 					<%= link_to admin_semester_sections_path( semester ) do %>
 						
 						<p><%= show_short_date semester.start_date %> - <%= show_short_date semester.end_date %></p>

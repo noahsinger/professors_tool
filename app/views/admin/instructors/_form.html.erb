@@ -1,53 +1,26 @@
 <%= xxx@xxx.xxx :html => {:multipart => :true}) do |f| %>
-	<%= f.error_messages %>
+<%= xxx@xxx.xxx %>
 	<ol>
-		<li>
-			<%= f.label :first_name %><br />
-			<%= f.text_field :first_name %>
-		</li>
+		<li><div class="details"><%= f.label :first_name %><p></p></div><div class="field"><%= f.text_field :first_name %></div></li>
 	
-		<li>
-			<%= f.label :last_name %><br />
-			<%= f.text_field :last_name %>
-		</li>
+		<li><div class="details"><%= f.label :last_name %><p></p></div><div class="field"><%= f.text_field :last_name %></div></li>
 	
-		<li>
-			<%= f.label :title %><br />
-			<%= f.text_field :title %>
-		</li>
+		<li><div class="details"><%= f.label :title %><p></p></div><div class="field"><%= f.text_field :title %></div></li>
 	
-		<li>
-			<%= f.label :phone_number %><br />
-			<%= f.text_field :phone_number %>
-		</li>
+		<li><div class="details"><%= f.label :phone_number %><p></p></div><div class="field"><%= f.text_field :phone_number %></div></li>
 	
-		<li>
-			<%= f.label :office_number %><br />
-			<%= f.text_field :office_number %>
-		</li>
+		<li><div class="details"><%= f.label :office_number %><p></p></div><div class="field"><%= f.text_field :office_number %></div></li>
 	
-		<li>
-			<%= f.label :office_hours %><br/>
-			<%= f.file_field :office_hours %>
-		</li>
+		<li><div class="details"><%= f.label :office_hours %><p></p></div><div class="field"><%= f.file_field :office_hours %></div></li>
 
-		<li>
-			<%= f.label :email %><br />
-			<%= f.text_field :email %>
-		</li>
+		<li><div class="details"><%= f.label :email %><p></p></div><div class="field"><%= f.text_field :email %></div></li>
 	
-		<li>
-			<%= f.label :website %><br />
-			<%= f.text_field :website %>
-		</li>
+		<li><div class="details"><%= f.label :website %><p></p></div><div class="field"><%= f.text_field :website %></div></li>
 	
-		<li>
-			<%= f.label :division %><br />
-			<%=  select( "instructor", "division_id", Division.find( :all ).collect {|s| [ s.name, s.id ] }, { :include_blank => true } ) %>
-		</li>
+		<li><div class="details"><%= f.label :division %><p></p></div><div class="field"><%=  select( "instructor", "division_id", Division.find( :all ).collect {|s| [ s.name, s.id ] }, { :include_blank => true } ) %></div></li>
 	
-		<li class="submit_bar">
-			<%= f.submit submit_name %>
+		<li class="action">
+			<div><%= f.submit submit_name %></div>
 		</li>
 	</ol>
 <% end %>

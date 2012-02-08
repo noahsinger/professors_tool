@@ -1,193 +1,57 @@
 <%= content_for :header do %>
 xxx@xxx.xxx %></h1>
-	<h4>This course has occurred <%= xxx@xxx.xxx "time" %></h4>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to admin_courses_path do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/edit_link' %> <% end %></li>
-		<li><%= link_to '<span class="text">Waiters<span class="sub">People waiting for this course</span></span>'.html_safe, xxx@xxx.xxx %></li>
-	</ul>
-</div>
-
-<p>
-xxx@xxx.xxx %>
-</p>
-
-<h4>Labs</h4>
-
-<div class="fancy">
-	<table>
-	  <tr>
-	    <th>Title</th>
-	    <th>Objective</th>
-		<th>Visible</th>
-		<th>Uploads Allowed</th>
+<section>
+	<nav>
+		<%= link_to 'Back', admin_courses_path, :class => "icon back" %>
+	</nav>
 	
-		<th></th>
-		<th></th>
-	  </tr>
-
-	<% for lab xxx@xxx.xxx %>
-	  <tr>
-	    <td class="nav"><%=link_to lab.title, xxx@xxx.xxx %></td>
-	    <td><%= lab.objective %></td>
-		<td><%= lab.visible %></td>
-		<td><%= lab.allow_uploads %></td>
-	    <td class="nav"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-	    <td class="nav"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
-	  </tr>
-	<% end %>
-	</table>
-</div>
-
-<ul class="link_bar">
-	<li><%= link_to 'New lab', xxx@xxx.xxx ) %></li>
-</ul>
-
-<h4>Materials</h4>
-
-<ul class="link_bar">
-	<li><%= link_to 'New material', xxx@xxx.xxx %></li>
-</ul>
-
-<div class="fancy">
-	<table>
-	  <tr>
-	    <th>Title</th>
-	    <th>Description</th>
-	    <th>File</th>
-
-		<th></th>
-		<th></th>
-	  </tr>
-
-	<% for material xxx@xxx.xxx %>
-	  <tr>
-	    <td class="nav"><%=link_to material.title, xxx@xxx.xxx %></td>
-	    <td><%= material.description %></td>
-	    <td class="nav"><%=link_to material.file_file_name, material.file.url %></td>
-	    <td class="nav"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-	    <td class="nav"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
-	  </tr>
-	<% end %>
-	</table>
-</div>
-
-<h4>Tutorials</h4>
-
-<div class="fancy">
-	<table>
-		<tbody id="tutorials">
-			<% for tutorial xxx@xxx.xxx %>
-			<tr id="<%= tutorial.id %>">
-				<td class="nav"><%= link_to tutorial.how_to.title, [:admin,tutorial.how_to] %></td>
-			</tr>
-			<% end %>
-		</tbody>
-	</table>
-</div>
-
-<ul class="link_bar">
-	<li><%= link_to 'Modify Tutorials', xxx@xxx.xxx ) %></li>
-</ul>
-
-<h4 id="general_information">General Information</h4>
-
-<div class="fancy hidden" id="general_information_div">
-	<table>
-		<tr>
-		  <td style="width: 200px;"><strong>Credits:</strong></td>
-		  xxx@xxx.xxx %></td>
-		</tr>
-
-		<tr>
-			<td><stong>Prerequisite:</stong></td>
+	<header>
+		<p>This course has occurred <%= xxx@xxx.xxx "time" %></p>
+xxx@xxx.xxx %></h1>
+	</header>
+	
+	<article class="course_info">
+		<div class="fancy hidden" id="general_information_div">
+			<table>
+				<tr>
+				  <td class="blank">Credits:</td>
+				  xxx@xxx.xxx %></td>
+				</tr>
+	
+				<tr>
+					<td class="blank">Prerequisite:</td>
 xxx@xxx.xxx %></td>
-		</tr>
-
-		<tr>
-			<td><stong>Next Course:</stong></td>
+				</tr>
+	
+				<tr>
+					<td class="blank">Description:</td>
 xxx@xxx.xxx %></td>
-		</tr>
-
-		<tr>
-			<td><stong>Required Materials</stong></td>
+				</tr>
+	
+				<tr>
+					<td class="blank">Next Course:</td>
 xxx@xxx.xxx %></td>
-		</tr>
-	</table>
-</div>
+				</tr>
+	
+				<tr>
+					<td class="blank">Required Materials</td>
+xxx@xxx.xxx %></td>
+				</tr>
+			</table>
+		</div>
+		
+		<ul class="actions">
+			<li><%= link_to "Edit this course", xxx@xxx.xxx %></li>
+			<li><%= link_to 'Waiters', xxx@xxx.xxx %></li>
 
-<h4 id="course_objecives">Objectives</h4>
-
-<div id="course_objecives_div" class="hidden">
-	<div class="fancy">
-		<table>
-		<% for objective xxx@xxx.xxx %>
-		  <tr>
-		    <td><%= objective.description %></td>
-		  </tr>
-		<% end %>
-		</table>
-	</div>
-
-	<ul class="link_bar">
-		<li><%= link_to 'Modify Objectives', xxx@xxx.xxx ) %></li>
-	</ul>
-</div>
-
-<h4 id="course_policies">Policies</h4>
-
-<div id="course_policies_div" class="hidden">
-	<div class="fancy">
-		<table id="policies">
-			<tbody>
-				<% for policy xxx@xxx.xxx %>
-					<tr id="<%= policy.id %>">
-						<td><%= policy.syllabus_part.name %></td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
-
-	<ul class="link_bar">
-		<li><%= link_to "Modify Policies", xxx@xxx.xxx ) %></li>
-	</ul>
-</div>
-
-<h4 id="course_books">Books</h4>
-
-<div id="course_books_div" class="hidden">
-	<div class="fancy">
-		<table>
-		  <tr>
-		    <th>Title</th>
-		    <th>Author</th>
-		    <th>Publisher</th>
-		    <th>Isbn</th>
-		    <th>Required</th>
-
-			<th></th>
-			<th></th>
-		  </tr>
-
-		<% for book xxx@xxx.xxx %>
-		  <tr>
-		    <td class="nav"><%=link_to book.title, xxx@xxx.xxx %></td>
-		    <td><%= book.author %></td>
-		    <td><%= book.publisher %></td>
-		    <td><%= book.isbn %></td>
-		    <td><%= book.required %></td>
-		    <td class="nav"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-		    <td class="nav"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
-		  </tr>
-		<% end %>
-		</table>
-	</div>
-
-	<ul class="link_bar">
-		<li><%= link_to 'New book', xxx@xxx.xxx %></li>
-	</ul>
-</div>
+			<li><%= link_to 'Labs', xxx@xxx.xxx %></li>
+			<li><%= link_to 'Materials', xxx@xxx.xxx %></li>
+			<li><%= link_to 'Tutorials', xxx@xxx.xxx %></li>
+			<li><%= link_to 'Objectives', xxx@xxx.xxx %></li>
+			<li><%= link_to 'Policies', xxx@xxx.xxx %></li>
+			<li><%= link_to 'Books', xxx@xxx.xxx %></li>
+		</ul>
+	</article>
+</section>

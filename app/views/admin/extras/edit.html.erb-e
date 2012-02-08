@@ -1,27 +1,35 @@
 <%= content_for :header do %>
+	<h1>Edit Extra</h1>
+<% end %>
+
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back"%>
+	</nav>
+	
+	<header>
+xxx@xxx.xxx %></p>
 xxx@xxx.xxx %></h1>
-	<h2>for xxx@xxx.xxx %></h2>
-<% end %>
+	</header>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-	</ul>
-</div>
-
-<%= xxx@xxx.xxx :html => {:multipart => true}) do |f| %>
-	<%= f.error_messages %>
-	<ol>
-		<li>
-			<%= f.label :file %><br />
-			<%= f.file_field :file %>
-		</li>
-		<li>
-			<%= f.label :description %><br />
-			<%= f.text_field :description %>
-		</li>
-		<li class="submit_bar">
-			<%= f.submit "Update" %>
-		</li>
-	</ol>
-<% end %>
+	<%= xxx@xxx.xxx :html => {:multipart => true}) do |f| %>
+		<%= xxx@xxx.xxx %>
+		<ol>
+			<li>
+				<div class="details">
+					<%= f.label :file %>
+					<p>Choose the file to upload</p>
+				</div>
+				<div class="file field">
+					<span class="prompt">Click to Browse</span>
+					<%= f.file_field :file %>
+				</div>
+				<div class="filename"></div>
+			</li>
+			<li><div class="details"><%= f.label :description %><p></p></div><div class="field"><%= f.text_field :description %></div></li>
+			<li class="action">
+				<div><%= f.submit "Create" %></div>
+			</li>
+		</ol>
+	<% end %>
+</section>

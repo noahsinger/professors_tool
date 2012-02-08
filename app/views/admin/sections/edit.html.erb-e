@@ -1,15 +1,20 @@
 <%= content_for :header do %>
-	<h1><%= @section.course.title %> xxx@xxx.xxx %>)</h1>
-xxx@xxx.xxx %></h2>
-	<h4><%= show_time(@section.start_time) %> - <%= xxx@xxx.xxx %></h4>
+	<h1>Edit Section</h1>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx ) do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-		<li><%= link_to xxx@xxx.xxx @section] do %> <%= render :partial => 'shared/show_link' %> <% end %></li>
-	</ul>
-</div>
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx ), :class => "icon back" %>
+	</nav>
+	
+	<header>
+		<p>
+xxx@xxx.xxx %>
+			<%= show_time(@section.start_time) %> - <%= xxx@xxx.xxx %>
+		</p>
+		<h1><%= @section.course.title %> <span xxx@xxx.xxx %>)</span></h1>
+	</header>
+	
+	<%= render :partial xxx@xxx.xxx :locals => {:button_name => 'Update'} %>
 
-<%= render :partial xxx@xxx.xxx :locals => {:button_name => 'Update'} %>
-
+</section>

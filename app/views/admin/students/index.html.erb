@@ -3,11 +3,9 @@
 	<h4>Listing All</h4>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to '/admin' do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-	</ul>
-</div>
+<nav>
+		<li><%= link_to 'Back', '/admin', :class => "icon back" %></li>
+	</nav>
 
 <div class="fancy">
 	<table>

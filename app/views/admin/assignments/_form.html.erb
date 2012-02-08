@@ -1,20 +1,35 @@
 <%= xxx@xxx.xxx do |f| %>
-  <%= f.error_messages %>
+	<%= xxx@xxx.xxx %>
 	<ol>
 		<li>
-			<%= f.label :title %><br />
-			<%= f.text_field :title %>
+			<div class="details">
+				<%= f.label :title %>
+				<p>Assignment title?</p>
+			</div>
+			
+			<div class="field"><%= f.text_field :title %></div>
 		</li>
+		
 		<li>
-			<%= f.label :duedate %><br />
-			<%= f.datetime_select :duedate, {:default => 14.days.from_now} %>
+			<div class="details">
+				<%= f.label :duedate %>
+				<p>When is it due?</p>
+			</div>
+			
+			<div class="field"><%= f.datetime_select :duedate, {:default => 14.days.from_now} %></div>
 		</li>
+		
 		<li>
-			<%= f.label :lab %><br />
-			<%= f.collection_select( :lab_id, Lab.find( :all, :conditions => ['course_id = xxx@xxx.xxx ), :id, :title, :include_blank => true ) %>
+			<div class="details">
+				<%= f.label :lab %>
+				<p>What lab is this?</p>
+			</div>
+	
+			<div class="field"><%= f.collection_select( :lab_id, Lab.find( :all, :conditions => ['course_id = xxx@xxx.xxx ), :id, :title, :include_blank => true ) %></div>
 		</li>
-		<li class="submit_bar">
-			<%= f.submit submit_name %>
+		
+		<li class="action">
+			<div><%= f.submit submit_name %></div>
 		</li>
 	</ol>
 <% end %>

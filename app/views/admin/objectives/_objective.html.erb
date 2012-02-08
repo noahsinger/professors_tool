@@ -1,9 +1,5 @@
-<li>
-	<div class="top_half">
-		<p><%= objective.description %></p>
-	</div>
-	<div class="bottom_half">
-		<%= link_to 'Edit', xxx@xxx.xxx %>
-		<%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %>
-	</div>
-</li>
+<tr>
+	<td><%= objective.description %></td>
+	<td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
+	<td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>

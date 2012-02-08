@@ -10,11 +10,11 @@ class StudentHomeworkTest < ActionDispatch::IntegrationTest
     student = section.enrollments.first.student
     
     visit new_semester_section_assignment_work_path(semester,section,assignment)
-    fill_in("Email", :with => students(:stew).email)
-    attach_file("Upload", "#{fixture_path}/files/file.zip")
+    fill_in("work_email", :with => students(:stew).email)
+    attach_file("work_upload", "#{fixture_path}/files/file.zip")
     
     assert_difference("Work.count") do
-      click_on("Upload")
+      click_on("Submit Solution")
     end
     
     assert_equal students(:stew).enrollments.first, Work.last.enrollment
@@ -31,11 +31,11 @@ class StudentHomeworkTest < ActionDispatch::IntegrationTest
     student = section.enrollments.first.student
     
     visit new_semester_section_assignment_work_path(semester,section,assignment)
-    fill_in("Email", :with => xxx@xxx.xxx
-    attach_file("Upload", "#{fixture_path}/files/file.zip")
+    fill_in("work_email", :with => xxx@xxx.xxx
+    attach_file("work_upload", "#{fixture_path}/files/file.zip")
     
     assert_difference("Work.count") do
-      click_on("Upload")
+      click_on("Submit Solution")
     end
     
     assert_equal nil, Work.last.enrollment

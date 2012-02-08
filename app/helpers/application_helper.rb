@@ -1,4 +1,26 @@
 module ApplicationHelper
+  def show_error_messages_for( model )
+    output = ""
+    
+    if model.errors.any?
+      output += "<div id=\"error_explanation\">"
+      output += "<h2>#{pluralize(model.errors.count, "error")} prohibited this #{model.class.name} from being saved:</h2>"
+
+      output += "<ul>"
+      model.errors.full_messages.each do |msg|
+        output += "<li>#{msg}</li>"
+      end
+      output += "</ul>"
+      output += "</div>"
+    end
+    
+    output.html_safe
+  end
+  
+  def admin?
+    controller.class.name.split("::").first=="Admin"
+  end
+  
   def show_time datetime
     datetime.strftime '%I:%M %p'
   end

@@ -1,14 +1,8 @@
 <%= xxx@xxx.xxx do |f| %>
-  <%= f.error_messages %>
+  <%= xxx@xxx.xxx %>
 	<ol>
-		<li>
-			<%= f.label :username %><br />
-			<%= f.text_field :username %>
-		</li>
-		<li>
-			<%= f.label :password %><br />
-			<%= f.text_field :password %>
-		</li>
+		<li><div class="details"><%= f.label :username %><p></p></div><div class="field"><%= f.text_field :username %></div></li>
+		<li><div class="details"><%= f.label :password %><p></p></div><div class="field"><%= f.text_field :password %></div></li>
 		<li class="submit_bar">
 			<%= f.submit "Update" %>
 		</li>

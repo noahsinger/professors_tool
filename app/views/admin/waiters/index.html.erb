@@ -1,29 +1,32 @@
 <%= content_for :header do %>
-	<h1>Waiters for</h1>
-xxx@xxx.xxx %></h4>
+	<h1>Waiters</h1>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-	</ul>
-</div>
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx class: "icon back" %>
+	</nav>
 
-<div class="fancy">
-	<table>
-	  <tr>
-	    <th>Email</th>
-	    <th></th>
-	    <th></th>
-	    <th></th>
-	  </tr>
+	<header>
+		<p>Waiters for</p>
+xxx@xxx.xxx %></h1>
+	</header>
+
+	<div class="fancy">
+		<table>
+		  <tr>
+		    <th>Email</th>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		  </tr>
 
 xxx@xxx.xxx do |waiter| %>
-		  <tr>
-		    <td><%= waiter.email %></td>
-		    <td><%= link_to 'Show', xxx@xxx.xxx %></td>
-		    <td><%= link_to 'Destroy', xxx@xxx.xxx waiter], confirm: 'Are you sure?', method: :delete %></td>
-		  </tr>
-		<% end %>
-	</table>
-</div>
+			  <tr>
+			    <td><%= mail_to waiter.email %></td>
+			    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx waiter], confirm: 'Are you sure?', method: :delete %></td>
+			  </tr>
+			<% end %>
+		</table>
+	</div>
+</section>

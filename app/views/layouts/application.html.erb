@@ -18,7 +18,7 @@
 	<%= stylesheet_link_tag 'application', :media => :all %>
 	<%= csrf_meta_tag %>
 </head>
-<body id="<%= controller_name %>_<%= action_name %>">
+<body id="<%= controller_name %>_<%= action_name %>" class="<%= admin? ? "admin": "student" %>">
 	<div id="page">
 		<header>
 			<div id="title"><%= link_to 'Ingeni<span>o.</span>us'.html_safe, root_path %></div>
@@ -33,10 +33,11 @@
 			</ul>
 		</noscript>
 		
-		<%= render :partial => 'shared/messages' %>
+		
 
 		<div id="outer_container">
 			<div id="inner_container">
+				<%= render :partial => 'shared/messages' %>
 				<%= yield  %>
 			</div>
 		</div>

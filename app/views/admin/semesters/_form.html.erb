@@ -1,15 +1,9 @@
 <%= xxx@xxx.xxx do |f| %>
-  <%= f.error_messages %>
+  <%= xxx@xxx.xxx %>
 	<ol>
-		<li>
-			<%= f.label :year %><br />
-			<%= f.text_field :year %>
-		</li>
+		<li><div class="details"><%= f.label :year %><p></p></div><div class="field"><%= f.text_field :year %></div></li>
 
-		<li>
-			<%= f.label :season %><br />
-			<%= f.text_field :season %>
-		</li>
+		<li><div class="details"><%= f.label :season %><p></p></div><div class="field"><%= f.text_field :season %></div></li>
 
 		<li>
 			<div style="float: left; margin-right: 20px;">
@@ -25,8 +19,8 @@
 			<div class="clear"></div>
 		</li>
 		
-		<li class="submit_bar">
-			<%= f.submit submit_text %>
+		<li class="action">
+			<div><%= f.submit submit_text %></div>
 		</li>
 	</ol>
 <% end %>

@@ -1,24 +1,12 @@
 <%= xxx@xxx.xxx do |f| %>
-	<%= f.error_messages %>
+<%= xxx@xxx.xxx %>
 	<ol>
-		<li>
-			<%= f.label :name %><br />
-			<%= f.text_field :name %>
-		</li>
-		<li>
-			<%= f.label :office_number %><br />
-			<%= f.text_field :office_number %>
-		</li>
-		<li>
-			<%= f.label :phone_number %><br />
-			<%= f.text_field :phone_number %>
-		</li>
-		<li>
-			<%= f.label :associate_dean %><br />
-			<%= f.text_field :associate_dean %>
-		</li>
-		<li class="submit_bar">
-			<%= f.submit submit_name %>
+		<li><div class="details"><%= f.label :name %><p></p></div><div class="field"><%= f.text_field :name %></div></li>
+		<li><div class="details"><%= f.label :office_number %><p></p></div><div class="field"><%= f.text_field :office_number %></div></li>
+		<li><div class="details"><%= f.label :phone_number %><p></p></div><div class="field"><%= f.text_field :phone_number %></div></li>
+		<li><div class="details"><%= f.label :associate_dean %><p></p></div><div class="field"><%= f.text_field :associate_dean %></div></li>
+		<li class="action">
+			<div><%= f.submit submit_name %></div>
 		</li>
 	</ol>
 <% end %>

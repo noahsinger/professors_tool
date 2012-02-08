@@ -1,91 +1,101 @@
 <%= content_for :header do %>
 xxx@xxx.xxx %></h1>
-	<h2>for xxx@xxx.xxx %></h2>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/edit_link' %> <% end %></li>
-	</ul>
-</div>
-
-<h4>Visible:</h4>
-<p>
-xxx@xxx.xxx %>
-</p>
-
-<h4>Allow Uploads:</h4> 
-<p>
-xxx@xxx.xxx %>
-</p>
-
-<h4>Objective:</h4>
-<p>
-  xxx@xxx.xxx %>
-</p>
-
-<h4>Requirements:</h4>
-<div class="fancy">
-	<table id="requirements">
-		<% for requirement xxx@xxx.xxx %>
-			<%= render :partial => requirement %>
-		<% end %>
-		<tr class="last_row">
-			<td class="total">Total:</td>
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+	</nav>
+	
+	<header>
+		<p>for xxx@xxx.xxx %></p>
+xxx@xxx.xxx %></h1>
+	</header>
+	
+	<div id="details">
+		<section id="requirements">
+			<header><h1>Information</h1></header>
+			<table>
+				<tr>
 xxx@xxx.xxx %></td>
-			<td></td>
-			<td></td>
-		</tr>
-	</table>
-</div>
+				</tr>
+				<tr>
+					<td>Allow xxx@xxx.xxx %></td>
+				</tr>
+				<tr>
+					<td>Assigned</td>
+					<td><%= xxx@xxx.xxx "time" %></td>
+				</tr>
+			</table>
+			
+			<br/>
+			<header><h1>Requirements</h1></header>
+			<div class="">
+				<table id="requirements_table">
+					<% for requirement xxx@xxx.xxx %>
+						<%= render :partial => requirement %>
+					<% end %>
+					<tr class="last_row">
+						<td class="total">Total:</td>
+xxx@xxx.xxx %></td>
+						<td class="blank"></td>
+						<td class="blank"></td>
+					</tr>
+				</table>
+			</div>
 
-<h4>Add a Requirement</h4>
-<%= xxx@xxx.xxx do |f| %>
-	<%= f.error_messages %>
-	<ol>
-		<li>
-			<%= f.label :description %><br />
-			<%= f.text_field :description %>
-		</li>
-		<li>
-			<%= f.label :points %><br />
-			<%= f.text_field :points %>
-		</li>
-		<li class="submit_bar">
-			<%= f.submit "Create" %>
-		</li>
-	</ol>
-<% end %>
+			<br/>
+			<header><h1>Add a Requirement</h1></header>
+			<%= xxx@xxx.xxx do |f| %>
+				<ol>
+					<li><div class="field"><%= f.text_field :description, :placeholder => "Description" %></div></li>
+					<li><div class="field"><%= f.text_field :points, :placeholder => "Points" %></div></li>
+					<li class="action">
+						<div><%= f.submit "Create" %></div>
+					</li>
+				</ol>
+			<% end %>
+			
+		</section>
+	</div>
+	
+	
+	<article id="assignment">
+		<div id="assignment_objective">
+			<strong>Objective</strong>
+xxx@xxx.xxx %></p>
+		</div>
+	
 
+		<header id="instructions_header"><h1>Instructions</h1></header>
 
-<!-- <ul class="link_bar"> -->
-	<!-- <li><%= link_to 'New requirement', xxx@xxx.xxx @lab ) %></li> -->
-<!-- </ul> -->
+		<div id="instructions">
+			<%= xxx@xxx.xxx %>
+		</div>
 
-<div class="clear"></div>
-
-<h4>Instructions:</h4>
-<div id="instructions">
-xxx@xxx.xxx %>
-</div>
-
-<h4>Lab Extras</h4>
-
-<div class="fancy">
-	<table>
-	<% for extra xxx@xxx.xxx %>
-	  <tr>
-	    <td class="nav"><%=link_to extra.file_file_name, extra.file.url %></td>
-	    <td><%= extra.description %></td>
-	    <td class="nav"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-	    <td class="nav"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
-	  </tr>
-	<% end %>
-	</table>
-</div>
-
-<ul class="link_bar">
-	<li><%= link_to 'New extra', xxx@xxx.xxx %></li>
-</ul>
-
+		<% xxx@xxx.xxx > 0 %>
+			<div id="extras">
+				<header><h2>Extras</h2></header>
+				<div class="fancy">
+					<table>
+					<% for extra xxx@xxx.xxx %>
+					  <tr>
+					    <td class="nav"><%=link_to extra.file_file_name, extra.file.url %></td>
+					    <td><%= extra.description %></td>
+					    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
+					    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
+					  </tr>
+					<% end %>
+					</table>
+				</div>
+			</div>
+		<% end %>		
+	</article>
+	
+	<nav id="resources">
+		<ul>
+			<li><%= link_to "Edit this Lab", xxx@xxx.xxx %></li>
+			<li><%= link_to 'Add an extra', xxx@xxx.xxx %></li>
+		</ul>
+	</nav>
+</section>

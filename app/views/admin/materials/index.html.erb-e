@@ -1,29 +1,39 @@
+<%= content_for :header do %>
+xxx@xxx.xxx %></h1>
+<% end %>
 
-
-<div class="nav">
-	<ul class="nav">	
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/back_link' %> <% end %></li>
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/new_link' %> <% end %></li>
+<section>
+	<nav>	
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+	</nav>
+	
+	<header>
+		<p>Materials for</p>
+xxx@xxx.xxx %></h1>
+	</header>
+	
+	<ul class="actions">
+		<li><%= link_to "New Material", xxx@xxx.xxx %></li>
 	</ul>
-</div>
 
-<div class="fancy">
-	<table>
-	  <tr>
-	    <th>Title</th>
-	    <th>Description</th>
-	    <th>File</th>
-	  </tr>
+	<div class="fancy">
+		<table>
+		  <tr>
+		    <th>Title</th>
+		    <th>Description</th>
+		    <th>File</th>
+		  </tr>
 
-	<% for material xxx@xxx.xxx %>
-	  <tr>
-	    <td><%= material.title %></td>
-	    <td><%= material.description %></td>
-	    <td><%= material.file %></td>
-	    <td><%= link_to 'Show', xxx@xxx.xxx %></td>
-	    <td><%= link_to 'Edit', xxx@xxx.xxx %></td>
-	    <td><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
-	  </tr>
-	<% end %>
-	</table>
-</div>
+		<% for material xxx@xxx.xxx %>
+		  <tr>
+		    <td><%= material.title %></td>
+		    <td><%= material.description %></td>
+		    <td><%= material.file %></td>
+		    <td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>
+		    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
+		    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
+		  </tr>
+		<% end %>
+		</table>
+	</div>
+</section>

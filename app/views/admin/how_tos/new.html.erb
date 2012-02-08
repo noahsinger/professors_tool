@@ -1,30 +1,27 @@
 <%= content_for :header do %>
 	<h1>How to's</h1>
-	<h4>create new</h4>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
+<section>
+	<nav>
 		<% if session[:referrer] %>
-			<li><%= link_to 'Back', session[:referrer] %></li>
+			<%= link_to 'Back', session[:referrer], class: "icon back" %>
 		<% end %>
-	</ul>
-</div>
+	</nav>
 
-<%= xxx@xxx.xxx do |f| %>
-	<%= f.error_messages %>
-	<ol>
-		<li>
-			<%= f.label :title %><br />
-			<%= f.text_field :title %>
-		</li>
-		<li>
-			<%= f.label :description %><br />
-			<%= f.text_area :description %>
-		</li>
-		<li class="submit_bar">
-			<%= f.submit "Create" %>
-		</li>
-	</ol>
-<% end %>
+	<header>
+		<p>How to's</p>
+		<h1>Create a New How to</h1>
+	</header>
 
+	<%= xxx@xxx.xxx do |f| %>
+	<%= xxx@xxx.xxx %>
+		<ol>
+			<li><div class="details"><%= f.label :title %><p></p></div><div class="field"><%= f.text_field :title %></div></li>
+			<li class="textarea"><div class="details"><%= f.label :description %><p></p></div><div class="field"><%= f.text_area :description %></div></li>
+			<li class="action">
+				<div><%= f.submit "Create" %></div>
+			</li>
+		</ol>
+	<% end %>
+</section>

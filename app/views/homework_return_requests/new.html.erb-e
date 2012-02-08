@@ -16,7 +16,7 @@ xxx@xxx.xxx %></h1>
 	
 	<%= xxx@xxx.xxx do |f| %>
 		<h1>Complete the Form</h1>
-		<%= error_messages_for :homework_return_request %>
+		<%= xxx@xxx.xxx %>
 		<ol>
 			<li>
 				<div class="details">

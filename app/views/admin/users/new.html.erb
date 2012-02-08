@@ -3,10 +3,8 @@
 	<h4>create new</h4>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
+<nav>
 		<li><%= link_to admin_users_path do %> <%= render :partial => "shared/back_link" %> <% end %></li>
-	</ul>
-</div>
+	</nav>
 
 <%= render :partial => "form", :locals => {:submit_name => 'Create'} %>

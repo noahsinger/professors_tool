@@ -1,58 +1,98 @@
 <%= xxx@xxx.xxx do |f| %>
-	<%= f.error_messages %>
+<%= xxx@xxx.xxx %>
 	<ol>
 		<li>
-			<%= f.label :course %><br />
-			<%=  select( "section", "course_id", Course.find( :all ).collect {|s| [ s.title, s.id ] }, { :include_blank => true } ) %>
+			<div class="details">
+				<%= f.label :course %>
+				<p>Course this section belongs to</p>
+			</div>
+			
+			<div class="field"><%=  select( "section", "course_id", Course.find( :all ).collect {|s| [ s.title, s.id ] }, { :include_blank => true } ) %></div>
 		</li>
 	
 		<li>
-			<%= f.label :call_number %><br />
-			<%= f.text_field :call_number, {:size => '5', :maxlength => '5'} %>
+			<div class="details">
+				<%= f.label :call_number %>
+				<p>This section's call number</p>
+			</div>
+			
+			<div class="field"><%= f.text_field :call_number, {:size => '5', :maxlength => '5'} %></div>
 		</li>
 	
 		<li>
-			<%= f.label :section_number %><br />
-			<%= f.text_field :section_number, {:size => '3', :maxlength => '3'} %>
+			<div class="details">
+				<%= f.label :section_number %>
+				<p>This sections number</p>
+			</div>
+			
+			<div class="field"><%= f.text_field :section_number, {:size => '3', :maxlength => '3'} %></div>
 		</li>
 	
 		<li>
-			<%= f.label :room_number %><br/>
-			<%= f.text_field :room_number %>
+			<div class="details">
+				<%= f.label :room_number %>
+				<p>Where does it meet?</p>
+			</div>
+			
+			<div class="field"><%= f.text_field :room_number %></div>
 		</li>
 	
 		<li>
-			<%= f.label :meeting_days %><br />
-			<%= f.text_field :meeting_days, {:size => '5', :maxlength => '5'} %>
+			<div class="details">
+				<%= f.label :meeting_days %>
+				<p>On what days?</p>
+			</div>
+			
+			<div class="field"><%= f.text_field :meeting_days, {:size => '5', :maxlength => '5'} %></div>
 		</li>
 	
 		<li>
-			<%= f.label :start_time %><br />
-			<%= f.time_select :start_time %>
+			<div class="details">
+				<%= f.label :start_time %>
+				<p>What time does it start?</p>
+			</div>
+			
+			<div class="field"><%= f.time_select :start_time %></div>
 		</li>
 	
 		<li>
-			<%= f.label :end_time %><br />
-			<%= f.time_select :end_time %>
+			<div class="details">
+				<%= f.label :end_time %>
+				<p>What time does it end?</p>
+			</div>
+			
+			<div class="field"><%= f.time_select :end_time %></div>
 		</li>
 
 		<li>
-			<%= f.label :start_date %>
-			<%= f.date_select :start_date %>
+			<div class="details">
+				<%= f.label :start_date %>
+				<p>What date does it start on?</p>
+			</div>
+			
+			<div class="field"><%= f.date_select :start_date %></div>
 		</li>
 
 		<li>
-			<%= f.label :end_date %>
-			<%= f.date_select :end_date, :default => 16.weeks.from_now %>
+			<div class="details">
+				<%= f.label :end_date %>
+				<p>What date does it end on?</p>
+			</div>
+			
+			<div class="field"><%= f.date_select :end_date, :default => 16.weeks.from_now %></div>
 		</li>
 
 		<li>
-			<%= f.label :instructor %><br />
-			<%=  select( "section", "instructor_id", Instructor.find( :all ).collect {|s| [ s.last_name + ", " + s.first_name, s.id ] }, { :include_blank => false } ) %>
+			<div class="details">
+				<%= f.label :instructor %>
+				<p>Who's teaching it?</p>
+			</div>
+			
+			<div class="field"><%=  select( "section", "instructor_id", Instructor.find( :all ).collect {|s| [ s.last_name + ", " + s.first_name, s.id ] }, { :include_blank => false } ) %></div>
 		</li>
 	
-		<li class="submit_bar">
-			<%= f.submit button_name %>
+		<li class="action">
+			<div><%= f.submit button_name %></div>
 		</li>
 	</ol>
 <% end %>
