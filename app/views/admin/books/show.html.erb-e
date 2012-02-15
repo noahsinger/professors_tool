@@ -1,29 +1,42 @@
 <%= content_for :header do %>
 xxx@xxx.xxx %></h1>
-	<h2>A book for xxx@xxx.xxx %></h2>
 <% end %>
 
-<nav>
+<section>
+	<nav>
 		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => 'shared/edit_link' %> <% end %></li>
 	</nav>
 
-<p>
-  <strong>Author:</strong>
-  xxx@xxx.xxx %>
-</p>
+	<header>
+xxx@xxx.xxx %></p>
+xxx@xxx.xxx %></h1>
+	</header>
+	
+	<ul class="actions">
+		<li><%= link_to "Edit this Book", xxx@xxx.xxx %></li>
+	</ul>
 
-<p>
-  <strong>Publisher:</strong>
-  xxx@xxx.xxx %>
-</p>
-
-<p>
-  <strong>Isbn:</strong>
-  xxx@xxx.xxx %>
-</p>
-
-<p>
-  <strong>Required:</strong>
-  xxx@xxx.xxx %>
-</p>
+	<div class="fancy">
+		<table>
+			<tr>
+			  <td class="blank">Author:</td>
+			  xxx@xxx.xxx %></td>
+			</tr>
+		
+			<tr>
+			  <td class="blank">Publisher:</td>
+			  xxx@xxx.xxx %></td>
+			</tr>
+		
+			<tr>
+			  <td class="blank">Isbn:</td>
+			  xxx@xxx.xxx %></td>
+			</tr>
+		
+			<tr>
+			  <td class="blank">Required:</td>
+			  xxx@xxx.xxx %></td>
+			</tr>
+		</table>
+	</div>
+</section>

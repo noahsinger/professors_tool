@@ -30,7 +30,7 @@ class Admin::LabsControllerTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to admin_course_path(assigns(:course))
+    assert_redirected_to admin_course_lab_path(assigns(:course),assigns(:lab))
   end
 
   def test_should_show_lab
@@ -53,7 +53,7 @@ class Admin::LabsControllerTest < ActionController::TestCase
       :instructions => 'do a great many things that will be very interesting'
     }
 
-    assert_redirected_to admin_course_path(assigns(:course))
+    assert_redirected_to admin_course_lab_path(assigns(:course),assigns(:lab))
   end
 
   def test_should_destroy_lab
@@ -61,6 +61,6 @@ class Admin::LabsControllerTest < ActionController::TestCase
       delete :destroy, :id => labs(:hello_world).id, :course_id => courses(:intro_to_jackassery).id
     end
 
-    assert_redirected_to admin_course_path(assigns(:course))
+    assert_redirected_to admin_course_labs_path(assigns(:course))
   end
 end

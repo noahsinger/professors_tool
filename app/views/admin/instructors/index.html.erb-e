@@ -1,36 +1,45 @@
 <%= content_for :header do %>
 	<h1>Instructors</h1>
-	<h4>Listing all</h4>
 <% end %>
 
-<nav>
-		<li><%= link_to '/admin' do %> <%= render :partial => "shared/back_link" %> <% end %></li>
-		<li><%= link_to new_admin_instructor_path do %> <%= render :partial => "shared/new_link" %> <% end %></li>
+<section>
+	<nav>
+		<%= link_to "Back", '/admin', class: "icon back" %>
 	</nav>
+	
+	<header>
+		<p>Listing all</p>
+		<h1>Instructors</h1>
+	</header>
+	
+	<ul class="actions">
+		<li><%= link_to "Add a New Instructor", new_admin_instructor_path %></li>
+	</ul>
 
-<div class="fancy">
-	<table>
-	  <tr>
-	    <th>Name</th>
-	    <th>Title</th>
-	    <th>Email</th>
-	    <th>Division</th>
+	<div class="fancy">
+		<table>
+		  <tr>
+		    <th>Name</th>
+		    <th>Title</th>
+		    <th>Email</th>
+		    <th>Division</th>
 
-		<th></th>
-		<th></th>
-		<th></th>
-	  </tr>
+			<th></th>
+			<th></th>
+			<th></th>
+		  </tr>
 
-	<% for instructor xxx@xxx.xxx %>
-	  <tr>
-	    <td><%= instructor.last_name %>, <%= instructor.first_name %></td>
-	    <td><%= instructor.title %></td>
-	    <td><%= instructor.email %></td>
-	    <td><%= instructor.division.name %></td>
-	    <td class="nav"><%= link_to 'Show', [:admin,instructor] %></td>
-	    <td class="nav"><%= link_to 'Edit', edit_admin_instructor_path(instructor) %></td>
-	    <td class="nav"><%= link_to 'Destroy', [:admin,instructor], :confirm => 'Are you sure?', :method => :delete %></td>
-	  </tr>
-	<% end %>
-	</table>
-</div>
+		<% for instructor xxx@xxx.xxx %>
+		  <tr>
+		    <td><%= instructor.last_name %>, <%= instructor.first_name %></td>
+		    <td><%= instructor.title %></td>
+		    <td><%= instructor.email %></td>
+		    <td><%= instructor.division.name %></td>
+		    <td class="show"><%= link_to 'Show', [:admin,instructor] %></td>
+		    <td class="edit"><%= link_to 'Edit', edit_admin_instructor_path(instructor) %></td>
+		    <td class="destroy"><%= link_to 'Destroy', [:admin,instructor], :confirm => 'Are you sure?', :method => :delete %></td>
+		  </tr>
+		<% end %>
+		</table>
+	</div>
+</section>

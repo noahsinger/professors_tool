@@ -1,22 +1,31 @@
 <%= xxx@xxx.xxx do |f| %>
-  <%= xxx@xxx.xxx %>
+	<%= xxx@xxx.xxx %>
 	<ol>
+		<li><div class="details"><%= f.label :season %><p></p></div><div class="field"><%= f.text_field :season %></div></li>
+		
 		<li><div class="details"><%= f.label :year %><p></p></div><div class="field"><%= f.text_field :year %></div></li>
 
-		<li><div class="details"><%= f.label :season %><p></p></div><div class="field"><%= f.text_field :season %></div></li>
-
-		<li>
-			<div style="float: left; margin-right: 20px;">
-				<%= f.label :start_date %><br />
+		<li class="datepicker">
+			<div class="details">
+				<%= f.label :start_date %>
+				<p>Select the starting date for the semester</p>
+			</div>
+			
+			<div class="field jquery_datepicker">
 				<%= f.hidden_field :start_date %>
 				<div id="startdatepicker" class="datepicker jqueryui"></div>
 			</div>
-			<div style="float: left;">
-				<%= f.label :end_date %><br />
+		</li>
+		
+		<li class="datepicker">
+			<div class="details">
+				<%= f.label :end_date %>
+				<p>Select the ending date for the semester</p>
+			</div>
+			<div class="field jquery_datepicker">
 				<%= f.hidden_field :end_date %>
 				<div id="enddatepicker" class="datepicker jqueryui"></div>
 			</div>
-			<div class="clear"></div>
 		</li>
 		
 		<li class="action">

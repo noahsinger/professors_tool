@@ -1,41 +1,52 @@
 <%= content_for :header do %>
 	<h1>Grade Requests</h1>
-	<h4>All grade requests made</h4>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to '/admin' do %> <%= render :partial => "shared/back_link" %> <% end %></li>
-		<li><%= link_to '<span class="text">Clear All</span><span class="icon">&euro;</span>'.html_safe, destroy_all_admin_grade_requests_path, :confirm => 'Are you sure?', :method => :delete %></li>
+<section>
+	<nav>
+		<%= link_to "Back", '/admin', class: "icon back" %>
+	</nav>
+
+	<header>
+		<p>Listing all</p>
+		<h1>Grade Requests</h1>
+	</header>
+
+	<ul class="actions">
+		<li><%= link_to 'Clear All', destroy_all_admin_grade_requests_path, :confirm => 'Are you sure?', :method => :delete %></li>
 	</ul>
-</div>
 
-<div class="fancy">
-	<table>
-		<tr>
-			<th>Section</th>
-			<th>Enrollment</th>
-			<th>Email</th>
-			<th>Created At</th>
-		</tr>
-
-		<% for grade_request xxx@xxx.xxx %>
-			<% if grade_request.status == "denied" %>
-				<tr class="red_bg">
-			<% else %>
-				<tr>
-			<% end %>
-				<td><%= grade_request.section.course.title %></td>
-				<%- if grade_request.enrollment -%>
-					<td><%= grade_request.enrollment.student.last_name %>, <%= grade_request.enrollment.student.first_name %></td>
-				<%- else -%>
-					<td></td>
-				<%- end -%>
-				<td><%= grade_request.email %></td>
-				<td><%=show_short_date grade_request.created_at %> @ <%= show_time grade_request.created_at %></td>
-				<td><%= link_to 'Show', [:admin,grade_request] %></td>
-				<td><%= link_to 'Destroy', [:admin,grade_request], :confirm => 'Are you sure?', :method => :delete %></td>
+	<div class="fancy">
+		<table>
+			<tr>
+				<th></th>
+				<th>Section</th>
+				<th>Enrollment</th>
+				<th>Email</th>
+				<th>Created At</th>
 			</tr>
-		<% end %>
-	</table>
-</div>
+
+			<% for grade_request xxx@xxx.xxx %>
+				<tr>
+					<td class="status">
+						<% if grade_request.status == "denied" %>
+							<%= image_tag 'circle_red.png', :style => "width: 20px" %>
+						<% else %>
+							<%= image_tag 'circle_green.png', :style => "width: 20px" %>
+						<% end %>
+					</td>
+		
+					<td><%= grade_request.section.course.title %></td>
+					<%- if grade_request.enrollment -%>
+						<td><%= grade_request.enrollment.student.last_name %>, <%= grade_request.enrollment.student.first_name %></td>
+					<%- else -%>
+						<td>Unknown</td>
+					<%- end -%>
+					<td><%= mail_to grade_request.email %></td>
+					<td><%=show_short_date grade_request.created_at %> @ <%= show_time grade_request.created_at %></td>
+					<td class="destroy"><%= link_to 'Destroy', [:admin,grade_request], :confirm => 'Are you sure?', :method => :delete %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</section>

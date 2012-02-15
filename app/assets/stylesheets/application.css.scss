@@ -4,6 +4,7 @@
 *= require print
 *= require highlighter
 *= require_self 
+*= require media_queries
 */
 
 @import 'grid';
@@ -12,8 +13,10 @@
 
 //$page-width: 960px;
 $page-width: 100%; // 960px
+
 //$outer-width: 760px; 
 $outer-width: 79.166666666667%; // (760px / 960px)
+
 //$inner-width: 600px;
 $inner-width: 78.947368421053%; // (600px / 760px)
 
@@ -478,7 +481,6 @@ xxx@xxx.xxx debug_border;
 					left: 22px; // (80px / 100px)
 					top: -8px;
 
-	//				writing-mode: tb-rl;
 					-webkit-transform: rotate(90deg);	
 					-moz-transform: rotate(90deg);
 					-ms-transform: rotate(90deg);
@@ -867,12 +869,12 @@ xxx@xxx.xxx clearfix;
 		// li for each field
 		// -----------------------
 		li {
+xxx@xxx.xxx debug_border;
 xxx@xxx.xxx clearfix;
 xxx@xxx.xxx left_tab_shadow;
-			margin-bottom: 20px;
+			margin-bottom: 20px; //space between tabs
 xxx@xxx.xxx color_grad;
 			
-
 			// -----------------------
 			// left side of the field tab
 			// -----------------------
@@ -882,9 +884,8 @@ xxx@xxx.xxx color_grad;
 				border-right-width: 1px;
 				border-right-style: inset;
 				
-				padding: 20px;
+				padding: 20px 3%;
 				text-align: right;
-				
 				
 				// -----------------------
 				// what we want to know
@@ -904,6 +905,7 @@ xxx@xxx.xxx color_grad;
 					color: #fff;
 					font-size: .8em;
 xxx@xxx.xxx neue_family;
+xxx@xxx.xxx debug_border;
 				} // end p
 			} // end div.details
 			
@@ -912,23 +914,29 @@ xxx@xxx.xxx neue_family;
 			// the field's div
 			// -----------------------
 			div.field {
+
+xxx@xxx.xxx debug_border;
+				float: left;
+				width: 47%;
+				padding-left: 3%;
+				padding-right: 3%;
 								
 				// -----------------------
 				// the field itself
 				// -----------------------
 				input[type=text], input[type=password] {
-					margin: 0px 0 0 20px;
 					background-color: #889883;
 					border: 2px inset #ccc;
-					padding: 10px 15px;
-					height: 20px; //(total height = 50px)
+					padding: 10px 15px; //inner field padding
+					
+					width: 80%;
 					
 					font-size: 1.1em;
 					color: #fff;
 				} // end input
 				
 				textarea {
-					margin: 20px 0 20px 20px;
+					margin: 20px 3% 20px 3%;
 					width: 40%;
 					background-color: #889883;
 					border: 2px inset #ccc;
@@ -950,7 +958,7 @@ xxx@xxx.xxx neue_family;
 					
 					font-size: 1.1em;
 					color: #fff;
-					margin: 20px 0 0 20px;
+					margin: 20px 0 20px 0px;
 				}
 			} // end div.field
 			
@@ -965,11 +973,12 @@ xxx@xxx.xxx neue_family;
 				height: 100px;
 				width: 100px;
 				float: left;
-				margin: 10px 0 0 20px;
+				margin: 20px 0 0 20px;
 				text-align: center;
 				color: #fff;
 				font-size: .8em;
 xxx@xxx.xxx neue_family;
+				padding: 0;
 				
 				div.field_with_errors {
 					height: 100%;
@@ -1004,6 +1013,10 @@ xxx@xxx.xxx neue_family;
 				width: 80px;
 				margin: 20px 0 0 10px;
 			}
+			
+			div.jquery_datepicker {
+				padding: 20px 0 20px 20px;
+			}
 		} // end li
 		
 		
@@ -1012,21 +1025,28 @@ xxx@xxx.xxx neue_family;
 			div.details {
 				border: 0;
 				float: none;
-				text-align: left;
+				text-align: right;
 				padding-bottom: 0;
 			}
 			
 			div.field {
 				float: none;
-				width: 100%;
+				width: 94%;
 				
 				textarea {
 					height: 200px;
-					width: 92%;
+					width: 80%;
 					line-height: 30px;
 				}
 			}
 		}
+		
+		li.datepicker {
+			div.details {
+				height: 240px;
+			}
+		}
+		
 		
 		
 		// -----------------------
@@ -1034,6 +1054,7 @@ xxx@xxx.xxx neue_family;
 		// -----------------------
 		li.action {
 			width: 25%;
+			min-width: 200px;
 			
 			div {
 				border-right-width: 1px;
@@ -1056,24 +1077,28 @@ xxx@xxx.xxx neue_family;
 		}
 	} // end ol
 	
-	div#errorExplanation {
+	
+	// -----------------------------------------
+	// form error messages
+	// -----------------------------------------
+	div#error_explanation {
 xxx@xxx.xxx grad( $red_light, $red_dark );
 		color: #fff;
-		width: 67.708333333333%; // (650px / 960px)
-		margin: 0 29% 30px 29%;
+		margin-bottom: 20px;
+xxx@xxx.xxx left_tab_shadow;
+xxx@xxx.xxx inset_left;
 		
-		text-align: center;
+		text-align: left;
 xxx@xxx.xxx neue_family;
 		
-		box-shadow: 0px 2px 2px #555;
 		
 		h2 {
-			font-size: .8em;
+			font-size: 1em;
 			
 			letter-spacing: 2px;
-			font-weight: normal;
+			font-weight: bold;
 			border-bottom: 1px inset darken($red_dark, 10%);
-			padding: 3px 0;
+			padding: 13px 20px;
 		}
 		
 		p {
@@ -1086,11 +1111,18 @@ xxx@xxx.xxx neue_family;
 			padding-bottom: 5px;
 			
 			li {
-				margin: 10px 0;
+				margin: 10px 20px;
 				letter-spacing: 1px;
 			}
 		}
+	} // end div#errorExplanation
+	
+	div.field div.field_with_errors {
+		input[type=text], input[type=file], textarea {
+			border: 2px solid red;
+		}
 	}
+	
 } // end form
 
 
@@ -1248,6 +1280,7 @@ xxx@xxx.xxx helvetica_family;
 			
 				&.org {
 xxx@xxx.xxx georgia_family;
+					line-height: 36px;
 					font-size: 2em;
 					padding: 5px 0 20px 0;
 					font-style: italic;
@@ -1346,18 +1379,7 @@ xxx@xxx.xxx color_grad;
 				margin-bottom: 20px; //all tabs on all pages?
 				
 				//for alternating sides
-				//odd
-				&:nth-child( 2n + 1 ) {
-					float: left;
-xxx@xxx.xxx left_tab_shadow;
-				}
-								
-				//even
-				&:nth-child( 2n ) {
-					float: right;
-					text-align: right;
-xxx@xxx.xxx right_tab_shadow;
-				}
+xxx@xxx.xxx alternate_sides;
 				
 				a {
 xxx@xxx.xxx neue_family;
@@ -1503,10 +1525,10 @@ xxx@xxx.xxx color_grad;
 		}
 		
 		//for alternating sides
+xxx@xxx.xxx alternate_sides;
+				
 		//odd
 		&:nth-child( 2n + 1 ) {
-			float: left;
-xxx@xxx.xxx left_tab_shadow;
 			padding-right: 20px;
 			
 			a {
@@ -1517,9 +1539,6 @@ xxx@xxx.xxx left_tab_shadow;
 								
 		//even
 		&:nth-child( 2n ) {
-			float: right;
-			text-align: right;
-xxx@xxx.xxx right_tab_shadow;
 			padding-left: 20px;
 			
 			a {

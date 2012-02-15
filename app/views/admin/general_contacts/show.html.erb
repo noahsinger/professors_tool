@@ -1,31 +1,39 @@
 <%= content_for :header do %>
-	<h1>Contact from xxx@xxx.xxx %></h1>
-xxx@xxx.xxx %></h4>
+	<h1>General Contact</h1>
 <% end %>
 
-<nav>
-		<li><%= link_to admin_general_contacts_path do %> <%= render :partial => "shared/back_link" %> <% end %></li>
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => "shared/edit_link" %> <% end %></li>
+<section>
+	<nav>
+		<%= link_to "Back", admin_general_contacts_path, class: "back icon" %>
 	</nav>
+	
+	<header>
+xxx@xxx.xxx %></p>
+		<h1>Contact from xxx@xxx.xxx %></h1>
+	</header>
 
-<p>
-  <b>Return email:</b>
-  xxx@xxx.xxx %>
-</p>
+	<div class="fancy">
+		<table>
+			<tr>
+				<td class="blank">Return email:</td>
+xxx@xxx.xxx %></td>
+			</tr>
+	
+			<tr>
+				<td class="blank">Subject:</td>
+xxx@xxx.xxx %></td>
+			</tr>
+	
+			<tr>
+				<td class="blank">Body:</td>
+xxx@xxx.xxx %></td>
+			</tr>
+	
+			<tr>
+				<td class="blank">Attachment:</td>
+xxx@xxx.xxx @general_contact.attachment.url %></td>
+			</tr>
+		</table>
 
-<p>
-  <b>Subject:</b>
-  xxx@xxx.xxx %>
-</p>
-
-<p>
-  <b>Body:</b>
-  xxx@xxx.xxx %>
-</p>
-
-<p>
-  <b>Attachment:</b>
-  xxx@xxx.xxx %>
-</p>
-
-
+	</div>
+</section>

@@ -6,6 +6,10 @@ class Admin::BooksController < ApplicationController
    xxx@xxx.xxx = Course.find( params[:course_id] )
   end
   
+  def index
+    @books xxx@xxx.xxx
+  end
+  
   # GET /books/1
   # GET /books/1.xml
   def show

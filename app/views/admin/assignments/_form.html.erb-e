@@ -9,13 +9,13 @@
 			
 			<div class="field"><%= f.text_field :title %></div>
 		</li>
-		
+				
 		<li>
 			<div class="details">
 				<%= f.label :duedate %>
 				<p>When is it due?</p>
 			</div>
-			
+					
 			<div class="field"><%= f.datetime_select :duedate, {:default => 14.days.from_now} %></div>
 		</li>
 		

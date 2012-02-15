@@ -1,35 +1,42 @@
 <%= content_for :header do %>
 	<h1>General Contacts</h1>
-	<h4>emails sent through the contact form</h4>
 <% end %>
 
-<div class="nav">
-	<ul class="nav">
-		<li><%= link_to '/admin' do %> <%= render :partial => "shared/back_link" %> <% end %></li>
-		<li><%= link_to '<span class="text">Clear All</span><span class="icon">&euro;</span>'.html_safe, destroy_all_admin_general_contacts_path, :confirm => 'Are you sure?', :method => :delete %></li>
+<section>
+	<nav>
+		<%= link_to "Back", '/admin', class: "icon back" %>
+	</nav>
+	
+	<header>
+		<p>Listing all</p>
+		<h1>General Contacts</h1>
+	</header>
+
+	<ul class="actions">
+		<li><%= link_to 'Clear All Contacts', destroy_all_admin_general_contacts_path, :confirm => 'Are you sure?', :method => :delete %></li>
 	</ul>
-</div>
 
-<div class="fancy">
-	<table>
-	  <tr>
-	    <th>Return email</th>
-	    <th>Subject</th>
-	    <th>Attachment</th>
-	  </tr>
+	<div class="fancy">
+		<table>
+		  <tr>
+		    <th>Return email</th>
+		    <th>Subject</th>
+		    <th>Attachment</th>
+		  </tr>
 
-	<% for general_contact xxx@xxx.xxx %>
-	  <tr>
-	    <td><%= general_contact.return_email %></td>
-	    <td><%= general_contact.subject %></td>
-	    <td>
-			<% if general_contact.attachment %>
-				<%= link_to general_contact.attachment_file_name, general_contact.attachment.url %>
-			<% end %>
-		</td>
-	    <td><%= link_to 'Show', [:admin,general_contact] %></td>
-	    <td><%= link_to 'Destroy', [:admin,general_contact], :confirm => 'Are you sure?', :method => :delete %></td>
-	  </tr>
-	<% end %>
-	</table>
-</div>
+		<% for general_contact xxx@xxx.xxx %>
+		  <tr>
+		    <td><%= general_contact.return_email %></td>
+		    <td><%= general_contact.subject %></td>
+		    <td>
+				<% if general_contact.attachment %>
+					<%= link_to general_contact.attachment_file_name, general_contact.attachment.url %>
+				<% end %>
+			</td>
+		    <td class="show"><%= link_to 'Show', [:admin,general_contact] %></td>
+		    <td class="destroy"><%= link_to 'Destroy', [:admin,general_contact], :confirm => 'Are you sure?', :method => :delete %></td>
+		  </tr>
+		<% end %>
+		</table>
+	</div>
+</section>

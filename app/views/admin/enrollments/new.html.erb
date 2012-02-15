@@ -1,24 +1,32 @@
 <%= content_for :header do %>
-	<h1>New Enrollment</h1>
-	<h2>for xxx@xxx.xxx %></h2>
+	<h1>New Enrollment</h1>	
 <% end %>
 
-<nav>
+<section>
+	<nav>
 		<%= link_to 'Back', xxx@xxx.xxx @section ), :class => "icon back"%>
 	</nav>
 
-<%= xxx@xxx.xxx do |f| %>
-	<%= xxx@xxx.xxx %>
-	<ol>
-		<li>
-			<label for="email">Email Address: </label>
-			<%= text_field_tag 'email', '', {:size => 50} %>
-		</li>
+	<header>
+		<p>New Student for</p>
+xxx@xxx.xxx %></h1>
+	</header>
 
-		<li class="submit_bar">
-			<%= f.submit "Enroll" %>
-		</li>
-	</ol>
-<% end %>
+	<%= xxx@xxx.xxx do |f| %>
+		<%= xxx@xxx.xxx %>
+		<ol>
+			<li>
+				<div class="details">
+					<label for="email">Email Address: </label>
+					<p></p>
+				</div>
+				
+				<div class="field"><%= text_field_tag 'email' %></div>
+			</li>
 
-
+			<li class="action">
+				<div><%= f.submit "Enroll" %></div>
+			</li>
+		</ol>
+	<% end %>
+</section>

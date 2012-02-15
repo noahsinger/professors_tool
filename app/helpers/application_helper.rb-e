@@ -1,10 +1,12 @@
 module ApplicationHelper
-  def show_error_messages_for( model )
+  def show_error_messages_for( model, options = {} )
     output = ""
+    
+    header = options[:message] || "#{pluralize(model.errors.count, "error")} prohibited this #{model.class.name} from being saved:"
     
     if model.errors.any?
       output += "<div id=\"error_explanation\">"
-      output += "<h2>#{pluralize(model.errors.count, "error")} prohibited this #{model.class.name} from being saved:</h2>"
+      output += "<h2>#{header}</h2>"
 
       output += "<ul>"
       model.errors.full_messages.each do |msg|
@@ -26,11 +28,19 @@ module ApplicationHelper
   end
 
   def show_short_date datetime
-    datetime.strftime '%m.%d.%y'
+    if datetime
+      datetime.strftime '%m.%d.%y'
+    else
+      "No Date Set"
+    end
   end
 
   def std_date datetime
-    datetime.strftime '%m/%d/%y'
+    if datetime
+      datetime.strftime '%m/%d/%y'
+    else
+      "01/01/1000"
+    end
   end
   
   def show_date_and_time datetime

@@ -6,6 +6,11 @@ class Admin::BooksControllerTest < ActionController::TestCase
   def setup
     login_as(:admin)
   end
+  
+  def test_should_get_index
+    get :index, :course_id => courses(:intro_to_jackassery).id
+    assert_response :success
+  end
   	
   def test_should_get_new
     get :new, :course_id => courses(:intro_to_jackassery).id
@@ -23,7 +28,7 @@ class Admin::BooksControllerTest < ActionController::TestCase
       }
     end
   
-    assert_redirected_to admin_course_path(courses(:intro_to_jackassery))
+    assert_redirected_to admin_course_book_path(courses(:intro_to_jackassery),assigns(:book).id)
   end
   
   def test_should_show_book
@@ -38,7 +43,7 @@ class Admin::BooksControllerTest < ActionController::TestCase
   
   def test_should_update_book
     post :update, :course_id => courses(:intro_to_jackassery).id, :id => books(:one).id, :book => { :title => 'new title' }
-    assert_redirected_to admin_course_path(courses(:intro_to_jackassery))
+    assert_redirected_to admin_course_book_path(courses(:intro_to_jackassery),assigns(:book).id)
   end
   
   def test_should_destroy_book
@@ -46,6 +51,6 @@ class Admin::BooksControllerTest < ActionController::TestCase
       delete :destroy, :course_id => courses(:intro_to_jackassery).id, :id => books(:one).id
     end
   
-    assert_redirected_to admin_course_path(courses(:intro_to_jackassery))
+    assert_redirected_to admin_course_books_path(courses(:intro_to_jackassery))
   end
 end

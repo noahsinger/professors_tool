@@ -97,9 +97,28 @@ xxx@xxx.xxx grad( #82A169, #57784B );
 	margin-right: -13.4%; // (-80.4px / 600px)
 }
 
+@mixin inset_left {
+	margin-left: 13.4%; // (-80.4px / 600px)
+}
+
 @mixin full_width {
 	width: 126.5%;
 	margin-left: -13.266666666667%; // (79px / 600px)
+}
+
+@mixin alternate_sides {
+	//odd
+	&:nth-child( 2n + 1 ) {
+		float: left;
+xxx@xxx.xxx left_tab_shadow;
+	}
+								
+	//even
+	&:nth-child( 2n ) {
+		float: right;
+		text-align: right;
+xxx@xxx.xxx right_tab_shadow;
+	}
 }
 
 

@@ -32,7 +32,7 @@ class Admin::MaterialsControllerTest < ActionController::TestCase
       }
     end
   
-    assert_redirected_to admin_course_path(courses(:intro_to_jackassery))
+    assert_redirected_to admin_course_materials_path(courses(:intro_to_jackassery))
   end
   
   test "should get edit" do
@@ -43,7 +43,7 @@ class Admin::MaterialsControllerTest < ActionController::TestCase
   test "should update material" do
     put :update, :id => materials(:one), :course_id => courses(:intro_to_jackassery),
         :material => { :description => 'blah blah' }
-    assert_redirected_to admin_course_path(courses(:intro_to_jackassery))
+    assert_redirected_to admin_course_materials_path(courses(:intro_to_jackassery))
   end
   
   test "should destroy material" do
@@ -51,6 +51,6 @@ class Admin::MaterialsControllerTest < ActionController::TestCase
       delete :destroy, :id => materials(:one), :course_id => courses(:intro_to_jackassery)
     end
   
-    assert_redirected_to admin_course_path(courses(:intro_to_jackassery))
+    assert_redirected_to admin_course_materials_path(courses(:intro_to_jackassery))
   end
 end

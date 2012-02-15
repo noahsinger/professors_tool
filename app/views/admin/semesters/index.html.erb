@@ -1,41 +1,46 @@
 <%= content_for :header do %>
 	<h1>Semesters</h1>
-	<h4>Showing all</h4>
 <% end %>
 
-<nav>
-		<li>
-			<%= link_to '/admin' do %><%= render :partial => 'shared/back_link' %><% end %>
-		</li>
-		<li>
-			<%= link_to new_admin_semester_path do %> <%= render :partial => 'shared/new_link' %> <% end %>
-		</li>
+<section>
+	<nav>
+		<%= link_to "Back", '/admin', class: "icon back" %>
 	</nav>
-
-<div class="fancy">
-	<table>
-	  <tr>
-	    <th>Season</th>
-	    <th>Year</th>
-		<th>Dates</th>
-		<th>Student Count</th>
 	
-		<th></th>
-		<th></th>
-		<th></th>
-	  </tr>
+	<header>
+		<p>Showing all</p>
+		<h1>Semesters</h1>
+	</header>
 
-	<% for semester xxx@xxx.xxx %>
-		<tr>
-			<td><%= semester.season %></td>
-			<td><%= semester.year %></td>
-			<td><%= show_short_date semester.start_date %> to <%= show_short_date semester.end_date %></td>
-			<td><%= semester.student_count %></td>
+	<ul class="actions">
+		<li><%= link_to "Create a New Semseter", new_admin_semester_path %></li>
+	</ul>
 
-			<td class="nav"><%= link_to 'Show', [:admin,semester] %></td>
-			<td class="nav"><%= link_to 'Edit', edit_admin_semester_path(semester) %></td>
-			<td class="nav"><%= link_to 'Destroy', [:admin,semester], :confirm => 'Are you sure?', :method => :delete %></td>
-		</tr>
-	<% end %>
-	</table>
-</div>
+	<div class="fancy">
+		<table>
+		  <tr>
+		    <th>Season</th>
+		    <th>Year</th>
+			<th>Dates</th>
+			<th>Student Count</th>
+	
+			<th></th>
+			<th></th>
+			<th></th>
+		  </tr>
+
+		<% for semester xxx@xxx.xxx %>
+			<tr>
+				<td><%= semester.season %></td>
+				<td><%= semester.year %></td>
+				<td><%= show_short_date semester.start_date %> to <%= show_short_date semester.end_date %></td>
+				<td><%= semester.student_count %></td>
+
+				<td class="show"><%= link_to 'Show', [:admin,semester] %></td>
+				<td class="edit"><%= link_to 'Edit', edit_admin_semester_path(semester) %></td>
+				<td class="destroy"><%= link_to 'Destroy', [:admin,semester], :confirm => 'Are you sure?', :method => :delete %></td>
+			</tr>
+		<% end %>
+		</table>
+	</div>
+</section>

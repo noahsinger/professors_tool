@@ -44,7 +44,12 @@ xxx@xxx.xxx do |semester| %>
 	<nav id="resources">
 		<article>
 			<header><h1>Data</h1></header>
-			<ul>	
+			<ul>
+				<li>
+					<%= link_to admin_semesters_path do %>
+						Semesters (<%= Semester.count %>)
+					<% end %>
+				</li>
 				<li>
 					<%= link_to admin_courses_path do %>
 						Courses (<%= Course.count %>)

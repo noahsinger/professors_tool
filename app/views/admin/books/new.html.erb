@@ -1,26 +1,16 @@
 <%= content_for :header do %>
-	<h1>Add a New Book</h1>
-	<h2>for xxx@xxx.xxx %></h2>
+xxx@xxx.xxx %></h1>
 <% end %>
 
-<div class="nav">
-	<ul class=nav>
+<section>
+	<nav>
 		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
-	</ul>
-</div>
+	</nav>
 
-<%= xxx@xxx.xxx do |f| %>
-<%= xxx@xxx.xxx %>
-	<ol>
-		<li><div class="details"><%= f.label :title %><p></p></div><div class="field"><%= f.text_field :title %></div></li>
-		<li><div class="details"><%= f.label :author %><p></p></div><div class="field"><%= f.text_field :author %></div></li>
-		<li><div class="details"><%= f.label :publisher %><p></p></div><div class="field"><%= f.text_field :publisher %></div></li>
-		<li><div class="details"><%= f.label :isbn %><p></p></div><div class="field"><%= f.text_field :isbn %></div></li>
-		<li><div class="details"><%= f.label :required %><p></p></div><div class="field"><%= f.check_box :required %></div></li>
-		<li class="submit_bar">
-			<%= f.submit "Create" %>
-		</li>
-	</ol>
-<% end %>
+	<header>
+		<p>Add a New Book for</p>
+xxx@xxx.xxx %></h1>
+	</header>
 
-
+	<%= render "form" %>
+</section>

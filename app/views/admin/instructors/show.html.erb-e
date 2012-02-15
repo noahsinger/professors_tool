@@ -1,41 +1,52 @@
 <%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-	<h4><%= xxx@xxx.xxx "section" %></h4>
+	<h1>Instructor</h1>
 <% end %>
 
-<nav>
-		<li><%= link_to admin_instructors_path do %> <%= render :partial => "shared/back_link" %> <% end %></li>
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => "shared/edit_link" %> <% end %></li>
+<section>
+	<nav>
+		<%= link_to "Back", admin_instructors_path, class: "icon back" %>
 	</nav>
+	
+	<header>
+		<p><%= xxx@xxx.xxx "section" %></p>
+xxx@xxx.xxx %></h1>
+	</header>
 
-<p>
-  <b>Phone number:</b>
-  xxx@xxx.xxx %>
-</p>
+	<ul class="actions">
+		<li><%= link_to "Edit this Instructor", xxx@xxx.xxx %></li>
+	</ul>
 
-<p>
-  <b>Office number:</b>
-  xxx@xxx.xxx %>
-</p>
+	<div class="fancy">
+		<table>
+			<tr>
+				<td class="blank">Phone number:</td>
+xxx@xxx.xxx %></td>
+			</tr>
 
-<p>
-	<b>Office Hours: </b>
-	<%= link_to( 'office xxx@xxx.xxx )%>
-</p>
+			<tr>
+				<td class="blank">Office number:</td>
+xxx@xxx.xxx %></td>
+			</tr>
 
-<p>
-  <b>Email:</b>
-  xxx@xxx.xxx %>
-</p>
+			<tr>
+				<td class="blank">Office Hours: </td>
+				<td><%= link_to( 'office xxx@xxx.xxx )%></td>
+			</tr>
 
-<p>
-  <b>Website:</b>
-  xxx@xxx.xxx %>
-</p>
+			<tr>
+				<td class="blank">Email:</td>
+xxx@xxx.xxx %></td>
+			</tr>
 
-<p>
-  <b>Division:</b>
-  xxx@xxx.xxx %>
-</p>
+			<tr>
+				<td class="blank">Website:</td>
+xxx@xxx.xxx %></td>
+			</tr>
 
-
+			<tr>
+				<td class="blank">Division:</td>
+xxx@xxx.xxx %></td>
+			</tr>
+		</table>
+	</div>
+</section>

@@ -1,5 +1,5 @@
 <%= xxx@xxx.xxx :html => {:multipart => :true}) do |f| %>
-<%= xxx@xxx.xxx %>
+	<%= xxx@xxx.xxx %>
 	<ol>
 		<li><div class="details"><%= f.label :first_name %><p></p></div><div class="field"><%= f.text_field :first_name %></div></li>
 	
@@ -11,7 +11,22 @@
 	
 		<li><div class="details"><%= f.label :office_number %><p></p></div><div class="field"><%= f.text_field :office_number %></div></li>
 	
-		<li><div class="details"><%= f.label :office_hours %><p></p></div><div class="field"><%= f.file_field :office_hours %></div></li>
+		<li>
+			<div class="details">
+				<%= f.label :office_hours %>
+				<% xxx@xxx.xxx %>
+				<p>Off hours file is currently: xxx@xxx.xxx %></p>
+				<% else %>
+					<p>Choose a file containing the instrucors office hours to upload.  This file is best as a pdf.</p>
+				<% end %>
+			</div>
+			
+			<div class="file field">
+				<span class="prompt">Click to Browse</span>
+				<%= f.file_field :office_hours %>
+			</div>
+			<div class="filename"></div>
+		</li>
 
 		<li><div class="details"><%= f.label :email %><p></p></div><div class="field"><%= f.text_field :email %></div></li>
 	

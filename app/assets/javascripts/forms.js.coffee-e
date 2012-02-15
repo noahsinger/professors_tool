@@ -52,8 +52,7 @@ insert_image = (div, image, filename) ->
 	$(div).prepend( "<img src=\"/assets/mimes/#{image}.png\" alt=\"#{filename}\" style=\"display: none;\"/>" )
 	$(div).find( "img" ).fadeIn( 'slow' )
 
-
-$(document).ready ->
+setup_forms = ->
 	$("input[type=file]").each ->
 		field = this
 		div = $(field).parents( "div.file:first" )
@@ -86,12 +85,27 @@ $(document).ready ->
 				
 	# center fields vertically on their tabs
 	$("input[type=text], input[type=password]").each ->
-		field = this
-		li = $(field).parents( "li" )
-		li_height = $(li).outerHeight()
-		field_height = $(field).outerHeight(true)
+		# unless it's an iphone in portrait orientation
+		unless is_iphone( ) && (window.orientation == 0 || window.orientation == 180)
+			field = this
+			li = $(field).parents( "li" )
+			li_height = $(li).outerHeight()
+			field_height = $(field).outerHeight(true)
 		
-		top = (li_height - field_height) / 2
-		# alert( "input: #{field_height}\nli: #{li_height}\ntop: #{top}" )
-		$(field).css("position", "relative")
-		$(field).css("top", "#{top}px")
+			top = (li_height - field_height) / 2
+			# alert( "input: #{field_height}\nli: #{li_height}\ntop: #{top}" )
+			$(field).css("position", "relative")
+			$(field).css("top", "#{top}px")
+		else
+			field = this
+			$(field).css("position", "static")
+			$(field).css("top", "0px")
+		
+
+
+$(document).ready ->
+	setup_forms( )
+	
+$(document).bind "orientationchange", ->
+	setup_forms( )
+	check_for_upload_support( )
