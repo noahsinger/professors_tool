@@ -6,7 +6,7 @@
 <section>
 	<nav>
 		<h1>Navigation</h1>
-		<%= link_to "Home", courses_path, class: "icon back" %>
+		<%= link_to "Back", courses_path, class: "icon back" %>
 	</nav>
 
 	<header>
@@ -23,20 +23,20 @@ xxx@xxx.xxx %></h1>
 		information, the information that my current students should be looking at, return to the 
 		<%= link_to 'homepage', '/' %> and choose a currently offered class.
 	</p>
-	
-	
-	<nav id="resources">
+
+
+	<div id="resources">
 		<h1>Resources</h1>
 	
-		<ul>
-			<li><h2><%= link_to 'Get on the Waiting List', xxx@xxx.xxx class: "icon email" %></h2></li>
+		<ul id="course_links">
+			<li><h2><%= link_to 'Course Availability', xxx@xxx.xxx class: "icon star" %></h2></li>
 			<li><h2><%= link_to 'Course Materials', xxx@xxx.xxx class: "icon wrench" %></h2></li>
 		</ul>
 		
 		<% xxx@xxx.xxx > 0 %>
-			<article id="tutorials">
+			<article>
 				<header><h1>Tutorials</h1></header>
-				<ul>
+				<ul id="tutorials">
 xxx@xxx.xxx do |howto| %>			
 						<li>
 							<%= link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
@@ -50,8 +50,8 @@ xxx@xxx.xxx do |howto| %>
 		
 		<% xxx@xxx.xxx > 0 %>
 			<article>
-				<header><h1>Past occurrences</h1></header>
-				<ul>
+				<header><h1>Past Sections</h1></header>
+				<ul id="past_sections">
 xxx@xxx.xxx do |section| %>			
 						<li>
 							<%= link_to semester_section_path( section.semester, section ) do %>
@@ -62,40 +62,40 @@ xxx@xxx.xxx do |section| %>
 				</ul>
 			</article>
 		<% end %>
-	</nav>
+	</div>
 	
-	
-	<article id="course_objectives">
-		<header id="objectives_header"><h1>Objectives</h1></header>
-		<div class="content">
+
+	<article>
+		<header id="course_description_header"><h1>Course Description</h1></header>
+		<div id="course_description">
+			<%= xxx@xxx.xxx %>
+		</div>
+	</article>
+
+
+	<article>
+		<header id="course_objectives_header"><h1>Objectives</h1></header>
+		<div id="course_objectives">
 			<ol>
 xxx@xxx.xxx do |objective| %>
 					<li><%= objective.description %></li>
 				<% end %>
 			</ol>
 		</div>
-	</article>
-	
+	</article>	
 
-	<article id="course_description">
-		<header id="description_header"><h1>Course Description</h1></header>
-		<div class="content">
-			<%= xxx@xxx.xxx %>
-		</div>
-	</article>
-	
-	
 
 	<% xxx@xxx.xxx > 0 %>
-		<article id="assignments">
-			<header><h1>Potential Assignments</h1></header>
-			<ul>
+		<article>
+			<header id="course_labs_header"><h1>Potential Assignments</h1></header>
+			<ul id="course_labs">
 xxx@xxx.xxx do |lab| %>
 					<% if lab.visible %>
 						<li class="overdue">
 							<%= link_to xxx@xxx.xxx lab) do %>
-								<p><%= pluralize lab.worth, "point" %></p>
+								<div><%= pluralize lab.worth, "point" %></div>
 								<h2><%= lab.title %></h2>
+								<p>Assigned <%= pluralize lab.assignments.count, "time" %></p>
 							<% end %>
 						</li>				
 					<% end %>

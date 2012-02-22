@@ -3,13 +3,13 @@ xxx@xxx.xxx %></h1>
 <% end %>
 
 <section>
-	<h1>Current Classes</h1>
+	<h1 xxx@xxx.xxx %> Classes</h1>
 	<article>	
-		<ul>
+		<ul id="semester_sections">
 xxx@xxx.xxx do |section| %>
 				<li>
 					<%= link_to xxx@xxx.xxx section) do %>
-						<div class="course_number"><%= section.course.short_name %></div>
+						<div><%= section.course.short_name %></div>
 						<h2><%= section.course.title %></h2>
 						<p><%= section.meeting_days_and_times %></p>
 					<% end %>

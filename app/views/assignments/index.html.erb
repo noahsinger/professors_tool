@@ -21,9 +21,9 @@ xxx@xxx.xxx %></h1>
 	</header>
 
 
-	<nav id="resources">
+	<div id="resources">
 		<h1>Resources</h1>
-		<ul>
+		<ul id="section_links">
 			<li><h2><%= link_to "View the Syllabus", xxx@xxx.xxx @section ), class: "icon file" %></h2></li>
 			<li><h2><%= link_to "Email the Instructor", new_general_contact_path, class: "icon email" %></h2></li>
 			<li><h2><%= link_to "Request Your Grades", xxx@xxx.xxx @section ), class: "icon star" %></h2></li>
@@ -36,9 +36,9 @@ xxx@xxx.xxx %></h1>
 		</ul>
 		
 		<% xxx@xxx.xxx > 0 %>
-			<article id="tutorials">
+			<article>
 				<header><h1>Tutorials</h1></header>
-				<ul>
+				<ul id="tutorials">
 xxx@xxx.xxx do |howto| %>			
 						<li>
 							<%= link_to xxx@xxx.xxx howto, howto.steps.find( :first ) ) do %>
@@ -49,34 +49,35 @@ xxx@xxx.xxx do |howto| %>
 				</ul>
 			</article>
 		<% end %>
-	</nav>
+	</div>
 
 
-	<article id="assignments">
-		<header><h1>Assignments</h1></header>
+	<article>
+		<header id="assignments_header"><h1>Assignments</h1></header>
 		<% xxx@xxx.xxx > 0 %>
-			<ul>
+			<ul id="assignments">
 xxx@xxx.xxx do |assignment| %>
-					<% unless assignment.overdue? %>
+					<!--<% unless assignment.overdue? %>
 						<li class="reminder">Due in <%= distance_of_time_in_words(Time.now, assignment.duedate) %></li>
-					<% end %>
+					<% end %>-->
 					
 					<li class="<%= "overdue" if assignment.overdue? %>">
 						<%= link_to xxx@xxx.xxx @section, assignment) do %>
-							<p>
+							<div>
 								<% unless assignment.overdue? %>
 									Due on <%= show_short_date( assignment.duedate ) %>
 								<% else %>
 									pastdue
 								<% end %>
-							</p>
+							</div>
 							<h2><span><%= assignment.title %></span> <%= assignment.lab.title %></h2>
+							<p></p>
 						<% end %>
 					</li>
 				<% end %>
 			</ul>
 		<% else %>
-			<p>
+			<p id="no_assignments">
 				No Assignments are currently available for this class. You can 
 				Subscribe to this classes 
 				<%= link_to( 'RSS' , xxx@xxx.xxx :format => :rss) ) %> 

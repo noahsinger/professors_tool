@@ -1,0 +1,147 @@
+@import 'colors';
+@import 'mixins';
+
+//$page-width: 960px;
+$page-width: 100%; // 960px
+
+//$outer-width: 760px; 
+$outer-width: 79.166666666667%; // (760px / 960px)
+
+//$inner-width: 600px;
+$inner-width: 78.947368421053%; // (600px / 760px)
+
+
+
+// --------------------------------------------------------
+// main top of page headers
+// --------------------------------------------------------
+
+// ----------------------------
+// general style for all main headers (top of every page)
+// ----------------------------
+
+header {
+	width: $outer-width;
+	margin: 40px auto;
+	
+	
+	// ----------------------------
+	// Page title (top, white)
+	// ----------------------------
+	
+	#title {
+		a {
+			color: #fff;
+			font-size: 1.5em;
+			letter-spacing: 25px;
+xxx@xxx.xxx walkway_family;
+			text-transform: uppercase;
+			text-shadow: 2px 2px 3px #333;
+			
+			span {
+				letter-spacing: 15px;
+			}
+		}
+	} //end #title
+
+
+	// -----------------------------
+	// sub header under "ingenio.us"
+	// -----------------------------
+	
+	h1 {
+		margin-top: 15px;
+		
+xxx@xxx.xxx helvetica_family;
+		font-size: .9375em;
+		font-weight: normal;
+		font-style: italic;
+		letter-spacing: 15px;
+		color: $background-text-color;
+	}
+} // end header
+
+
+// -----------------------
+// changes for homepage main header
+// -----------------------
+
+body#sections_index.student {
+	// ----------------------------
+	// header
+	// ----------------------------
+	header {
+		
+		
+		// ----------------------------
+		// Page title (top, white)
+		// ----------------------------
+		#title {
+			text-align: center;
+		
+			a {
+				font-size: 4em;
+				letter-spacing: 45px;
+				position: relative;
+				left: 16px; //fix messed up centering (letter-spacing related?)
+			}
+		} //end #title
+	
+	
+		// -----------------------------
+		// small homepage semester header
+		// -----------------------------
+		h1 {
+			margin-top: 40px;
+			text-align: center;
+		}
+	} // end header
+}
+
+
+// --------------------------------------------------------
+// background header styles
+// --------------------------------------------------------
+
+// ----------------------------
+// large centered background header (like homepage)
+// ----------------------------
+
+h1.page_description {
+	width: 80%;
+	position: absolute;
+	z-index: -1;
+	padding: 0 10%;
+	margin-left: 12%;
+	margin-top: 130px;
+	margin-bottom: 30px;
+xxx@xxx.xxx walkway_family;
+	font-size: 4.375em;
+	font-weight: normal;
+	font-style: italic;
+	letter-spacing: 15px;
+	color: $background-text-color;
+	text-align: center;
+}
+
+
+// ----------------------------
+// right aligned background header like in resource sections
+// ----------------------------
+
+#page_content div#resources header {
+xxx@xxx.xxx debug_border;
+	box-shadow: none;
+	background: none;
+	text-align: right;
+	width: 60%;
+	margin: 0 0 10px 0;
+	padding: 0;
+	
+	h1 {
+xxx@xxx.xxx walkway_family;
+		padding: 0;
+		font-size: 1.8em;
+		color: $background-text-color;
+	}
+}

@@ -4,7 +4,7 @@
 
 
 <section>
-	<h1>Courses</h1>
+	<h1 class="page_description">All Courses</h1>
 	
 	
 	<nav>
@@ -12,9 +12,14 @@
 		<%= link_to "Home", '/', class: "icon back" %>
 	</nav>
 	
+	<header>
+		<p>Ingenio.us</p>
+		<h1>Offered Courses</h1>
+	</header>
+	
 
 	<article>
-		<ul>
+		<ul id="courses">
 xxx@xxx.xxx do |course| %>		
 				<li>
 					<%= link_to course_path( course ) do %>

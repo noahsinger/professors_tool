@@ -10,21 +10,26 @@
 		<%= link_to "Home", '/', class: "icon back" %>
 	</nav>
 	
+	<header>
+		<p>Ingenio.us</p>
+		<h1>Semesters</h1>
+	</header>
 	
-	<h1>All Semesters</h1>
-	<ul>
+	<h1 class="page_description">All Semesters</h1>
+	<ul id="semesters">
 		<% for semester xxx@xxx.xxx %>
 			<li>
 				<%= link_to semester_sections_path( semester ) do %>
-						<h2><%= semester.name %></h2>
-
-						<p>
-							<%= show_short_date semester.start_date %> thru <%= show_short_date semester.end_date %>
-							<% if semester == Semester.current %>
-								(current)
-							<% end %>
-						</p>
-						
+					<div>
+						<%= show_short_date semester.start_date %> thru <%= show_short_date semester.end_date %>
+						<% if semester == Semester.current %>
+							(current)
+						<% end %>
+					</div>
+				
+					<h2><%= semester.name %></h2>
+					
+					<p><%= pluralize semester.sections.count, "section" %></p>
 				<% end %>
 			</li>
 		<% end %>

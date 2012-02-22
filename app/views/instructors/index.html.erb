@@ -3,19 +3,26 @@
 <% end %>
 
 <section>
+	<h1 class="page_description">Instructors</h1>
+	
 	<nav>
 		<h1>Navigation</h1>
-		<%= link_to "Back", :back, class: "icon back" %>
+		<%= link_to "Home", :back, class: "icon back" %>
 	</nav>
+	
+	<header>
+		<p>Ingenio.us</p>
+		<h1>Instructors</h1>
+	</header>
 		
 	<article>	
-		<ul>
+		<ul id="instructors">
 xxx@xxx.xxx do |instructor| %>
 				<li>
 					<%= link_to instructor_path(instructor) do %>
-					<div class="course_number"><%= instructor.title %></div>
+						<div><%= instructor.title %></div>
 						<h2><%= instructor.name %></h2>
-						<p><%=  %></p>
+						<p><%= instructor.division.name %></p>
 					<% end %>
 				</li>		
 			<% end %>		

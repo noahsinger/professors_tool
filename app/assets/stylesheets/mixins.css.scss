@@ -1,4 +1,23 @@
 // ----------------------------
+// clearfix
+// ----------------------------
+
+@mixin clearfix() {
+	*zoom:1;
+	
+	&:before,
+	&:after {
+	    content:"";
+	    display:table;
+	}
+	
+	&:after {
+	    clear: both;
+	}
+}
+
+
+// ----------------------------
 // slitted main containers
 // ----------------------------
 
@@ -16,6 +35,7 @@
 // -------------------------------------
 // general common styles for giant green tabs (headers and footer)
 // -------------------------------------
+
 @mixin giant_tab_style {
 xxx@xxx.xxx grad( #82A169, #57784B );
 	font-size: .75em;
@@ -64,6 +84,7 @@ xxx@xxx.xxx grad( #82A169, #57784B );
 // -------------------------------------
 // shadows for tabs
 // -------------------------------------
+
 @mixin left_tab_shadow {
 	box-shadow: 3px 1px 5px 1px #444, inset 13px 0px 10px -8px #555;
 	border-top-right-radius: 2px;
@@ -81,14 +102,34 @@ xxx@xxx.xxx grad( #82A169, #57784B );
 // ---------------------------------
 // borders (for debugging)
 // ---------------------------------
+
 @mixin debug_border {
-/*	border: 1px solid yellow;*/
+//	border: 1px solid yellow;
 }
 
 
 // ---------------------------------
 // positioning related
 // ---------------------------------
+
+@mixin left_tab {
+xxx@xxx.xxx left_tab_shadow;
+	float: left;
+	text-align: left;
+}
+
+@mixin right_tab {
+xxx@xxx.xxx right_tab_shadow;
+	float: right;
+	text-align: right;
+}
+
+@mixin centered_tab {
+xxx@xxx.xxx paper_effect;
+	width: 60%;
+	margin: 0 auto 20px auto;
+}
+
 @mixin outset_left {
 	margin-left: -13.4%; // (-80.4px / 600px)
 }
@@ -98,7 +139,18 @@ xxx@xxx.xxx grad( #82A169, #57784B );
 }
 
 @mixin inset_left {
-	margin-left: 13.4%; // (-80.4px / 600px)
+	margin-left: 14.2%; // (-80.4px / 600px)
+}
+
+@mixin inset_right {
+	margin-right: -13.4%; // (-80.4px / 600px)
+}
+
+@mixin inset {
+	$amount: 10.5%;
+	margin-left: $amount;
+	margin-right: -$amount;
+	width: 100% - $amount - $amount;
 }
 
 @mixin full_width {
@@ -125,6 +177,7 @@ xxx@xxx.xxx right_tab_shadow;
 // ---------------------------------
 // font families
 // ---------------------------------
+
 @mixin helvetica_family {
 	font-family: helvetica, arial, sans-serif;
 }
@@ -139,4 +192,176 @@ xxx@xxx.xxx right_tab_shadow;
 
 @mixin walkway_family {
 	font-family: 'WalkwaySemiBoldRegular', helvetica, arial, sans-serif;
+}
+
+@mixin text {
+	line-height: 25px;
+	
+	h1 {
+		font-size: 2em;
+	}
+	
+	ul {
+		list-style: disc;
+		margin: 0 0 20px 20px;
+	}
+	
+	ol {
+		list-style: decimal;
+		margin: 0 0 20px 20px;
+	}
+}
+
+
+// ---------------------------------
+// tab sizes
+// ---------------------------------
+
+@mixin short_tab {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+@mixin medium_tab {
+	width: 49%;
+	margin-bottom: 20px;
+}
+
+@mixin wide_tab {
+	width: 60%;
+	margin-bottom: 20px;
+}
+
+
+// ------------------------------------------------------------------
+// tab types
+// ------------------------------------------------------------------
+
+// ---------------------------------
+// left capped
+// ---------------------------------
+
+@mixin left_cap {
+	margin-left: 20px;
+	border-left-width: 1px;
+	border-left-style: solid;
+}
+
+
+// ---------------------------------
+// right capped
+// ---------------------------------
+
+@mixin right_cap {
+	margin-right: 20px;
+	border-right-width: 1px;
+	border-right-style: solid;
+}
+
+
+// ---------------------------------
+// 3 part
+// ---------------------------------
+
+@mixin three_part {
+	a {
+xxx@xxx.xxx neue_family;
+		color: #fff;
+		display: block;
+
+		div {
+			font-size: .7em;
+			letter-spacing: 2px;
+			border-bottom-width: 1px;
+			border-bottom-style: inset;
+			padding: 5px 20px;
+		}
+		
+		h2 {
+			font-size: 1em;
+			margin: 5px 0 3px 0;
+			padding: 0px 20px;
+		}
+		
+		p {
+			font-size: .6em;
+			margin: 0;
+			font-style: italic;
+			padding: 0px 20px 7px 20px;
+		}
+	} // end a
+}
+
+
+// ---------------------------------
+// 1 part
+// ---------------------------------
+
+@mixin one_part {
+	h2 {
+		font-size: 1em;
+		font-weight: normal;
+		
+		a {
+			color: #fff;
+			display: block;
+			padding: 10px 20px;
+		}
+	}
+	
+	a {
+		color: #fff;
+		display: block;
+		
+		h2 {
+			padding: 10px 20px;
+			font-size: 1em;
+			font-weight: normal;
+xxx@xxx.xxx neue_family;
+		}
+	}
+}
+
+
+// ---------------------------------
+// paper
+// ---------------------------------
+
+@mixin paper {
+xxx@xxx.xxx paper_grad;
+	padding: 30px;
+}
+
+
+// ---------------------------------
+// downset
+// ---------------------------------
+
+@mixin downset {
+	position: relative;
+	top: 40px;
+	margin-top: -40px;
+}
+
+
+// ----------------------------
+// blue headers
+// ----------------------------
+
+@mixin blue_header {
+xxx@xxx.xxx grad( #4F76B0, #354E73 );
+	
+	h1 {
+		display: block;
+		
+xxx@xxx.xxx helvetica_family;
+		color: #fff;
+		font-size: 1.3em;
+		font-style: italic;
+		font-weight: normal;
+		letter-spacing: 8px;
+		border-color: darken(#354E73, 10%);
+		margin: 0 20px 0 0;
+		padding: 18px 20px;
+	}
 }

@@ -1,0 +1,297 @@
+@import 'colors';
+@import 'mixins';
+
+//$page-width: 960px;
+$page-width: 100%; // 960px
+
+//$outer-width: 760px; 
+$outer-width: 79.166666666667%; // (760px / 960px)
+
+//$inner-width: 600px;
+$inner-width: 78.947368421053%; // (600px / 760px)
+
+
+// --------------------------------------------------------
+// form styles
+// --------------------------------------------------------
+
+// -----------------------
+// forms
+// -----------------------
+form {
+xxx@xxx.xxx debug_border;
+	width: 75%;
+	
+xxx@xxx.xxx clearfix;
+		
+	h1 {
+		display: none;
+	} // end h1
+	
+	
+	// -----------------------
+	// ol contains all of the form fields
+	// -----------------------
+	ol {
+xxx@xxx.xxx clearfix;
+		
+		
+		// -----------------------
+		// li for each field
+		// -----------------------
+		li {
+xxx@xxx.xxx debug_border;
+xxx@xxx.xxx clearfix;
+xxx@xxx.xxx left_tab_shadow;
+			margin-bottom: 20px; //space between tabs
+xxx@xxx.xxx color_grad;
+			
+			// -----------------------
+			// left side of the field tab
+			// -----------------------
+			div.details {
+				float: left;
+				width: 40%;
+				border-right-width: 1px;
+				border-right-style: inset;
+				
+				padding: 20px 3%;
+				text-align: right;
+				
+				// -----------------------
+				// what we want to know
+				// -----------------------
+				label {
+					color: #fff;
+					font-size: 1em;
+					letter-spacing: 1px;
+					font-weight: bold;
+				} // end label
+			
+			
+				// -----------------------
+				// special instructions
+				// -----------------------
+				p {
+					color: #fff;
+					font-size: .8em;
+xxx@xxx.xxx neue_family;
+xxx@xxx.xxx debug_border;
+				} // end p
+			} // end div.details
+			
+			
+			// -----------------------
+			// the field's div
+			// -----------------------
+			div.field {
+
+xxx@xxx.xxx debug_border;
+				float: left;
+				width: 47%;
+				padding-left: 3%;
+				padding-right: 3%;
+								
+				// -----------------------
+				// the field itself
+				// -----------------------
+				input[type=text], input[type=password] {
+					background-color: #889883;
+					border: 2px inset #ccc;
+					padding: 10px 15px; //inner field padding
+					
+					width: 80%;
+					
+					font-size: 1.1em;
+					color: #fff;
+				} // end input
+				
+				textarea {
+					margin: 20px 3% 20px 3%;
+					width: 40%;
+					background-color: #889883;
+					border: 2px inset #ccc;
+					padding: 10px 15px;
+					
+					font-size: 1.1em;
+					color: #fff;
+				}
+				
+				input[type=checkbox] {
+					margin-top: 23px;
+					margin-left: 20px;
+				}
+				
+				select {
+					background-color: #889883;
+					border: 2px inset #ccc;
+					padding: 10px 15px;
+					
+					font-size: 1.1em;
+					color: #fff;
+					margin: 20px 0 20px 0px;
+				}
+			} // end div.field
+			
+			
+			
+			// -----------------------
+			// for file fields
+			// -----------------------
+			div.file {
+				background-color: #889883;
+				border: 2px inset #ccc;
+				height: 100px;
+				width: 100px;
+				float: left;
+				margin: 20px 0 0 20px;
+				text-align: center;
+				color: #fff;
+				font-size: .8em;
+xxx@xxx.xxx neue_family;
+				padding: 0;
+				
+				div.field_with_errors {
+					height: 100%;
+					width: 100%;
+				}
+				
+				input {
+					opacity: 0;
+					height: 100%;
+					width: 100%;
+					position: relative;
+					top: -50px;
+				}
+				
+				img {
+					width: 65px;
+					position: relative;
+					top: 8px;
+				}			
+				
+				.prompt {
+					display: block;
+					margin: 10px;
+				}	
+			}
+			
+			div.filename {
+				float: left;
+xxx@xxx.xxx neue_family;
+				color: #fff;
+				
+				width: 80px;
+				margin: 20px 0 0 10px;
+			}
+			
+			div.jquery_datepicker {
+				padding: 20px 0 20px 20px;
+			}
+		} // end li
+		
+		
+		
+		li.textarea {
+			div.details {
+				border: 0;
+				float: none;
+				text-align: right;
+				padding-bottom: 0;
+			}
+			
+			div.field {
+				float: none;
+				width: 94%;
+				
+				textarea {
+					height: 200px;
+					width: 80%;
+					line-height: 30px;
+				}
+			}
+		}
+		
+		li.datepicker {
+			div.details {
+				height: 240px;
+			}
+		}
+		
+		
+		
+		// -----------------------
+		// special for the submit button
+		// -----------------------
+		li.action {
+			width: 25%;
+			min-width: 200px;
+			
+			div {
+				border-right-width: 1px;
+				border-right-style: inset;
+				 
+				margin-right: 20px;
+				
+				input {
+					top: 3px;
+					text-align: left;
+					padding: 14px 20px;
+					background: transparent;
+					width: 100%;
+					height: 100%;
+					border: 0;
+					color: #fff;
+					margin: 0;
+				}
+			}
+		}
+	} // end ol
+	
+	
+	// -----------------------------------------
+	// form error messages
+	// -----------------------------------------
+	div#error_explanation {
+xxx@xxx.xxx grad( $red_light, $red_dark );
+		color: #fff;
+		margin-bottom: 20px;
+xxx@xxx.xxx left_tab_shadow;
+xxx@xxx.xxx inset_left;
+		
+		text-align: left;
+xxx@xxx.xxx neue_family;
+		
+		
+		h2 {
+			font-size: 1em;
+			
+			letter-spacing: 2px;
+			font-weight: bold;
+			border-bottom: 1px inset darken($red_dark, 10%);
+			padding: 13px 20px;
+		}
+		
+		p {
+			font-weight: bold;
+			margin: 5px 0 0 0;
+		}
+		
+		ul {
+			font-size: 1em;
+			padding-bottom: 5px;
+			
+			li {
+				margin: 10px 20px;
+				letter-spacing: 1px;
+			}
+		}
+	} // end div#errorExplanation
+	
+	div.field div.field_with_errors {
+		input[type=text], input[type=file], textarea {
+			border: 2px solid red;
+		}
+	}
+	
+} // end form

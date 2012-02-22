@@ -5,11 +5,16 @@ xxx@xxx.xxx %> Materials</h1>
 <section>
 	<nav>
 		<h1>Navigation</h1>
-		<%= link_to xxx@xxx.xxx :back, class: "icon back" %>
+		<%= link_to "Back to xxx@xxx.xxx :back, class: "icon back" %>
 	</nav>
 		
+	<header>
+		<p>Course Materials for</p>
+xxx@xxx.xxx %></h1>
+	</header>
+		
 	<article>	
-		<ul>
+		<ul id="course_materials">
 xxx@xxx.xxx do |material| %>
 				<li>
 					<%= link_to xxx@xxx.xxx material) do %>

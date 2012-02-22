@@ -21,17 +21,21 @@ end
 
 gem 'jquery-rails'
 
-gem "letter_opener", :group => :development
+group :development do
+	gem "letter_opener"
+	gem "hirb"
+	gem "awesome_print"
+end
 
 group :development, :test do	
 	gem 'capybara'
   gem 'turn', :require => false
   gem 'minitest' #required by turn
   
-	gem 'guard-minitest', "> 0.3.0" #less than 0.3.0 gives file not found errors with rails3.1
+  # gem 'guard-minitest', "> 0.3.0" #less than 0.3.0 gives file not found errors with rails3.1
+  gem 'guard-minitest', :git => 'git://github.com/aspiers/guard-minitest.git' #alt repo got growl notifications working
   
-  # gem 'growl'        # for guard-minitest
-  gem 'growl_notify' # growl notifications of all types seem to be broken
+  gem 'growl'        # for guard-minitest
   
   gem 'rb-fsevent'  # for guard-minitest
   gem 'ruby-prof'    # for guard-minitest

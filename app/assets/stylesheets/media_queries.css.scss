@@ -1,4 +1,3 @@
-@import 'grid';
 @import 'colors';
 @import 'mixins';
 
@@ -116,6 +115,44 @@ xxx@xxx.xxx outset_right;
 	} // end #page
 	
 	
+	// ----------------------------
+	// main header (top of every page)
+	// ----------------------------
+	header {
+		width: $outer-width;
+		margin: 20px auto;
+	
+	
+		// ----------------------------
+		// Page title (top, white)
+		// ----------------------------
+		#title {
+			a {
+				font-size: 1.2em;
+				letter-spacing: 12px;
+			
+				span {
+					letter-spacing: 7px;
+				}
+			}
+		} //end #title
+		
+		h1 {
+			margin-top: 10px;
+		}
+	} //end header
+	
+	section {
+		// ---------------------------
+		// big green page banner (large tab)
+		// ---------------------------
+		header {
+			box-shadow: 0px 2px 2px #555, inset 10px 0px 20px -8px #555;
+		} //end header
+	} //end section
+	
+	
+	
 	body#sections_index.student, body#materials_index.student, body#semesters_index.student, body#examples_index.student, body#courses_index.student, body#instructors_index.student {
 		section {
 			// ----------------------------
@@ -193,6 +230,15 @@ xxx@xxx.xxx outset_right;
 							margin: 5px 0 3px 0;
 							padding: 0px 10px;
 						} // end h2
+						
+						.course_number {
+							padding: 5px 10px;
+						}
+					
+						p {
+							padding: 0px 10px 7px 10px;
+						}
+						
 					} // end a
 				} // end li
 			} // end ul
@@ -223,11 +269,96 @@ xxx@xxx.xxx outset_right;
 
 
 	// -----------------------------
+	// layout like assingments
+	// -----------------------------
+	
+	section {
+		article#assignments, article#assignment, article#course_objectives, article#course_description, article#contact_information, article#semesters  {
+			width: 100%;
+		
+			header#instructions_header, header#objectives_header, header#description_header, header#contact_header {
+				width: 75%;
+			}		
+		
+			div#instructions, div.content, div#contact_details {
+				width: 80%;
+			}
+			
+			ul {
+				li {
+					margin-left: 0;
+				}
+			}
+		} // end article#assignments, article#assignment, article#course_objectives, article#course_description, article#contact_information, article#semesters 
+		
+	
+		// ----------------------------------
+		// nav links as tabs (right small tabs)
+		// ----------------------------------
+	
+		nav#resources {
+xxx@xxx.xxx outset_left;
+		
+			width: 100%;
+			float: left;
+		
+			ul {
+				li {
+					float: left;
+xxx@xxx.xxx left_tab_shadow;
+					
+					&:last-child {
+						margin-bottom: 30px;
+					}
+					
+					a {
+						border-left-width: 0px;
+						border-right-width: 1px;
+						border-right-style: solid;
+						border-right-color: inherit;
+						padding: 8px 20px;
+						margin-left: 20px;
+						margin-right: 8.333333333333%;
+						float: right;
+						width: 66%;
+						
+						&.icon {
+							width: 55%;
+						}
+						
+					}
+				}
+			}
+			
+			// -------------------------------
+			// background header not on a tab
+			// -------------------------------
+			article {
+
+				// -------------------------------
+				// background text header
+				// -------------------------------
+				header {
+					margin: 0px 0 10px 0;
+					padding-left: 70px;
+					width: 80%;
+					text-align: left;
+				} // end article header
+			} // end article
+		} // end nav#resources
+		
+	} // end section
+	
+	body#courses_show {
+		p#disclaimer {
+			display: none;
+		}
+	}
+	
+	
+	// -----------------------------
 	// vcard - contact information
 	// -----------------------------
-	section article#contact_information {
-		width: 120%;
-	}
 	
 	section.vcard {
 		article#contact_information {
@@ -385,7 +516,7 @@ xxx@xxx.xxx outset_left;
 						h2 {
 							font-size: .8em;
 							margin: 5px 0 3px 0;
-							padding: 0px 20px;
+							padding: 0px 10px;
 						} // end h2
 					} // end a
 				} // end li
@@ -471,15 +602,50 @@ xxx@xxx.xxx outset_left;
 	
 	
 	// -----------------------------
-	// vcard - contact information
+	// layout like assingments
 	// -----------------------------
-	section article#contact_information {
-		width: 120%;
+	
+	section {
+		article#assignments, article#assignment, article#course_objectives, article#course_description, article#contact_information, article#semesters  {
+			width: 120%;
+		} // end article#assignments, article#assignment, article#course_objectives, article#course_description, article#contact_information, article#semesters 
 		
-		header#contact_header {
-			width: 75%;
+	
+		// ----------------------------------
+		// nav links as tabs (right small tabs)
+		// ----------------------------------
+	
+		nav#resources {
+			width: 120%;
+		
+			
+			// -------------------------------
+			// background header not on a tab
+			// -------------------------------
+			article {
+
+				// -------------------------------
+				// background text header
+				// -------------------------------
+				header {
+					padding-left: 50px;
+				} // end article header
+			} // end article
+		} // end nav#resources
+		
+	} // end section
+	
+	body#courses_show {
+		p#disclaimer {
+			display: none;
 		}
 	}
+	
+	
+	
+	// -----------------------------
+	// vcard - contact information
+	// -----------------------------
 	
 	section.vcard {
 		article#contact_information {
@@ -499,6 +665,4 @@ xxx@xxx.xxx outset_left;
 			}
 		}
 	} // end section.vcard
-
-
 } // end 320 iphone portrait

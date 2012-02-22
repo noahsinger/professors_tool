@@ -155,7 +155,7 @@ xxx@xxx.xxx do |book| %>
 							Optional text: 
 						<% end %>
 					</em>
-					<%= link_to '<strong>' + book.title + '</strong>', 'http://www.amazon.com/exec/obidos/ASIN/' + book.isbn + '/ingeniouscom-20' %>
+					<%= link_to "<strong>#{book.title}</strong>".html_safe, 'http://www.amazon.com/exec/obidos/ASIN/' + book.isbn + '/ingeniouscom-20' %>
 					, by: <%= book.author %>, <%= book.publisher %>, ISBN: <%= book.isbn %>
 				</p>
 			<% end %>
@@ -179,7 +179,7 @@ xxx@xxx.xxx do |o| %>
 		<div id="policies">
 xxx@xxx.xxx do |policy| %>
 				<h3><%= policy.syllabus_part.title %></h3>
-				<%= textilize policy.syllabus_part.description %>
+				<%= markdown policy.syllabus_part.description %>
 			<% end %>
 		</div>
 

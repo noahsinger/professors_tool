@@ -5,15 +5,20 @@ xxx@xxx.xxx %> Examples</h1>
 <section>
 	<nav>
 		<h1>Navigation</h1>
-		<%= link_to "#{@section.course.title}", xxx@xxx.xxx @section), class: "icon back" %>
+		<%= link_to "Back to #{@section.course.title}", xxx@xxx.xxx @section), class: "icon back" %>
 	</nav>
 		
+	<header>
+		<p><%= xxx@xxx.xxx "Example" %></p>
+xxx@xxx.xxx %> Examples</h1>
+	</header>
+		
 	<article>	
-		<ul>
+		<ul id="section_examples">
 xxx@xxx.xxx do |example| %>
 				<li>
 					<%= link_to xxx@xxx.xxx @section, example) do %>
-						<!--<div class="course_number"><%= example.created_at.to_s(:short) %></div>-->
+						<div class="course_number"><%= example.created_at.to_s(:short) %></div>
 						<h2><%= example.name %></h2>
 						<p><%= example.description %></p>
 					<% end %>
