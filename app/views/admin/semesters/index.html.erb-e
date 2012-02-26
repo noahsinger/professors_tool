@@ -19,22 +19,20 @@
 	<div class="fancy">
 		<table>
 		  <tr>
-		    <th>Season</th>
-		    <th>Year</th>
-			<th>Dates</th>
-			<th>Student Count</th>
+		    <th>Semester</th>
+				<th>Dates</th>
+				<th>Student Count</th>
 	
-			<th></th>
-			<th></th>
-			<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
 		  </tr>
 
 		<% for semester xxx@xxx.xxx %>
 			<tr>
-				<td><%= semester.season %></td>
-				<td><%= semester.year %></td>
+				<td><%= semester.season %> <%= semester.year %></td>
 				<td><%= show_short_date semester.start_date %> to <%= show_short_date semester.end_date %></td>
-				<td><%= semester.student_count %></td>
+				<td><%= semester.student_count %> Students</td>
 
 				<td class="show"><%= link_to 'Show', [:admin,semester] %></td>
 				<td class="edit"><%= link_to 'Edit', edit_admin_semester_path(semester) %></td>

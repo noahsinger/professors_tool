@@ -89,6 +89,9 @@ xxx@xxx.xxx grad( #82A169, #57784B );
 	box-shadow: 3px 1px 5px 1px #444, inset 13px 0px 10px -8px #555;
 	border-top-right-radius: 2px;
 	border-bottom-right-radius: 2px;
+	
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
 }
 
 
@@ -96,6 +99,9 @@ xxx@xxx.xxx grad( #82A169, #57784B );
 	box-shadow: -3px 1px 5px 1px #444, inset -13px 0px 10px -8px #555;
 	border-top-left-radius: 2px;
 	border-bottom-left-radius: 2px;
+	
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
 }
 
 
@@ -116,6 +122,19 @@ xxx@xxx.xxx grad( #82A169, #57784B );
 xxx@xxx.xxx left_tab_shadow;
 	float: left;
 	text-align: left;
+	
+	//odd
+	&:nth-child( 2n + 1 ) {
+		float: left;
+xxx@xxx.xxx left_tab_shadow;
+	}
+								
+	//even
+	&:nth-child( 2n ) {
+		float: left;
+		text-align: left;
+xxx@xxx.xxx left_tab_shadow;
+	}
 }
 
 @mixin right_tab {
@@ -131,7 +150,7 @@ xxx@xxx.xxx paper_effect;
 }
 
 @mixin outset_left {
-	margin-left: -13.4%; // (-80.4px / 600px)
+	margin-left: -13.3%; // (-80.4px / 600px)
 }
 
 @mixin outset_right {
@@ -151,6 +170,11 @@ xxx@xxx.xxx paper_effect;
 	margin-left: $amount;
 	margin-right: -$amount;
 	width: 100% - $amount - $amount;
+}
+
+@mixin outset {
+	margin: 0;
+	width: 100%;
 }
 
 @mixin full_width {
@@ -196,6 +220,7 @@ xxx@xxx.xxx right_tab_shadow;
 
 @mixin text {
 	line-height: 25px;
+	word-wrap: break-word;
 	
 	h1 {
 		font-size: 2em;
@@ -232,6 +257,11 @@ xxx@xxx.xxx right_tab_shadow;
 	margin-bottom: 20px;
 }
 
+@mixin super_wide_tab {
+	width: 95%;
+	margin-bottom: 20px;
+}
+
 
 // ------------------------------------------------------------------
 // tab types
@@ -242,6 +272,12 @@ xxx@xxx.xxx right_tab_shadow;
 // ---------------------------------
 
 @mixin left_cap {
+	//turn off right caps
+	margin-right: 0px;
+	border-right-width: 0px;
+	border-right-style: none;
+	
+	//turn on left caps
 	margin-left: 20px;
 	border-left-width: 1px;
 	border-left-style: solid;
@@ -253,6 +289,12 @@ xxx@xxx.xxx right_tab_shadow;
 // ---------------------------------
 
 @mixin right_cap {
+	//turn off left caps
+	margin-left: 0px;
+	border-left-width: 0px;
+	border-left-style: none;
+	
+	//turn on right caps
 	margin-right: 20px;
 	border-right-width: 1px;
 	border-right-style: solid;
@@ -312,9 +354,10 @@ xxx@xxx.xxx neue_family;
 	a {
 		color: #fff;
 		display: block;
+		padding: 10px 20px;
 		
 		h2 {
-			padding: 10px 20px;
+//			padding: 10px 20px;
 			font-size: 1em;
 			font-weight: normal;
 xxx@xxx.xxx neue_family;

@@ -4,7 +4,9 @@
 *= require print
 *= require highlighter
 *= require_self 
-*= require styles2
+*= require styles
 *= require forms
 *= require headers
+*= require ipad
+*= require iphone
 */

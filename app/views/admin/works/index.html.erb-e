@@ -87,7 +87,5 @@ xxx@xxx.xxx do |enrollment| %>
 				<% end %>
 			</table>
 		</div>
-	<% else %>
-		<p>None</p>
 	<% end %>
 </section>

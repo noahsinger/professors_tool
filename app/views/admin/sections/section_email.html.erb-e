@@ -1,34 +1,55 @@
 <%= content_for :header do %>
-	<h1><%= @section.course.title %> xxx@xxx.xxx %>)</h1>
-xxx@xxx.xxx %></h2>
-	<h4><%= show_time(@section.start_time) %> - <%= xxx@xxx.xxx %></h4>
+	<h1>Email Section</h1>
 <% end %>
 
 <nav>
-		<%= link_to 'Back', xxx@xxx.xxx @section ), :class => "icon back"%>
-	</nav>
+	<%= link_to 'Back', xxx@xxx.xxx @section ), :class => "icon back"%>
+</nav>
+
+<header>
+	<p><%= @section.meeting_days %> <%= show_time(@section.start_time) %> - <%= show_time(@section.end_time) %> xxx@xxx.xxx %>)</p>
+xxx@xxx.xxx %></h1>
+</header>
 
 <%= xxx@xxx.xxx :html => {:method => :get}) do |f| %>
 	<ol>
 		<li>
-			<span class="light">To: All Class Members of Section xxx@xxx.xxx %></span>
+			<div class="details">
+				<label>To:</label>
+				<p>All Class Members of Section xxx@xxx.xxx %></p>
+			</div>
+			<div class="field"></div>
 		</li>
 		
 		<li>
-			<span class="light">Subject: Section Announcement from Ingenio.us.com</span>
+			<div class="details">
+				<label>Subject:</label>
+				<p>Section Announcement from Ingenio.us.com</p>
+			</div>
+			<div class="field"></div>
+		</li>
+		
+		<li class="textarea">
+			<div class="details">
+				<label for="body">Body</label>	
+				<p></p>
+			</div>
+			<div class="field">
+				<%= text_area_tag :body %>
+			</div>
 		</li>
 		
 		<li>
-			<label for="body">Body</label><br/>
-			<%= text_area_tag :body, '', {:rows => 20, :cols => 80} %>
-			<br/>
-			<span class="light"><%= @section.instructor.first_name %> xxx@xxx.xxx %><br/>
-xxx@xxx.xxx %></span>
+			<div class="details">
+				<p><%= @section.instructor.first_name %> <%= @section.instructor.last_name %> xxx@xxx.xxx %></p>
+			</div>
 		</li>
 	
 	
-		<li class="submit_bar">
-			<%= f.submit "Send" %>
+		<li class="action">
+			<div>
+				<%= f.submit "Send" %>
+			</div>
 		</li>
 	</ol>
 <% end %>

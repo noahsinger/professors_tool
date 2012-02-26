@@ -15,24 +15,25 @@
 	<div class="fancy">
 		<table>
 		  <tr>
-		    <th>First name</th>
-		    <th>MI</th>
-		    <th>Last name</th>
-			<th>Goes By</th>
+		    <th>Name</th>
 		    <th>Email</th>
+				<th># of Classes</th>
 
-			<th></th>
-			<th></th>
-			<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
 		  </tr>
 
 		<% for student xxx@xxx.xxx %>
 		  <tr>
-		    <td><%= student.first_name %></td>
-		    <td><%= student.middle_name %></td>
-		    <td><%= student.last_name %></td>
-			<td><%= student.goes_by %></td>
+		    <td>
+					<%= student.last_name %>, <%= student.first_name %> <%= student.middle_name %>
+					<% if student.goes_by %>
+						(<%= student.goes_by %>)
+					<% end %>
+				</td>
 		    <td><%= mail_to student.email %></td>
+				<td><%= student.enrollments.count %></td>
 		    <td class="show"><%= link_to 'Show', [:admin,student] %></td>
 		    <td class="edit"><%= link_to 'Edit', edit_admin_student_path(student) %></td>
 		    <td class="destroy"><%= link_to 'Destroy', [:admin,student], :confirm => 'Are you sure?', :method => :delete %></td>

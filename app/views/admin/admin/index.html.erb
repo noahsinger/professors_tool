@@ -10,19 +10,82 @@
 	</header>
 	
 	<article id="semesters">
-		<header><h1>View Semesters</h1></header>
-		<ul>
+		<div id="resources">
+			<article>
+				<header><h1>Data</h1></header>
+				<ul id="data_links">
+					<li>
+						<%= link_to admin_semesters_path do %>
+							<h2>Semesters (<%= Semester.count %>)</h2>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to admin_courses_path do %>
+							<h2>Courses (<%= Course.count %>)</h2>
+						<% end %>
+					</li>
+
+					<li>
+						<%= link_to admin_students_path do %>
+							<h2>Students (<%= Student.count %>)</h2>
+						<% end %>
+					</li>
+
+					<li>
+						<%= link_to admin_instructors_path do %>
+							<h2>Instructors (<%= Instructor.count %>)</h2>
+						<% end %>
+					</li>
+
+					<li>
+						<%= link_to admin_enrollment_statuses_path do %>
+							<h2>Enrollments Statuses (<%= EnrollmentStatus.count %>)</h2>
+						<% end %>
+					</li>
+
+					<li>
+						<%= link_to admin_divisions_path do %>
+							<h2>Divisions (<%= Division.count %>)</h2>
+						<% end %>
+					</li>
+				</ul>
+			</article>
+
+			<article>
+				<header><h1>Requests</h1></header>
+				<ul id="request_links">
+					<li>
+						<%= link_to admin_general_contacts_path do %>
+							<h2><%= pluralize GeneralContact.count, "Contact" %></h2>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to admin_grade_requests_path do %>
+							<h2><%= pluralize GradeRequest.count, "Grade Request" %></h2>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to admin_homework_return_requests_path do %>
+							<h2><%= pluralize HomeworkReturnRequest.count, "Homework Return Request" %></h2>
+						<% end %>
+					</li>
+				</ul>
+			<article>
+		</div>
+		
+		<header id="view_semesters_header"><h1>View Semesters</h1></header>
+		<ul id="admin_semesters">
 xxx@xxx.xxx do |semester| %>
 			<li class="<%= "current" if semester == Semester.current %>">
 					<%= link_to admin_semester_sections_path( semester ) do %>
 						
-						<p><%= show_short_date semester.start_date %> - <%= show_short_date semester.end_date %></p>
+						<div><%= show_short_date semester.start_date %> - <%= show_short_date semester.end_date %></div>
 						<% if semester == Semester.current %>
 							<h2><%= semester.name %> <span class="light">(Current)</span></h2>
 						<% else %>
 							<h2><%= semester.name %></h2>
 						<% end %>
-						
+						<p><%= pluralize semester.sections.count, "section" %></p>
 					<% end %>
 				</li>
 			<% end %>
@@ -40,67 +103,4 @@ xxx@xxx.xxx do |semester| %>
 			
 		</ul>
 	</article>
-
-	<nav id="resources">
-		<article>
-			<header><h1>Data</h1></header>
-			<ul>
-				<li>
-					<%= link_to admin_semesters_path do %>
-						Semesters (<%= Semester.count %>)
-					<% end %>
-				</li>
-				<li>
-					<%= link_to admin_courses_path do %>
-						Courses (<%= Course.count %>)
-					<% end %>
-				</li>
-	
-				<li>
-					<%= link_to admin_students_path do %>
-						Students (<%= Student.count %>)
-					<% end %>
-				</li>
-	
-				<li>
-					<%= link_to admin_instructors_path do %>
-						Instructors (<%= Instructor.count %>)
-					<% end %>
-				</li>
-	
-				<li>
-					<%= link_to admin_enrollment_statuses_path do %>
-						Enrollments Statuses (<%= EnrollmentStatus.count %>)
-					<% end %>
-				</li>
-	
-				<li>
-					<%= link_to admin_divisions_path do %>
-						Divisions (<%= Division.count %>)
-					<% end %>
-				</li>
-			</ul>
-		</article>
-	
-		<article>
-			<header><h1>Requests</h1></header>
-			<ul>
-				<li>
-					<%= link_to admin_general_contacts_path do %>
-						<%= pluralize GeneralContact.count, "Contact" %>
-					<% end %>
-				</li>
-				<li>
-					<%= link_to admin_grade_requests_path do %>
-						<%= pluralize GradeRequest.count, "Grade Request" %>
-					<% end %>
-				</li>
-				<li>
-					<%= link_to admin_homework_return_requests_path do %>
-						<%= pluralize HomeworkReturnRequest.count, "Homework Return Request" %>
-					<% end %>
-				</li>
-			</ul>
-		<article>
-	</nav>
 </section>

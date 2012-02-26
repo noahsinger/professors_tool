@@ -7,6 +7,10 @@
 		<li><%= link_to 'Instructors', instructors_path %></li>
 		<li><%= link_to 'Courses', courses_path %></li>
 		<% if session[:user] %>
+			<li><%= link_to '404', '/idontexist' %></li>
+			<li><%= link_to '505', '/examples/test_exception' %></li>
+			<li><%= link_to 'Error', '/examples/test_error' %></li>
+			<li><%= link_to 'Notice', '/examples/test_notice' %></li>
 			<li><%= link_to 'Admin', admin_admin_index_path %></li>
 			<li><%= link_to 'Signout', signout_admin_admin_index_path %></li>
 		<% end %>

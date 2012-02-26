@@ -50,7 +50,7 @@ xxx@xxx.xxx %></td>
 xxx@xxx.xxx do |section| %>
 				<tr>
 					<td><%= section.course.title %></td>
-					<td><%= section.enrollments.count %></td>
+					<td><%= pluralize section.enrollments.count, "Enrollment" %></td>
 					<td class="show">
 						<%= link_to "Show", xxx@xxx.xxx %>
 					</td>

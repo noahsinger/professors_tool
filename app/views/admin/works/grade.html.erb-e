@@ -34,8 +34,6 @@ xxx@xxx.xxx %>
 
 	<%= form_for( @work, :as => :work, :url => xxx@xxx.xxx :html => {:method => :put} ) do |f| %>
 		<%= xxx@xxx.xxx %>
-		<ol>
-			<li>
 				<div class="fancy">
 					<table>
 						<tr>
@@ -64,9 +62,17 @@ xxx@xxx.xxx %>
 						</tr>
 					</table>
 				</div>
+		<ol>
+			<li class="textarea">
+				<div class="details">
+					<%= f.label :instructors_comments %>
+					<p></p>
+				</div>
+				
+				<div class="field">
+					<%= f.text_area :instructors_comments %>
+				</div>
 			</li>
-		
-			<li><div class="details"><%= f.label :instructors_comments %><p></p></div><div class="field"><%= f.text_area :instructors_comments %></div></li>
 
 			<li class="action">
 				<div><%= f.submit "Record Score" %></div>

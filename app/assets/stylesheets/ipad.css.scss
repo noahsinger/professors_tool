@@ -1,0 +1,306 @@
+@import 'colors';
+@import 'mixins';
+
+// ---------------------------------------------------------
+// ipad landscape
+// ---------------------------------------------------------
+
+@media all and (max-width: 1024px) {
+	// --------------------------------------------------------
+	// form styles
+	// --------------------------------------------------------
+
+	// -----------------------
+	// forms
+	// -----------------------
+	form {
+		width: 95%;
+
+		h1 {
+		} // end h1
+
+
+		// -----------------------
+		// ol contains all of the form fields
+		// -----------------------
+		ol {
+
+			// -----------------------
+			// li for each field
+			// -----------------------
+			li {
+
+				// -----------------------
+				// left side of the field tab
+				// -----------------------
+				div.details {
+
+					// -----------------------
+					// what we want to know
+					// -----------------------
+					label {
+					} // end label
+
+
+					// -----------------------
+					// special instructions
+					// -----------------------
+					p {
+					} // end p
+				} // end div.details
+
+
+				// -----------------------
+				// the field's div
+				// -----------------------
+				div.field {
+
+
+					// -----------------------
+					// the field itself
+					// -----------------------
+					input[type=text], input[type=email], input[type=password] {
+					} // end input
+
+					textarea {
+					}
+
+					input[type=checkbox] {
+					}
+
+					select {
+					}
+				} // end div.field
+
+
+
+				// -----------------------
+				// for file fields
+				// -----------------------
+				div.file {
+
+					div.field_with_errors {
+					}
+
+					input {
+					}
+
+					img {
+					}			
+
+					.prompt {
+					}	
+				}
+
+				div.filename {
+				}
+
+				div.jquery_datepicker {
+				}
+			} // end li
+
+
+
+			li.textarea {
+				div.details {
+				}
+
+				div.field {
+
+					textarea {
+					}
+				}
+			}
+
+			li.datepicker {
+				div.details {
+				}
+			}
+
+
+
+			// -----------------------
+			// special for the submit button
+			// -----------------------
+			li.action {
+
+				div {
+
+					input {
+					}
+				}
+			}
+		} // end ol
+
+
+		// -----------------------------------------
+		// form error messages
+		// -----------------------------------------
+		div#error_explanation {
+			margin-left: 0;
+
+			h2 {
+			}
+
+			p {
+			}
+
+			ul {
+
+				li {
+				}
+			}
+		} // end div#errorExplanation
+
+		div.field div.field_with_errors {
+			input[type=text], input[type=file], input[type=email], textarea {
+			}
+		}
+
+	} // end form	
+} // end ipad landscape
+
+
+// ---------------------------------------------------------
+// ipad portrait
+// ---------------------------------------------------------
+
+@media all and (max-width: 768px) {
+	$page-width: 100%;
+	$outer-width: 95%;
+	$inner-width: 78.947368421053%;
+	
+	// --------------------------------------------------------
+	// main top of page headers
+	// --------------------------------------------------------
+
+	// ----------------------------
+	// general style for all main headers (top of every page)
+	// ----------------------------
+
+	header {
+		width: $outer-width;
+
+		// ----------------------------
+		// Page title (top, white)
+		// ----------------------------
+
+		#title {
+			a {
+				span {
+				}
+			}
+		} //end #title
+
+
+		// -----------------------------
+		// sub header under "ingenio.us"
+		// -----------------------------
+
+		h1 {
+		}
+	} // end header
+
+
+	// -----------------------
+	// changes for homepage main header
+	// -----------------------
+
+	body#sections_index.student {
+		
+		// ----------------------------
+		// header
+		// ----------------------------
+		header {
+
+
+			// ----------------------------
+			// Page title (top, white)
+			// ----------------------------
+			#title {
+				a {
+				}
+			} //end #title
+
+
+			// -----------------------------
+			// small homepage semester header
+			// -----------------------------
+			h1 {
+			}
+		} // end header
+	} //end body#sections_index.student
+	
+	
+	// ----------------------------
+	// Page and Main Containers
+	// ----------------------------
+
+	#page {
+
+		#outer_container {
+
+			width: $outer-width;
+
+			#inner_container {
+			} // end inner_container
+		} // end outer_container
+
+		#page_content {
+			width: $page-width + 26.5%;
+
+			// ---------------------------
+			// big green page banner (large tab)
+			// ---------------------------
+			header {
+
+				// --------------------------------
+				// small top text on banner
+				// --------------------------------
+				p {
+				}
+
+
+				// ---------------------------------
+				// main banner text
+				// ---------------------------------
+				h1 {
+				} // end h1
+			} // end header
+		} // end #page_content
+
+
+
+		// ----------------------------
+		// footer (large tab)
+		// ----------------------------
+		footer {
+			width: $outer-width;
+
+			div.content {
+				div#copyright {
+				}
+
+				ul {
+					li {
+						a {
+						}
+					} // end li
+				} // end ul
+			} // end div.content
+		} // end footer
+
+
+		// -----------------------------
+		// details and resources sections (right aligned not very wide)
+		// -----------------------------
+
+		div#resources {
+			h1 {
+			}
+
+			header h1 {
+			}
+		}
+	} // end page	
+} //end ipad portrait

@@ -153,7 +153,8 @@ Ingenious::Application.routes.draw do
   # map.connect 'examples/echo', :controller => 'examples', :action => 'echo', :conditions => { :method => [:get, :post] }
   match 'examples/echo' => 'examples#echo', :method => [:get, :post]
   match 'examples/test_exception' => 'examples#test_exception', :method => [:get]
-  match 'examples/test_flash' => 'examples#test_flash', :method => [:get]
+  match 'examples/test_notice' => 'examples#test_notice', :method => [:get]
+  match 'examples/test_error' => 'examples#test_error', :method => [:get]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

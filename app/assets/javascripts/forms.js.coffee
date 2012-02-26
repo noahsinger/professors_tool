@@ -75,16 +75,16 @@ setup_forms = ->
 			, 200
 			
 	# provide basic email address in text fields
-	$("input[type=text]").each ->
-		if $(this).data( "mask" )
-			mask = $(this).data( "mask" )
-			field = this
+	# $("input[type=text]").each ->
+		# if $(this).data( "mask" )
+			# mask = $(this).data( "mask" )
+			# field = this
 			
-			$(field).bind 'focus', ->
-				$(field).val( mask )
+			# $(field).bind 'focus', ->
+				# $(field).val( mask )
 				
 	# center fields vertically on their tabs
-	$("input[type=text], input[type=password]").each ->
+	$("li input[type=text], li input[type=email], li input[type=password]").each ->
 		# unless it's an iphone in portrait orientation
 		unless is_iphone( ) && (window.orientation == 0 || window.orientation == 180)
 			field = this

@@ -1,0 +1,859 @@
+@import 'colors';
+@import 'mixins';
+
+// ---------------------------------------------------------
+// iphone landscape
+// ---------------------------------------------------------
+
+@media all and (max-width: 480px) {
+	$page-width: 100%;
+	$outer-width: 95%;
+	$inner-width: 78.947368421053%;
+	
+	// --------------------------------------------------------
+	// main top of page headers
+	// --------------------------------------------------------
+
+	// ----------------------------
+	// general style for all main headers (top of every page)
+	// ----------------------------
+
+	header {
+		margin: 10px auto;
+		// ----------------------------
+		// Page title (top, white)
+		// ----------------------------
+
+		#title {
+			a {
+
+				span {
+				}
+			}
+		} //end #title
+
+
+		// -----------------------------
+		// sub header under "ingenio.us"
+		// -----------------------------
+
+		h1 {
+		}
+	} // end header
+
+
+	// -----------------------
+	// changes for homepage main header
+	// -----------------------
+
+	body#sections_index.student {
+		// ----------------------------
+		// header
+		// ----------------------------
+		header {
+
+			// ----------------------------
+			// Page title (top, white)
+			// ----------------------------
+			#title {
+
+				a {
+					font-size: 2em;
+					letter-spacing: 25px;
+				}
+			} //end #title
+
+
+			// -----------------------------
+			// small homepage semester header
+			// -----------------------------
+			h1 {
+				margin-top: 20px;
+				text-align: center;
+			}
+		} // end header
+	} //end body#sections_index.student
+	
+	
+	// --------------------------------------------------------
+	// background header styles
+	// --------------------------------------------------------
+
+	// ----------------------------
+	// large centered background header (like homepage)
+	// ----------------------------
+
+	h1.page_description {
+		font-size: 2em;
+	}
+
+
+	// ----------------------------
+	// left aligned background header like in resource sections
+	// ----------------------------
+
+	#page_content div#resources header {
+		text-align: left;
+		width: 84.6%;
+		margin: 0 0 10px 15.4%;
+		clear: left;
+
+		h1 {
+		}
+	}
+	
+	
+	// ----------------------------
+	// Page and Main Containers
+	// ----------------------------
+
+	#page {
+		#outer_container {
+			background-image: url(left_slit.png);
+			background-position: top left;
+			margin-bottom: 20px;
+
+			#inner_container {
+				background-image: url(left_slit.png);
+				background-position: top left;
+				padding-top: 20px;
+				padding-bottom: 20px;
+			} // end inner_container
+		} // end outer_container
+
+		#page_content {
+xxx@xxx.xxx debug_border;
+
+			// ---------------------------
+			// big green page banner (large tab)
+			// ---------------------------
+			header {
+
+				box-shadow: none;
+xxx@xxx.xxx left_tab_shadow;
+
+
+				// --------------------------------
+				// small top text on banner
+				// --------------------------------
+				p {
+				}
+
+
+				// ---------------------------------
+				// main banner text
+				// ---------------------------------
+				h1 {
+				} // end h1
+			} // end header
+		} // end #page_content
+
+
+
+		// ----------------------------
+		// footer (large tab)
+		// ----------------------------
+		footer {
+
+			background-image: url(small_left_slit.png);
+			background-position: top left;
+
+			div.content {
+
+				box-shadow: none;
+xxx@xxx.xxx left_tab_shadow;
+				text-align: center;
+
+				div#copyright {
+					float: none;
+					text-align: center;
+				}
+
+				ul {
+					float: none;
+					text-align: center;
+					margin-top: 20px;
+
+					li {
+						float: none;
+						display: inline;
+
+						a {
+							padding: 8px;
+						}
+					} // end li
+				} // end ul
+			} // end div.content
+		} // end footer
+
+
+		// -----------------------------
+		// details and resources sections (right aligned not very wide)
+		// -----------------------------
+
+		div#resources {
+			width: 90%;
+			float: left;
+
+			h1 {
+			}
+
+			header h1 {
+			}
+		}
+
+	} // end page
+	
+	
+	// --------------------------------------------------------
+	// tab styles
+	// --------------------------------------------------------
+
+	// ----------------------------
+	// semester sections (like homepage), 
+	// semesters index, 
+	// instructors index
+	// courses index
+	// course materials index
+	// ----------------------------
+	ul#semester_sections, ul#semesters, ul#instructors, ul#courses, ul#course_materials, ul#section_examples {
+xxx@xxx.xxx outset;
+
+		li {
+xxx@xxx.xxx left_tab;
+xxx@xxx.xxx super_wide_tab;
+		}
+	}
+	
+	
+	// --------------------------------------------------------
+	// left multicolored tabs
+	// --------------------------------------------------------
+
+	ul#course_labs, ul#assignments, ul#assignment_extras, ul#admin_semesters {
+		li {
+xxx@xxx.xxx super_wide_tab;
+		}
+	}
+	
+	
+	// --------------------------------------------------------
+	// downset blue page section header styles
+	// --------------------------------------------------------
+
+	#page_content {
+		header#instructor_header, header#course_description_header, header#course_objectives_header, header#assignment_instructions_header {
+xxx@xxx.xxx super_wide_tab;
+
+			h1 {
+			}
+		}
+
+		#resources header#requirements_header {
+			margin: 0 0 10px 0;
+xxx@xxx.xxx left_tab;
+
+			h1 {
+xxx@xxx.xxx right_cap;
+			}
+		}
+	}
+	
+	
+	// --------------------------------------------------------
+	// left small multicolored tabs
+	// --------------------------------------------------------
+
+	ul#course_links, ul#tutorials, ul#past_sections, ul#section_links, ul#assignment_links, ul#data_links, ul#request_links {
+		li {
+xxx@xxx.xxx left_tab;
+			width: 70%;
+
+			a {
+xxx@xxx.xxx right_cap;
+			}
+		}
+	}
+	
+	
+	// ---------------------------
+	// paper left tabs
+	// ---------------------------
+
+	div#course_description, div#course_objectives, p#no_assignments, div#assignment_instructions {
+		width: 85%;
+	}
+	
+	
+	// --------------------------------------------------------
+	// right and left multicolored tabs
+	// --------------------------------------------------------
+
+	ul#next_prev {
+
+		li.prev {
+
+			a {
+			}
+			
+			clear: left;
+		}
+
+		li.next {
+xxx@xxx.xxx left_tab;
+
+			a {
+xxx@xxx.xxx right_cap;
+			}
+			
+			clear: left;
+		}
+	}
+	
+	
+	// --------------------------------------------------------
+	// blue page section header styles
+	// --------------------------------------------------------
+
+	#page_content {
+		header#course_labs_header, header#assignments_header, header#assignment_extras_header, header#view_semesters_header {
+			width: 90%;
+
+			h1 {
+			}
+		} 
+	}
+	
+	
+	// -----------------------------
+	// assignment objective
+	// -----------------------------
+
+	#assignment_objective {
+		width: 99%;
+
+		strong {
+		}
+
+		p {
+		}
+	}
+	
+	
+	// --------------------------------------------------------
+	// requirements table
+	// --------------------------------------------------------
+
+	table#requirements {
+xxx@xxx.xxx left_tab_shadow;
+		float: left;
+
+		tr {
+
+			&:last-child {
+			}
+
+			&:first-child {
+				td {
+				}
+			}
+
+			td {
+
+				&:last-child {
+				}
+			} // end td
+		} // end tr
+	} // end table#requirements
+	
+	
+	// --------------------------------------------------------
+	// form styles
+	// --------------------------------------------------------
+
+	// -----------------------
+	// forms
+	// -----------------------
+	form {
+xxx@xxx.xxx debug_border;
+		width: 99%;
+
+		h1 {
+		} // end h1
+
+
+		// -----------------------
+		// ol contains all of the form fields
+		// -----------------------
+		ol {
+
+			// -----------------------
+			// li for each field
+			// -----------------------
+			li {
+
+				// -----------------------
+				// left side of the field tab
+				// -----------------------
+				div.details {
+
+					// -----------------------
+					// what we want to know
+					// -----------------------
+					label {
+					} // end label
+
+
+					// -----------------------
+					// special instructions
+					// -----------------------
+					p {
+					} // end p
+				} // end div.details
+
+
+				// -----------------------
+				// the field's div
+				// -----------------------
+				div.field {
+
+					// -----------------------
+					// the field itself
+					// -----------------------
+					input[type=text], input[type=email], input[type=password] {
+					} // end input
+
+					textarea {
+					}
+
+					input[type=checkbox] {
+					}
+
+					select {
+					}
+				} // end div.field
+
+
+
+				// -----------------------
+				// for file fields
+				// -----------------------
+				div.file {
+
+					div.field_with_errors {
+					}
+
+					input {
+					}
+
+					img {
+					}			
+
+					.prompt {
+					}	
+				}
+
+				div.filename {
+				}
+
+				div.jquery_datepicker {
+				}
+			} // end li
+
+
+
+			li.textarea {
+				div.details {
+				}
+
+				div.field {
+
+					textarea {
+					}
+				}
+			}
+
+			li.datepicker {
+				div.details {
+				}
+			}
+
+
+
+			// -----------------------
+			// special for the submit button
+			// -----------------------
+			li.action {
+
+				div {
+
+					input {
+					}
+				} // end div
+			} // end li.action
+		} // end ol
+
+
+		// -----------------------------------------
+		// form error messages
+		// -----------------------------------------
+		div#error_explanation {
+			margin-left: 10.6%;
+
+			h2 {
+			}
+
+			p {
+			}
+
+			ul {
+
+				li {
+				}
+			}
+		} // end div#errorExplanation
+
+		div.field div.field_with_errors {
+			input[type=text], input[type=file], input[type=email], textarea {
+			}
+		}
+	} // end form
+	
+	// --------------------------------------------------------
+	// instructor contact card
+	// --------------------------------------------------------
+
+	div#instructor_details {
+		width: 85%;
+
+		.tcc_logo {
+			width: 90px;
+		}
+
+		a:hover {
+		}
+
+		p, hr {
+			margin: 0;
+
+			&.org {
+			}
+
+			&.fn {
+			}
+
+			&.tel {
+			}
+
+			&.office_hours {
+			}
+
+			&.address {
+			}
+		}
+	}
+	
+	div.fancy {
+		table {
+			background: none;
+			box-shadow: none;
+			
+			tr {
+				display: block;
+				margin-bottom: 20px;
+xxx@xxx.xxx grad( $green_light, $green_dark );
+				padding: 30px;
+xxx@xxx.xxx left_tab_shadow;
+				margin-left: -10px;
+				
+				&:first-child {
+					display: none;
+				}
+				
+				th {
+					display: none;
+				}
+				
+				td {
+					display: block;
+					
+					&.blank {
+						float: left;
+					}
+					
+					&.show, &.edit, &.destroy {
+xxx@xxx.xxx color_grad;
+						border: 0;
+						margin: 5px 0;
+					} // end show, edit, and destroy
+				} // end td
+			} // end tr
+		} // end table
+	} // end fancy
+	
+	
+	// ----------------------------
+	// admin action tabs
+	// ----------------------------
+
+	ul.actions {
+		li {
+xxx@xxx.xxx left_tab;
+xxx@xxx.xxx wide_tab;
+		}
+	}
+	
+	
+	// ---------------------------
+	// syllabus
+	// ---------------------------
+
+	#syllabus {
+		width: 80%;
+
+		h1, h2, h3 {
+		}
+
+		h3 {
+		}
+
+		h1 {
+			font-size: 2.5em;
+		}
+
+		h2 {
+			font-size: 1em;
+		}
+
+		table {
+			width: 100%;
+
+			tr {
+				float: left;
+
+				&:last-child {
+				}
+			}
+
+			td {
+				float: left;
+
+				&.blank {
+					display: none;
+				}
+
+				&:last-child {
+				}
+			}
+		}
+
+		div {
+			margin: 30px 0;
+
+			h3 {
+				font-size: 1.2em;
+xxx@xxx.xxx walkway_family;
+			}
+		}
+	} // end syllabus
+} // end iphone landscape
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------------------------
+// iphone portrait
+// ------------------------------------------------------------------------------------------------------------------
+
+@media all and (max-width: 320px) {
+	$page-width: 100%;
+	$outer-width: 95%;
+	$inner-width: 78.947368421053%;
+	
+	// --------------------------------------------------------
+	// main top of page headers
+	// --------------------------------------------------------
+
+	// ----------------------------
+	// general style for all main headers (top of every page)
+	// ----------------------------
+
+	header {
+		margin: 10px auto;
+		// ----------------------------
+		// Page title (top, white)
+		// ----------------------------
+
+		#title {
+			a {
+				letter-spacing: 15px;
+
+				span {
+					letter-spacing: 5px;
+				}
+			}
+		} //end #title
+
+
+		// -----------------------------
+		// sub header under "ingenio.us"
+		// -----------------------------
+
+		h1 {
+		}
+	} // end header
+	
+	
+	// -----------------------
+	// changes for homepage main header
+	// -----------------------
+
+	body#sections_index.student {
+		// ----------------------------
+		// header
+		// ----------------------------
+		header {
+
+			// ----------------------------
+			// Page title (top, white)
+			// ----------------------------
+			#title {
+
+				a {
+					font-size: 1.5em;
+					letter-spacing: 15px;
+					position: static;
+				}
+			} //end #title
+
+
+			// -----------------------------
+			// small homepage semester header
+			// -----------------------------
+			h1 {
+			}
+		} // end header
+	} //end body#sections_index.student
+	
+	
+	// -----------------------------
+	// details and resources sections (right aligned not very wide)
+	// -----------------------------
+
+	div#page {
+		div#resources {
+			width: 100%;
+
+			h1 {
+			}
+
+			header h1 {
+			}
+		}
+	}	
+	
+	// -----------------------
+	// forms
+	// -----------------------
+	form {
+		ol {
+			li div.details {
+				text-align: left;
+				float: none;
+				width: 80%;
+				border-right-width: 0px;
+				padding-bottom: 10px;
+				padding-left: 20px;
+			} // end div.details
+		
+			li div.field { 
+				float: none;
+				width: 80%;
+				margin-bottom: 20px;
+				padding-left: 20px;
+			
+				input[type=text], input[type=password], input[type=email] {
+					height: inherit;
+					width: 90%;
+				}
+				
+				textarea {
+					margin: 0px;
+				}
+			}
+		
+			li.textarea {
+				div.details {
+					text-align: left;
+				}
+			
+				div.field {
+					textarea {
+						width: 78%;
+					}
+				}
+			} // end li.textarea
+		} // end ol
+	} // end form
+	
+	
+	// --------------------------------------------------------
+	// instructor contact card
+	// --------------------------------------------------------
+
+	div#instructor_details {
+		width: 80%;
+
+		.tcc_logo {
+			width: 90px;
+		}
+
+		a:hover {
+		}
+
+		p, hr {
+			margin: 0;
+
+			&.org {
+			}
+
+			&.fn {
+			}
+
+			&.tel {
+			}
+
+			&.office_hours {
+			}
+
+			&.address {
+			}
+		}
+	}
+	
+	
+	// ---------------------------
+	// paper left tabs
+	// ---------------------------
+
+	div#course_description, div#course_objectives, p#no_assignments, div#assignment_instructions {
+		width: 80%;
+	}
+	
+	
+	// --------------------------------------------------------
+	// left small multicolored tabs
+	// --------------------------------------------------------
+
+	ul#course_links, ul#tutorials, ul#past_sections, ul#section_links, ul#assignment_links, ul#data_links, ul#request_links {
+		li {
+xxx@xxx.xxx left_tab;
+			width: 80%;
+
+			a {
+			}
+		}
+	}
+	
+} //end iphone portrait

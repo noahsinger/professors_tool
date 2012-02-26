@@ -17,7 +17,7 @@ xxx@xxx.xxx %> Examples</h1>
 		<ul id="section_examples">
 xxx@xxx.xxx do |example| %>
 				<li>
-					<%= link_to xxx@xxx.xxx @section, example) do %>
+					<%= link_to example.file.url do %>
 						<div class="course_number"><%= example.created_at.to_s(:short) %></div>
 						<h2><%= example.name %></h2>
 						<p><%= example.description %></p>

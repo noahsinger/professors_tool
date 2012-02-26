@@ -17,7 +17,7 @@ xxx@xxx.xxx %></h1>
 		<ul id="course_materials">
 xxx@xxx.xxx do |material| %>
 				<li>
-					<%= link_to xxx@xxx.xxx material) do %>
+					<%= link_to material.file.url do %>
 						<div class="course_number"><%= material.created_at.to_s(:short) %></div>
 						<h2><%= material.title %></h2>
 						<p><%= material.description %></p>

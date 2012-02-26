@@ -113,7 +113,7 @@ h1.page_description {
 	z-index: -1;
 	padding: 0 10%;
 	margin-left: 12%;
-	margin-top: 130px;
+	margin-top: 70px;
 	margin-bottom: 30px;
 xxx@xxx.xxx walkway_family;
 	font-size: 4.375em;
