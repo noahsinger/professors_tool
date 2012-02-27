@@ -20,4 +20,8 @@ class CoursesController < ApplicationController
       format.xml  { render :xml xxx@xxx.xxx }
     end
   end
+  
+  def syllabus
+   xxx@xxx.xxx = Course.find params[:id]
+  end
 end

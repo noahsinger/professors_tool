@@ -30,6 +30,10 @@ Ingenious::Application.routes.draw do
     resources :waiters
     resources :materials
     
+    member do
+      get 'syllabus'
+    end
+    
     resources :how_tos do
       resources :steps
     end

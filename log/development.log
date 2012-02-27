@@ -35663,3 +35663,1559 @@ Started GET "/assets/left_slit.png" for 127.0.0.1 at 2012-02-27 09:03:38 -0600
 
 Started GET "/assets/small_right_slit.png" for 127.0.0.1 at 2012-02-27 09:03:38 -0600
 [3ef1a5114a76687cd94483e103149941] [127.0.0.1] Served asset /small_right_slit.png - 304 Not Modified (0ms)
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1] 
+
+Started GET "/" for 127.0.0.1 at 2012-02-27 09:17:54 -0600
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1] Processing by SectionsController#index as HTML
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1]   Parameters: {"semester_id"=>1}
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1]   [1m[36mSemester Load (6.6ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1[0m  [["id", 1]]
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1]   [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1]   [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1]   [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1]   [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 3 LIMIT 1
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 3 LIMIT 1[0m
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1]   [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 4 LIMIT 1
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 3 LIMIT 1[0m
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1]   Rendered sections/index.html.erb within layouts/application (9.2ms)
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1]   Rendered shared/_title.html.erb (0.3ms)
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1]   Rendered shared/_messages.html.erb (0.1ms)
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1]   Rendered shared/_footer.html.erb (1.3ms)
+[5ad59bbad2e899c425149c289fc27874] [127.0.0.1] Completed 200 OK in 404ms (Views: 394.7ms | ActiveRecord: 7.3ms)
+[4e20f7950a79db8934db64e9367a084f] [127.0.0.1] 
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-02-27 09:17:55 -0600
+[4e20f7950a79db8934db64e9367a084f] [127.0.0.1] Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+[a9956acd65fdc7e65c8f002a329e86d5] [127.0.0.1] 
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-27 09:17:56 -0600
+[a9956acd65fdc7e65c8f002a329e86d5] [127.0.0.1] Served asset /jquery.js - 304 Not Modified (0ms)
+[ba7fd9b09ff49ed3237933f346a5228d] [127.0.0.1] 
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-27 09:17:56 -0600
+[ba7fd9b09ff49ed3237933f346a5228d] [127.0.0.1] Served asset /application.js - 304 Not Modified (1ms)
+[db5d1293bd678758d67efd0c79a0328a] [127.0.0.1] 
+
+Started GET "/assets/forms.js?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[db5d1293bd678758d67efd0c79a0328a] [127.0.0.1] Served asset /forms.js - 304 Not Modified (0ms)
+[0fe53a4944fa4a734dd1d04ba1716f7a] [127.0.0.1] 
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[0fe53a4944fa4a734dd1d04ba1716f7a] [127.0.0.1] Served asset /google_analytics.js - 304 Not Modified (0ms)
+[9f66adac95ee5260fc19cc952e57bb47] [127.0.0.1] 
+
+Started GET "/assets/walkway.css?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[9f66adac95ee5260fc19cc952e57bb47] [127.0.0.1] Served asset /walkway.css - 304 Not Modified (0ms)
+[647c91961ae77fb84d09b574a0d0fac1] [127.0.0.1] 
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[647c91961ae77fb84d09b574a0d0fac1] [127.0.0.1] Served asset /normalize.css - 304 Not Modified (0ms)
+[c45516e904f7157f5bd6a85c6b2c95ca] [127.0.0.1] 
+
+Started GET "/assets/print.css?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[c45516e904f7157f5bd6a85c6b2c95ca] [127.0.0.1] Served asset /print.css - 304 Not Modified (0ms)
+[962711f39f8c9b3eedc7d6a29228d427] [127.0.0.1] 
+
+Started GET "/assets/highlighter.css?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[962711f39f8c9b3eedc7d6a29228d427] [127.0.0.1] Served asset /highlighter.css - 304 Not Modified (0ms)
+[03807490a161809a79c7892bd12d875a] [127.0.0.1] 
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[03807490a161809a79c7892bd12d875a] [127.0.0.1] Served asset /application.css - 304 Not Modified (0ms)
+[a8fbfb64b558113f16846d440e236e99] [127.0.0.1] 
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[a8fbfb64b558113f16846d440e236e99] [127.0.0.1] Served asset /styles.css - 304 Not Modified (0ms)
+[c41062ccd65e79b6ccb3122af706ac0a] [127.0.0.1] 
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[c41062ccd65e79b6ccb3122af706ac0a] [127.0.0.1] Served asset /forms.css - 304 Not Modified (0ms)
+[ead1a1e0600562b45f7bf28efadaa04e] [127.0.0.1] 
+
+Started GET "/assets/headers.css?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[ead1a1e0600562b45f7bf28efadaa04e] [127.0.0.1] Served asset /headers.css - 304 Not Modified (0ms)
+[eb19978f87e9319e7fd3336850016a14] [127.0.0.1] 
+
+Started GET "/assets/ipad.css?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[eb19978f87e9319e7fd3336850016a14] [127.0.0.1] Served asset /ipad.css - 304 Not Modified (0ms)
+[f9be0824df31f4a3793f7f5f61f547a0] [127.0.0.1] 
+
+Started GET "/assets/iphone.css?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[f9be0824df31f4a3793f7f5f61f547a0] [127.0.0.1] Served asset /iphone.css - 304 Not Modified (0ms)
+[081fbb005fd383fb84bdc49460ec4fca] [127.0.0.1] 
+
+Started GET "/assets/jquery-ui-1.7.1.custom.min.js?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[081fbb005fd383fb84bdc49460ec4fca] [127.0.0.1] Served asset /jquery-ui-1.7.1.custom.min.js - 304 Not Modified (3ms)
+[c8d33af23eaf75e4d509cd1aea8ee9d1] [127.0.0.1] 
+
+Started GET "/assets/jquery.effects.core.js?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[c8d33af23eaf75e4d509cd1aea8ee9d1] [127.0.0.1] Served asset /jquery.effects.core.js - 304 Not Modified (0ms)
+[2512d702694206391ddb11c6ed581092] [127.0.0.1] 
+
+Started GET "/assets/waiters.js?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[2512d702694206391ddb11c6ed581092] [127.0.0.1] Served asset /waiters.js - 304 Not Modified (0ms)
+[d4134f13d4564ff0fbfb56eacdc7e9cb] [127.0.0.1] 
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[d4134f13d4564ff0fbfb56eacdc7e9cb] [127.0.0.1] Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+[8023bbbe1c382ac62be10e538adbc642] [127.0.0.1] 
+
+Started GET "/assets/printing.js?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[8023bbbe1c382ac62be10e538adbc642] [127.0.0.1] Served asset /printing.js - 304 Not Modified (0ms)
+[2e124162b3b69b0e99e92cf12284b6ad] [127.0.0.1] 
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[2e124162b3b69b0e99e92cf12284b6ad] [127.0.0.1] Served asset /tabs.js - 304 Not Modified (0ms)
+[f71faba62685a81759a1606080106851] [127.0.0.1] 
+
+Started GET "/assets/jquery.snippet.js?body=1" for 127.0.0.1 at 2012-02-27 09:17:57 -0600
+[f71faba62685a81759a1606080106851] [127.0.0.1] Served asset /jquery.snippet.js - 304 Not Modified (0ms)
+[a7cddfcc9200119c881ef1fce65f200a] [127.0.0.1] 
+
+Started GET "/assets/small_left_slit.png" for 127.0.0.1 at 2012-02-27 09:17:58 -0600
+[a7cddfcc9200119c881ef1fce65f200a] [127.0.0.1] Served asset /small_left_slit.png - 304 Not Modified (0ms)
+[cf619922171a58eba334b57c86e179ad] [127.0.0.1] 
+
+Started GET "/assets/right_slit.png" for 127.0.0.1 at 2012-02-27 09:17:58 -0600
+[cf619922171a58eba334b57c86e179ad] [127.0.0.1] Served asset /right_slit.png - 304 Not Modified (0ms)
+[36cbdd1e5fc640a14c4d507f06b68b05] [127.0.0.1] 
+
+Started GET "/assets/walkway/Walkway_SemiBold-webfont.woff" for 127.0.0.1 at 2012-02-27 09:17:58 -0600
+[36cbdd1e5fc640a14c4d507f06b68b05] [127.0.0.1] Served asset /walkway/Walkway_SemiBold-webfont.woff - 304 Not Modified (0ms)
+[103c18619473f07836b41903b106ece9] [127.0.0.1] 
+
+Started GET "/assets/small_right_slit.png" for 127.0.0.1 at 2012-02-27 09:17:58 -0600
+[103c18619473f07836b41903b106ece9] [127.0.0.1] Served asset /small_right_slit.png - 304 Not Modified (0ms)
+[034c0596d61712ced781a3c2046dc2c2] [127.0.0.1] 
+
+Started GET "/assets/left_slit.png" for 127.0.0.1 at 2012-02-27 09:17:58 -0600
+[034c0596d61712ced781a3c2046dc2c2] [127.0.0.1] Served asset /left_slit.png - 304 Not Modified (0ms)
+[fbbeb2299ada9286097f1b6565b45a68] [127.0.0.1] 
+
+Started GET "/courses" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[fbbeb2299ada9286097f1b6565b45a68] [127.0.0.1] Processing by CoursesController#index as HTML
+[fbbeb2299ada9286097f1b6565b45a68] [127.0.0.1]   [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" 
+[fbbeb2299ada9286097f1b6565b45a68] [127.0.0.1]   Rendered courses/index.html.erb within layouts/application (5.2ms)
+[fbbeb2299ada9286097f1b6565b45a68] [127.0.0.1]   Rendered shared/_title.html.erb (0.2ms)
+[fbbeb2299ada9286097f1b6565b45a68] [127.0.0.1]   Rendered shared/_messages.html.erb (0.0ms)
+[fbbeb2299ada9286097f1b6565b45a68] [127.0.0.1]   Rendered shared/_footer.html.erb (1.1ms)
+[fbbeb2299ada9286097f1b6565b45a68] [127.0.0.1] Completed 200 OK in 79ms (Views: 77.4ms | ActiveRecord: 0.2ms)
+[2ef030311b51ef1e985e88c38a07bfe3] [127.0.0.1] 
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[2ef030311b51ef1e985e88c38a07bfe3] [127.0.0.1] Served asset /jquery.js - 304 Not Modified (0ms)
+[30f471767fb07b387406f05502e80889] [127.0.0.1] 
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[30f471767fb07b387406f05502e80889] [127.0.0.1] Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+[dccf78f7325fc4fced9747b48eecbdfc] [127.0.0.1] 
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[dccf78f7325fc4fced9747b48eecbdfc] [127.0.0.1] Served asset /google_analytics.js - 304 Not Modified (0ms)
+[f78e1157fd8f38c10e5a04850b5a57a3] [127.0.0.1] 
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[f78e1157fd8f38c10e5a04850b5a57a3] [127.0.0.1] Served asset /application.js - 304 Not Modified (0ms)
+[82ce98029f8f2d3cf68fee9097781388] [127.0.0.1] 
+
+Started GET "/assets/forms.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[82ce98029f8f2d3cf68fee9097781388] [127.0.0.1] Served asset /forms.js - 304 Not Modified (0ms)
+[b31b98759e3d31f4b8c5cc41d2b73214] [127.0.0.1] 
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[b31b98759e3d31f4b8c5cc41d2b73214] [127.0.0.1] Served asset /normalize.css - 304 Not Modified (0ms)
+[cb8d7ffc2ba56f18dec0725af5f56eb5] [127.0.0.1] 
+
+Started GET "/assets/walkway.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[cb8d7ffc2ba56f18dec0725af5f56eb5] [127.0.0.1] Served asset /walkway.css - 304 Not Modified (0ms)
+[e16badd47bcf101e45fd0324fa13dddf] [127.0.0.1] 
+
+Started GET "/assets/print.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[e16badd47bcf101e45fd0324fa13dddf] [127.0.0.1] Served asset /print.css - 304 Not Modified (0ms)
+[6b56ca44a3d5be941a4f295085e1f8a1] [127.0.0.1] 
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[6b56ca44a3d5be941a4f295085e1f8a1] [127.0.0.1] Served asset /styles.css - 304 Not Modified (0ms)
+[3d9eebe9f72cdc8646cbbdb7996252be] [127.0.0.1] 
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[3d9eebe9f72cdc8646cbbdb7996252be] [127.0.0.1] Served asset /application.css - 304 Not Modified (0ms)
+[b7021d5640a958864c0ccb8879cebc00] [127.0.0.1] 
+
+Started GET "/assets/highlighter.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[b7021d5640a958864c0ccb8879cebc00] [127.0.0.1] Served asset /highlighter.css - 304 Not Modified (0ms)
+[d6976e27937a0af33088935f41cef365] [127.0.0.1] 
+
+Started GET "/assets/ipad.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[d6976e27937a0af33088935f41cef365] [127.0.0.1] Served asset /ipad.css - 304 Not Modified (0ms)
+[f5cd442a595afc80072117cd1ad0ba76] [127.0.0.1] 
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[f5cd442a595afc80072117cd1ad0ba76] [127.0.0.1] Served asset /forms.css - 304 Not Modified (0ms)
+[70fb505efbc95df3ca74f2981ddb717b] [127.0.0.1] 
+
+Started GET "/assets/headers.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[70fb505efbc95df3ca74f2981ddb717b] [127.0.0.1] Served asset /headers.css - 304 Not Modified (0ms)
+[abcd6652bd6b52a755072cb0d65ce11e] [127.0.0.1] 
+
+Started GET "/assets/iphone.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[abcd6652bd6b52a755072cb0d65ce11e] [127.0.0.1] Served asset /iphone.css - 304 Not Modified (0ms)
+[3560669c52a4043d69a794f3a5e5a8c9] [127.0.0.1] 
+
+Started GET "/assets/jquery-ui-1.7.1.custom.min.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[3560669c52a4043d69a794f3a5e5a8c9] [127.0.0.1] Served asset /jquery-ui-1.7.1.custom.min.js - 304 Not Modified (0ms)
+[25d4d90c75e24053756d38bec07c4b66] [127.0.0.1] 
+
+Started GET "/assets/jquery.effects.core.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[25d4d90c75e24053756d38bec07c4b66] [127.0.0.1] Served asset /jquery.effects.core.js - 304 Not Modified (0ms)
+[fd912404312b62d9f809e301a2e32302] [127.0.0.1] 
+
+Started GET "/assets/jquery.snippet.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[fd912404312b62d9f809e301a2e32302] [127.0.0.1] Served asset /jquery.snippet.js - 304 Not Modified (0ms)
+[df2c871bd00db4240234175d7008292b] [127.0.0.1] 
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[df2c871bd00db4240234175d7008292b] [127.0.0.1] Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+[90615fe357481ddc6f2006ba18e4f91e] [127.0.0.1] 
+
+Started GET "/assets/printing.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[90615fe357481ddc6f2006ba18e4f91e] [127.0.0.1] Served asset /printing.js - 304 Not Modified (0ms)
+[af21ddeda023873af387f8fc9acb64d6] [127.0.0.1] 
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[af21ddeda023873af387f8fc9acb64d6] [127.0.0.1] Served asset /tabs.js - 304 Not Modified (0ms)
+[8062c22970645443c62d97c0966b025d] [127.0.0.1] 
+
+Started GET "/assets/waiters.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:00 -0600
+[8062c22970645443c62d97c0966b025d] [127.0.0.1] Served asset /waiters.js - 304 Not Modified (0ms)
+[a27306fe065dbb0eafb4de9d8f68ebf4] [127.0.0.1] 
+
+Started GET "/assets/walkway/Walkway_SemiBold-webfont.woff" for 127.0.0.1 at 2012-02-27 09:18:01 -0600
+[a27306fe065dbb0eafb4de9d8f68ebf4] [127.0.0.1] Served asset /walkway/Walkway_SemiBold-webfont.woff - 304 Not Modified (0ms)
+[c5bf4002c33076edbb8a224b0eda5cca] [127.0.0.1] 
+
+Started GET "/assets/small_left_slit.png" for 127.0.0.1 at 2012-02-27 09:18:01 -0600
+[c5bf4002c33076edbb8a224b0eda5cca] [127.0.0.1] Served asset /small_left_slit.png - 304 Not Modified (0ms)
+[b0095ec0db510aa42b3aa410eb660a26] [127.0.0.1] 
+
+Started GET "/assets/right_slit.png" for 127.0.0.1 at 2012-02-27 09:18:01 -0600
+[b0095ec0db510aa42b3aa410eb660a26] [127.0.0.1] Served asset /right_slit.png - 304 Not Modified (0ms)
+[a53cabf20839fe5c2d704db93b7c791b] [127.0.0.1] 
+
+Started GET "/assets/small_right_slit.png" for 127.0.0.1 at 2012-02-27 09:18:01 -0600
+[a53cabf20839fe5c2d704db93b7c791b] [127.0.0.1] Served asset /small_right_slit.png - 304 Not Modified (0ms)
+[68499fe903f66c0e3955230350ef40f0] [127.0.0.1] 
+
+Started GET "/assets/left_slit.png" for 127.0.0.1 at 2012-02-27 09:18:01 -0600
+[68499fe903f66c0e3955230350ef40f0] [127.0.0.1] Served asset /left_slit.png - 304 Not Modified (0ms)
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1] 
+
+Started GET "/courses/1-How-to-Program" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1] Processing by CoursesController#show as HTML
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   Parameters: {"id"=>"1-How-to-Program"}
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[36mCourse Load (0.5ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1[0m  [["id", "1-How-to-Program"]]
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "how_tos" INNER JOIN "tutorials" ON "how_tos"."id" = "tutorials"."how_to_id" WHERE "tutorials"."course_id" = 1
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[36mHowTo Load (0.1ms)[0m  [1mSELECT "how_tos".* FROM "how_tos" INNER JOIN "tutorials" ON "how_tos"."id" = "tutorials"."how_to_id" WHERE "tutorials"."course_id" = 1[0m
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[35mStep Load (0.4ms)[0m  SELECT "steps".* FROM "steps" WHERE "steps"."how_to_id" = 1 ORDER BY position LIMIT 1
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."course_id" = 1[0m
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[35mSection Load (0.1ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."course_id" = 1
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[36mSemester Load (0.1ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = 1 LIMIT 1[0m
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "enrollments" WHERE "enrollments"."section_id" = 1[0m
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[35mSemester Load (0.1ms)[0m  SELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = 2 LIMIT 1
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "enrollments" WHERE "enrollments"."section_id" = 2
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[36mSemester Load (0.1ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = 3 LIMIT 1[0m
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "enrollments" WHERE "enrollments"."section_id" = 4[0m
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[35mObjective Load (0.1ms)[0m  SELECT "objectives".* FROM "objectives" WHERE "objectives"."course_id" = 1
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "labs" WHERE "labs"."course_id" = 1[0m
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[35mLab Load (0.1ms)[0m  SELECT "labs".* FROM "labs" WHERE "labs"."course_id" = 1
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[36mRequirement Load (0.1ms)[0m  [1mSELECT "requirements".* FROM "requirements" WHERE "requirements"."lab_id" = 1[0m
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "assignments" WHERE "assignments"."lab_id" = 1
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[36mRequirement Load (0.2ms)[0m  [1mSELECT "requirements".* FROM "requirements" WHERE "requirements"."lab_id" = 3[0m
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "assignments" WHERE "assignments"."lab_id" = 3
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   Rendered courses/show.html.erb within layouts/application (57.2ms)
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   Rendered shared/_title.html.erb (0.2ms)
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   Rendered shared/_messages.html.erb (0.0ms)
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1]   Rendered shared/_footer.html.erb (1.1ms)
+[4e139e21e8216e8f2a1bb15da4ab370d] [127.0.0.1] Completed 200 OK in 119ms (Views: 97.7ms | ActiveRecord: 3.8ms)
+[8fdaf347e82312a470a7f23ba66cbc29] [127.0.0.1] 
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[8fdaf347e82312a470a7f23ba66cbc29] [127.0.0.1] Served asset /jquery.js - 304 Not Modified (0ms)
+[ae6b1d0b2cf7ddb9609f553e9e28a26d] [127.0.0.1] 
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[ae6b1d0b2cf7ddb9609f553e9e28a26d] [127.0.0.1] Served asset /application.js - 304 Not Modified (0ms)
+[dfdd9796c5bf0344bd9b49a198e02c44] [127.0.0.1] 
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[dfdd9796c5bf0344bd9b49a198e02c44] [127.0.0.1] Served asset /normalize.css - 304 Not Modified (0ms)
+[f972e6d02d18c51a2be492c2c973cbc6] [127.0.0.1] 
+
+Started GET "/assets/forms.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[f972e6d02d18c51a2be492c2c973cbc6] [127.0.0.1] Served asset /forms.js - 304 Not Modified (0ms)
+[118f7ce1eafc93cc26571de2af85d7ef] [127.0.0.1] 
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[118f7ce1eafc93cc26571de2af85d7ef] [127.0.0.1] Served asset /google_analytics.js - 304 Not Modified (0ms)
+[255527bbf3901fe6d0e41721d6a1ee09] [127.0.0.1] 
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[255527bbf3901fe6d0e41721d6a1ee09] [127.0.0.1] Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+[41f4ee5b86b2e7ffdb6b1015e2091d04] [127.0.0.1] 
+
+Started GET "/assets/walkway.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[41f4ee5b86b2e7ffdb6b1015e2091d04] [127.0.0.1] Served asset /walkway.css - 304 Not Modified (0ms)
+[d8d340985c997b05172512ee9ae4aeda] [127.0.0.1] 
+
+Started GET "/assets/print.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[d8d340985c997b05172512ee9ae4aeda] [127.0.0.1] Served asset /print.css - 304 Not Modified (0ms)
+[81f0617c8e3e70f7a5a0368f9a7717bb] [127.0.0.1] 
+
+Started GET "/assets/highlighter.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[81f0617c8e3e70f7a5a0368f9a7717bb] [127.0.0.1] Served asset /highlighter.css - 304 Not Modified (0ms)
+[4c1958b5c8fbf1a1da891ec363d30dec] [127.0.0.1] 
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[4c1958b5c8fbf1a1da891ec363d30dec] [127.0.0.1] Served asset /application.css - 304 Not Modified (0ms)
+[c0a2dd83fd33d636fb8deb0e73efae06] [127.0.0.1] 
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[c0a2dd83fd33d636fb8deb0e73efae06] [127.0.0.1] Served asset /styles.css - 304 Not Modified (0ms)
+[63592324bae31c630ab9cc03b84e0919] [127.0.0.1] 
+
+Started GET "/assets/headers.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[63592324bae31c630ab9cc03b84e0919] [127.0.0.1] Served asset /headers.css - 304 Not Modified (0ms)
+[90d3687a4bfc20882bbb69e278753cfc] [127.0.0.1] 
+
+Started GET "/assets/iphone.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[90d3687a4bfc20882bbb69e278753cfc] [127.0.0.1] Served asset /iphone.css - 304 Not Modified (0ms)
+[f984df9986a131f0ce5fcf3f6cc774e2] [127.0.0.1] 
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[f984df9986a131f0ce5fcf3f6cc774e2] [127.0.0.1] Served asset /forms.css - 304 Not Modified (0ms)
+[1a97d067127b7e3b4ad60623f373ff12] [127.0.0.1] 
+
+Started GET "/assets/ipad.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[1a97d067127b7e3b4ad60623f373ff12] [127.0.0.1] Served asset /ipad.css - 304 Not Modified (0ms)
+[9481a8502a6e303262ca6c216f328aaf] [127.0.0.1] 
+
+Started GET "/assets/jquery-ui-1.7.1.custom.min.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[9481a8502a6e303262ca6c216f328aaf] [127.0.0.1] Served asset /jquery-ui-1.7.1.custom.min.js - 304 Not Modified (0ms)
+[898186ae16528438ed05d4cbf18b94fb] [127.0.0.1] 
+
+Started GET "/assets/jquery.effects.core.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[898186ae16528438ed05d4cbf18b94fb] [127.0.0.1] Served asset /jquery.effects.core.js - 304 Not Modified (0ms)
+[2cfb66edbfa720dc40db3e056d22dd03] [127.0.0.1] 
+
+Started GET "/assets/jquery.snippet.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[2cfb66edbfa720dc40db3e056d22dd03] [127.0.0.1] Served asset /jquery.snippet.js - 304 Not Modified (0ms)
+[572c9b1fee93ec8a49e557db817a3c07] [127.0.0.1] 
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[572c9b1fee93ec8a49e557db817a3c07] [127.0.0.1] Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+[c8df4796c602c3ee61dc902dd75ca46f] [127.0.0.1] 
+
+Started GET "/assets/printing.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[c8df4796c602c3ee61dc902dd75ca46f] [127.0.0.1] Served asset /printing.js - 304 Not Modified (0ms)
+[d8a8f2f93200b9f11db2a2fef851fc30] [127.0.0.1] 
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:03 -0600
+[d8a8f2f93200b9f11db2a2fef851fc30] [127.0.0.1] Served asset /tabs.js - 304 Not Modified (0ms)
+[ce9951ed7ee31617f5444011e36cd520] [127.0.0.1] 
+
+Started GET "/assets/waiters.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:04 -0600
+[ce9951ed7ee31617f5444011e36cd520] [127.0.0.1] Served asset /waiters.js - 304 Not Modified (0ms)
+[bc8c2037e813b19a33bf0742a4be639d] [127.0.0.1] 
+
+Started GET "/assets/small_right_slit.png" for 127.0.0.1 at 2012-02-27 09:18:04 -0600
+[bc8c2037e813b19a33bf0742a4be639d] [127.0.0.1] Served asset /small_right_slit.png - 304 Not Modified (0ms)
+[8adcfff7bc381b43dce8feecd35b2d9b] [127.0.0.1] 
+
+Started GET "/assets/left_slit.png" for 127.0.0.1 at 2012-02-27 09:18:04 -0600
+[8adcfff7bc381b43dce8feecd35b2d9b] [127.0.0.1] Served asset /left_slit.png - 304 Not Modified (0ms)
+[fc44e1380b1e67de92ce651963052241] [127.0.0.1] 
+
+Started GET "/assets/walkway/Walkway_SemiBold-webfont.woff" for 127.0.0.1 at 2012-02-27 09:18:04 -0600
+[fc44e1380b1e67de92ce651963052241] [127.0.0.1] Served asset /walkway/Walkway_SemiBold-webfont.woff - 304 Not Modified (0ms)
+[93603aefecf2c0d8ea30eb61cef1ecd4] [127.0.0.1] 
+
+Started GET "/assets/right_slit.png" for 127.0.0.1 at 2012-02-27 09:18:04 -0600
+[93603aefecf2c0d8ea30eb61cef1ecd4] [127.0.0.1] Served asset /right_slit.png - 304 Not Modified (0ms)
+[13ecc4300f8344459a3b16cbe1bfadf7] [127.0.0.1] 
+
+Started GET "/assets/small_left_slit.png" for 127.0.0.1 at 2012-02-27 09:18:04 -0600
+[13ecc4300f8344459a3b16cbe1bfadf7] [127.0.0.1] Served asset /small_left_slit.png - 304 Not Modified (0ms)
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1] 
+
+Started GET "/" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1] Processing by SectionsController#index as HTML
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1]   Parameters: {"semester_id"=>1}
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1]   [1m[36mSemester Load (0.2ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1[0m  [["id", 1]]
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1]   [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1]   [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1]   [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1]   [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 3 LIMIT 1
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 3 LIMIT 1[0m
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1]   [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 4 LIMIT 1
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 3 LIMIT 1[0m
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1]   Rendered sections/index.html.erb within layouts/application (30.1ms)
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1]   Rendered shared/_title.html.erb (0.1ms)
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1]   Rendered shared/_messages.html.erb (0.1ms)
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1]   Rendered shared/_footer.html.erb (1.2ms)
+[d253e96a465efcd61e68ce9f92935814] [127.0.0.1] Completed 200 OK in 46ms (Views: 42.7ms | ActiveRecord: 1.0ms)
+[cf9d66c7fe7bc2c6d6f4cea936b3f678] [127.0.0.1] 
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[cf9d66c7fe7bc2c6d6f4cea936b3f678] [127.0.0.1] Served asset /jquery.js - 304 Not Modified (0ms)
+[6efb60f9421b96ecd6033604cd6af94c] [127.0.0.1] 
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[6efb60f9421b96ecd6033604cd6af94c] [127.0.0.1] Served asset /application.js - 304 Not Modified (1ms)
+[7d5e0bf83d883cfe05d36d2e015e4ce5] [127.0.0.1] 
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[7d5e0bf83d883cfe05d36d2e015e4ce5] [127.0.0.1] Served asset /normalize.css - 304 Not Modified (0ms)
+[20e2008f17bc4bd40300eafebb110f5c] [127.0.0.1] 
+
+Started GET "/assets/forms.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[20e2008f17bc4bd40300eafebb110f5c] [127.0.0.1] Served asset /forms.js - 304 Not Modified (0ms)
+[c288b5d90a6087a45cdc6d606ac12af8] [127.0.0.1] 
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[c288b5d90a6087a45cdc6d606ac12af8] [127.0.0.1] Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+[cda519c779ddc5191532a2d840439237] [127.0.0.1] 
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[cda519c779ddc5191532a2d840439237] [127.0.0.1] Served asset /google_analytics.js - 304 Not Modified (0ms)
+[30f032569e0961e792e27fe44ac96ca0] [127.0.0.1] 
+
+Started GET "/assets/highlighter.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[30f032569e0961e792e27fe44ac96ca0] [127.0.0.1] Served asset /highlighter.css - 304 Not Modified (0ms)
+[a6fc45d62d32567493dc969b89f8680f] [127.0.0.1] 
+
+Started GET "/assets/walkway.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[a6fc45d62d32567493dc969b89f8680f] [127.0.0.1] Served asset /walkway.css - 304 Not Modified (0ms)
+[a3b7fbf931a771eb4317f6a84b734a23] [127.0.0.1] 
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[a3b7fbf931a771eb4317f6a84b734a23] [127.0.0.1] Served asset /application.css - 304 Not Modified (0ms)
+[b6374dc6f00cce5dc59af13ae5b81bf0] [127.0.0.1] 
+
+Started GET "/assets/print.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[b6374dc6f00cce5dc59af13ae5b81bf0] [127.0.0.1] Served asset /print.css - 304 Not Modified (0ms)
+[fc87a3b41c5cdc245c1a02abff3a294f] [127.0.0.1] 
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[fc87a3b41c5cdc245c1a02abff3a294f] [127.0.0.1] Served asset /styles.css - 304 Not Modified (0ms)
+[0f79c6257a3f14ad8d730d54c2fcfcd7] [127.0.0.1] 
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[0f79c6257a3f14ad8d730d54c2fcfcd7] [127.0.0.1] Served asset /forms.css - 304 Not Modified (0ms)
+[9e27cbba092527b099e1f37dd0336e89] [127.0.0.1] 
+
+Started GET "/assets/ipad.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[9e27cbba092527b099e1f37dd0336e89] [127.0.0.1] Served asset /ipad.css - 304 Not Modified (0ms)
+[c0fabdaa82778244b8a6a349c829e2c9] [127.0.0.1] 
+
+Started GET "/assets/iphone.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[c0fabdaa82778244b8a6a349c829e2c9] [127.0.0.1] Served asset /iphone.css - 304 Not Modified (0ms)
+[f57db60d09fe557c761d33e16ae0ea19] [127.0.0.1] 
+
+Started GET "/assets/headers.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[f57db60d09fe557c761d33e16ae0ea19] [127.0.0.1] Served asset /headers.css - 304 Not Modified (0ms)
+[db37eb4ff33e26d25579c40abac8cbe1] [127.0.0.1] 
+
+Started GET "/assets/jquery-ui-1.7.1.custom.min.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[db37eb4ff33e26d25579c40abac8cbe1] [127.0.0.1] Served asset /jquery-ui-1.7.1.custom.min.js - 304 Not Modified (0ms)
+[01cc9915909fdd241fbd4e7d170a0d50] [127.0.0.1] 
+
+Started GET "/assets/jquery.snippet.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[01cc9915909fdd241fbd4e7d170a0d50] [127.0.0.1] Served asset /jquery.snippet.js - 304 Not Modified (0ms)
+[18c0a366e0b6649ee0ad545af6cea2ad] [127.0.0.1] 
+
+Started GET "/assets/printing.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[18c0a366e0b6649ee0ad545af6cea2ad] [127.0.0.1] Served asset /printing.js - 304 Not Modified (0ms)
+[3249168d92c3c538e63dbe268b2865fc] [127.0.0.1] 
+
+Started GET "/assets/jquery.effects.core.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[3249168d92c3c538e63dbe268b2865fc] [127.0.0.1] Served asset /jquery.effects.core.js - 304 Not Modified (0ms)
+[d0ed42be874b75bd66889af1952ee6ce] [127.0.0.1] 
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[d0ed42be874b75bd66889af1952ee6ce] [127.0.0.1] Served asset /tabs.js - 304 Not Modified (0ms)
+[80a88451a3960804e1460a935dca0c11] [127.0.0.1] 
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[80a88451a3960804e1460a935dca0c11] [127.0.0.1] Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+[22e82253dde4f4b6b60cabb1e4ba5720] [127.0.0.1] 
+
+Started GET "/assets/waiters.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[22e82253dde4f4b6b60cabb1e4ba5720] [127.0.0.1] Served asset /waiters.js - 304 Not Modified (0ms)
+[ecd5e26341b121c2d6c27d519b35fc58] [127.0.0.1] 
+
+Started GET "/assets/walkway/Walkway_SemiBold-webfont.woff" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[ecd5e26341b121c2d6c27d519b35fc58] [127.0.0.1] Served asset /walkway/Walkway_SemiBold-webfont.woff - 304 Not Modified (0ms)
+[9577914b837e1a02f28b5d58df9d36ec] [127.0.0.1] 
+
+Started GET "/assets/left_slit.png" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[9577914b837e1a02f28b5d58df9d36ec] [127.0.0.1] Served asset /left_slit.png - 304 Not Modified (0ms)
+[1556afc0f919cc343933c3a1b64b39d7] [127.0.0.1] 
+
+Started GET "/assets/right_slit.png" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[1556afc0f919cc343933c3a1b64b39d7] [127.0.0.1] Served asset /right_slit.png - 304 Not Modified (0ms)
+[4860083c965282763f60ef4376bb3a4b] [127.0.0.1] 
+
+Started GET "/assets/small_left_slit.png" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[4860083c965282763f60ef4376bb3a4b] [127.0.0.1] Served asset /small_left_slit.png - 304 Not Modified (0ms)
+[7f2933aac6f8e236c6541dae34cac82f] [127.0.0.1] 
+
+Started GET "/assets/small_right_slit.png" for 127.0.0.1 at 2012-02-27 09:18:40 -0600
+[7f2933aac6f8e236c6541dae34cac82f] [127.0.0.1] Served asset /small_right_slit.png - 304 Not Modified (0ms)
+[9fa672da239d752c5524bdeafd896bb0] [127.0.0.1] 
+
+Started GET "/semesters/1-Fall2012/sections/7-Introduction-to-Java-Programming/assignments" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[9fa672da239d752c5524bdeafd896bb0] [127.0.0.1] Processing by AssignmentsController#index as HTML
+[9fa672da239d752c5524bdeafd896bb0] [127.0.0.1]   Parameters: {"semester_id"=>"1-Fall2012", "section_id"=>"7-Introduction-to-Java-Programming"}
+[9fa672da239d752c5524bdeafd896bb0] [127.0.0.1]   [1m[35mSemester Load (0.1ms)[0m  SELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1  [["id", "1-Fall2012"]]
+[9fa672da239d752c5524bdeafd896bb0] [127.0.0.1]   [1m[36mSection Load (0.1ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."id" = ? LIMIT 1[0m  [["id", "7-Introduction-to-Java-Programming"]]
+[9fa672da239d752c5524bdeafd896bb0] [127.0.0.1]   [1m[35mAssignment Load (0.3ms)[0m  SELECT "assignments".* FROM "assignments" INNER JOIN "labs" ON "labs"."id" = "assignments"."lab_id" WHERE "assignments"."section_id" = 7 AND (labs.visible = 't') ORDER BY duedate desc
+[9fa672da239d752c5524bdeafd896bb0] [127.0.0.1]   [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 3 LIMIT 1[0m
+[9fa672da239d752c5524bdeafd896bb0] [127.0.0.1]   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "materials" WHERE "materials"."course_id" = 3
+[9fa672da239d752c5524bdeafd896bb0] [127.0.0.1]   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "examples" WHERE "examples"."section_id" = 7[0m
+[9fa672da239d752c5524bdeafd896bb0] [127.0.0.1]   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "how_tos" INNER JOIN "tutorials" ON "how_tos"."id" = "tutorials"."how_to_id" WHERE "tutorials"."course_id" = 3
+[9fa672da239d752c5524bdeafd896bb0] [127.0.0.1]   Rendered assignments/index.html.erb within layouts/application (6.7ms)
+[9fa672da239d752c5524bdeafd896bb0] [127.0.0.1]   Rendered shared/_title.html.erb (0.1ms)
+[9fa672da239d752c5524bdeafd896bb0] [127.0.0.1]   Rendered shared/_messages.html.erb (0.0ms)
+[9fa672da239d752c5524bdeafd896bb0] [127.0.0.1]   Rendered shared/_footer.html.erb (1.2ms)
+[9fa672da239d752c5524bdeafd896bb0] [127.0.0.1] Completed 200 OK in 23ms (Views: 18.6ms | ActiveRecord: 0.9ms)
+[bca998c40b8c99c5bdab582f7b84b0e8] [127.0.0.1] 
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[bca998c40b8c99c5bdab582f7b84b0e8] [127.0.0.1] Served asset /jquery.js - 304 Not Modified (0ms)
+[35ac642a0f99b53f7f4b107864d740d7] [127.0.0.1] 
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[35ac642a0f99b53f7f4b107864d740d7] [127.0.0.1] Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+[b8ba658318c2611c9cc8a4f57ff50837] [127.0.0.1] 
+
+Started GET "/assets/forms.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[b8ba658318c2611c9cc8a4f57ff50837] [127.0.0.1] Served asset /forms.js - 304 Not Modified (0ms)
+[c86824deacdac22eb990095573b3a818] [127.0.0.1] 
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[c86824deacdac22eb990095573b3a818] [127.0.0.1] Served asset /normalize.css - 304 Not Modified (0ms)
+[85fd6a119f259398ee53249f93a66368] [127.0.0.1] 
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[85fd6a119f259398ee53249f93a66368] [127.0.0.1] Served asset /application.js - 304 Not Modified (0ms)
+[9a4652fd90e23353bc3efd772930e758] [127.0.0.1] 
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[9a4652fd90e23353bc3efd772930e758] [127.0.0.1] Served asset /google_analytics.js - 304 Not Modified (0ms)
+[4fe60e6cdabdd19227846d07d66e42ff] [127.0.0.1] 
+
+Started GET "/assets/highlighter.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[4fe60e6cdabdd19227846d07d66e42ff] [127.0.0.1] Served asset /highlighter.css - 304 Not Modified (0ms)
+[6b72517ccf160213b676b122f90bf663] [127.0.0.1] 
+
+Started GET "/assets/walkway.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[6b72517ccf160213b676b122f90bf663] [127.0.0.1] Served asset /walkway.css - 304 Not Modified (0ms)
+[6eef608d52f00175a0a2384c74698250] [127.0.0.1] 
+
+Started GET "/assets/print.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[6eef608d52f00175a0a2384c74698250] [127.0.0.1] Served asset /print.css - 304 Not Modified (0ms)
+[bf4c271eec8b9a830e773d4f4b6821f0] [127.0.0.1] 
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[bf4c271eec8b9a830e773d4f4b6821f0] [127.0.0.1] Served asset /application.css - 304 Not Modified (0ms)
+[8b951614578984b4d83dd98761a53566] [127.0.0.1] 
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[8b951614578984b4d83dd98761a53566] [127.0.0.1] Served asset /styles.css - 304 Not Modified (0ms)
+[719a88e73d0e5f80f49598e82e8dd800] [127.0.0.1] 
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[719a88e73d0e5f80f49598e82e8dd800] [127.0.0.1] Served asset /forms.css - 304 Not Modified (0ms)
+[833bded8b733ef3fc871a4fcd5c88d06] [127.0.0.1] 
+
+Started GET "/assets/headers.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[833bded8b733ef3fc871a4fcd5c88d06] [127.0.0.1] Served asset /headers.css - 304 Not Modified (0ms)
+[299d294b2a5f7ce54325d8fab651c7bb] [127.0.0.1] 
+
+Started GET "/assets/iphone.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[299d294b2a5f7ce54325d8fab651c7bb] [127.0.0.1] Served asset /iphone.css - 304 Not Modified (0ms)
+[d244086ad040157bb8e234e24a419d34] [127.0.0.1] 
+
+Started GET "/assets/ipad.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[d244086ad040157bb8e234e24a419d34] [127.0.0.1] Served asset /ipad.css - 304 Not Modified (0ms)
+[fdf6329cfc8b2d9e45d1e72de1bf2382] [127.0.0.1] 
+
+Started GET "/assets/jquery-ui-1.7.1.custom.min.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[fdf6329cfc8b2d9e45d1e72de1bf2382] [127.0.0.1] Served asset /jquery-ui-1.7.1.custom.min.js - 304 Not Modified (0ms)
+[a73d8414475d11bb9684e0fe7c000a7d] [127.0.0.1] 
+
+Started GET "/assets/jquery.effects.core.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[a73d8414475d11bb9684e0fe7c000a7d] [127.0.0.1] Served asset /jquery.effects.core.js - 304 Not Modified (0ms)
+[a2a51052cf2d85bdff6dc1b99b9140f0] [127.0.0.1] 
+
+Started GET "/assets/jquery.snippet.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[a2a51052cf2d85bdff6dc1b99b9140f0] [127.0.0.1] Served asset /jquery.snippet.js - 304 Not Modified (0ms)
+[df409c02554341dd1125199518eb3491] [127.0.0.1] 
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[df409c02554341dd1125199518eb3491] [127.0.0.1] Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+[4f6c3931d14adfa50bfe361121b8539d] [127.0.0.1] 
+
+Started GET "/assets/printing.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[4f6c3931d14adfa50bfe361121b8539d] [127.0.0.1] Served asset /printing.js - 304 Not Modified (0ms)
+[676c1e472c30f6f2fee849fc67195607] [127.0.0.1] 
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[676c1e472c30f6f2fee849fc67195607] [127.0.0.1] Served asset /tabs.js - 304 Not Modified (0ms)
+[de945ae1dba0195e4da5735c248fcbbe] [127.0.0.1] 
+
+Started GET "/assets/waiters.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[de945ae1dba0195e4da5735c248fcbbe] [127.0.0.1] Served asset /waiters.js - 304 Not Modified (0ms)
+[4a56d267ab22587d33a1e0d23823ff93] [127.0.0.1] 
+
+Started GET "/assets/walkway/Walkway_SemiBold-webfont.woff" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[4a56d267ab22587d33a1e0d23823ff93] [127.0.0.1] Served asset /walkway/Walkway_SemiBold-webfont.woff - 304 Not Modified (0ms)
+[22f4dee27ea80a6bbccace91107a43bf] [127.0.0.1] 
+
+Started GET "/assets/left_slit.png" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[22f4dee27ea80a6bbccace91107a43bf] [127.0.0.1] Served asset /left_slit.png - 304 Not Modified (0ms)
+[e8805b32748bb719f94781b058b20b60] [127.0.0.1] 
+
+Started GET "/assets/right_slit.png" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[e8805b32748bb719f94781b058b20b60] [127.0.0.1] Served asset /right_slit.png - 304 Not Modified (0ms)
+[5214542f3200a3c6b09b4342f1bee1df] [127.0.0.1] 
+
+Started GET "/assets/small_left_slit.png" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[5214542f3200a3c6b09b4342f1bee1df] [127.0.0.1] Served asset /small_left_slit.png - 304 Not Modified (0ms)
+[a7f0cfaa6b1fce74ab0f36f9ebedcf02] [127.0.0.1] 
+
+Started GET "/assets/small_right_slit.png" for 127.0.0.1 at 2012-02-27 09:18:42 -0600
+[a7f0cfaa6b1fce74ab0f36f9ebedcf02] [127.0.0.1] Served asset /small_right_slit.png - 304 Not Modified (0ms)
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1] 
+
+Started GET "/semesters/1-Fall2012/sections/7-Introduction-to-Java-Programming/syllabus" for 127.0.0.1 at 2012-02-27 09:18:44 -0600
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1] Processing by SectionsController#syllabus as HTML
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1]   Parameters: {"semester_id"=>"1-Fall2012", "id"=>"7-Introduction-to-Java-Programming"}
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1]   [1m[36mSemester Load (0.2ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1[0m  [["id", "1-Fall2012"]]
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1]   [1m[35mSection Load (0.1ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1 AND "sections"."id" = ? LIMIT 1  [["id", "7-Introduction-to-Java-Programming"]]
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1]   [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 3 LIMIT 1[0m
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1]   [1m[35mInstructor Load (0.1ms)[0m  SELECT "instructors".* FROM "instructors" WHERE "instructors"."id" = 1 LIMIT 1
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1]   [1m[36mDivision Load (0.1ms)[0m  [1mSELECT "divisions".* FROM "divisions" WHERE "divisions"."id" = 1 LIMIT 1[0m
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1]   [1m[35mBook Load (0.1ms)[0m  SELECT "books".* FROM "books" WHERE "books"."course_id" = 3
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1]   [1m[36mObjective Load (0.1ms)[0m  [1mSELECT "objectives".* FROM "objectives" WHERE "objectives"."course_id" = 3[0m
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1]   [1m[35mPolicy Load (0.2ms)[0m  SELECT "policies".* FROM "policies" WHERE "policies"."course_id" = 3 ORDER BY position
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1]   Rendered sections/syllabus.html.erb within layouts/application (6.2ms)
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1]   Rendered shared/_title.html.erb (0.3ms)
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1]   Rendered shared/_messages.html.erb (0.1ms)
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1]   Rendered shared/_footer.html.erb (1.2ms)
+[a1a60359ae3be39bb05cb369b73d04ae] [127.0.0.1] Completed 200 OK in 21ms (Views: 18.1ms | ActiveRecord: 1.0ms)
+[ea729c8f811e9ef195e6e7acf2fbb530] [127.0.0.1] 
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[ea729c8f811e9ef195e6e7acf2fbb530] [127.0.0.1] Served asset /jquery.js - 304 Not Modified (0ms)
+[3ebcc48441ac4918f99fd36fbaf3f537] [127.0.0.1] 
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[3ebcc48441ac4918f99fd36fbaf3f537] [127.0.0.1] Served asset /application.js - 304 Not Modified (0ms)
+[089b59424d65f9a8f0244eb1519baf3b] [127.0.0.1] 
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[089b59424d65f9a8f0244eb1519baf3b] [127.0.0.1] Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+[75fda48923c8ff173d59fcfcd2e0c353] [127.0.0.1] 
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[75fda48923c8ff173d59fcfcd2e0c353] [127.0.0.1] Served asset /google_analytics.js - 304 Not Modified (0ms)
+[986b3e19b135a50995fefdd0b3dd24f5] [127.0.0.1] 
+
+Started GET "/assets/forms.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[986b3e19b135a50995fefdd0b3dd24f5] [127.0.0.1] Served asset /forms.js - 304 Not Modified (0ms)
+[7eaf5741247441b2b487eb9cc3a73a99] [127.0.0.1] 
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[7eaf5741247441b2b487eb9cc3a73a99] [127.0.0.1] Served asset /normalize.css - 304 Not Modified (0ms)
+[0c960e51707a79ae3ce7bdfb5ecabadf] [127.0.0.1] 
+
+Started GET "/assets/walkway.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[0c960e51707a79ae3ce7bdfb5ecabadf] [127.0.0.1] Served asset /walkway.css - 304 Not Modified (0ms)
+[4e07931c6882348bac4084b5ac47fa07] [127.0.0.1] 
+
+Started GET "/assets/print.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[4e07931c6882348bac4084b5ac47fa07] [127.0.0.1] Served asset /print.css - 304 Not Modified (0ms)
+[c79e54f15126eab930ea50cb68646a85] [127.0.0.1] 
+
+Started GET "/assets/highlighter.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[c79e54f15126eab930ea50cb68646a85] [127.0.0.1] Served asset /highlighter.css - 304 Not Modified (0ms)
+[4043353962163bccfd9b4ca0de37368c] [127.0.0.1] 
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[4043353962163bccfd9b4ca0de37368c] [127.0.0.1] Served asset /application.css - 304 Not Modified (0ms)
+[b0cac5f189c8668fa0175e7fcc483c43] [127.0.0.1] 
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[b0cac5f189c8668fa0175e7fcc483c43] [127.0.0.1] Served asset /styles.css - 304 Not Modified (0ms)
+[5638bab89d8ef7dd9b92861071a56b56] [127.0.0.1] 
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[5638bab89d8ef7dd9b92861071a56b56] [127.0.0.1] Served asset /forms.css - 304 Not Modified (0ms)
+[462464ced754fd796b1b9b4feba40b0a] [127.0.0.1] 
+
+Started GET "/assets/headers.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[462464ced754fd796b1b9b4feba40b0a] [127.0.0.1] Served asset /headers.css - 304 Not Modified (0ms)
+[f5aacb9ba30da2b0a1aa1c7d93d5420b] [127.0.0.1] 
+
+Started GET "/assets/ipad.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[f5aacb9ba30da2b0a1aa1c7d93d5420b] [127.0.0.1] Served asset /ipad.css - 304 Not Modified (0ms)
+[97c56e437513037e5d974e925971e414] [127.0.0.1] 
+
+Started GET "/assets/iphone.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[97c56e437513037e5d974e925971e414] [127.0.0.1] Served asset /iphone.css - 304 Not Modified (0ms)
+[095c82e3046aa81b32342b458ba87d34] [127.0.0.1] 
+
+Started GET "/assets/jquery-ui-1.7.1.custom.min.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[095c82e3046aa81b32342b458ba87d34] [127.0.0.1] Served asset /jquery-ui-1.7.1.custom.min.js - 304 Not Modified (0ms)
+[1efe0269023e981e9968cfeec1cca7fc] [127.0.0.1] 
+
+Started GET "/assets/jquery.effects.core.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[1efe0269023e981e9968cfeec1cca7fc] [127.0.0.1] Served asset /jquery.effects.core.js - 304 Not Modified (0ms)
+[f29ef89628a3e48069ce4a891049ca33] [127.0.0.1] 
+
+Started GET "/assets/jquery.snippet.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[f29ef89628a3e48069ce4a891049ca33] [127.0.0.1] Served asset /jquery.snippet.js - 304 Not Modified (0ms)
+[0b7d075d75c57dc3730fcb3c4623ebbd] [127.0.0.1] 
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[0b7d075d75c57dc3730fcb3c4623ebbd] [127.0.0.1] Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+[6249ae3004b6d25bdc40ae2e272369ab] [127.0.0.1] 
+
+Started GET "/assets/printing.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[6249ae3004b6d25bdc40ae2e272369ab] [127.0.0.1] Served asset /printing.js - 304 Not Modified (0ms)
+[a585729dfb8e319364de9d428c2f7f44] [127.0.0.1] 
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[a585729dfb8e319364de9d428c2f7f44] [127.0.0.1] Served asset /tabs.js - 304 Not Modified (0ms)
+[1e5a5f34087b831ea00a65acb03a8652] [127.0.0.1] 
+
+Started GET "/assets/waiters.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[1e5a5f34087b831ea00a65acb03a8652] [127.0.0.1] Served asset /waiters.js - 304 Not Modified (0ms)
+[89824dd2fde372a5d8ff86fe804e27c0] [127.0.0.1] 
+
+Started GET "/assets/left_slit.png" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[89824dd2fde372a5d8ff86fe804e27c0] [127.0.0.1] Served asset /left_slit.png - 304 Not Modified (0ms)
+[1be664b029a914d50d2e9d35592a5d2a] [127.0.0.1] 
+
+Started GET "/assets/walkway/Walkway_SemiBold-webfont.woff" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[1be664b029a914d50d2e9d35592a5d2a] [127.0.0.1] Served asset /walkway/Walkway_SemiBold-webfont.woff - 304 Not Modified (0ms)
+[8998e4bfc86ad5033a47fa37c6e01a89] [127.0.0.1] 
+
+Started GET "/assets/right_slit.png" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[8998e4bfc86ad5033a47fa37c6e01a89] [127.0.0.1] Served asset /right_slit.png - 304 Not Modified (0ms)
+[88e6890203e6dbb737ba69a5410b98b8] [127.0.0.1] 
+
+Started GET "/assets/small_left_slit.png" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[88e6890203e6dbb737ba69a5410b98b8] [127.0.0.1] Served asset /small_left_slit.png - 304 Not Modified (0ms)
+[47c3a565e536ffa068c6329d26bbab5a] [127.0.0.1] 
+
+Started GET "/assets/small_right_slit.png" for 127.0.0.1 at 2012-02-27 09:18:45 -0600
+[47c3a565e536ffa068c6329d26bbab5a] [127.0.0.1] Served asset /small_right_slit.png - 304 Not Modified (0ms)
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1] 
+
+Started GET "/" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1] Processing by SectionsController#index as HTML
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1]   Parameters: {"semester_id"=>1}
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1]   [1m[36mSemester Load (0.2ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = ? LIMIT 1[0m  [["id", 1]]
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1]   [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."semester_id" = 1
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1]   [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1]   [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1[0m
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1]   [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 3 LIMIT 1
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 3 LIMIT 1[0m
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1]   [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 4 LIMIT 1
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 3 LIMIT 1[0m
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1]   Rendered sections/index.html.erb within layouts/application (9.1ms)
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1]   Rendered shared/_title.html.erb (0.3ms)
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1]   Rendered shared/_messages.html.erb (0.1ms)
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1]   Rendered shared/_footer.html.erb (1.2ms)
+[6246d85cbc914c5357d33df459cef0f2] [127.0.0.1] Completed 200 OK in 28ms (Views: 24.4ms | ActiveRecord: 0.9ms)
+[786cb3f991879bcf48219e496dcd63c2] [127.0.0.1] 
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[786cb3f991879bcf48219e496dcd63c2] [127.0.0.1] Served asset /jquery.js - 304 Not Modified (0ms)
+[77f084a00bd01829f0192dfa49df0412] [127.0.0.1] 
+
+Started GET "/assets/forms.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[77f084a00bd01829f0192dfa49df0412] [127.0.0.1] Served asset /forms.js - 304 Not Modified (0ms)
+[e5b27b1a13b3db15d8e51665adfcd40a] [127.0.0.1] 
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[e5b27b1a13b3db15d8e51665adfcd40a] [127.0.0.1] Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+[f184829843c8ddd0ff450975cf6abd8b] [127.0.0.1] 
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[f184829843c8ddd0ff450975cf6abd8b] [127.0.0.1] Served asset /application.js - 304 Not Modified (0ms)
+[2626fab10219c0a1e79743ef4c364c89] [127.0.0.1] 
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[2626fab10219c0a1e79743ef4c364c89] [127.0.0.1] Served asset /google_analytics.js - 304 Not Modified (0ms)
+[53c5b0d54ad0e894b8f116e7abc36adf] [127.0.0.1] 
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[53c5b0d54ad0e894b8f116e7abc36adf] [127.0.0.1] Served asset /normalize.css - 304 Not Modified (0ms)
+[136e3f1147347ba4228b10e09c817163] [127.0.0.1] 
+
+Started GET "/assets/walkway.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[136e3f1147347ba4228b10e09c817163] [127.0.0.1] Served asset /walkway.css - 304 Not Modified (0ms)
+[642c8a331c7e92571c28b8914ea784fa] [127.0.0.1] 
+
+Started GET "/assets/print.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[642c8a331c7e92571c28b8914ea784fa] [127.0.0.1] Served asset /print.css - 304 Not Modified (0ms)
+[059d20a4666d7421c4f611c6cf704378] [127.0.0.1] 
+
+Started GET "/assets/highlighter.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[059d20a4666d7421c4f611c6cf704378] [127.0.0.1] Served asset /highlighter.css - 304 Not Modified (0ms)
+[40cd598fff340aeafa47298851504038] [127.0.0.1] 
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[40cd598fff340aeafa47298851504038] [127.0.0.1] Served asset /application.css - 304 Not Modified (1ms)
+[ce4077b4a09f39df053bee507137509f] [127.0.0.1] 
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[ce4077b4a09f39df053bee507137509f] [127.0.0.1] Served asset /styles.css - 304 Not Modified (0ms)
+[c27ba5e185c5f5ebc84032f0c214a31f] [127.0.0.1] 
+
+Started GET "/assets/ipad.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[c27ba5e185c5f5ebc84032f0c214a31f] [127.0.0.1] Served asset /ipad.css - 304 Not Modified (0ms)
+[38ee74eadb6d3c0fbd7ef281dc2dbb49] [127.0.0.1] 
+
+Started GET "/assets/iphone.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[38ee74eadb6d3c0fbd7ef281dc2dbb49] [127.0.0.1] Served asset /iphone.css - 304 Not Modified (0ms)
+[565d3423631f484464b68e55a811b7fe] [127.0.0.1] 
+
+Started GET "/assets/jquery-ui-1.7.1.custom.min.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[565d3423631f484464b68e55a811b7fe] [127.0.0.1] Served asset /jquery-ui-1.7.1.custom.min.js - 304 Not Modified (0ms)
+[701ab240c00ab91bfc7a966d354dba5c] [127.0.0.1] 
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[701ab240c00ab91bfc7a966d354dba5c] [127.0.0.1] Served asset /forms.css - 304 Not Modified (0ms)
+[2c74463e6937ac85877fa06b86b761f7] [127.0.0.1] 
+
+Started GET "/assets/headers.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[2c74463e6937ac85877fa06b86b761f7] [127.0.0.1] Served asset /headers.css - 304 Not Modified (0ms)
+[568296f4d80ffd474689c038f42a483e] [127.0.0.1] 
+
+Started GET "/assets/jquery.effects.core.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[568296f4d80ffd474689c038f42a483e] [127.0.0.1] Served asset /jquery.effects.core.js - 304 Not Modified (0ms)
+[641db92ebedcb6469b894d6a1ac39c75] [127.0.0.1] 
+
+Started GET "/assets/jquery.snippet.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[641db92ebedcb6469b894d6a1ac39c75] [127.0.0.1] Served asset /jquery.snippet.js - 304 Not Modified (0ms)
+[4b0e884ec9541ea543b08fdc509357e9] [127.0.0.1] 
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[4b0e884ec9541ea543b08fdc509357e9] [127.0.0.1] Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+[d0c11c777539139b176c0495b95a0196] [127.0.0.1] 
+
+Started GET "/assets/printing.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[d0c11c777539139b176c0495b95a0196] [127.0.0.1] Served asset /printing.js - 304 Not Modified (0ms)
+[9bc7af4f9f0f953ea5a1b22e092dbb43] [127.0.0.1] 
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[9bc7af4f9f0f953ea5a1b22e092dbb43] [127.0.0.1] Served asset /tabs.js - 304 Not Modified (0ms)
+[eb7c5904bc5bdccddd07731420cffd19] [127.0.0.1] 
+
+Started GET "/assets/waiters.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[eb7c5904bc5bdccddd07731420cffd19] [127.0.0.1] Served asset /waiters.js - 304 Not Modified (0ms)
+[d10ebca54ed4b8142738344f6b3d8434] [127.0.0.1] 
+
+Started GET "/assets/left_slit.png" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[d10ebca54ed4b8142738344f6b3d8434] [127.0.0.1] Served asset /left_slit.png - 304 Not Modified (0ms)
+[7042194c03879e2c73a22c05e535a423] [127.0.0.1] 
+
+Started GET "/assets/walkway/Walkway_SemiBold-webfont.woff" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[7042194c03879e2c73a22c05e535a423] [127.0.0.1] Served asset /walkway/Walkway_SemiBold-webfont.woff - 304 Not Modified (0ms)
+[d524014d1dba741b211125e1c09e5a50] [127.0.0.1] 
+
+Started GET "/assets/right_slit.png" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[d524014d1dba741b211125e1c09e5a50] [127.0.0.1] Served asset /right_slit.png - 304 Not Modified (0ms)
+[fbdb329c47bc75bac096b8fe59837eea] [127.0.0.1] 
+
+Started GET "/assets/small_right_slit.png" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[fbdb329c47bc75bac096b8fe59837eea] [127.0.0.1] Served asset /small_right_slit.png - 304 Not Modified (0ms)
+[230142cd8f805027be493bbad584eeab] [127.0.0.1] 
+
+Started GET "/assets/small_left_slit.png" for 127.0.0.1 at 2012-02-27 09:18:54 -0600
+[230142cd8f805027be493bbad584eeab] [127.0.0.1] Served asset /small_left_slit.png - 304 Not Modified (0ms)
+[235133a532ce1e0f320702f03a4e81a9] [127.0.0.1] 
+
+Started GET "/courses" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[235133a532ce1e0f320702f03a4e81a9] [127.0.0.1] Processing by CoursesController#index as HTML
+[235133a532ce1e0f320702f03a4e81a9] [127.0.0.1]   [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses" 
+[235133a532ce1e0f320702f03a4e81a9] [127.0.0.1]   Rendered courses/index.html.erb within layouts/application (3.7ms)
+[235133a532ce1e0f320702f03a4e81a9] [127.0.0.1]   Rendered shared/_title.html.erb (0.1ms)
+[235133a532ce1e0f320702f03a4e81a9] [127.0.0.1]   Rendered shared/_messages.html.erb (0.0ms)
+[235133a532ce1e0f320702f03a4e81a9] [127.0.0.1]   Rendered shared/_footer.html.erb (1.3ms)
+[235133a532ce1e0f320702f03a4e81a9] [127.0.0.1] Completed 200 OK in 51ms (Views: 48.9ms | ActiveRecord: 0.3ms)
+[54879baabd0e9c2878176da067905c90] [127.0.0.1] 
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[54879baabd0e9c2878176da067905c90] [127.0.0.1] Served asset /jquery.js - 304 Not Modified (0ms)
+[249c40a493df6f0ce0a85e85aa9814be] [127.0.0.1] 
+
+Started GET "/assets/forms.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[249c40a493df6f0ce0a85e85aa9814be] [127.0.0.1] Served asset /forms.js - 304 Not Modified (0ms)
+[6046a59818ab9c164fe5916fa602aaac] [127.0.0.1] 
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[6046a59818ab9c164fe5916fa602aaac] [127.0.0.1] Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+[9050dbdffc70aad814205fdf44af4aca] [127.0.0.1] 
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[9050dbdffc70aad814205fdf44af4aca] [127.0.0.1] Served asset /application.js - 304 Not Modified (0ms)
+[283bc33383cc28320329da3ddc54b357] [127.0.0.1] 
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[283bc33383cc28320329da3ddc54b357] [127.0.0.1] Served asset /google_analytics.js - 304 Not Modified (0ms)
+[f3ee4a318035226ed14fd2b6846ca851] [127.0.0.1] 
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[f3ee4a318035226ed14fd2b6846ca851] [127.0.0.1] Served asset /normalize.css - 304 Not Modified (0ms)
+[43c6d62d2e380d879f8236e27ed1da59] [127.0.0.1] 
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[43c6d62d2e380d879f8236e27ed1da59] [127.0.0.1] Served asset /application.css - 304 Not Modified (0ms)
+[53e412bf3cf246fa2ac928a0abc60c8d] [127.0.0.1] 
+
+Started GET "/assets/print.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[53e412bf3cf246fa2ac928a0abc60c8d] [127.0.0.1] Served asset /print.css - 304 Not Modified (0ms)
+[d9af5e2f6bba1b4c0fb7209d3a9a39a3] [127.0.0.1] 
+
+Started GET "/assets/highlighter.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[d9af5e2f6bba1b4c0fb7209d3a9a39a3] [127.0.0.1] Served asset /highlighter.css - 304 Not Modified (0ms)
+[8d0e5880ed4c05b5cca14990961b862f] [127.0.0.1] 
+
+Started GET "/assets/walkway.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[8d0e5880ed4c05b5cca14990961b862f] [127.0.0.1] Served asset /walkway.css - 304 Not Modified (0ms)
+[43d8a14e72e765106885dd539dd4f45c] [127.0.0.1] 
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[43d8a14e72e765106885dd539dd4f45c] [127.0.0.1] Served asset /styles.css - 304 Not Modified (0ms)
+[7198ea709d74861546b18ee20059b314] [127.0.0.1] 
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[7198ea709d74861546b18ee20059b314] [127.0.0.1] Served asset /forms.css - 304 Not Modified (0ms)
+[7fc9f1b8b819c88e125c96e0590aba54] [127.0.0.1] 
+
+Started GET "/assets/headers.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[7fc9f1b8b819c88e125c96e0590aba54] [127.0.0.1] Served asset /headers.css - 304 Not Modified (0ms)
+[e7a29ff6e5c66fe295d4965cb754696d] [127.0.0.1] 
+
+Started GET "/assets/ipad.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[e7a29ff6e5c66fe295d4965cb754696d] [127.0.0.1] Served asset /ipad.css - 304 Not Modified (0ms)
+[3a9f6fb685a96de6e937e0b6e945a774] [127.0.0.1] 
+
+Started GET "/assets/iphone.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[3a9f6fb685a96de6e937e0b6e945a774] [127.0.0.1] Served asset /iphone.css - 304 Not Modified (0ms)
+[176f3a9193901d9eedd40bb028a6fa9b] [127.0.0.1] 
+
+Started GET "/assets/jquery-ui-1.7.1.custom.min.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[176f3a9193901d9eedd40bb028a6fa9b] [127.0.0.1] Served asset /jquery-ui-1.7.1.custom.min.js - 304 Not Modified (0ms)
+[c1c7927bd7bf3a07573ddd88c1457ae8] [127.0.0.1] 
+
+Started GET "/assets/jquery.effects.core.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[c1c7927bd7bf3a07573ddd88c1457ae8] [127.0.0.1] Served asset /jquery.effects.core.js - 304 Not Modified (0ms)
+[935652fd3e88da2402f9d9f60083f170] [127.0.0.1] 
+
+Started GET "/assets/jquery.snippet.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[935652fd3e88da2402f9d9f60083f170] [127.0.0.1] Served asset /jquery.snippet.js - 304 Not Modified (0ms)
+[405ec8afac710db358da9ffb85fd5e9f] [127.0.0.1] 
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[405ec8afac710db358da9ffb85fd5e9f] [127.0.0.1] Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+[7b1b8c6f74781a1175e288c1085143e7] [127.0.0.1] 
+
+Started GET "/assets/printing.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[7b1b8c6f74781a1175e288c1085143e7] [127.0.0.1] Served asset /printing.js - 304 Not Modified (0ms)
+[36049cb70543a9b5487e287cd2d6060c] [127.0.0.1] 
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[36049cb70543a9b5487e287cd2d6060c] [127.0.0.1] Served asset /tabs.js - 304 Not Modified (0ms)
+[bb8e9f9bf1b5d63c480307a199eae9e1] [127.0.0.1] 
+
+Started GET "/assets/waiters.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[bb8e9f9bf1b5d63c480307a199eae9e1] [127.0.0.1] Served asset /waiters.js - 304 Not Modified (0ms)
+[e1c4a01b62aa080ebc488fb72f72d716] [127.0.0.1] 
+
+Started GET "/assets/left_slit.png" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[e1c4a01b62aa080ebc488fb72f72d716] [127.0.0.1] Served asset /left_slit.png - 304 Not Modified (0ms)
+[803423d035d0dceb2303443ea4efd028] [127.0.0.1] 
+
+Started GET "/assets/right_slit.png" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[803423d035d0dceb2303443ea4efd028] [127.0.0.1] Served asset /right_slit.png - 304 Not Modified (0ms)
+[f25aa1b61801ac7bde034811d026ae01] [127.0.0.1] 
+
+Started GET "/assets/small_right_slit.png" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[f25aa1b61801ac7bde034811d026ae01] [127.0.0.1] Served asset /small_right_slit.png - 304 Not Modified (0ms)
+[829208592a87742c823dac10adef2c69] [127.0.0.1] 
+
+Started GET "/assets/small_left_slit.png" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[829208592a87742c823dac10adef2c69] [127.0.0.1] Served asset /small_left_slit.png - 304 Not Modified (0ms)
+[3b4a40d7a14d8e430c5fa9a083f688cd] [127.0.0.1] 
+
+Started GET "/assets/walkway/Walkway_SemiBold-webfont.woff" for 127.0.0.1 at 2012-02-27 09:18:57 -0600
+[3b4a40d7a14d8e430c5fa9a083f688cd] [127.0.0.1] Served asset /walkway/Walkway_SemiBold-webfont.woff - 304 Not Modified (0ms)
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1] 
+
+Started GET "/courses/1-How-to-Program" for 127.0.0.1 at 2012-02-27 09:18:59 -0600
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1] Processing by CoursesController#show as HTML
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   Parameters: {"id"=>"1-How-to-Program"}
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1[0m  [["id", "1-How-to-Program"]]
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "how_tos" INNER JOIN "tutorials" ON "how_tos"."id" = "tutorials"."how_to_id" WHERE "tutorials"."course_id" = 1
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[36mHowTo Load (0.2ms)[0m  [1mSELECT "how_tos".* FROM "how_tos" INNER JOIN "tutorials" ON "how_tos"."id" = "tutorials"."how_to_id" WHERE "tutorials"."course_id" = 1[0m
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[35mStep Load (0.4ms)[0m  SELECT "steps".* FROM "steps" WHERE "steps"."how_to_id" = 1 ORDER BY position LIMIT 1
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."course_id" = 1[0m
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[35mSection Load (0.1ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."course_id" = 1
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[36mSemester Load (0.1ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = 1 LIMIT 1[0m
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "enrollments" WHERE "enrollments"."section_id" = 1[0m
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[35mSemester Load (0.1ms)[0m  SELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = 2 LIMIT 1
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "enrollments" WHERE "enrollments"."section_id" = 2
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[36mSemester Load (0.1ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = 3 LIMIT 1[0m
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "enrollments" WHERE "enrollments"."section_id" = 4[0m
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[35mObjective Load (0.1ms)[0m  SELECT "objectives".* FROM "objectives" WHERE "objectives"."course_id" = 1
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "labs" WHERE "labs"."course_id" = 1[0m
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[35mLab Load (0.1ms)[0m  SELECT "labs".* FROM "labs" WHERE "labs"."course_id" = 1
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[36mRequirement Load (0.2ms)[0m  [1mSELECT "requirements".* FROM "requirements" WHERE "requirements"."lab_id" = 1[0m
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "assignments" WHERE "assignments"."lab_id" = 1
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[36mRequirement Load (0.1ms)[0m  [1mSELECT "requirements".* FROM "requirements" WHERE "requirements"."lab_id" = 3[0m
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "assignments" WHERE "assignments"."lab_id" = 3
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   Rendered courses/show.html.erb within layouts/application (36.7ms)
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   Rendered shared/_title.html.erb (0.1ms)
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   Rendered shared/_messages.html.erb (0.1ms)
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1]   Rendered shared/_footer.html.erb (1.4ms)
+[21d426a4a9d2cd96696847201f836b56] [127.0.0.1] Completed 200 OK in 111ms (Views: 107.4ms | ActiveRecord: 2.6ms)
+[82bbefa68410bfd495f474686009c022] [127.0.0.1] 
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:59 -0600
+[82bbefa68410bfd495f474686009c022] [127.0.0.1] Served asset /application.js - 304 Not Modified (0ms)
+[7054a8e031eda82b7f9e866ab483b76a] [127.0.0.1] 
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:59 -0600
+[7054a8e031eda82b7f9e866ab483b76a] [127.0.0.1] Served asset /jquery.js - 304 Not Modified (0ms)
+[ff15c8cbee9931e505958ac84a81a881] [127.0.0.1] 
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:59 -0600
+[ff15c8cbee9931e505958ac84a81a881] [127.0.0.1] Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+[75a2e20f73acfd1f82c1cdd8792e3f79] [127.0.0.1] 
+
+Started GET "/assets/forms.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:59 -0600
+[75a2e20f73acfd1f82c1cdd8792e3f79] [127.0.0.1] Served asset /forms.js - 304 Not Modified (0ms)
+[55643372307eb602955b6abc7728fd9d] [127.0.0.1] 
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2012-02-27 09:18:59 -0600
+[55643372307eb602955b6abc7728fd9d] [127.0.0.1] Served asset /google_analytics.js - 304 Not Modified (0ms)
+[d8bdacf548c9159f8c0f3086cde22ae9] [127.0.0.1] 
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:59 -0600
+[d8bdacf548c9159f8c0f3086cde22ae9] [127.0.0.1] Served asset /normalize.css - 304 Not Modified (0ms)
+[7d06f051151fba072dd9c46cb1cc94ba] [127.0.0.1] 
+
+Started GET "/assets/walkway.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:59 -0600
+[7d06f051151fba072dd9c46cb1cc94ba] [127.0.0.1] Served asset /walkway.css - 304 Not Modified (0ms)
+[6e43c10ff84cc8de4de0e7c3a26de360] [127.0.0.1] 
+
+Started GET "/assets/highlighter.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:59 -0600
+[6e43c10ff84cc8de4de0e7c3a26de360] [127.0.0.1] Served asset /highlighter.css - 304 Not Modified (0ms)
+[189dc7ce006181aea6c52c9fccca6f35] [127.0.0.1] 
+
+Started GET "/assets/print.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:59 -0600
+[189dc7ce006181aea6c52c9fccca6f35] [127.0.0.1] Served asset /print.css - 304 Not Modified (0ms)
+[44a78c331d9bb3a5443cee87b4307aa7] [127.0.0.1] 
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-27 09:18:59 -0600
+[44a78c331d9bb3a5443cee87b4307aa7] [127.0.0.1] Served asset /application.css - 304 Not Modified (0ms)
+[01c85f4152ec5dbe99853e7877166bf7] [127.0.0.1] 
+
+Started GET "/assets/headers.css?body=1" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[01c85f4152ec5dbe99853e7877166bf7] [127.0.0.1] Served asset /headers.css - 304 Not Modified (0ms)
+[8cafac308f9cd29ed180de3fb0da9e6f] [127.0.0.1] 
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[8cafac308f9cd29ed180de3fb0da9e6f] [127.0.0.1] Served asset /styles.css - 304 Not Modified (0ms)
+[655a1e7571303c9b1e8bfbbb4412ded2] [127.0.0.1] 
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[655a1e7571303c9b1e8bfbbb4412ded2] [127.0.0.1] Served asset /forms.css - 304 Not Modified (0ms)
+[dc65edceee28639a1f5f8c86f4660587] [127.0.0.1] 
+
+Started GET "/assets/ipad.css?body=1" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[dc65edceee28639a1f5f8c86f4660587] [127.0.0.1] Served asset /ipad.css - 304 Not Modified (0ms)
+[4ab039d25c189695b8daf1f3801a2658] [127.0.0.1] 
+
+Started GET "/assets/iphone.css?body=1" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[4ab039d25c189695b8daf1f3801a2658] [127.0.0.1] Served asset /iphone.css - 304 Not Modified (0ms)
+[cc7fa9b79b677a5156f0a36e2324ebf2] [127.0.0.1] 
+
+Started GET "/assets/jquery-ui-1.7.1.custom.min.js?body=1" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[cc7fa9b79b677a5156f0a36e2324ebf2] [127.0.0.1] Served asset /jquery-ui-1.7.1.custom.min.js - 304 Not Modified (0ms)
+[f28acc72048613607959c901bbe85977] [127.0.0.1] 
+
+Started GET "/assets/jquery.effects.core.js?body=1" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[f28acc72048613607959c901bbe85977] [127.0.0.1] Served asset /jquery.effects.core.js - 304 Not Modified (0ms)
+[c1d18cc2d754002b21c61d1eede3bd07] [127.0.0.1] 
+
+Started GET "/assets/jquery.snippet.js?body=1" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[c1d18cc2d754002b21c61d1eede3bd07] [127.0.0.1] Served asset /jquery.snippet.js - 304 Not Modified (0ms)
+[5b60834da1d267ac1dee33dfef3a8e53] [127.0.0.1] 
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[5b60834da1d267ac1dee33dfef3a8e53] [127.0.0.1] Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+[810f24846ca68920575b9111af146c48] [127.0.0.1] 
+
+Started GET "/assets/printing.js?body=1" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[810f24846ca68920575b9111af146c48] [127.0.0.1] Served asset /printing.js - 304 Not Modified (0ms)
+[06e7a4988f607ac565199a8a57b52c18] [127.0.0.1] 
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[06e7a4988f607ac565199a8a57b52c18] [127.0.0.1] Served asset /tabs.js - 304 Not Modified (0ms)
+[be1840c22d7a092a3d992938a16b4cb2] [127.0.0.1] 
+
+Started GET "/assets/waiters.js?body=1" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[be1840c22d7a092a3d992938a16b4cb2] [127.0.0.1] Served asset /waiters.js - 304 Not Modified (0ms)
+[abe80f530d8111f9cb6666270c04b160] [127.0.0.1] 
+
+Started GET "/assets/left_slit.png" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[abe80f530d8111f9cb6666270c04b160] [127.0.0.1] Served asset /left_slit.png - 304 Not Modified (0ms)
+[1704a953474f8ea2a5a1b264dd68dffb] [127.0.0.1] 
+
+Started GET "/assets/walkway/Walkway_SemiBold-webfont.woff" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[1704a953474f8ea2a5a1b264dd68dffb] [127.0.0.1] Served asset /walkway/Walkway_SemiBold-webfont.woff - 304 Not Modified (0ms)
+[1feb07ac963bd730f4531be5559522eb] [127.0.0.1] 
+
+Started GET "/assets/right_slit.png" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[1feb07ac963bd730f4531be5559522eb] [127.0.0.1] Served asset /right_slit.png - 304 Not Modified (0ms)
+[e64ecac40636d78ea357ef3407b9a08d] [127.0.0.1] 
+
+Started GET "/assets/small_right_slit.png" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[e64ecac40636d78ea357ef3407b9a08d] [127.0.0.1] Served asset /small_right_slit.png - 304 Not Modified (0ms)
+[296a815814e09ba5685a3234ac2cddd4] [127.0.0.1] 
+
+Started GET "/assets/small_left_slit.png" for 127.0.0.1 at 2012-02-27 09:19:00 -0600
+[296a815814e09ba5685a3234ac2cddd4] [127.0.0.1] Served asset /small_left_slit.png - 304 Not Modified (0ms)
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1] 
+
+Started GET "/courses/1-How-to-Program" for 127.0.0.1 at 2012-02-27 09:27:09 -0600
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[36mSemester Load (0.2ms)[0m  [1mSELECT "semesters".* FROM "semesters" ORDER BY start_date[0m
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[35mSemester Load (0.2ms)[0m  SELECT "semesters".* FROM "semesters" ORDER BY start_date
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1] Processing by CoursesController#show as HTML
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   Parameters: {"id"=>"1-How-to-Program"}
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1[0m  [["id", "1-How-to-Program"]]
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "how_tos" INNER JOIN "tutorials" ON "how_tos"."id" = "tutorials"."how_to_id" WHERE "tutorials"."course_id" = 1
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[36mHowTo Load (0.1ms)[0m  [1mSELECT "how_tos".* FROM "how_tos" INNER JOIN "tutorials" ON "how_tos"."id" = "tutorials"."how_to_id" WHERE "tutorials"."course_id" = 1[0m
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[35mStep Load (0.3ms)[0m  SELECT "steps".* FROM "steps" WHERE "steps"."how_to_id" = 1 ORDER BY position LIMIT 1
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."course_id" = 1[0m
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[35mSection Load (0.1ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."course_id" = 1
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[36mSemester Load (0.1ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = 1 LIMIT 1[0m
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "enrollments" WHERE "enrollments"."section_id" = 1[0m
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[35mSemester Load (0.1ms)[0m  SELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = 2 LIMIT 1
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "enrollments" WHERE "enrollments"."section_id" = 2
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[36mSemester Load (0.1ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = 3 LIMIT 1[0m
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "enrollments" WHERE "enrollments"."section_id" = 4[0m
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[35mObjective Load (0.1ms)[0m  SELECT "objectives".* FROM "objectives" WHERE "objectives"."course_id" = 1
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "labs" WHERE "labs"."course_id" = 1[0m
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[35mLab Load (0.1ms)[0m  SELECT "labs".* FROM "labs" WHERE "labs"."course_id" = 1
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[36mRequirement Load (0.1ms)[0m  [1mSELECT "requirements".* FROM "requirements" WHERE "requirements"."lab_id" = 1[0m
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "assignments" WHERE "assignments"."lab_id" = 1
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[36mRequirement Load (0.1ms)[0m  [1mSELECT "requirements".* FROM "requirements" WHERE "requirements"."lab_id" = 3[0m
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "assignments" WHERE "assignments"."lab_id" = 3
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   Rendered courses/show.html.erb within layouts/application (250.2ms)
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   Rendered shared/_title.html.erb (0.2ms)
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   Rendered shared/_messages.html.erb (0.0ms)
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1]   Rendered shared/_footer.html.erb (1.5ms)
+[4bcfecc49e4eaa70c6df7a5df364b489] [127.0.0.1] Completed 200 OK in 348ms (Views: 313.0ms | ActiveRecord: 5.2ms)
+[23dca4a4a09affb1c1a7ade9fd39c76c] [127.0.0.1] 
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[23dca4a4a09affb1c1a7ade9fd39c76c] [127.0.0.1] Served asset /jquery.js - 304 Not Modified (0ms)
+[9c79e8d9440760f00f2cd66d60b27e9b] [127.0.0.1] 
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[9c79e8d9440760f00f2cd66d60b27e9b] [127.0.0.1] Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+[8d38f5ea0141cb0b7ae66f23bb4864bf] [127.0.0.1] 
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[8d38f5ea0141cb0b7ae66f23bb4864bf] [127.0.0.1] Served asset /application.js - 304 Not Modified (0ms)
+[938e4400a4214d41a65cb67bfbb5ddf3] [127.0.0.1] 
+
+Started GET "/assets/forms.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[938e4400a4214d41a65cb67bfbb5ddf3] [127.0.0.1] Served asset /forms.js - 304 Not Modified (0ms)
+[16fe9c8e55a55116ccb000336d0ba752] [127.0.0.1] 
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[16fe9c8e55a55116ccb000336d0ba752] [127.0.0.1] Served asset /google_analytics.js - 304 Not Modified (0ms)
+[169114ebfd1d0dfa70cc4c3d8cc64d46] [127.0.0.1] 
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[169114ebfd1d0dfa70cc4c3d8cc64d46] [127.0.0.1] Served asset /normalize.css - 304 Not Modified (0ms)
+[582e6365f6bbebc088c8ccd98b43f2e8] [127.0.0.1] 
+
+Started GET "/assets/print.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[582e6365f6bbebc088c8ccd98b43f2e8] [127.0.0.1] Served asset /print.css - 304 Not Modified (0ms)
+[05e6a0c82992e68c3bf52550ed979c81] [127.0.0.1] 
+
+Started GET "/assets/walkway.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[05e6a0c82992e68c3bf52550ed979c81] [127.0.0.1] Served asset /walkway.css - 304 Not Modified (0ms)
+[a3bb485246ff2b5242e247bb233e023a] [127.0.0.1] 
+
+Started GET "/assets/highlighter.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[a3bb485246ff2b5242e247bb233e023a] [127.0.0.1] Served asset /highlighter.css - 304 Not Modified (0ms)
+[c3729b4ecaddb10787481e73ba07bd24] [127.0.0.1] 
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[c3729b4ecaddb10787481e73ba07bd24] [127.0.0.1] Served asset /application.css - 304 Not Modified (0ms)
+[1e97f0918ad7896fccf85343e541f81c] [127.0.0.1] 
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[1e97f0918ad7896fccf85343e541f81c] [127.0.0.1] Served asset /styles.css - 304 Not Modified (0ms)
+[e1392d120bc91ba9984731b2ef7077c9] [127.0.0.1] 
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[e1392d120bc91ba9984731b2ef7077c9] [127.0.0.1] Served asset /forms.css - 304 Not Modified (0ms)
+[a216070691fc84aafe8244b1cfb906fa] [127.0.0.1] 
+
+Started GET "/assets/headers.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[a216070691fc84aafe8244b1cfb906fa] [127.0.0.1] Served asset /headers.css - 304 Not Modified (0ms)
+[bae8bde47ab1d4abc311ae5fdcd0fffd] [127.0.0.1] 
+
+Started GET "/assets/ipad.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[bae8bde47ab1d4abc311ae5fdcd0fffd] [127.0.0.1] Served asset /ipad.css - 304 Not Modified (0ms)
+[27d94c02138b5e5f9479a1f45af4e925] [127.0.0.1] 
+
+Started GET "/assets/iphone.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[27d94c02138b5e5f9479a1f45af4e925] [127.0.0.1] Served asset /iphone.css - 304 Not Modified (0ms)
+[327fe3b51358313f84f246707d898fc8] [127.0.0.1] 
+
+Started GET "/assets/jquery-ui-1.7.1.custom.min.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[327fe3b51358313f84f246707d898fc8] [127.0.0.1] Served asset /jquery-ui-1.7.1.custom.min.js - 304 Not Modified (0ms)
+[bd1bf32b433319b388ba6b2183d4ca97] [127.0.0.1] 
+
+Started GET "/assets/jquery.effects.core.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[bd1bf32b433319b388ba6b2183d4ca97] [127.0.0.1] Served asset /jquery.effects.core.js - 304 Not Modified (0ms)
+[2995625e1e8c995ee41ae1c421bbecbb] [127.0.0.1] 
+
+Started GET "/assets/jquery.snippet.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[2995625e1e8c995ee41ae1c421bbecbb] [127.0.0.1] Served asset /jquery.snippet.js - 304 Not Modified (0ms)
+[5367f07a47157326c528a2077ac48c0a] [127.0.0.1] 
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[5367f07a47157326c528a2077ac48c0a] [127.0.0.1] Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+[d0b510a39bdb0c17ed23c11572dbae8f] [127.0.0.1] 
+
+Started GET "/assets/printing.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[d0b510a39bdb0c17ed23c11572dbae8f] [127.0.0.1] Served asset /printing.js - 304 Not Modified (0ms)
+[4625eb9b0e745119d33fac6df5d7876c] [127.0.0.1] 
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[4625eb9b0e745119d33fac6df5d7876c] [127.0.0.1] Served asset /tabs.js - 304 Not Modified (0ms)
+[b5817101b385a152d303e6c56eaf8b5f] [127.0.0.1] 
+
+Started GET "/assets/waiters.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[b5817101b385a152d303e6c56eaf8b5f] [127.0.0.1] Served asset /waiters.js - 304 Not Modified (0ms)
+[3f00b8823e25ff889861737d91af41c0] [127.0.0.1] 
+
+Started GET "/assets/right_slit.png" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[3f00b8823e25ff889861737d91af41c0] [127.0.0.1] Served asset /right_slit.png - 304 Not Modified (0ms)
+[ae625ef29de2cb572908bde3969ad11e] [127.0.0.1] 
+
+Started GET "/assets/small_left_slit.png" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[ae625ef29de2cb572908bde3969ad11e] [127.0.0.1] Served asset /small_left_slit.png - 304 Not Modified (0ms)
+[7e430d3fb3f06713fb688d1c53c18ef2] [127.0.0.1] 
+
+Started GET "/assets/small_right_slit.png" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[7e430d3fb3f06713fb688d1c53c18ef2] [127.0.0.1] Served asset /small_right_slit.png - 304 Not Modified (0ms)
+[7bf48addece1a769e16cf1a73b5006c7] [127.0.0.1] 
+
+Started GET "/assets/left_slit.png" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[7bf48addece1a769e16cf1a73b5006c7] [127.0.0.1] Served asset /left_slit.png - 304 Not Modified (0ms)
+[116e859c6e3f82f927a2690fff158e0d] [127.0.0.1] 
+
+Started GET "/assets/walkway/Walkway_SemiBold-webfont.woff" for 127.0.0.1 at 2012-02-27 09:27:10 -0600
+[116e859c6e3f82f927a2690fff158e0d] [127.0.0.1] Served asset /walkway/Walkway_SemiBold-webfont.woff - 304 Not Modified (0ms)
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1] 
+
+Started GET "/courses/1-How-to-Program/syllabus" for 127.0.0.1 at 2012-02-27 09:27:17 -0600
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1] Processing by CoursesController#syllabus as HTML
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1]   Parameters: {"id"=>"1-How-to-Program"}
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1]   [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1[0m  [["id", "1-How-to-Program"]]
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1]   [1m[35mBook Load (0.1ms)[0m  SELECT "books".* FROM "books" WHERE "books"."course_id" = 1
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1]   [1m[36mObjective Load (0.2ms)[0m  [1mSELECT "objectives".* FROM "objectives" WHERE "objectives"."course_id" = 1[0m
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1]   [1m[35mPolicy Load (0.2ms)[0m  SELECT "policies".* FROM "policies" WHERE "policies"."course_id" = 1 ORDER BY position
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1]   [1m[36mSyllabusPart Load (0.1ms)[0m  [1mSELECT "syllabus_parts".* FROM "syllabus_parts" WHERE "syllabus_parts"."id" = 1 LIMIT 1[0m
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1]   [1m[35mSyllabusPart Load (0.2ms)[0m  SELECT "syllabus_parts".* FROM "syllabus_parts" WHERE "syllabus_parts"."id" = 2 LIMIT 1
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1]   [1m[36mSyllabusPart Load (0.1ms)[0m  [1mSELECT "syllabus_parts".* FROM "syllabus_parts" WHERE "syllabus_parts"."id" = 3 LIMIT 1[0m
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1]   [1m[35mSyllabusPart Load (0.1ms)[0m  SELECT "syllabus_parts".* FROM "syllabus_parts" WHERE "syllabus_parts"."id" = 5 LIMIT 1
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1]   Rendered courses/syllabus.html.erb within layouts/application (101.1ms)
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1]   Rendered shared/_title.html.erb (0.5ms)
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1]   Rendered shared/_messages.html.erb (0.1ms)
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1]   Rendered shared/_footer.html.erb (1.9ms)
+[b1d6b6140c5e2883522e16e4d47b6c0b] [127.0.0.1] Completed 200 OK in 357ms (Views: 354.2ms | ActiveRecord: 2.0ms)
+[27e0f66b6e85057344f0202780c8b1b1] [127.0.0.1] 
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[27e0f66b6e85057344f0202780c8b1b1] [127.0.0.1] Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+[c32cd843513d6ab30e8ce1b91900a70d] [127.0.0.1] 
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[c32cd843513d6ab30e8ce1b91900a70d] [127.0.0.1] Served asset /application.js - 304 Not Modified (0ms)
+[46719f91ee8a62043b6fe7c02c5bdc52] [127.0.0.1] 
+
+Started GET "/assets/forms.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[46719f91ee8a62043b6fe7c02c5bdc52] [127.0.0.1] Served asset /forms.js - 304 Not Modified (0ms)
+[51720c41a21c68c565f1b8e812afd89a] [127.0.0.1] 
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[51720c41a21c68c565f1b8e812afd89a] [127.0.0.1] Served asset /google_analytics.js - 304 Not Modified (0ms)
+[3750a519514b5f33a038952c65e01bb2] [127.0.0.1] 
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[3750a519514b5f33a038952c65e01bb2] [127.0.0.1] Served asset /normalize.css - 304 Not Modified (0ms)
+[9d275b21094551cbe48a19b7efbf20f4] [127.0.0.1] 
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[9d275b21094551cbe48a19b7efbf20f4] [127.0.0.1] Served asset /jquery.js - 304 Not Modified (0ms)
+[bb51307293c920fe08d8974cd12da57e] [127.0.0.1] 
+
+Started GET "/assets/walkway.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[bb51307293c920fe08d8974cd12da57e] [127.0.0.1] Served asset /walkway.css - 304 Not Modified (0ms)
+[d6be30485299a2240523f7c5ef63d69e] [127.0.0.1] 
+
+Started GET "/assets/print.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[d6be30485299a2240523f7c5ef63d69e] [127.0.0.1] Served asset /print.css - 304 Not Modified (0ms)
+[32df8c01dd9c0007d497295d48401c04] [127.0.0.1] 
+
+Started GET "/assets/highlighter.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[32df8c01dd9c0007d497295d48401c04] [127.0.0.1] Served asset /highlighter.css - 304 Not Modified (0ms)
+[7388feab01244ae67ba68f62a9d434aa] [127.0.0.1] 
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[7388feab01244ae67ba68f62a9d434aa] [127.0.0.1] Served asset /application.css - 304 Not Modified (0ms)
+[ed912d1437ccedaa8a0aba931f97e3db] [127.0.0.1] 
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[ed912d1437ccedaa8a0aba931f97e3db] [127.0.0.1] Served asset /styles.css - 304 Not Modified (0ms)
+[f3a610a3baa968d2810f167753eee830] [127.0.0.1] 
+
+Started GET "/assets/headers.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[f3a610a3baa968d2810f167753eee830] [127.0.0.1] Served asset /headers.css - 304 Not Modified (0ms)
+[442e523535a37d2b1a69868d0b071524] [127.0.0.1] 
+
+Started GET "/assets/ipad.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[442e523535a37d2b1a69868d0b071524] [127.0.0.1] Served asset /ipad.css - 304 Not Modified (0ms)
+[a249efd8a5e0155905477ab75ed6113d] [127.0.0.1] 
+
+Started GET "/assets/iphone.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[a249efd8a5e0155905477ab75ed6113d] [127.0.0.1] Served asset /iphone.css - 304 Not Modified (0ms)
+[0751910bcbf08a765c5f3a32cfefcc1a] [127.0.0.1] 
+
+Started GET "/assets/jquery-ui-1.7.1.custom.min.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[0751910bcbf08a765c5f3a32cfefcc1a] [127.0.0.1] Served asset /jquery-ui-1.7.1.custom.min.js - 304 Not Modified (0ms)
+[584e64a2039563d94028b83eb999329a] [127.0.0.1] 
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[584e64a2039563d94028b83eb999329a] [127.0.0.1] Served asset /forms.css - 304 Not Modified (0ms)
+[e7308e7f66d7d8cb1d1bba5936e1ff4a] [127.0.0.1] 
+
+Started GET "/assets/jquery.effects.core.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[e7308e7f66d7d8cb1d1bba5936e1ff4a] [127.0.0.1] Served asset /jquery.effects.core.js - 304 Not Modified (0ms)
+[1495b755f210544e4663ffbafb008762] [127.0.0.1] 
+
+Started GET "/assets/jquery.snippet.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[1495b755f210544e4663ffbafb008762] [127.0.0.1] Served asset /jquery.snippet.js - 304 Not Modified (0ms)
+[a0f49ce9097322465b5741de3fbc6c2a] [127.0.0.1] 
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[a0f49ce9097322465b5741de3fbc6c2a] [127.0.0.1] Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+[bdb404a82ffd175c28e0f621ec5eb929] [127.0.0.1] 
+
+Started GET "/assets/printing.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[bdb404a82ffd175c28e0f621ec5eb929] [127.0.0.1] Served asset /printing.js - 304 Not Modified (0ms)
+[bc7f1e846a3d064dd396b29f55b621ad] [127.0.0.1] 
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[bc7f1e846a3d064dd396b29f55b621ad] [127.0.0.1] Served asset /tabs.js - 304 Not Modified (0ms)
+[2b77f5ad5f85614814f8932dccbce073] [127.0.0.1] 
+
+Started GET "/assets/waiters.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[2b77f5ad5f85614814f8932dccbce073] [127.0.0.1] Served asset /waiters.js - 304 Not Modified (0ms)
+[c5a2d37e9faa81cafb08abef37a8000c] [127.0.0.1] 
+
+Started GET "/assets/right_slit.png" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[c5a2d37e9faa81cafb08abef37a8000c] [127.0.0.1] Served asset /right_slit.png - 304 Not Modified (0ms)
+[0475c2ca7942983428c2ea8f0d1cc272] [127.0.0.1] 
+
+Started GET "/assets/left_slit.png" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[0475c2ca7942983428c2ea8f0d1cc272] [127.0.0.1] Served asset /left_slit.png - 304 Not Modified (0ms)
+[18be47b14e44eef9cf12f6a324e0dc08] [127.0.0.1] 
+
+Started GET "/assets/walkway/Walkway_SemiBold-webfont.woff" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[18be47b14e44eef9cf12f6a324e0dc08] [127.0.0.1] Served asset /walkway/Walkway_SemiBold-webfont.woff - 304 Not Modified (0ms)
+[699d6415a9b827505e0a44277cd5ffaf] [127.0.0.1] 
+
+Started GET "/assets/small_left_slit.png" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[699d6415a9b827505e0a44277cd5ffaf] [127.0.0.1] Served asset /small_left_slit.png - 304 Not Modified (0ms)
+[1c6b5bfd3fd1161692d2616f701af446] [127.0.0.1] 
+
+Started GET "/assets/small_right_slit.png" for 127.0.0.1 at 2012-02-27 09:27:18 -0600
+[1c6b5bfd3fd1161692d2616f701af446] [127.0.0.1] Served asset /small_right_slit.png - 304 Not Modified (0ms)
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1] 
+
+Started GET "/courses/1-How-to-Program" for 127.0.0.1 at 2012-02-27 09:27:50 -0600
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1] Processing by CoursesController#show as HTML
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   Parameters: {"id"=>"1-How-to-Program"}
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT 1[0m  [["id", "1-How-to-Program"]]
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "how_tos" INNER JOIN "tutorials" ON "how_tos"."id" = "tutorials"."how_to_id" WHERE "tutorials"."course_id" = 1
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[36mHowTo Load (0.1ms)[0m  [1mSELECT "how_tos".* FROM "how_tos" INNER JOIN "tutorials" ON "how_tos"."id" = "tutorials"."how_to_id" WHERE "tutorials"."course_id" = 1[0m
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[35mStep Load (0.3ms)[0m  SELECT "steps".* FROM "steps" WHERE "steps"."how_to_id" = 1 ORDER BY position LIMIT 1
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."course_id" = 1[0m
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[35mSection Load (0.1ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."course_id" = 1
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[36mSemester Load (0.1ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = 1 LIMIT 1[0m
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "enrollments" WHERE "enrollments"."section_id" = 1[0m
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[35mSemester Load (0.1ms)[0m  SELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = 2 LIMIT 1
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1[0m
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "enrollments" WHERE "enrollments"."section_id" = 2
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[36mSemester Load (0.1ms)[0m  [1mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" = 3 LIMIT 1[0m
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[35mCACHE (0.0ms)[0m  SELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "enrollments" WHERE "enrollments"."section_id" = 4[0m
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[35mObjective Load (0.1ms)[0m  SELECT "objectives".* FROM "objectives" WHERE "objectives"."course_id" = 1
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "labs" WHERE "labs"."course_id" = 1[0m
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[35mLab Load (0.2ms)[0m  SELECT "labs".* FROM "labs" WHERE "labs"."course_id" = 1
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[36mRequirement Load (0.3ms)[0m  [1mSELECT "requirements".* FROM "requirements" WHERE "requirements"."lab_id" = 1[0m
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "assignments" WHERE "assignments"."lab_id" = 1
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[36mRequirement Load (0.1ms)[0m  [1mSELECT "requirements".* FROM "requirements" WHERE "requirements"."lab_id" = 3[0m
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "assignments" WHERE "assignments"."lab_id" = 3
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   Rendered courses/show.html.erb within layouts/application (32.1ms)
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   Rendered shared/_title.html.erb (0.2ms)
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   Rendered shared/_messages.html.erb (0.0ms)
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1]   Rendered shared/_footer.html.erb (1.2ms)
+[edf0a6ae4bbac329cc003e8b0dfa07a6] [127.0.0.1] Completed 200 OK in 62ms (Views: 58.4ms | ActiveRecord: 2.9ms)
+[8f903a864b94483d74aeeb07210df61d] [127.0.0.1] 
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[8f903a864b94483d74aeeb07210df61d] [127.0.0.1] Served asset /jquery.js - 304 Not Modified (0ms)
+[c8e7af881fd878d55e9b59c09e33002d] [127.0.0.1] 
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[c8e7af881fd878d55e9b59c09e33002d] [127.0.0.1] Served asset /application.js - 304 Not Modified (0ms)
+[7776f1e726915610656a675461c624e8] [127.0.0.1] 
+
+Started GET "/assets/forms.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[7776f1e726915610656a675461c624e8] [127.0.0.1] Served asset /forms.js - 304 Not Modified (0ms)
+[e0892d9a128a96c03e3c8496f539d441] [127.0.0.1] 
+
+Started GET "/assets/google_analytics.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[e0892d9a128a96c03e3c8496f539d441] [127.0.0.1] Served asset /google_analytics.js - 304 Not Modified (0ms)
+[ffdb4fed3db9fb9c61d1f01b82ffc3e8] [127.0.0.1] 
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[ffdb4fed3db9fb9c61d1f01b82ffc3e8] [127.0.0.1] Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+[0add9c696cc2a0ad920332398e389704] [127.0.0.1] 
+
+Started GET "/assets/walkway.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[0add9c696cc2a0ad920332398e389704] [127.0.0.1] Served asset /walkway.css - 304 Not Modified (0ms)
+[ee248f6d2e9c41c5e119d313ff504c63] [127.0.0.1] 
+
+Started GET "/assets/print.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[ee248f6d2e9c41c5e119d313ff504c63] [127.0.0.1] Served asset /print.css - 304 Not Modified (0ms)
+[4b1c49314dfb162a704dc5def5df3a06] [127.0.0.1] 
+
+Started GET "/assets/highlighter.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[4b1c49314dfb162a704dc5def5df3a06] [127.0.0.1] Served asset /highlighter.css - 304 Not Modified (0ms)
+[8e498206a0589fc80aa476cb58452160] [127.0.0.1] 
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[8e498206a0589fc80aa476cb58452160] [127.0.0.1] Served asset /application.css - 304 Not Modified (0ms)
+[2e7867ff2dd7cdfc20eeb1cb4243e649] [127.0.0.1] 
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[2e7867ff2dd7cdfc20eeb1cb4243e649] [127.0.0.1] Served asset /forms.css - 304 Not Modified (0ms)
+[fa177a805503235f36ebef825a4f3389] [127.0.0.1] 
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[fa177a805503235f36ebef825a4f3389] [127.0.0.1] Served asset /styles.css - 304 Not Modified (0ms)
+[07be500510aae3528ef045c1aebb536c] [127.0.0.1] 
+
+Started GET "/assets/headers.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[07be500510aae3528ef045c1aebb536c] [127.0.0.1] Served asset /headers.css - 304 Not Modified (0ms)
+[459853bfd1027e276f4b03478b8ada8d] [127.0.0.1] 
+
+Started GET "/assets/ipad.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[459853bfd1027e276f4b03478b8ada8d] [127.0.0.1] Served asset /ipad.css - 304 Not Modified (0ms)
+[87db26eb331780e5cfc18e7b6f43cd72] [127.0.0.1] 
+
+Started GET "/assets/iphone.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[87db26eb331780e5cfc18e7b6f43cd72] [127.0.0.1] Served asset /iphone.css - 304 Not Modified (0ms)
+[84f7c255bbaaae74ad01c43985dbe52e] [127.0.0.1] 
+
+Started GET "/assets/jquery-ui-1.7.1.custom.min.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[84f7c255bbaaae74ad01c43985dbe52e] [127.0.0.1] Served asset /jquery-ui-1.7.1.custom.min.js - 304 Not Modified (0ms)
+[d1f5c7b9d16606a9ce55c5eb5505e854] [127.0.0.1] 
+
+Started GET "/assets/jquery.effects.core.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[d1f5c7b9d16606a9ce55c5eb5505e854] [127.0.0.1] Served asset /jquery.effects.core.js - 304 Not Modified (0ms)
+[311ca457d6a463b72063cdfe103402be] [127.0.0.1] 
+
+Started GET "/assets/jquery.snippet.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[311ca457d6a463b72063cdfe103402be] [127.0.0.1] Served asset /jquery.snippet.js - 304 Not Modified (0ms)
+[788e0b70ab6ce8daa620a1b3f7880ad1] [127.0.0.1] 
+
+Started GET "/assets/jquery.tablednd_0_5.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[788e0b70ab6ce8daa620a1b3f7880ad1] [127.0.0.1] Served asset /jquery.tablednd_0_5.js - 304 Not Modified (0ms)
+[86ecfa307d138d16c6bfa5211e5ea333] [127.0.0.1] 
+
+Started GET "/assets/printing.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[86ecfa307d138d16c6bfa5211e5ea333] [127.0.0.1] Served asset /printing.js - 304 Not Modified (0ms)
+[97febba499e47ce947b350c12ae5e4fa] [127.0.0.1] 
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[97febba499e47ce947b350c12ae5e4fa] [127.0.0.1] Served asset /tabs.js - 304 Not Modified (0ms)
+[62a9fe991d3d5a923d64eb1ca5c61e57] [127.0.0.1] 
+
+Started GET "/assets/waiters.js?body=1" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[62a9fe991d3d5a923d64eb1ca5c61e57] [127.0.0.1] Served asset /waiters.js - 304 Not Modified (0ms)
+[ffed8bec5379ff552d80c1830a749352] [127.0.0.1] 
+
+Started GET "/assets/left_slit.png" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[ffed8bec5379ff552d80c1830a749352] [127.0.0.1] Served asset /left_slit.png - 304 Not Modified (0ms)
+[83c888d8ae1149a7486832e260549656] [127.0.0.1] 
+
+Started GET "/assets/walkway/Walkway_SemiBold-webfont.woff" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[83c888d8ae1149a7486832e260549656] [127.0.0.1] Served asset /walkway/Walkway_SemiBold-webfont.woff - 304 Not Modified (0ms)
+[fe4cf2555b9b0cac76097ea28adc87c0] [127.0.0.1] 
+
+Started GET "/assets/small_left_slit.png" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[fe4cf2555b9b0cac76097ea28adc87c0] [127.0.0.1] Served asset /small_left_slit.png - 304 Not Modified (0ms)
+[031c9988dcf7d05914b1e505770b14f5] [127.0.0.1] 
+
+Started GET "/assets/right_slit.png" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[031c9988dcf7d05914b1e505770b14f5] [127.0.0.1] Served asset /right_slit.png - 304 Not Modified (0ms)
+[1db659795cfa722aa75b303c1f4a323f] [127.0.0.1] 
+
+Started GET "/assets/small_right_slit.png" for 127.0.0.1 at 2012-02-27 09:27:51 -0600
+[1db659795cfa722aa75b303c1f4a323f] [127.0.0.1] Served asset /small_right_slit.png - 304 Not Modified (0ms)
+[0e18c0fc3edff585fb958c44609054d1] [127.0.0.1] 
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2012-02-27 09:27:52 -0600
+[0e18c0fc3edff585fb958c44609054d1] [127.0.0.1] Served asset /normalize.css - 304 Not Modified (0ms)

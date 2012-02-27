@@ -11,4 +11,9 @@ class CoursesControllerTest < ActionController::TestCase
     get :show, :id => courses(:intro_to_jackassery).id
     assert_response :success
   end
+  
+  test "should get syllabus" do
+    get :syllabus, :id => courses(:intro_to_jackassery).id
+    assert_response :success
+  end
 end
