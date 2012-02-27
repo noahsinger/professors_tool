@@ -8,7 +8,7 @@
 	</nav>
 	
 	<header>
-		<p>Enrollment for <%= @section.meeting_days %> xxx@xxx.xxx %></p>
+		<p>Enrollment for <%= @section.days %> xxx@xxx.xxx %></p>
 xxx@xxx.xxx %></h1>
 	</header>
 

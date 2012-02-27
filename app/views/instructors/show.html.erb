@@ -30,8 +30,11 @@ xxx@xxx.xxx %> Division</p>
 		
 			<section class="contact">
 				<p class="tel"><a href="tel:<%= @instructor.phone_number xxx@xxx.xxx %></a></p>
-				<p class="email"><%= xxx@xxx.xxx new_general_contact_path %></p>
-				<p><%= xxx@xxx.xxx @instructor.website, :class => "url" %></p>
+				<p class="email">Email: <%= xxx@xxx.xxx new_general_contact_path %></p>
+				<% xxx@xxx.xxx %>
+					<p>Twitter: <%= link_to "@#{@instructor.twitter_handle}", xxx@xxx.xxx %></p>
+				<% end %>
+				<p>Website: <%= xxx@xxx.xxx @instructor.website, :class => "url" %></p>
 				<p class="note office_hours"><strong><%= link_to( 'office xxx@xxx.xxx )%></strong></p>
 			</section>
 			

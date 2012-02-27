@@ -57,7 +57,7 @@ jck2003_section_1:
   course_id: 2
   call_number: 55555
   section_number: 555
-  meeting_days: MW
+  meeting_days: all
   start_time: 11:30am
   end_time: 12:50pm
   start_date: <%= 3.months.from_now %>

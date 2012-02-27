@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111012140952) do
+ActiveRecord::Schema.define(:version => 20120227143635) do
 
   create_table "assignments", :force => true do |t|
     t.string   "title"
@@ -166,6 +166,7 @@ ActiveRecord::Schema.define(:version => 20111012140952) do
     t.string   "office_hours_content_type"
     t.integer  "office_hours_file_size"
     t.datetime "office_hours_updated_at"
+    t.string   "twitter_handle"
   end
 
   create_table "labs", :force => true do |t|

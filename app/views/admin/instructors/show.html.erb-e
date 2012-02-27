@@ -37,6 +37,11 @@ xxx@xxx.xxx %></td>
 				<td class="blank">Email:</td>
 xxx@xxx.xxx %></td>
 			</tr>
+			
+			<tr>
+				<td class="blank">Twitter:</td>
+				<td><%= link_to "@#{@instructor.twitter_handle}", xxx@xxx.xxx %></td>
+			</tr>
 
 			<tr>
 				<td class="blank">Website:</td>

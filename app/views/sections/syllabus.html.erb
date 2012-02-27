@@ -46,26 +46,36 @@ xxx@xxx.xxx %>
 					</td>
 				</tr>
 				<tr>
-					<td>Meeting Days:</td>
-					<td>
-						<strong>
+					<% xxx@xxx.xxx == "Online" %>
+						<td>Course Type:</td>
+xxx@xxx.xxx %></td>
+					<% else %>
+						<td>Meeting Days:</td>
+						<td>
+							<strong>
 xxx@xxx.xxx %>
-						</strong>
-					</td>
+							</strong>
+						</td>
+					<% end %>
 					<td class="second_column">Office Hours:</td>
 					<td>
 						<strong>
-							<%= link_to( 'see xxx@xxx.xxx ) %>
+							<%= link_to( 'See xxx@xxx.xxx ) %>
 						</strong>
 					</td>
 				</tr>
 				<tr>
-					<td>Meeting Times: </td>
-					<td>
-						<strong>
-							<%= show_time @section.start_time %> - <%= xxx@xxx.xxx %>
-						</strong>
-					</td>
+					<% xxx@xxx.xxx == "Online" %>
+						<td class="blank"></td>
+						<td class="blank"></td>
+					<% else %>
+						<td>Meeting Times: </td>
+						<td>
+							<strong>
+								<%= show_time @section.start_time %> - <%= xxx@xxx.xxx %>
+							</strong>
+						</td>
+					<% end %>
 					<td class="second_column">Office Phone:</td>
 					<td>
 						<strong>
@@ -83,13 +93,18 @@ xxx@xxx.xxx %>
 					<td class="second_column">Email Address:</td>
 					<td>
 						<strong>
-xxx@xxx.xxx %>
+							<%= xxx@xxx.xxx %>
 						</strong>
 					</td>
 				</tr>
 				<tr>
-					<td class="blank"></td>
-					<td class="blank"></td>
+					<% xxx@xxx.xxx %>
+						<td>Twitter:</td>
+						<td><%= link_to "@#{@section.instructor.twitter_handle}", xxx@xxx.xxx %></td>
+					<% else %>
+						<td class="blank"></td>
+						<td class="blank"></td>
+					<% end %>
 					<td class="second_column">Web Site:</td>
 					<td>
 						<strong>

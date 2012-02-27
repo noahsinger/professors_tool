@@ -333,10 +333,15 @@ xxx@xxx.xxx wide_tab;
 		color: #005698;
 	}
 
-	p, hr {
-xxx@xxx.xxx helvetica_family;
+	hr {
 		margin: 0 0 0 200px;
 		padding: 0;
+	}
+
+	p {
+xxx@xxx.xxx helvetica_family;
+		margin: 0 0 0 200px;
+		padding: 3px 0;
 	
 		&.org {
 xxx@xxx.xxx georgia_family;

@@ -42,7 +42,7 @@ xxx@xxx.xxx %></h1>
 				<%=link_to "#{section.course.title}", xxx@xxx.xxx section] %><br/>
 			</td>
 		    <td class="days"><%= section.meeting_days %></td>
-			<td class="enrollments"><%= section.enrollments.size %></td>
+				<td class="enrollments"><%= section.enrollments.size %></td>
 
 		    <td class="edit"><%= link_to 'Edit', [:edit, xxx@xxx.xxx section] %></td>
 		    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx section], :confirm => 'Are you sure?', :method => :delete %></td>

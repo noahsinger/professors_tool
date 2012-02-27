@@ -33,6 +33,11 @@ xxx@xxx.xxx %></h1>
 			<% xxx@xxx.xxx > 0 %>
 				<li><h2><%= link_to 'Examples', xxx@xxx.xxx class: "icon cog" %></h2></li>
 			<% end %>
+			
+			<% if session[:user] %>
+				<header><h1>Admin</h1></header>
+				<li><%= link_to "Edit Section", xxx@xxx.xxx %></li>
+			<% end %>
 		</ul>
 		
 		<% xxx@xxx.xxx > 0 %>

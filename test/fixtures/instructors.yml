@@ -9,6 +9,7 @@ me:
   office_number: MCG34
   email: xxx@xxx.xxx
   website: ingenio.us.com
+  twitter_handle: noahwankenobi
   division_id: 1
   
 other: 
@@ -20,4 +21,5 @@ other:
   office_number: MCGXX
   email: xxx@xxx.xxx
   website: bb.tulsacc.edu
+  twitter_handle:
   division_id: 1

@@ -21,7 +21,7 @@
 		  <tr>
 		    <th>Name</th>
 		    <th>Title</th>
-		    <th>Email</th>
+		    <th>Contact</th>
 		    <th>Division</th>
 
 			<th></th>
@@ -33,7 +33,12 @@
 		  <tr>
 		    <td><%= instructor.last_name %>, <%= instructor.first_name %></td>
 		    <td><%= instructor.title %></td>
-		    <td><%= instructor.email %></td>
+		    <td>
+					<%= mail_to instructor.email %>
+					<% if instructor.twitter_handle %>
+						<br/>or <%= link_to xxx@xxx.xxx "http://twitter.com/#{instructor.twitter_handle}" %>
+					<% end %>
+				</td>
 		    <td><%= instructor.division.name %></td>
 		    <td class="show"><%= link_to 'Show', [:admin,instructor] %></td>
 		    <td class="edit"><%= link_to 'Edit', edit_admin_instructor_path(instructor) %></td>

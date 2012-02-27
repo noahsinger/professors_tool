@@ -35,7 +35,23 @@ class Section < ActiveRecord::Base
   end
 
   def meeting_days_and_times
-    self.meeting_days + ' ' + self.start_time.strftime( '%I:%M %p' ) + ' - ' + self.end_time.strftime( '%I:%M %p' )
+    if self.days == "Online"
+      self.days
+    else
+      self.days + ' ' + self.start_time.strftime( '%I:%M %p' ) + ' - ' + self.end_time.strftime( '%I:%M %p' )
+    end
+  end
+  
+  def days
+    days = []
+    days << "Monday" if self.meeting_days.downcase =~ /m/
+    days << "Tuesday" if self.meeting_days.downcase =~ /t/
+    days << "Wednesday" if self.meeting_days.downcase =~ /w/
+    days << "Thursday" if self.meeting_days.downcase =~ /r/
+    days << "Friday" if self.meeting_days.downcase =~ /f/
+    days << "Online" if self.meeting_days.downcase =~ /all/
+    
+    days.join( " " )
   end
   
   def points_assigned

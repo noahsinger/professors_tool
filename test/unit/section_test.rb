@@ -18,7 +18,18 @@ class SectionTest < ActiveSupport::TestCase
   test "section knows it's meeting days and times" do
     s = Section.find(1)
     assert_respond_to s, :meeting_days_and_times
-    assert_equal s.meeting_days + ' ' + s.start_time.strftime( '%I:%M %p' ) + ' - ' + s.end_time.strftime( '%I:%M %p' ), s.meeting_days_and_times
+    assert_equal s.days + ' ' + s.start_time.strftime( '%I:%M %p' ) + ' - ' + s.end_time.strftime( '%I:%M %p' ), s.meeting_days_and_times
+  end
+  
+  test "section knows the days it happens on" do
+    s = Section.find(1)
+    assert_respond_to s, :days
+    assert_equal "Monday Wednesday", s.days
+  end
+  
+  test "section knows it's online" do
+    s = Section.find(5)
+    assert_equal "Online", s.days
   end
   
   test "section knows how many points have been assigned" do
