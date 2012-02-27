@@ -159,6 +159,7 @@ Ingenious::Application.routes.draw do
   match 'examples/test_exception' => 'examples#test_exception', :method => [:get]
   match 'examples/test_notice' => 'examples#test_notice', :method => [:get]
   match 'examples/test_error' => 'examples#test_error', :method => [:get]
+  match 'examples/test_tweet' => 'examples#test_tweet', :method => [:get]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
