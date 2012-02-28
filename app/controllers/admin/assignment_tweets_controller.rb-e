@@ -6,11 +6,11 @@ class Admin::AssignmentTweetsController < ApplicationController
     
    xxx@xxx.xxx = ""
     if params[:status] == "graded"
-      @content = "#{@assignment.title} for #{@assignment.section.meeting_days} #{@assignment.section.course.title} class has been graded. xxx@xxx.xxx
+      @content = "#{@assignment.title} for #{@assignment.section.meeting_days.gsub(' ', '')} #{@assignment.section.course.title} class has been graded. xxx@xxx.xxx
     elsif params[:status] == "new"
-      @content = "#{@assignment.title} for #{@assignment.section.meeting_days} #{@assignment.section.course.title} class was just posted. xxx@xxx.xxx
+      @content = "#{@assignment.title} for #{@assignment.section.meeting_days.gsub(' ', '')} #{@assignment.section.course.title} class was just posted. xxx@xxx.xxx
     elsif params[:status] == "duedate"
-      @content = "The duedate for #{@assignment.title} of the #{@assignment.section.meeting_days} #{@assignment.section.course.title} class was just changed. xxx@xxx.xxx
+      @content = "The duedate for #{@assignment.title} of the #{@assignment.section.meeting_days.gsub(' ', '')} #{@assignment.section.course.title} class was just changed. xxx@xxx.xxx
     end
   end
   
