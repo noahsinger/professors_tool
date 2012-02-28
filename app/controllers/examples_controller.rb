@@ -1,3 +1,5 @@
+require 'tweet'
+
 class ExamplesController < ApplicationController
   protect_from_forgery :except => :echo
   
@@ -27,10 +29,7 @@ class ExamplesController < ApplicationController
   
   def test_tweet
     begin
-      # Initialize Twitter client
-  		client ||= Twitter::Client.new
-      
-      client.update( "Test Tweet" )
+      Tweet.new.send( "New test tweet" )
       flash[:notice] = "Tweet tweeted"
     rescue Twitter::Error => e
       flash[:error] = "Tweet not sent: #{e}"

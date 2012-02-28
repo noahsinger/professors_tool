@@ -1,0 +1,668 @@
+@import 'colors';
+@import 'mixins';
+
+
+///////////////////////////////
+// prevent homepage course titles from wrapping
+///////////////////////////////
+@media all and (max-width: 1080px) {
+	body#sections_index.student, body#materials_index.student, body#semesters_index.student, body#examples_index.student, body#courses_index.student, body#instructors_index.student {
+		section {
+			// ----------------------------
+			// section medium tabs (alternating sides)
+			// ----------------------------
+			ul {
+				li {
+					width: 60%;
+					
+					//odd
+					&:nth-child( 2n + 1 ) {
+xxx@xxx.xxx outset_left;
+					}
+								
+					//even
+					&:nth-child( 2n ) {
+xxx@xxx.xxx outset_right;
+					}
+				} // end li
+			} // end ul
+		} // end section
+	} // end body#...
+} // end 1080 wrapping
+
+
+///////////////////////////////
+// iPad landscape (1024 width)
+///////////////////////////////
+@media all and (max-width: 1025px) {
+	body#sections_index.student, body#materials_index.student, body#semesters_index.student, body#examples_index.student, body#courses_index.student, body#instructors_index.student {
+		section {
+			// ----------------------------
+			// section medium tabs (alternating sides)
+			// ----------------------------
+			ul {
+				li {
+					
+				} //end li
+			} //end ul
+		} //end section
+	} //end body#...
+	
+	
+	// ----------------------------
+	// Page and Main Containers
+	// ----------------------------
+	#page {
+		// ----------------------------
+		// footer (large tab)
+		// ----------------------------
+		footer {
+			text-align: center;
+			div.content {
+				div#copyright {
+					width: 100%;
+				}
+
+				ul {
+					width: 100%;
+					margin-top: 10px;
+					
+					li {
+						float: none;
+						display: inline;
+
+						a {
+							font-size: 1.2em;
+							color: #fff;
+							padding: 15px;
+						}
+					} // end li
+				} // end ul
+			} // end div.content
+		} // end footer
+	} // end #page
+} //end 1025 iPad
+
+
+///////////////////////////////
+// iPad Portait (768 width)
+///////////////////////////////
+@media all and (max-width: 768px) {
+	$outer-width: 95%;
+	$page-width: 100%;
+	$inner-width: 78.947368421053%;
+	
+	#page {
+		width: $page-width;
+	
+		#outer_container {
+			width: $outer-width;
+
+			#inner_container {
+				width: $inner-width;
+				padding-top: 20px;
+				padding-bottom: 20px;
+			} // end inner_container
+		} // end outer_container
+		
+		
+		// ----------------------------
+		// footer (large tab)
+		// ----------------------------
+		footer {
+			width: $outer-width;
+		} // end footer
+	} // end #page
+	
+	
+	// ----------------------------
+	// main header (top of every page)
+	// ----------------------------
+	header {
+		width: $outer-width;
+		margin: 20px auto;
+	
+	
+		// ----------------------------
+		// Page title (top, white)
+		// ----------------------------
+		#title {
+			a {
+				font-size: 1.2em;
+				letter-spacing: 12px;
+			
+				span {
+					letter-spacing: 7px;
+				}
+			}
+		} //end #title
+		
+		h1 {
+			margin-top: 10px;
+		}
+	} //end header
+	
+	section {
+		// ---------------------------
+		// big green page banner (large tab)
+		// ---------------------------
+		header {
+			box-shadow: 0px 2px 2px #555, inset 10px 0px 20px -8px #555;
+		} //end header
+	} //end section
+	
+	
+	
+	body#sections_index.student, body#materials_index.student, body#semesters_index.student, body#examples_index.student, body#courses_index.student, body#instructors_index.student {
+		section {
+			// ----------------------------
+			// section medium tabs (alternating sides)
+			// ----------------------------
+			ul {
+				li {
+					
+				} //end li
+			} //end ul
+		} //end section
+		
+		
+		// ----------------------------
+		// header
+		// ----------------------------
+		header {
+			// ----------------------------
+			// Page title (top, white)
+			// ----------------------------
+			#title {
+				a {
+					font-size: 3em;
+				}
+			} //end #title
+		} // end header
+	} //end body#...
+	
+	section article#contact_information {
+		width: 100%;
+	}
+} // end 768 iPad
+
+
+///////////////////////////////
+// iPhone Landscape (480 width)
+///////////////////////////////
+@media all and (max-width: 480px) {
+	
+	$outer-width: 95%;
+	$page-width: 100%;
+	$inner-width: 78.947368421053%;
+	
+	#page {
+		width: $page-width;
+	
+		#outer_container {
+			width: $outer-width;
+
+			#inner_container {
+				width: $inner-width;
+				padding-top: 20px;
+				padding-bottom: 20px;
+			} // end inner_container
+		} // end outer_container
+		
+		// ----------------------------
+		// footer (large tab)
+		// ----------------------------
+		footer {
+			width: $outer-width;
+		} // end footer
+	} // end #page
+	
+	body#sections_index.student, body#materials_index.student, body#semesters_index.student, body#examples_index.student, body#courses_index.student, body#instructors_index.student {
+		section {
+			// ----------------------------
+			// section medium tabs (alternating sides)
+			// ----------------------------
+			ul {
+				li {
+					a {
+						h2 {
+							font-size: .8em;
+							margin: 5px 0 3px 0;
+							padding: 0px 10px;
+						} // end h2
+						
+						.course_number {
+							padding: 5px 10px;
+						}
+					
+						p {
+							padding: 0px 10px 7px 10px;
+						}
+						
+					} // end a
+				} // end li
+			} // end ul
+		} // end section
+		
+		// ----------------------------
+		// header
+		// ----------------------------
+		header {
+			// ----------------------------
+			// Page title (top, white)
+			// ----------------------------
+			#title {
+				a {
+					font-size: 1em;
+					letter-spacing: 32px;
+				}
+			} //end #title
+			
+			// -----------------------------
+			// small homepage semester header
+			// -----------------------------
+			h1 {
+				margin-top: 10px;
+			}
+		} // end header
+	} // end body#...
+
+
+	// -----------------------------
+	// layout like assingments
+	// -----------------------------
+	
+	section {
+		article#assignments, article#assignment, article#course_objectives, article#course_description, article#contact_information, article#semesters  {
+			width: 100%;
+		
+			header#instructions_header, header#objectives_header, header#description_header, header#contact_header {
+				width: 75%;
+			}		
+		
+			div#instructions, div.content, div#contact_details {
+				width: 80%;
+			}
+			
+			ul {
+				li {
+					margin-left: 0;
+				}
+			}
+		} // end article#assignments, article#assignment, article#course_objectives, article#course_description, article#contact_information, article#semesters 
+		
+	
+		// ----------------------------------
+		// nav links as tabs (right small tabs)
+		// ----------------------------------
+	
+		nav#resources {
+xxx@xxx.xxx outset_left;
+		
+			width: 100%;
+			float: left;
+		
+			ul {
+				li {
+					float: left;
+xxx@xxx.xxx left_tab_shadow;
+					
+					&:last-child {
+						margin-bottom: 30px;
+					}
+					
+					a {
+						border-left-width: 0px;
+						border-right-width: 1px;
+						border-right-style: solid;
+						border-right-color: inherit;
+						padding: 8px 20px;
+						margin-left: 20px;
+						margin-right: 8.333333333333%;
+						float: right;
+						width: 66%;
+						
+						&.icon {
+							width: 55%;
+						}
+						
+					}
+				}
+			}
+			
+			// -------------------------------
+			// background header not on a tab
+			// -------------------------------
+			article {
+
+				// -------------------------------
+				// background text header
+				// -------------------------------
+				header {
+					margin: 0px 0 10px 0;
+					padding-left: 70px;
+					width: 80%;
+					text-align: left;
+				} // end article header
+			} // end article
+		} // end nav#resources
+		
+	} // end section
+	
+	body#courses_show {
+		p#disclaimer {
+			display: none;
+		}
+	}
+	
+	
+	// -----------------------------
+	// vcard - contact information
+	// -----------------------------
+	
+	section.vcard {
+		article#contact_information {
+			div#contact_details {
+
+				.tcc_logo {
+					width: 100px;
+				}
+	
+				p, hr {
+					margin: 0 0 0 120px;
+				}
+			}
+		}
+	} // end section.vcard
+} //end 480 iphone landscape
+
+
+///////////////////////////////
+// iPhone Portait (320 width)
+///////////////////////////////
+@media all and (max-width: 320px) {
+	$page-width: 100%;
+	$outer-width: 95%;
+	$inner-width: 78.947368421053%;
+	
+	
+	// ----------------------------
+	// Page and Main Containers
+	// ----------------------------
+
+	#page {
+		width: $page-width;
+	
+		#outer_container {
+			background-image: url(left_slit.png);
+			background-position: top left;
+		
+			width: $outer-width;
+			margin-bottom: 50px;
+		
+			#inner_container {
+				background-image: url(left_slit.png);
+				background-position: top left;
+				
+				width: $inner-width;
+				padding-top: 20px;
+				padding-bottom: 20px;
+xxx@xxx.xxx clearfix();
+			} // end inner_container
+		} // end outer_container
+	
+	
+		// ----------------------------
+		// footer (large tab)
+		// ----------------------------
+		footer {
+			width: $outer-width;
+			margin: 0 auto;
+
+			background-image: url(small_left_slit.png);
+			background-position: top left;
+
+			div.content {
+				box-shadow: 0px 2px 2px #555, inset 5px 0px 10px -8px #000;
+				text-align: left;
+
+				div#copyright {
+				}
+
+				ul {
+					li {
+						float: none;
+
+						a {
+							color: #fff;
+							padding: 10px 30px 10px 20px;
+							margin: 5px 0;
+							display: block;
+							background-color: darken(#82A169, 10%);
+						}
+					} // end li
+				} // end ul
+			} // end div.content
+		} // end footer
+	} // end page
+
+	// ----------------------------
+	// main header (top of every page)
+	// ----------------------------
+	header {
+		width: $outer-width;
+		margin: 20px auto;
+	
+	
+		// ----------------------------
+		// Page title (top, white)
+		// ----------------------------
+		#title {
+			a {
+				font-size: 1.2em;
+				letter-spacing: 12px;
+			
+				span {
+					letter-spacing: 7px;
+				}
+			}
+		} //end #title
+		
+		h1 {
+			margin-top: 10px;
+		}
+	} //end header
+	
+	section {
+		// ---------------------------
+		// big green page banner (large tab)
+		// ---------------------------
+		header {
+			box-shadow: 0px 2px 2px #555, inset 10px 0px 20px -8px #555;
+		} //end header
+	} //end section
+
+	body#sections_index.student, body#materials_index.student, body#semesters_index.student, body#examples_index.student, body#courses_index.student, body#instructors_index.student {
+		section {
+			// ----------------------------
+			// large background text
+			// ----------------------------
+			h1 {
+				display: none;
+			} // end h1 large background text
+			
+			
+			// ----------------------------
+			// section medium tabs (alternating sides)
+			// ----------------------------
+			ul {
+				li {
+					width: 120%;
+					
+					//odd
+					&:nth-child( 2n + 1 ) {
+						
+					}
+								
+					//even
+					&:nth-child( 2n ) {
+xxx@xxx.xxx left_tab_shadow;
+xxx@xxx.xxx outset_left;
+						float: left;
+						text-align: left;
+					}
+					
+					a {
+						h2 {
+							font-size: .8em;
+							margin: 5px 0 3px 0;
+							padding: 0px 10px;
+						} // end h2
+					} // end a
+				} // end li
+			} // end ul
+		} // end section
+		
+		// ----------------------------
+		// header
+		// ----------------------------
+		header {
+			// ----------------------------
+			// Page title (top, white)
+			// ----------------------------
+			#title {
+				
+				a {
+					font-size: 1.2em;
+					letter-spacing: 12px;
+					position: static;
+					
+					span {
+						letter-spacing: 7px;
+					}
+				}
+			} //end #title
+			
+			// -----------------------------
+			// small homepage semester header
+			// -----------------------------
+			h1 {
+				margin-top: 10px;
+			}
+		} // end header
+		
+
+	} // end body#...
+	
+	// -----------------------
+	// forms
+	// -----------------------
+	form {
+		width: 120%;
+		
+		ol {
+			li div.details {
+				text-align: left;
+				float: none;
+				width: 80%;
+				border-right-width: 0px;
+				padding-bottom: 10px;
+				padding-left: 20px;
+			} // end div.details
+		
+			li div.field { 
+				float: none;
+				width: 80%;
+				margin-bottom: 20px;
+				padding-left: 20px;
+			
+				input[type=text], input[type=password] {
+					height: inherit;
+					width: 90%;
+				}
+				
+				textarea {
+					margin: 0px;
+				}
+			}
+		
+			li.textarea {
+				div.details {
+					text-align: left;
+				}
+			
+				div.field {
+					textarea {
+						width: 78%;
+					}
+				}
+			} // end li.textarea
+		} // end ol
+	} // end form
+	
+	
+	// -----------------------------
+	// layout like assingments
+	// -----------------------------
+	
+	section {
+		article#assignments, article#assignment, article#course_objectives, article#course_description, article#contact_information, article#semesters  {
+			width: 120%;
+		} // end article#assignments, article#assignment, article#course_objectives, article#course_description, article#contact_information, article#semesters 
+		
+	
+		// ----------------------------------
+		// nav links as tabs (right small tabs)
+		// ----------------------------------
+	
+		nav#resources {
+			width: 120%;
+		
+			
+			// -------------------------------
+			// background header not on a tab
+			// -------------------------------
+			article {
+
+				// -------------------------------
+				// background text header
+				// -------------------------------
+				header {
+					padding-left: 50px;
+				} // end article header
+			} // end article
+		} // end nav#resources
+		
+	} // end section
+	
+	body#courses_show {
+		p#disclaimer {
+			display: none;
+		}
+	}
+	
+	
+	
+	// -----------------------------
+	// vcard - contact information
+	// -----------------------------
+	
+	section.vcard {
+		article#contact_information {
+			div#contact_details {
+
+				.tcc_logo {
+					width: 50px;
+				}
+	
+				p, hr {
+					margin: 0 0 0 0px;
+					
+					&.org {
+						margin-left: 60px;
+					}
+				}
+			}
+		}
+	} // end section.vcard
+} // end 320 iphone portrait
