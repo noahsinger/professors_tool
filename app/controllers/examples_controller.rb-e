@@ -17,7 +17,6 @@ class ExamplesController < ApplicationController
   
   def test_notice
     flash[:notice] = 'This is a test flash notice message.'
-    # redirect_to root_url
     redirect_to semesters_path
   end
   

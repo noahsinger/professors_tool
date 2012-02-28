@@ -77,6 +77,9 @@ GEM
       thor (~> 0.14.6)
     hike (1.2.1)
     hirb (0.6.0)
+    httparty (0.8.1)
+      multi_json
+      multi_xml
     i18n (0.6.0)
     icalendar (1.1.6)
     journey (1.0.1)
@@ -92,9 +95,13 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     mime-types (1.17.2)
     minitest (2.11.1)
+    mocha (0.10.4)
+      metaclass (~> 0.0.1)
     multi_json (1.0.4)
+    multi_xml (0.4.1)
     multipart-post (1.1.5)
     nokogiri (1.5.0)
     paperclip (2.5.2)
@@ -142,6 +149,9 @@ GEM
       ffi (~> 1.0.9)
       multi_json (~> 1.0.4)
       rubyzip
+    shortly (0.3.3)
+      httparty
+      json
     simple_oauth (0.1.5)
     sprockets (2.1.2)
       hike (~> 1.2)
@@ -184,12 +194,14 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   minitest
+  mocha (~> 0.10.4)
   paperclip
   rails (= 3.2.1)
   rb-fsevent
   redcarpet
   ruby-prof
   sass-rails (~> 3.2.3)
+  shortly (~> 0.3.3)
   sqlite3
   turn
   twitter (~> 2.1.0)

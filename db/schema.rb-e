@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227143635) do
+ActiveRecord::Schema.define(:version => 20120228003756) do
 
   create_table "assignments", :force => true do |t|
     t.string   "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20120227143635) do
     t.integer  "lab_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "short_url"
   end
 
   create_table "awarded_points", :force => true do |t|

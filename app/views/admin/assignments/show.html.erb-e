@@ -15,29 +15,32 @@ xxx@xxx.xxx %></h1>
 		<h1><%= @assignment.title %> - xxx@xxx.xxx %></h1>
 	</header>
 	
-
-	<div id="details">
-		<div id="assignment_status">
-			<% xxx@xxx.xxx %>
-				<p class="reminder">Due in <%= xxx@xxx.xxx %></p>
-			<% end %>
-		</div>
-
-
-		<section id="requirements">
-			<header><h1>Requirements</h1></header>
-			<table>
+	<div id="resources">
+		<header id="requirements_header"><h1>Requirements</h1></header>
+		<table id="requirements">
 xxx@xxx.xxx do |r| %>
-					<tr>
-						<td><%= r.description %></td><td><%= r.points %> pts</td>
-					</tr>
-				<% end %>
+				<tr>
+					<td><%= r.description %></td><td><%= r.points %> pts</td>
+				</tr>
+			<% end %>
 xxx@xxx.xxx %> pts</td></tr>
-			</table>
-		</section>
+		</table>
+		
+		<h1>Resources</h1>
+		<ul id="assignment_links">
+			<li><a href="#" id="print" class="icon file">Print this Assignment</a></li>
+
+			<% xxx@xxx.xxx %>
+				<li><%= link_to 'Goo.gl Stats', xxx@xxx.xxx %></li>
+			<% end %>
+
+			<% if session[:user] %>
+				<li><%= link_to 'Edit this Assignment', xxx@xxx.xxx %></li>
+				<li><%= link_to 'Edit this Lab', xxx@xxx.xxx @assignment.lab) %></li>
+			<% end %>
+		</ul>
 	</div>
 	
-
 	<article id="assignment">
 		<div id="assignment_objective">
 			<strong>Objective</strong>
@@ -45,21 +48,22 @@ xxx@xxx.xxx %></p>
 		</div>
 	
 
-		<header id="instructions_header"><h1>Instructions</h1></header>
+		<header id="assignment_instructions_header"><h1>Instructions</h1></header>
 
-		<div id="instructions">
+		<div id="assignment_instructions">
 			<%= xxx@xxx.xxx %>
 		</div>
 
 		<% xxx@xxx.xxx > 0 %>
-			<div id="extras">
-				<header><h2>Extras</h2></header>
-				<ul>
+			<div>
+				<header id="assignment_extras_header"><h1>Extras</h1></header>
+				<ul id="assignment_extras">
 xxx@xxx.xxx do |extra| %>
 						<li>
 							<%= link_to extra.file.url do %>
-								<p><%= extra.description %></p>
-								<h3><%= extra.file_file_name %></h3>
+								<div><%= extra.description %></div>
+								<h2><%= extra.file_file_name %></h2>
+								<p></p>
 							<% end %>
 						</li>
 					<% end %>
@@ -68,15 +72,5 @@ xxx@xxx.xxx do |extra| %>
 		<% end %>		
 	</article>
 	
-	<nav id="resources">
-		<h1>Resources</h1>
-		<ul>
-			<li><a href="#" id="print" class="icon file">Print this Assignment</a></li>
-			<% if session[:user] %>
-				<li><%= link_to 'Edit this Assignment', xxx@xxx.xxx %></li>
-				<li><%= link_to 'Edit this Lab', xxx@xxx.xxx @assignment.lab) %></li>
-			<% end %>
-		</ul>
-	</nav>
 	
 </section>

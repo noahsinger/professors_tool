@@ -11,6 +11,7 @@ gem 'delayed_job_active_record'
 gem 'paperclip'
 gem 'redcarpet'
 gem 'twitter', "~> 2.1.0"
+gem 'shortly', "~> 0.3.3"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,6 +30,7 @@ group :development do
 end
 
 group :development, :test do	
+	gem 'mocha', "~>0.10.4"
 	gem 'capybara'
   gem 'turn', :require => false
   gem 'minitest' #required by turn

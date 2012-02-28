@@ -1,4 +1,8 @@
+require 'shortly'
+
 class Assignment < ActiveRecord::Base
+  include Rails.application.routes.url_helpers # to allow the use of named routes in this model (:host attribute required for urls)
+  
   belongs_to :lab
   belongs_to :section
   has_many :works, :dependent => :destroy
@@ -6,9 +10,16 @@ class Assignment < ActiveRecord::Base
   
   validates_presence_of :title
   validates_presence_of :lab
+  
+  after_create :generate_short_url
 
   def to_param
     "#{id}-#{title.gsub(/[^a-z0-9]+/i, '-')}"
+  end
+  
+  def generate_short_url
+    googl = Shortly::Clients::Googl    
+    update_attribute :short_url, googl.shorten(semester_section_assignment_url(self.section.semester,self.section,self,:host => "ingenio.us.com")).shortUrl
   end
   
   def worth
@@ -58,7 +69,6 @@ class Assignment < ActiveRecord::Base
   end
   
   def self.visible
-    xxx@xxx.xxx = Assignment.find(:all, :joins => [:lab], :conditions => 'labs.visible = 1', :order => 'duedate desc')
    xxx@xxx.xxx = Assignment.find(:all, :joins => [:lab], :conditions => ["labs.visible = ?", true], :order => 'duedate desc')
   end
   
