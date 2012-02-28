@@ -19,8 +19,6 @@ class Admin::AssignmentsControllerTest < ActionController::TestCase
   end
 
   def test_should_create_assignment
-    Assignment.any_instance.expects(:tweet).returns(true)
-    
     assert_difference('Assignment.count') do
       post :create, :section_id => sections(:jck1003_section_1), :semester_id => sections(:jck1003_section_1).semester_id, 
       :assignment => { 
@@ -30,12 +28,11 @@ class Admin::AssignmentsControllerTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to admin_semester_section_assignment_path(assigns(:semester),assigns(:section),assigns(:assignment))
+    # assert_redirected_to admin_semester_section_assignment_path(assigns(:semester),assigns(:section),assigns(:assignment))
+    assert_redirected_to new_admin_assignment_tweet_path(assignment_id: assigns(:assignment), status: 'new')
   end
   
   test "new assignments should have a short url" do
-    Assignment.any_instance.expects(:tweet).returns(true)
-    
     post :create, :section_id => sections(:jck1003_section_1), :semester_id => sections(:jck1003_section_1).semester_id, 
     :assignment => { 
       :title => 'Lab99',
@@ -58,11 +55,18 @@ class Admin::AssignmentsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  def test_should_update_assignment
+  test "should update assignment" do
     post :update, :id => assignments(:lab01).id, :section_id => sections(:jck1003_section_1), :semester_id => sections(:jck1003_section_1).semester_id,
     :assignment => { }
     assert_redirected_to admin_semester_section_assignment_path(assigns(:semester),assigns(:section),assigns(:assignment))
   end
+  
+  test "should update assignment and tweet" do
+    post :update, :id => assignments(:lab01).id, :section_id => sections(:jck1003_section_1), :semester_id => sections(:jck1003_section_1).semester_id,
+    :assignment => { :duedate => '2022-03-09 23:59:00 -0600' }
+    assert_redirected_to new_admin_assignment_tweet_path(assignment_id: assigns(:assignment), status: "duedate")
+  end
+  
 
   def test_should_destroy_assignment
     assert_difference('Assignment.count', -1) do

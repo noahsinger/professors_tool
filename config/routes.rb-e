@@ -52,6 +52,7 @@ Ingenious::Application.routes.draw do
     resources :instructors
     resources :syllabus_parts
     resources :users
+    resources :assignment_tweets
     
     resources :admin do
       collection do

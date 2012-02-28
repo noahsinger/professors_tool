@@ -59,7 +59,8 @@ class Admin::AssignmentsController < ApplicationController
     respond_to do |format|
       xxx@xxx.xxx
         flash[:notice] = 'Assignment was successfully created.'
-        format.html { xxx@xxx.xxx }
+        # format.html { xxx@xxx.xxx }
+        format.html { xxx@xxx.xxx status: 'new')) }
         format.xml  { render :xml => @assignment, :status => :created, :location xxx@xxx.xxx }
       else
         format.html { render :action => "new" }
@@ -72,11 +73,18 @@ class Admin::AssignmentsController < ApplicationController
   # PUT /assignments/1.xml
   def update
     @assignment xxx@xxx.xxx
+    old_duedate xxx@xxx.xxx
 
     respond_to do |format|
       xxx@xxx.xxx
         flash[:notice] = 'Assignment was successfully updated.'
-        format.html { xxx@xxx.xxx }
+        
+        destination = xxx@xxx.xxx
+        xxx@xxx.xxx == old_duedate
+          destination = xxx@xxx.xxx status: "duedate")
+        end
+        
+        format.html { redirect_to(destination) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

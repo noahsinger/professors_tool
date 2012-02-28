@@ -4,7 +4,7 @@ xxx@xxx.xxx %></h1>
 
 <section>
 	<nav>
-			<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
 	</nav>
 	
 	<header>
@@ -15,6 +15,7 @@ xxx@xxx.xxx %></h1>
 	<ul class="actions">
 		<li><%= link_to 'New Work', xxx@xxx.xxx %></li>
 		<li><%= link_to 'New for All', xxx@xxx.xxx %></li>
+		<li><%= link_to 'Tweet Grading Complete', new_admin_assignment_tweet_path( xxx@xxx.xxx status: "graded" ) %></li>
 	</ul>
 
 	<% xxx@xxx.xxx > 0 %>
