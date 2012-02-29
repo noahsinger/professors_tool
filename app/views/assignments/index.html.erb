@@ -34,7 +34,7 @@ xxx@xxx.xxx %></h1>
 				<li><h2><%= link_to 'Examples', xxx@xxx.xxx class: "icon cog" %></h2></li>
 			<% end %>
 			
-			<% if session[:user] %>
+			<% if current_user %>
 				<header><h1>Admin</h1></header>
 				<li><%= link_to "Edit Section", xxx@xxx.xxx %></li>
 			<% end %>

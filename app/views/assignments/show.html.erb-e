@@ -41,7 +41,7 @@ xxx@xxx.xxx %> pts</td></tr>
 			<% end %>
 
 			<li><h2><a href="#" id="print" class="icon file">Print this Assignment</a></h2></li>
-			<% if session[:user] %>
+			<% if current_user %>
 				<li><h2><%= link_to 'Edit this Assignment', xxx@xxx.xxx %></h2></li>
 				<li><h2><%= link_to 'Edit this Lab', xxx@xxx.xxx @assignment.lab) %></h2></li>
 			<% end %>

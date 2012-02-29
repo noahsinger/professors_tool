@@ -9,36 +9,14 @@ class ApplicationController < ActionController::Base
   
   helper_method :markdown
     
-  # def call_rake( task, options = {} )
-  #   options[:rails_env] ||= Rails.env
-  #   args = options.map { |n, v| "#{n.to_s.upcase}='#{v}'" }
-  #   system APP_CONFIG['rake_path'] + " --trace #{task} #{args.join(' ')} 2>&1 >> #{Rails.root}/log/rake.log &"
-  # end
-  
   def authenticate
     unless current_user
-      session[:intended_action] = action_name
-      session[:intended_controller] = controller_name
-      session[:intended_id] = params[:id]
+      # session[:intended_action] = action_name
+      # session[:intended_controller] = controller_name
+      # session[:intended_id] = params[:id]
       redirect_to login_path
     end
   end
-
-  # def signin
-  #   if request.post?
-  #     begin
-  #       session[:user] = User.authenticate( params[:user][:username], params[:user][:password] ).id
-  #       redirect_to :action => session[:intended_action], :controller => session[:intended_controller], :id => session[:intended_id]
-  #     rescue
-  #       flash[:error] = "Your username or password are incorrect"
-  #     end
-  #   end
-  # end
-  # 
-  # def signout
-  #   session[:user] = nil
-  #   redirect_to root_path
-  # end
   
   private
 
