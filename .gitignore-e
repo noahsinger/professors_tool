@@ -4,4 +4,5 @@ log/*.log
 tmp/
 .sass-cache/
 uploads/**
+public/system/**
 public/office_hours
