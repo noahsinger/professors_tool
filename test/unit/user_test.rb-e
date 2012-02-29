@@ -11,7 +11,7 @@ class UserTest < ActiveSupport::TestCase
   
   test "valid users can be authenticated" do
     User.create( :username => 'user', :password => 'test' )
-    assert_nothing_raised(Exception) do 
+    assert_nothing_raised(RuntimeError) do 
       assert_not_nil User.authenticate( 'user', 'test' )
     end
   end
