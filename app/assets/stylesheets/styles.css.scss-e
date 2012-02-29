@@ -108,6 +108,8 @@ xxx@xxx.xxx debug_border;
 xxx@xxx.xxx outset-left;
 		width: $page-width + 26.7%;
 		
+		overflow: hidden;
+		
 		// ---------------------------
 		// big green page banner (large tab)
 		// ---------------------------

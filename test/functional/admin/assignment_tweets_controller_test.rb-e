@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class Admin::AssignmentTweetsControllerTest < ActionController::TestCase
+  cannot_access_actions([assignment_id: 1], {new: :get, create: :post})
+  
   def setup
     login_as(:admin)
   end  
