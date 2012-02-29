@@ -2,5 +2,4 @@
 
 admin:
   username: admin
-  password_hash: hdsjhdashdhhdshdsdhkasdhsakdhkjsa
-  password_salt: ksjdsajdldjldjljdsjdlsajdjdsajlks
+  password_digest: <%= BCrypt::Password.create("secret") %>

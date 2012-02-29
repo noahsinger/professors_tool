@@ -1,11 +1,14 @@
 <%= content_for :header do %>
-	<h1>Users</h1>
-	<h4>editing xxx@xxx.xxx %></h4>
+	<h1>Editing User</h1>
 <% end %>
 
 <nav>
-		<li><%= link_to admin_users_path do %> <%= render :partial => "shared/back_link" %> <% end %></li>
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => "shared/show_link" %> <% end %></li>
-	</nav>
+	<%= link_to 'Back', admin_users_path, class: "icon back" %>
+</nav>
+	
+<header>
+	<p>Editing</p>
+	<h1>Editing xxx@xxx.xxx %></h1>
+</header>
 
 <%= render :partial => "form", :locals => {:submit_name => 'Update'} %>

@@ -12,6 +12,7 @@ gem 'paperclip'
 gem 'redcarpet'
 gem 'twitter', "~> 2.1.0"
 gem 'shortly', "~> 0.3.3"
+gem 'bcrypt-ruby', "~> 3.0.1"
 
 # Gems used only for assets and not required
 # in production environments by default.

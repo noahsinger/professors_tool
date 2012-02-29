@@ -40,7 +40,8 @@ class ActiveSupport::TestCase
         
         send( request, action, *route_parts )
         assert_response :redirect
-        assert_redirected_to signin_admin_admin_index_path    
+        # assert_redirected_to signin_admin_admin_index_path    
+        assert_redirected_to login_path
       end
     end
   end

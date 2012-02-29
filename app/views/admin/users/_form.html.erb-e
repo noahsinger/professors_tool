@@ -3,8 +3,9 @@
 	<ol>
 		<li><div class="details"><%= f.label :username %><p></p></div><div class="field"><%= f.text_field :username %></div></li>
 		<li><div class="details"><%= f.label :password %><p></p></div><div class="field"><%= f.text_field :password %></div></li>
-		<li class="submit_bar">
-			<%= f.submit "Update" %>
+		<li><div class="details"><%= f.label :password_confirmation %><p></p></div><div class="field"><%= f.text_field :password_confirmation %></div></li>
+		<li class="action">
+			<div><%= f.submit %></div>
 		</li>
 	</ol>
 <% end %>

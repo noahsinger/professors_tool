@@ -4,17 +4,15 @@ class AddSyllabusPartTest < ActionDispatch::IntegrationTest
   fixtures :all
 
   test "new syllabus part can be added" do
+    
+    User.create(:username => 'user', :password => 'test', :password_confirmation => 'test')
+    
     # login as admin
-    visit signout_admin_admin_index_path
-    
-    User.create(:username => 'user', :password => 'test')
-    
-    visit admin_semesters_path
+    visit login_path
     
     fill_in("Username", :with => 'user')
     fill_in("Password", :with => 'test')
-    click_on("Sign in")
-    
+    click_on("Sign in")    
     
     # try to add syllabus part
     course = Course.all.first
