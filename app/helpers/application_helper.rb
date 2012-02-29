@@ -72,8 +72,4 @@ module ApplicationHelper
       text
     end
   end
-  
-  def slide_link( x, y )
-    
-  end
 end

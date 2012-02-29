@@ -42,11 +42,4 @@ class ApplicationController < ActionController::Base
     session[:user] = nil
     redirect_to root_path
   end
-  
-  private
-    def adjust_format_for_iphone
-      if request.env["HTTP_USER_AGENT"] && request.env["HTTP_USER_AGENT"][/(iPhone|iPod)/]
-        request.format = :iphone
-      end
-    end
 end
