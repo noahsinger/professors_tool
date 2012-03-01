@@ -1,7 +1,10 @@
 //= require jquery  
 //= require jquery_ujs
-//= require_self
+//= cookie_tools
+//= require animation_toggle
 //= require_tree .
+//= require_self
+
 
 ////////////////////////////////////
 // Ingenio.us.com Application.js

@@ -3,7 +3,7 @@
 # 
 
 $(document).ready ->
-	unless is_iphone( ) || is_ipad( )
+	if are_animations_on( )
 		$(".flash").each ->
 			console.log "flash message present"
 			tab = $(this)
