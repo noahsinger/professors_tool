@@ -2,9 +2,9 @@
 	<h1>Semesters</h1>
 <% end %>
 
-
-
 <section>
+	<h1 class="page_description">All Semesters</h1>
+	
 	<nav>
 		<h1>Navigation</h1>
 		<%= link_to "Home", '/', class: "icon back" %>
@@ -15,7 +15,6 @@
 		<h1>Semesters</h1>
 	</header>
 	
-	<h1 class="page_description">All Semesters</h1>
 	<ul id="semesters">
 		<% for semester xxx@xxx.xxx %>
 			<li>

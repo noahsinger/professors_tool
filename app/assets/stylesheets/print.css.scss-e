@@ -35,6 +35,7 @@ body.print {
 	
 		section {
 			width: auto;
+			
 		
 			header {
 				display: block;
@@ -64,6 +65,10 @@ body.print {
 					width: auto;
 					margin: 0;
 					padding: 10px;
+					
+					h1.page_description {
+						display: none;
+					}
 					
 					header {
 						display: block;

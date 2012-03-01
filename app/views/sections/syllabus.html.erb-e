@@ -3,6 +3,8 @@ xxx@xxx.xxx %> Syllabus</h1>
 <% end %>
 
 <section>
+	<h1 xxx@xxx.xxx %> Syllabus</h1>
+	
 	<nav>
 		<h1>Navigation</h1>
 		<%= link_to 'Back', xxx@xxx.xxx class: "icon back" %>

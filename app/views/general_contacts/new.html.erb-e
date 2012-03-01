@@ -3,6 +3,8 @@
 <% end %>
 
 <section>
+	<h1 class="page_description">Contact</h1>
+	
 	<nav>
 		<h1>Navigation</h1>
 		<%= link_to 'Home', root_path, class: "icon back" %>

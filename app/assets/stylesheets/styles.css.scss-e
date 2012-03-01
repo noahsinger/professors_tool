@@ -315,6 +315,10 @@ xxx@xxx.xxx alternate_sides;
 xxx@xxx.xxx medium_tab;
 xxx@xxx.xxx three_part;
 	}
+	
+	padding-top: 5px;
+	overflow: hidden;
+xxx@xxx.xxx clearfix;
 }
 
 
@@ -470,6 +474,7 @@ xxx@xxx.xxx walkway_family;
 
 #page_content {
 	header#instructor_header, header#course_description_header, header#course_objectives_header, header#assignment_instructions_header {
+		z-index: 10;
 xxx@xxx.xxx medium_tab;
 xxx@xxx.xxx blue_header;
 xxx@xxx.xxx left_tab;
@@ -500,12 +505,13 @@ xxx@xxx.xxx left_cap;
 #page_content {
 	header#course_labs_header, header#assignments_header, header#assignment_extras_header, header#view_semesters_header {
 xxx@xxx.xxx medium_tab;
+		width: 55%;
 xxx@xxx.xxx blue_header;
 xxx@xxx.xxx left_tab;
 		
 		h1 {
 xxx@xxx.xxx right_cap;
-		}
+		}		
 	} 
 }
 
@@ -558,14 +564,20 @@ xxx@xxx.xxx right_tab_shadow;
 
 ul#course_labs, ul#assignments, ul#assignment_extras, ul#admin_semesters {
 xxx@xxx.xxx inset;
+	overflow: hidden;
+	width: 50%;
+	padding-top: 5px;
 	
 	li {
 xxx@xxx.xxx color_grad;
 xxx@xxx.xxx left_tab;
 xxx@xxx.xxx medium_tab;
+		width: 90%;
 xxx@xxx.xxx three_part;
 		clear: left;
 	}
+	
+xxx@xxx.xxx clearfix;
 }
 
 
@@ -573,7 +585,7 @@ xxx@xxx.xxx three_part;
 // right small multicolored tabs
 // --------------------------------------------------------
 
-ul#course_links, ul#tutorials, ul#past_sections, ul#section_links, ul#assignment_links, ul#data_links, ul#request_links {
+ul#course_links, ul#tutorials, ul#past_sections, ul#section_links, ul#assignment_links, ul#data_links, ul#request_links {	
 	li {
 xxx@xxx.xxx color_grad;
 xxx@xxx.xxx right_tab;
@@ -615,6 +627,10 @@ xxx@xxx.xxx one_part;
 xxx@xxx.xxx left_cap;
 		}
 	}
+	
+	padding-top: 10px;
+	overflow: hidden;
+xxx@xxx.xxx clearfix;
 }
 
 

@@ -4,6 +4,8 @@ xxx@xxx.xxx %></h1>
 
 
 <section>
+	<h1 class="page_description">Submit Solution</h1>
+	
 	<nav>
 		<h1>Navigation</h1>
 		<%= link_to "#{@assignment.title} - #{@assignment.lab.title}", xxx@xxx.xxx @section, @assignment ), class: 'icon back' %>

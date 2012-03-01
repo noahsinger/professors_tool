@@ -7,7 +7,7 @@ xxx@xxx.xxx %></h1>
 	<article>	
 		<ul id="semester_sections">
 xxx@xxx.xxx do |section| %>
-				<li>
+			<li name="<%= "#{section.meeting_days.gsub( ' ', '' )}#{section.course.title.gsub( ' ', '' )}" %>">
 					<%= link_to xxx@xxx.xxx section) do %>
 						<div><%= section.course.short_name %></div>
 						<h2><%= section.course.title %></h2>

@@ -12,6 +12,8 @@
 
 
 <section>
+	<h1 xxx@xxx.xxx %></h1>
+	
 	<nav>
 		<h1>Navigation</h1>
 		<% if session[:referrer] %>

@@ -6,7 +6,6 @@
 <section>
 	<h1 class="page_description">All Courses</h1>
 	
-	
 	<nav>
 		<h1>Navigation</h1>
 		<%= link_to "Home", '/', class: "icon back" %>
@@ -17,7 +16,6 @@
 		<h1>Offered Courses</h1>
 	</header>
 	
-
 	<article>
 		<ul id="courses">
 xxx@xxx.xxx do |course| %>		

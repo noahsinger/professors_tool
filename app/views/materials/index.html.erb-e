@@ -3,6 +3,8 @@ xxx@xxx.xxx %> Materials</h1>
 <% end %>
 
 <section>
+	<h1 xxx@xxx.xxx %> Materials</h1>
+	
 	<nav>
 		<h1>Navigation</h1>
 		<%= link_to "Back to xxx@xxx.xxx :back, class: "icon back" %>
