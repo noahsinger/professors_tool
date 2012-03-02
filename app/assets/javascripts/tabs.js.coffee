@@ -20,7 +20,7 @@ $(document).ready ->
 			,2000 )
 			
 		# left tabs #######################
-		$("#semester_sections li:even, #assignments li, #assignments_header, #assignment_objective, #assignment_instructions, #assignment_instructions_header, #assignment_extras li, #assignment_extras_header, #syllabus, form li, #course_materials li:even, #section_examples li:even, #tutorial_step, #next_prev li.prev, #semesters li:even, #instructors li:even, #instructor_header, #instructor_details, #courses li:even, #disclaimer, #course_description_header, #course_description, #course_objectives_header, #course_objectives, #course_labs_header, #course_labs li").each ->
+		$("#semester_sections li:even, #assignments li, #assignments_header, #assignment_objective, #assignment_instructions, #assignment_instructions_header, #assignment_extras li, #assignment_extras_header, #syllabus, form li, #course_materials li:even, #section_examples li:even, #tutorial_step, #next_prev li.prev, #semesters li:even, #instructors li:even, #instructor_header, #instructor_details, #courses li:even, #disclaimer, #course_description_header, #course_description, #course_objectives_header, #course_objectives, #course_labs_header, #course_labs li, #no_assignments").each ->
 			tab = $(this)
 		
 			console.log "top: #{$(tab).offset( ).top} tab left: #{$(tab).offset( ).left} tab "
