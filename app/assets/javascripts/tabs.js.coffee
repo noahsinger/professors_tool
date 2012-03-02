@@ -48,7 +48,10 @@ $(document).ready ->
 		
 			# reveal( tab )
 			setTimeout( ->
-				reveal_with_position( tab, "right" )
+				if is_iphone( ) # everything is left aligned in iphone layout
+					reveal_with_position( tab, "left" )
+				else
+					reveal_with_position( tab, "right" )
 			,(Math.random( ) * 1000) )
 			
 		
