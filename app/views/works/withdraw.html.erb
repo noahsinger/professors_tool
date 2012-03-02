@@ -1,19 +1,26 @@
 <nav>
-		<li><%= link_to '/' do %> <%= render :partial => "shared/back_link" %> <% end %></li>
-	</nav>
+	<%= link_to 'Home', root_path, class: "icon back" %>
+</nav>
 
-<% xxx@xxx.xxx == "destroyed" %>
-	<p class="green">Your work has been withdrawn.</p>
-<% else %>
-	<% xxx@xxx.xxx == "no works" %>
-		<p class="red">Your work HAS NOT been withdrawn, are you sure you clicked the link in the correct email?</p>
+<header>
+	<p>status: xxx@xxx.xxx %></p>
+	<h1>Solution Withdrawal</h1>
+</header>
+
+<div class="admin_comments">
+	<% xxx@xxx.xxx == "destroyed" %>
+		<p class="green">Your work has been withdrawn.</p>
 	<% else %>
-		<% xxx@xxx.xxx == "no code" %>
-			<p class="red">Quit messing around.</p>
+		<% xxx@xxx.xxx == "no works" %>
+			<p class="red">Your work HAS NOT been withdrawn, are you sure you clicked the link in the correct email?</p>
 		<% else %>
-			<% xxx@xxx.xxx == "pastdue" %>
-				<p class="red">That assignment is past due so it cannot be withdrawn.</p>
+			<% xxx@xxx.xxx == "no code" %>
+				<p class="red">Quit messing around.</p>
+			<% else %>
+				<% xxx@xxx.xxx == "pastdue" %>
+					<p class="red">That assignment is past due so it cannot be withdrawn.</p>
+				<% end %>
 			<% end %>
 		<% end %>
 	<% end %>
-<% end %>
+</div>

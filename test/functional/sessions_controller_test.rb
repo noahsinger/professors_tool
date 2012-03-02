@@ -10,7 +10,7 @@ class SessionsControllerTest < ActionController::TestCase
     post :create, username: users(:admin).username, password: 'secret'
     assert_equal users(:admin).id, session[:user_id]
     
-    assert_redirected_to admin_admin_path
+    assert_redirected_to admin_admin_index_path
   end
   
   test "should not create session with invalid credentials" do

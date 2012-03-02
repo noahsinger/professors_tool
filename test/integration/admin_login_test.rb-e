@@ -26,7 +26,7 @@ class AdminLoginTest < ActionDispatch::IntegrationTest
     click_on("Sign in")
     
     #successful login redirects to original destination
-    assert_equal admin_admin_path, current_path
+    assert_equal admin_admin_index_path, current_path
   end
   
   test "user cannot login with bad password" do
