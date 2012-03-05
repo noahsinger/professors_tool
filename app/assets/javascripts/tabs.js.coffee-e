@@ -27,12 +27,14 @@ $(document).ready ->
 
 			# hide tab
 			$(tab).css "position", "relative"
-			$(tab).css "left", -$(tab).outerWidth( true ) - 160
+			amount = -$(tab).outerWidth( true ) - 160
+			$(tab).css "left", amount
 		
 		
 			# reveal( tab )
 			setTimeout( ->
-				reveal_with_position( tab, "left" )
+				# reveal_with_position( tab, "left" )
+				reveal_with_css3( tab, -amount )
 			,(Math.random( ) * 1000) )
 		
 		# right tabs #######################	
@@ -43,15 +45,22 @@ $(document).ready ->
 
 			# hide tab
 			$(tab).css "position", "relative"
-			$(tab).css "right", -$(tab).outerWidth( true ) - 160
+			amount = -$(tab).outerWidth( true ) - 160
+			
+			if is_iphone( ) # everything is left aligned in iphone layout
+				$(tab).css "left", amount
+			else
+				$(tab).css "right", amount
 		
 		
 			# reveal( tab )
 			setTimeout( ->
 				if is_iphone( ) # everything is left aligned in iphone layout
-					reveal_with_position( tab, "left" )
+					# reveal_with_position( tab, "left" )
+					reveal_with_css3( tab, -amount )
 				else
-					reveal_with_position( tab, "right" )
+					# reveal_with_position( tab, "right" )
+					reveal_with_css3( tab, amount )
 			,(Math.random( ) * 1000) )
 			
 		
@@ -66,3 +75,22 @@ reveal_with_position = ( tab, direction ) ->
 	else
 		$(tab).animate {right: 0}, (Math.random( ) * 1500), "easeInOutCirc"
 
+
+reveal_with_css3 = ( tab, amount ) ->
+	console.log "revealing #{$(tab)} amount: #{amount}"
+	
+	$(tab).css "-webkit-transform", "translateX(#{amount}px)";
+	$(tab).css "-webkit-transition", "-webkit-transform #{Math.random( )}s ease-in-out";
+
+	$(tab).css "-moz-transform", "translateX(#{amount}px)";
+	$(tab).css "-moz-transition", "-moz-transform #{Math.random( )}s ease-in-out";
+
+	$(tab).css "-o-transform", "translateX(#{amount}px)";
+	$(tab).css "-o-transition", "-o-transform #{Math.random( )}s ease-in-out";
+
+	$(tab).css "-ms-transform", "translateX(#{amount}px)";
+	$(tab).css "-ms-transition", "-ms-transform #{Math.random( )}s ease-in-out";
+
+	$(tab).css "transform", "translateX(#{amount}px)";
+	$(tab).css "transition", "transform #{Math.random( )}s ease-in-out";
+	
