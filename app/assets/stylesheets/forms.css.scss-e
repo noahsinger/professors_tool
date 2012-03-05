@@ -253,6 +253,8 @@ xxx@xxx.xxx neue_family;
 	// form error messages
 	// -----------------------------------------
 	div#error_explanation {
+		overflow: hidden;
+		
 xxx@xxx.xxx grad( $red_light, $red_dark );
 		color: #fff;
 		margin-bottom: 20px;
@@ -289,7 +291,7 @@ xxx@xxx.xxx neue_family;
 	} // end div#errorExplanation
 	
 	div.field div.field_with_errors {
-		input[type=text], input[type=file], input[type=file], textarea {
+		input[type=text], input[type=file], input[type=email], textarea {
 			border: 2px solid red;
 		}
 	}
