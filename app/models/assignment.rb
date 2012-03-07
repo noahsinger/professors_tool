@@ -3,6 +3,8 @@ require 'shortly'
 class Assignment < ActiveRecord::Base
   include Rails.application.routes.url_helpers # to allow the use of named routes in this model (:host attribute required for urls)
   
+  attr_accessible :title, :lab, :duedate, :lab_id
+  
   belongs_to :lab
   belongs_to :section
   has_many :works, :dependent => :destroy

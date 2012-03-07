@@ -4,6 +4,8 @@ class Lab < ActiveRecord::Base
   has_many :assignments, :dependent => :destroy
   has_many :extras, :dependent => :destroy
   
+  attr_accessible :title, :objective, :instructions, :visible, :allow_uploads
+  
   validates_presence_of :title
   validates_presence_of :objective
   validates_presence_of :instructions

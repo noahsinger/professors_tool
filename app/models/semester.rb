@@ -1,6 +1,8 @@
 class Semester < ActiveRecord::Base
   has_many :sections, :dependent => :destroy
   
+  attr_accessible :year, :season, :start_date, :end_date
+  
   validates_presence_of :year
   validates_presence_of :season
   

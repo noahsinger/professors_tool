@@ -3,6 +3,8 @@ class Example < ActiveRecord::Base
   
   has_attached_file :file
   
+  attr_accessible :name, :description, :file
+  
   validates_presence_of :name
   validates_presence_of :description
   validates_presence_of :file

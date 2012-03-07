@@ -1,5 +1,7 @@
 class Book < ActiveRecord::Base
   belongs_to :course
+
+  attr_accessible :title, :author, :isbn, :publisher
   
   validates_presence_of :title
   validates_presence_of :author

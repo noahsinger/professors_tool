@@ -1,5 +1,7 @@
 class Step < ActiveRecord::Base
   belongs_to :how_to
+
+  attr_accessible :image, :title, :instructions, :how_to
   
   has_attached_file :image, :styles => {:thumb => "100x100>", :normal => "400x400>", :large => "800x800>"}, :default_style => :normal
   

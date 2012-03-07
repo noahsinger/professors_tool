@@ -7,10 +7,10 @@ class HomeworkReturnRequestsControllerTest < ActionController::TestCase
     @assignment xxx@xxx.xxx
     
    xxx@xxx.xxx = students(:stew)
-    @enrollment = @section.enrollments.build( :student xxx@xxx.xxx )
+    @enrollment = @section.enrollments.build( :student_id xxx@xxx.xxx )
    xxx@xxx.xxx
     
-    @work = @assignment.works.build( :enrollment => @enrollment, :email xxx@xxx.xxx )
+    @work = @assignment.works.build( :enrollment_id => @enrollment.id, :email xxx@xxx.xxx )
    xxx@xxx.xxx
   end
   

@@ -42,7 +42,7 @@ mimes =
 	tex:  "text-x-tex"
 	xml:  "text-xml"
 	vcal: "vcalendar"
-		
+
 
 # insert file images for input type=file fields
 insert_image = (div, image, filename) ->
@@ -52,7 +52,9 @@ insert_image = (div, image, filename) ->
 	$(div).prepend( "<img src=\"/assets/mimes/#{image}.png\" alt=\"#{filename}\" style=\"display: none;\"/>" )
 	$(div).find( "img" ).fadeIn( 'slow' )
 
+
 setup_forms = ->
+	# setup image drop in file fields
 	$("input[type=file]").each ->
 		field = this
 		div = $(field).parents( "div.file:first" )
@@ -74,14 +76,6 @@ setup_forms = ->
 					insert_image( div, image, filename )
 			, 200
 			
-	# provide basic email address in text fields
-	# $("input[type=text]").each ->
-		# if $(this).data( "mask" )
-			# mask = $(this).data( "mask" )
-			# field = this
-			
-			# $(field).bind 'focus', ->
-				# $(field).val( mask )
 				
 	# center fields vertically on their tabs
 	$("li input[type=text], li input[type=email], li input[type=password]").each ->

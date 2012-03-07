@@ -7,7 +7,7 @@ class GradeRequestsControllerTest < ActionController::TestCase
   end
 
   test "should create grade_request for enrolled student" do
-    sections(:jck1003_section_1).enrollments.build( :student => students(:stew) ).save
+    sections(:jck1003_section_1).enrollments.build( :student_id => students(:stew).id ).save
     
     # assert_difference('ActionMailer::Base.deliveries.size') do
     assert_difference('Delayed::Job.all.size') do
@@ -36,7 +36,7 @@ class GradeRequestsControllerTest < ActionController::TestCase
   end
   
   test "should not send 2 grade_requests in under 10 minutes" do
-    sections(:jck1003_section_1).enrollments.build( :student => students(:stew) ).save
+    sections(:jck1003_section_1).enrollments.build( :student_id => students(:stew).id ).save
     
     assert_difference('Delayed::Job.all.size') do
       2.times do

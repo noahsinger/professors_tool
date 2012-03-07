@@ -3,6 +3,8 @@ class HowTo < ActiveRecord::Base
   has_many :tutorials
   has_many :courses, :through => :tutorials
   
+  attr_accessible :title, :description
+  
   validates_presence_of :title
   validates_presence_of :description
 

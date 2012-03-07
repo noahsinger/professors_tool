@@ -3,6 +3,8 @@ class Material < ActiveRecord::Base
   
   has_attached_file :file
   
+  attr_accessible :file, :title, :description
+  
   validates_presence_of :title
   validates_presence_of :description
   validates_presence_of :file

@@ -26,7 +26,7 @@
 					<%= f.label :return_email, 'Your Email Address' %>
 					<p>Please provide your email address so a return email can be sent to you if needed.</p>
 				</div>
-				<div class="field"><%= f.email_field :return_email %></div>
+				<div class="field"><%= f.email_field :return_email, {placeholder: xxx@xxx.xxx %></div>
 			</li>
 			<li>
 				<div class="details">

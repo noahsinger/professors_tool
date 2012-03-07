@@ -2,6 +2,8 @@ class GradeRequest < ActiveRecord::Base
   belongs_to :section
   belongs_to :enrollment
   
+  attr_accessible :email, :section, :student, :status
+  
   validates_presence_of :email
   validates_presence_of :section
   
