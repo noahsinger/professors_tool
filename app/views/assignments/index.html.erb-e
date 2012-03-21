@@ -78,7 +78,7 @@ xxx@xxx.xxx do |assignment| %>
 								<% end %>
 							</div>
 							<h2><span><%= assignment.title %></span> <%= assignment.lab.title %></h2>
-							<p></p>
+							<p><%= assignment.lab.objective %></p>
 						<% end %>
 					</li>
 				<% end %>

@@ -218,8 +218,48 @@ xxx@xxx.xxx debug_border;
 		header h1 {
 			display: block;
 		}
-	}
+		
+		// -----------------------------
+		// tabs with icons
+		// -----------------------------
+
+		a.icon {
+			background-repeat: no-repeat;
+			background-position: 20px center;
+			background-size: 20px;
+		}
 	
+		a.icon.download {
+			background-image: url( arrow_down_alt1_32x32.png );
+		}
+	
+		a.icon.upload {
+			background-image: url( arrow_up_alt1_32x32.png );
+		}
+	
+		a.icon.file {
+			background-image: url( document_alt_stroke_24x32.png );
+			background-size: 15px;
+			background-position: 22px center;
+		}
+	
+		a.icon.email {
+			background-image: url( at_32x32.png );
+		}
+	
+		a.icon.star {
+			background-image: url( star_32x32.png );
+		}
+	
+		a.icon.wrench {
+			background-image: url( wrench_32x32.png );
+		}
+	
+		a.icon.cog {
+			background-image: url( cog_alt_32x32.png );
+		}
+		
+	} // end div#resources
 } // end page
 
 
@@ -255,48 +295,52 @@ xxx@xxx.xxx neue_family;
 		
 		&#print {
 			float: right;
-//			background-image: url(file.png);
-			color: #fff;
-			margin-right: 40px;
-		}
-			
-		&.back {
-/*			padding-left: 35px;*/
-/*			background-image: url(back.png);*/
+			padding-right: 40px;
+			padding-left: 20px;
+			background-image: url(bolt_32x32.png);
+			background-size: 12px 12px;
+			background-position: 0 4px;
 				
 			&:hover {
-/*				background-image: url(back_active.png);*/
+				background-image: url(bolt_32x32_active.png);
+			}
+		}
+					
+		&.back {
+			padding-left: 20px;
+			background-image: url(undo_32x32.png);
+			background-size: 12px 12px;
+			background-position: 0 4px;
+				
+			&:hover {
+				background-image: url(undo_32x32_active.png);
 			}
 		}
 			
 		&.rss {
-//			background-image: url(rss.png);
+			padding-left: 18px;
+			background-image: url(rss_32x32.png);
+			background-size: 12px 12px;
+			background-position: 0 4px;
 			float: right;
 			margin-right: 40px;
 				
 			&:hover {
-//				background-image: url(rss_active.png);
+				background-image: url(rss_32x32_active.png);
 			}
 		}
 			
 		&.ical {
-//			background-image: url(ical.png);
+			padding-left: 18px;
+			background-image: url(calendar_alt_fill_32x32.png);
+			background-size: 12px 12px;
+			background-position: 0 3px;
 			float: right;
 				
 			&:hover {
-//				background-image: url(ical_active.png);
+				background-image: url(calendar_alt_fill_32x32_active.png);
 			}
-		}
-						
-		&.edit {
-//			background-image: url( edit.png );
-			background-position: 0 3px;
-			padding-top: 0;
-//			padding-left: 20px;
-			margin-right: 40px;
-			float: right;
-		}
-			
+		}			
 	}
 		
 xxx@xxx.xxx clearfix;
@@ -436,7 +480,7 @@ xxx@xxx.xxx centered_tab;
 	
 	h1 {
 		font-size: 4em;
-xxx@xxx.xxx walkway_family;
+xxx@xxx.xxx neue_family;
 	}
 	
 	h2 {

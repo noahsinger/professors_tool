@@ -201,6 +201,18 @@ xxx@xxx.xxx left_tab_shadow;
 
 			header h1 {
 			}
+			
+			// -----------------------------
+			// tabs with icons
+			// -----------------------------
+
+			a.icon {
+				background-repeat: no-repeat;
+				background-position: 20px center;
+				background-size: 20px;
+				padding-left: 50px;
+			}
+			
 		}
 
 	} // end page
@@ -232,6 +244,8 @@ xxx@xxx.xxx super_wide_tab;
 	// --------------------------------------------------------
 
 	ul#course_labs, ul#assignments, ul#assignment_extras, ul#admin_semesters {
+		width: 80%;
+		
 		li {
 xxx@xxx.xxx super_wide_tab;
 		}
