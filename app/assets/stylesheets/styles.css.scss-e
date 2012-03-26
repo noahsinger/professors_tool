@@ -225,7 +225,9 @@ xxx@xxx.xxx debug_border;
 
 		a.icon {
 			background-repeat: no-repeat;
-			background-position: 20px center;
+			background-position: 95% center;
+			padding-right: 50px;
+			
 			background-size: 20px;
 		}
 	
@@ -240,7 +242,7 @@ xxx@xxx.xxx debug_border;
 		a.icon.file {
 			background-image: url( document_alt_stroke_24x32.png );
 			background-size: 15px;
-			background-position: 22px center;
+/*			background-position: 22px center;*/
 		}
 	
 		a.icon.email {

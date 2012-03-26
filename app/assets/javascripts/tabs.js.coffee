@@ -63,9 +63,7 @@ $(document).ready ->
 					reveal_with_css3( tab, amount )
 			,(Math.random( ) * 1000) )
 			
-		
-
-
+			
 reveal_with_position = ( tab, direction ) ->
 	console.log "revealing " + $(tab)
 
