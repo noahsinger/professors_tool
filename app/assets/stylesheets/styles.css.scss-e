@@ -52,6 +52,15 @@ a {
 	font-weight: normal;
 }
 
+#javascript_warning {
+xxx@xxx.xxx grad( $red_light, $red_dark );
+	box-shadow: 0px 2px 2px #555, inset 10px 0px 20px -8px #555, inset -10px 0px 20px -8px #555;
+	margin-bottom: 30px;
+	padding: 10px 20px;
+	color: #fff;
+	text-align: center;
+}
+
 
 // ----------------------------
 // flash messages
@@ -242,7 +251,6 @@ xxx@xxx.xxx debug_border;
 		a.icon.file {
 			background-image: url( document_alt_stroke_24x32.png );
 			background-size: 15px;
-/*			background-position: 22px center;*/
 		}
 	
 		a.icon.email {
@@ -436,8 +444,8 @@ xxx@xxx.xxx georgia_family;
 
 p#disclaimer, #tutorial_step, .admin_comments {
 xxx@xxx.xxx paper;
-xxx@xxx.xxx centered_tab;
 xxx@xxx.xxx text;
+xxx@xxx.xxx centered_tab;
 	
 	h1 {
 		font-size: 1.2em;
@@ -559,13 +567,13 @@ xxx@xxx.xxx left_cap;
 #page_content {
 	header#course_labs_header, header#assignments_header, header#assignment_extras_header, header#view_semesters_header {
 xxx@xxx.xxx medium_tab;
-		width: 55%;
+		width: 56%;
 xxx@xxx.xxx blue_header;
 xxx@xxx.xxx left_tab;
 		
 		h1 {
 xxx@xxx.xxx right_cap;
-		}		
+		}
 	} 
 }
 
@@ -617,10 +625,13 @@ xxx@xxx.xxx right_tab_shadow;
 // --------------------------------------------------------
 
 ul#course_labs, ul#assignments, ul#assignment_extras, ul#admin_semesters {
+xxx@xxx.xxx debug_border;
 xxx@xxx.xxx inset;
 	overflow: hidden;
 	width: 50%;
 	padding-top: 5px;
+	
+	clear: left;
 	
 	li {
 xxx@xxx.xxx color_grad;
@@ -630,8 +641,6 @@ xxx@xxx.xxx medium_tab;
 xxx@xxx.xxx three_part;
 		clear: left;
 	}
-	
-xxx@xxx.xxx clearfix;
 }
 
 
@@ -821,6 +830,3 @@ xxx@xxx.xxx medium_tab;
 xxx@xxx.xxx one_part;
 	}
 }
-
-
-

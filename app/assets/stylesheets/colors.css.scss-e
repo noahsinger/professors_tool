@@ -40,25 +40,7 @@ $other_green_dark: darken($other_green_light, 20%);
 }
 
 @mixin color_grad {
-	&:nth-child( 2n + 1 ) {
-xxx@xxx.xxx grad( $purple_light, $purple_dark );
-		background-color: $purple_light;
-
-		.course_number, a, div.details, div {
-			border-color: darken($purple_dark, 10%);
-		}
-	}
-	
-	&:nth-child( 2n + 2 ) {
-xxx@xxx.xxx grad( $green_light, $green_dark );
-		background-color: $green_light;
-		
-		.course_number, a, div.details, div {
-			border-color: darken($green_dark, 10%);
-		}
-	}
-	
-	&:nth-child( 2n + 3 ) {
+	&:nth-child( 1n ) {
 xxx@xxx.xxx grad( $yellow_light, $yellow_dark );
 		background-color: $yellow_light;
 		
@@ -67,7 +49,34 @@ xxx@xxx.xxx grad( $yellow_light, $yellow_dark );
 		}
 	}
 	
-	&:nth-child( 2n + 4 ) {
+	&:nth-child( 2n + 2 ) {
+xxx@xxx.xxx grad( $purple_light, $purple_dark );
+		background-color: $purple_light;
+
+		.course_number, a, div.details, div {
+			border-color: darken($purple_dark, 10%);
+		}
+	}
+	
+	&:nth-child( 3n + 3 ) {
+xxx@xxx.xxx grad( $green_light, $green_dark );
+		background-color: $green_light;
+		
+		.course_number, a, div.details, div {
+			border-color: darken($green_dark, 10%);
+		}
+	}
+	
+	&:nth-child( 4n + 4 ) {
+xxx@xxx.xxx grad( $yellow_light, $yellow_dark );
+		background-color: $yellow_light;
+		
+		.course_number, a, div.details, div {
+			border-color: darken($yellow_dark, 10%);
+		}
+	}
+	
+	&:nth-child( 5n + 5 ) {
 xxx@xxx.xxx grad( $blue_light, $blue_dark );
 		background-color: $blue_light;
 		
@@ -76,7 +85,7 @@ xxx@xxx.xxx grad( $blue_light, $blue_dark );
 		}
 	}
 	
-	&:nth-child( 2n + 5 ) {
+	&:nth-child( 6n + 6 ) {
 xxx@xxx.xxx grad( $brown_light, $brown_dark );
 		background-color: $brown_light;
 		
@@ -85,7 +94,7 @@ xxx@xxx.xxx grad( $brown_light, $brown_dark );
 		}
 	}
 	
-	&:nth-child( 2n + 6 ) {
+	&:nth-child( 7n + 7 ) {
 xxx@xxx.xxx grad( $red_light, $red_dark );
 		background-color: $red_light;
 		
@@ -94,7 +103,7 @@ xxx@xxx.xxx grad( $red_light, $red_dark );
 		}
 	}
 	
-	&:nth-child( 2n + 7 ) {
+	&:nth-child( 8n + 8 ) {
 xxx@xxx.xxx grad( $orange_light, $orange_dark );
 		background-color: $orange_light;
 		
@@ -103,15 +112,14 @@ xxx@xxx.xxx grad( $orange_light, $orange_dark );
 		}
 	}
 	
-	&:nth-child( 2n + 8 ) {
+	&:nth-child( 9n + 9 ) {
 xxx@xxx.xxx grad( $other_green_light, $other_green_dark );
 		background-color: $other_green_light;
 		
 		.course_number, a, div.details, div {
 			border-color: darken($other_green_dark, 20%);
 		}
-	}
-	
+	}	
 }
 
 

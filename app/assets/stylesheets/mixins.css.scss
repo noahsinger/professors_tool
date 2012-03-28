@@ -110,7 +110,7 @@ xxx@xxx.xxx grad( #82A169, #57784B );
 // ---------------------------------
 
 @mixin debug_border {
-//	border: 1px solid yellow;
+/*	border: 1px solid yellow;*/
 }
 
 
@@ -144,9 +144,9 @@ xxx@xxx.xxx right_tab_shadow;
 }
 
 @mixin centered_tab {
-xxx@xxx.xxx paper_effect;
 	width: 60%;
 	margin: 0 auto 20px auto;
+xxx@xxx.xxx paper_effect;
 }
 
 @mixin outset_left {
@@ -362,7 +362,6 @@ xxx@xxx.xxx neue_family;
 		padding: 10px 20px;
 		
 		h2 {
-//			padding: 10px 20px;
 			font-size: 1em;
 			font-weight: normal;
 xxx@xxx.xxx neue_family;

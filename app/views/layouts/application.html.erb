@@ -24,18 +24,17 @@
 			<%= yield :header %>
 		</header>
 		
-		<noscript>
-			<ul id="javascript_warning">
-				<li>
-					You must enable javascript for this site to function properly!
-				</li>
-			</ul>
-		</noscript>
-		
-		
-
 		<div id="outer_container">
 			<div id="inner_container">
+				<noscript>
+					<ul id="javascript_warning">
+						<li>
+							You must enable javascript for this site to function properly!
+						</li>
+					</ul>
+				</noscript>
+				
+				
 				<section id="page_content">
 					<%= render :partial => 'shared/messages' %>
 					<%= yield  %>
