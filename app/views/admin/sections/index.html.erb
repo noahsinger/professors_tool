@@ -2,6 +2,32 @@
 	<h1>Sections</h1>
 <% end %>
 
+<%= content_for :head do %>
+		<script type="text/javascript" charset="utf-8">
+			$(function () {
+				new Highcharts.Chart({
+					chart: { renderTo: 'enrollments_chart' },
+					title: { text: 'Enrollments by Day' },
+					xAxis: { type: 'datetime' },
+					yAxis: {
+						title: { text: '# of Students'}
+					},
+					series: [
+xxx@xxx.xxx do |section| %>
+						<% if section.enrollment_snapshots.count > 0 %>
+							{
+								name: "<%= section.course.title %> Enrollments",
+								pointInterval: <%= 1.day * 1000 %>,
+								pointStart: <%= (section.enrollment_snapshots.first.created_at).to_i * 1000 %>,
+								data: <%= section.enrollment_snapshots.all.collect {|p| p.enrollment_count}.inspect %>
+							},
+						<% end %>
+					<% end %>]
+				});
+			});		
+		</script>
+<% end %>
+
 <section>
 	<nav>
 		<h1>Navigation</h1>
@@ -50,4 +76,9 @@ xxx@xxx.xxx %></h1>
 		<% end %>
 		</table>
 	</div>
+	
+	<div class="admin_comments">
+		<div id="enrollments_chart">No Enrollment Data Available</div>
+	</div>
+	
 </section>

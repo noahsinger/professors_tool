@@ -4,6 +4,8 @@ development:
     site_url: http://localhost:3000
     host: localhost:3000
     rake_path: /usr/bin/rake
+    ted_username: ADMINID
+    ted_password: "ADMINPASSWORD"
     
 test:
     owner_email: xxx@xxx.xxx
@@ -17,3 +19,5 @@ production:
     site_url: http://www.ingenio.us.com
     host: www.ingenio.us.com
     rake_path: /usr/bin/rake
+    ted_username: ADMINID
+    ted_password: "ADMINPASSWORD"

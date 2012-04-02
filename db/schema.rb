@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120229152548) do
+ActiveRecord::Schema.define(:version => 20120329003451) do
 
   create_table "assignments", :force => true do |t|
     t.string   "title"
@@ -76,6 +76,15 @@ ActiveRecord::Schema.define(:version => 20120229152548) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "enrollment_snapshots", :force => true do |t|
+    t.integer  "section_id"
+    t.integer  "enrollment_count"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "enrollment_snapshots", ["section_id"], :name => "index_enrollment_snapshots_on_section_id"
 
   create_table "enrollment_statuses", :force => true do |t|
     t.string   "name"

@@ -10,6 +10,7 @@ class Section < ActiveRecord::Base
   has_many :students, :through => :enrollments
   has_many :grade_requests, :dependent => :destroy, :order => 'created_at desc'
   has_many :examples, :dependent => :destroy, :order => 'created_at desc'
+  has_many :enrollment_snapshots, :dependent => :destroy
   
   attr_accessible :course_id, :call_number, :section_number, :meeting_days, :room_number, :start_date, :end_date, :instructor_id, :start_time, :end_time
   
@@ -37,7 +38,7 @@ class Section < ActiveRecord::Base
   end
 
   def meeting_days_and_times
-    if self.days == "Online"
+    if self.days == "Online" or self.days == "Online Course"
       self.days
     else
       self.days + ' ' + self.start_time.strftime( '%I:%M %p' ) + ' - ' + self.end_time.strftime( '%I:%M %p' )

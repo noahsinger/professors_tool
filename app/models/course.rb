@@ -10,7 +10,7 @@ class Course < ActiveRecord::Base
   has_many :syllabus_parts, :through => :policies
   has_many :waiters
   
-  attr_accessible :title, :description, :discipline, :number, :credits
+  attr_accessible :title, :description, :discipline, :number, :credits, :prerequisite, :next_course, :required_materials
   
   validates_presence_of :title
   validates_presence_of :description

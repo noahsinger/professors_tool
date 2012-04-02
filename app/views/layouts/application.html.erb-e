@@ -13,9 +13,17 @@
 	<![endif]-->
 	
 	<%= javascript_include_tag 'application' %>
+	<% if admin? %>
+		<!-- start admin javascript -->
+		<%= javascript_include_tag 'admin/jquery-ui-1.7.1.custom.min', 'admin/jquery.effects.core', 'admin/jquery.tablednd_0_5', 'admin/highcharts' %>
+		<!-- end admin javascript -->
+	<% end %>
+	
 	<%= yield :head %>
+	
 	<%= stylesheet_link_tag 'application', :media => :all %>
 	<%= csrf_meta_tag %>
+	
 </head>
 <body id="<%= controller_name %>_<%= action_name %>" class="<%= admin? ? "admin": "student" %>">
 	<div id="page">

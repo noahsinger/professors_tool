@@ -1,7 +1,7 @@
 # cookie tools #############
 
 window.parse_cookies = ->
-	console.log "All cookies: #{document.cookie}"
+	# console.log "All cookies: #{document.cookie}"
 	cookies = new Array( )
 	cookie_strings = document.cookie.split( "; " )
 	console.log "#{cookie_strings.length} cookies available"
@@ -17,7 +17,7 @@ window.find_cookie = (cookie_name) ->
 	result = null
 	cookies = parse_cookies( )
 	for cookie in cookies
-		console.log "looking for #{cookie_name}, found #{cookie[ 0 ]}"
+		# console.log "looking for #{cookie_name}, found #{cookie[ 0 ]}"
 		result = cookie[ 1 ] if cookie[ 0 ] == cookie_name
 	result
 	

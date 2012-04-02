@@ -2,10 +2,33 @@
 	<h1>Section</h1>
 <% end %>
 
+<%= content_for :head do %>
+	<% xxx@xxx.xxx > 0 %>
+		<script type="text/javascript" charset="utf-8">
+			$(function () {
+				new Highcharts.Chart({
+					chart: { renderTo: 'enrollments_chart' },
+					title: { text: 'Enrollments by Day' },
+					xAxis: { type: 'datetime' },
+					yAxis: {
+						title: { text: '# of Students'}
+					},
+					series: [{
+						name: "Enrollments",
+						pointInterval: <%= 1.day * 1000 %>,
+						pointStart: <%= xxx@xxx.xxx * 1000 %>,
+						data: xxx@xxx.xxx {|p| p.enrollment_count}.inspect %>
+					}]
+				});
+			});		
+		</script>
+	<% end %>
+<% end %>
+
 <section>
 	<nav>
-			<%= link_to 'Back', xxx@xxx.xxx ), :class => 'icon back' %>
-			<%= link_to 'Edit', [:edit, xxx@xxx.xxx @section], :class => 'icon edit' %>
+		<%= link_to 'Back', xxx@xxx.xxx ), :class => 'icon back' %>
+		<%= link_to 'Edit', [:edit, xxx@xxx.xxx @section], :class => 'icon edit' %>
 	</nav>
 	
 	<header>
@@ -83,5 +106,9 @@ xxx@xxx.xxx %></td>
 				</td>
 			</tr><% end %>
 		</table>
+	</div>
+	
+	<div class="admin_comments">
+		<div id="enrollments_chart">No Enrollment Data Available</div>
 	</div>
 </section>
