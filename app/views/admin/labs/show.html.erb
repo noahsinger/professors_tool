@@ -5,6 +5,7 @@ xxx@xxx.xxx %></h1>
 <section>
 	<nav>
 		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+		<%= link_to "Edit this Lab", xxx@xxx.xxx %>
 	</nav>
 	
 	<header>
@@ -14,29 +15,33 @@ xxx@xxx.xxx %></h1>
 	
 	<div id="details">
 		<section id="requirements">
-			<header><h1>Information</h1></header>
-			<table>
-				<tr>
-xxx@xxx.xxx %></td>
-				</tr>
-				<tr>
-					<td>Allow xxx@xxx.xxx %></td>
-				</tr>
-				<tr>
-					<td>Assigned</td>
-					<td><%= xxx@xxx.xxx "time" %></td>
-				</tr>
-			</table>
+			<div class="fancy">
+				<table>
+					<tr>
+						<td xxx@xxx.xxx %></td>
+					</tr>
+					<tr>
+						<td class="blank">Allow xxx@xxx.xxx %></td>
+					</tr>
+					<tr>
+						<td class="blank">Assigned</td>
+						<td><%= xxx@xxx.xxx "time" %></td>
+					</tr>
+				</table>
+			</div>
 			
-			<br/>
-			<header><h1>Requirements</h1></header>
-			<div class="">
+
+			<div class="fancy">
 				<table id="requirements_table">
+					<tr>
+						<th>Requirement</th>
+						<th>Worth</th>
+					</tr>
 					<% for requirement xxx@xxx.xxx %>
 						<%= render :partial => requirement %>
 					<% end %>
 					<tr class="last_row">
-						<td class="total">Total:</td>
+						<td class="blank">Total:</td>
 xxx@xxx.xxx %></td>
 						<td class="blank"></td>
 						<td class="blank"></td>
@@ -44,12 +49,16 @@ xxx@xxx.xxx %></td>
 				</table>
 			</div>
 
-			<br/>
-			<header><h1>Add a Requirement</h1></header>
 			<%= xxx@xxx.xxx do |f| %>
 				<ol>
-					<li><div class="field"><%= f.text_field :description, :placeholder => "Description" %></div></li>
-					<li><div class="field"><%= f.text_field :points, :placeholder => "Points" %></div></li>
+					<li>
+						<div class="details"><%= f.label :description %><p></p></div>
+						<div class="field"><%= f.text_field :description, :placeholder => "Description" %></div>
+					</li>
+					<li>
+						<div class="details"><%= f.label :points %><p></p></div>
+						<div class="field"><%= f.text_field :points, :placeholder => "Points" %></div>
+					</li>
 					<li class="action">
 						<div><%= f.submit "Create" %></div>
 					</li>
@@ -67,15 +76,15 @@ xxx@xxx.xxx %></p>
 		</div>
 	
 
-		<header id="instructions_header"><h1>Instructions</h1></header>
+		<header id="assignment_instructions_header"><h1>Instructions</h1></header>
 
-		<div id="instructions">
+		<div id="assignment_instructions">
 			<%= xxx@xxx.xxx %>
 		</div>
 
 		<% xxx@xxx.xxx > 0 %>
 			<div id="extras">
-				<header><h2>Extras</h2></header>
+				<header id="assignment_extras_header"><h1>Extras</h1></header>
 				<div class="fancy">
 					<table>
 					<% for extra xxx@xxx.xxx %>
@@ -87,15 +96,9 @@ xxx@xxx.xxx %></p>
 					  </tr>
 					<% end %>
 					</table>
+					<ul class="actions"><li><%= link_to 'Add an extra', xxx@xxx.xxx %></li></ul>
 				</div>
 			</div>
 		<% end %>		
 	</article>
-	
-	<nav id="resources">
-		<ul>
-			<li><%= link_to "Edit this Lab", xxx@xxx.xxx %></li>
-			<li><%= link_to 'Add an extra', xxx@xxx.xxx %></li>
-		</ul>
-	</nav>
 </section>
