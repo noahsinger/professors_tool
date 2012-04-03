@@ -473,6 +473,25 @@ xxx@xxx.xxx paper;
 xxx@xxx.xxx left_tab;
 xxx@xxx.xxx medium_tab;
 xxx@xxx.xxx text;
+	
+	table {
+		border: 1px solid #ccc;
+		width: 100%;
+		
+		tr {
+			&:nth-child(odd) {
+				background-color: #eee;
+			}
+			
+			th, td {
+				padding: 5px 10px;
+			}
+			
+			th {
+				background-color: #ddd;
+			}
+		}
+	}
 }
 
 
