@@ -132,7 +132,7 @@ class Semester < ActiveRecord::Base
           # puts "date range: #{start_date} - #{end_date}"
           # puts "instructor name: #{instructor_name}"
           
-          teds_sections << self.sections.build( course_id: course.id, call_number: callno, section_number: secno, meeting_days: days, start_date: start_date, end_date: end_date, start_time: start_time, end_time: end_time, room_number: room, instructor_id: instructor.id )
+          teds_sections << [self.sections.build( course_id: course.id, call_number: callno, section_number: secno, meeting_days: days, start_date: start_date, end_date: end_date, start_time: start_time, end_time: end_time, room_number: room, instructor_id: instructor.id ), current_enrollment]
         else
           puts "Found a table that shouldn't be here"
       end
@@ -142,16 +142,16 @@ class Semester < ActiveRecord::Base
 
     ##
     # all sections for this semester have been gathered from ted and are in the teds_sections array
-    teds_sections.each do |section|
+    teds_sections.each do |section, enrollment|
       ##
       #if section doesn't already exist, add it
       unless self.sections.find_by_call_number(section.call_number)
         section.save
         # add enrollments snapshot
-        section.enrollment_snapshots.create!(enrollment_count: current_enrollment)
+        section.enrollment_snapshots.create!(enrollment_count: enrollment)
       else
         # add enrollments snapshot
-        self.sections.find_by_call_number(section.call_number).enrollment_snapshots.create!(enrollment_count: current_enrollment)
+        self.sections.find_by_call_number(section.call_number).enrollment_snapshots.create!(enrollment_count: enrollment)
       end
     end
     

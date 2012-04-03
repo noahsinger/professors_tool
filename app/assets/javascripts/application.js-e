@@ -49,12 +49,7 @@ $(document).ready(function( ) {
 	$("#new_objective").submitWithAjax( );
 	$("#new_syllabus_part").submitWithAjax( );
 	$("#new_requirement").submitWithAjax( );
-	
-	$("pre[lang=ruby]").snippet("ruby",{style:"zellner",transparent:true,showNum:false,menu:false});
-	$("pre[lang=javascript]").snippet("javascript",{style:"zellner",transparent:true,showNum:false,menu:false});
-	$("pre[lang=java]").snippet("java",{style:"zellner",transparent:true,showNum:false,menu:false});
-	$("pre[lang=php]").snippet("php",{style:"zellner",transparent:true,showNum:false,menu:false});
-	
+		
 	check_for_ie( );
 	
 	check_for_upload_support( );
