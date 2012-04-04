@@ -42,7 +42,7 @@ Instructors Comments:
 No grade exists for this work.  There are several possibilities.  One is that you didn't turn in 
 anything for this assignment.  Another is that you did turn something in but it simply hasn't been 
 graded yet.  If you're certain that there should be a grade here, you know you turned your assignment
-in and you know that it's been graded, then you should contact your instructor about it.
+in, and you know that it's been graded, then you should contact your instructor about it.
 --------------------------------------------------
 
 <%- assignment.lab.requirements.each do |r| -%>
@@ -55,4 +55,3 @@ in and you know that it's been graded, then you should contact your instructor a
 
 
 <%= APP_CONFIG['site_url'] %>
-
