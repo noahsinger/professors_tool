@@ -56,11 +56,12 @@ Ingenious::Application.routes.draw do
     resources :assignment_tweets
     
     resources :admin do
-      # collection do
+      collection do
+        get 'email_template'
       #   get 'signin'
       #   post 'signin', :as => :signin
       #   get 'signout'
-      # end
+      end
     end
     
     resources :general_contacts do

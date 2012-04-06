@@ -45,6 +45,8 @@ class Enrollment < ActiveRecord::Base
   def current_points
     total = 0
     
+    # what if it's overdue but hasn't been graded?  Don't count it yet.
+    
     self.works.each do |work|
       if work.assignment.overdue? or work.assignment.graded?
         work.awarded_points.each do |point|

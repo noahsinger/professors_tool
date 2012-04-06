@@ -4,4 +4,8 @@ class Admin::AdminController < ApplicationController
   def index
    xxx@xxx.xxx = Semester.find( :all, :order => 'start_date desc', :limit => 5 )
   end
+  
+  def email_template
+    render :layout => false
+  end
 end
