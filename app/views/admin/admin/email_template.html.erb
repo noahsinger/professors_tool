@@ -6,64 +6,50 @@
 	<%= stylesheet_link_tag 'application' %>
 	
 	<style type="text/css" media="screen">
-		a {
-			color: #444;
+		
+
+
+/* ----------------------------------------------- */
+
+		strong, b, {
+			color: #CC3333;
+			letter-spacing: 1px;
+			padding-right: 5px;
 		}
 		
-		hr {
-			border-color: #3D6F25;
-			border-width: 1px 0 0 0;
-			margin: 20px 0;
-		}
-		
-		h1, h2, h3, h4 {
-			font-weight: normal;
+		h1, h2, h4 {
+			letter-spacing: 1px;
+/*			color: #631697;*/
+			margin: 0;
+			padding: 0;
+			font-family: georgia, serif;
 		}
 		
 		h1 {
-			margin-bottom: 20px;
+			line-height: 30px;
 		}
 		
-		h4 {
-			margin-bottom: 10px;
+		a {
+			color: #03679B;
 		}
-	
-		table {
-			margin-top: 50px;
-		}
-	
-		td {
-/*			border: 1px solid #fff;*/
-		}
-	
-		#title, #subtitle, #footer {
-			text-align: center;
-		}
-		
-		#title {
-
-		}
-		
-			#title a {
-				color: #fff;
-				font-size: 1.5em;
-				letter-spacing: 25px;
-xxx@xxx.xxx walkway_family;
-				text-transform: uppercase;
-				text-shadow: 0px 2px 3px #333;
 				
-				font-size: 4em;
-				letter-spacing: 45px;
-				position: relative;
-				left: 16px; //fix messed up centering (letter-spacing related?)
-			}
-		
-				#title a span {
-					letter-spacing: 15px;
-				}
+		p {
+			line-height: 22px;
+		}
 
-			#subtitle {
+		table#header {
+			width: 100%;
+			margin-top: 0;
+		}
+		
+			table#header td.title {
+				text-align: right;
+/*				border: 1px solid red;*/
+			}
+			
+			table#header td.title div#subtitle {
 				margin-top: 15px;
+				text-align: right;
 		
 xxx@xxx.xxx helvetica_family;
 				font-size: .9375em;
@@ -72,297 +58,286 @@ xxx@xxx.xxx helvetica_family;
 				letter-spacing: 15px;
 				color: #6D806A;
 			}
+			
+				table#header td.title a {
+					color: #fff;
+					letter-spacing: 25px;
+xxx@xxx.xxx walkway_family;
+					text-transform: uppercase;
+					text-shadow: 0px 2px 3px #333;
+				
+					font-size: 1em;
+					letter-spacing: 25px;
+					position: relative;
+					left: 16px; //fix messed up centering (letter-spacing related?)
+				}
+				
+					table#header td.title a span {
+						letter-spacing: 11px;
+					}
 		
-			.slit img {
+			table#header td#hanging_tabs {
+				height: 300px;
+				width: 50%;
+/*				border: 1px solid red;*/
+				background-image: url( <%= APP_CONFIG['site_url'] %>/assets/hanging_tabs.png );
+				background-repeat: no-repeat;
+				background-position: top left;
+			}
+			
+			#content {
+				width: 80%;
+			}
+		
+				#content td {
+					padding: 20px 30px;
+				}
+			
+			.tab {
 				width: 100%;
+				margin-top: 0;
+				margin-bottom: 20px;
+			
+				position: relative;
+				top: -30px;
+
+				background-color: #eee;
+				border-top: 5px solid #CC3333;
+			
+				-webkit-box-shadow: 0px 5px 9px 2px rgba(00, 00, 00, .3);
+				-moz-box-shadow: 0px 5px 9px 2px rgba(00, 00, 00, .3);
+				box-shadow: 0px 5px 9px 2px rgba(00, 00, 00, .3);
 			}
-		
-		#content {
-			width: 80%;
-		}
-		
-			#content td {
-				padding: 20px 30px;
-			}
-			
-		.tab {
-			width: 100%;
-			margin-top: 0;
-			margin-bottom: 20px;
-			
-			position: relative;
-			top: -30px;
-			
-			-webkit-box-shadow: 0px 5px 9px 2px rgba(00, 00, 00, .3);
-			-moz-box-shadow: 0px 5px 9px 2px rgba(00, 00, 00, .3);
-			box-shadow: 0px 5px 9px 2px rgba(00, 00, 00, .3);
-		}
 						
-		.tab_header {
-			font-size: 1.75em;
-			background-color: #8AAF4D;
-			color: #fff;
-		}
-		
-			.tab_header td {
-				border-bottom: 1px solid #3D6F25;
+			.tab_header {
+				font-size: 1.75em;
+				color: #CC3333;
 			}
+		
+				.tab_header td {
+
+				}
 					
-		.tab_content {
-			line-height: 22px;
-			color: #fff;
-			
-			background: #8AAF4D; /* Old browsers */
-			background: -moz-linear-gradient(top, #8AAF4D 0%, #3D6F25 100%); /* FF3.6+ */
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8AAF4D), color-stop(100%,#3D6F25)); /* Chrome,Safari4+ */
-			background: -webkit-linear-gradient(top, #8AAF4D 0%,#3D6F25 100%); /* Chrome10+,Safari5.1+ */
-			background: -o-linear-gradient(top, #8AAF4D 0%,#3D6F25 100%); /* Opera 11.10+ */
-			background: -ms-linear-gradient(top, #8AAF4D 0%,#3D6F25 100%); /* IE10+ */
-			background: linear-gradient(top, #8AAF4D 0%,#3D6F25 100%); /* W3C */
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8AAF4D', endColorstr='#3D6F25',GradientType=0 ); /* IE6-9 */	
-		}
-		
-		.tab_content p {
-			font-family: georgia, serif;
-		}
-		
-		.inset {
-			margin: 10px 0;
-			padding: 1px 20px 20px 20px;
-			background-color: #3D6F25;
-			border: 1px inset #3D6F25;
-		}
-		
-		#footer {
-			font-size: .8em;
-			padding: 20px;
-		}
-		
-			#footer a {
-				color: #fff;
+			.tab_content {
+				line-height: 22px;
 			}
+		
+			.tab_content p {
+/*				font-family: georgia, serif;*/
+				line-height: 25px;
+				padding: 0 0 20px 0;
+			}
+			
+			.grade_summary {
+				width: 50%;
+				vertical-align: top;
+				text-align: right;
+			}
+			
+			.grade_details {
+				width: 50%;
+				text-align: left;
+			}
+			
+			.point_breakdown {
+				margin-bottom: 30px;
+			}
+			
+			.tab_content p strong {
+				color: #CC3333;
+				letter-spacing: 1px;
+				padding-right: 5px;
+			}
+			
+				.current_grade {
+					font-size: 3em;
+					display: block;
+					margin-top: 20px;
+				}
+				
+			#footer {
+				font-size: .8em;
+				padding: 20px;
+				text-align: center;
+			}
+		
+				#footer a {
+					color: #fff;
+				}
+			
 	</style>
 </head>
 <body>
-	<table>
+	<table id="header">
 		<tr>
-			<td></td>
-			<td></td>
-			<td id="title"><%= link_to 'Ingeni<span>o.</span>us'.html_safe, APP_CONFIG['site_url'] %></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td id="subtitle">Email</td>
-			<td></td>
-			<td></td>
-		</tr>
-		
-		<!-- ******************************************************** -->
-		<tr class="slit_row">
-			<td></td>
-			<td class="slit" colspan="3">
-				<%= image_tag 'down_slit.png' %>
+			<td class="title">
+				<%= link_to 'Ingeni<span>o.</span>us'.html_safe, APP_CONFIG['site_url'] %>
+				<div id="subtitle">Email</div>
 			</td>
-			<td></td>
+			<td id="hanging_tabs"></td>
 		</tr>
-		
-		<tr id="content_row">
-			<td></td>
-			<td></td>
-			<td id="content">
+	</table>
+	
+	 <table>
+			<tr id="content_row">
+				<td></td>
+				<td id="content">
 				
-				<!-- yeild here for actual email content -->
-				
-				<table class="tab">
-					<tr class="tab_header">
-						<td>
-xxx@xxx.xxx = Section.first %> <!-- REMOVE!!! -->
-xxx@xxx.xxx = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-								ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
-								occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." %> <!-- REMOVE!!! -->
-
-							Section Announcement for xxx@xxx.xxx %>
-						</td>
-					</tr>
-					<tr class="tab_content">
-						<td>
-
-							<div>
-								<strong>To:</strong> All Class Members of Section <%= @section.call_number %> of xxx@xxx.xxx %><br/>
-								<strong>Subject:</strong> Section Announcement
-							</div>
-
-							<p>
-xxx@xxx.xxx %>
-							</p>
-
-							<hr/>
-
-							<div>
-								<%= @section.instructor.first_name %> xxx@xxx.xxx %><br/>
-xxx@xxx.xxx %>
-							</div>
-							
-						</td>				
-					</tr>		
-				</table>
-				
-			</td>
-			<td></td>
-			<td></td>
-		</tr>
-		
-		<!-- <tr class="slit_row">
-			<td></td>
-			<td class="slit" colspan="3">
-				<%= image_tag 'up_slit.png' %>
-			</td>
-			<td></td>
-		</tr> -->
-		<!-- ******************************************************** -->
-		
-		<tr id="content_row">
-			<td></td>
-			<td></td>
-			<td id="content">
-				
-				<table class="tab">
-					<tr class="tab_header">
-						<td>
-xxx@xxx.xxx = Enrollment.find 6 %> <!-- REMOVE!!! -->
-							Your Grades for <%= @enrollment.section.course.title %> xxx@xxx.xxx %>						
-						</td>
-					</tr>
-					<tr class="tab_content">
-						<td>
-
-							<p>
-								<em>
-									Below you will find detailed information on your current grade in
-xxx@xxx.xxx %>.  If you have any questions about these grades
-									please <%= link_to 'contact your instructor', new_general_contact_url(:host => APP_CONFIG['host']) %>.
-								</em>
-							</p>
-
-							<h2>Grade Summary</h2>
-							<p>Your current grade is: xxx@xxx.xxx %></strong></p>
-
-							<p>
-								There have been xxx@xxx.xxx %></strong> points assigned
-								and you have earned xxx@xxx.xxx %></strong> points leaving you
-								with a <strong><%= xxx@xxx.xxx %></strong> average.
-							</p>
-						</td>
-					</tr>
-				</table>
-
-xxx@xxx.xxx do |assignment| -%>	
-					<%- work = xxx@xxx.xxx ) -%>
-								
 					<table class="tab">
 						<tr class="tab_header">
 							<td>
-								<%= assignment.title %> <%= assignment.lab.title %>
+xxx@xxx.xxx = Section.first %> <%# REMOVE!!! %>
+xxx@xxx.xxx = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+									ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+									occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." %> <%# REMOVE!!! %>
+	
+								Section Announcement for xxx@xxx.xxx %>
 							</td>
 						</tr>
 						<tr class="tab_content">
 							<td>
+	
+								<p>
+									<strong>To:</strong> All Class Members of Section <%= @section.call_number %> of xxx@xxx.xxx %><br/>
+									<strong>Subject:</strong> Section Announcement
+								</p>
+	
+								<p>
+xxx@xxx.xxx %>
+								</p>
+	
+								<hr/>
+	
+								<div>
+									<%= @section.instructor.first_name %> xxx@xxx.xxx %><br/>
+xxx@xxx.xxx %>
+								</div>
 								
-								<%- if work -%>
-									<%- if work.graded? -%>
-										<!-- work exists and has been graded = show grade -->
-										<div>Your Score: <%= number_to_percentage ((work.score / work.assignment.worth.to_f)*100) %></div>
+							</td>				
+						</tr>		
+					</table>
+					
+					<!-- ******************************************************* -->
+					
+					<table class="tab">
+						<tr class="tab_header">
+							<td colspan="2">
+xxx@xxx.xxx = Enrollment.find 6 %> <!-- REMOVE!!! -->
+								Your Grades for <%= @enrollment.section.course.title %> xxx@xxx.xxx %>						
+							</td>
+						</tr>
+						<tr class="tab_content grade_summary">
+							<td>
+								<h2>Grade Summary</h2>
+								<p>
+									Your current grade is: <strong xxx@xxx.xxx %></strong>
+									<br/>
+									There have been xxx@xxx.xxx %></strong> points assigned
+									and you have earned xxx@xxx.xxx %></strong> points leaving you
+									with a <strong><%= xxx@xxx.xxx %></strong> average.
+								</p>
+								<hr/>
+								<p>
+									<em>
+										Included in this email you will find detailed information on your current grade in
+xxx@xxx.xxx %>.  If you have any questions about these grades
+										please <%= link_to 'contact your instructor', new_general_contact_url(:host => APP_CONFIG['host']) %>.
+									</em>
+								</p>
+								
+							</td>
+							<td class="grade_details">
+xxx@xxx.xxx do |assignment| -%>	
+								<%- work = xxx@xxx.xxx ) -%>
+								
 
-										<% unless work.instructors_comments.blank? %>
-											<div class="inset">
-												<h4>Instructors Comments</h4>
-												<p><%= work.instructors_comments %></p>
-											</div>
-										<% end %>
+									<h1><%= assignment.title %> : <%= assignment.lab.title %></h1>
+								
+									<%- if work -%>
+										<%- if work.graded? -%>
+											<!-- work exists and has been graded = show grade -->
+											<p><strong>Your Score:</strong> <%= number_to_percentage ((work.score / work.assignment.worth.to_f)*100) %></p>
+
+											<% unless work.instructors_comments.blank? %>
+												<div class="inset">
+													<h4>Instructors Comments</h4>
+													<p><%= work.instructors_comments %></p>
+												</div>
+											<% end %>
 									
 
-										<div class="inset">
-											<h4>Point Breakdown</h4>
-											<%- work.awarded_points.each do |p| -%>
-												<div><%= p.requirement.description %> ( <%= p.points %> pts out of <%= p.requirement.points %> pts )</div>
+											<div class="point_breakdown">
+												<h4>Point Breakdown</h4>
+												<%- work.awarded_points.each do |p| -%>
+													<div><%= p.requirement.description %> ( <%= p.points %> pts out of <%= p.requirement.points %> pts )</div>
+												<%- end -%>
+											</div>
+										<%- else -%>
+											<!-- work exists but hasn't been graded -->
+											<%- if work.created_at > assignment.duedate -%>
+												<!-- word exists but was turned in late = it was late -->
+												<p><strong>Your Score:</strong> - </p>
+
+												<div class="inset">	
+													<h4>Comments</h4>
+													<p>
+														Your work was submitted after the due date.  Depending on your class's specific policy it
+														may or may not be graded but no grade exists for this lab at this time.  If you feel that this
+														is incorrect you can <%= link_to 'contact your instructor', new_general_contact_url(:host => APP_CONFIG['host']) %>.
+													</p>
+												</div>
+											<%- else -%>
+												<!-- work exists and wasn't turned in late = wait for grading -->
+												<p><strong>Your Score:</strong> - </p>
+
+												<div class="inset">	
+													<h4>Comments</h4>
+													<p>
+														Your lab was submitted and is awaiting grading.
+													</p>
+												</div>
 											<%- end -%>
-										</div>
+										<%- end -%>
 									<%- else -%>
-										<!-- work exists but hasn't been graded -->
-										<%- if work.created_at > assignment.duedate -%>
-											<!-- word exists but was turned in late = it was late -->
-											<div>Your Score: - </div>
+										<!-- work doesn't exist -->
+										<%- if assignment.overdue? -%>
+											<!-- work doesn't exist and should have been turned in by now = nothing submitted? -->
+											<p><strong>Your Score:</strong> -</p>
 
 											<div class="inset">	
 												<h4>Comments</h4>
 												<p>
-													Your work was submitted after the due date.  Depending on your class's specific policy it
-													may or may not be graded but no grade exists for this lab at this time.  If you feel that this
-													is incorrect you can <%= link_to 'contact your instructor', new_general_contact_url(:host => APP_CONFIG['host']) %>.
+													No submission was found from you for this assignment and no grade exists for this work.  
+													If you're certain that there should be a grade here, you know you turned your assignment
+													in, and you know that it has been graded, then you should 
+													<%= link_to 'contact your instructor', new_general_contact_url(:host => APP_CONFIG['host']) %>.
 												</p>
 											</div>
 										<%- else -%>
-											<!-- work exists and wasn't turned in late = wait for grading -->
-											<div>Your Score: - </div>
-
+											<!-- word doesn't exist and isn't due yet = wait for the due date -->
 											<div class="inset">	
 												<h4>Comments</h4>
 												<p>
-													Your lab was submitted and is awaiting grading.
+													This assignment has not been submitted and is not yet due.  Submit your assignment by <%= show_date_and_time assignment.duedate %>
+													to make sure that you receive credit for your work.
 												</p>
 											</div>
+										
 										<%- end -%>
 									<%- end -%>
-								<%- else -%>
-									<!-- work doesn't exist -->
-									<%- if assignment.overdue? -%>
-										<!-- work doesn't exist and should have been turned in by now = nothing submitted? -->
-										<div>Your Score: -</div>
-
-										<div class="inset">	
-											<h4>Comments</h4>
-											<p>
-												No submission was found from you for this assignment and no grade exists for this work.  
-												If you're certain that there should be a grade here, you know you turned your assignment
-												in, and you know that it has been graded, then you should 
-												<%= link_to 'contact your instructor', new_general_contact_url(:host => APP_CONFIG['host']) %>.
-											</p>
-										</div>
-									<%- else -%>
-										<!-- word doesn't exist and isn't due yet = wait for the due date -->
-										<div class="inset">	
-											<h4>Comments</h4>
-											<p>
-												This assignment has not been submitted and is not yet due.  Submit your assignment by <%= show_date_and_time assignment.duedate %>
-												to make sure that you receive credit for your work.
-											</p>
-										</div>
-										
-									<%- end -%>
 								<%- end -%>
-								
-							</td>
-						</tr>
-					</table>
-				<%- end -%>
-
+						</td>
+					</tr>
+				</table>
+					
+				
 			</td>
-			<td></td>
 			<td></td>
 		</tr>
-		
-		
 		<tr>
-			<td></td>
-			<td></td>
-			<td id="footer">
-				<a href="<%= APP_CONFIG['site_url'] %>">Ingenio.us.com</a>
+			<td id="footer" colspan="3">
+				<a href="<%= APP_CONFIG['site_url'] %>">ingenio.us.com</a>
 			</td>
-			<td></td>
-			<td></td>
 		</tr>
 	</table>
 </body>
