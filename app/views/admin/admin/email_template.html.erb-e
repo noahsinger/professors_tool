@@ -26,7 +26,7 @@
 		}
 		
 		h1 {
-			line-height: 30px;
+			line-height: 32px;
 		}
 		
 		a {
@@ -123,20 +123,25 @@ xxx@xxx.xxx walkway_family;
 			}
 		
 			.tab_content p {
-/*				font-family: georgia, serif;*/
 				line-height: 25px;
 				padding: 0 0 20px 0;
 			}
 			
-			.grade_summary {
+			.left, .grade_summary {
 				width: 50%;
 				vertical-align: top;
 				text-align: right;
 			}
 			
-			.grade_details {
+				.tab_content .left p strong {
+					padding-right: 0px;
+				}
+			
+			.right, .grade_details {
 				width: 50%;
 				text-align: left;
+				vertical-align: top;
+				border-left: 1px solid #ddd;
 			}
 			
 			.point_breakdown {
@@ -182,6 +187,8 @@ xxx@xxx.xxx walkway_family;
 			<tr id="content_row">
 				<td></td>
 				<td id="content">
+
+					<!-- ***************************section email**************************** -->
 				
 					<table class="tab">
 						<tr class="tab_header">
@@ -219,6 +226,7 @@ xxx@xxx.xxx %>
 					
 					<!-- ******************************************************* -->
 					
+					<!-- ***************************grade request**************************** -->
 					<table class="tab">
 						<tr class="tab_header">
 							<td colspan="2">
@@ -330,6 +338,235 @@ xxx@xxx.xxx do |assignment| -%>
 					</tr>
 				</table>
 					
+				<!-- ******************************************************* -->
+				
+				<!-- **************************section availability notification***************************** -->
+					<table class="tab">
+						<tr class="tab_header">
+							<td colspan="2">
+								<% course xxx@xxx.xxx %> <%# REMOVE!!! %>
+								Course Availability Notification
+							</td>
+						</tr>
+						<tr class="tab_content">
+							<td class="left">
+								<p>
+									This email is in response to a request you made to be notified when a section of
+									<strong><%= course.title %></strong> is going to be offered at Tulsa Community College.
+								</p>
+								<p>
+									If you have any additional questions about the class please feel free to <%= link_to 'contact me', new_general_contact_url(:host => APP_CONFIG['host']) %>.
+								</p>
+								
+							</td>
+							<td class="right">
+								<p>
+									A new section of <strong><%= course.title %></strong> was just created and will be offered during
+									the xxx@xxx.xxx %> semester</strong> which begins on 
+									<strong><%= xxx@xxx.xxx %></strong>.
+								</p>
+	
+								<h2>Class Details</h2>
+								<p>
+									<strong>Course name:</strong> <%= course.title %><br/>
+									<strong>Course number:</strong> <%= course.short_name %><br/>
+									<strong>Section number (CRN):</strong> xxx@xxx.xxx %><br/>
+									<strong>Meeting Days/Times:</strong> xxx@xxx.xxx %>
+								</p>
+	
+								<p>
+									If you are interested in enrolling in this class you can visit any <a href="http://tulsacc.edu">TCC campus</a>
+									or <a href="https://banweb.tulsacc.edu/">enroll online</a> using the above information.
+								</p>								
+							</td>				
+						</tr>		
+					</table>
+				
+				<!-- ******************************************************* -->
+				
+				<!-- ***************************work reminder**************************** -->
+				
+				<table class="tab">
+					<tr class="tab_header">
+						<td>
+							<%# REMOVE!!! %>
+xxx@xxx.xxx = Work.all.first %>
+							<%# REMOVE!!! %>
+							
+							<% assignment xxx@xxx.xxx %>
+							<% section = assignment.section %>
+							<% semester = section.semester %>
+							<%# REMOVE!!! %>
+							
+							<%= section.course.title %>
+						</td>
+					</tr>
+					<tr class="tab_content">
+						<td>
+	
+								<h3>Your Homework has Already Been Submitted for <%= assignment.title %></h3>
+								<hr/>
+
+								<p>
+									An attempt was just made to upload a new solution for <strong><%= assignment.title %></strong> for you.  If you didn't do this, don't worry, it wasn't 
+									accepted.  If you are trying to replace your previous submission with a new one, you must first 
+									<%= link_to 'withdraw your previous submission', withdraw_semester_section_assignment_works_url(semester, section, assignment, 
+											:code xxx@xxx.xxx
+											:host => APP_CONFIG['host']) %>.
+								</p>
+								
+						</td>				
+					</tr>		
+				</table>
+					
+				<!-- ******************************************************* -->
+				
+				<!-- ***************************homework return**************************** -->
+
+				<%- xxx@xxx.xxx -%>
+					<%- assignment xxx@xxx.xxx -%>
+					<%- section = assignment.section -%>
+					<%- semester = section.semester -%>
+					<%= section.course.title %>
+				
+					<table class="tab">
+						<tr class="tab_header">
+							<td colspan="2">
+								
+								Submitted Homework for <%= assignment.title %>
+							
+							</td>
+						</tr>
+						<tr class="tab_content">
+							<td class="left">
+	
+								<p>
+									Here it is.  You requested a copy of the assignment that was submitted for 
+									<strong><%= assignment.title %></strong> from your email address.  The requested assignment is attached to this email.
+								</p>
+
+								<p>
+									If in the future (but still before the due date of course) you want to replace the submitted version of 
+									your lab with a new one, your will need to <%= link_to 'withdraw your submission', withdraw_semester_section_assignment_works_url(semester, section, assignment, 
+										:code xxx@xxx.xxx 
+										:host => APP_CONFIG['host']) %>.
+								</p>
+
+							</td>
+							<td class="right">
+								
+								<h3>Submitted Work Details:</h3>
+								<p>
+									<strong>Name:</strong> xxx@xxx.xxx %><br/>
+									<strong>Size:</strong> <%= xxx@xxx.xxx %><br/>
+									<strong>File type:</strong> xxx@xxx.xxx %><br/>
+								</p>
+								
+								<p>Your assignment file is attached</p>
+								
+							</td>				
+						</tr>		
+					</table>
+				
+				<% else %>
+				
+					<table class="tab">
+						<tr class="tab_header">
+							<td>
+									
+								Homework Return 
+							
+							</td>
+						</tr>
+						<tr class="tab_content">
+							<td>
+	
+								A request was made to have an assignment returned to this address.  Unfortunately, no work for this address could be found. 
+								
+							</td>				
+						</tr>		
+					</table>
+					
+				<% end %>
+					
+				<!-- ******************************************************* -->
+				
+				<!-- ***************************work submitted**************************** -->
+
+				<%- assignment xxx@xxx.xxx -%>
+				<%- section = assignment.section -%>
+				<%- semester = section.semester -%>
+				
+				<table class="tab">
+					<tr class="tab_header">
+						<td>
+							<%= section.course.title %>							
+						</td>
+					</tr>
+					<tr class="tab_content">
+						<td>
+	
+							<h3>Homework Submitted for <%= assignment.title %></h3>
+							
+							<p>A solution for <strong><%= assignment.title %></strong> was just submitted using your email address.  If you submitted your own work then 
+							everything is good and you can take this email as evidence that your work has been submitted.
+							If you did not submit this homework assignment you will need to 
+							<%= link_to "contact your instructor", new_general_contact_url(:host => APP_CONFIG['host']) %>
+							immediately.</p>
+
+							<p>If in the future (but still before the due date of course) you want to replace the submitted version of 
+							your lab with a new one, your will need to 
+							<%= link_to "withdraw your submission", withdraw_semester_section_assignment_works_url(semester, section, assignment, 
+								:code xxx@xxx.xxx 
+								:host => APP_CONFIG['host']) %>.</p>
+							
+							<p>
+								<%= Time.zone.now.to_s(:date) %>
+							</p>
+						</td>				
+					</tr>		
+				</table>
+					
+				<!-- ******************************************************* -->
+				
+				<!-- ***************************admin / general contact email**************************** -->
+
+				<%# REMOVE!!! %>
+xxx@xxx.xxx = GeneralContact.all.first %>
+				<%# REMOVE!!! %>
+				
+				<table class="tab">
+					<tr class="tab_header">
+						<td colspan="2">
+							Email from Ingenio.us Contact Form
+						</td>
+					</tr>
+					<tr class="tab_content">
+						<td class="left">
+							<p>
+								<strong>Subject</strong> xxx@xxx.xxx %><br/>
+								<strong>Return Email</strong> xxx@xxx.xxx %>
+							</p>
+							
+							<% xxx@xxx.xxx %>
+								<p>
+									<strong>Attachment included</strong><br/>
+									Content-type: xxx@xxx.xxx %><br/>
+									Size: xxx@xxx.xxx %><br/>
+									Name: xxx@xxx.xxx %><br/>
+								</p>
+							<% end %>
+						</td>
+						<td class="right">
+							<p>
+								<%= xxx@xxx.xxx %>
+							</p>
+						</td>				
+					</tr>		
+				</table>
+					
+				<!-- ******************************************************* -->
+				
 				
 			</td>
 			<td></td>
