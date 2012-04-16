@@ -3,173 +3,16 @@
 <head>
   <meta charset="utf-8" />
 	<title><%= "Email Template" %></title>
-	<%= stylesheet_link_tag 'application' %>
+	<%= stylesheet_link_tag 'application', 'email' %>
 	
 	<style type="text/css" media="screen">
-		
-
-
-/* ----------------------------------------------- */
-
-		strong, b, {
-			color: #CC3333;
-			letter-spacing: 1px;
-			padding-right: 5px;
+		table#header td#hanging_tabs {
+			height: 300px;
+			width: 50%;
+			background-image: url( <%= APP_CONFIG['site_url'] %>/assets/hanging_tabs.png );
+			background-repeat: no-repeat;
+			background-position: top left;
 		}
-		
-		h1, h2, h4 {
-			letter-spacing: 1px;
-/*			color: #631697;*/
-			margin: 0;
-			padding: 0;
-			font-family: georgia, serif;
-		}
-		
-		h1 {
-			line-height: 32px;
-		}
-		
-		a {
-			color: #03679B;
-		}
-				
-		p {
-			line-height: 22px;
-		}
-
-		table#header {
-			width: 100%;
-			margin-top: 0;
-		}
-		
-			table#header td.title {
-				text-align: right;
-/*				border: 1px solid red;*/
-			}
-			
-			table#header td.title div#subtitle {
-				margin-top: 15px;
-				text-align: right;
-		
-xxx@xxx.xxx helvetica_family;
-				font-size: .9375em;
-				font-weight: normal;
-				font-style: italic;
-				letter-spacing: 15px;
-				color: #6D806A;
-			}
-			
-				table#header td.title a {
-					color: #fff;
-					letter-spacing: 25px;
-xxx@xxx.xxx walkway_family;
-					text-transform: uppercase;
-					text-shadow: 0px 2px 3px #333;
-				
-					font-size: 1em;
-					letter-spacing: 25px;
-					position: relative;
-					left: 16px; //fix messed up centering (letter-spacing related?)
-				}
-				
-					table#header td.title a span {
-						letter-spacing: 11px;
-					}
-		
-			table#header td#hanging_tabs {
-				height: 300px;
-				width: 50%;
-/*				border: 1px solid red;*/
-				background-image: url( <%= APP_CONFIG['site_url'] %>/assets/hanging_tabs.png );
-				background-repeat: no-repeat;
-				background-position: top left;
-			}
-			
-			#content {
-				width: 80%;
-			}
-		
-				#content td {
-					padding: 20px 30px;
-				}
-			
-			.tab {
-				width: 100%;
-				margin-top: 0;
-				margin-bottom: 20px;
-			
-				position: relative;
-				top: -30px;
-
-				background-color: #eee;
-				border-top: 5px solid #CC3333;
-			
-				-webkit-box-shadow: 0px 5px 9px 2px rgba(00, 00, 00, .3);
-				-moz-box-shadow: 0px 5px 9px 2px rgba(00, 00, 00, .3);
-				box-shadow: 0px 5px 9px 2px rgba(00, 00, 00, .3);
-			}
-						
-			.tab_header {
-				font-size: 1.75em;
-				color: #CC3333;
-			}
-		
-				.tab_header td {
-
-				}
-					
-			.tab_content {
-				line-height: 22px;
-			}
-		
-			.tab_content p {
-				line-height: 25px;
-				padding: 0 0 20px 0;
-			}
-			
-			.left, .grade_summary {
-				width: 50%;
-				vertical-align: top;
-				text-align: right;
-			}
-			
-				.tab_content .left p strong {
-					padding-right: 0px;
-				}
-			
-			.right, .grade_details {
-				width: 50%;
-				text-align: left;
-				vertical-align: top;
-				border-left: 1px solid #ddd;
-			}
-			
-			.point_breakdown {
-				margin-bottom: 30px;
-			}
-			
-			.tab_content p strong {
-				color: #CC3333;
-				letter-spacing: 1px;
-				padding-right: 5px;
-			}
-			
-				.current_grade {
-					font-size: 3em;
-					display: block;
-					margin-top: 20px;
-				}
-				
-			#footer {
-				font-size: .8em;
-				padding: 20px;
-				text-align: center;
-			}
-		
-				#footer a {
-					color: #fff;
-				}
-			
 	</style>
 </head>
 <body>
@@ -326,7 +169,7 @@ xxx@xxx.xxx do |assignment| -%>
 											<div class="inset">	
 												<h4>Comments</h4>
 												<p>
-													This assignment has not been submitted and is not yet due.  Submit your assignment by <%= show_date_and_time assignment.duedate %>
+													This assignment has not been submitted and is not yet due.  Submit your assignment by <%= assignment.duedate.strftime '%A %B %d, %Y %I:%M %p' %>
 													to make sure that you receive credit for your work.
 												</p>
 											</div>
@@ -396,7 +239,6 @@ xxx@xxx.xxx = Work.all.first %>
 							<% assignment xxx@xxx.xxx %>
 							<% section = assignment.section %>
 							<% semester = section.semester %>
-							<%# REMOVE!!! %>
 							
 							<%= section.course.title %>
 						</td>
@@ -429,44 +271,75 @@ xxx@xxx.xxx = Work.all.first %>
 					<%- semester = section.semester -%>
 					<%= section.course.title %>
 				
-					<table class="tab">
-						<tr class="tab_header">
-							<td colspan="2">
+					<% xxx@xxx.xxx == "removed" %>
+				
+						<table class="tab">
+							<tr class="tab_header">
+								<td colspan="2">
 								
-								Submitted Homework for <%= assignment.title %>
+									Submitted Homework for <%= assignment.title %>
 							
-							</td>
-						</tr>
-						<tr class="tab_content">
-							<td class="left">
+								</td>
+							</tr>
+							<tr class="tab_content">
+								<td class="left">
 	
-								<p>
-									Here it is.  You requested a copy of the assignment that was submitted for 
-									<strong><%= assignment.title %></strong> from your email address.  The requested assignment is attached to this email.
-								</p>
+									<p>
+										Here it is.  You requested a copy of the assignment that was submitted for 
+										<strong><%= assignment.title %></strong> from your email address.  The requested assignment is attached to this email.
+									</p>
 
-								<p>
-									If in the future (but still before the due date of course) you want to replace the submitted version of 
-									your lab with a new one, your will need to <%= link_to 'withdraw your submission', withdraw_semester_section_assignment_works_url(semester, section, assignment, 
-										:code xxx@xxx.xxx 
-										:host => APP_CONFIG['host']) %>.
-								</p>
+									<p>
+										If in the future (but still before the due date of course) you want to replace the submitted version of 
+										your lab with a new one, your will need to <%= link_to 'withdraw your submission', withdraw_semester_section_assignment_works_url(semester, section, assignment, 
+											:code xxx@xxx.xxx 
+											:host => APP_CONFIG['host']) %>.
+									</p>
 
-							</td>
-							<td class="right">
+								</td>
+								<td class="right">
 								
-								<h3>Submitted Work Details:</h3>
-								<p>
-									<strong>Name:</strong> xxx@xxx.xxx %><br/>
-									<strong>Size:</strong> <%= xxx@xxx.xxx %><br/>
-									<strong>File type:</strong> xxx@xxx.xxx %><br/>
-								</p>
+									<h3>Submitted Work Details:</h3>
+									<p>
+										<strong>Name:</strong> xxx@xxx.xxx %><br/>
+										<strong>Size:</strong> <%= xxx@xxx.xxx %><br/>
+										<strong>File type:</strong> xxx@xxx.xxx %><br/>
+									</p>
 								
-								<p>Your assignment file is attached</p>
+									<p>Your assignment file is attached</p>
 								
-							</td>				
-						</tr>		
-					</table>
+								</td>				
+							</tr>		
+						</table>
+						
+					<% else %>
+						
+						<table class="tab">
+							<tr class="tab_header">
+								<td colspan="2">
+								
+									Submitted Homework for <%= assignment.title %>
+							
+								</td>
+							</tr>
+							<tr class="tab_content">
+								<td>
+	
+									<p>
+										You requested a copy of the assignment that was submitted for 
+										<strong><%= assignment.title %></strong> from your email address.
+									</p>
+									
+									<p>
+										The assignment you requested be return is no long available.  Due to disk space considerations, homework assignments
+										must be removed after a certain period of time.
+									</p>
+
+								</td>
+							</tr>		
+						</table>
+						
+					<% end %>
 				
 				<% else %>
 				
@@ -544,6 +417,7 @@ xxx@xxx.xxx = GeneralContact.all.first %>
 					<tr class="tab_content">
 						<td class="left">
 							<p>
+								<br/>
 								<strong>Subject</strong> xxx@xxx.xxx %><br/>
 								<strong>Return Email</strong> xxx@xxx.xxx %>
 							</p>

@@ -3,6 +3,7 @@
 <%- section = assignment.section -%>
 <%- semester = section.semester -%>
 <%= section.course.title %>
+<%- xxx@xxx.xxx == "removed" -%>
 --------------------------------------------------
 Submitted Homework for <%= assignment.title %>
 --------------------------------------------------
@@ -22,10 +23,20 @@ Name: xxx@xxx.xxx %>
 Size: <%= xxx@xxx.xxx %>
 Content-type: xxx@xxx.xxx %>
 ~Assignment file is attached~
+<%- else -%>
+--------------------------------------------------
+Submitted Homework for <%= assignment.title %>
+--------------------------------------------------
 
+You requested a copy of the assignment that was submitted for 
+<%= assignment.title %> from your email address.
+
+The assignment you requested be return is no longer available.  Due to disk space considerations, homework assignments
+must be removed after a certain period of time.
+<%- end -%>
 
 <%= APP_CONFIG['site_url'] %>
-	
+
 	
 <% else %>
 --------------------------------------------------

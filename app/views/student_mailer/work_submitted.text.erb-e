@@ -18,13 +18,14 @@ your lab with a new one, your will need to withdraw your submission
 	:code xxx@xxx.xxx 
 	:host => APP_CONFIG['host']) %>).
 
------------------------------------------------------
-Submitted Work Details:
-Name: xxx@xxx.xxx %>
-Size: <%= xxx@xxx.xxx %>
-Content-type: xxx@xxx.xxx %>
-~Assignment file is attached~
+<% xxx@xxx.xxx %>
+	-----------------------------------------------------
+	Submitted Work Details:
+	Name: xxx@xxx.xxx %>
+	Size: <%= xxx@xxx.xxx %>
+	Content-type: xxx@xxx.xxx %>
+	~Assignment file is attached~
 
-<%= APP_CONFIG['site_url'] %>
-
+	<%= APP_CONFIG['site_url'] %>
+<% end %>
 

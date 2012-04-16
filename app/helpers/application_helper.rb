@@ -1,4 +1,16 @@
 module ApplicationHelper
+  def markdown(text)
+    options = {:hard_wrap => true, :autolink => true, :no_intraemphasis => true, :fenced_code => true, :gh_blockcode => true, :fenced_code_blocks => true}
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
+    markdown.render(coderay( text )).html_safe
+  end
+  
+  def coderay(text)
+    text.gsub( /```(.+?)\s(.+?)```/m ) do |s|
+      CodeRay.scan($2, $1.to_sym).div(:css => :class)
+    end
+  end
+
   def show_error_messages_for( model, options = {} )
     output = ""
     

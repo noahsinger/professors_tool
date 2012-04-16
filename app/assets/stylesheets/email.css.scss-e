@@ -1,0 +1,155 @@
+@import 'colors';
+@import 'mixins';
+
+strong, b, {
+	color: #CC3333;
+	letter-spacing: 1px;
+	padding-right: 5px;
+}
+
+h1, h2, h4 {
+	letter-spacing: 1px;
+	margin: 0;
+	padding: 0;
+	font-family: georgia, serif;
+}
+
+h1 {
+	line-height: 32px;
+}
+
+a {
+	color: #03679B;
+}
+		
+p {
+	line-height: 22px;
+}
+
+table#header {
+	width: 100%;
+	margin-top: 0;
+
+
+	td.title {
+		text-align: right;
+	
+		div#subtitle {
+			margin-top: 15px;
+			text-align: right;
+
+xxx@xxx.xxx helvetica_family;
+			font-size: .9375em;
+			font-weight: normal;
+			font-style: italic;
+			letter-spacing: 15px;
+			color: #6D806A;
+		}
+		
+		a {
+			color: #fff;
+			letter-spacing: 25px;
+xxx@xxx.xxx walkway_family;
+			text-transform: uppercase;
+			text-shadow: 0px 2px 3px #333;
+		
+			font-size: 1em;
+			letter-spacing: 25px;
+			position: relative;
+			left: 16px; /*fix messed up centering (letter-spacing related?)*/
+			
+			span {
+				letter-spacing: 11px;
+			}
+		}
+	} // end td.title
+} //end table#header
+
+
+	
+#content {
+	width: 80%;
+	
+	td {
+		padding: 20px 30px;
+	}
+}
+
+
+table#body {
+	width: 100%;
+}
+	
+.tab {
+	width: 100%;
+	margin-top: 0;
+	margin-bottom: 20px;
+
+	position: relative;
+	top: -30px;
+
+	background-color: #eee;
+	border-top: 5px solid #CC3333;
+
+	-webkit-box-shadow: 0px 5px 9px 2px rgba(00, 00, 00, .3);
+	-moz-box-shadow: 0px 5px 9px 2px rgba(00, 00, 00, .3);
+	box-shadow: 0px 5px 9px 2px rgba(00, 00, 00, .3);
+}
+			
+.tab_header {
+	font-size: 1.75em;
+	color: #CC3333;
+}
+
+.tab_content {
+	line-height: 22px;
+	
+	p {
+		line-height: 25px;
+		padding: 0 0 20px 0;
+	}
+	
+	.left p strong {
+		padding-right: 0px;
+	}
+	
+	p strong {
+		color: #CC3333;
+		letter-spacing: 1px;
+		padding-right: 5px;
+	}
+}
+
+
+.left, .grade_summary {
+	width: 50%;
+	vertical-align: top;
+	text-align: right;
+}
+
+.right, .grade_details {
+	width: 50%;
+	text-align: left;
+	vertical-align: top;
+	border-left: 1px solid #ddd;
+}
+
+.point_breakdown {
+	margin-bottom: 30px;
+}
+
+.current_grade {
+	font-size: 3em;
+	display: block;
+	margin-top: 20px;
+}
+	
+#footer {
+	font-size: .8em;
+	padding: 20px;
+	text-align: center;
+	
+	a {
+		color: $background-text-color;
+	}
+}

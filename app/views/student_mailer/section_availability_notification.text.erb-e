@@ -1,0 +1,23 @@
+<% course xxx@xxx.xxx %>
+=====================================
+Course Availability Notification
+=====================================
+
+This email is in response to a request you made to be notified when a section of
+<%= course.title %> is going to be offered at Tulsa Community College.
+
+If you have any additional questions about the class please feel free to contact me 
+(<%= new_general_contact_url(:host => APP_CONFIG['host']) %>).
+
+A new section of <%= course.title %> was just created and will be offered during
+the <%= @section.semester.name %> semester which begins on <%= xxx@xxx.xxx %>.
+
+Class Details
+-------------
+Course name: <%= course.title %>
+Course number: <%= course.short_name %>
+Section number (CRN): xxx@xxx.xxx %>
+Meeting Days/Times: xxx@xxx.xxx %>
+
+If you are interested in enrolling in this class you can visit any TCC campus (http://tulsacc.edu)
+or enroll online (https://banweb.tulsacc.edu/) using the above information.

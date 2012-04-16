@@ -1,5 +1,6 @@
 class StudentMailer < ActionMailer::Base
   # default :from => xxx@xxx.xxx
+  helper :application
   
   def work_submitted( work, submitting_address )
    xxx@xxx.xxx = work

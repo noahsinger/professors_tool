@@ -60,6 +60,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    css_parser (1.2.6)
+      addressable
+      rdoc
     delayed_job (3.0.1)
       activesupport (~> 3.0)
     delayed_job_active_record (0.3.2)
@@ -81,6 +84,7 @@ GEM
       thor (~> 0.14.6)
     hike (1.2.1)
     hirb (0.6.0)
+    htmlentities (4.3.1)
     httparty (0.8.1)
       multi_json
       multi_xml
@@ -125,6 +129,12 @@ GEM
       cocaine (>= 0.0.2)
       mime-types
     polyglot (0.3.3)
+    premailer (1.7.3)
+      css_parser (>= 1.1.9)
+      htmlentities (>= 4.0.0)
+    premailer-rails3 (1.1.0)
+      premailer (~> 1.7)
+      rails (~> 3)
     rack (1.4.1)
     rack-cache (1.1)
       rack (>= 0.4)
@@ -204,7 +214,7 @@ DEPENDENCIES
   awesome_print
   bcrypt-ruby (~> 3.0.1)
   capybara
-  coderay (~> 1.0.5)
+  coderay (~> 1.0)
   coffee-rails (~> 3.2.1)
   delayed_job
   delayed_job_active_record
@@ -217,7 +227,9 @@ DEPENDENCIES
   mechanize (~> 2.3)
   minitest
   mocha (~> 0.10.4)
+  nokogiri
   paperclip
+  premailer-rails3
   rails (= 3.2.2)
   rb-fsevent
   redcarpet
