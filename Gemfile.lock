@@ -135,6 +135,8 @@ GEM
     premailer-rails3 (1.1.0)
       premailer (~> 1.7)
       rails (~> 3)
+    quiet_assets (1.0.0)
+      rails (~> 3.1)
     rack (1.4.1)
     rack-cache (1.1)
       rack (>= 0.4)
@@ -230,6 +232,7 @@ DEPENDENCIES
   nokogiri
   paperclip
   premailer-rails3
+  quiet_assets
   rails (= 3.2.2)
   rb-fsevent
   redcarpet

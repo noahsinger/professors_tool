@@ -33,6 +33,7 @@ group :development do
 	gem "letter_opener"
 	gem "hirb"
 	gem "awesome_print"
+	gem 'quiet_assets'
 end
 
 group :development, :test do	
