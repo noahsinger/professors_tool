@@ -1,5 +1,3 @@
-require 'CSV'
-
 class Admin::SectionsController < ApplicationController
   before_filter :authenticate    
   before_filter :load_semester
@@ -112,6 +110,8 @@ class Admin::SectionsController < ApplicationController
   end
   
   def export_gradebook
+	  require 'CSV'
+
     @section xxx@xxx.xxx
     
     csv_string = CSV.generate do |csv|

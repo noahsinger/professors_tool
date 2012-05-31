@@ -51,7 +51,8 @@ class Semester < ActiveRecord::Base
   
   def import_sections_from_ted
     agent = Mechanize.new do |a|
-      a.ssl_version='SSLv3'
+    	# needed in 1.9, causes error in 1.8
+	    # a.ssl_version='SSLv3'
     end
 
     agent.follow_meta_refresh = true
@@ -126,7 +127,7 @@ class Semester < ActiveRecord::Base
           # puts "course number: #{course.discipline}#{course.number} #{course.title}"          
           # puts "section number: #{secno}"
           # puts "current enrollment: #{current_enrollment}"
-          puts "time range: #{start_time} - #{end_time}"
+          # puts "time range: #{start_time} - #{end_time}"
           # puts "days: \"#{days}\""
           # puts "room: #{room}"
           # puts "date range: #{start_date} - #{end_date}"

@@ -13,4 +13,8 @@ task :maintenance => :environment do
   Rake::Task["examples:count"].invoke
   Rake::Task["examples:clear"].invoke
   Rake::Task["log:clear"].invoke
+  
+  puts
+  puts "ted sections update ----------------------"
+  Rake::Task["ted_sections:update"].invoke
 end
