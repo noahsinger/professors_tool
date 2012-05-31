@@ -7,7 +7,7 @@ xxx@xxx.xxx %> Examples</h1>
 	
 	<nav>
 		<h1>Navigation</h1>
-		<%= link_to "Back to #{@section.course.title}", xxx@xxx.xxx @section), class: "icon back" %>
+		<%= link_to "Back to #{@section.course.title}", xxx@xxx.xxx @section), :class => "icon back" %>
 	</nav>
 		
 	<header>

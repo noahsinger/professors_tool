@@ -9,19 +9,19 @@ class Admin::WaitersControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-    get :index, xxx@xxx.xxx
+    get :index, :course_id xxx@xxx.xxx
     assert_response :success
     assert_not_nil assigns(:waiters)
   end
 
   test "should show waiter" do
-    get :show, id: @waiter.to_param, xxx@xxx.xxx
+    get :show, :id => @waiter.to_param, :course_id xxx@xxx.xxx
     assert_response :success
   end
 
   test "should destroy waiter" do
     assert_difference('Waiter.count', -1) do
-      delete :destroy, id: @waiter.to_param, xxx@xxx.xxx
+      delete :destroy, :id => @waiter.to_param, :course_id xxx@xxx.xxx
     end
 
     assert_redirected_to xxx@xxx.xxx

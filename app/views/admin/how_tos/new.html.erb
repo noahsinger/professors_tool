@@ -5,7 +5,7 @@
 <section>
 	<nav>
 		<% if session[:referrer] %>
-			<%= link_to 'Back', session[:referrer], class: "icon back" %>
+			<%= link_to 'Back', session[:referrer], :class => "icon back" %>
 		<% end %>
 	</nav>
 

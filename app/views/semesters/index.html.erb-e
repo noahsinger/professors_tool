@@ -7,7 +7,7 @@
 	
 	<nav>
 		<h1>Navigation</h1>
-		<%= link_to "Home", '/', class: "icon back" %>
+		<%= link_to "Home", '/', :class => "icon back" %>
 	</nav>
 	
 	<header>

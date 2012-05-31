@@ -8,7 +8,7 @@ xml.rss :version => "2.0" do
     for a xxx@xxx.xxx
       xml.item do
         xml.title a.title + " :: " + a.lab.title
-        xml.description truncate( a.lab.instructions, length: 300 )
+        xml.description truncate( a.lab.instructions, :length => 300 )
         xml.pubDate a.created_at.to_s(:rfc822)
         xml.link xxx@xxx.xxx
       end

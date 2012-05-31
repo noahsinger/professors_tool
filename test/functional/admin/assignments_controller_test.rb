@@ -29,7 +29,7 @@ class Admin::AssignmentsControllerTest < ActionController::TestCase
     end
 
     # assert_redirected_to admin_semester_section_assignment_path(assigns(:semester),assigns(:section),assigns(:assignment))
-    assert_redirected_to new_admin_assignment_tweet_path(assignment_id: assigns(:assignment), status: 'new')
+    assert_redirected_to new_admin_assignment_tweet_path(:assignment_id => assigns(:assignment), :status => 'new')
   end
   
   test "new assignments should have a short url" do
@@ -64,7 +64,7 @@ class Admin::AssignmentsControllerTest < ActionController::TestCase
   test "should update assignment and tweet" do
     post :update, :id => assignments(:lab01).id, :section_id => sections(:jck1003_section_1), :semester_id => sections(:jck1003_section_1).semester_id,
     :assignment => { :duedate => '2022-03-09 23:59:00 -0600' }
-    assert_redirected_to new_admin_assignment_tweet_path(assignment_id: assigns(:assignment), status: "duedate")
+    assert_redirected_to new_admin_assignment_tweet_path(:assignment_id => assigns(:assignment), :status => "duedate")
   end
   
 

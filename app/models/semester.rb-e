@@ -132,7 +132,7 @@ class Semester < ActiveRecord::Base
           # puts "date range: #{start_date} - #{end_date}"
           # puts "instructor name: #{instructor_name}"
           
-          teds_sections << [self.sections.build( course_id: course.id, call_number: callno, section_number: secno, meeting_days: days, start_date: start_date, end_date: end_date, start_time: start_time, end_time: end_time, room_number: room, instructor_id: instructor.id ), current_enrollment]
+          teds_sections << [self.sections.build( :course_id => course.id, :call_number => callno, :section_number => secno, :meeting_days => days, :start_date => start_date, :end_date => end_date, :start_time => start_time, :end_time => end_time, :room_number => room, :instructor_id => instructor.id ), current_enrollment]
         else
           puts "Found a table that shouldn't be here"
       end
@@ -148,10 +148,10 @@ class Semester < ActiveRecord::Base
       unless self.sections.find_by_call_number(section.call_number)
         section.save
         # add enrollments snapshot
-        section.enrollment_snapshots.create!(enrollment_count: enrollment)
+        section.enrollment_snapshots.create!(:enrollment_count => enrollment)
       else
         # add enrollments snapshot
-        self.sections.find_by_call_number(section.call_number).enrollment_snapshots.create!(enrollment_count: enrollment)
+        self.sections.find_by_call_number(section.call_number).enrollment_snapshots.create!(:enrollment_count => enrollment)
       end
     end
     

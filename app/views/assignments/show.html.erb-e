@@ -9,7 +9,7 @@ xxx@xxx.xxx %></h1>
 	
 	<nav>
 		<h1>Navigation</h1>
-		<%= link_to @section.course.title, xxx@xxx.xxx @section ), class: 'icon back' %>
+		<%= link_to @section.course.title, xxx@xxx.xxx @section ), :class => 'icon back' %>
 	</nav>
 	
 	
@@ -38,8 +38,8 @@ xxx@xxx.xxx %> pts</td></tr>
 		<h1>Resources</h1>
 		<ul id="assignment_links">
 			<% xxx@xxx.xxx %>
-				<li><h2><%= link_to "Submit Your Solution", xxx@xxx.xxx @section, @assignment ), class: "icon upload" %></h2></li>
-				<li><h2><%= link_to "Request Return Copy", xxx@xxx.xxx class: "icon download" %></h2></li>
+				<li><h2><%= link_to "Submit Your Solution", xxx@xxx.xxx @section, @assignment ), :class => "icon upload" %></h2></li>
+				<li><h2><%= link_to "Request Return Copy", xxx@xxx.xxx :class => "icon download" %></h2></li>
 			<% end %>
 
 			<li><h2><a href="#" id="print" class="icon file">Print this Assignment</a></h2></li>

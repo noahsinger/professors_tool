@@ -4,7 +4,7 @@
 
 <section>
 	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx class: "icon back" %>
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
 	</nav>
 
 	<header>
@@ -24,7 +24,7 @@ xxx@xxx.xxx %></h1>
 xxx@xxx.xxx do |waiter| %>
 			  <tr>
 			    <td><%= mail_to waiter.email %></td>
-			    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx waiter], confirm: 'Are you sure?', method: :delete %></td>
+			    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx waiter], :confirm => 'Are you sure?', :method => :delete %></td>
 			  </tr>
 			<% end %>
 		</table>

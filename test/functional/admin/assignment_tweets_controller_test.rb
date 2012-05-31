@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class Admin::AssignmentTweetsControllerTest < ActionController::TestCase
-  cannot_access_actions([assignment_id: 1], {new: :get, create: :post})
+  cannot_access_actions([:assignment_id => 1], {:new => :get, :create => :post})
   
   def setup
     login_as(:admin)
@@ -14,7 +14,7 @@ class Admin::AssignmentTweetsControllerTest < ActionController::TestCase
   
   test "should post to create tweet and redirect" do
     Tweet.any_instance.expects(:send).returns(true)
-    post :create, content: "tweeting from unit test", assignment_id: assignments(:lab01).id
+    post :create, :content => "tweeting from unit test", :assignment_id => assignments(:lab01).id
   end
 
 end

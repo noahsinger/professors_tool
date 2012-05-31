@@ -17,7 +17,7 @@
 	<nav>
 		<h1>Navigation</h1>
 		<% if session[:referrer] %>
-			<%= link_to 'Back', session[:referrer], class: "icon back" %>
+			<%= link_to 'Back', session[:referrer], :class => "icon back" %>
 		<% end %>
 		<% if current_user %>
 			<%= link_to 'Edit this step', xxx@xxx.xxx @step) %>

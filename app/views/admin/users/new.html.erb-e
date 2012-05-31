@@ -3,7 +3,7 @@
 <% end %>
 
 <nav>
-	<%= link_to 'Back', admin_users_path, class: "icon back" %>
+	<%= link_to 'Back', admin_users_path, :class => "icon back" %>
 </nav>
 
 <header>

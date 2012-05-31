@@ -60,7 +60,7 @@ class Admin::AssignmentsController < ApplicationController
       xxx@xxx.xxx
         flash[:notice] = 'Assignment was successfully created.'
         # format.html { xxx@xxx.xxx }
-        format.html { xxx@xxx.xxx status: 'new')) }
+        format.html { redirect_to(new_admin_assignment_tweet_url(:assignment_id xxx@xxx.xxx :status => 'new')) }
         format.xml  { render :xml => @assignment, :status => :created, :location xxx@xxx.xxx }
       else
         format.html { render :action => "new" }
@@ -81,7 +81,7 @@ class Admin::AssignmentsController < ApplicationController
         
         destination = xxx@xxx.xxx
         xxx@xxx.xxx == old_duedate
-          destination = xxx@xxx.xxx status: "duedate")
+          destination = new_admin_assignment_tweet_url(:assignment_id xxx@xxx.xxx :status => "duedate")
         end
         
         format.html { redirect_to(destination) }

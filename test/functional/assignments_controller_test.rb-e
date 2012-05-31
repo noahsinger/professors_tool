@@ -15,7 +15,7 @@ class AssignmentsControllerTest < ActionController::TestCase
   end
   
   test "RSS feed should be accessible" do
-    get :index, format: :rss, :section_id => sections(:jck1003_section_1), :semester_id => sections(:jck1003_section_1).semester_id
+    get :index, :format => :rss, :section_id => sections(:jck1003_section_1), :semester_id => sections(:jck1003_section_1).semester_id
     assert_response :success
   end
 end

@@ -11,9 +11,9 @@ xxx@xxx.xxx %></h1>
 	
 	<nav>
 		<h1>Navigation</h1>
-		<%= link_to( 'Home', root_path, class: 'icon back' ) %>
-		<%= link_to( 'RSS' , xxx@xxx.xxx :format => :rss), class: 'icon rss' ) %>
-		<%= link_to( 'ICAL', xxx@xxx.xxx :format => :ics, :protocol => 'webcal'), title: 'Subscribe to this classes assignments calendar using Outlook or iCal', class: 'icon ical' ) %>
+		<%= link_to( 'Home', root_path, :class => 'icon back' ) %>
+		<%= link_to( 'RSS' , xxx@xxx.xxx :format => :rss), :class => 'icon rss' ) %>
+		<%= link_to( 'ICAL', xxx@xxx.xxx :format => :ics, :protocol => 'webcal'), :title => 'Subscribe to this classes assignments calendar using Outlook or iCal', :class => 'icon ical' ) %>
 	</nav>
 
 
@@ -26,14 +26,14 @@ xxx@xxx.xxx %></h1>
 	<div id="resources">
 		<h1>Resources</h1>
 		<ul id="section_links">
-			<li><h2><%= link_to "View the Syllabus", xxx@xxx.xxx @section ), class: "icon file" %></h2></li>
-			<li><h2><%= link_to "Email the Instructor", new_general_contact_path, class: "icon email" %></h2></li>
-			<li><h2><%= link_to "Request Your Grades", xxx@xxx.xxx @section ), class: "icon star" %></h2></li>
+			<li><h2><%= link_to "View the Syllabus", xxx@xxx.xxx @section ), :class => "icon file" %></h2></li>
+			<li><h2><%= link_to "Email the Instructor", new_general_contact_path, :class => "icon email" %></h2></li>
+			<li><h2><%= link_to "Request Your Grades", xxx@xxx.xxx @section ), :class => "icon star" %></h2></li>
 			<% xxx@xxx.xxx > 0 %>
-				<li><h2><%= link_to 'Materials', xxx@xxx.xxx class: "icon wrench" %></h2></li>
+				<li><h2><%= link_to 'Materials', xxx@xxx.xxx :class => "icon wrench" %></h2></li>
 			<% end %>
 			<% xxx@xxx.xxx > 0 %>
-				<li><h2><%= link_to 'Examples', xxx@xxx.xxx class: "icon cog" %></h2></li>
+				<li><h2><%= link_to 'Examples', xxx@xxx.xxx :class => "icon cog" %></h2></li>
 			<% end %>
 			
 			<% if current_user %>

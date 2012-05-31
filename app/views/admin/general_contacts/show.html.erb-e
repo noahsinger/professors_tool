@@ -4,7 +4,7 @@
 
 <section>
 	<nav>
-		<%= link_to "Back", admin_general_contacts_path, class: "back icon" %>
+		<%= link_to "Back", admin_general_contacts_path, :class => "back icon" %>
 	</nav>
 	
 	<header>

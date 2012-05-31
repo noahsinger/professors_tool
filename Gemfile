@@ -15,9 +15,10 @@ gem 'shortly', "~> 0.3.3"
 gem 'bcrypt-ruby', "~> 3.0.1"
 gem 'mechanize', '~>2.3'
 gem "coderay", "~> 1.0"
-# gem 'roadie', '~> 2.3'
 gem 'premailer-rails3'
 gem 'nokogiri' #required by premailer-rails3
+
+gem 'fastercsv', :platforms => :mri_18
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -7,7 +7,7 @@ xxx@xxx.xxx %></h1>
 	
 	<nav>
 		<h1>Navigation</h1>
-		<%= link_to "#{@section.course.title}", xxx@xxx.xxx @section ), class: "icon back" %>
+		<%= link_to "#{@section.course.title}", xxx@xxx.xxx @section ), :class => "icon back" %>
 	</nav>
 	
 	<header>
@@ -24,7 +24,7 @@ xxx@xxx.xxx %></p>
 					<%= f.label :email %>
 					<p>Provide your official email address so your grades can be found.</p>
 				</div>
-				<div class="field"><%= f.email_field :email, {placeholder: xxx@xxx.xxx %></div>
+				<div class="field"><%= f.email_field :email, {:placeholder => xxx@xxx.xxx %></div>
 			</li>
 			<li class="action">
 				<div><%= f.submit "Send Request" %></div>

@@ -14,7 +14,7 @@ class Admin::WaitersController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render xxx@xxx.xxx }
+      format.json { render :json xxx@xxx.xxx }
     end
   end
 
@@ -25,7 +25,7 @@ class Admin::WaitersController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render xxx@xxx.xxx }
+      format.json { render :json xxx@xxx.xxx }
     end
   end
 
