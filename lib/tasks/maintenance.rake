@@ -17,4 +17,8 @@ task :maintenance => :environment do
   puts
   puts "ted sections update ----------------------"
   Rake::Task["ted_sections:update"].invoke
+  
+  puts
+  puts "twitter semester updates ----------------------"
+  Rake::Task["twitter_update:semester"].invoke
 end
