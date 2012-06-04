@@ -30,6 +30,8 @@ Ingenious::Application.configure do
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
   config.serve_static_assets = false
+  
+  config.assets.precompile += ['admin/admin.js','email.css']
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
@@ -58,11 +60,13 @@ Ingenious::Application.configure do
   
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => "localhost",
+	  :address => "localhost",
+	  # :address => "mail.ingenio.us.com",
     :port  => 25, 
     :domain  => 'ingenio.us.com',
     :user_name  => xxx@xxx.xxx
     :password  => 'th1515451t3!',
-    :authentication  => :login
+    :authentication  => :login,
+    :openssl_verify_mode  => 'none'
   }
 end
