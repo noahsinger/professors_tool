@@ -15,7 +15,8 @@
 	<%= javascript_include_tag 'application' %>
 	<% if admin? %>
 		<!-- start admin javascript -->
-		<%= javascript_include_tag 'admin/jquery-ui-1.7.1.custom.min', 'admin/jquery.effects.core', 'admin/jquery.tablednd_0_5', 'admin/highcharts' %>
+		<%# javascript_include_tag 'admin/jquery-ui-1.7.1.custom.min', 'admin/jquery.effects.core', 'admin/jquery.tablednd_0_5', 'admin/highcharts' %>
+		<%= javascript_include_tag 'admin/admin' %>
 		<!-- end admin javascript -->
 	<% end %>
 	
