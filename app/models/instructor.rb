@@ -2,7 +2,7 @@ class Instructor < ActiveRecord::Base
   belongs_to :division
   has_many :sections
   
-  attr_accessible :first_name, :last_name, :email, :phone_number, :division_id, :office_hours
+  attr_accessible :title, :first_name, :last_name, :email, :twitter_handle, :office_number, :phone_number, :division_id, :office_hours, :website
   
   validates_presence_of :first_name
   validates_presence_of :last_name
