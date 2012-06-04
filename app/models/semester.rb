@@ -44,6 +44,14 @@ class Semester < ActiveRecord::Base
   def name
     self.season + " " + self.year.to_s
   end
+  
+  def name_for_ted
+  	if self.season == "Fall"
+  		"#{self.season} #{self.year - 1}"
+  	else
+  		self.name
+  	end
+  end
 
   def short_name
     self.season + self.year.to_s
@@ -71,7 +79,7 @@ class Semester < ActiveRecord::Base
     form = result.forms.last
     select = form.field_with(:name => 'term' )
     puts "Updating #{self.name}"
-    select.value = select.options.find {|option| option.text =~ %r{#{self.name}}}
+    select.value = select.options.find {|option| option.text =~ %r{#{self.name_for_ted}}}
     result = agent.submit(form)
 
     #parse the data page

@@ -42,4 +42,10 @@ class SemesterTest < ActiveSupport::TestCase
     assert_respond_to Semester.first, :student_count
     assert_equal 2, semesters(:spring).student_count
   end
+  
+  test "Fall semesters should report previous year for ted" do
+  	assert_respond_to Semester.first, :name_for_ted
+  	assert_equal "Fall 2008", Semester.first.name_for_ted
+  end
+  
 end
