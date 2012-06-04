@@ -2,8 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.2'
 
-gem 'sqlite3'
-
 gem "icalendar"
 gem "RedCloth"
 gem 'delayed_job'
@@ -30,7 +28,14 @@ end
 
 gem 'jquery-rails'
 
+group :production do
+	gem 'mysql'
+	gem 'mysql2'
+	gem 'therubyracer'
+end
+
 group :development do
+	gem 'sqlite3'
 	gem "letter_opener"
 	gem "hirb"
 	gem "awesome_print"
