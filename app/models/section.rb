@@ -57,6 +57,14 @@ class Section < ActiveRecord::Base
     days.join( " " )
   end
   
+  def short_days
+  	if self.meeting_days.downcase =~ /all/
+  		"online"
+  	else
+	  	self.meeting_days.gsub( ' ', '' )
+	  end
+  end
+  
   def points_assigned
     total = 0
     

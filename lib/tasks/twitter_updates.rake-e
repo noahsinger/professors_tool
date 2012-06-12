@@ -9,8 +9,8 @@ namespace :twitter_update do
     current.sections.all.each do |section|
       section.assignments.each do |assignment|
         if (assignment.duedate) > Time.now and (assignment.duedate - 12.hours) < Time.now
-          puts "#{assignment.title} for #{assignment.section.meeting_days.gsub( ' ', '' )} #{assignment.section.course.title} is due in #{time_ago_in_words(assignment.duedate)}" 
-          Tweet.new.send "#{assignment.title} for #{assignment.section.meeting_days.gsub( ' ', '' )} #{assignment.section.course.title} is due in #{time_ago_in_words(assignment.duedate)}" 
+          puts "#{assignment.title} for #{assignment.section.short_days} #{assignment.section.course.title} is due in #{time_ago_in_words(assignment.duedate)}" 
+          Tweet.new.send "#{assignment.title} for #{assignment.section.short_days} #{assignment.section.course.title} is due in #{time_ago_in_words(assignment.duedate)}" 
         end
       end
     end
