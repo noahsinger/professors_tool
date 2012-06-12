@@ -552,6 +552,26 @@ xxx@xxx.xxx neue_family;
 xxx@xxx.xxx walkway_family;
 		}
 	}
+	
+	ul {
+		li {
+			list-style: circle;
+		}
+	}
+	
+	ol {
+		li {
+			list-style: decimal-leading-zero;
+		}
+	}
+	
+	ul, ol {
+		margin-left: 30px;
+		
+		li {
+			margin: 5px 0;
+		}
+	}
 }
 
 
