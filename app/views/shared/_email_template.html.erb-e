@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-	<%# stylesheet_link_tag 'application', 'email %>
-	<link rel="stylesheet" href="application.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	<link rel="stylesheet" href="email.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="<%= APP_CONFIG['site_url'] %>/assets/application.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="<%= APP_CONFIG['site_url'] %>/assets/email.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	
 	<style type="text/css" media="screen">
 		table#header td#hanging_tabs {
