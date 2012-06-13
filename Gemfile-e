@@ -35,16 +35,16 @@ group :production do
 end
 
 group :development do
-	gem 'sqlite3'
-	gem "letter_opener"
-	gem "hirb"
-	gem "awesome_print"
-	gem 'quiet_assets'
+  gem 'sqlite3'
+  gem "letter_opener"
+  gem "hirb"
+  gem "awesome_print"
+  gem 'quiet_assets'
 end
 
 group :development, :test do	
-	gem 'mocha', "~>0.10.4"
-	gem 'capybara'
+  gem 'mocha', "~>0.10.4"
+  gem 'capybara'
   gem 'turn', :require => false
   gem 'minitest' #required by turn
   
