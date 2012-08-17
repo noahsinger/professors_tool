@@ -11,27 +11,38 @@ namespace :labs do
   desc "Clear labs > 2 year old"
   task :clear => :environment do
     current = Semester.current
+    # puts "	current semester retreived"
     Section.all.each do |section|
+      # puts "	iterating through sections"
       if section.end_date + 2.year < current.end_date
+      	# puts "	section found more than 2 years old"
         section.assignments.each do |assignment|
+          # puts "	iterating through assignments"
           assignment.works.each do |work|
+          	# puts "	iterating through works"
             unless work.upload_content_type == "removed"
+              # puts "	setting work to be removed"
               work.upload = nil
               work.upload_content_type = "removed"
-              work.save(false)
+              # puts "	saving work"
+              work.save(:validate => false)
+              # puts "	work saved"
               
+              # puts "	finding students name"
               student_name = if work.enrollment
                 work.enrollment.student.last_name_first
               else
                 "Unknown"
               end
               
+              # puts "	finding course name"
               course_name = if work.enrollment
                 work.enrollment.section.course.title
               else
                 "Unknown"
               end
               
+              # puts "	finding semester name"
               semester_name = if work.enrollment
                 work.enrollment.section.semester.name
               else

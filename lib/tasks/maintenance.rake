@@ -2,7 +2,10 @@ desc "Run maintenance tasks"
 task :maintenance => :environment do
   puts "lab stats ---------------------------"
   Rake::Task["labs:count"].invoke
+  puts "-------------------------------------"
+  puts "clearing ----------------------------"
   Rake::Task["labs:clear"].invoke
+  puts "-------------------------------------"
   
   puts
   puts "grading   ---------------------------"
@@ -15,10 +18,10 @@ task :maintenance => :environment do
   Rake::Task["log:clear"].invoke
   
   puts
-  puts "ted sections update ----------------------"
+  puts "ted sections update -----------------"
   Rake::Task["ted_sections:update"].invoke
   
   puts
-  puts "twitter semester updates ----------------------"
+  puts "twitter semester updates ------------"
   Rake::Task["twitter_update:semester"].invoke
 end
