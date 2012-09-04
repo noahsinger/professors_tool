@@ -46,6 +46,12 @@ Ingenious::Application.routes.draw do
     
   # admin namespace #######################################
   namespace :admin do
+  
+  	resources :works do
+  		member do
+  			get "download"
+  		end
+  	end
     
     resources :students
     resources :enrollment_statuses

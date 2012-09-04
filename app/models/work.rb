@@ -9,7 +9,9 @@ class Work < ActiveRecord::Base
   
   has_attached_file :upload,
                     :path => ":rails_root/uploads/:class/:id/:attachment/:basename.:extension",
-                    :url => "/admin/:class/download/:id",
+#                     :url => ":rails_root/uploads/:class/:id/:attachment/:id",
+#                     :url => "/admin/:class/download/:id",
+                    :url => "/admin/:class/:id/download",
                     :default_url => ''
                     
   validates_format_of( :email, 

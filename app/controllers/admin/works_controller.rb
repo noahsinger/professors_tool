@@ -37,7 +37,8 @@ class Admin::WorksController < ApplicationController
     # but might work when it's running through apache.
     send_file( work.upload.path, 
                 :type => work.upload_content_type, 
-                :disposition => 'inline', 
+                :disposition => 'inline',  # change to attachment?
+# 								:disposition => 'attachment',
                 :filename => work.upload_file_name )
   end
   
