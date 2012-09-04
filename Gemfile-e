@@ -48,13 +48,13 @@ group :development, :test do
   gem 'turn', :require => false
   gem 'minitest' #required by turn
   
-  # gem 'guard-minitest', "> 0.3.0" #less than 0.3.0 gives file not found errors with rails3.1
-  gem 'guard-minitest', :git => 'git://github.com/aspiers/guard-minitest.git' #alt repo got growl notifications working
+  gem 'guard-minitest', "> 0.3.0" #less than 0.3.0 gives file not found errors with rails3.1
+  # gem 'guard-minitest', :git => 'git://github.com/aspiers/guard-minitest.git' #alt repo got growl notifications working
   
-  gem 'growl'        # for guard-minitest
+  # gem 'growl'        # for guard-minitest
   
-  gem 'rb-fsevent'  # for guard-minitest
-  gem 'ruby-prof'    # for guard-minitest
+  # gem 'rb-fsevent'  # for guard-minitest
+  # gem 'ruby-prof'    # for guard-minitest
 end
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
