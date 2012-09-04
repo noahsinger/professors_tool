@@ -166,7 +166,9 @@ xxx@xxx.xxx paper_effect;
 }
 
 @mixin inset {
+/* safari 6 changed something??? */
 	$amount: 10.5%;
+/* 	$amount: 16.2%; */
 	margin-left: $amount;
 	margin-right: -$amount;
 	width: 100% - $amount - $amount;
