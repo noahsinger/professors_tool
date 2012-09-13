@@ -13,7 +13,7 @@ class GeneralContact < ActiveRecord::Base
                     :default_url => ''
                     
   def send_email
-    # AdminMailer.general_contact( self ).deliver
+#     AdminMailer.general_contact( self ).deliver
     AdminMailer.delay.general_contact( self )
   end
 end

@@ -38,5 +38,15 @@ Ingenious::Application.configure do
   # Expands the lines which load the assets  
   config.assets.debug = true
     
-  config.action_mailer.delivery_method = :letter_opener
+#   config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+	  :address => "mail.ingenio.us.com",
+    :port  => 25, 
+    :domain  => 'ingenio.us.com',
+    :user_name  => xxx@xxx.xxx
+    :password  => 'th1515451t3!',
+    :authentication  => :login,
+    :openssl_verify_mode  => 'none'
+  }
 end
