@@ -26,11 +26,25 @@
 	
 </head>
 <body id="<%= controller_name %>_<%= action_name %>" class="<%= admin? ? "admin": "student" %>">
+
 	<div id="page">
 		<header>
 			<div id="title"><%= link_to 'Ingeni<span>o.</span>us'.html_safe, root_path %></div>
 			<%= yield :header %>
 		</header>
+		
+		<div id="ie_warning">
+			<h1>Please Don't Use Internet Explorer</h1>
+			<p>
+				Internet Explorer in all versions is a dangerous browser.  It has many deficiencies and security vulnerabilities that make it unsafe.
+				You should instead use a current version of <a href="http://www.google.com/chrome">Chrome</a> or
+				<a href="http://www.getfirefox.com">Firefox</a> if you're using windows or Safari for the Mac.
+			</p>
+			<p>
+				This site will not function properly in Internet Explorer.  Emails will not be sent, download will not function, assignments will not
+				submitted...
+			</p>
+		</div>
 		
 		<div id="outer_container">
 			<div id="inner_container">

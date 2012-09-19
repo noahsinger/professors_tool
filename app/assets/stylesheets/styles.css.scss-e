@@ -52,7 +52,7 @@ a {
 	font-weight: normal;
 }
 
-#javascript_warning {
+#javascript_warning, #ie_warning {
 xxx@xxx.xxx grad( $red_light, $red_dark );
 	box-shadow: 0px 2px 2px #555, inset 10px 0px 20px -8px #555, inset -10px 0px 20px -8px #555;
 	margin-bottom: 30px;
@@ -672,6 +672,11 @@ xxx@xxx.xxx right_tab_shadow;
 ul#course_labs, ul#assignments, ul#assignment_extras, ul#admin_semesters {
 xxx@xxx.xxx debug_border;
 xxx@xxx.xxx inset;
+	
+	/* added because safari 6 changed something that only affected this one element */
+	margin-left: 0%;
+	/* --- */
+	
 	overflow: hidden;
 	width: 50%;
 	padding-top: 5px;
