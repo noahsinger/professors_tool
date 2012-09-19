@@ -15,11 +15,17 @@ class StudentMailer < ActionMailer::Base
   def work_return( work, submitting_address )
    xxx@xxx.xxx = work
     
-    if work and work.upload_file_name
-      attachments[work.upload_file_name] = File.read(work.upload.path)
+    mail( :parts_order => [ "text/plain", "text/enriched", "text/html" ], 
+    			:to => submitting_address, 
+    			:subject => 'Homework Return @ Ingenio.us.com', 
+    			:from => xxx@xxx.xxx do |format|
+    	format.html
+    	format.text		
     end
     
-    mail( :to => submitting_address, :subject => 'Homework Return @ Ingenio.us.com', :from => xxx@xxx.xxx
+    if work and work.upload_file_name
+      attachments[work.upload_file_name] = {:content => File.read(work.upload.path), :mime_type => work.upload_content_type}
+    end
   end
 
   def grade_request( enrollment )
