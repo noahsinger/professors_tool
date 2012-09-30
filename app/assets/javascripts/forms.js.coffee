@@ -59,6 +59,12 @@ setup_forms = ->
 		field = this
 		div = $(field).parents( "div.file:first" )
 		
+		is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1
+		if is_firefox
+			field.size = "1" 
+			field.style.left = "-20px"
+			field.style.top = "-46px"
+		
 		div.bind 'click', ->
 			field.value = ""
 			# alert( "starting" )
