@@ -26,7 +26,7 @@ class GradeRequestsController < ApplicationController
   # POST /grade_requests.xml
   def create
   	# get previous requests made by someone with this email address
-    prev_request xxx@xxx.xxx = ?', params[:grade_request][:email]).first
+    prev_request xxx@xxx.xxx = ?', params[:grade_request][:email].downcase!).first
     
     # create the grade request
    xxx@xxx.xxx @section.grade_requests.build( params[:grade_request] )
