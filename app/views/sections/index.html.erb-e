@@ -2,6 +2,12 @@
 xxx@xxx.xxx %></h1>
 <% end %>
 
+<%= content_for :prefetches do %>
+xxx@xxx.xxx do |section| %>
+		<link rel="prefetch" href="<%= xxx@xxx.xxx section) %>">
+	<% end %>
+<% end %>
+
 <section>
 	<h1 xxx@xxx.xxx %> Classes</h1>
 	<article>	
