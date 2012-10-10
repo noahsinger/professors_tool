@@ -24,16 +24,16 @@ class GradeRequestsController < ApplicationController
 
   # POST /grade_requests
   # POST /grade_requests.xml
-  def create
+  def create	  
   	# get previous requests made by someone with this email address
-    prev_request xxx@xxx.xxx = ?', params[:grade_request][:email].downcase!).first
+    prev_request xxx@xxx.xxx = ?', params[:grade_request][:email].downcase).first
     
     # create the grade request
    xxx@xxx.xxx @section.grade_requests.build( params[:grade_request] )
     
     # find the enrollment id for the student making the request
    xxx@xxx.xxx do |enrollment|
-      if enrollment.student.email == params[:grade_request][:email]
+      if enrollment.student.email == params[:grade_request][:email].downcase
        xxx@xxx.xxx = enrollment.id
       end
     end
