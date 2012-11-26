@@ -140,8 +140,17 @@ class Semester < ActiveRecord::Base
           # puts "room: #{room}"
           # puts "date range: #{start_date} - #{end_date}"
           # puts "instructor name: #{instructor_name}"
+          # puts "instructor: #{instructor.id}"
           
-          teds_sections << [self.sections.build( :course_id => course.id, :call_number => callno, :section_number => secno, :meeting_days => days, :start_date => start_date, :end_date => end_date, :start_time => start_time, :end_time => end_time, :room_number => room, :instructor_id => instructor.id ), current_enrollment]
+          if course
+            if instructor
+              teds_sections << [self.sections.build( :course_id => course.id, :call_number => callno, :section_number => secno, :meeting_days => days, :start_date => start_date, :end_date => end_date, :start_time => start_time, :end_time => end_time, :room_number => room, :instructor_id => instructor.id ), current_enrollment]
+            else
+              puts "There is no instructor to add for this section"
+            end
+          else
+            puts "The course (#{title}) needed to add a section (#{callno}) was missing"
+          end
         else
           puts "Found a table that shouldn't be here"
       end
