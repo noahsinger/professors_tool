@@ -131,4 +131,129 @@ class Section < ActiveRecord::Base
 
     cal.to_ical
   end
+  
+  def sync_students_with_ted
+    agent = Mechanize.new do |a|
+    	# needed in 1.9, causes error in 1.8
+	    # a.ssl_version='SSLv3'
+    end
+
+    agent.follow_meta_refresh = true
+
+    #login to ted
+    page = agent.get( "https://banweb.tulsacc.edu/PROD/twbkwbis.P_WWWLogin" )
+    form = page.form_with(:name => 'loginform')
+    form.field_with(:name => 'sid').value = APP_CONFIG['ted_username']
+    form.field_with(:name => 'PIN').value = APP_CONFIG['ted_password']
+    
+    result = agent.submit(form)
+
+    #nav to detailed schedule
+    result = result.links_with( :text => 'Faculty and Advisors' ).first.click
+    result = result.links_with( :text => 'Faculty Detail Schedule' ).first.click
+    form = result.forms.last
+    select = form.field_with(:name => 'term' )
+    puts "Updating #{self.semester.name}"
+    select.value = select.options.find {|option| option.text =~ %r{#{self.semester.name_for_ted}}}
+    result = agent.submit(form)
+
+    #parse the data page
+    p = Nokogiri::HTML(result.body)
+    tables = p.css("table.datadisplaytable")
+
+    # enrollment statuses
+    enrolled_status = EnrollmentStatus.find_by_name "Enrolled"
+    dropped_status = EnrollmentStatus.find_by_name "Dropped"
+    audit_status = EnrollmentStatus.find_by_name "Audit"
+    withdrawn_status = EnrollmentStatus.find_by_name "Withdrawn"
+    
+    # all enrollments for this section
+    section_enrollments = self.enrollments.all
+    
+    #mark all students as dropped
+    section_enrollments.each do |enrollment|
+      enrollment.update_attributes( :enrollment_status_id => dropped_status.id )
+    end
+    
+    count = 0
+
+    tables.each do |table|
+      case
+        when count % 3 == 0
+          #it's the title table
+          title_link = table.css("a").first.text
+          title, callno, courseno, secno = title_link.split( " - " )
+          
+          puts "look at table for #{title}"
+          
+          if callno == self.call_number
+            class_list_link = table.css( "a" ).find {|a| a.text == 'Classlist'}
+            result = agent.get( class_list_link['href'] )
+            page = Nokogiri::HTML(result.body)
+            tables = page.css("table.datadisplaytable")
+            
+            tables[2].css("tr").each do |row|
+              links = row.css("td.dddefault span.fieldmediumtext a")
+              if links.size > 0 #so we don't try the header row
+                print "name: #{links[0].text}, "
+                print "status: #{links[1].text}, "
+                print "email: #{links[2]['href'].split(':')[1]}"
+                
+                # current student information
+                current_students_full_name = "#{links[0].text}"
+                current_students_status = "#{links[1].text}"
+                current_students_email = "#{links[2]['href'].split(':')[1]}"
+                
+                puts 
+                
+                #look for existing student with matching address
+                current_enrollment = section_enrollments.find do |enrollment|
+                  enrollment.student.email == current_students_email
+                end
+                
+                #  if we don't find one, create them and make them enrolled (we have their email and full name)
+                unless current_enrollment
+                  puts "#{current_students_full_name} not enrolled"
+                  
+                  # student isn't enrolled but may still exist
+                  new_student = Student.find_by_email( current_students_email )
+                  
+                  # student isn't enrolled and doesn't exist, so create them
+                  unless new_student
+                    puts "creating new student #{current_students_full_name}"
+                    last, first, mi = current_students_full_name.split( ' ' )
+                    mi = mi || '' #mi may not exist
+                    new_student = Student.create!( :first_name => first, :last_name => last.delete(','), :middle_name => mi.delete('.'), :email => current_students_email )
+                  end
+                  
+                  puts "enrolling #{current_students_full_name}"
+                  current_enrollment = self.enrollments.build( :student_id => new_student.id, :enrollment_status_id => dropped_status.id )
+                end
+                
+                #if status is 'Enter' mark them as enrolled
+                puts "marking #{current_students_full_name} enrollment status based on #{current_students_status}"
+                if current_students_status == "Enter"
+                  current_enrollment.update_attributes( :enrollment_status_id => enrolled_status.id )
+                elsif current_students_status == "W"
+                  current.enrollment.update_attributes( :enrollment_status_id => withdrawn_status.id )
+                elsif current_students_status == "AU"
+                  current.enrollment.update_attributes( :enrollment_status_id => audit_status.id )
+                end
+              end
+            end
+          end
+      
+        when count % 3 == 1
+          #it's the enrollments table
+      
+        when count % 3 == 2
+          #it's the meeting times table
+          
+        else
+          puts "Found a table that shouldn't be here"
+      end
+  
+      count += 1
+    end #done with tables    
+  end #end import method
 end

@@ -6,7 +6,7 @@ class Enrollment < ActiveRecord::Base
   has_many :grade_requests, :dependent => :destroy, :order => 'created_at desc'
   has_many :homework_return_requests, :dependent => :destroy, :order => 'created_at desc'
   
-  attr_accessible :student_id
+  attr_accessible :student_id, :enrollment_status_id
   
   # current letter grade
   def current_grade
