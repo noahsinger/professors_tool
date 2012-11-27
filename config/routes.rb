@@ -81,6 +81,7 @@ Ingenious::Application.routes.draw do
         member do
           get 'section_email'
           get 'export_gradebook'
+          get 'sync_students'
         end
       end
       

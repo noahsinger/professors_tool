@@ -184,7 +184,7 @@ class Section < ActiveRecord::Base
           title_link = table.css("a").first.text
           title, callno, courseno, secno = title_link.split( " - " )
           
-          puts "look at table for #{title}"
+          puts " - Updating #{title}"
           
           if callno == self.call_number
             class_list_link = table.css( "a" ).find {|a| a.text == 'Classlist'}
@@ -195,16 +195,16 @@ class Section < ActiveRecord::Base
             tables[2].css("tr").each do |row|
               links = row.css("td.dddefault span.fieldmediumtext a")
               if links.size > 0 #so we don't try the header row
-                print "name: #{links[0].text}, "
-                print "status: #{links[1].text}, "
-                print "email: #{links[2]['href'].split(':')[1]}"
+                # print "name: #{links[0].text}, "
+                # print "status: #{links[1].text}, "
+                # print "email: #{links[2]['href'].split(':')[1]}"
                 
                 # current student information
                 current_students_full_name = "#{links[0].text}"
                 current_students_status = "#{links[1].text}"
                 current_students_email = "#{links[2]['href'].split(':')[1]}"
                 
-                puts 
+                # puts 
                 
                 #look for existing student with matching address
                 current_enrollment = section_enrollments.find do |enrollment|
@@ -213,25 +213,25 @@ class Section < ActiveRecord::Base
                 
                 #  if we don't find one, create them and make them enrolled (we have their email and full name)
                 unless current_enrollment
-                  puts "#{current_students_full_name} not enrolled"
+                  # puts "#{current_students_full_name} not enrolled"
                   
                   # student isn't enrolled but may still exist
                   new_student = Student.find_by_email( current_students_email )
                   
                   # student isn't enrolled and doesn't exist, so create them
                   unless new_student
-                    puts "creating new student #{current_students_full_name}"
+                    # puts "creating new student #{current_students_full_name}"
                     last, first, mi = current_students_full_name.split( ' ' )
                     mi = mi || '' #mi may not exist
                     new_student = Student.create!( :first_name => first, :last_name => last.delete(','), :middle_name => mi.delete('.'), :email => current_students_email )
                   end
                   
-                  puts "enrolling #{current_students_full_name}"
+                  # puts "enrolling #{current_students_full_name}"
                   current_enrollment = self.enrollments.build( :student_id => new_student.id, :enrollment_status_id => dropped_status.id )
                 end
                 
                 #if status is 'Enter' mark them as enrolled
-                puts "marking #{current_students_full_name} enrollment status based on #{current_students_status}"
+                # puts "marking #{current_students_full_name} enrollment status based on #{current_students_status}"
                 if current_students_status == "Enter"
                   current_enrollment.update_attributes( :enrollment_status_id => enrolled_status.id )
                 elsif current_students_status == "W"
@@ -250,7 +250,7 @@ class Section < ActiveRecord::Base
           #it's the meeting times table
           
         else
-          puts "Found a table that shouldn't be here"
+          puts "Found a table that shouldn't be here while syncing students"
       end
   
       count += 1

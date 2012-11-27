@@ -144,6 +144,13 @@ class Admin::SectionsController < ApplicationController
     
     render :text => "<pre>#{csv_string}</pre>"
   end
+  
+  def sync_students
+    @section xxx@xxx.xxx
+   xxx@xxx.xxx
+
+    redirect_to( xxx@xxx.xxx )
+  end
 end
 
 
