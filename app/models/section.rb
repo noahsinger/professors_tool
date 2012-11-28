@@ -160,23 +160,15 @@ class Section < ActiveRecord::Base
     #parse the data page
     p = Nokogiri::HTML(result.body)
     tables = p.css("table.datadisplaytable")
-
-    # enrollment statuses
-    enrolled_status = EnrollmentStatus.find_by_name "Enrolled"
-    dropped_status = EnrollmentStatus.find_by_name "Dropped"
-    audit_status = EnrollmentStatus.find_by_name "Audit"
-    withdrawn_status = EnrollmentStatus.find_by_name "Withdrawn"
-    
-    # all enrollments for this section
-    section_enrollments = self.enrollments.all
     
     #mark all students as dropped
-    section_enrollments.each do |enrollment|
-      enrollment.update_attributes( :enrollment_status_id => dropped_status.id )
+    self.enrollments.all.each do |enrollment|
+      enrollment.update_attributes( :enrollment_status_id => EnrollmentStatus.dropped.id )
     end
     
     count = 0
 
+    # tables on the semester detail page, tables contain each section for the semester (3 per section)
     tables.each do |table|
       case
         when count % 3 == 0
@@ -187,73 +179,110 @@ class Section < ActiveRecord::Base
           puts " - Updating #{title}"
           
           if callno == self.call_number
+            # navigate to the student detail page (first Classlist page)
             class_list_link = table.css( "a" ).find {|a| a.text == 'Classlist'}
             result = agent.get( class_list_link['href'] )
             page = Nokogiri::HTML(result.body)
-            tables = page.css("table.datadisplaytable")
             
-            tables[2].css("tr").each do |row|
-              links = row.css("td.dddefault span.fieldmediumtext a")
-              if links.size > 0 #so we don't try the header row
-                # print "name: #{links[0].text}, "
-                # print "status: #{links[1].text}, "
-                # print "email: #{links[2]['href'].split(':')[1]}"
+            parse_student_tables_on_page( page )
+            
+            # what if there are additional pages of students???
+            page_number = 2 # start with page 2 because page 1 (current page) was done above
+            loop do
+              if link = page.css( "a" ).find {|a| a.text == "#{page_number}1 - #{page_number+1}0"}
+                # puts "Found page #{page_number} of students for #{title}"
+                result = agent.get( link['href'] )
+                page = Nokogiri::HTML(result.body)
                 
-                # current student information
-                current_students_full_name = "#{links[0].text}"
-                current_students_status = "#{links[1].text}"
-                current_students_email = "#{links[2]['href'].split(':')[1]}"
+                # repeat for each page of students
+                parse_student_tables_on_page( page )
                 
-                # puts 
-                
-                #look for existing student with matching address
-                current_enrollment = section_enrollments.find do |enrollment|
-                  enrollment.student.email == current_students_email
-                end
-                
-                #  if we don't find one, create them and make them enrolled (we have their email and full name)
-                unless current_enrollment
-                  # puts "#{current_students_full_name} not enrolled"
-                  
-                  # student isn't enrolled but may still exist
-                  new_student = Student.find_by_email( current_students_email )
-                  
-                  # student isn't enrolled and doesn't exist, so create them
-                  unless new_student
-                    # puts "creating new student #{current_students_full_name}"
-                    last, first, mi = current_students_full_name.split( ' ' )
-                    mi = mi || '' #mi may not exist
-                    new_student = Student.create!( :first_name => first, :last_name => last.delete(','), :middle_name => mi.delete('.'), :email => current_students_email )
-                  end
-                  
-                  # puts "enrolling #{current_students_full_name}"
-                  current_enrollment = self.enrollments.build( :student_id => new_student.id, :enrollment_status_id => dropped_status.id )
-                end
-                
-                #if status is 'Enter' mark them as enrolled
-                # puts "marking #{current_students_full_name} enrollment status based on #{current_students_status}"
-                if current_students_status == "Enter"
-                  current_enrollment.update_attributes( :enrollment_status_id => enrolled_status.id )
-                elsif current_students_status == "W"
-                  current.enrollment.update_attributes( :enrollment_status_id => withdrawn_status.id )
-                elsif current_students_status == "AU"
-                  current.enrollment.update_attributes( :enrollment_status_id => audit_status.id )
-                end
+                page_number += 1
+              else
+                # puts "No additional pages of students found for #{title}"
+                break
               end
             end
-          end
+            
+          end # end callno == self.call_number
       
         when count % 3 == 1
-          #it's the enrollments table
+          #it's the enrollments table, do nothing
       
         when count % 3 == 2
-          #it's the meeting times table
+          #it's the meeting times table, do nothing
           
         else
           puts "Found a table that shouldn't be here while syncing students"
       end
   
       count += 1
-    end #done with tables    
+    end #done with tables
   end #end import method
+  
+  
+  private 
+  
+  def parse_student_tables_on_page( page )
+    # retreive all tables on the student detail page (Classlist page)
+    tables = page.css("table.datadisplaytable")
+            
+    # table 2 is the table containing the student list
+    tables[2].css("tr").each do |row|
+      links = row.css("td.dddefault span.fieldmediumtext a")
+      if links.size > 0 #so we don't try the header row
+        # print "name: #{links[0].text}, "
+        # print "status: #{links[1].text}, "
+        # print "email: #{links[2]['href'].split(':')[1]}"
+                
+        # current student information links (should be three)
+        current_students_full_name = "#{links[0].text}"
+        current_students_status = "#{links[1].text}"
+        # link 3 is a mailto: link, ditch the mailto: in element 0, keep the address in element 1
+        current_students_email = "#{links[2]['href'].split(':')[1]}"
+                
+        # puts 
+                
+        current_enrollment = find_or_create_student_enrollment( current_students_email, current_students_full_name )
+                
+        #if status is 'Enter' mark them as enrolled
+        # puts "marking #{current_students_full_name} enrollment status based on #{current_students_status}"
+        if current_students_status == "Enter"
+          current_enrollment.update_attributes( :enrollment_status_id => EnrollmentStatus.enrolled.id )
+        elsif current_students_status == "W"
+          current.enrollment.update_attributes( :enrollment_status_id => EnrollmentStatus.withdrawn.id )
+        elsif current_students_status == "AU"
+          current.enrollment.update_attributes( :enrollment_status_id => EnrollmentStatus.audit.id )
+        end
+      end # end if there are links
+    end # end processing rows
+  end
+  
+  def find_or_create_student_enrollment( email, name )
+    #get students enrollment if they are already enrolled in this section
+    current_enrollment = self.enrollments.all.find do |enrollment|
+      enrollment.student.email == email
+    end
+                
+    #  if they are not already enrolled in this section
+    unless current_enrollment
+      # puts "#{name} not enrolled"
+                  
+      # see if the student exist at all
+      existing_student = Student.find_by_email( email )
+                  
+      # if the student doesn't exist, create them
+      unless existing_student
+        # puts "creating new student #{name}"
+        last, first, mi = name.split( ' ' )
+        mi = mi || '' # mi may not exist
+        existing_student = Student.create!( :first_name => first, :last_name => last.delete(','), :middle_name => mi.delete('.'), :email => email )
+      end
+                  
+      # puts "enrolling #{name}"
+      current_enrollment = self.enrollments.build( :student_id => existing_student.id, :enrollment_status_id => EnrollmentStatus.dropped.id )
+    end
+    
+    current_enrollment
+  end #end find_or_create...
 end
