@@ -81,11 +81,11 @@ xxx@xxx.xxx %></p>
 		<div id="assignment_instructions">
 			<%= xxx@xxx.xxx %>
 		</div>
-
-		<% xxx@xxx.xxx > 0 %>
-			<div id="extras">
-				<header id="assignment_extras_header"><h1>Extras</h1></header>
-				<div class="fancy">
+		
+		<div id="extras">
+			<header id="assignment_extras_header"><h1>Extras</h1></header>
+			<div class="fancy">
+				<% xxx@xxx.xxx > 0 %>
 					<table>
 					<% for extra xxx@xxx.xxx %>
 					  <tr>
@@ -96,9 +96,10 @@ xxx@xxx.xxx %></p>
 					  </tr>
 					<% end %>
 					</table>
-					<ul class="actions"><li><%= link_to 'Add an extra', xxx@xxx.xxx %></li></ul>
-				</div>
+				<% end %>
+				<ul class="actions"><li><%= link_to 'Add an extra', xxx@xxx.xxx %></li></ul>
 			</div>
-		<% end %>		
+		</div>
+				
 	</article>
 </section>
