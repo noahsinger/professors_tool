@@ -93,7 +93,7 @@ xxx@xxx.xxx %></td>
 				<th></th>
 				<th></th>
 			</tr>
-xxx@xxx.xxx do |enrollment| %>
+xxx@xxx.xxx { |x,y| x.student.last_name <=> y.student.last_name }.each do |enrollment| %>
 				<tr>
 					<td>
 						<%= link_to enrollment.student.first_name + ' ' + enrollment.student.middle_name + ' ' + enrollment.student.last_name, xxx@xxx.xxx %>
