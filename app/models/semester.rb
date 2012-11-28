@@ -152,7 +152,7 @@ class Semester < ActiveRecord::Base
             puts "The course (#{title}) needed to add a section (#{callno}) was missing"
           end
         else
-          puts "Found a table that shouldn't be here"
+          puts "Found a table that shouldn't be here while syncing semester"
       end
   
       count += 1
