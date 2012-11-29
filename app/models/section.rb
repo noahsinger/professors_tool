@@ -176,11 +176,13 @@ class Section < ActiveRecord::Base
           title_link = table.css("a").first.text
           title, callno, courseno, secno = title_link.split( " - " )
           
-          puts " - Updating #{title}"
-          
           if callno == self.call_number
+            puts " - Updating #{title}"
             # navigate to the student detail page (first Classlist page)
-            class_list_link = table.css( "a" ).find {|a| a.text == 'Classlist'}
+            class_list_link = table.css( "a" ).find {|a| a.text == 'Classlist'} 
+            
+            break unless class_list_link # what if there is no classlist link??? (empty section)
+            
             result = agent.get( class_list_link['href'] )
             page = Nokogiri::HTML(result.body)
             
@@ -234,28 +236,54 @@ class Section < ActiveRecord::Base
         # print "name: #{links[0].text}, "
         # print "status: #{links[1].text}, "
         # print "email: #{links[2]['href'].split(':')[1]}"
-                
-        # current student information links (should be three)
-        current_students_full_name = "#{links[0].text}"
-        current_students_status = "#{links[1].text}"
-        # link 3 is a mailto: link, ditch the mailto: in element 0, keep the address in element 1
-        current_students_email = "#{links[2]['href'].split(':')[1]}"
-                
-        # puts 
+        # puts
+        
+        current_students_full_name, current_students_status, current_students_email = parse_student_information links
+        
+        # some students don't have an email link, I guess we'll just skip them
+        next unless current_students_email
                 
         current_enrollment = find_or_create_student_enrollment( current_students_email, current_students_full_name )
                 
         #if status is 'Enter' mark them as enrolled
         # puts "marking #{current_students_full_name} enrollment status based on #{current_students_status}"
-        if current_students_status == "Enter"
-          current_enrollment.update_attributes( :enrollment_status_id => EnrollmentStatus.enrolled.id )
-        elsif current_students_status == "W"
+        if current_students_status == "W"
           current.enrollment.update_attributes( :enrollment_status_id => EnrollmentStatus.withdrawn.id )
         elsif current_students_status == "AU"
           current.enrollment.update_attributes( :enrollment_status_id => EnrollmentStatus.audit.id )
+        else
+          current_enrollment.update_attributes( :enrollment_status_id => EnrollmentStatus.enrolled.id )
         end
       end # end if there are links
     end # end processing rows
+  end
+  
+  def parse_student_information links
+    # possibilities:
+    # 3 links - student name, student status, student email
+    # 2 links - (student name, student status) || (student name, student email)
+    # 1 link  - (student name)
+    
+    full_name = nil
+    status = "unknown"
+    email = nil
+
+    full_name = "#{links[0].text}" #get the full name
+    puts "  * processing #{full_name}"
+    
+    if links[1] and links[1]['href'] =~ /^mailto/
+      # links 1 is the email link
+      email = "#{links[1]['href'].split(':')[1]}"
+    elsif links[1]
+      # links 1 is the status
+      status = "#{links[1].text}"
+    end
+    
+    if links[2]
+      email = "#{links[2]['href'].split(':')[1]}"
+    end
+    
+    [full_name, status, email]
   end
   
   def find_or_create_student_enrollment( email, name )
