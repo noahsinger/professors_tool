@@ -10,6 +10,11 @@
 	
 	<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<style type="text/css" media="screen">
+			#ie_warning {
+				display: block;
+			}
+		</style>
 	<![endif]-->
 	
 	<%= yield :prefetches %>
