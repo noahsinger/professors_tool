@@ -50,7 +50,7 @@ $(document).ready(function( ) {
 	$("#new_syllabus_part").submitWithAjax( );
 	$("#new_requirement").submitWithAjax( );
 		
-	check_for_ie( );
+	//check_for_ie( );
 	
 	check_for_upload_support( );
 }); //end document ready
