@@ -52,6 +52,10 @@ a {
 	font-weight: normal;
 }
 
+#ie_warning {
+	display: none;
+}
+
 #javascript_warning, #ie_warning {
 xxx@xxx.xxx grad( $red_light, $red_dark );
 	box-shadow: 0px 2px 2px #555, inset 10px 0px 20px -8px #555, inset -10px 0px 20px -8px #555;
