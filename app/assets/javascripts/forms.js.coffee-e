@@ -106,6 +106,8 @@ setup_forms = ->
 $(document).ready ->
 	setup_forms( )
 	
+$(document).on('page:load', -> setup_forms( ))
+	
 $(document).bind "orientationchange", ->
 	setup_forms( )
 	check_for_upload_support( )

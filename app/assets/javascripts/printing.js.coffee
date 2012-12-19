@@ -21,7 +21,12 @@ post_print = ->
 			opacity: 1
 		}, timer, ->
 			$("#page").unbind( "click" )
-	
-$(document).ready ->
+
+setup_print_link = ->
 	$("#print").click -> 
 		pre_print( )
+		
+$(document).ready ->
+	setup_print_link( )
+
+$(document).on('page:load', -> setup_print_link( ))

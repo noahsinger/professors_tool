@@ -3,6 +3,11 @@
 # 
 
 $(document).ready ->
+	animate_tabs( )
+	
+$(document).on('page:load', -> animate_tabs( ))
+
+animate_tabs = ->
 	if are_animations_on( )
 		$(".flash").each ->
 			console.log "flash message present"

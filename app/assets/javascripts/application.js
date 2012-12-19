@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= cookie_tools
 //= require animation_toggle
+//= require turbolinks
 //= require_directory .
 //= require_self
 

@@ -1,6 +1,15 @@
 # control for the animation toggle link
 
 $(document).ready ->
+	console.log "preparing to init animations"
+	init_animations( )
+
+
+$(document).on('page:load', -> init_animations( ))
+
+
+init_animations = ->
+	console.log "animations initialized"
 	if are_animations_on( )
 		create_animation_link( "on" )
 		write_cookie( "animation_setting", "on" )
