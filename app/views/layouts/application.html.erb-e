@@ -80,24 +80,6 @@
 					<%= yield  %>
 				</section>
 				
-				<!--
-				<div id="twitter_stream">
-					<a class="twitter-timeline" data-dnt=true href="https://twitter.com/professorsinger" data-widget-id="253489326766301184" width="300">
-						Tweets xxx@xxx.xxx
-					</a>
-					<script>
-						!function(d,s,id) {
-							var js,fjs=d.getElementsByTagName(s)[0];
-							if(!d.getElementById(id)) { 
-								js=d.createElement(s);
-								js.id=id;
-								js.src="//platform.twitter.com/widgets.js";
-								fjs.parentNode.insertBefore(js,fjs);
-							}
-						}(document,"script","twitter-wjs");
-					</script>
-				</div>
-				-->
 			</div>
 		</div>
 		<footer>
