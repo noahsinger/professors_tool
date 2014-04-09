@@ -28,7 +28,10 @@
 	
 	<%= yield :head %>
 	
-	<%= stylesheet_link_tag 'application', :media => :all %>
+	<% unless css_naked_day? %>
+		<%= stylesheet_link_tag 'application', :media => :all %>
+	<% end %>
+	
 	<%= csrf_meta_tag %>
 	
 </head>
@@ -40,7 +43,15 @@
 			<%= yield :header %>
 		</header>
 		
-		<div id="ie_warning">
+		<% if css_naked_day? %>
+			<div>
+				<h1>WHERE DID THE DESIGN GO?</h1>
+				<p>The website you just came from is not broken, the owner of it has decided to participate in Naked CSS Day 2014!</p>
+				<p>Naked CSS Day is a event that is held once per year (April 9th) to celebrate good & well planned design. The website you arrived from will be back to its normal state tomorrow.</p>
+			</div>
+		<% end %>
+		
+		<div id="ie_warning" style="display: none;">
 			<h1>Please Don't Use Internet Explorer</h1>
 			<p>
 				Internet Explorer in all versions is a dangerous browser.  It has many deficiencies and security vulnerabilities that make it unsafe.
