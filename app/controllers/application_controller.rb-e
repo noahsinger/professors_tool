@@ -49,4 +49,11 @@ class ApplicationController < ActionController::Base
     end
 
     helper_method :current_user
+    
+    def css_naked_day?
+    	# is it CSS naked day?
+			Date.today.day == 9 and Date.today.month == 4
+    end
+    
+    helper_method :css_naked_day?
 end
