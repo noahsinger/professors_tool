@@ -16,12 +16,30 @@ class ApplicationController < ActionController::Base
   # helper_method :markdown
     
   def authenticate
-    unless current_user
-      # session[:intended_action] = action_name
-      # session[:intended_controller] = controller_name
-      # session[:intended_id] = params[:id]
-      redirect_to login_path
-    end
+#   	logger.info("**************************")
+# 		logger.info("COOKIES:")
+# 		cookies.each do |name,value|
+# 			logger.info("Name: #{name}")
+# 			logger.info("Value: #{value}")
+# 			logger.info("------------------------")
+# 		end
+# 		logger.info("**************************")
+  
+  	if session[:authentication_bypass]
+  		session[:authentication_bypass] = nil
+	  else
+	    unless current_user
+	      # session[:intended_action] = action_name
+	      # session[:intended_controller] = controller_name
+	      # session[:intended_id] = params[:id]
+	      redirect_to login_path
+	      
+# 	      respond_to do |format|
+# 					format.html {redirect_to login_path}
+# 					format.js {render :template => 'sessions/isotope_new'}
+# 				end
+	    end
+	  end
   end
   
   private
