@@ -54,6 +54,10 @@ class Assignment < ActiveRecord::Base
     end
   end
   
+  def due
+  	self.overdue? ? "past due" : "Due #{self.duedate.strftime( '%m/%d/%Y at %I:%M %p' )}"
+  end
+  
   def graded?
     graded = true
 
