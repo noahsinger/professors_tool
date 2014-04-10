@@ -4,6 +4,8 @@ body.print {
 	width: auto;
 	background: none;
 	font-size: .8em;
+	
+	.pagebreak	{ display: block; page-break-inside: avoid; }
 		
 	#page {
 		width: auto;

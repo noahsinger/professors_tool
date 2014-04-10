@@ -117,7 +117,7 @@ xxx@xxx.xxx %>
 			</table>
 		</div>
 
-		<div id="divisionDiv">
+		<div id="divisionDiv" class="pagebreak">
 xxx@xxx.xxx %></h3>
 			<table id="divisionTable">
 				<tr>
@@ -147,21 +147,21 @@ xxx@xxx.xxx %>
 			</table>
 		</div>
 
-		<div id="prerequisitesDiv">
+		<div id="prerequisitesDiv" class="pagebreak">
 			<h3>Course Prerequisites</h3>
 			<p>
 xxx@xxx.xxx %>
 			</p>
 		</div>
 
-		<div id="nextCourse">
+		<div id="nextCourse" class="pagebreak">
 			<h3>Next Course(s) in Sequence</h3>
 			<p>
 xxx@xxx.xxx %>
 			</p>
 		</div>
 
-		<div id="textbookDiv">
+		<div id="textbookDiv" class="pagebreak">
 			<h3>Textbook(s)</h3>
 xxx@xxx.xxx do |book| %>
 				<p>
@@ -178,12 +178,12 @@ xxx@xxx.xxx do |book| %>
 			<% end %>
 		</div>
 
-		<div id="otherMaterialsDiv">
+		<div id="otherMaterialsDiv" class="pagebreak">
 			<h3>Other Materials</h3>
 xxx@xxx.xxx %></p>
 		</div>
 
-		<div id="courseObjectivesDiv">
+		<div id="courseObjectivesDiv" class="pagebreak">
 			<h3>Course Objectives</h3>
 			<p>Upon completion of this course, a student should be able to do the following:</p>
 			<ol>
@@ -195,8 +195,10 @@ xxx@xxx.xxx do |o| %>
 
 		<div id="policies">
 xxx@xxx.xxx do |policy| %>
-				<h3><%= policy.syllabus_part.title %></h3>
-				<%= markdown policy.syllabus_part.description %>
+				<div class="policy pagebreak">
+					<h3><%= policy.syllabus_part.title %></h3>
+					<%= markdown policy.syllabus_part.description %>
+				</div>
 			<% end %>
 		</div>
 
