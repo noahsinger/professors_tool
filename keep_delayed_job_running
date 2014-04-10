@@ -5,7 +5,7 @@ grep 'jobs:work' $HOME/.$$processes > /dev/null
 
 if [ $? != 0 ]
 then
-  cd $HOME/ingenious/; rake jobs:work RAILS_ENV='production' > /dev/null
+  cd $HOME/ingenious/; bundle exec rake jobs:work RAILS_ENV='production' > /dev/null
 fi
 
 rm $HOME/.$$processes
