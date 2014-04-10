@@ -1,9 +1,21 @@
 class Admin::WorksController < ApplicationController
+	before_filter :bypass_authentication, :only => [:download]
   before_filter :authenticate
 
   before_filter :load_semester
   before_filter :load_section
   before_filter :load_assignment
+  
+  def bypass_authentication
+  	work = Work.find( params[:id] )
+	  if work and work.withdrawal_code == params[:code]    
+# 	    skip_filter :authenticate
+			session[:authentication_bypass] = true
+	    logger.info("authentication skipped, proper code submitted")
+	  else
+	  	logger.info("invalid code, authentication not skipped")
+	  end
+  end
   
   def load_semester
     if params[:semester_id]
@@ -31,14 +43,14 @@ class Admin::WorksController < ApplicationController
   
   def download
     work = Work.find( params[:id] )
-    
+        
     # TODO: try changing this to x_send_file which will use the x_send_file plugin which has the potential to
     # send the file much more efficiently than send_file does.  Didn't work in development through mongrel
     # but might work when it's running through apache.
     send_file( work.upload.path, 
                 :type => work.upload_content_type, 
-                :disposition => 'inline',  # change to attachment?
-# 								:disposition => 'attachment',
+#                 :disposition => 'inline',  # change to attachment?
+								:disposition => 'attachment',
                 :filename => work.upload_file_name )
   end
   
