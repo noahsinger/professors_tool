@@ -12,6 +12,10 @@ class Instructor < ActiveRecord::Base
   
   has_attached_file :office_hours
   
+  def to_param
+    "#{id}-#{name.gsub(/\s+/i, '-')}"
+  end
+  
   def full_name
     "#{self.title} #{self.first_name} #{self.last_name}"
   end
