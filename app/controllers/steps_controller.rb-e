@@ -22,7 +22,6 @@ class StepsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml xxx@xxx.xxx }
-      format.iphone
     end
   end
 end

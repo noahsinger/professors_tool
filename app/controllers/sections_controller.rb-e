@@ -13,7 +13,6 @@ class SectionsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml xxx@xxx.xxx }
-      format.iphone
     end
   end
 

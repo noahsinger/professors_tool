@@ -27,7 +27,6 @@ class AssignmentsController < ApplicationController
       format.xml { render :xml xxx@xxx.xxx }
       format.rss { render :layout => false }
       format.ics { render :text xxx@xxx.xxx
-      format.iphone
     end
   end
 
@@ -39,7 +38,6 @@ class AssignmentsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml xxx@xxx.xxx }
-      format.iphone
     end
   end
 end
