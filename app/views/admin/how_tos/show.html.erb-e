@@ -21,41 +21,30 @@
 	</header>
 
 	<ul class="actions">
+		<li><%= link_to 'New step', xxx@xxx.xxx %></li>
 		<li><%= link_to 'Edit this How to', xxx@xxx.xxx %></li>
 	</ul>
 
-	<article class="course_info">
+	<div class="fancy">
+		<table>
+			<tr>
+				<th>Step</th>
+				<th>Title</th>
+			</tr>
+			<tbody id="steps">
+				<% for step xxx@xxx.xxx %>
+					<%= render :partial => step %>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="admin_comments">
 		<h1>Description</h1>
-		<p class="admin_comments">
-		  xxx@xxx.xxx %>
-		</p>
-	</article>
-	
-	<article class="course_info">
-		<h1>Steps</h1>
-		<div class="fancy">
-			<table>
-				<tbody id="steps">
-					<% for step xxx@xxx.xxx %>
-						<%= render :partial => step %>
-					<% end %>
-				</tbody>
-			</table>
-		</div>
-	
-		<ul class="actions">
-			<li><%= link_to 'New step', xxx@xxx.xxx %></li>
-		</ul>
-	</article>
-	
-	<article class="course_info">
-		<h1>Is used by <%= xxx@xxx.xxx "Course" %></h1>
-		<ul class="actions">
-xxx@xxx.xxx do |course| %>
-				<li>
-					<%= link_to course.title, admin_course_path(course) %>
-				</li>
-			<% end %>
-		</ul>
-	</article>
+	  xxx@xxx.xxx %>
+	  <h5>Is used by <%= xxx@xxx.xxx "Course" %>:</h5>
+	  xxx@xxx.xxx do |course| %>
+			<%= link_to course.title, admin_course_path(course) %><br/>
+		<% end %>
+	</div>
 </section>
