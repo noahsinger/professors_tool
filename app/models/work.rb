@@ -9,8 +9,6 @@ class Work < ActiveRecord::Base
   
   has_attached_file :upload,
                     :path => ":rails_root/uploads/:class/:id/:attachment/:basename.:extension",
-#                     :url => ":rails_root/uploads/:class/:id/:attachment/:id",
-#                     :url => "/admin/:class/download/:id",
                     :url => "/admin/:class/:id/download",
                     :default_url => ''
                     
@@ -30,13 +28,13 @@ class Work < ActiveRecord::Base
   end
     
   validates_with UploadValidator
-    
+  
   def generate_withdrawal_code
     update_attribute(:withdrawal_code, withdrawal_code = Digest::SHA256.hexdigest(self.assignment.title+self.assignment.lab.title+self.id.to_s))
   end
   
   def graded?
-    graded = false    
+    graded = false
 
     if self.awarded_points.size > 0
       graded = true
