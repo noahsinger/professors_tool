@@ -26,6 +26,23 @@ class Section < ActiveRecord::Base
   def to_param
     "#{id}-#{course.title.gsub(/[^a-z0-9]+/i, '-')}"
   end
+  
+  def class_size
+  	num = self.enrollments.where(:enrollment_status_id => EnrollmentStatus.enrolled.id ).size
+  	size = if num <= 5
+  		"small"
+		elsif num > 5 and num <= 10
+  		"medium"
+		elsif num > 10
+  		"large"
+		end
+		
+		if self.course.credits < 3
+			size = "small"
+		end
+			
+		size
+  end
 
   def final_grade_for student
     enrollment = self.enrollments.find_by_student_id( student.id )
