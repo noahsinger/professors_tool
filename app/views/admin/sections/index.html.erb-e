@@ -49,7 +49,7 @@ xxx@xxx.xxx %></h1>
 			<th></th>
 		    <th>Course</th>
 			<th>Days</th>
-			<th>Enrolled</th>
+			<th>Enrolled onsite/TED</th>
 	
 			<th></th>
 			<th></th>
@@ -65,10 +65,17 @@ xxx@xxx.xxx %></h1>
 				<% end %>
 			</td>
 		    <td class="title">
-				<%=link_to "#{section.course.title}", xxx@xxx.xxx section] %><br/>
+				<%=link_to "#{section.course.title}", xxx@xxx.xxx %><br/>
 			</td>
 		    <td class="days"><%= section.meeting_days %></td>
-				<td class="enrollments"><%= section.enrollments.size %></td>
+				<td class="enrollments">
+					<%= section.enrollments.size %> / 
+					<% if section.enrollment_snapshots.count > 0 %>
+						<%= section.enrollment_snapshots.last.enrollment_count %>
+					<% else %>
+						NA
+					<% end %>
+				</td>
 
 		    <td class="edit"><%= link_to 'Edit', [:edit, xxx@xxx.xxx section] %></td>
 		    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx section], :confirm => 'Are you sure?', :method => :delete %></td>
