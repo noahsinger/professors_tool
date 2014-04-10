@@ -3,7 +3,7 @@ class Step < ActiveRecord::Base
 
   attr_accessible :image, :title, :instructions, :how_to
   
-  has_attached_file :image, :styles => {:thumb => "100x100>", :normal => "400x400>", :large => "800x800>"}, :default_style => :normal
+  has_attached_file :image, :styles => {:thumb => "200x200>", :normal => "800x800>", :large => "1200x1200>"}, :default_style => :normal
   
   validates_presence_of :title
   validates_presence_of :instructions
