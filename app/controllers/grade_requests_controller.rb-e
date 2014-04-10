@@ -61,7 +61,7 @@ class GradeRequestsController < ApplicationController
         else
         	# if no one in this section has the requesters email address it must be a request from a non-enrolled student
          xxx@xxx.xxx :status => 'denied'
-         xxx@xxx.xxx :email, 'does not match any enrollments for this section.  Are you sure you are using your official email address for school and not a personal email address?';
+         xxx@xxx.xxx :email, 'does not match any enrollments for this section.  Are you sure you are using your school email address and not a personal email address?';
           format.html { render :action => "new" }
         end
       else
