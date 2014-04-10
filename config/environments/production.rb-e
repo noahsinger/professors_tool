@@ -31,7 +31,7 @@ Ingenious::Application.configure do
   # In production, Apache or nginx will already do this
   config.serve_static_assets = false
   
-	config.assets.precompile += ['admin/admin.js','email.css', 'jquery-ui-1.7.1.custom.css']
+	config.assets.precompile += ['extras/chrome.js', 'admin/admin.js', 'email.css', 'jquery-ui-1.7.1.custom.css']
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
