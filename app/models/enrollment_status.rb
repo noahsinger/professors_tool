@@ -3,8 +3,8 @@ class EnrollmentStatus < ActiveRecord::Base
   attr_accessible :name
   validates_presence_of :name
   
-  def self.method_missing method_sym, *args, &block
-    status = where( :name => method_sym.to_s ).first
+  def self.method_missing( method_sym, *args, &block )
+    status = where( :name => method_sym.to_s ).first || where( :name => method_sym.to_s.capitalize ).first
     # puts "looking for method called #{method_sym}, found status is #{status}"
     if status
       # create a class method for this status so that it will be there next time it's called
@@ -17,15 +17,13 @@ class EnrollmentStatus < ActiveRecord::Base
     else
       super
     end
-    
-    # super
   end
   
-  def self.respond_to? method_sym, *args
-    if find_by_name method_sym.to_s
-      true
-    else
-      super
-    end
-  end
+#   def self.respond_to? method_sym, *args
+# 		if where( :name => method_sym.to_s ).first || where( :name => method_sym.to_s.capitalize ).first
+#       true
+#     else
+#       super
+#     end
+#   end
 end
