@@ -72,4 +72,22 @@ class SectionTest < ActiveSupport::TestCase
     
     assert_equal 0, section.course.waiters.count
   end
+  
+  test "sections report their class size" do
+  	assert_respond_to Section.all.first, :class_size
+  	
+  	assert_equal "small", Section.all.first.class_size
+  	
+  	section = Section.all.first
+  	section.room_number = "999"
+  	7.times do
+  		student = Student.create( :first_name => Faker::Name.first_name, :last_name => Faker::Name.last_name, :email => Faker::Internet.email )
+  		student.save
+  		e = section.enrollments.build( :student_id => student.id, :enrollment_status_id => EnrollmentStatus.enrolled.id )
+  	end
+  	section.save!
+  	
+  	assert_equal 9, section.enrollments.where(:enrollment_status_id => EnrollmentStatus.enrolled.id ).size
+  	assert_equal "medium", section.class_size
+  end
 end
