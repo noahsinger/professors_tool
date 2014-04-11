@@ -1,20 +1,45 @@
-<%= content_for :header do %>
-	<h1>How to: xxx@xxx.xxx %></h1>
-	<h4>Create a new step</h4>
-<% end %>
-
 <nav>
-		<li><%= link_to xxx@xxx.xxx do %> <%= render :partial => "shared/back_link" %> <% end %></li>
-	</nav>
+	<%= link_to 'Back', xxx@xxx.xxx %>
+</nav>
+	
+<header>
+	<p>How to: xxx@xxx.xxx %></p>
+	<h1>Create a new step</h1>
+</header>
 
 <%= xxx@xxx.xxx :html => {:multipart => true}) do |f| %>
-<%= xxx@xxx.xxx %>
+	<%= xxx@xxx.xxx %>
 	<ol>
-		<li><div class="details"><%= f.label :title %><p></p></div><div class="field"><%= f.text_field :title %></div></li>
-		<li><div class="details"><%= f.label :instructions %><p></p></div><div class="field"><%= f.text_area :instructions %></div></li>
-		<li><div class="details"><%= f.label :image %><p></p></div><div class="field"><%= f.file_field :image %></div></li>
-		<li class="submit_bar">
-			<%= f.submit "Create" %>
+		<li>
+			<div class="details">
+				<%= f.label :title %>
+				<p>The title of this Step</p>
+			</div>
+			<div class="field"><%= f.text_field :title %></div>
+		</li>
+		
+		<li class="textarea">
+			<div class="details">
+				<%= f.label :instructions %>
+				<p>This steps instructions</p>
+			</div>
+			<div class="field"><%= f.text_area :instructions %></div>
+		</li>
+		
+		<li>
+			<div class="details">
+				<%= f.label :image %>
+				<p>Select an image to go with this step if there is an image that you want to use. Otherwise leave this field blank</p>
+			</div>
+			<div class="file field">
+				<span class="prompt">Click to Browse</span>
+				<%= f.file_field :image %>
+			</div>
+			<div class="filename"></div>
+		</li>
+		
+		<li class="action">
+			<div><%= f.submit "Create" %></div>
 		</li>
 	</ol>
 <% end %>
