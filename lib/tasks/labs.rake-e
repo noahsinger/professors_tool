@@ -63,9 +63,9 @@ namespace :labs do
       unless work.graded?
         if work.assignment.section.semester == Semester.current
           if work.enrollment
-            puts "Ungraded work - #{work.assignment.section.meeting_days} #{work.assignment.section.course.title} (#{work.assignment.section.semester.short_name}) - #{work.enrollment.student.last_name_first}"
+            puts "Ungraded work - #{work.assignment.section.meeting_days} #{work.assignment.section.course.title} #{work.assignment.title} (#{work.assignment.section.semester.short_name}) - #{work.enrollment.student.last_name_first}"
           else
-            puts "Ungraded work - #{work.assignment.section.meeting_days} #{work.assignment.section.course.title} (#{work.assignment.section.semester.short_name}) - Unknown Student"
+            puts "Ungraded work - #{work.assignment.section.meeting_days} #{work.assignment.section.course.title} #{work.assignment.title} (#{work.assignment.section.semester.short_name}) - Unknown Student"
           end
         end
       end
