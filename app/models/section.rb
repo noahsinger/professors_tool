@@ -78,7 +78,11 @@ class Section < ActiveRecord::Base
   	if self.meeting_days.downcase =~ /all/
   		"online"
   	else
-	  	self.meeting_days.gsub( ' ', '' )
+  		if self.meeting_days.ord == 160 #nbsp
+	  		''
+	  	else
+		  	self.meeting_days.gsub( ' ', '' )
+		  end
 	  end
   end
   
