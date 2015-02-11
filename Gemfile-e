@@ -12,10 +12,12 @@ gem 'twitter', '~> 4.8'
 # gem 'twitter', '~> 5.0'
 # gem 'system_timer', '~> 1.2'
 gem 'shortly', '~> 0.3'
-gem 'bcrypt-ruby', '~> 3.0'
+# gem 'bcrypt-ruby', '~> 3.0'
+gem 'bcrypt', '~> 3.0'
 gem 'mechanize' #, '~> 2.3'
 gem 'coderay', '~> 1.0'
-gem 'premailer-rails3', '~> 1.1'
+gem 'premailer-rails3', '= 1.1'
+# gem 'premailer-rails', '~> 1.1'
 # gem 'nokogiri', '~> 1.5' #required by premailer-rails3
 gem 'thin'
 
@@ -35,8 +37,8 @@ gem 'jquery-rails', '~> 2.0'
 gem 'turbolinks', '~> 0.6'
 
 group :production do
-	gem 'mysql'
-	gem 'mysql2'
+	# gem 'mysql'
+	# gem 'mysql2'
 	# gem 'therubyracer'
 end
 
