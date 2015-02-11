@@ -4,13 +4,20 @@ class Admin::AssignmentTweetsController < ApplicationController
   def new
    xxx@xxx.xxx = Assignment.find params[:assignment_id]
     
-   xxx@xxx.xxx = ""
+    @content = xxx@xxx.xxx for"
+    
+    xxx@xxx.xxx
+	  	@content = "#{@content} xxx@xxx.xxx  
+	  end
+		  
+	  @content = "#{@content} xxx@xxx.xxx
+    
     if params[:status] == "graded"
-      @content = "#{@assignment.title} for #{@assignment.section.meeting_days.gsub(' ', '')} #{@assignment.section.course.title} class has been graded. xxx@xxx.xxx
+	    @content = "#{@content} class has been graded. xxx@xxx.xxx
     elsif params[:status] == "new"
-      @content = "#{@assignment.title} for #{@assignment.section.meeting_days.gsub(' ', '')} #{@assignment.section.course.title} class was just posted. xxx@xxx.xxx
+    	@content = "#{@content} class is now available. xxx@xxx.xxx
     elsif params[:status] == "duedate"
-      @content = "The duedate for #{@assignment.title} of the #{@assignment.section.meeting_days.gsub(' ', '')} #{@assignment.section.course.title} class was just changed. xxx@xxx.xxx
+    	@content = "#{@content} class has had it's due date changed. xxx@xxx.xxx
     end
   end
   
