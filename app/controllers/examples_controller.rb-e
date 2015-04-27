@@ -29,7 +29,7 @@ class ExamplesController < ApplicationController
   
   def test_tweet
     begin
-      Tweet.new.send( "New test tweet" )
+      Tweet.new.send( "New test    tweet" )
       flash[:notice] = "Tweet tweeted"
     rescue Twitter::Error => e
       flash[:error] = "Tweet not sent: #{e}"
