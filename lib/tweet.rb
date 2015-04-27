@@ -5,6 +5,6 @@ class Tweet
   end
       
   def send( msg )
-   xxx@xxx.xxx msg.gsub(/\s+/, " ") )
+   xxx@xxx.xxx msg.squeeze(' ') )
   end
 end
