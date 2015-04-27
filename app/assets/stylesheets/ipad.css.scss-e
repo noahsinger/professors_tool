@@ -124,6 +124,7 @@
 				ul {
 					li {
 						a {
+							line-height: 30px;
 						}
 					} // end li
 				} // end ul
