@@ -19,7 +19,7 @@
 	
 	<%= yield :prefetches %>
 	
-	<%= javascript_include_tag 'application' %>
+	<%= javascript_include_tag 'application', :async => true %>
 	<% if admin? %>
 		<!-- start admin javascript -->
 		<%= javascript_include_tag 'admin/admin' %>
@@ -30,7 +30,7 @@
 	
 	<% unless css_naked_day? %>
 		<%= stylesheet_link_tag 'application', :media => :all %>
-		<%= javascript_include_tag 'extras/chrome' %>
+		<%= javascript_include_tag 'extras/chrome', :async => true %>
 	<% end %>
 	
 	<%= csrf_meta_tag %>
@@ -47,7 +47,7 @@
 		<% if css_naked_day? %>
 			<div>
 				<h1>WHERE DID THE DESIGN GO?</h1>
-				<p>The website you just came from is not broken, the owner of it has decided to participate in Naked CSS Day 2014!</p>
+				<p>This website is not broken, the owner of it has decided to participate in Naked CSS Day <%= Time.now.year %>!</p>
 				<p>Naked CSS Day is a event that is held once per year (April 9th) to celebrate good & well planned design. The website will be back to its normal state tomorrow.</p>
 			</div>
 		<% end %>
