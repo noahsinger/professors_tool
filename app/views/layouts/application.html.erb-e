@@ -19,7 +19,7 @@
 	
 	<%= yield :prefetches %>
 	
-	<%= javascript_include_tag 'application', :async => true %>
+	<%= javascript_include_tag 'application' %>
 	<% if admin? %>
 		<!-- start admin javascript -->
 		<%= javascript_include_tag 'admin/admin' %>
