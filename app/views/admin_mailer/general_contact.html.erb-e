@@ -2,7 +2,7 @@
 	<table class="tab">
 		<tr class="tab_header">
 			<td colspan="2">
-				Email from Ingenio.us Contact Form
+				Email from <%= APP_CONFIG['site_name'] %> Contact Form
 			</td>
 		</tr>
 		<tr class="tab_content">

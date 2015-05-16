@@ -4,6 +4,8 @@ class Assignment < ActiveRecord::Base
   include Rails.application.routes.url_helpers # to allow the use of named routes in this model (:host attribute required for urls)
   
   attr_accessible :title, :lab, :duedate, :lab_id
+  attr_reader :bitly_data
+  attr_accessor :url
   
   belongs_to :lab
   belongs_to :section
@@ -20,8 +22,13 @@ class Assignment < ActiveRecord::Base
   end
   
   def generate_short_url
-    googl = Shortly::Clients::Googl    
-    update_attribute :short_url, googl.shorten(semester_section_assignment_url(self.section.semester,self.section,self,:host => "ingenio.us.com")).shortUrl
+#     googl = Shortly::Clients::Googl
+#     update_attribute :short_url, googl.shorten(semester_section_assignment_url(self.section.semester,self.section,self,:host => APP_CONFIG['host']),{:apiKey => APP_CONFIG['google_api_key']}).shortUrl
+
+		bitly = Shortly::Clients::Bitly
+xxx@xxx.xxx ||= semester_section_assignment_url(self.section.semester,self.section,self,:host => APP_CONFIG['host'])		
+ xxx@xxx.xxx = bitly.shorten( url, {:apiKey => APP_CONFIG['bitly_api_key'], :login => APP_CONFIG['bitly_username']} )
+    update_attribute xxx@xxx.xxx
   end
   
   def worth
@@ -88,7 +95,7 @@ class Assignment < ActiveRecord::Base
   	event.description self.section.course.title + " " + self.title + " :: " + self.lab.title + " is due by " + self.duedate.strftime( "%I:%M %p" )
   	event.location    ""
   	event.dtstamp     self.created_at.to_datetime
-    event.url         "http://www.ingenio.us.com/semesters/" + self.section.semester.id.to_s + "/sections/" + self.section.id.to_s + "/assignments/" + self.id.to_s
+    event.url         "#{APP_CONFIG['site_url']}/semesters/" + self.section.semester.id.to_s + "/sections/" + self.section.id.to_s + "/assignments/" + self.id.to_s
   	event.uid         self.section.call_number + "-assignment-#{self.id.to_s}"
   	event.sequence    0
   	

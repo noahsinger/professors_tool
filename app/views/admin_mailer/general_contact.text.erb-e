@@ -1,5 +1,5 @@
 ==================================
-Email from Ingenio.us Contact Form
+Email from <%= APP_CONFIG['site_name'] %> Contact Form
 ==================================
 
 Subject: xxx@xxx.xxx %>

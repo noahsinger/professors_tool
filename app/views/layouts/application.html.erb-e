@@ -40,7 +40,7 @@
 
 	<div id="page">
 		<header>
-			<div id="title"><%= link_to 'Ingeni<span>o.</span>us'.html_safe, root_path %></div>
+			<div id="title"><%= link_to APP_CONFIG['site_name'].html_safe, root_path %></div>
 			<%= yield :header %>
 		</header>
 		

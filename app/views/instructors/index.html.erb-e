@@ -11,7 +11,7 @@
 	</nav>
 	
 	<header>
-		<p>Ingenio.us</p>
+		<p><%= APP_CONFIG['site_name'] %></p>
 		<h1>Instructors</h1>
 	</header>
 	

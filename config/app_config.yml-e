@@ -1,4 +1,5 @@
 development:
+    site_name: Threesuns
     owner_email: xxx@xxx.xxx
     banner_location: http://localhost:3000/images/sml_banner.png
     site_url: http://localhost:3000
@@ -8,12 +9,14 @@ development:
     ted_password: "ADMINPASSWORD"
     
 test:
+    site_name: Ingeni<span>o.</span>us
     owner_email: xxx@xxx.xxx
     rake_path: /usr/local/bin/rake
     host: localhost:3000
     site_url: http://localhost:3000
 
 production:
+    site_name: Ingeni<span>o.</span>us
     owner_email: xxx@xxx.xxx
     banner_location: http://ingenio.us.com/images/sml_banner.png
     site_url: http://ingenio.us.com

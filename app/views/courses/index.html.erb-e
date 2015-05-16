@@ -12,7 +12,7 @@
 	</nav>
 	
 	<header>
-		<p>Ingenio.us</p>
+		<p><%= APP_CONFIG['site_name'] %></p>
 		<h1>Offered Courses</h1>
 	</header>
 	
