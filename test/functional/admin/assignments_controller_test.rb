@@ -33,6 +33,8 @@ class Admin::AssignmentsControllerTest < ActionController::TestCase
   end
   
   test "new assignments should have a short url" do
+	  skip "don't want to generate short url's for test data"
+	  
     post :create, :section_id => sections(:jck1003_section_1), :semester_id => sections(:jck1003_section_1).semester_id, 
     :assignment => { 
       :title => 'Lab99',
@@ -41,8 +43,7 @@ class Admin::AssignmentsControllerTest < ActionController::TestCase
     }
     
     assert_respond_to assigns(:assignment), :generate_short_url
-    # assert_equal googl.shorten(semester_section_assignment_url(assigns(:assignment).section.semester,assigns(:assignment).section,assigns(:assignment)), :host => "ingenio.us.com").shortUrl, assigns(:assignment).short_url
-    assert_not_nil assigns(:assignment).short_url
+		assert_not_nil assigns(:assignment).short_url
   end
 
   def test_should_show_assignment

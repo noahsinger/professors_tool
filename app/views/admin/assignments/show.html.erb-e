@@ -30,8 +30,10 @@ xxx@xxx.xxx %> pts</td></tr>
 		<ul id="assignment_links">
 			<li><a href="#" id="print" class="icon file">Print this Assignment</a></li>
 
-			<% xxx@xxx.xxx %>
+			<% if @assignment.short_url xxx@xxx.xxx =~ /goo\.gl/ %>
 				<li><%= link_to 'Goo.gl Stats', xxx@xxx.xxx %></li>
+			<% elsif @assignment.short_url xxx@xxx.xxx =~ /bit\.ly/ %>
+				<li><%= link_to 'Bit.ly Stats', "https://bitly.com/a/bitlinks/" %></li>
 			<% end %>
 
 			<% if current_user %>

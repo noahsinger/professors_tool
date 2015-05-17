@@ -5,7 +5,6 @@ class Assignment < ActiveRecord::Base
   
   attr_accessible :title, :lab, :duedate, :lab_id
   attr_reader :bitly_data
-  attr_accessor :url
   
   belongs_to :lab
   belongs_to :section
@@ -26,7 +25,7 @@ class Assignment < ActiveRecord::Base
 #     update_attribute :short_url, googl.shorten(semester_section_assignment_url(self.section.semester,self.section,self,:host => APP_CONFIG['host']),{:apiKey => APP_CONFIG['google_api_key']}).shortUrl
 
 		bitly = Shortly::Clients::Bitly
-xxx@xxx.xxx ||= semester_section_assignment_url(self.section.semester,self.section,self,:host => APP_CONFIG['host'])		
+		url = semester_section_assignment_url(self.section.semester,self.section,self,:host => APP_CONFIG['host'])
  xxx@xxx.xxx = bitly.shorten( url, {:apiKey => APP_CONFIG['bitly_api_key'], :login => APP_CONFIG['bitly_username']} )
     update_attribute xxx@xxx.xxx
   end
