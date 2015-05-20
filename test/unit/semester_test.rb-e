@@ -19,9 +19,14 @@ class SemesterTest < ActiveSupport::TestCase
     assert_equal true, Semester.find( 1 ).is_past
   end
   
-  def text_current
+  def test_current
     assert_equal 2, Semester.current.id
   end
+  
+  test "what if there isn't a current semester" do
+		Semester.current.destroy
+		assert_nil Semester.current  
+	end
   
   def test_is_future
     assert_equal true, Semester.find( 3 ).is_future

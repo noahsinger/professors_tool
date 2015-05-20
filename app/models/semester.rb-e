@@ -18,7 +18,8 @@ class Semester < ActiveRecord::Base
       end
     end
     
-    return Semester.find( :last )
+    # return Semester.find( :last )
+    nil
   end
 
   def student_count
