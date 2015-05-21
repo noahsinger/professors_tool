@@ -4,12 +4,12 @@ class StudentMailer < ActionMailer::Base
   
   def work_submitted( work, submitting_address )
    xxx@xxx.xxx = work
-    mail(:to => submitting_address, :subject => "Homework Submitted @ #{APP_CONFIG['site_name']}", :from => xxx@xxx.xxx
+    mail(:to => submitting_address, :subject => "Homework Submitted @ #{APP_CONFIG['host']}", :from => xxx@xxx.xxx
   end
 
   def work_reminder( work )
    xxx@xxx.xxx = work
-    mail( :to => work.email, :subject => "Homework Reminder @ #{APP_CONFIG['site_name']}", :from => xxx@xxx.xxx )
+    mail( :to => work.email, :subject => "Homework Reminder @ #{APP_CONFIG['host']}", :from => xxx@xxx.xxx )
   end
 
   def work_return( work, submitting_address )
@@ -17,7 +17,7 @@ class StudentMailer < ActionMailer::Base
     
     mail( :parts_order => [ "text/plain", "text/enriched", "text/html" ], 
     			:to => submitting_address, 
-    			:subject => "Homework Return @ #{APP_CONFIG['site_name']}", 
+    			:subject => "Homework Return @ #{APP_CONFIG['host']}", 
     			:from => xxx@xxx.xxx do |format|
     	format.html
     	format.text		
@@ -30,13 +30,13 @@ class StudentMailer < ActionMailer::Base
 
   def grade_request( enrollment )
    xxx@xxx.xxx = enrollment
-    mail( :to => enrollment.student.email, :subject => "Your Grades @ #{APP_CONFIG['site_name']}", :from => xxx@xxx.xxx )
+    mail( :to => enrollment.student.email, :subject => "Your Grades @ #{APP_CONFIG['host']}", :from => xxx@xxx.xxx )
   end
 
   def section_email( section, address, text )
    xxx@xxx.xxx = text
    xxx@xxx.xxx = section
-    mail( :to => address, :subject => "Section Annoucement from #{APP_CONFIG['site_name']}", :from => xxx@xxx.xxx )
+    mail( :to => address, :subject => "Section Annoucement from #{APP_CONFIG['host']}", :from => xxx@xxx.xxx )
   end
   
   def section_availability_notification(section, email)
