@@ -37,8 +37,9 @@ gem 'turbolinks', '~> 0.6'
 
 group :production do
 	# gem 'mysql'
-	# gem 'mysql2'
-	# gem 'therubyracer'
+	gem 'mysql2'
+	# gem 'activerecord-mysql-adapter'
+	gem 'therubyracer'
 end
 
 group :development do
