@@ -18,15 +18,16 @@ namespace :examples do
   desc "Clear examples > 1 year old"
   task :clear => :environment do
     semesters = Semester.all
-    current = Semester.current
-    semesters.each do |semester|
-      if semester.end_date + 1.year < current.end_date
-        semester.sections.each do |section|
-          section.examples.each do |example|
-            example.destroy
-          end
-        end
-      end
+    if current = Semester.current
+	    semesters.each do |semester|
+	      if semester.end_date + 1.year < current.end_date
+	        semester.sections.each do |section|
+	          section.examples.each do |example|
+	            example.destroy
+	          end
+	        end
+	      end
+	    end
     end
   end
 end
