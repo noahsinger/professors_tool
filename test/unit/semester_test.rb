@@ -27,6 +27,10 @@ class SemesterTest < ActiveSupport::TestCase
 		Semester.current.destroy
 		assert_nil Semester.current  
 	end
+	
+	test "can get a list of future semesters" do
+		assert_equal 1, Semester.future.size
+	end
   
   def test_is_future
     assert_equal true, Semester.find( 3 ).is_future
