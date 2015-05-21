@@ -11,7 +11,7 @@
 	</nav>
 	
 	<header>
-		<p><%= APP_CONFIG['site_name'] %></p>
+		<p><%= APP_CONFIG['site_name'].html_safe %></p>
 		<h1>Semesters</h1>
 	</header>
 	
