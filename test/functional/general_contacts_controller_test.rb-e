@@ -11,6 +11,6 @@ class GeneralContactsControllerTest < ActionController::TestCase
       post :create, :general_contact => { :return_email => xxx@xxx.xxx :subject => 'test', :body => 'I ahve a question?'}
     end
 
-    assert_redirected_to semester_sections_path(:semester_id => Semester.current)
+    assert_redirected_to root_url
   end
 end
