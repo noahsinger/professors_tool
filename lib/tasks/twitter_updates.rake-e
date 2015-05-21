@@ -5,14 +5,15 @@ namespace :twitter_update do
   # run this from cron at about a 2 hour interval
   desc "Tweet labs that are coming due"
   task :labs_due => :environment do
-    current = Semester.current
-    current.sections.all.each do |section|
-      section.assignments.each do |assignment|
-        if (assignment.duedate) > Time.now and (assignment.duedate - 12.hours) < Time.now
-          puts "#{assignment.title} for #{assignment.section.short_days} #{assignment.section.course.title} is due in #{time_ago_in_words(assignment.duedate)}" 
-          Tweet.new.send "#{assignment.title} for #{assignment.section.short_days} #{assignment.section.course.title} is due in #{time_ago_in_words(assignment.duedate)}"
-        end
-      end
+    if current = Semester.current
+	    current.sections.all.each do |section|
+	      section.assignments.each do |assignment|
+	        if (assignment.duedate) > Time.now and (assignment.duedate - 12.hours) < Time.now
+	          puts "#{assignment.title} for #{assignment.section.short_days} #{assignment.section.course.title} is due in #{time_ago_in_words(assignment.duedate)}" 
+	          Tweet.new.send "#{assignment.title} for #{assignment.section.short_days} #{assignment.section.course.title} is due in #{time_ago_in_words(assignment.duedate)}"
+	        end
+	      end
+	    end
     end
   end
 
