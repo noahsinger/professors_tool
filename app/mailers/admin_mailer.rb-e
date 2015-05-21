@@ -18,7 +18,7 @@ class AdminMailer < ActionMailer::Base
 
 		mail( :parts_order => [ "text/plain", "text/enriched", "text/html" ],
 					:to => APP_CONFIG['owner_email'],
-					:subject => "Contact Request @ #{APP_CONFIG['site_name']}",
+					:subject => "Contact Request @ #{APP_CONFIG['host']}",
 					:from => contact.return_email) do |format|
 # 		  format.html
 		  format.text
