@@ -20,8 +20,16 @@ class SemesterTest < ActiveSupport::TestCase
   end
   
   def test_current
-    assert_equal 2, Semester.current.id
+    assert_equal 2, Semester.current.id #id is 2 so spring is current semester
   end
+  
+  test "what if today is the first day of the semester" do
+		Semester.current.destroy
+		semester = Semester.new :year => '1999', :season => 'Fall', :start_date => Time.now, :end_date => 4.months.from_now
+		semester.save
+
+		assert_equal semester, Semester.current
+	end
   
   test "what if there isn't a current semester" do
 		Semester.current.destroy

@@ -13,7 +13,7 @@ class Semester < ActiveRecord::Base
   def self.current
    xxx@xxx.xxx = Semester.find( :all, :order => 'start_date' )
    xxx@xxx.xxx do |s|
-      if s.start_date < Time.now.to_date and s.end_date > Time.now.to_date
+      if s.start_date <= Time.now.to_date and s.end_date >= Time.now.to_date
         return s
       end
     end
