@@ -242,6 +242,7 @@ DEPENDENCIES
   minitest
   mocha (~> 0.10.4)
   mysql2
+  nokogiri (~> 1.4)
   paperclip (~> 2.7)
   premailer-rails3 (= 1.1)
   quiet_assets

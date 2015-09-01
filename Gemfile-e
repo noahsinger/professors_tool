@@ -20,6 +20,8 @@ gem 'remotipart', '~> 1.0'
 gem 'jquery-rails', '~> 2.0'
 gem 'turbolinks', '~> 0.6'
 
+gem 'nokogiri', '~>1.4'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
