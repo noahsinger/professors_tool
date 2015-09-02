@@ -12,7 +12,7 @@
 	
 	
 	<header>
-		<p><%= APP_CONFIG['site_name'] %></p>
+		<p><%= APP_CONFIG['site_name'].html_safe %></p>
 		<h1>Contact Form</h1>
 	</header>
 
