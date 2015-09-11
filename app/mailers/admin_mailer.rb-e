@@ -5,7 +5,7 @@ class AdminMailer < ActionMailer::Base
    xxx@xxx.xxx = contact
 
     # Implicit template rendering is not performed if any attachments or parts have been added to the email.
-    # This means that you’ll have to manually add each part to the email and set the content type of the email
+    # This means that you'll have to manually add each part to the email and set the content type of the email
     # to multipart/alternative.
 
 #     :parts_order => [ "text/plain", "text/enriched", "text/html" ],
