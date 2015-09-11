@@ -95,7 +95,7 @@ xxx@xxx.xxx debug_border;
 				// -----------------------
 				// the field itself
 				// -----------------------
-				input[type=text], input[type=email], input[type=password] {
+				input[type=text], input[type=email], input[type=password], input[type=number] {
 					background-color: #889883;
 					border: 2px inset #ccc;
 					padding: 10px 15px; //inner field padding
@@ -291,7 +291,7 @@ xxx@xxx.xxx neue_family;
 	} // end div#errorExplanation
 	
 	div.field div.field_with_errors {
-		input[type=text], input[type=file], input[type=email], textarea {
+		input[type=text], input[type=file], input[type=email], textarea, input[type=number] {
 			border: 2px solid red;
 		}
 	}

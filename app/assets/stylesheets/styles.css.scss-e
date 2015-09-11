@@ -861,7 +861,7 @@ xxx@xxx.xxx giant_tab_style;
 	}
 	
 	td {
-		input[type=text] {
+		input[type=text], input[type=number] {
 			background-color: #889883;
 			border: 2px inset #ccc;
 			padding: 10px 15px; //inner field padding

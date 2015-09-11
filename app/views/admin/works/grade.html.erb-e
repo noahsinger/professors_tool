@@ -48,7 +48,7 @@ xxx@xxx.xxx do |r| %>
 				
 								<% x xxx@xxx.xxx :first, :conditions => ['requirement_id = ?', r]) || r %>
 				
-								<td><%= text_field :awarded_points, r.id, :max_length => 3, :size => 4, :value => x.points, :class => 'awarded_points_field'  %></td>
+								<td><%= number_field :awarded_points, r.id, :max_length => 3, :size => 4, :value => x.points, :class => 'awarded_points_field'  %></td>
 							</tr>
 						<% end %>
 						<tr>
