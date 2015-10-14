@@ -11,7 +11,7 @@ class Admin::CoursesController < ApplicationController
   # GET /courses
   # GET /courses.xml
   def index
-   xxx@xxx.xxx = Course.all
+   xxx@xxx.xxx = Course.order(:title)
 
     respond_to do |format|
       format.html # index.html.erb
