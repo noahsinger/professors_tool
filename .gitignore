@@ -5,6 +5,5 @@ log/*.log
 tmp/
 .sass-cache/
 uploads/**
-uploads/works/**
 public/system/**
 public/office_hours
