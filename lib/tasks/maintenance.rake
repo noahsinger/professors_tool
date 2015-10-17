@@ -16,4 +16,7 @@ task :maintenance => :environment do
   
   puts
   Rake::Task["twitter_update:semester"].invoke
+  
+  puts
+  Rake::Task["sections:notify_waiters"].invoke
 end
