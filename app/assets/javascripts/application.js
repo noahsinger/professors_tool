@@ -53,7 +53,7 @@ $(document).ready(function( ) {
 		
 	//check_for_ie( );
 	
-	check_for_upload_support( );
+	//check_for_upload_support( ); //iOS9 now allows uploads from conected cloud services
 }); //end document ready
 
 function check_for_upload_support( ) {
