@@ -81,13 +81,12 @@ xxx@xxx.xxx %>
 		</ol>
 	<% end %>
 
-
-
 	<script type="text/javascript" charset="utf-8">
 		$(".awarded_points_field").each( function(i) {
 			$(this).blur( function(x) {
 				var total = find_total( );
 				show_total( total );
+				console.log(this.value);
 			});
 		});
 	
@@ -95,7 +94,7 @@ xxx@xxx.xxx %>
 			var total = 0;
 		
 			$(".awarded_points_field").each( function(i) {
-				total += parseInt($(this).attr('value'));
+				total += parseInt(this.value);
 			});
 		
 			return total;
