@@ -91,4 +91,4 @@ $(document).on('page:load', -> setup_forms( ))
 	
 $(document).bind "orientationchange", ->
 	setup_forms( )
-	check_for_upload_support( )
+	#check_for_upload_support( )
