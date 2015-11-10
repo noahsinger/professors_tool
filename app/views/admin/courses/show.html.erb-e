@@ -53,5 +53,13 @@ xxx@xxx.xxx %></td>
 			<li><%= link_to 'Policies', xxx@xxx.xxx %></li>
 			<li><%= link_to 'Books', xxx@xxx.xxx %></li>
 		</ul>
+		
+		<h3>Sections</h3>
+		
+		<ul class="actions">
+xxx@xxx.xxx do |section| %>
+				<li><%= link_to section.semester.name, admin_semester_section_path(section.semester,section) %></li>
+			<% end %>
+		</ul>
 	</article>
 </section>
