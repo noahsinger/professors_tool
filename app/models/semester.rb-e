@@ -31,6 +31,10 @@ class Semester < ActiveRecord::Base
     self.sections.inject( 0 ) {|total, section| total += section.enrollments.size}
   end
   
+  def is_current?
+		self == Semester.current  
+	end
+  
   def is_past
     if self.end_date < Time.now.to_date
       true
