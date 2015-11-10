@@ -58,7 +58,13 @@ xxx@xxx.xxx %></td>
 		
 		<ul class="actions">
 xxx@xxx.xxx do |section| %>
-				<li><%= link_to section.semester.name, admin_semester_section_path(section.semester,section) %></li>
+				<li>
+					<% link_text = section.semester.name %>
+					<% if section.semester.is_current? %>
+					<% link_text = "*#{link_text}" %>
+					<% end %>
+					<%= link_to link_text, admin_semester_section_path(section.semester,section) %>
+				</li>
 			<% end %>
 		</ul>
 	</article>
