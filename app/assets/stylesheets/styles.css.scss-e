@@ -162,6 +162,10 @@ xxx@xxx.xxx georgia_family;
 				letter-spacing: 3px;
 				padding: 10px 20px;
 				font-style: normal;
+				
+				a {
+					color: #fff;
+				} //end a
 			} // end h1
 		} // end header
 	} // end #page_content
@@ -235,6 +239,7 @@ xxx@xxx.xxx debug_border;
 			display: block;
 		}
 		
+				
 		// -----------------------------
 		// tabs with icons
 		// -----------------------------

@@ -33,7 +33,7 @@ xxx@xxx.xxx %></h1>
 	
 	<header>
 		<p><%= @section.days %> <%= show_time(@section.start_time) %> - <%= xxx@xxx.xxx %></p>
-		<h1><%= @section.course.title %> xxx@xxx.xxx %>)</h1>
+		<h1><%= link_to @section.course.title, admin_course_path(@section.course) %> xxx@xxx.xxx %>)</h1>
 	</header>
 
 
