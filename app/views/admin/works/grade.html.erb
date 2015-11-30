@@ -54,7 +54,7 @@ xxx@xxx.xxx do |r| %>
 						<% end %>
 						<tr>
 							<td></td>
-							<td>
+							<td id="assignment_worth">
 xxx@xxx.xxx %>
 							</td>
 							<td>
@@ -101,7 +101,9 @@ xxx@xxx.xxx %>
 		}
 	
 		function show_total( total ) {
-			$("#running_total").html( total );
+			var assignment_worth = parseInt($("#assignment_worth").text( ));
+			console.log( "worth is " + assignment_worth );
+			$("#running_total").html( total + " (" + ((total / assignment_worth)*100).toFixed(2) + "%)" );
 		}
 	</script>
 </section>
