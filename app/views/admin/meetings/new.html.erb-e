@@ -1,0 +1,16 @@
+<%= content_for :header do %>
+	<h1>New Meeting</h1>
+<% end %>
+
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+	</nav>
+	
+	<header>
+		<p>New Meeting For</p>
+		<h1><%= @section.course.title %> xxx@xxx.xxx %>)</h1>
+	</header>
+	
+	<%= render 'form' %>
+</section>

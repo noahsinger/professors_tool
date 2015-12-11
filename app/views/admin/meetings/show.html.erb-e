@@ -1,0 +1,25 @@
+<%= content_for :header do %>
+	<h1>Section Meeting</h1>
+<% end %>
+
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx %>
+	</nav>
+	
+	<header>
+xxx@xxx.xxx %></p>
+xxx@xxx.xxx %></h1>
+	</header>
+	
+	<ul class="actions">
+		<li><%= link_to 'Edit', xxx@xxx.xxx %></li>
+	</ul>
+
+	<div class="admin_comments">
+		<p>
+		  <b>When:</b>
+		  xxx@xxx.xxx %>
+		</p>
+	</div>
+</section>

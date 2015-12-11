@@ -1,0 +1,39 @@
+<%= content_for :header do %>
+	<h1><%= @section.course.title %> xxx@xxx.xxx %>) Meetings</h1>
+<% end %>
+
+<section>
+	
+	<nav>	
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+	</nav>
+	
+	<header>
+		<p>Meetings for</p>
+		<h1><%= @section.course.title %> xxx@xxx.xxx %>)</h1>
+	</header>
+	
+	<ul class="actions">
+		<li><%= link_to 'New Meeting', xxx@xxx.xxx %></li>
+	</ul>
+	
+	<div class="fancy"> 
+		<table>
+		  <tr>
+		    <th>When</th>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		  </tr>
+		
+xxx@xxx.xxx do |meeting| %>
+		  <tr>
+		    <td><%= meeting.when %></td>
+		    <td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>
+		    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
+		    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		  </tr>
+		<% end %>
+		</table>
+	</div>
+</section>

@@ -1,0 +1,20 @@
+<%= xxx@xxx.xxx do |f| %>
+	<%= xxx@xxx.xxx %>
+
+	<ol>
+		<li>
+		  <div class="details">
+		    <%= f.label :when %>
+		    <p></p>
+		  </div>
+		  <div class="field">
+			  <%= f.datetime_select :when %>
+		  </div>
+		</li>
+		<li class="action">
+		  <div>
+		    <%= f.submit %>
+		  </div>
+		</li>
+	</ol>
+<% end %>

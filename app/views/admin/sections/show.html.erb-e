@@ -78,6 +78,7 @@ xxx@xxx.xxx %></td>
 		<li><%= link_to 'Add Student', xxx@xxx.xxx @section ) %></li>
 		<li><%= link_to 'Modify this Course', xxx@xxx.xxx ) %></li>
 		<li><%= link_to 'Sync Students with TED', xxx@xxx.xxx %></li>
+		<li><%= link_to 'Meetings', xxx@xxx.xxx %></li>
 	</ul>
 
 	<div class="fancy">
