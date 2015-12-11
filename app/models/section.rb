@@ -28,6 +28,13 @@ class Section < ActiveRecord::Base
     "#{id}-#{course.title.gsub(/[^a-z0-9]+/i, '-')}"
   end
   
+  def create_meetings
+		start_date = Date.today # your start
+		end_date = Date.today + 1.year # your end
+		my_days = [1,2,3] # day of the week in 0-6. Sunday is day-of-week 0; Saturday is day-of-week 6.
+		result = (start_date..end_date).to_a.select {|k| my_days.include?(k.wday)}  
+	end
+  
   def class_size
   	num = self.enrollments.where(:enrollment_status_id => EnrollmentStatus.enrolled.id ).size
   	size = if num <= 5

@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  when: 
+  section_id: 1
+  when: <%= 5.days.ago %>
 
 two:
-  when: 
+  section_id: 1
+  when: <%= 4.days.ago %>
