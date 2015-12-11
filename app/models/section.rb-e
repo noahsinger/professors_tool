@@ -74,6 +74,19 @@ class Section < ActiveRecord::Base
     days.join( " " )
   end
   
+  def wday
+    days = []
+    days << 1 if self.meeting_days.downcase =~ /m/
+    days << 2 if self.meeting_days.downcase =~ /t/
+    days << 3 if self.meeting_days.downcase =~ /w/
+    days << 4 if self.meeting_days.downcase =~ /r/
+    days << 5 if self.meeting_days.downcase =~ /f/
+    days << 6 if self.meeting_days.downcase =~ /s/
+    days << 7 if self.meeting_days.downcase =~ /all/ # 7 isn't possible, days are 0-6
+    
+    days
+  end
+  
   def short_days
   	if self.meeting_days.downcase =~ /all/
   		"online"

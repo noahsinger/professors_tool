@@ -90,4 +90,13 @@ class SectionTest < ActiveSupport::TestCase
   	assert_equal 9, section.enrollments.where(:enrollment_status_id => EnrollmentStatus.enrolled.id ).size
   	assert_equal "medium", section.class_size
   end
+  
+  test "sections have days represented with numbers" do
+	  section = Section.all.first
+	  
+	  assert_respond_to section, :wday
+	  section.meeting_days = "mw"
+	  assert_equal 2, section.wday.size
+	  assert_equal [1,3], section.wday
+	end
 end
