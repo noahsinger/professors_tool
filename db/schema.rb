@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151211183808) do
+ActiveRecord::Schema.define(:version => 20151211185319) do
 
   create_table "assignments", :force => true do |t|
     t.string   "title"
@@ -207,6 +207,7 @@ ActiveRecord::Schema.define(:version => 20151211183808) do
     t.datetime "when"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "section_id"
   end
 
   create_table "objectives", :force => true do |t|
