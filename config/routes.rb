@@ -1,4 +1,7 @@
 Ingenious::Application.routes.draw do
+  resources :meetings
+
+
   # no namespace ##########################################    
   resources :general_contacts
   resources :instructors

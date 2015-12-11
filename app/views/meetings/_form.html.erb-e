@@ -1,0 +1,21 @@
+<%= xxx@xxx.xxx do |f| %>
+  <% xxx@xxx.xxx %>
+    <div id="error_explanation">
+      <h2><%= xxx@xxx.xxx "error") %> prohibited this meeting from being saved:</h2>
+
+      <ul>
+      xxx@xxx.xxx do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :when %><br />
+    <%= f.text_field :when %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

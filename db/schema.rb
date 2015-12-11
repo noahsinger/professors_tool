@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150514192535) do
+ActiveRecord::Schema.define(:version => 20151211183808) do
 
   create_table "assignments", :force => true do |t|
     t.string   "title"
@@ -201,6 +201,12 @@ ActiveRecord::Schema.define(:version => 20150514192535) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
+  end
+
+  create_table "meetings", :force => true do |t|
+    t.datetime "when"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "objectives", :force => true do |t|
