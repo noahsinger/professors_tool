@@ -11,6 +11,7 @@ class Section < ActiveRecord::Base
   has_many :grade_requests, :dependent => :destroy, :order => 'created_at desc'
   has_many :examples, :dependent => :destroy, :order => 'created_at desc'
   has_many :enrollment_snapshots, :dependent => :destroy
+  has_many :meetings, :dependent => :destroy
   
   attr_accessible :course_id, :call_number, :section_number, :meeting_days, :room_number, :start_date, :end_date, :instructor_id, :start_time, :end_time
   
