@@ -1,6 +1,12 @@
 require 'test_helper'
 
-class AttendancesControllerTest < ActionController::TestCase
+class Admin::AttendancesControllerTest < ActionController::TestCase
+	cannot_access_actions
+  
+  def setup
+    login_as(:admin)
+  end
+  
   setup do
    xxx@xxx.xxx = attendances(:one)
   end
@@ -21,7 +27,7 @@ class AttendancesControllerTest < ActionController::TestCase
       post :create, attendance: {  }
     end
 
-    assert_redirected_to attendance_path(assigns(:attendance))
+    assert_redirected_to admin_attendance_path(assigns(:attendance))
   end
 
   test "should show attendance" do
@@ -36,7 +42,7 @@ class AttendancesControllerTest < ActionController::TestCase
 
   test "should update attendance" do
     put :update, xxx@xxx.xxx attendance: {  }
-    assert_redirected_to attendance_path(assigns(:attendance))
+    assert_redirected_to admin_attendance_path(assigns(:attendance))
   end
 
   test "should destroy attendance" do
@@ -44,6 +50,6 @@ class AttendancesControllerTest < ActionController::TestCase
       delete :destroy, xxx@xxx.xxx
     end
 
-    assert_redirected_to attendances_path
+    assert_redirected_to admin_attendances_path
   end
 end

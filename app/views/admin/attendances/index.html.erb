@@ -15,13 +15,13 @@ xxx@xxx.xxx do |attendance| %>
     <td><%= attendance.attendance_status %></td>
     <td><%= attendance.meeting %></td>
     <td><%= attendance.enrollment %></td>
-    <td><%= link_to 'Show', attendance %></td>
-    <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
-    <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', [:admin,attendance] %></td>
+    <td><%= link_to 'Edit', edit_admin_attendance_path(attendance) %></td>
+    <td><%= link_to 'Destroy', [:admin,attendance], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Attendance', new_attendance_path %>
+<%= link_to 'New Attendance', new_admin_attendance_path %>

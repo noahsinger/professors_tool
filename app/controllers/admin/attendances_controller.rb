@@ -1,4 +1,6 @@
-class AttendancesController < ApplicationController
+class Admin::AttendancesController < ApplicationController
+	before_filter :authenticate  
+	
   # GET /attendances
   # GET /attendances.json
   def index
@@ -44,7 +46,7 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
-        format.html { xxx@xxx.xxx notice: 'Attendance was successfully created.' }
+        format.html { redirect_to xxx@xxx.xxx notice: 'Attendance was successfully created.' }
         format.json { render json: @attendance, status: :created, xxx@xxx.xxx }
       else
         format.html { render action: "new" }
@@ -60,7 +62,7 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
-        format.html { xxx@xxx.xxx notice: 'Attendance was successfully updated.' }
+        format.html { redirect_to xxx@xxx.xxx notice: 'Attendance was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +78,7 @@ class AttendancesController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
-      format.html { redirect_to attendances_url }
+      format.html { redirect_to admin_attendances_url }
       format.json { head :no_content }
     end
   end

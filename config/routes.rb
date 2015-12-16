@@ -1,7 +1,4 @@
 Ingenious::Application.routes.draw do
-  
-  resources :attendances
-
 
   # no namespace ##########################################    
   resources :general_contacts
@@ -64,6 +61,7 @@ Ingenious::Application.routes.draw do
     resources :syllabus_parts
     resources :users
     resources :assignment_tweets
+    resources :attendances
     
     resources :admin do
       collection do
