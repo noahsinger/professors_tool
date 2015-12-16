@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+present:
+  id: 1
+  name: present
+
+absent:
+  id: 2
+  name: absent
+  
+holiday:
+  id: 3
+  name: holiday
+
+excused:
+  id: 4
+  name: excused
