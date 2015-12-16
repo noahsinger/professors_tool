@@ -8,7 +8,7 @@ class EnrollmentStatus < ActiveRecord::Base
     # puts "looking for method called #{method_sym}, found status is #{status}"
     if status
       # create a class method for this status so that it will be there next time it's called
-      self.class.send( :define_method, status.name.downcase ) do
+      self.send( :define_method, status.name.downcase ) do
         status
       end
       
