@@ -136,8 +136,10 @@ class Semester < ActiveRecord::Base
           days = "Online" if days.blank?
 
           start_date_string, end_date_string = date_range.split( " - " )
-          start_date = Date.parse(start_date_string)
-          end_date = Date.parse(end_date_string)
+#           start_date = Date.parse(start_date_string)
+          start_date = DateTime.parse(start_date_string).in_time_zone
+#           end_date = Date.parse(end_date_string)
+					end_date = DateTime.parse(end_date_string).in_time_zone
           instructor = Instructor.find_by_last_name "Singer"
           
           # puts "title: #{title}"
