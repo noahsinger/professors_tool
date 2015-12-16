@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151216180306) do
+ActiveRecord::Schema.define(:version => 20151216203816) do
 
   create_table "assignments", :force => true do |t|
     t.string   "title"
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(:version => 20151216180306) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "attendances", :force => true do |t|
+    t.integer  "attendance_status_id"
+    t.integer  "meeting_id"
+    t.integer  "enrollment_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "attendances", ["attendance_status_id"], :name => "index_attendances_on_attendance_status_id"
+  add_index "attendances", ["enrollment_id"], :name => "index_attendances_on_enrollment_id"
+  add_index "attendances", ["meeting_id"], :name => "index_attendances_on_meeting_id"
 
   create_table "awarded_points", :force => true do |t|
     t.integer  "work_id"

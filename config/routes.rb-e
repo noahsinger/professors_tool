@@ -1,5 +1,8 @@
 Ingenious::Application.routes.draw do
   
+  resources :attendances
+
+
   # no namespace ##########################################    
   resources :general_contacts
   resources :instructors

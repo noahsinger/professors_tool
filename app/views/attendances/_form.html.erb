@@ -1,0 +1,29 @@
+<%= xxx@xxx.xxx do |f| %>
+  <% xxx@xxx.xxx %>
+    <div id="error_explanation">
+      <h2><%= xxx@xxx.xxx "error") %> prohibited this attendance from being saved:</h2>
+
+      <ul>
+      xxx@xxx.xxx do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :attendance_status %><br />
+    <%= f.text_field :attendance_status %>
+  </div>
+  <div class="field">
+    <%= f.label :meeting %><br />
+    <%= f.text_field :meeting %>
+  </div>
+  <div class="field">
+    <%= f.label :enrollment %><br />
+    <%= f.text_field :enrollment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

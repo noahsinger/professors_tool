@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  attendance_status: 
+  meeting: 
+  enrollment: 
+
+two:
+  attendance_status: 
+  meeting: 
+  enrollment: 
