@@ -20,7 +20,7 @@ xxx@xxx.xxx %></h1>
 		<table>
 			<tr>
 			  <th>Attendance status:</th>
-			  xxx@xxx.xxx %></td>
+			  <td><%= @attendance.attendance_status.name xxx@xxx.xxx %></td>
 			</tr>
 			
 			<tr>

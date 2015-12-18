@@ -28,7 +28,7 @@
 		  
 xxx@xxx.xxx do |attendance| %>
 		  <tr>
-		    <td><%= attendance.attendance_status.name %></td>
+		    <td><%= attendance.attendance_status.name if attendance.attendance_status %></td>
 		    <td><%= attendance.enrollment.student.last_name_first %></td>
 		    <td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>
 		    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>

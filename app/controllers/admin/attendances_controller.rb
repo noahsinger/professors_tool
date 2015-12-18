@@ -22,7 +22,7 @@ xxx@xxx.xxx = Meeting.find(params[:meeting_id])
   def index
    xxx@xxx.xxx do |enrollment|
 			unless enrollment.attendances.find {|a| a.meeting_id xxx@xxx.xxx
-				enrollment.attendances.build( xxx@xxx.xxx attendance_status_id: AttendanceStatus.present.id ).save
+				enrollment.attendances.build( xxx@xxx.xxx ).save
 				logger.info "attendance added for #{enrollment.student.last_name_first}"
 			else
 				logger.info "attendance NOT added for #{enrollment.student.last_name_first} (exists)"
