@@ -10,6 +10,11 @@ class Admin::MeetingsController < ApplicationController
   # GET /meetings.json
   def index
     @meetings xxx@xxx.xxx
+    
+    xxx@xxx.xxx > 0
+	  xxx@xxx.xxx
+	  	@meetings xxx@xxx.xxx  
+	  end
 
     respond_to do |format|
       format.html # index.html.erb
