@@ -97,7 +97,7 @@ xxx@xxx.xxx debug_border;
 				// -----------------------
 				input[type=text], input[type=email], input[type=password], input[type=number] {
 					background-color: #889883;
-					border: 2px inset #ccc;
+// 					border: 2px inset #ccc;
 					padding: 10px 15px; //inner field padding
 					
 					width: 80%;
@@ -110,7 +110,8 @@ xxx@xxx.xxx debug_border;
 					margin: 20px 3% 20px 3%;
 					width: 40%;
 					background-color: #889883;
-					border: 2px inset #ccc;
+// 					border: 2px inset #ccc;
+					border: 1px solid #777;
 					padding: 10px 15px;
 					
 					font-size: 1.1em;
@@ -124,7 +125,9 @@ xxx@xxx.xxx debug_border;
 				
 				select {
 					background-color: #889883;
-					border: 2px inset #ccc;
+// 					border: 2px inset #ccc;
+					border: 1px solid #777;
+					max-width: 90%;
 					padding: 10px 15px;
 					
 					font-size: 1.1em;
@@ -140,7 +143,7 @@ xxx@xxx.xxx debug_border;
 			// -----------------------
 			div.file {
 				background-color: #889883;
-				border: 2px inset #ccc;
+// 				border: 2px inset #ccc;
 				height: 100px;
 				width: 100px;
 				float: left;
