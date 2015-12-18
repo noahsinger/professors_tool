@@ -19,7 +19,10 @@
 	<div class="fancy">
 		<table>
 		  <tr>
-		    <th>Status</th>
+		    <th>Present</th>
+		    <th>Absent</th>
+		    <th>Excused</th>
+		    <th>Holiday</th>
 		    <th>Student</th>
 		    <th></th>
 		    <th></th>
@@ -28,11 +31,46 @@
 		  
 xxx@xxx.xxx do |attendance| %>
 		  <tr>
-		    <td><%= attendance.attendance_status.name if attendance.attendance_status %></td>
-		    <td><%= attendance.enrollment.student.last_name_first %></td>
-		    <td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>
+		    <td>
+		    <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.present.id %>
+			    <%= attendance.attendance_status.name %>
+			  <% else %>
+			  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.present.id} ), method: :put, style: "display: block;" ) %>
+			  <% end %>
+		    </td>
+			  
+		    <td>
+			    <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.absent.id %>
+				    <%= attendance.attendance_status.name %>
+				  <% else %>
+			  		<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.absent.id} ), method: :put, style: "display: block;" ) %>
+				  <% end %>
+			  </td>
+		    <td>
+			    <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.excused.id %>
+				    <%= attendance.attendance_status.name %>
+				  <% else %>
+				  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.excused.id} ), method: :put, style: "display: block;" ) %>
+				  <% end %>
+			  </td>
+		    <td>
+			    <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.holiday.id %>
+				    <%= attendance.attendance_status.name %>
+				  <% else %>
+				  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.holiday.id} ), method: :put, style: "display: block;" ) %>
+				  <% end %>
+		    </td>
+		    
+		    <td>
+			    <% if attendance.enrollment.enrollment_status.id == EnrollmentStatus.dropped.id %>
+				    <strike><%= attendance.enrollment.student.last_name_first %></strike>
+				  <% else %>
+					  <%= attendance.enrollment.student.last_name_first %>
+				  <% end %>
+			  </td>
+		    <!--<td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>-->
 		    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-		    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		    <td class="destroy"><%= link_to 'X', xxx@xxx.xxx method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		  </tr>
 		<% end %>
 		</table>

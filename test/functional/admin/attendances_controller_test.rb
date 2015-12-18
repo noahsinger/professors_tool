@@ -42,7 +42,7 @@ class Admin::AttendancesControllerTest < ActionController::TestCase
 
   test "should update attendance" do
     put :update, xxx@xxx.xxx semester_id: 1, section_id: 1, meeting_id: 1,  attendance: {  }
-    assert_redirected_to admin_semester_section_meeting_attendance_path(assigns(:semester),assigns(:section),assigns(:meeting),assigns(:attendance))
+    assert_redirected_to admin_semester_section_meeting_attendances_path(assigns(:semester),assigns(:section),assigns(:meeting))
   end
 
   test "should destroy attendance" do
