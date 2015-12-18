@@ -61,7 +61,6 @@ Ingenious::Application.routes.draw do
     resources :syllabus_parts
     resources :users
     resources :assignment_tweets
-    resources :attendances
     
     resources :admin do
       collection do
@@ -91,8 +90,9 @@ Ingenious::Application.routes.draw do
         resources :students
         resources :enrollments
         resources :examples
-        resources :meetings
-
+        resources :meetings do
+		      resources :attendances  
+	      end
         
         resources :assignments do
           resources :works do

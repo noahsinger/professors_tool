@@ -11,19 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :attendance_status %><br />
-    <%= f.text_field :attendance_status %>
-  </div>
-  <div class="field">
-    <%= f.label :meeting %><br />
-    <%= f.text_field :meeting %>
-  </div>
-  <div class="field">
-    <%= f.label :enrollment %><br />
-    <%= f.text_field :enrollment %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<ol>
+		<li>
+			<div class="details"><%= f.label :attendance_status %><p></p></div>
+		  <div class="field">
+		    <%= f.collection_select( :attendance_status_id, AttendanceStatus.find( :all ), :id, :name, :include_blank => true ) %>
+		  </div>
+		</li>
+		<li>
+			<div class="details"><%= f.label :enrollment %><p></p></div>
+		  <div class="field">
+		    <%= f.collection_select( xxx@xxx.xxx :id, :students_name, include_blank: true ) %>
+		  </div>
+		</li>
+		<li class="action">
+	    <div><%= f.submit %></div>
+		</li>
+	</ol>
 <% end %>

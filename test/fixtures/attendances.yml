@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  attendance_status: 1
-  meeting: 1
-  enrollment: 1
+  id: 1
+  attendance_status_id: 1
+  meeting_id: 1
+  enrollment_id: 1
 
 two:
-  attendance_status: 1
-  meeting: 1
-  enrollment: 2
+  id: 2
+  attendance_status_id: 1
+  meeting_id: 1
+  enrollment_id: 2

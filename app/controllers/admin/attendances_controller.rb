@@ -1,10 +1,35 @@
 class Admin::AttendancesController < ApplicationController
-	before_filter :authenticate  
+	before_filter :authenticate
+	
+	before_filter :load_semester
+	before_filter :load_section
+	before_filter :load_meeting
+	
+	def load_semester
+xxx@xxx.xxx = Semester.find(params[:semester_id])	
+	end
+	
+	def load_section
+xxx@xxx.xxx = Section.find(params[:section_id])
+	end
+	
+	def load_meeting
+xxx@xxx.xxx = Meeting.find(params[:meeting_id])
+	end
 	
   # GET /attendances
   # GET /attendances.json
   def index
-   xxx@xxx.xxx = Attendance.all
+   xxx@xxx.xxx do |enrollment|
+			unless enrollment.attendances.find {|a| a.meeting_id xxx@xxx.xxx
+				enrollment.attendances.build( xxx@xxx.xxx attendance_status_id: AttendanceStatus.present.id ).save
+				logger.info "attendance added for #{enrollment.student.last_name_first}"
+			else
+				logger.info "attendance NOT added for #{enrollment.student.last_name_first} (exists)"
+			end
+		end
+		
+		@attendances xxx@xxx.xxx
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +40,7 @@ class Admin::AttendancesController < ApplicationController
   # GET /attendances/1
   # GET /attendances/1.json
   def show
-   xxx@xxx.xxx = Attendance.find(params[:id])
+    @attendance xxx@xxx.xxx
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,7 +51,7 @@ class Admin::AttendancesController < ApplicationController
   # GET /attendances/new
   # GET /attendances/new.json
   def new
-   xxx@xxx.xxx = Attendance.new
+    @attendance xxx@xxx.xxx
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,13 +61,13 @@ class Admin::AttendancesController < ApplicationController
 
   # GET /attendances/1/edit
   def edit
-   xxx@xxx.xxx = Attendance.find(params[:id])
+    @attendance xxx@xxx.xxx
   end
 
   # POST /attendances
   # POST /attendances.json
   def create
-   xxx@xxx.xxx = Attendance.new(params[:attendance])
+    @attendance xxx@xxx.xxx
 
     respond_to do |format|
       xxx@xxx.xxx
@@ -58,7 +83,7 @@ class Admin::AttendancesController < ApplicationController
   # PUT /attendances/1
   # PUT /attendances/1.json
   def update
-   xxx@xxx.xxx = Attendance.find(params[:id])
+    @attendance xxx@xxx.xxx
 
     respond_to do |format|
       xxx@xxx.xxx
@@ -74,11 +99,11 @@ class Admin::AttendancesController < ApplicationController
   # DELETE /attendances/1
   # DELETE /attendances/1.json
   def destroy
-   xxx@xxx.xxx = Attendance.find(params[:id])
+    @attendance xxx@xxx.xxx
    xxx@xxx.xxx
 
     respond_to do |format|
-      format.html { redirect_to admin_attendances_url }
+      format.html { redirect_to xxx@xxx.xxx }
       format.json { head :no_content }
     end
   end

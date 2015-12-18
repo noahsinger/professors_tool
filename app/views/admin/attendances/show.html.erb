@@ -1,20 +1,37 @@
-<p id="notice"><%= notice %></p>
+<%= content_for :header do %>
+	<h1><%= xxx@xxx.xxx %></h1>
+<% end %>
 
-<p>
-  <b>Attendance status:</b>
-  xxx@xxx.xxx %>
-</p>
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+	</nav>
 
-<p>
-  <b>Meeting:</b>
-  xxx@xxx.xxx %>
-</p>
+	<header>
+		<p><%= xxx@xxx.xxx %></p>
+xxx@xxx.xxx %></h1>
+	</header>
+	
+	<ul class="actions">
+		<li><%= link_to 'Edit', xxx@xxx.xxx %></li>
+	</ul>
 
-<p>
-  <b>Enrollment:</b>
-  xxx@xxx.xxx %>
-</p>
-
-
-<%= link_to 'Edit', xxx@xxx.xxx %> |
-<%= link_to 'Back', admin_attendances_path %>
+	<div class="fancy">
+		<table>
+			<tr>
+			  <th>Attendance status:</th>
+			  xxx@xxx.xxx %></td>
+			</tr>
+			
+			<tr>
+			  <th>Meeting:</th>
+			  <td><%= xxx@xxx.xxx %></td>
+			</tr>
+			
+			<tr>
+			  <th>Enrollment:</th>
+			  xxx@xxx.xxx %></td>
+			</tr>	
+		</table>		
+	</div>
+</section>

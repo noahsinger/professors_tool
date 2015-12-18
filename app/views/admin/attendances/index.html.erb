@@ -1,27 +1,40 @@
-<h1>Listing attendances</h1>
-
-<table>
-  <tr>
-    <th>Attendance status</th>
-    <th>Meeting</th>
-    <th>Enrollment</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-xxx@xxx.xxx do |attendance| %>
-  <tr>
-    <td><%= attendance.attendance_status %></td>
-    <td><%= attendance.meeting %></td>
-    <td><%= attendance.enrollment %></td>
-    <td><%= link_to 'Show', [:admin,attendance] %></td>
-    <td><%= link_to 'Edit', edit_admin_attendance_path(attendance) %></td>
-    <td><%= link_to 'Destroy', [:admin,attendance], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<%= content_for :header do %>
+	<h1><%= xxx@xxx.xxx %></h1>
 <% end %>
-</table>
 
-<br />
+<section>
+	<nav>	
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+	</nav>
+	
+	<header>
+		<p>Attendance for</p>
+		<h1><%= xxx@xxx.xxx %></h1>
+	</header>
+	
+	<ul class="actions">
+		<li><%= link_to 'New Attendance', xxx@xxx.xxx %></li>
+	</ul>
 
-<%= link_to 'New Attendance', new_admin_attendance_path %>
+	<div class="fancy">
+		<table>
+		  <tr>
+		    <th>Status</th>
+		    <th>Student</th>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		  </tr>
+		  
+xxx@xxx.xxx do |attendance| %>
+		  <tr>
+		    <td><%= attendance.attendance_status.name %></td>
+		    <td><%= attendance.enrollment.student.last_name_first %></td>
+		    <td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>
+		    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
+		    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		  </tr>
+		<% end %>
+		</table>
+	</div>
+</section>

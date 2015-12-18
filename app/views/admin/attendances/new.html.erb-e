@@ -1,5 +1,16 @@
-<h1>New attendance</h1>
+<%= content_for :header do %>
+	<h1><%= xxx@xxx.xxx %></h1>
+<% end %>
 
-<%= render 'form' %>
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+	</nav>
 
-<%= link_to 'Back', admin_attendances_path %>
+	<header>
+		<p><%= xxx@xxx.xxx %></p>
+		<h1>New Attendance</h1>
+	</header>
+
+	<%= render "form" %>
+</section>

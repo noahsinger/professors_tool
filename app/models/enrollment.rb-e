@@ -5,8 +5,13 @@ class Enrollment < ActiveRecord::Base
   has_many :works ,:dependent => :destroy
   has_many :grade_requests, :dependent => :destroy, :order => 'created_at desc'
   has_many :homework_return_requests, :dependent => :destroy, :order => 'created_at desc'
+  has_many :attendances, :dependent => :destroy
   
   attr_accessible :student_id, :enrollment_status_id
+  
+  def students_name
+		self.student.last_name_first  
+	end
   
   # current letter grade
   def current_grade
