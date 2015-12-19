@@ -29,11 +29,16 @@
 		
 xxx@xxx.xxx do |meeting| %>
 		  <tr>
-		    <td><%= show_date_and_time meeting.when %></td>
-		    <td class="show"><%= link_to 'Attendances', xxx@xxx.xxx %></td>
-		    <td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>
+		    <td>
+			    <% if meeting.attendances.count > 0 %>
+				    <strike><%= link_to show_date_and_time( meeting.when ), xxx@xxx.xxx %></strike>
+				  <% else %>
+					  <%= link_to show_date_and_time( meeting.when ), xxx@xxx.xxx %>
+				  <% end %>
+			  </td>
+		    <td class="show"><%= link_to 'Take Attendance', xxx@xxx.xxx %></td>
 		    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-		    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		    <td class="destroy"><%= link_to 'X', xxx@xxx.xxx method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		  </tr>
 		<% end %>
 		</table>
