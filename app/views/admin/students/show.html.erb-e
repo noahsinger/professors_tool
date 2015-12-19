@@ -24,7 +24,8 @@ xxx@xxx.xxx %></h1>
 				<th>Students Final Score</th>
 				<th>Semester</th>
 				<th>Section Status</th>
-				<th>Student Status</th>
+				<th>Status</th>
+				<th>Meetings/Absences</th>
 			</tr>
 xxx@xxx.xxx do |section| %>
 				<tr>
@@ -44,6 +45,11 @@ xxx@xxx.xxx do |section| %>
 				
 						<% enrollment xxx@xxx.xxx :first, :conditions => ["section_id = ?", section.id] ) %>
 						<td><%= enrollment.enrollment_status.name %></td>
+						<td>
+							<%= section.meetings.count %>
+							/
+xxx@xxx.xxx section.id).first.attendances.where(attendance_status_id: AttendanceStatus.absent.id).count %>
+						</td>
 				</tr>
 			<% end %>
 		</table>
