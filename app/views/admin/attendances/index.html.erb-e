@@ -65,7 +65,10 @@ xxx@xxx.xxx do |attendance| %>
 			    <% if attendance.enrollment.enrollment_status.id == EnrollmentStatus.dropped.id %>
 				    <strike><%= attendance.enrollment.student.last_name_first %></strike>
 				  <% else %>
-					  <%= attendance.enrollment.student.last_name_first %>
+					  <%= link_to( attendance.enrollment.student.last_name_first, edit_admin_student_path(attendance.enrollment.student) ) %>
+					  <% if attendance.enrollment.student.goes_by and not attendance.enrollment.student.goes_by.blank? %>
+					  	("<%= attendance.enrollment.student.goes_by %>")
+					  <% end %>
 				  <% end %>
 			  </td>
 		    <!--<td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>-->
