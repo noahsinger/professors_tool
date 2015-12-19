@@ -78,6 +78,9 @@ xxx@xxx.xxx do |status| %>
 			<h1>
 				Current Score:
 				<%= @enrollment.current_average %>% - xxx@xxx.xxx %>
+				 :: Absences: xxx@xxx.xxx AttendanceStatus.absent.id).count %>
+				 /
+				 xxx@xxx.xxx %>
 			</h1>
 	</header>
 </section>
