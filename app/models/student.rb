@@ -2,7 +2,7 @@ class Student < ActiveRecord::Base
   has_many :enrollments, :dependent => :destroy
   has_many :sections, :through => :enrollments
   
-  attr_accessible :first_name, :last_name, :email, :middle_name
+  attr_accessible :first_name, :last_name, :email, :middle_name, :goes_by
   
   validates_presence_of :first_name
   validates_presence_of :last_name
