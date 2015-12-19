@@ -24,7 +24,6 @@
 		    <th></th>
 		    <th></th>
 		    <th></th>
-		    <th></th>
 		  </tr>
 		
 xxx@xxx.xxx do |meeting| %>
@@ -36,7 +35,6 @@ xxx@xxx.xxx do |meeting| %>
 					  <%= link_to show_date_and_time( meeting.when ), xxx@xxx.xxx %>
 				  <% end %>
 			  </td>
-		    <td class="show"><%= link_to 'Take Attendance', xxx@xxx.xxx %></td>
 		    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
 		    <td class="destroy"><%= link_to 'X', xxx@xxx.xxx method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		  </tr>
