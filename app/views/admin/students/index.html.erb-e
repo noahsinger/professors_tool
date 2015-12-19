@@ -28,7 +28,7 @@
 		  <tr>
 		    <td>
 					<%= student.last_name %>, <%= student.first_name %> <%= student.middle_name %>
-					<% if student.goes_by %>
+					<% if student.goes_by and not student.goes_by.blank? %>
 						(<%= student.goes_by %>)
 					<% end %>
 				</td>
