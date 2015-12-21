@@ -88,6 +88,7 @@ xxx@xxx.xxx = Meeting.find(params[:meeting_id])
     respond_to do |format|
       xxx@xxx.xxx
         format.html { redirect_to xxx@xxx.xxx notice: 'Attendance was successfully updated.' }
+        format.js
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

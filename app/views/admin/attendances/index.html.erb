@@ -30,51 +30,7 @@
 		  </tr>
 		  
 xxx@xxx.xxx do |attendance| %>
-		  <tr>
-		    <td>
-		    <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.present.id %>
-			    <%= attendance.attendance_status.name %>
-			  <% else %>
-			  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.present.id} ), method: :put, style: "display: block;" ) %>
-			  <% end %>
-		    </td>
-			  
-		    <td>
-			    <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.absent.id %>
-				    <%= attendance.attendance_status.name %>
-				  <% else %>
-			  		<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.absent.id} ), method: :put, style: "display: block;" ) %>
-				  <% end %>
-			  </td>
-		    <td>
-			    <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.excused.id %>
-				    <%= attendance.attendance_status.name %>
-				  <% else %>
-				  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.excused.id} ), method: :put, style: "display: block;" ) %>
-				  <% end %>
-			  </td>
-		    <td>
-			    <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.holiday.id %>
-				    <%= attendance.attendance_status.name %>
-				  <% else %>
-				  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.holiday.id} ), method: :put, style: "display: block;" ) %>
-				  <% end %>
-		    </td>
-		    
-		    <td>
-			    <% if attendance.enrollment.enrollment_status.id == EnrollmentStatus.dropped.id %>
-				    <strike><%= attendance.enrollment.student.last_name_first %></strike>
-				  <% else %>
-					  <%= link_to( attendance.enrollment.student.last_name_first, edit_admin_student_path(attendance.enrollment.student) ) %>
-					  <% if attendance.enrollment.student.goes_by and not attendance.enrollment.student.goes_by.blank? %>
-					  	("<%= attendance.enrollment.student.goes_by %>")
-					  <% end %>
-				  <% end %>
-			  </td>
-		    <!--<td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>-->
-		    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-		    <td class="destroy"><%= link_to 'X', xxx@xxx.xxx method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		  </tr>
+		  <%= render attendance %>
 		<% end %>
 		</table>
 	</div>
