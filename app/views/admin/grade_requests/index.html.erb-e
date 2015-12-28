@@ -28,13 +28,7 @@
 
 			<% for grade_request xxx@xxx.xxx %>
 				<tr>
-					<td class="status">
-						<% if grade_request.status == "denied" %>
-							<%= image_tag 'circle_red.png', :style => "width: 20px" %>
-						<% else %>
-							<%= image_tag 'circle_green.png', :style => "width: 20px" %>
-						<% end %>
-					</td>
+					<td class="status <%= grade_request.status == "denied" ? "green" : "red" %>"></td>
 		
 					<td><%= grade_request.section.course.title %></td>
 					<%- if grade_request.enrollment -%>

@@ -846,8 +846,18 @@ xxx@xxx.xxx giant_tab_style;
 			}
 			
 			&.status {
-				width: 5px;
-				border: 0;
+				position: relative;
+				width: 10px;
+				
+				left: 10px;
+				
+				&.red {
+					background-color: #770000;
+				}
+				
+				&.green {
+					background-color: #009900;
+				}
 				
 				&:hover {
 					background-color: transparent;

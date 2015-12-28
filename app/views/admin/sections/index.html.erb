@@ -57,13 +57,7 @@ xxx@xxx.xxx %></h1>
 
 		<% for section xxx@xxx.xxx %>
 		  <tr>
-			<td class="status">
-				<% if section.in_session %>
-				<%= image_tag 'circle_green.png', :style => "width: 20px" %>
-				<% else %>
-					<%= image_tag 'circle_red.png', :style => "width: 20px" %>
-				<% end %>
-			</td>
+			<td class="status <%= section.in_session ? "green" : "red" %>"></td>
 		    <td class="title">
 				<%=link_to "#{section.course.title}", xxx@xxx.xxx %><br/>
 			</td>
