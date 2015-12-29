@@ -12,6 +12,19 @@
 		<h1>All Students</h1>
 	</header>
 
+<%= form_tag admin_students_path, method: :get do %>
+	<ol>
+		<li><div class="details"><%= label_tag 'q', 'Search' %><p>Search by first or last name, whole or partial</p></div><div class="field"><%= text_field_tag 'q', params['q'] || '' %></div></li>
+		<li class="action"><div><%= submit_tag 'Search' %></div></li>
+	</ol>
+<% end %>
+
+<% if params['q'] %>
+<ul class="actions">
+	<li><%= link_to 'clear search', admin_students_path %></li>
+</ul>
+<% end %>
+
 	<div class="fancy">
 		<table>
 		  <tr>
@@ -41,4 +54,11 @@
 		<% end %>
 		</table>
 	</div>
+	
+	<p class="paginated_links">
+	<% (1..(Student.all.count / 25)).to_a.each do |num| %>
+		<span class="link"><%= link_to_unless_current( num, admin_students_path(page: (num-1))) %></span>
+	<% end %>
+	</p>
+		
 </section>

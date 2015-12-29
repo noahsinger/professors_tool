@@ -812,8 +812,6 @@ xxx@xxx.xxx giant_tab_style;
 		td {
 			padding: 10px;
 			background-color: #669966;
-// 			border: 2px inset #ccc;
-// 			text-shadow: 2px 2px 2px #000;
 			font-size: 1.2em;
 		
 			&:first-child {
@@ -829,7 +827,6 @@ xxx@xxx.xxx giant_tab_style;
 			}
 			
 			&.status, &.edit, &.destroy, &.show, &.deenroll, &.grade, &.ungrade {
-// 				border: 1px outset #eee;
 				text-align: center;
 				background-color: transparent;
 				text-shadow: none;
@@ -879,7 +876,6 @@ xxx@xxx.xxx giant_tab_style;
 	td {
 		input[type=text], input[type=number] {
 			background-color: #889883;
-// 			border: 2px inset #ccc;
 			padding: 10px 15px; //inner field padding
 			
 			width: 80%;
@@ -890,6 +886,18 @@ xxx@xxx.xxx giant_tab_style;
 	}
 } //end fancy tables
 
+p.paginated_links {
+	text-align: center;
+	font-size: 1.2em;
+	
+	a {
+		color: #eee;
+	}
+	
+	span.link {
+		padding-right: 20px;
+	}
+}
 
 // ----------------------------
 // admin action tabs
