@@ -889,9 +889,8 @@ xxx@xxx.xxx giant_tab_style;
 p.paginated_links {
 	text-align: center;
 	font-size: 1.2em;
-	width: $inner-width;
+	width: $inner-width - 5;
 	margin: 0 auto;
-	padding: 0 20px;
 	
 	a {
 		color: #eee;
