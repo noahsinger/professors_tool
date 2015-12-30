@@ -119,12 +119,19 @@
 
 			div.content {
 				div#copyright {
+					float: none;
+					text-align: left;
 				}
 
 				ul {
+					float: none;
+					
 					li {
+						float: left;
+
 						a {
 							line-height: 30px;
+							padding: 0 10px 0 0;
 						}
 					} // end li
 				} // end ul
