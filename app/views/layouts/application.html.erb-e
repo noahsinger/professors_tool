@@ -89,5 +89,7 @@
 			<%= render :partial => 'shared/footer' %>
 		</footer>
 	</div>
+	
+	<%= yield :end_of_page %>
 </body>
 </html>

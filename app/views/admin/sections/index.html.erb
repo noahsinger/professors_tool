@@ -2,10 +2,10 @@
 	<h1>Sections</h1>
 <% end %>
 
-<%= content_for :head do %>
+<%= content_for :end_of_page do %>
 		<script type="text/javascript" charset="utf-8">
 			$(function () {
-				new Highcharts.Chart({
+				chart = new Highcharts.Chart({
 					chart: { renderTo: 'enrollments_chart' },
 					title: { text: 'Enrollments by Day' },
 					xAxis: { type: 'datetime' },
@@ -78,7 +78,7 @@ xxx@xxx.xxx %></h1>
 		</table>
 	</div>
 	
-	<div class="admin_comments">
+	<div class="admin_comments wide">
 		<div id="enrollments_chart">No Enrollment Data Available</div>
 	</div>
 	

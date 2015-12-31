@@ -2,7 +2,7 @@
 xxx@xxx.xxx %></h1>
 <% end %>
 
-<%= content_for :head do %>
+<%= content_for :end_of_page do %>
 	<% xxx@xxx.xxx > 0 %>
 		<script type="text/javascript" charset="utf-8">
 			$(function () {
@@ -114,7 +114,7 @@ xxx@xxx.xxx { |x,y| x.student.last_name <=> y.student.last_name }.each do |enrol
 		</table>
 	</div>
 	
-	<div class="admin_comments">
+	<div class="admin_comments wide">
 		<div id="enrollments_chart">No Enrollment Data Available</div>
 	</div>
 </section>

@@ -311,7 +311,6 @@ xxx@xxx.xxx neue_family;
 		}
 			
 		&.icon {
-/*			padding-left: 25px;*/
 			background-repeat: no-repeat;
 		}
 		
@@ -459,6 +458,11 @@ xxx@xxx.xxx paper;
 xxx@xxx.xxx text;
 xxx@xxx.xxx centered_tab;
 	
+	&.wide {
+xxx@xxx.xxx giant_tab_style;
+xxx@xxx.xxx full_width;
+	}
+	
 	h1 {
 		font-size: 1.2em;
 xxx@xxx.xxx walkway_family;
@@ -469,9 +473,11 @@ xxx@xxx.xxx walkway_family;
 	}
 	
 	#enrollments_chart {
+		position: relative;
+		left: -30px;
 		margin: 0 auto;
-		width: 100%;
-		height: 90%;
+		width: 75%;
+// 		height: 90%;
 	}
 }
 
