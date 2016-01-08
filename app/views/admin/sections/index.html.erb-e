@@ -49,19 +49,26 @@ xxx@xxx.xxx %></h1>
 			<th></th>
 		    <th>Course</th>
 			<th>Days</th>
+			<th>CallNo</th>
+			<th>Credits</th>
 			<th>Enrolled onsite/TED</th>
 	
 			<th></th>
 			<th></th>
 		  </tr>
 
+		<% total_credits = 0 %>
+
 		<% for section xxx@xxx.xxx %>
+			<% total_credits += section.course.credits %>
 		  <tr>
 			<td class="status <%= section.in_session ? "green" : "red" %>"></td>
 		    <td class="title">
 				<%=link_to "#{section.course.title}", xxx@xxx.xxx %><br/>
 			</td>
 		    <td class="days"><%= section.meeting_days %></td>
+		    <td><%= section.call_number %></td>
+		    <td><%= section.course.credits %></td>
 				<td class="enrollments">
 					<%= section.enrollments.size %> / 
 					<% if section.enrollment_snapshots.count > 0 %>
@@ -75,6 +82,11 @@ xxx@xxx.xxx %></h1>
 		    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx section], :confirm => 'Are you sure?', :method => :delete %></td>
 		  </tr>
 		<% end %>
+			<tr>
+				<td colspan="4" class="blank"></td>
+				<td><%= total_credits %></td>
+				<td colspan="3" class="blank"></td>
+			</tr>
 		</table>
 	</div>
 	
