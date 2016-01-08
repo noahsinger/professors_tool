@@ -46,33 +46,41 @@ xxx@xxx.xxx %></h1>
 	<div class="fancy">
 		<table>
 		  <tr>
-			<th></th>
+				<th>Days</th>
+				<th>CallNo</th>
+				<th></th>
 		    <th>Course</th>
-			<th>Days</th>
-			<th>CallNo</th>
-			<th>Credits</th>
-			<th>Enrolled onsite/TED</th>
-	
-			<th></th>
-			<th></th>
+				<th>Credits</th>
+				<th>Enrolled onsite/TED</th>
+		
+				<th></th>
+				<th></th>
 		  </tr>
 
-		<% total_credits = 0 %>
+		<% 
+			total_credits = 0 
+			preps xxx@xxx.xxx {|sec| sec.course.title}.uniq.size
+			total_onsite_enrollments = 0
+			total_ted_enrollments = 0
+		%>
 
 		<% for section xxx@xxx.xxx %>
 			<% total_credits += section.course.credits %>
+			
 		  <tr>
-			<td class="status <%= section.in_session ? "green" : "red" %>"></td>
-		    <td class="title">
-				<%=link_to "#{section.course.title}", xxx@xxx.xxx %><br/>
-			</td>
-		    <td class="days"><%= section.meeting_days %></td>
+			  <td class="days"><%= section.meeting_days %></td>
 		    <td><%= section.call_number %></td>
+				<td class="status <%= section.in_session ? "green" : "red" %>"></td>
+			  <td class="title">
+					<%=link_to "#{section.course.title}", xxx@xxx.xxx %><br/>
+				</td>
 		    <td><%= section.course.credits %></td>
 				<td class="enrollments">
+					<% total_onsite_enrollments += section.enrollments.size %>
 					<%= section.enrollments.size %> / 
 					<% if section.enrollment_snapshots.count > 0 %>
 						<%= section.enrollment_snapshots.last.enrollment_count %>
+						<% total_ted_enrollments += section.enrollment_snapshots.last.enrollment_count %>
 					<% else %>
 						NA
 					<% end %>
@@ -83,9 +91,11 @@ xxx@xxx.xxx %></h1>
 		  </tr>
 		<% end %>
 			<tr>
-				<td colspan="4" class="blank"></td>
-				<td><%= total_credits %></td>
 				<td colspan="3" class="blank"></td>
+				<td><%= pluralize preps, "prep" %></td>
+				<td><%= total_credits %></td>
+				<td class="enrollments"><%= total_onsite_enrollments %> / <%= total_ted_enrollments %></td>
+				<td colspan="2" class="blank"></td>
 			</tr>
 		</table>
 	</div>
