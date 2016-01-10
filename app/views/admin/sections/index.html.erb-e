@@ -69,15 +69,20 @@ xxx@xxx.xxx %></h1>
 			
 		  <tr>
 			  <td class="days"><%= section.meeting_days %></td>
+			  
 		    <td><%= section.call_number %></td>
+		    
 				<td class="status <%= section.in_session ? "green" : "red" %>"></td>
+				
 			  <td class="title">
 					<%=link_to "#{section.course.title}", xxx@xxx.xxx %><br/>
 				</td>
+				
 		    <td><%= section.course.credits %></td>
+		    
 				<td class="enrollments">
-					<% total_onsite_enrollments += section.enrollments.size %>
-					<%= section.enrollments.size %> / 
+					<% total_onsite_enrollments += section.enrollments.where(enrollment_status_id: EnrollmentStatus.enrolled).size %>
+					<%= section.enrollments.where(enrollment_status_id: EnrollmentStatus.enrolled).size %> / 
 					<% if section.enrollment_snapshots.count > 0 %>
 						<%= section.enrollment_snapshots.last.enrollment_count %>
 						<% total_ted_enrollments += section.enrollment_snapshots.last.enrollment_count %>
