@@ -28,7 +28,7 @@
 
 			<% for grade_request xxx@xxx.xxx %>
 				<tr>
-					<td class="status <%= grade_request.status == "denied" ? "green" : "red" %>"></td>
+					<td class="status <%= grade_request.status == "denied" ? "red" : "green" %>"></td>
 		
 					<td><%= grade_request.section.course.title %></td>
 					<%- if grade_request.enrollment -%>

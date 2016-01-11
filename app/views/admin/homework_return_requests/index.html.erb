@@ -28,7 +28,7 @@
 
 		<% for homework_return_request xxx@xxx.xxx %>
 			<tr>
-			<td class="status <%= homework_return_request.status == "denied" ? "green" : "red" %>"></td>
+			<td class="status <%= homework_return_request.status == "denied" ? "red" : "green" %>"></td>
 		
 		    <td><%= homework_return_request.email %></td>
 		    <td><%= homework_return_request.assignment.title %> <%= homework_return_request.assignment.lab.title %></td>
