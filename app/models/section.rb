@@ -293,9 +293,9 @@ class Section < ActiveRecord::Base
         #if status is 'Enter' mark them as enrolled
         # puts "marking #{current_students_full_name} enrollment status based on #{current_students_status}"
         if current_students_status == "W" || current_students_status == "AW"
-          current.enrollment.update_attributes( :enrollment_status_id => EnrollmentStatus.withdrawn.id )
+          current_enrollment.update_attributes( :enrollment_status_id => EnrollmentStatus.withdrawn.id )
         elsif current_students_status == "AU"
-          current.enrollment.update_attributes( :enrollment_status_id => EnrollmentStatus.audit.id )
+          current_enrollment.update_attributes( :enrollment_status_id => EnrollmentStatus.audit.id )
         else
           current_enrollment.update_attributes( :enrollment_status_id => EnrollmentStatus.enrolled.id )
         end
