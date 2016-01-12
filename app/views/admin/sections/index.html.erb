@@ -81,8 +81,8 @@ xxx@xxx.xxx %></h1>
 		    <td><%= section.course.credits %></td>
 		    
 				<td class="enrollments">
-					<% total_onsite_enrollments += section.enrollments.where("enrollment_status_id is not ?", EnrollmentStatus.dropped).size %>
-					<%= section.enrollments.where("enrollment_status_id is not ?", EnrollmentStatus.dropped).size %> / 
+					<% total_onsite_enrollments += section.enrollments.active.size %>
+					<%= section.enrollments.active.size %> / 
 					<% if section.enrollment_snapshots.count > 0 %>
 						<%= section.enrollment_snapshots.last.enrollment_count %>
 						<% total_ted_enrollments += section.enrollment_snapshots.last.enrollment_count %>
