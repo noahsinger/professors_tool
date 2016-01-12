@@ -43,15 +43,3 @@
   <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
   <td class="destroy"><%= link_to 'X', xxx@xxx.xxx method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
-
-<script type="text/javascript">
-	window.onload = function( ) {
-		links = $("a[data-remote]");
-		links.each(function() {
-			this.onclick = function() {
-				window.update_id = this.id.split("_")[1];
-			};
-
-		});
-	}
-</script>
