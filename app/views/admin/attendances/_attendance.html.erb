@@ -1,31 +1,33 @@
 <tr id="attendance_<%= attendance.id.to_s %>">
-  <td>
+  <td class="present">
   <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.present.id %>
     <%= attendance.attendance_status.name %>
   <% else %>
-  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.present.id} ), id: "present_#{attendance.id}", method: :put, style: "display: block;", remote: true ) %>
+  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.present.id} ), id: "present_#{attendance.id}", method: :put, style: "display: block;", remote: true, class: 'present_link' ) %>
   <% end %>
   </td>
   
-  <td>
+  <td class="absent">
     <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.absent.id %>
 	    <%= attendance.attendance_status.name %>
 	  <% else %>
-  		<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.absent.id} ), id: "absent_#{attendance.id}", method: :put, style: "display: block;", remote: true ) %>
+  		<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.absent.id} ), id: "absent_#{attendance.id}", method: :put, style: "display: block;", remote: true, class: 'absent_link' ) %>
 	  <% end %>
   </td>
-  <td>
+  
+  <td class="excused">
     <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.excused.id %>
 	    <%= attendance.attendance_status.name %>
 	  <% else %>
-	  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.excused.id} ), id: "excused_#{attendance.id}", method: :put, style: "display: block;", remote: true ) %>
+	  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.excused.id} ), id: "excused_#{attendance.id}", method: :put, style: "display: block;", remote: true, class: 'excused_link' ) %>
 	  <% end %>
   </td>
-  <td>
+  
+  <td class="holiday">
     <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.holiday.id %>
 	    <%= attendance.attendance_status.name %>
 	  <% else %>
-	  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.holiday.id} ), id: "holiday_#{attendance.id}", method: :put, style: "display: block;", remote: true ) %>
+	  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.holiday.id} ), id: "holiday_#{attendance.id}", method: :put, style: "display: block;", remote: true, class: 'holiday_link' ) %>
 	  <% end %>
   </td>
   
