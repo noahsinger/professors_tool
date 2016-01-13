@@ -10,7 +10,7 @@ class Enrollment < ActiveRecord::Base
   attr_accessible :student_id, :enrollment_status_id
   
   def self.active
-		self.where("enrollment_status_id is not ?", EnrollmentStatus.dropped)  
+		self.where("enrollment_status_id != ?", EnrollmentStatus.dropped)  
 	end
   
   def students_name
