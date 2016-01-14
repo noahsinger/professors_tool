@@ -32,7 +32,6 @@ end
 
 group :production do
 	gem 'mysql2'
-	gem 'therubyracer'
 end
 
 group :development do
@@ -49,6 +48,9 @@ group :development, :test do
   gem 'turn', :require => false
   gem 'minitest' #required by turn
   gem 'faker', '~> 1.1'
-  gem "libv8" #, "~> 3.11.8.3"
-	gem "therubyracer" #, "~> 0.11.0beta7"
+end
+
+group :development, :test, :production do
+	gem "libv8"
+	gem "therubyracer"
 end
