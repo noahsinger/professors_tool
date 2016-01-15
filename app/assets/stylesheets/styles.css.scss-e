@@ -919,3 +919,28 @@ xxx@xxx.xxx medium_tab;
 xxx@xxx.xxx one_part;
 	}
 }
+
+// ----------------------------
+// attendance
+// ----------------------------
+tr.attendance_row {
+	
+	
+	td.attendance_cell {
+		padding: 0 0 0 10px;
+	
+		.attendance_link {
+			display: block;
+			padding: 10px 10px 10px 0;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
