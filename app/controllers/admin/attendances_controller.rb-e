@@ -29,7 +29,7 @@ xxx@xxx.xxx = Meeting.find(params[:meeting_id])
 			end
 		end
 		
-		@attendances xxx@xxx.xxx
+		@attendances xxx@xxx.xxx { |x,y| x.enrollment.student.last_name <=> y.enrollment.student.last_name }
 
     respond_to do |format|
       format.html # index.html.erb
