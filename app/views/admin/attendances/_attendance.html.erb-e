@@ -1,36 +1,15 @@
 <tr id="attendance_<%= attendance.id.to_s %>">
-  <td class="present">
-  <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.present.id %>
-    <%= attendance.attendance_status.name %>
-  <% else %>
-  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.present.id} ), id: "present_#{attendance.id}", method: :put, style: "display: block;", remote: true, class: 'present_link' ) %>
-  <% end %>
-  </td>
-  
-  <td class="absent">
-    <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.absent.id %>
+	
+	<% AttendanceStatus.all.each do |status| %>
+		<td class="<%= status.name %>">
+	  <% if attendance.attendance_status and attendance.attendance_status.id == status.id %>
 	    <%= attendance.attendance_status.name %>
 	  <% else %>
-  		<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.absent.id} ), id: "absent_#{attendance.id}", method: :put, style: "display: block;", remote: true, class: 'absent_link' ) %>
+	  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: status.id} ), id: "#{status.name}_#{attendance.id}", method: :put, style: "display: block;", remote: true, class: "#{status.name}_link" ) %>
 	  <% end %>
-  </td>
-  
-  <td class="excused">
-    <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.excused.id %>
-	    <%= attendance.attendance_status.name %>
-	  <% else %>
-	  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.excused.id} ), id: "excused_#{attendance.id}", method: :put, style: "display: block;", remote: true, class: 'excused_link' ) %>
-	  <% end %>
-  </td>
-  
-  <td class="holiday">
-    <% if attendance.attendance_status and attendance.attendance_status.id == AttendanceStatus.holiday.id %>
-	    <%= attendance.attendance_status.name %>
-	  <% else %>
-	  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: AttendanceStatus.holiday.id} ), id: "holiday_#{attendance.id}", method: :put, style: "display: block;", remote: true, class: 'holiday_link' ) %>
-	  <% end %>
-  </td>
-  
+	  </td>
+	<% end %>
+	  
   <td>
     <% if attendance.enrollment.enrollment_status.id == EnrollmentStatus.dropped.id %>
 	    <strike><%= attendance.enrollment.student.last_name_first %></strike>

@@ -3,7 +3,6 @@ $("#attendance_" + window.update_id).replaceWith("<%= xxx@xxx.xxx %>");
 
 //find totals
 total = $(".present").size();
-$(".present_total").html(total - $(".present_link").size());
-$(".absent_total").html(total - $(".absent_link").size());
-$(".excused_total").html(total - $(".excused_link").size());
-$(".holiday_total").html(total - $(".holiday_link").size());
+<% AttendanceStatus.all.each do |status| %>
+	$(".<%= status.name %>_total").html(total - $(".<%= status.name %>_link").size());
+<% end %>

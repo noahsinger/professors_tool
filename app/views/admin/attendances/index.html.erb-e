@@ -19,10 +19,10 @@
 	<div class="fancy">
 		<table>
 		  <tr>
-		    <th>Present</th>
-		    <th>Absent</th>
-		    <th>Excused</th>
-		    <th>Holiday</th>
+			  <% AttendanceStatus.all.each do |status| %>
+				  <th><%= status.name.capitalize %></th>
+			  <% end %>
+			  
 		    <th>Student</th>
 		    <th></th>
 		    <th></th>
@@ -34,10 +34,9 @@ xxx@xxx.xxx do |attendance| %>
 		<% end %>
 		
 		<tr>
-			<td class="present_total"></td>
-			<td class="absent_total"></td>
-			<td class="excused_total"></td>
-			<td class="holiday_total"></td>
+			<% AttendanceStatus.all.each do |status| %>
+				<td class="<%= status.name %>_total"></td>
+			<% end %>
 			<td xxx@xxx.xxx %> active</td>
 			<td class="blank"></td>
 			<td class="blank"></td>
@@ -55,10 +54,9 @@ xxx@xxx.xxx do |attendance| %>
 		
 		//find totals
 		total = $(".present").size();
-		$(".present_total").html(total - $(".present_link").size());
-		$(".absent_total").html(total - $(".absent_link").size());
-		$(".excused_total").html(total - $(".excused_link").size());
-		$(".holiday_total").html(total - $(".holiday_link").size());
+		<% AttendanceStatus.all.each do |status| %>
+			$(".<%= status.name %>_total").html(total - $(".<%= status.name %>_link").size());
+		<% end %>
 	});
 		
 	//still setup the links even if turbo links has rebuilt that page
@@ -68,10 +66,9 @@ xxx@xxx.xxx do |attendance| %>
 		
 		//find totals
 		total = $(".present").size();
-		$(".present_total").html(total - $(".present_link").size());
-		$(".absent_total").html(total - $(".absent_link").size());
-		$(".excused_total").html(total - $(".excused_link").size());
-		$(".holiday_total").html(total - $(".holiday_link").size());
+		<% AttendanceStatus.all.each do |status| %>
+			$(".<%= status.name %>_total").html(total - $(".<%= status.name %>_link").size());
+		<% end %>
 	});
 	
 	var links_set_update_id = function( ) {
