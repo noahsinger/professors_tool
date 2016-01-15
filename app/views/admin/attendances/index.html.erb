@@ -50,7 +50,7 @@ xxx@xxx.xxx do |attendance| %>
 	//setup links for normal page load
 	$(document).ready(function(  ) {
 		console.log("document ready");
-		links_set_update_id();
+// 		links_set_update_id();
 		
 		//find totals
 		total = $(".present").size();
@@ -62,7 +62,7 @@ xxx@xxx.xxx do |attendance| %>
 	//still setup the links even if turbo links has rebuilt that page
 	$(document).on('page:load', function(  ) {
 		console.log("page loaded");
-		links_set_update_id();
+// 		links_set_update_id();
 		
 		//find totals
 		total = $(".present").size();
@@ -71,6 +71,7 @@ xxx@xxx.xxx do |attendance| %>
 		<% end %>
 	});
 	
+/*
 	var links_set_update_id = function( ) {
 		links = $("a[data-remote]");
 		links.each(function() {
@@ -81,6 +82,7 @@ xxx@xxx.xxx do |attendance| %>
 			}
 		});
 	} //end links_set_update_id
+*/
 </script>
 
 
