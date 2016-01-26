@@ -1,4 +1,4 @@
-<%= APP_CONFIG['site_name'].html_safe.gsub(/\<.*\>/,'') %>  &bull;
+<%= APP_CONFIG['host'].html_safe.gsub(/\<.*\>/,'') %>  &bull;
 <% if @section xxx@xxx.xxx %>
 xxx@xxx.xxx %>
 <% else %>
