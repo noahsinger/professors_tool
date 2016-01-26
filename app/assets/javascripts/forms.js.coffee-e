@@ -47,9 +47,12 @@ mimes =
 # insert file images for input type=file fields
 insert_image = (div, image, filename) ->
 	$(div).find( ".prompt" ).remove()
-	$("div.filename").prepend( "<span style=\"display: none;\">#{filename}</span>" )
+	$( "#file_upload_image" ).remove()
+	$( "#file_upload_filename" ).remove()
+	
+	$("div.filename").prepend( "<span id=\"file_upload_filename\" style=\"display: none;\">#{filename}</span>" )
 	$("div.filename span").fadeIn( 'slow' )
-	$(div).prepend( "<img src=\"/assets/mimes/#{image}.png\" alt=\"#{filename}\" style=\"display: none;\"/>" )
+	$(div).prepend( "<img id=\"file_upload_image\" src=\"/assets/mimes/#{image}.png\" alt=\"#{filename}\" style=\"display: none;\"/>" )
 	$(div).find( "img" ).fadeIn( 'slow' )
 
 
