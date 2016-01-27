@@ -14,10 +14,14 @@
     <% if attendance.enrollment.enrollment_status.id == EnrollmentStatus.dropped.id %>
 	    <strike><%= attendance.enrollment.student.last_name_first %></strike>
 	  <% else %>
-		  <%= link_to( attendance.enrollment.student.last_name_first, edit_admin_student_path(attendance.enrollment.student) ) %>
+	  	<span <%= unless attendance.attendance_status then 'style="font-weight: bold;"'.html_safe end %>>
+			  <%= link_to( attendance.enrollment.student.last_name_first, edit_admin_student_path(attendance.enrollment.student) ) %>
+			</span>
+			
 		  <% if attendance.enrollment.student.goes_by and not attendance.enrollment.student.goes_by.blank? %>
 		  	("<%= attendance.enrollment.student.goes_by %>")
 		  <% end %>
+	  	
 	  <% end %>
   </td>
   <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
