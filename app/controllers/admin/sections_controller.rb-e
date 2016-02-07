@@ -117,17 +117,33 @@ class Admin::SectionsController < ApplicationController
     csv_string = CSV.generate do |csv|
       assignments xxx@xxx.xxx
       
-      assignments_header = ["assignments"]
+      csv << ["Tulsa Community College"]
+      csv << xxx@xxx.xxx "Grade Scale", "A = 90-100%"]
+      csv << [APP_CONFIG['ted_username'],"","","B = 80-89%"]
+      csv << xxx@xxx.xxx = 70-79%"]
+      csv << ["#{@section.course.short_name} - xxx@xxx.xxx = 60-69%"]
+      csv << ["#{@section.semester.season}/#{@section.semester.year} xxx@xxx.xxx = < 60%"]
+      csv << [] #blank row
+      
+      assignments_header = ["STUDENT NAME",	"Letter Grade",	"% Grade",	"Total Points",	"Total Absence",	"Participation", ""]
       assignments_header << assignments.map {|assignment| "#{assignment.title} - #{assignment.lab.title}"}
       csv << assignments_header.flatten
       
-      worth_header = ["worth"]
-      worth_header << assignments.map {|assignment| assignment.worth}
-      csv << worth_header.flatten
+#       worth_header = ["worth"]
+#       worth_header << assignments.map {|assignment| assignment.worth}
+#       csv << worth_header.flatten
       
      xxx@xxx.xxx do |enrollment|
         line = []
         line << enrollment.student.last_name_first
+        
+        line << enrollment.current_grade
+        line << enrollment.current_average
+        line << enrollment.current_points
+        line << enrollment.attendances.where(attendance_status_id: AttendanceStatus.absent.id).count
+        line << "-" # show hyphen for participation
+        line << "" # blank for alignment with headings above
+        
         
         assignments.each do |assignment|
           work = enrollment.works.where("assignment_id = ?", assignment.id).limit(1)
