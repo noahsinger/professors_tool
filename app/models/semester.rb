@@ -67,6 +67,19 @@ class Semester < ActiveRecord::Base
     self.season + self.year.to_s
   end
   
+  def numeric
+		output = ""
+		if self.season == "Fall"
+			output = "1"
+		elsif self.season == "Spring"
+			output = "2"
+		elsif self.season == "Summer"
+			output = "3"
+		end
+		
+		output << self.year.to_s[2,4]  
+	end
+  
   def import_sections_from_ted
     agent = Mechanize.new do |a|
     	# needed in 1.9, causes error in 1.8
