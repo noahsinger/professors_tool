@@ -29,7 +29,7 @@
 xxx@xxx.xxx do |meeting| %>
 		  <tr>
 		    <td>
-			    <% if meeting.attendances.count > 0 %>
+			    <% if meeting.attendance_taken? %>
 				    <strike><%= link_to show_date_and_time( meeting.when ), xxx@xxx.xxx %></strike>
 				  <% else %>
 					  <%= link_to show_date_and_time( meeting.when ), xxx@xxx.xxx %>

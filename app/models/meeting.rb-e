@@ -3,4 +3,14 @@ class Meeting < ActiveRecord::Base
 	has_many :attendances, :dependent => :destroy
 
   attr_accessible :when
+  
+  def attendance_taken?
+		self.attendances.each do |attendance|  
+			unless attendance.attendance_status_id == nil
+				return true	
+			end
+		end
+		
+		false
+	end
 end
