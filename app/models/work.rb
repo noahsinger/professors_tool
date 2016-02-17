@@ -5,7 +5,7 @@ class Work < ActiveRecord::Base
   belongs_to :enrollment
   has_many :awarded_points, :dependent => :destroy
   
-  attr_accessible :upload, :email, :enrollment_id, :instructors_comments
+  attr_accessible :upload, :email, :enrollment_id, :instructors_comments, :assignment_id
   
   has_attached_file :upload,
                     :path => ":rails_root/uploads/:class/:id/:attachment/:basename.:extension",

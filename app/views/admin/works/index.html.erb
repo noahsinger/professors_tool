@@ -63,6 +63,13 @@ xxx@xxx.xxx %></h1>
 					<td class="ungrade"><%= link_to 'UnGrade', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
 			  </tr>
 			<% end %>
+			<tr>
+				<td colspan="2" class="blank"></td>
+				<td>
+					<%= work.assignment.average %>%
+				</td>
+				<td colspan="5" class="blank"></td>
+			</tr>
 			</table>
 		</div>
 	<% else %>
