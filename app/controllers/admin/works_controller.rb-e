@@ -97,11 +97,13 @@ class Admin::WorksController < ApplicationController
   
   def new_for_all
    xxx@xxx.xxx do |e|
-      unless e.works.where('assignment_id = xxx@xxx.xxx
-        @work xxx@xxx.xxx
-       xxx@xxx.xxx = e.student.email
-       xxx@xxx.xxx = e
-       xxx@xxx.xxx
+      if e.enrollment_status.id != EnrollmentStatus.dropped.id
+        unless e.works.where('assignment_id = xxx@xxx.xxx
+          @work xxx@xxx.xxx
+         xxx@xxx.xxx = e.student.email
+         xxx@xxx.xxx = e
+         xxx@xxx.xxx
+        end
       end
     end
     
