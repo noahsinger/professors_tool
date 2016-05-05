@@ -1,5 +1,7 @@
 To build gemset on Yosemite:
 
 brew install v8
+gem uninstall libv8
+gem install therubyracer -v '0.12.2'
 gem install libv8 -v '3.16.14.3' -- --with-system-v8
 bundle install
