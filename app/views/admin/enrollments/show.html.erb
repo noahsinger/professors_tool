@@ -83,4 +83,16 @@ xxx@xxx.xxx do |status| %>
 				 xxx@xxx.xxx %>
 			</h1>
 	</header>
+	
+	<div class="fancy">
+		<table>
+			<tr>
+				<th>Date</th>
+			</tr>
+xxx@xxx.xxx do |attendance| %>
+				<%= render :partial => 'attendance', :locals => {:attendance => attendance} %>
+			<% end %>
+		</table>
+	</div>
+	
 </section>

@@ -5,7 +5,7 @@ class Enrollment < ActiveRecord::Base
   has_many :works ,:dependent => :destroy
   has_many :grade_requests, :dependent => :destroy, :order => 'created_at desc'
   has_many :homework_return_requests, :dependent => :destroy, :order => 'created_at desc'
-  has_many :attendances, :dependent => :destroy
+  has_many :attendances, :dependent => :destroy, :order => 'created_at'
   
   attr_accessible :student_id, :enrollment_status_id
   
