@@ -138,7 +138,7 @@ class Admin::SectionsController < ApplicationController
         line << enrollment.student.last_name_first
         
         line << enrollment.current_grade
-        line << enrollment.current_average
+        line << enrollment.current_average / 100
         line << enrollment.current_points
         line << enrollment.attendances.where(attendance_status_id: AttendanceStatus.absent.id).count
         line << "-" # show hyphen for participation
