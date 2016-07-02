@@ -22,10 +22,10 @@ class Semester < ActiveRecord::Base
   end
   
   def self.future
-	  Semester.find(:all, :order => 'start_date').select do |semester|
-		  semester.start_date > Time.now.to_date
-		end
-	end
+    Semester.find(:all, :order => 'start_date').select do |semester|
+      semester.start_date > Time.now.to_date
+    end
+  end
 
   def student_count
     self.sections.inject( 0 ) {|total, section| total += section.enrollments.size}

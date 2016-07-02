@@ -10,7 +10,7 @@ Ingenious::Application.configure do
   config.action_controller.perform_caching = true
 
   # Specifies the header that your server uses for sending files
-#   config.action_dispatch.x_sendfile_header = "X-Sendfile" #commented out because zero byte length files were being sent.
+  #   config.action_dispatch.x_sendfile_header = "X-Sendfile" #commented out because zero byte length files were being sent.
 
   # For nginx:
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
@@ -31,7 +31,7 @@ Ingenious::Application.configure do
   # In production, Apache or nginx will already do this
   config.serve_static_assets = false
   
-	config.assets.precompile += ['extras/chrome.js', 'admin/admin.js', 'email.css', 'jquery-ui-1.7.1.custom.css']
+  config.assets.precompile += ['extras/chrome.js', 'admin/admin.js', 'email.css', 'jquery-ui-1.7.1.custom.css']
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
@@ -60,13 +60,12 @@ Ingenious::Application.configure do
   
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-	  :address => "localhost",
-	  # :address => "mail.ingenio.us.com",
-    :port  => 25, 
-    :domain  => 'ingenio.us.com',
-    :user_name  => xxx@xxx.xxx
-    :password  => 'th1515451t3!',
-    :authentication  => :login,
+#    :address => "mail.suchnull.com",
+#    :port  => 25, 
+    :domain  => 'suchnull.com',
+#    :user_name  => xxx@xxx.xxx
+#    :password  => 'th1515451t3!',
+#    :authentication  => :login,
     :openssl_verify_mode  => 'none'
   }
 end

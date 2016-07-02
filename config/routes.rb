@@ -165,7 +165,7 @@ Ingenious::Application.routes.draw do
   if Semester.current #favor the current semester
     root :to => "sections#index", :semester_id => Semester.current.id
   elsif Semester.future.first #if were not in semester choose the next one to start 
-	  root :to => "sections#index", :semester_id => Semester.future.first.id
+    root :to => "sections#index", :semester_id => Semester.future.first.id
   else # otherwise just show a list of all semesters
     root :to => "semesters#index"
   end

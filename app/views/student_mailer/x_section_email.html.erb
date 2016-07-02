@@ -1,0 +1,32 @@
+<%= render :layout => 'shared/email_template' do %>
+
+	<table class="tab">
+		<tr class="tab_header">
+			<td>
+				Section Announcement for xxx@xxx.xxx %>
+			</td>
+		</tr>
+		<tr class="tab_content">
+			<td>
+
+				<p>
+					<strong>To:</strong> All Class Members of Section <%= @section.call_number %> of xxx@xxx.xxx %><br/>
+					<strong>Subject:</strong> Section Announcement
+				</p>
+
+				<p>
+					<%= xxx@xxx.xxx %>
+				</p>
+
+				<hr/>
+
+				<div>
+					<%= @section.instructor.first_name %> xxx@xxx.xxx %><br/>
+xxx@xxx.xxx %>
+				</div>
+			
+			</td>				
+		</tr>		
+	</table>
+
+<% end %>

@@ -20,11 +20,11 @@ test:
     bitly_username: noahsinger
 
 production:
-    site_name: Ingeni<span>o.</span>us
+    site_name: suchnull 
     owner_email: xxx@xxx.xxx
-    banner_location: http://ingenio.us.com/images/sml_banner.png
-    site_url: http://ingenio.us.com
-    host: ingenio.us.com
+    banner_location: http://suchnull.com/images/sml_banner.png
+    site_url: http://suchnull.com
+    host: suchnull.com
     rake_path: /usr/bin/rake
     ted_username: ADMINID
     ted_password: "ADMINPASSWORD"

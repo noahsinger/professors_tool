@@ -1,5 +1,4 @@
 class StudentMailer < ActionMailer::Base
-  # default :from => xxx@xxx.xxx
   helper :application
   
   def work_submitted( work, submitting_address )
@@ -15,11 +14,12 @@ class StudentMailer < ActionMailer::Base
   def work_return( work, submitting_address )
    xxx@xxx.xxx = work
     
-    mail( :parts_order => [ "text/plain", "text/enriched", "text/html" ], 
+    #mail( :parts_order => [ "text/plain", "text/enriched", "text/html" ], 
+    mail( :parts_order => [ "text/plain", "text/enriched" ], 
     			:to => submitting_address, 
     			:subject => "Homework Return @ #{APP_CONFIG['host']}", 
     			:from => xxx@xxx.xxx do |format|
-    	format.html
+    	# format.html
     	format.text		
     end
     
