@@ -14,6 +14,10 @@ class StudentMailer < ActionMailer::Base
   def work_return( work, submitting_address )
    xxx@xxx.xxx = work
     
+    if work and work.upload_file_name
+      attachments[work.upload_file_name] = {:content => File.read(work.upload.path), :mime_type => work.upload_content_type}
+    end
+    
     #mail( :parts_order => [ "text/plain", "text/enriched", "text/html" ], 
     mail( :parts_order => [ "text/plain", "text/enriched" ], 
     			:to => submitting_address, 
@@ -21,10 +25,6 @@ class StudentMailer < ActionMailer::Base
     			:from => xxx@xxx.xxx do |format|
     	# format.html
     	format.text		
-    end
-    
-    if work and work.upload_file_name
-      attachments[work.upload_file_name] = {:content => File.read(work.upload.path), :mime_type => work.upload_content_type}
     end
   end
 
