@@ -1,4 +1,10 @@
 module ApplicationHelper
+  def pluralize_without_count(count, noun, text = nil)
+    if count != 0
+      count == 1 ? "#{noun}#{text}" : "#{noun.pluralize}#{text}"
+    end
+  end
+  
   def markdown(text)
     options = {:hard_wrap => true, :autolink => true, :no_intraemphasis => true, :fenced_code => true, :gh_blockcode => true, :fenced_code_blocks => true}
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
