@@ -9,6 +9,7 @@ class Course < ActiveRecord::Base
   has_many :policies, :order => :position
   has_many :syllabus_parts, :through => :policies
   has_many :waiters
+  has_many :websites, dependent: :destroy
   
   attr_accessible :title, :description, :discipline, :number, :credits, :prerequisite, :next_course, :required_materials
   

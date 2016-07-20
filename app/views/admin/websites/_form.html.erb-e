@@ -1,25 +1,10 @@
 <%= xxx@xxx.xxx do |f| %>
-  <% xxx@xxx.xxx %>
-    <div id="error_explanation">
-      <h2><%= xxx@xxx.xxx "error") %> prohibited this website from being saved:</h2>
-
-      <ul>
-      xxx@xxx.xxx do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<%= xxx@xxx.xxx %>
+	<ol>
+		<li><div class="details"><%= f.label :title %><p>Website's Name</p></div><div class="field"><%= f.text_field :title %></div></li>
+		<li><div class="details"><%= f.label :url %><p>to be linked on syllabus</p></div><div class="field"><%= f.text_field :url %></div></li>
+		<li class="action">
+			<div><%= f.submit %></div>
+		</li>
+	</ol>
 <% end %>

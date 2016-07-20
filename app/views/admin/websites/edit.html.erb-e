@@ -1,6 +1,16 @@
-<h1>Editing website</h1>
+<%= content_for :header do %>	
+xxx@xxx.xxx %></h1>
+<% end %>
 
-<%= render 'form' %>
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx class: "icon back" %>
+	</nav>
+	
+	<header>
+		<p>Editing</p>
+xxx@xxx.xxx %></h1>
+	</header>
 
-<%= link_to xxx@xxx.xxx %> |
-<%= link_to 'Back', websites_path %>
+	<%= render "form" %>
+</section>

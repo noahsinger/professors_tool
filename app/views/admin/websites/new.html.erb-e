@@ -1,5 +1,16 @@
-<h1>New website</h1>
+<%= content_for :header do %>
+xxx@xxx.xxx %></h1>
+<% end %>
 
-<%= render 'form' %>
+<section>
+	<nav>
+		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+	</nav>
 
-<%= link_to 'Back', websites_path %>
+	<header>
+		<p>Add a New Website for</p>
+xxx@xxx.xxx %></h1>
+	</header>
+
+	<%= render "form" %>
+</section>
