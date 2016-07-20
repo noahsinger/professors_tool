@@ -1,5 +1,4 @@
 Ingenious::Application.routes.draw do
-
   # no namespace ##########################################    
   resources :general_contacts
   resources :instructors
@@ -118,6 +117,7 @@ Ingenious::Application.routes.draw do
       resources :waiters
       resources :materials
       resources :books
+      resources :websites
       resources :tutorials do
         collection do
           post 'sort'
