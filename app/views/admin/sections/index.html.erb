@@ -17,14 +17,12 @@ xxx@xxx.xxx do |section| %>
 						<% if section.enrollment_snapshots.count > 0 %>
 							{
 								name: "<%= section.meeting_days %> <%= section.course.title %>",
-								pointInterval: <%= 1.day * 1000 %>,
-								pointStart: <%= (section.enrollment_snapshots.order(:created_at).first.created_at).to_i * 1000 %>,
-								data: <%= section.enrollment_snapshots.order(:created_at).collect {|p| p.enrollment_count}.inspect %>
+								data: <%= section.enrollment_snapshots.order(:created_at).collect {|p| [p.created_at.to_i * 1000, p.enrollment_count]}.inspect %>
 							},
 						<% end %>
 					<% end %>]
 				});
-			});		
+			});
 		</script>
 <% end %>
 

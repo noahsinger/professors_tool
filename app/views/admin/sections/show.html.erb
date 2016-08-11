@@ -15,9 +15,7 @@ xxx@xxx.xxx %></h1>
 					},
 					series: [{
 						name: "Enrollments",
-						pointInterval: <%= 1.day * 1000 %>,
-						pointStart: <%= xxx@xxx.xxx * 1000 %>,
-						data: xxx@xxx.xxx {|p| p.enrollment_count}.inspect %>
+						data: xxx@xxx.xxx {|p| [p.created_at.to_i * 1000, p.enrollment_count]}.inspect %>
 					}]
 				});
 			});		
