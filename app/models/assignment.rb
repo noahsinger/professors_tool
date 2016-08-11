@@ -42,7 +42,7 @@ class Assignment < ActiveRecord::Base
   def average
     total = 0
     self.works.each do |work|
-      total += work.score if work and work.score
+      total += work.percentage if work and work.score
     end
     
     if self.works.size > 0
