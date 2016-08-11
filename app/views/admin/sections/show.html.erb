@@ -7,11 +7,12 @@ xxx@xxx.xxx %></h1>
 		<script type="text/javascript" charset="utf-8">
 			$(function () {
 				new Highcharts.Chart({
-					chart: { renderTo: 'enrollments_chart' },
+					chart: { renderTo: 'enrollments_chart', type: 'spline' },
 					title: { text: 'Enrollments by Day' },
 					xAxis: { type: 'datetime' },
 					yAxis: {
-						title: { text: '# of Students'}
+						title: { text: '# of Students'},
+						min: 0
 					},
 					series: [{
 						name: "Enrollments",
