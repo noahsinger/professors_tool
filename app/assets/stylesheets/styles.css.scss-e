@@ -16,16 +16,16 @@ $inner-width: 78.947368421053%; // (600px / 760px)
 // -----------------------
 body {
 xxx@xxx.xxx helvetica_family;
-	background-color: #669966;
-	
-	background: #669966; /* Old browsers */
-	background: -moz-linear-gradient(left, #669966 0%, #669966 25%, #889883 50%, #669966 75%, #669966 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#669966), color-stop(25%,#669966), color-stop(50%,#889883), color-stop(75%,#669966), color-stop(100%,#669966)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(left, #669966 0%,#669966 25%,#889883 50%,#669966 75%,#669966 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(left, #669966 0%,#669966 25%,#889883 50%,#669966 75%,#669966 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(left, #669966 0%,#669966 25%,#889883 50%,#669966 75%,#669966 100%); /* IE10+ */
-	background: linear-gradient(left, #669966 0%,#669966 25%,#889883 50%,#669966 75%,#669966 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#669966', endColorstr='#669966',GradientType=1 ); /* IE6-9 */
+	background-color: $background-dark-color;
+
+	background: $background-dark-color; /* Old browsers */
+	background: -moz-linear-gradient(left, $background-dark-color 0%, $background-dark-color 25%, $background-light-color 50%, $background-dark-color 75%, $background-dark-color 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,$background-dark-color), color-stop(25%,$background-dark-color), color-stop(50%,$background-light-color), color-stop(75%,$background-dark-color), color-stop(100%,$background-dark-color)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, $background-dark-color 0%,$background-dark-color 25%,$background-light-color 50%,$background-dark-color 75%,$background-dark-color 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, $background-dark-color 0%,$background-dark-color 25%,$background-light-color 50%,$background-dark-color 75%,$background-dark-color 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, $background-dark-color 0%,$background-dark-color 25%,$background-light-color 50%,$background-dark-color 75%,$background-dark-color 100%); /* IE10+ */
+	background: linear-gradient(left, $background-dark-color 0%,$background-dark-color 25%,$background-light-color 50%,$background-dark-color 75%,$background-dark-color 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$background-dark-color', endColorstr='$background-dark-color',GradientType=1 ); /* IE6-9 */
 }
 
 ul, ol {
@@ -48,7 +48,7 @@ a {
 
 .light {
 	font-size: .7em;
-	color: #eee;
+	color: $bright-text;
 	font-weight: normal;
 }
 
@@ -61,7 +61,7 @@ xxx@xxx.xxx grad( $red_light, $red_dark );
 	box-shadow: 0px 2px 2px #555, inset 10px 0px 20px -8px #555, inset -10px 0px 20px -8px #555;
 	margin-bottom: 30px;
 	padding: 10px 20px;
-	color: #fff;
+	color: $bright-text;
 	text-align: center;
 }
 
@@ -75,7 +75,7 @@ xxx@xxx.xxx grad( $red_light, $red_dark );
 
 p.flash {
 xxx@xxx.xxx left_tab;
-	color: #fff;
+	color: $bright-text;
 xxx@xxx.xxx wide_tab;
 	padding: 10px 20px;
 	
@@ -135,19 +135,19 @@ xxx@xxx.xxx outset-left;
 			width: 100%;
 xxx@xxx.xxx giant_tab_style;
 
-			box-shadow: 0px 2px 2px #555, inset 10px 0px 20px -8px #555, inset -10px 0px 20px -8px #555;
+			box-shadow: 0px 2px 2px darken($giant-tab-dark, 10%), inset 10px 0px 20px -8px darken($giant-tab-dark, 10%), inset -10px 0px 20px -8px darken($giant-tab-dark, 10%);
 
 
 			// --------------------------------
 			// small top text on banner
 			// --------------------------------
 			p {
-				border-bottom: 1px inset darken(#57784B, 10%);
+				border-bottom: 1px inset darken($giant-tab-dark, 10%);
 				margin: 0;
 				padding: 5px 20px;
 				font-style: italic;
 				font-size: 1.1em;
-				color: #eee;
+				color: darken($bright-text, 10%);
 			}
 
 
@@ -155,7 +155,7 @@ xxx@xxx.xxx giant_tab_style;
 			// main banner text
 			// ---------------------------------
 			h1 {
-				color: #fff;
+				color: $bright-text;
 				margin: 0;
 xxx@xxx.xxx georgia_family;
 				font-size: 2em;
@@ -164,7 +164,7 @@ xxx@xxx.xxx georgia_family;
 				font-style: normal;
 				
 				a {
-					color: #fff;
+					color: $bright-text;
 				} //end a
 			} // end h1
 		} // end header
@@ -190,13 +190,13 @@ xxx@xxx.xxx georgia_family;
 
 xxx@xxx.xxx giant_tab_style;
 
-			box-shadow: 0px 2px 2px #555, inset 5px 0px 10px -8px #000, inset -5px 0px 10px -8px #000;
+			box-shadow: 0px 2px 2px darken($giant-tab-dark, 10%), inset 5px 0px 10px -8px darken($giant-tab-dark, 10%), inset -5px 0px 10px -8px darken($giant-tab-dark, 10%);
 
 			div#copyright {
 				float: left;
 				
 				a {
-					color: #fff;
+					color: $bright-text;
 				}
 			}
 
@@ -207,7 +207,7 @@ xxx@xxx.xxx giant_tab_style;
 					float: right;
 
 					a {
-						color: #fff;
+						color: $bright-text;
 						padding-left: 10px;
 					}
 				} // end li
@@ -307,7 +307,7 @@ xxx@xxx.xxx neue_family;
 		padding: 2px 0;
 			
 		&:hover {
-			color: #fff;
+			color: $bright-text;
 		}
 			
 		&.icon {
@@ -408,10 +408,6 @@ xxx@xxx.xxx wide_tab;
 		float: left;
 	}
 
-	a:hover {
-		color: #005698;
-	}
-
 	hr {
 		margin: 0 0 0 200px;
 		padding: 0;
@@ -477,7 +473,6 @@ xxx@xxx.xxx walkway_family;
 		left: -30px;
 		margin: 0 auto;
 		width: 75%;
-// 		height: 90%;
 	}
 }
 
@@ -546,7 +541,7 @@ xxx@xxx.xxx neue_family;
 		margin-top: 15px;
 
 		tr {
-			border-bottom: 1px solid #eee;
+			border-bottom: 1px solid darken($bright-text, 10%);
 			
 			&:last-child {
 				border-bottom: 0;
@@ -646,19 +641,19 @@ xxx@xxx.xxx right_cap;
 // --------------------------------------------------------
 
 table#requirements {
-xxx@xxx.xxx grad( #82A169, #57784B );
+xxx@xxx.xxx giant_tab_style;
 xxx@xxx.xxx right_tab_shadow;
 
 	width: 100%;
 	float: right;
 
 	border-collapse: collapse;
-	color: #fff;
+	color: $bright-text;
 	font-size: .9em;
 	margin-bottom: 30px;
 	
 	tr {
-		border-bottom: 1px solid darken(#57784B, 10%);
+		border-bottom: 1px solid darken($giant-tab-dark, 10%);
 		
 		&:last-child {
 			border-bottom: none;
@@ -773,7 +768,7 @@ xxx@xxx.xxx clearfix;
 xxx@xxx.xxx grad( #86AC4B, #3F7126 );
 xxx@xxx.xxx wide_tab;
 xxx@xxx.xxx left_tab;
-	color: #fff;
+	color: $bright-text;
 
 	strong {
 		display: block;
@@ -802,10 +797,10 @@ div.fancy table {
 	margin-left: 1px;
 	margin-bottom: 20px;
 xxx@xxx.xxx giant_tab_style;
-	box-shadow: 0px 2px 2px #555, inset 10px 0px 20px -8px #555, inset -10px 0px 20px -8px #555;
+	box-shadow: 0px 2px 2px darken($giant-tab-dark, 10%), inset 10px 0px 20px -8px darken($giant-tab-dark, 10%), inset -10px 0px 20px -8px darken($giant-tab-dark, 10%);
 	
 	a {
-		color: #fff;
+		color: $bright-text;
 	}
 		
 	th {
@@ -817,7 +812,7 @@ xxx@xxx.xxx giant_tab_style;
 		
 		td {
 			padding: 10px;
-			background-color: #669966;
+			background-color: $background-dark-color;
 			font-size: 1.2em;
 		
 			&:first-child {
@@ -839,7 +834,7 @@ xxx@xxx.xxx giant_tab_style;
 				padding: 0;
 
 				&:hover {
-					background-color: #0a0;
+					background-color: lighten($giant-tab-light, 10%);
 				}
 				
 				a {
@@ -855,11 +850,11 @@ xxx@xxx.xxx giant_tab_style;
 				left: 10px;
 				
 				&.red {
-					background-color: #770000;
+					background-color: darken($red-dark, 20%);
 				}
 				
 				&.green {
-					background-color: #009900;
+					background-color: $green-light;
 				}
 				
 				&:hover {
@@ -881,13 +876,13 @@ xxx@xxx.xxx giant_tab_style;
 	
 	td {
 		input[type=text], input[type=number] {
-			background-color: #889883;
+			background-color: $background-light-color;
 			padding: 10px 15px; //inner field padding
 			
 			width: 80%;
 			
 			font-size: 1.1em;
-			color: #fff;
+			color: $bright-text;
 		}
 	}
 } //end fancy tables
@@ -899,7 +894,7 @@ p.paginated_links {
 	margin: 0 auto;
 	
 	a {
-		color: #eee;
+		color: darken($bright-text, 20%);
 	}
 	
 	span.link {
@@ -935,12 +930,3 @@ tr.attendance_row {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-

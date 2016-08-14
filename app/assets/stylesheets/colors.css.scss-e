@@ -2,7 +2,14 @@
 // colors
 // ----------------------
 
+$background-dark-color: #669966;
+$background-light-color: #889883;
 $background-text-color: #6D806A;
+
+$bright-text: #fff;
+
+$giant-tab-light: #82A169;
+$giant-tab-dark: #57784B;
 
 $purple_light: #9957f9;
 $purple_dark: #631697;

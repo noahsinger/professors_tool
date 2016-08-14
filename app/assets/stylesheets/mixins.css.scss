@@ -37,7 +37,7 @@
 // -------------------------------------
 
 @mixin giant_tab_style {
-xxx@xxx.xxx grad( #82A169, #57784B );
+xxx@xxx.xxx grad( $giant-tab-light, $giant-tab-dark );
 	font-size: .75em;
 	color: #fff;
 	font-family: 'HelveticaNeue-UltraLight', helvetica, arial, sans-serif;
