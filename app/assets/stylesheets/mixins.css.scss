@@ -330,6 +330,8 @@ xxx@xxx.xxx neue_family;
 			font-size: 1em;
 			margin: 5px 0 3px 0;
 			padding: 0px 20px;
+			white-space: nowrap;
+			overflow: hidden;
 		}
 		
 		p {
@@ -337,6 +339,8 @@ xxx@xxx.xxx neue_family;
 			margin: 0;
 			font-style: italic;
 			padding: 0px 20px 7px 20px;
+			white-space: nowrap;
+			overflow: hidden;
 		}
 	} // end a
 }
