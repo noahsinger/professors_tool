@@ -3,13 +3,13 @@
 // ----------------------
 
 $background-dark-color: #669966;
-$background-light-color: #889883;
-$background-text-color: #6D806A;
+$background-light-color: lighten($background-dark-color, 7%);
+$background-text-color: darken($background-dark-color, 12%);
 
 $bright-text: #fff;
 
-$giant-tab-light: #82A169;
 $giant-tab-dark: #57784B;
+$giant-tab-light: lighten($giant-tab-dark, 12%);
 
 $purple_light: #9957f9;
 $purple_dark: #631697;
