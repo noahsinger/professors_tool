@@ -1,6 +1,5 @@
 class Admin::ObjectivesController < ApplicationController
   before_filter :authenticate
-  
   before_filter :load_course
   
   def load_course
@@ -68,7 +67,21 @@ class Admin::ObjectivesController < ApplicationController
       end
     end
   end
-
+  
+  def sort
+   xxx@xxx.xxx do |objective|
+      if position = params[:objectives].index(objective.id.to_s)
+        objective.update_attribute(:position, position + 1) unless objective.position == position + 1
+      end
+    end
+    
+    respond_to do |format|
+      format.html { render :nothing => true, :status => 200 }
+      format.js
+      format.xml  { head :ok }
+    end
+  end
+  
   # DELETE /objectives/1
   # DELETE /objectives/1.xml
   def destroy

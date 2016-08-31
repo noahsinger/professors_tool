@@ -125,7 +125,12 @@ Ingenious::Application.routes.draw do
         end
       end
       
-      resources :objectives
+      resources :objectives do
+        collection do
+          post 'sort'
+        end
+      end
+      
       resources :policies do
         collection do
           post 'sort'
@@ -134,7 +139,12 @@ Ingenious::Application.routes.draw do
       end
             
       resources :labs do
-        resources :requirements
+        resources :requirements do
+          collection do
+            post 'sort'
+          end
+        end
+        
         resources :extras
       end
     end

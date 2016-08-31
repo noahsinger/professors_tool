@@ -5,7 +5,7 @@ class Course < ActiveRecord::Base
   has_many :materials, :dependent => :destroy
   has_many :tutorials, :order => :position
   has_many :how_tos, :through => :tutorials
-  has_many :objectives
+  has_many :objectives, order: :position
   has_many :policies, :order => :position
   has_many :syllabus_parts, :through => :policies
   has_many :waiters

@@ -157,7 +157,7 @@ class Semester < ActiveRecord::Base
           
           # puts "title: #{title}"
           # puts "call number: #{callno}"
-          # puts "course number: #{course.discipline}#{course.number} #{course.title}"          
+          # puts "course number: #{course.discipline}#{course.number} #{course.title}"
           # puts "section number: #{secno}"
           # puts "current enrollment: #{current_enrollment}"
           # puts "time range: #{start_time} - #{end_time}"

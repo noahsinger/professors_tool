@@ -1,6 +1,6 @@
 class Lab < ActiveRecord::Base
   belongs_to :course
-  has_many :requirements, :dependent => :destroy
+  has_many :requirements, :dependent => :destroy, order: :position
   has_many :assignments, :dependent => :destroy
   has_many :extras, :dependent => :destroy
   

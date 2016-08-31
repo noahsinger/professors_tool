@@ -62,6 +62,20 @@ class Admin::RequirementsController < ApplicationController
       end
     end
   end
+  
+  def sort
+   xxx@xxx.xxx do |requirement|
+      if position = params[:requirements_table].index(requirement.id.to_s)
+        requirement.update_attribute(:position, position + 1) unless requirement.position == position + 1
+      end
+    end
+    
+    respond_to do |format|
+      format.html { render :nothing => true, :status => 200 }
+      format.js
+      format.xml  { head :ok }
+    end
+  end
 
   # DELETE /requirements/1
   # DELETE /requirements/1.xml
