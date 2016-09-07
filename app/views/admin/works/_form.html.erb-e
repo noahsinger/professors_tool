@@ -16,7 +16,7 @@
 				<p>For whom?</p>
 			</div>
 
-			<div class="field"><%=  select( "work", "enrollment_id", Enrollment.find( :all, :conditions => ['section_id = xxx@xxx.xxx ).collect {|s| [ s.student.last_name + ', ' + s.student.first_name, s.id ] }, { :include_blank => true } ) %></div>
+			<div class="field"><%=  select( "work", "enrollment_id", Enrollment.find( :all, :conditions => ['section_id = xxx@xxx.xxx ).collect {|s| [ s.student.last_name + ', ' + s.student.first_name, s.id ] }.sort, { :include_blank => true } ) %></div>
 		</li>
 
 		<% xxx@xxx.xxx %>
