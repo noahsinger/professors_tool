@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.12'
 
+gem 'skylight'
+
 gem 'icalendar', '~> 1.1'
 gem 'RedCloth', '~> 4.2'
 gem 'delayed_job', '~> 3.0'

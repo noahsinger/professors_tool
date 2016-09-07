@@ -180,6 +180,8 @@ GEM
       httparty (= 0.13.0)
       json (= 1.8.1)
     simple_oauth (0.3.1)
+    skylight (0.10.6)
+      activesupport (>= 3.0.0)
     sprockets (2.2.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -251,6 +253,7 @@ DEPENDENCIES
   remotipart (~> 1.0)
   sass-rails (~> 3.2)
   shortly (~> 0.3)
+  skylight
   sqlite3
   therubyracer
   thin
@@ -258,3 +261,6 @@ DEPENDENCIES
   turn
   twitter (~> 4.8)
   uglifier (>= 1.0)
+
+BUNDLED WITH
+   1.12.0
