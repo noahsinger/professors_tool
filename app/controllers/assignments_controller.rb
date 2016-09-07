@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
-  before_filter :load_semester
   before_filter :load_section
+  before_filter :load_semester
   before_filter :clear_referrer
   
   def clear_referrer
@@ -9,12 +9,12 @@ class AssignmentsController < ApplicationController
     end
   end
   
-  def load_semester
-   xxx@xxx.xxx = Semester.find( params[:semester_id] )
-  end
-  
   def load_section
-   xxx@xxx.xxx = Section.find( params[:section_id] )
+   xxx@xxx.xxx = Section.includes(:semester,:examples,:course).find( params[:section_id] )
+  end
+
+  def load_semester
+    @semester xxx@xxx.xxx
   end
   
   # GET /assignments
