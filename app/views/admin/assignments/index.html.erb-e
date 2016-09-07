@@ -48,7 +48,7 @@
 					<br/><span style="font-size: .7em;"><%= distance_of_time_in_words_to_now( assignment.duedate ) if assignment.duedate > Time.now %></span>
 				</td>
 				<td class="worth"><%= assignment.worth %></td>
-				<td class="avg"><%= assignment.average %></td>
+				<td class="avg"><%= assignment.average.round(2) %></td>
 				<td class="grade"><%= link_to 'Grade', xxx@xxx.xxx %></td>
 				<td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
 				<td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
