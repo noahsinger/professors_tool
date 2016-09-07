@@ -30,13 +30,14 @@ class WorksController < ApplicationController
   # POST /works.xml
   def create
     @work xxx@xxx.xxx
+   xxx@xxx.xxx
 
     respond_to do |format|
       # make this work one with the assignment
       @work.assignment_id xxx@xxx.xxx
       
       # try to find the student who this assignment belongs to (based on the submitting email address)
-      student = Student.where('email=?', params[:work][:email]).first
+      student = Student.where('email=?', params[:work][:email].downcase).first
       
       if student
         # if a student is found with a matching email address attribute the assignment to them
@@ -44,7 +45,7 @@ class WorksController < ApplicationController
       end
       
       # check if a work has already been submitted from this submission address
-      prev_works xxx@xxx.xxx params[:work][:email])
+      prev_works xxx@xxx.xxx params[:work][:email].downcase)
 
       # if the work wasn't previously submitted
       if prev_works.size == 0
@@ -53,7 +54,7 @@ class WorksController < ApplicationController
           flash[:notice] = 'Your work was successfully uploaded.'
         
           # send the student an email including the withdrawal link
-         xxx@xxx.xxx params[:work][:email]
+         xxx@xxx.xxx params[:work][:email].downcase
         
           format.html { xxx@xxx.xxx } 
           format.xml  { render :xml => @work, :status => :created, :location xxx@xxx.xxx }
