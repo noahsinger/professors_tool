@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WorkTest < ActiveSupport::TestCase
+class WorkTest < ActiveJob::TestCase
   test "works exist" do
     assert_equal 2, Work.count
   end
@@ -31,15 +31,15 @@ class WorkTest < ActiveSupport::TestCase
   test "works can send submitted email" do
     assert_respond_to Work.first, :send_submitted_email
     
-    assert_difference('Delayed::Job.all.size') do
+    assert_enqueued_jobs 1 do 
       Work.first.send_submitted_email xxx@xxx.xxx
     end
   end
   
-  test "works can send remonder email" do
+  test "works can send reminder email" do
     assert_respond_to Work.first, :send_reminder_email
     
-    assert_difference('Delayed::Job.all.size') do
+    assert_enqueued_jobs 1 do 
       Work.first.send_reminder_email
     end
   end

@@ -22,7 +22,7 @@ class HomeworkReturnRequestsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -43,26 +43,26 @@ class HomeworkReturnRequestsController < ApplicationController
       
       xxx@xxx.xxx
         xxx@xxx.xxx == "removed"
-         xxx@xxx.xxx :status => 'denied'
+         xxx@xxx.xxx status: 'denied'
           @homework_return_request xxx@xxx.xxx
           flash[:notice] = "That assignment's attachment is no longer stored on this site as it's more than 1 year old."
           format.html { xxx@xxx.xxx }
         elsif prev_request and prev_request.created_at > target
           #dont send email, display error
-         xxx@xxx.xxx :status => 'denied'
+         xxx@xxx.xxx status: 'denied'
           @homework_return_request xxx@xxx.xxx
          xxx@xxx.xxx :email, 'was used to make a homework return request just a short while ago. Please wait a while before making this request again.'
-          format.html { render :action => "new" }
+          format.html { render action: "new" }
         else
-          xxx@xxx.xxx params[:homework_return_request][:email] )
+         xxx@xxx.xxx params[:homework_return_request][:email])
           
-         xxx@xxx.xxx :status => 'sent'
+         xxx@xxx.xxx status: 'sent'
 
           flash[:notice] = "An email has been sent to your address with your assignment attached"
           format.html { xxx@xxx.xxx }  
         end
       else
-        format.html { render :action => "new" }
+        format.html { render action: "new" }
       end
     end
   end

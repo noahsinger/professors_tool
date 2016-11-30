@@ -1,0 +1,40 @@
+<table class="tab">
+	<tr class="tab_header">
+		<td colspan="2">
+			<% course xxx@xxx.xxx %>
+			Course Availability Notification
+		</td>
+	</tr>
+	<tr class="tab_content">
+		<td class="left">
+			<p>
+				This email is in response to a request you made to be notified when a section of
+				<strong><%= course.title %></strong> is going to be offered at Tulsa Community College.
+			</p>
+			<p>
+				If you have any additional questions about the class please feel free to <%= link_to 'contact me', new_general_contact_url(:host => APP_CONFIG['host']) %>.
+			</p>
+		
+		</td>
+		<td class="right">
+			<p>
+				A new section of <strong><%= course.title %></strong> was just created and will be offered during
+				the xxx@xxx.xxx %> semester</strong> which begins on 
+				<strong><%= xxx@xxx.xxx %></strong>.
+			</p>
+
+			<h2>Class Details</h2>
+			<p>
+				<strong>Course name:</strong> <%= course.title %><br/>
+				<strong>Course number:</strong> <%= course.short_name %><br/>
+				<strong>Section number (CRN):</strong> xxx@xxx.xxx %><br/>
+				<strong>Meeting Days/Times:</strong> xxx@xxx.xxx %>
+			</p>
+
+			<p>
+				If you are interested in enrolling in this class you can visit any <a href="http://tulsacc.edu">TCC campus</a>
+				or <a href="https://mytcc.tulsacc.edu/">enroll online</a> using the above information.
+			</p>								
+		</td>				
+	</tr>		
+</table>

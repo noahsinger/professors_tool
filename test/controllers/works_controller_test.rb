@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class WorksControllerTest < ActionDispatch::IntegrationTest
+  include ActiveJob::TestHelper 
+  
   def setup
    xxx@xxx.xxx = sections(:jck1003_section_1)
     @semester xxx@xxx.xxx
@@ -14,7 +16,7 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create work" do
-    assert_difference('Delayed::Job.all.size') do
+    assert_enqueued_jobs 1 do 
       assert_difference('Work.count') do
         post xxx@xxx.xxx @section, @assignment),
           params: {work: xxx@xxx.xxx upload: ''}}
@@ -32,7 +34,7 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
       params: {work: xxx@xxx.xxx upload: ''}}
 
     #submit it again
-    assert_difference('Delayed::Job.all.size') do #reminder email sent
+    assert_enqueued_jobs 1 do #reminder email sent
       assert_no_difference('Work.count') do #no new work created
         post xxx@xxx.xxx @section, @assignment),
           params: {work: xxx@xxx.xxx upload: ''}}

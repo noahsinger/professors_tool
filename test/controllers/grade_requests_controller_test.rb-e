@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class GradeRequestsControllerTest < ActionDispatch::IntegrationTest
+  include ActiveJob::TestHelper 
+  
   test "should get new" do
     get new_semester_section_grade_request_url(Semester.current, Semester.current.sections.first)
     assert_response :success
@@ -9,8 +11,7 @@ class GradeRequestsControllerTest < ActionDispatch::IntegrationTest
   test "should create grade_request for enrolled student" do
     sections(:jck1003_section_1).enrollments.build( student_id: students(:stew).id ).save
 
-    # assert_difference('ActionMailer::Base.deliveries.size') do
-    assert_difference('Delayed::Job.all.size') do
+    assert_enqueued_jobs 1 do 
       assert_difference('GradeRequest.count') do
         post semester_section_grade_requests_url(Semester.current, Semester.current.sections.first),
           params: {
@@ -28,8 +29,7 @@ class GradeRequestsControllerTest < ActionDispatch::IntegrationTest
   test "should create grade_request for enrolled student if the email has mixed case" do
     sections(:jck1003_section_1).enrollments.build( student_id: students(:stew).id ).save
 
-    # assert_difference('ActionMailer::Base.deliveries.size') do
-    assert_difference('Delayed::Job.all.size') do
+    assert_enqueued_jobs 1 do 
       assert_difference('GradeRequest.count') do
         post semester_section_grade_requests_url(Semester.current, Semester.current.sections.first),
           params: {
@@ -45,7 +45,7 @@ class GradeRequestsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not create grade_request for non-enrolled student" do
-    assert_no_difference('Delayed::Job.all.size') do
+    assert_enqueued_jobs 0 do 
       assert_difference('GradeRequest.count') do
         post semester_section_grade_requests_url(Semester.current, Semester.current.sections.first),
           params: {
@@ -63,7 +63,7 @@ class GradeRequestsControllerTest < ActionDispatch::IntegrationTest
   test "should not send 2 grade_requests in under 10 minutes" do
     sections(:jck1003_section_1).enrollments.build( student_id: students(:stew).id ).save
 
-    assert_difference('Delayed::Job.all.size') do
+    assert_enqueued_jobs 1 do # 1 enqueued job, not 2
       2.times do
         assert_difference('GradeRequest.count') do
           post semester_section_grade_requests_url(Semester.current, Semester.current.sections.first),

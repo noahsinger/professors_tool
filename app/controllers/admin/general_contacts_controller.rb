@@ -8,9 +8,9 @@ class Admin::GeneralContactsController < ApplicationController
     # to send the file much more efficiently than send_file does.  Didn't work in development through mongrel
     # but might work when it's running through apache.
     send_file( general_contact.attachment.path, 
-                :type => general_contact.attachment_content_type, 
-                :disposition => 'inline', 
-                :filename => general_contact.attachment_file_name )
+                type: general_contact.attachment_content_type, 
+                disposition: 'inline', 
+                filename: general_contact.attachment_file_name )
   end
   
   # GET /general_contacts
@@ -20,7 +20,7 @@ class Admin::GeneralContactsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -31,7 +31,7 @@ class Admin::GeneralContactsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 

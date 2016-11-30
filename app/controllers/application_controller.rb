@@ -25,4 +25,5 @@ class ApplicationController < ActionController::Base
     end
     
     helper_method :css_naked_day?
+    
 end

@@ -1,0 +1,33 @@
+<%- assignment xxx@xxx.xxx -%>
+<%- section = assignment.section -%>
+<%- semester = section.semester -%>
+
+<table class="tab">
+	<tr class="tab_header">
+		<td>
+			<%= section.course.title %>							
+		</td>
+	</tr>
+	<tr class="tab_content">
+		<td>
+
+			<h3>Homework Submitted for <%= assignment.title %></h3>
+		
+			<p>A solution for <strong><%= assignment.title %></strong> was just submitted using your email address.  If you submitted your own work then 
+			everything is good and you can take this email as evidence that your work has been submitted.
+			If you did not submit this homework assignment you will need to 
+			<%= link_to "contact your instructor", new_general_contact_url(:host => APP_CONFIG['host']) %>
+			immediately.</p>
+
+			<p>If in the future (but still before the due date of course) you want to replace the submitted version of 
+			your lab with a new one, you will need to 
+			<%= link_to "withdraw your submission", withdraw_semester_section_assignment_works_url(semester, section, assignment, 
+				:code xxx@xxx.xxx 
+				:host => APP_CONFIG['host']) %>.</p>
+		
+			<p>
+				<%= Time.zone.now.to_s(:date) %>
+			</p>
+		</td>
+	</tr>
+</table>

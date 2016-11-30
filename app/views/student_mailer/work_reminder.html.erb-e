@@ -1,5 +1,3 @@
-<%= render :layout => 'shared/email_template' do %>
-
 <table class="tab">
 	<tr class="tab_header">
 		<td>
@@ -27,5 +25,3 @@
 		</td>				
 	</tr>		
 </table>
-
-<% end %>

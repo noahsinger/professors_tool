@@ -8,7 +8,7 @@
 strong, b, {
 	color: #CC3333;
 	letter-spacing: 1px;
-	padding-right: 5px;
+//	padding-right: 5px;
 }
 
 h1, h2, h4 {

@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class HomeworkReturnRequestsControllerTest < ActionDispatch::IntegrationTest
+  include ActiveJob::TestHelper 
+  
   def setup
    xxx@xxx.xxx = sections(:jck1003_section_1)
     @semester xxx@xxx.xxx
@@ -20,8 +22,7 @@ class HomeworkReturnRequestsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create homework_return_request for enrolled student" do
-    # assert_difference('ActionMailer::Base.deliveries.size') do
-    assert_difference('Delayed::Job.all.size') do
+    assert_enqueued_jobs 1 do 
       assert_difference('HomeworkReturnRequest.count') do
         post xxx@xxx.xxx @section, @assignment),
           params: {homework_return_request: { xxx@xxx.xxx }}
@@ -33,7 +34,7 @@ class HomeworkReturnRequestsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not create homework_return_request for non-enrolled student" do
-    assert_no_difference('Delayed::Job.all.size') do
+    assert_enqueued_jobs 0 do 
       post xxx@xxx.xxx @section, @assignment),
         params: {homework_return_request: { email: xxx@xxx.xxx }}
     end
@@ -42,7 +43,7 @@ class HomeworkReturnRequestsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not send 2 homework_return_requests in under 10 minutes" do
-    assert_difference('Delayed::Job.all.size') do
+    assert_enqueued_jobs 1 do # 1 enqueued job, not 2
       2.times do
         assert_difference('HomeworkReturnRequest.count') do
           post xxx@xxx.xxx @section, @assignment),

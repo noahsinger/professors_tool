@@ -63,11 +63,11 @@ class Work < ApplicationRecord
   end
   
   def send_submitted_email submitting_address
-    StudentMailer.delay.work_submitted( self, submitting_address )
+    StudentMailer.work_submitted( self, submitting_address ).deliver_later
   end
   
   def send_reminder_email # submitting_address
-    StudentMailer.delay.work_reminder( self )
+    StudentMailer.work_reminder( self ).deliver_later
   end
   
 end
