@@ -4,12 +4,12 @@ class AdminLoginTest < ActionDispatch::IntegrationTest
   fixtures :all
 
   def setup
-    User.create(:username => 'user', :password => 'test', :password_confirmation => 'test')
+    User.create(username: 'user', password: 'test', password_confirmation: 'test')
     
     visit login_path
     
-    fill_in("Username", :with => 'user')
-    fill_in("Password", :with => 'test')
+    fill_in("Username", with: 'user')
+    fill_in("Password", with: 'test')
     click_on("Sign in")
     
     click_on( "Signout" )
@@ -21,8 +21,8 @@ class AdminLoginTest < ActionDispatch::IntegrationTest
     #redirected to signin page
     assert_equal login_path, current_path
     
-    fill_in("Username", :with => 'user')
-    fill_in("Password", :with => 'test')
+    fill_in("Username", with: 'user')
+    fill_in("Password", with: 'test')
     click_on("Sign in")
     
     #successful login redirects to original destination
@@ -35,8 +35,8 @@ class AdminLoginTest < ActionDispatch::IntegrationTest
     #redirected to signin page
     assert_equal login_path, current_path
     
-    fill_in("Username", :with => 'user')
-    fill_in("Password", :with => 'bad')
+    fill_in("Username", with: 'user')
+    fill_in("Password", with: 'bad')
     click_on("Sign in")
     
     #unsuccessful login redirects to signin page
@@ -49,8 +49,8 @@ class AdminLoginTest < ActionDispatch::IntegrationTest
     #redirected to signin page
     assert_equal login_path, current_path
     
-    fill_in("Username", :with => 'bad')
-    fill_in("Password", :with => 'test')
+    fill_in("Username", with: 'bad')
+    fill_in("Password", with: 'test')
     click_on("Sign in")
     
     #unsuccessful login redirects to signin page

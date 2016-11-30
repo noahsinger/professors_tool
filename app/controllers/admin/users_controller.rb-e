@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
   # GET /users
   # GET /users.xml
@@ -42,7 +42,7 @@ class Admin::UsersController < ApplicationController
   # POST /users
   # POST /users.xml
   def create
-   xxx@xxx.xxx = User.new(params[:user])
+   xxx@xxx.xxx = User.new(allowed_params)
 
     respond_to do |format|
       xxx@xxx.xxx
@@ -83,5 +83,9 @@ class Admin::UsersController < ApplicationController
       format.html { redirect_to(admin_users_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def allowed_params
+    params.require(:user).permit(:username, :password, :password_confirmation)
   end
 end

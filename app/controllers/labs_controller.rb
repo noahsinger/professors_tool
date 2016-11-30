@@ -1,5 +1,5 @@
 class LabsController < ApplicationController
-  before_filter :load_course
+  before_action :load_course
   
   def load_course
    xxx@xxx.xxx = Course.find( params[:course_id] )

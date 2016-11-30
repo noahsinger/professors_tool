@@ -1,8 +1,6 @@
-class SyllabusPart < ActiveRecord::Base
+class SyllabusPart < ApplicationRecord
   has_many :policies
   has_many :courses, :through => :policies
-  
-  attr_accessible :name, :title, :description
   
   validates_presence_of :name
   validates_presence_of :title

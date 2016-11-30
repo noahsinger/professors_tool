@@ -1,7 +1,7 @@
 class Admin::HowTosController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
-  before_filter :store_referrer
+  before_action :store_referrer
   
   def store_referrer
     unless session[:referrer]
@@ -50,7 +50,7 @@ class Admin::HowTosController < ApplicationController
   # POST /how_tos
   # POST /how_tos.xml
   def create
-   xxx@xxx.xxx = HowTo.new(params[:how_to])
+   xxx@xxx.xxx = HowTo.new(allowed_params)
 
     respond_to do |format|
       xxx@xxx.xxx
@@ -91,5 +91,9 @@ class Admin::HowTosController < ApplicationController
       format.html { redirect_to(admin_how_tos_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def allowed_params
+    params.require(:how_to).permit(:title, :description)
   end
 end

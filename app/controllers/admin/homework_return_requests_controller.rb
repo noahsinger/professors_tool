@@ -1,5 +1,5 @@
 class Admin::HomeworkReturnRequestsController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
   # GET /homework_return_requests
   # GET /homework_return_requests.xml
@@ -45,5 +45,9 @@ class Admin::HomeworkReturnRequestsController < ApplicationController
       format.html { redirect_to(admin_homework_return_requests_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def allowed_params
+    params.require(:homework_return_request).permit(:email, :assignment, :enrollment, :status)
   end
 end

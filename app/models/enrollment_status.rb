@@ -1,6 +1,5 @@
-class EnrollmentStatus < ActiveRecord::Base
+class EnrollmentStatus < ApplicationRecord
   has_many :enrollments
-  attr_accessible :name
   validates_presence_of :name
   
   def self.method_missing( method_sym, *args, &block )

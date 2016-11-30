@@ -93,11 +93,11 @@ xxx@xxx.xxx %></td>
 xxx@xxx.xxx { |x,y| x.student.last_name <=> y.student.last_name }.each do |enrollment| %>
 				<tr>
 					<td>
-						<%= link_to enrollment.student.first_name + ' ' + enrollment.student.middle_name + ' ' + enrollment.student.last_name, xxx@xxx.xxx %>
+						<%= link_to enrollment.student.first_name + ' ' + (enrollment.student.middle_name || "") + ' ' + enrollment.student.last_name, xxx@xxx.xxx %>
 					</td>
 					<td><%= enrollment.enrollment_status ? enrollment.enrollment_status.name : "unknown" %></td>
 					<td>
-						<%= enrollment.attendances.where("attendance_status_id is not ? and attendance_status_id is not null", AttendanceStatus.absent).size %> / xxx@xxx.xxx %>
+						<%= enrollment.attendances.where("attendance_status_id != ? and attendance_status_id is not null", AttendanceStatus.absent).size %> / xxx@xxx.xxx %>
 					</td>
 					<td>
 						<%= mail_to enrollment.student.email %>

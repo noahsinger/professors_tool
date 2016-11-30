@@ -1,7 +1,7 @@
 class WorksController < ApplicationController
-  before_filter :load_semester
-  before_filter :load_section
-  before_filter :load_assignment
+  before_action :load_semester
+  before_action :load_section
+  before_action :load_assignment
   
   def load_semester
    xxx@xxx.xxx = Semester.find( params[:semester_id] )
@@ -100,7 +100,10 @@ class WorksController < ApplicationController
     
     respond_to do |format|
       format.html # new.html.erb
-      format.iphone
     end
+  end
+  
+  def allowed_params
+    params.require(:work).permit(:upload, :email, :enrollment_id, :instructors_comments, :assignment_id)
   end
 end

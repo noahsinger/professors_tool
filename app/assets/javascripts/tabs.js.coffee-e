@@ -7,6 +7,8 @@ $(document).ready ->
 	
 $(document).on('page:load', -> animate_tabs( ))
 
+$(document).on "turbolinks:load", -> animate_tabs( )
+
 animate_tabs = ->
 	if are_animations_on( )
 		$(".flash").each ->

@@ -1,8 +1,8 @@
 class Admin::PoliciesController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
-  before_filter :load_course
-  before_filter :clear_referrer
+  before_action :load_course
+  before_action :clear_referrer
   
   def clear_referrer
     if session[:referrer]
@@ -22,7 +22,7 @@ class Admin::PoliciesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -33,7 +33,7 @@ class Admin::PoliciesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -46,10 +46,10 @@ class Admin::PoliciesController < ApplicationController
       xxx@xxx.xxx
         flash[:notice] = 'Policy was successfully created.'
         format.html { xxx@xxx.xxx }
-        format.xml  { render :xml => @policy, :status => :created, :location xxx@xxx.xxx }
+        format.xml  { render xml: @policy, status: :created, xxx@xxx.xxx }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+        format.html { render action: "new" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
     end
   end
@@ -74,23 +74,27 @@ class Admin::PoliciesController < ApplicationController
     end
     
     respond_to do |format|
-      format.html { render :nothing => true, :status => 200 }
+      format.html { head :ok }
       format.js
       format.xml  { head :ok }
     end
   end
   
   def add_syllabus_part
-    @policy = Policy.new :course_id xxx@xxx.xxx :syllabus_part_id => params[:syllabus_part_id]
+    @policy = Policy.new xxx@xxx.xxx syllabus_part_id: params[:syllabus_part_id]
 
     respond_to do |format|
       xxx@xxx.xxx
         format.js
-        format.html { render :nothing => true, :status => 200 }
+        format.html { head :ok }
       else
         flash[:error] = 'There was a problem creating the policy.'
-        format.html { render :action => "new" }
+        format.html { render action: "new" }
       end
     end 
+  end
+  
+  def allowed_params
+    params.require(:policy).permit(:course_id, :syllabus_part_id)
   end
 end

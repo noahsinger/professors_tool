@@ -1,6 +1,6 @@
-class AwardedPoint < ActiveRecord::Base
+class AwardedPoint < ApplicationRecord
   belongs_to :work
   belongs_to :requirement
   
-  attr_accessible :work, :requirement, :points
+  # :work, :requirement, :points
 end

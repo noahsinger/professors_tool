@@ -1,15 +1,14 @@
 require 'shortly'
 
-class Assignment < ActiveRecord::Base
+class Assignment < ApplicationRecord
   include Rails.application.routes.url_helpers # to allow the use of named routes in this model (:host attribute required for urls)
   
-  attr_accessible :title, :lab, :duedate, :lab_id
   attr_reader :bitly_data
   
   belongs_to :lab
   belongs_to :section
-  has_many :works, :dependent => :destroy
-  has_many :homework_return_requests, :dependent => :destroy, :order => 'created_at desc'
+  has_many :works, dependent: :destroy
+  has_many :homework_return_requests, -> {order 'created_at desc'}, dependent: :destroy
   
   validates_presence_of :title
   validates_presence_of :lab
@@ -25,8 +24,8 @@ class Assignment < ActiveRecord::Base
 #     update_attribute :short_url, googl.shorten(semester_section_assignment_url(self.section.semester,self.section,self,:host => APP_CONFIG['host']),{:apiKey => APP_CONFIG['google_api_key']}).shortUrl
 
 		bitly = Shortly::Clients::Bitly
-		url = semester_section_assignment_url(self.section.semester,self.section,self,:host => APP_CONFIG['host'])
- xxx@xxx.xxx = bitly.shorten( url, {:apiKey => APP_CONFIG['bitly_api_key'], :login => APP_CONFIG['bitly_username']} )
+		url = semester_section_assignment_url(self.section.semester,self.section,self,host: APP_CONFIG['host'])
+ xxx@xxx.xxx = bitly.shorten( url, {apiKey: APP_CONFIG['bitly_api_key'], login: APP_CONFIG['bitly_username']} )
     update_attribute xxx@xxx.xxx
   end
   
@@ -81,7 +80,7 @@ class Assignment < ActiveRecord::Base
   end
   
   def self.visible
-   xxx@xxx.xxx = Assignment.find(:all, :joins => [:lab], :conditions => ["labs.visible = ?", true], :order => 'duedate desc')
+   xxx@xxx.xxx = Assignment.all.joins([:lab]).where("labs.visible = ?", true).order('duedate desc')
   end
   
   def to_ical_event

@@ -1,5 +1,5 @@
 class Admin::GradeRequestsController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
   # GET /grade_requests
   # GET /grade_requests.xml
@@ -45,5 +45,9 @@ class Admin::GradeRequestsController < ApplicationController
       format.html { redirect_to(admin_grade_requests_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def allowed_params
+    params.require(:grade_request).permit(:email, :section, :student, :status)
   end
 end

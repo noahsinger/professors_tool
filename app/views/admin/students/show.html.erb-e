@@ -43,7 +43,7 @@ xxx@xxx.xxx do |section| %>
 							<% end %>
 						<% end %>
 				
-						<% enrollment xxx@xxx.xxx :first, :conditions => ["section_id = ?", section.id] ) %>
+						<% enrollment xxx@xxx.xxx = ?", section.id]).first %>
 						<td><%= enrollment.enrollment_status.name %></td>
 						<td>
 							<%= section.meetings.count %>

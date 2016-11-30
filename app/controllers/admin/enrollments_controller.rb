@@ -1,8 +1,8 @@
 class Admin::EnrollmentsController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
-  before_filter :load_semester
-  before_filter :load_section
+  before_action :load_semester
+  before_action :load_section
   
   def load_semester
    xxx@xxx.xxx = Semester.find(params[:semester_id])
@@ -80,5 +80,8 @@ class Admin::EnrollmentsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+
+  def allowed_params
+    params.require(:enrollment).permit(:student_id, :enrollment_status_id)
+  end 
 end

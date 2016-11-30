@@ -4,7 +4,7 @@
 
 <section>
 	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx @section, @assignment ), :class => "icon back"%>
+		<%= link_to 'Back', xxx@xxx.xxx @section, @assignment ), class: "icon back"%>
 	</nav>
 	
 	<header>
@@ -33,7 +33,7 @@ xxx@xxx.xxx %>
 		</h1>		
 	</header>
 
-	<%= form_for( @work, :as => :work, :url => xxx@xxx.xxx :html => {:method => :put} ) do |f| %>
+	<%= form_for( @work, as: :work, url: xxx@xxx.xxx html: {method: :put} ) do |f| %>
 		<%= xxx@xxx.xxx %>
 				<div class="fancy">
 					<table>
@@ -47,9 +47,9 @@ xxx@xxx.xxx do |r| %>
 								<td><label for="awarded_points[<%= r.id %>]"><%= r.description %></label></td>
 								<td><%= r.points %></td>
 				
-								<% x xxx@xxx.xxx :first, :conditions => ['requirement_id = ?', r]) || r %>
+								<% x xxx@xxx.xxx = ?', r]).first || r %>
 				
-								<td><%= number_field :awarded_points, r.id, :max_length => 3, :size => 4, :value => x.points, :class => 'awarded_points_field'  %></td>
+								<td><%= number_field :awarded_points, r.id, max_length: 3, size: 4, value: x.points, class: 'awarded_points_field' %></td>
 							</tr>
 						<% end %>
 						<tr>

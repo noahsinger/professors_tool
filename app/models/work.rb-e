@@ -1,16 +1,16 @@
-class Work < ActiveRecord::Base
+class Work < ApplicationRecord
   require 'digest/sha2'
   
   belongs_to :assignment
   belongs_to :enrollment
-  has_many :awarded_points, :dependent => :destroy
-  
-  attr_accessible :upload, :email, :enrollment_id, :instructors_comments, :assignment_id
+  has_many :awarded_points, dependent: :destroy
   
   has_attached_file :upload,
                     :path => ":rails_root/uploads/:class/:id/:attachment/:basename.:extension",
                     :url => "/admin/:class/:id/download",
                     :default_url => ''
+                    
+  do_not_validate_attachment_file_type :upload
                     
   validates_format_of( :email, 
                        :with => xxx@xxx.xxx 

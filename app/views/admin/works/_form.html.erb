@@ -7,7 +7,7 @@
 				<p>Which assignment?</p>
 			</div>
 			
-			<div class="field"><%=  select( "work", "assignment_id", Assignment.find( :all ).collect {|s| [ s.title + ' - ' + s.lab.title, s.id ] }, { :include_blank => true } ) %></div>
+			<div class="field"><%=  select( "work", "assignment_id", Assignment.all.collect {|s| [ s.title + ' - ' + s.lab.title, s.id ] }, { :include_blank => true } ) %></div>
 		</li>
 		
 		<li>
@@ -16,7 +16,7 @@
 				<p>For whom?</p>
 			</div>
 
-			<div class="field"><%=  select( "work", "enrollment_id", Enrollment.find( :all, :conditions => ['section_id = xxx@xxx.xxx ).collect {|s| [ s.student.last_name + ', ' + s.student.first_name, s.id ] }.sort, { :include_blank => true } ) %></div>
+			<div class="field"><%=  select( "work", "enrollment_id", Enrollment.where(['section_id = xxx@xxx.xxx {|s| [ s.student.last_name + ', ' + s.student.first_name, s.id ] }.sort, { :include_blank => true } ) %></div>
 		</li>
 
 		<% xxx@xxx.xxx %>

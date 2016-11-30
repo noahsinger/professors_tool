@@ -1,5 +1,5 @@
 class Admin::SemestersController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
   # GET /semesters
   # GET /semesters.xml
@@ -42,7 +42,7 @@ class Admin::SemestersController < ApplicationController
   # POST /semesters
   # POST /semesters.xml
   def create
-   xxx@xxx.xxx = Semester.new(params[:semester])
+   xxx@xxx.xxx = Semester.new(allowed_params)
 
     respond_to do |format|
       xxx@xxx.xxx
@@ -83,5 +83,9 @@ class Admin::SemestersController < ApplicationController
       format.html { redirect_to(admin_semesters_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def allowed_params
+    params.require(:semester).permit(:year, :season, :start_date, :end_date)
   end
 end

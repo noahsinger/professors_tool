@@ -15,11 +15,14 @@ class StudentMailer < ActionMailer::Base
    xxx@xxx.xxx = work
     
     if work and work.upload_file_name
-      attachments[work.upload_file_name] = {:content => File.read(work.upload.path), :mime_type => work.upload_content_type}
+      attachments[work.upload_file_name] = {
+        :content => File.read(work.upload.path), 
+        :mime_type => work.upload_content_type
+      }
     end
     
     #mail( :parts_order => [ "text/plain", "text/enriched", "text/html" ], 
-    mail( :parts_order => [ "text/plain", "text/enriched" ], 
+    mail( :parts_order => [ "text/plain", "text/enriched", "application/octet-stream" ],
     			:to => submitting_address, 
     			:subject => "Homework Return @ #{APP_CONFIG['host']}", 
     			:from => xxx@xxx.xxx do |format|

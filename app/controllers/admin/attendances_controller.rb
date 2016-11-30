@@ -1,22 +1,22 @@
 class Admin::AttendancesController < ApplicationController
-	before_filter :authenticate
-	
-	before_filter :load_semester
-	before_filter :load_section
-	before_filter :load_meeting
-	
+	before_action :authenticate
+
+	before_action :load_semester
+	before_action :load_section
+	before_action :load_meeting
+
 	def load_semester
-xxx@xxx.xxx = Semester.find(params[:semester_id])	
+xxx@xxx.xxx = Semester.find(params[:semester_id])
 	end
-	
+
 	def load_section
 xxx@xxx.xxx = Section.find(params[:section_id])
 	end
-	
+
 	def load_meeting
 xxx@xxx.xxx = Meeting.find(params[:meeting_id])
 	end
-	
+
   # GET /attendances
   # GET /attendances.json
   def index
@@ -28,7 +28,7 @@ xxx@xxx.xxx = Meeting.find(params[:meeting_id])
 				logger.info "attendance NOT added for #{enrollment.student.last_name_first} (exists)"
 			end
 		end
-		
+
 		@attendances xxx@xxx.xxx { |x,y| x.enrollment.student.last_name <=> y.enrollment.student.last_name }
 
     respond_to do |format|
@@ -107,5 +107,9 @@ xxx@xxx.xxx = Meeting.find(params[:meeting_id])
       format.html { redirect_to xxx@xxx.xxx }
       format.json { head :no_content }
     end
+  end
+
+  def allowed_params
+    params.require(:attendance).permit(:attendance_status_id,:meeting_id,:enrollment_id)
   end
 end

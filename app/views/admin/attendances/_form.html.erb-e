@@ -15,7 +15,7 @@
 		<li>
 			<div class="details"><%= f.label :attendance_status %><p></p></div>
 		  <div class="field">
-		    <%= f.collection_select( :attendance_status_id, AttendanceStatus.find( :all ), :id, :name, :include_blank => true ) %>
+		    <%= f.collection_select( :attendance_status_id, AttendanceStatus.all, :id, :name, :include_blank => true ) %>
 		  </div>
 		</li>
 		<li>

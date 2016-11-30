@@ -1,6 +1,6 @@
 class Admin::BooksController < ApplicationController
-  before_filter :authenticate  
-  before_filter :load_course
+  before_action :authenticate  
+  before_action :load_course
   
   def load_course
    xxx@xxx.xxx = Course.find( params[:course_id] )
@@ -83,4 +83,7 @@ class Admin::BooksController < ApplicationController
     end
   end
   
+  def allowed_params
+    params.require(:book).permit(:title, :author, :isbn, :publisher, :required)
+  end 
 end

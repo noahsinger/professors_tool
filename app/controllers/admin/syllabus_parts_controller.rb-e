@@ -1,7 +1,6 @@
 class Admin::SyllabusPartsController < ApplicationController
-  before_filter :authenticate
-  
-  before_filter :store_referrer
+  before_action :authenticate  
+  before_action :store_referrer
   
   def store_referrer
     unless session[:referrer]
@@ -16,7 +15,7 @@ class Admin::SyllabusPartsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -28,17 +27,17 @@ class Admin::SyllabusPartsController < ApplicationController
   # POST /syllabus_parts
   # POST /syllabus_parts.xml
   def create
-   xxx@xxx.xxx = SyllabusPart.new(params[:syllabus_part])
+   xxx@xxx.xxx = SyllabusPart.new(allowed_params)
 
     respond_to do |format|
       xxx@xxx.xxx
         flash[:notice] = 'SyllabusPart was successfully created.'
         format.js
-        format.html {redirect_to(session[:referrer])}
-        format.xml  { render :xml => @syllabus_part, :status => :created, :location xxx@xxx.xxx }
+        format.html {redirect_to(session[:referrer] || xxx@xxx.xxx
+        format.xml  { render xml: @syllabus_part, status: :created, xxx@xxx.xxx }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+        format.html { render action: "new" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
     end
   end
@@ -51,11 +50,11 @@ class Admin::SyllabusPartsController < ApplicationController
     respond_to do |format|
       xxx@xxx.xxx
         flash[:notice] = 'SyllabusPart was successfully updated.'
-        format.html {redirect_to( session[:referrer] )}
+        format.html {redirect_to(session[:referrer] || xxx@xxx.xxx
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
     end
   end
@@ -67,8 +66,12 @@ class Admin::SyllabusPartsController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
-      format.html {redirect_to(session[:referrer])}
+      format.html {redirect_to(session[:referrer] || admin_syllabus_parts_url)}
       format.xml  { head :ok }
     end
+  end
+  
+  def allowed_params
+    params.require(:syllabus_part).permit(:name, :title, :description)
   end
 end

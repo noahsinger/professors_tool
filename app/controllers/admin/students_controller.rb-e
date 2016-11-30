@@ -1,8 +1,8 @@
 class Admin::StudentsController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
-  before_filter :load_semester, :only => [:new, :create, :unenroll]
-  before_filter :load_section, :only => [:new, :create, :unenroll]
+  before_action :load_semester, :only => [:new, :create, :unenroll]
+  before_action :load_section, :only => [:new, :create, :unenroll]
     
   def load_semester
    xxx@xxx.xxx = Semester.find(params[:semester_id])
@@ -60,7 +60,7 @@ xxx@xxx.xxx = Student.search(params['q'])
   end
 
   def create
-   xxx@xxx.xxx = Student.new(params[:student])
+   xxx@xxx.xxx = Student.new(allowed_params)
     
     respond_to do |format|
       xxx@xxx.xxx
@@ -108,4 +108,7 @@ xxx@xxx.xxx = Student.search(params['q'])
     end
   end
   
+  def allowed_params
+    params.require(:student).permit(:first_name, :last_name, :email, :middle_name, :goes_by)
+  end
 end

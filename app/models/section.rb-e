@@ -1,19 +1,17 @@
 require 'icalendar'
 require 'date'
 
-class Section < ActiveRecord::Base
+class Section < ApplicationRecord
   belongs_to :semester
   belongs_to :course
   belongs_to :instructor
-  has_many :assignments, :dependent => :destroy, :order => 'duedate desc'
-  has_many :enrollments, :dependent => :destroy
-  has_many :students, :through => :enrollments
-  has_many :grade_requests, :dependent => :destroy, :order => 'created_at desc'
-  has_many :examples, :dependent => :destroy, :order => 'created_at desc'
-  has_many :enrollment_snapshots, :dependent => :destroy
-  has_many :meetings, :dependent => :destroy
-  
-  attr_accessible :course_id, :call_number, :section_number, :meeting_days, :room_number, :start_date, :end_date, :instructor_id, :start_time, :end_time
+  has_many :assignments, -> {order 'duedate desc'}, dependent: :destroy
+  has_many :enrollments, dependent: :destroy
+  has_many :students, through: :enrollments
+  has_many :grade_requests, -> {order 'created_at desc'}, dependent: :destroy
+  has_many :examples, -> {order 'created_at desc'}, dependent: :destroy
+  has_many :enrollment_snapshots, dependent: :destroy
+  has_many :meetings, dependent: :destroy
   
   validates_presence_of :course
   validates_presence_of :call_number

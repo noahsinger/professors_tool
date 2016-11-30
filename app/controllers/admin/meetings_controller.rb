@@ -1,7 +1,7 @@
 class Admin::MeetingsController < ApplicationController
-	before_filter :authenticate
+	before_action :authenticate
   
-  before_filter :load_section
+  before_action :load_section
   
   def load_section
    xxx@xxx.xxx = Section.find( params[:section_id] )
@@ -91,5 +91,9 @@ class Admin::MeetingsController < ApplicationController
       format.html { redirect_to xxx@xxx.xxx }
       format.json { head :no_content }
     end
+  end
+  
+  def allowed_params
+    params.require(:meeting).permit(:when)
   end
 end

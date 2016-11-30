@@ -1,10 +1,10 @@
 class Admin::WorksController < ApplicationController
-	before_filter :bypass_authentication, :only => [:download]
-  before_filter :authenticate
+	before_action :bypass_authentication, only: [:download]
+  before_action :authenticate
 
-  before_filter :load_semester
-  before_filter :load_section
-  before_filter :load_assignment
+  before_action :load_semester
+  before_action :load_section
+  before_action :load_assignment
   
   def bypass_authentication
   	work = Work.find( params[:id] )
@@ -48,10 +48,10 @@ class Admin::WorksController < ApplicationController
     # send the file much more efficiently than send_file does.  Didn't work in development through mongrel
     # but might work when it's running through apache.
     send_file( work.upload.path, 
-                :type => work.upload_content_type, 
-#                 :disposition => 'inline',  # change to attachment?
-								:disposition => 'attachment',
-                :filename => work.upload_file_name )
+                type: work.upload_content_type, 
+#                 disposition: 'inline',  # change to attachment?
+								disposition: 'attachment',
+                filename: work.upload_file_name )
   end
   
   # GET /works
@@ -69,7 +69,7 @@ class Admin::WorksController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -80,7 +80,7 @@ class Admin::WorksController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -91,7 +91,7 @@ class Admin::WorksController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
   
@@ -129,10 +129,10 @@ class Admin::WorksController < ApplicationController
         flash[:notice] = 'Work was successfully created.'
         # format.html { xxx@xxx.xxx }
         format.html { xxx@xxx.xxx }
-        format.xml  { render :xml => @work, :status => :created, :location xxx@xxx.xxx }
+        format.xml  { render xml: @work, status: :created, xxx@xxx.xxx }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+        format.html { render action: "new" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
     end
   end
@@ -148,8 +148,8 @@ class Admin::WorksController < ApplicationController
         format.html { xxx@xxx.xxx }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
     end
   end
@@ -198,24 +198,28 @@ class Admin::WorksController < ApplicationController
         # if no points have been previously awarded for this work
         if @work.awarded_points.size xxx@xxx.xxx
           #create a new set of awarded points for it
-          params[:awarded_points].each do |ap|
+          params[:awarded_points].each do |point_id, amount|
             awarded_point = AwardedPoint.create
-            awarded_point.update_attributes(:work xxx@xxx.xxx :requirement => Requirement.find(ap[0]), :points => ap[1])
+            xxx@xxx.xxx requirement: Requirement.find(point_id), points: amount)
           end
         else
           #change the awarded points that already go with this work
-          params[:awarded_points].each do |ap|
-            existing_point xxx@xxx.xxx ap[0]).first
-            existing_point.update_attribute( :points, ap[1] )
+          params[:awarded_points].each do |point_id, amount|
+            existing_point xxx@xxx.xxx point_id).first
+            existing_point.update_attribute( :points, amount )
           end
         end
-        
+    
         format.html { xxx@xxx.xxx @section, @assignment )) }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
     end    
+  end
+  
+  def allowed_params
+    params.require(:work).permit(:upload, :email, :enrollment_id, :instructors_comments, :assignment_id, :awarded_points)
   end
 end

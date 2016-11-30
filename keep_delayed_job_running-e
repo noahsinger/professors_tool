@@ -1,9 +1,0 @@
-# script to check and make sure that the delayed job worker is running at all times.
-
-ps waux | grep noah | grep 'jobs:work' > /dev/null
-
-if [ $? != 0 ]
-then
-  cd $HOME/suchnull.com/; bundle exec rake jobs:work RAILS_ENV='production' > /dev/null
-fi
-

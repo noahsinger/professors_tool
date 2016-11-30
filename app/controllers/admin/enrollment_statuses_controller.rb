@@ -1,5 +1,5 @@
 class Admin::EnrollmentStatusesController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
   # GET /enrollment_statuses
   # GET /enrollment_statuses.xml
@@ -31,7 +31,7 @@ class Admin::EnrollmentStatusesController < ApplicationController
   # POST /enrollment_statuses
   # POST /enrollment_statuses.xml
   def create
-   xxx@xxx.xxx = EnrollmentStatus.new(params[:enrollment_status])
+   xxx@xxx.xxx = EnrollmentStatus.new(allowed_params)
 
     respond_to do |format|
       xxx@xxx.xxx
@@ -73,4 +73,8 @@ class Admin::EnrollmentStatusesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def allowed_params
+    params.require(:enrollment_status).permit(:name)
+  end 
 end

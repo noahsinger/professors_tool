@@ -1,5 +1,5 @@
 <li id="how_to_<%= how_to.id.to_s %>" class="how_to">
 	<div>
-		<%= link_to_function "Add \"#{how_to.title}\" to this course", 'add_tutorial( "' + xxx@xxx.xxx ) + '", "' + how_to.id.to_s + '", "' + form_authenticity_token + '" )' %>
+		<%= link_to "Add \"#{how_to.title}\" to this course", xxx@xxx.xxx how_to_id: how_to.id), method: :post, remote: true %>
 	</div>
 </li>

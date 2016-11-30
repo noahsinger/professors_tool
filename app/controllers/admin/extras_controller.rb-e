@@ -1,8 +1,8 @@
 class Admin::ExtrasController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
-  before_filter :load_course
-  before_filter :load_lab
+  before_action :load_course
+  before_action :load_lab
   
   def load_course
    xxx@xxx.xxx = Course.find( params[:course_id] )
@@ -73,5 +73,8 @@ class Admin::ExtrasController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+
+  def allowed_params
+    params.require(:extra).permit(:file, :description)
+  end 
 end

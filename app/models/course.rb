@@ -1,18 +1,16 @@
-class Course < ActiveRecord::Base
-  has_many :sections, :dependent => :destroy
-  has_many :labs, :dependent => :destroy
-  has_many :books, :dependent => :destroy
-  has_many :materials, :dependent => :destroy
-  has_many :tutorials, :order => :position
-  has_many :how_tos, :through => :tutorials
-  has_many :objectives, order: :position
-  has_many :policies, :order => :position
+class Course < ApplicationRecord
+  has_many :sections, dependent: :destroy
+  has_many :labs, dependent: :destroy
+  has_many :books, dependent: :destroy
+  has_many :materials, dependent: :destroy
+  has_many :tutorials, -> {order :position}
+  has_many :how_tos, through: :tutorials
+  has_many :objectives, -> {order :position}
+  has_many :policies, -> {order :position}
   has_many :syllabus_parts, :through => :policies
   has_many :waiters
   has_many :websites, dependent: :destroy
-  
-  attr_accessible :title, :description, :discipline, :number, :credits, :prerequisite, :next_course, :required_materials
-  
+
   validates_presence_of :title
   validates_presence_of :description
   validates_presence_of :discipline

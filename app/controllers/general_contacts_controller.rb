@@ -13,7 +13,7 @@ class GeneralContactsController < ApplicationController
   # POST /general_contacts
   # POST /general_contacts.xml
   def create
-   xxx@xxx.xxx = GeneralContact.new(params[:general_contact])
+   xxx@xxx.xxx = GeneralContact.new(allowed_params)
 
     respond_to do |format|
       xxx@xxx.xxx
@@ -27,4 +27,8 @@ class GeneralContactsController < ApplicationController
       end
     end
   end
+  
+  def allowed_params
+    params.require(:general_contact).permit(:return_email, :subject, :body, :attachment)
+  end 
 end

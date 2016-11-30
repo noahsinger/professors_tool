@@ -1,15 +1,15 @@
 class GradeRequestsController < ApplicationController
-  before_filter :load_semester
-  before_filter :load_section
-  
+  before_action :load_semester
+  before_action :load_section
+
   def load_semester
    xxx@xxx.xxx = Semester.find( params[:semester_id] )
   end
-  
+
   def load_section
     @section xxx@xxx.xxx params[:section_id] )
   end
-  
+
   # GET /grade_requests/new
   # GET /grade_requests/new.xml
   def new
@@ -23,16 +23,16 @@ class GradeRequestsController < ApplicationController
 
   # POST /grade_requests
   # POST /grade_requests.xml
-  def create	  
+  def create
   	# get previous requests made by someone with this email address
-    prev_request xxx@xxx.xxx = ?', params[:grade_request][:email].downcase).first
-    
+    prev_request xxx@xxx.xxx = ?', allowed_params[:email].downcase).first
+
     # create the grade request
-   xxx@xxx.xxx @section.grade_requests.build( params[:grade_request] )
-    
+   xxx@xxx.xxx @section.grade_requests.build( allowed_params )
+
     # find the enrollment id for the student making the request
    xxx@xxx.xxx do |enrollment|
-      if enrollment.student.email == params[:grade_request][:email].downcase
+      if enrollment.student.email == allowed_params[:email].downcase
        xxx@xxx.xxx = enrollment.id
       end
     end
@@ -41,9 +41,9 @@ class GradeRequestsController < ApplicationController
       xxx@xxx.xxx
       	# if the request was made by someone in this class
         xxx@xxx.xxx
-          
+
           target = Time.now.ago( 600 ) # 10 minutes ago
-          
+
           # if they have made a request in the last 10 minutes
           if prev_request and prev_request.created_at > target
             #dont send email, display error
@@ -69,5 +69,10 @@ class GradeRequestsController < ApplicationController
         format.html { render :action => "new" }
       end
     end
+  end
+
+  def allowed_params
+    # params.require(:grade_request).permit(:email, :section_id, :semester_id, :student_id, :status)
+    params.require(:grade_request).permit(:email)
   end
 end

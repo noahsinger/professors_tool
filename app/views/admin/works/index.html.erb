@@ -4,7 +4,7 @@ xxx@xxx.xxx %></h1>
 
 <section>
 	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+		<%= link_to 'Back', xxx@xxx.xxx class: "icon back" %>
 	</nav>
 	
 	<header>
@@ -15,7 +15,7 @@ xxx@xxx.xxx %></h1>
 	<ul class="actions">
 		<li><%= link_to 'New Work', xxx@xxx.xxx %></li>
 		<li><%= link_to 'New for All', xxx@xxx.xxx %></li>
-		<li><%= link_to 'Tweet Grading Complete', new_admin_assignment_tweet_path( :assignment_id xxx@xxx.xxx :status => "graded" ) %></li>
+		<li><%= link_to 'Tweet Grading Complete', new_admin_assignment_tweet_path( xxx@xxx.xxx status: "graded" ) %></li>
 	</ul>
 
 	<% xxx@xxx.xxx > 0 %>
@@ -41,7 +41,7 @@ xxx@xxx.xxx %></h1>
 						<% else %>
 							None (<%= link_to 'Edit', xxx@xxx.xxx %>)
 						<% end %>
-						<br/><span style="font-size: .7em; font-weight: normal;"><%= mail_to work.email, work.email, :subject => "#{@section.course.title} xxx@xxx.xxx %></span>
+						<br/><span style="font-size: .7em; font-weight: normal;"><%= mail_to work.email, work.email, subject: "#{@section.course.title} xxx@xxx.xxx %></span>
 					</td>
 	
 					<td>
@@ -51,7 +51,7 @@ xxx@xxx.xxx %></h1>
 					</td>
 	
 					<% if work.awarded_points.size > 0 %>
-						<td><span class="green"><%= work.score %> (<%= number_to_percentage work.percentage, {:precision => 2} %>)</span></td>
+						<td><span class="green"><%= work.score %> (<%= number_to_percentage work.percentage, {precision: 2} %>)</span></td>
 					<% else %>
 						<td><span class="red">-</span></td>
 					<% end %>	
@@ -59,8 +59,8 @@ xxx@xxx.xxx %></h1>
 					<td class="grade"><%= link_to 'Grade', xxx@xxx.xxx %></td>
 			    <td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>
 			    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-			    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
-					<td class="ungrade"><%= link_to 'UnGrade', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
+			    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete %></td>
+					<td class="ungrade"><%= link_to 'UnGrade', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete %></td>
 			  </tr>
 			<% end %>
 			<tr>
@@ -90,7 +90,7 @@ xxx@xxx.xxx %>%
 			<table>
 xxx@xxx.xxx do |enrollment| %>
 					<tr>
-						<td><%= mail_to enrollment.student.email, "#{enrollment.student.last_name_first} (Click to email)", :subject => "#{@section.course.title} xxx@xxx.xxx %></td>
+						<td><%= mail_to enrollment.student.email, "#{enrollment.student.last_name_first} (Click to email)", subject: "#{@section.course.title} xxx@xxx.xxx %></td>
 					</tr>
 				<% end %>
 			</table>

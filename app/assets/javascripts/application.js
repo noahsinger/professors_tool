@@ -91,10 +91,10 @@ function check_for_ie( ) {
 	}
 }
 
-function add_syllabus_part( url, id, token ) {
-	$.post(url, "syllabus_part_id=" + id + '&authenticity_token=' + encodeURIComponent(token), null, "script");
-}
+// function add_syllabus_part( url, id, token ) {
+// 	$.post(url, "syllabus_part_id=" + id + '&authenticity_token=' + encodeURIComponent(token), null, "script");
+// }
 
-function add_tutorial( url, id, token ) {
-	$.post(url, "how_to_id=" + id + '&authenticity_token=' + encodeURIComponent(token), null, "script");
-}
+// function add_tutorial( url, id, token ) {
+// 	$.post(url, "how_to_id=" + id + '&authenticity_token=' + encodeURIComponent(token), null, "script");
+// }

@@ -1,8 +1,6 @@
-class Requirement < ActiveRecord::Base
+class Requirement < ApplicationRecord
   belongs_to :lab
-  has_many :awarded_points, :dependent => :destroy
-  
-  attr_accessible :description, :points, :position
+  has_many :awarded_points, dependent: :destroy
   
   validates_presence_of :description
   validates_presence_of :points

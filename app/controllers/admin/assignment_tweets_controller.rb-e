@@ -1,26 +1,26 @@
 class Admin::AssignmentTweetsController < ApplicationController
-  before_filter :authenticate
-  
+  before_action :authenticate
+
   def new
    xxx@xxx.xxx = Assignment.find params[:assignment_id]
-    
+
     @content = xxx@xxx.xxx for"
-    
+
     xxx@xxx.xxx
-	  	@content = "#{@content} xxx@xxx.xxx  
+	  	@content = "#{@content} xxx@xxx.xxx
 	  end
-		  
+
 	  @content = "#{@content} xxx@xxx.xxx
-    
+
     if params[:status] == "graded"
 	    @content = "#{@content} class has been graded. xxx@xxx.xxx
     elsif params[:status] == "new"
     	@content = "#{@content} class is now available. xxx@xxx.xxx
     elsif params[:status] == "duedate"
-    	@content = "#{@content} class has had it's due date changed. xxx@xxx.xxx
+    	@content = "#{@content} class has had its due date changed. xxx@xxx.xxx
     end
   end
-  
+
   def create
    xxx@xxx.xxx = Assignment.find params[:assignment_id]
     begin
@@ -29,7 +29,7 @@ class Admin::AssignmentTweetsController < ApplicationController
     rescue Twitter::Error => e
       flash[:error] = "Tweet not sent: #{e}"
     end
-    
+
     redirect_to xxx@xxx.xxx @assignment.section, @assignment)
   end
 end

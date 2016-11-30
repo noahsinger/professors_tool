@@ -1,10 +1,8 @@
-class Lab < ActiveRecord::Base
+class Lab < ApplicationRecord
   belongs_to :course
-  has_many :requirements, :dependent => :destroy, order: :position
-  has_many :assignments, :dependent => :destroy
-  has_many :extras, :dependent => :destroy
-  
-  attr_accessible :title, :objective, :instructions, :visible, :allow_uploads
+  has_many :requirements, -> {order :position}, dependent: :destroy
+  has_many :assignments, dependent: :destroy
+  has_many :extras, dependent: :destroy
   
   validates_presence_of :title
   validates_presence_of :objective

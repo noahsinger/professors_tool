@@ -30,3 +30,6 @@ $(document).ready ->
 	setup_print_link( )
 
 $(document).on('page:load', -> setup_print_link( ))
+
+$(document).on "turbolinks:load", ->
+	setup_print_link( )

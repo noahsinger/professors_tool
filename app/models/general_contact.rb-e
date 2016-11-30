@@ -1,8 +1,6 @@
-class GeneralContact < ActiveRecord::Base
-  attr_accessible :return_email, :subject, :body, :attachment
-  
+class GeneralContact < ApplicationRecord
   validates_presence_of :return_email
-  validates_format_of :return_email, :with => /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.(([0-9]{1,3})|([a-zA-Z]{2,3})|(aero|coop|info|museum|name))$/, :message => 'must be in the form: xxx@xxx.xxx
+  validates_format_of :return_email, :with => /\A[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.(([0-9]{1,3})|([a-zA-Z]{2,3})|(aero|coop|info|museum|name))\z/, :message => 'must be in the form: xxx@xxx.xxx
   
   validates_presence_of :subject
   validates_presence_of :body

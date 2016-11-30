@@ -3,7 +3,7 @@ require 'tweet'
 class ExamplesController < ApplicationController
   protect_from_forgery :except => :echo
   
-  before_filter :load_section, :except => [:test_notice, :test_error, :test_exception, :test_tweet, :echo]
+  before_action :load_section, :except => [:test_notice, :test_error, :test_exception, :test_tweet, :echo]
   
   def load_section
    xxx@xxx.xxx = Section.find params[:section_id]

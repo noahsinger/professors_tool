@@ -41,7 +41,7 @@ xxx@xxx.xxx %></h1>
 				<th colspan="5">Available Policies</th>
 			</tr>
 xxx@xxx.xxx do |syllabus_part| %>
-				<% if xxx@xxx.xxx :first, :conditions => ['syllabus_part_id=?', syllabus_part.id] ) %>
+				<% if xxx@xxx.xxx syllabus_part.id]).first %>
 					<%= render :partial => syllabus_part %>
 				<% end %>
 			<% end %>

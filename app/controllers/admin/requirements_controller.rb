@@ -1,8 +1,8 @@
 class Admin::RequirementsController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
 
-  before_filter :load_lab
-  before_filter :load_course
+  before_action :load_lab
+  before_action :load_course
   
   def load_lab
    xxx@xxx.xxx = Lab.find( params[:lab_id] )
@@ -87,5 +87,9 @@ class Admin::RequirementsController < ApplicationController
       format.html { xxx@xxx.xxx @lab )) }
       format.xml  { head :ok }
     end
+  end
+  
+  def allowed_params
+    params.require(:requirement).permit(:description, :points, :position)
   end
 end

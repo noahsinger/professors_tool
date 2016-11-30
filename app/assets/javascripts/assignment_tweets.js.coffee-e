@@ -1,6 +1,7 @@
 # assignment tweets
 
-$(document).ready ->
+# $(document).ready ->
+$(document).on "turbolinks:load", ->
 	$("textarea#content").each ->
 		console.log "content textarea present"
 		field = $("textarea#content")

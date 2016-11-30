@@ -1,9 +1,7 @@
-class Meeting < ActiveRecord::Base
+class Meeting < ApplicationRecord
 	belongs_to :section
-	has_many :attendances, :dependent => :destroy
+	has_many :attendances, dependent: :destroy
 
-  attr_accessible :when
-  
   def attendance_taken?
 		self.attendances.each do |attendance|  
 			unless attendance.attendance_status_id == nil

@@ -1,7 +1,4 @@
-class Website < ActiveRecord::Base
-  belongs_to :course
-  
-  attr_accessible :title, :url
-  
+class Website < ApplicationRecord
+  belongs_to :course  
   validates :title, :url, presence: true
 end

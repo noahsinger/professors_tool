@@ -7,7 +7,7 @@
 				<p>Course this section belongs to</p>
 			</div>
 			
-			<div class="field"><%=  select( "section", "course_id", Course.find( :all ).collect {|s| [ s.title, s.id ] }, { :include_blank => true } ) %></div>
+			<div class="field"><%=  select( "section", "course_id", Course.all.order(:number).collect {|s| [ s.title, s.id ] }, { :include_blank => true } ) %></div>
 		</li>
 	
 		<li>
@@ -88,7 +88,7 @@
 				<p>Who's teaching it?</p>
 			</div>
 			
-			<div class="field"><%=  select( "section", "instructor_id", Instructor.find( :all ).collect {|s| [ s.last_name + ", " + s.first_name, s.id ] }, { :include_blank => false } ) %></div>
+			<div class="field"><%=  select( "section", "instructor_id", Instructor.all.collect {|s| [ s.last_name + ", " + s.first_name, s.id ] }, { :include_blank => false } ) %></div>
 		</li>
 	
 		<li class="action">

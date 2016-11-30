@@ -39,7 +39,7 @@ xxx@xxx.xxx %> pts</td></tr>
 		<ul id="assignment_links">
 			<% xxx@xxx.xxx %>
 				<li><h2><%= link_to "Submit Your Solution", xxx@xxx.xxx @section, @assignment ), :class => "icon upload" %></h2></li>
-				<li><h2><%= link_to "Request Return Copy", xxx@xxx.xxx :class => "icon download" %></h2></li>
+				<!-- <li><h2><%= link_to "Request Return Copy", xxx@xxx.xxx :class => "icon download" %></h2></li> -->
 			<% end %>
 
 			<li><h2><a href="#" id="print" class="icon file">Print this Assignment</a></h2></li>

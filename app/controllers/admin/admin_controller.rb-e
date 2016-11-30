@@ -1,11 +1,11 @@
 class Admin::AdminController < ApplicationController
-  before_filter :authenticate, :except => :signin
+  before_action :authenticate, except: :signin
   
   def index
-   xxx@xxx.xxx = Semester.find( :all, :order => 'start_date desc', :limit => 5 )
+   xxx@xxx.xxx = Semester.order('start_date desc').limit(5)
   end
   
   def email_template
-    render :layout => false
+    render layout: false
   end
 end

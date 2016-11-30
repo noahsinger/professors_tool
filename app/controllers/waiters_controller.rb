@@ -1,5 +1,5 @@
 class WaitersController < ApplicationController
-  before_filter :load_course
+  before_action :load_course
   
   def load_course
    xxx@xxx.xxx = Course.find(params[:course_id])
@@ -30,5 +30,9 @@ class WaitersController < ApplicationController
         format.json { render :json xxx@xxx.xxx :status => :unprocessable_entity }
       end
     end
+  end
+  
+  def allowed_params
+    params.require(:waiter).permit(:email)
   end
 end

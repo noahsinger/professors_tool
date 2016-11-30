@@ -3,15 +3,18 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 require 'capybara/rails'
+require 'mocha/mini_test'
 
 class ActiveSupport::TestCase
-  
+
   class ActionDispatch::IntegrationTest
     include Capybara::DSL
+    self.class.include Rails.application.routes.url_helpers
+    default_url_options[:host] = "localhost"
   end
-  
+
   Capybara.javascript_driver = :webkit
-  
+
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
@@ -20,27 +23,27 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   def login_as(user)
-   xxx@xxx.xxx = user ? users(user).id : nil
+    User.create(username: 'user', password: 'test', password_confirmation: 'test')
+    post sessions_url, params: {username: 'user', password: 'test'}
   end
-  
+
   def logout
-   xxx@xxx.xxx = nil
+    delete session_url(0) # id isn't used so it doesn't matter
   end
-  
-  def self.cannot_access_actions(route_parts = [:id => 1], actions = {:index => :get, :show => :get, :new => :get, :create => :post, :edit => :get, :update => :put, :destroy => :delete})
-    actions.each do |action, request|
-      define_method("test_cannot_access_#{action}") do
-        logout
-        
-        if ["index","new","create"].index( action )
-          assert_routing({:path => "/#{@controller.controller_path}/#{action}", :method => request},{:controller xxx@xxx.xxx :action => action })
-        elsif ["show","edit","update","destroy"].index( action )
-          assert_routing({:path => "/#{@controller.controller_path}/1/#{action}", :method => request},{:controller xxx@xxx.xxx :action => action, :id => 1 })
-        end
-        
-        send( request, action, *route_parts )
+
+  def self.cannot_access_actions(controller, require_params, actions)
+    actions.each do |action_url_parts, method|
+
+      action_url_parts.merge! require_params
+      action_url_parts[:controller] = controller
+      action_url = url_for(action_url_parts)
+
+      define_method("test_cannot_access_#{action_url_parts[:controller].gsub('/','_')}_#{action_url_parts[:action]}") do
+        # logout
+
+        send(method, action_url)
+
         assert_response :redirect
-        # assert_redirected_to signin_admin_admin_index_path    
         assert_redirected_to login_path
       end
     end

@@ -28,7 +28,7 @@ xxx@xxx.xxx %></h1>
 			</tr>
 xxx@xxx.xxx do |assignment| %>
 				<% 
-					work xxx@xxx.xxx :first, :conditions => ['assignment_id=?',assignment] )
+					work xxx@xxx.xxx
 					earned += work.score if work
 					possible += assignment.worth
 				%>
@@ -62,7 +62,7 @@ xxx@xxx.xxx do |assignment| %>
 
 	<header>
 			<p>
-xxx@xxx.xxx = EnrollmentStatus.find( :all ) -%>
+xxx@xxx.xxx = EnrollmentStatus.all -%>
 				<%- outputs = [] -%>
 	
 xxx@xxx.xxx do |status| %>

@@ -1,7 +1,7 @@
 class AssignmentsController < ApplicationController
-  before_filter :load_section
-  before_filter :load_semester
-  before_filter :clear_referrer
+  before_action :load_section
+  before_action :load_semester
+  before_action :clear_referrer
   
   def clear_referrer
     if session[:referrer]

@@ -1,3 +1,3 @@
-class EnrollmentSnapshot < ActiveRecord::Base
+class EnrollmentSnapshot < ApplicationRecord
   belongs_to :section
 end

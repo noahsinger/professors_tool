@@ -1,18 +1,18 @@
 require 'shortly'
 
 class Admin::AssignmentsController < ApplicationController
-  before_filter :authenticate
-  before_filter :load_semester
-  before_filter :load_section
-  
+  before_action :authenticate
+  before_action :load_semester
+  before_action :load_section
+
   def load_semester
    xxx@xxx.xxx = Semester.find( params[:semester_id] )
   end
-  
+
   def load_section
    xxx@xxx.xxx = Section.find( params[:section_id] )
   end
-  
+
   # GET /assignments
   # GET /assignments.xml
   def index
@@ -78,12 +78,12 @@ class Admin::AssignmentsController < ApplicationController
     respond_to do |format|
       xxx@xxx.xxx
         flash[:notice] = 'Assignment was successfully updated.'
-        
+
         destination = xxx@xxx.xxx
         xxx@xxx.xxx == old_duedate
           destination = new_admin_assignment_tweet_url(:assignment_id xxx@xxx.xxx :status => "duedate")
         end
-        
+
         format.html { redirect_to(destination) }
         format.xml  { head :ok }
       else
@@ -104,5 +104,9 @@ class Admin::AssignmentsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+
+  def allowed_params
+    params.require(:assignment).permit(:title, :lab, :duedate, :lab_id)
+  end
+
 end

@@ -39,7 +39,7 @@ xxx@xxx.xxx %></h1>
 	
 	<ul id="how_tos" class="actions">
 xxx@xxx.xxx do |how_to| %>
-			<% if xxx@xxx.xxx :first, :conditions => ['how_to_id=?', how_to.id] ) %>
+			<% if xxx@xxx.xxx how_to.id]).first %>
 				<%= render :partial => how_to %>
 			<% end %>
 		<% end %>

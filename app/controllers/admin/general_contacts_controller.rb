@@ -1,5 +1,5 @@
 class Admin::GeneralContactsController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
   def download
     general_contact = GeneralContact.find( params[:id] )
@@ -48,7 +48,7 @@ class Admin::GeneralContactsController < ApplicationController
   end
   
   def destroy_all
-    contacts = GeneralContact.find( :all )
+    contacts = GeneralContact.all
     contacts.each do |c|
       c.destroy
     end
@@ -58,4 +58,8 @@ class Admin::GeneralContactsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def allowed_params
+    params.require(:general_contact).permit(:return_email, :subject, :body, :attachment)
+  end 
 end

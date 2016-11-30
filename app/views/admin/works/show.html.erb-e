@@ -42,7 +42,7 @@ xxx@xxx.xxx do |r| %>
 					<td><%= r.points %></td>
 			
 					<% 
-						awarded_point xxx@xxx.xxx :first, :conditions => ['requirement_id=?',r] )
+						awarded_point xxx@xxx.xxx
 						possible += r.points
 						earned += awarded_point.points if awarded_point
 					%>

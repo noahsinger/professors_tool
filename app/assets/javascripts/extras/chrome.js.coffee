@@ -18,10 +18,14 @@ setup_fields = ->
 
 
 
-$(document).ready ->
-	setup_fields( )
-	
-$(document).on('page:load', -> setup_fields( ))
-	
+# $(document).ready ->
+# 	setup_fields( )
+#
+# $(document).on('page:load', -> setup_fields( ))
+#
 $(document).bind "orientationchange", ->
 	setup_fields( )
+	
+$(document).on "turbolinks:load", ->
+	setup_fields( )
+	

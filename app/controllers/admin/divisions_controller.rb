@@ -1,5 +1,5 @@
 class Admin::DivisionsController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
   # GET /divisions
   # GET /divisions.xml
@@ -42,7 +42,7 @@ class Admin::DivisionsController < ApplicationController
   # POST /divisions
   # POST /divisions.xml
   def create
-   xxx@xxx.xxx = Division.new(params[:division])
+   xxx@xxx.xxx = Division.new(allowed_params)
 
     respond_to do |format|
       xxx@xxx.xxx
@@ -84,5 +84,8 @@ class Admin::DivisionsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+
+  def allowed_params
+    params.require(:division).permit(:name, :phone_number, :office_number, :associate_dean)
+  end 
 end

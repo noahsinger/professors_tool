@@ -1,6 +1,6 @@
 class Admin::SectionsController < ApplicationController
-  before_filter :authenticate    
-  before_filter :load_semester
+  before_action :authenticate    
+  before_action :load_semester
 
   def load_semester
    xxx@xxx.xxx = Semester.find( params[:semester_id] )
@@ -13,7 +13,7 @@ class Admin::SectionsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -24,7 +24,7 @@ class Admin::SectionsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -35,7 +35,7 @@ class Admin::SectionsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -55,10 +55,10 @@ class Admin::SectionsController < ApplicationController
        xxx@xxx.xxx
         flash[:notice] = "Section was successfully created and #{num_waiters} were notified."
         format.html { xxx@xxx.xxx }
-        format.xml  { render :xml => @section, :status => :created, :location xxx@xxx.xxx }
+        format.xml  { render xml: @section, status: :created, xxx@xxx.xxx }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+        format.html { render action: "new" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
     end
   end
@@ -74,8 +74,8 @@ class Admin::SectionsController < ApplicationController
         format.html { xxx@xxx.xxx }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
     end
   end
@@ -97,7 +97,7 @@ class Admin::SectionsController < ApplicationController
     
     if params[:body] and params[:body] != ""
       
-      # call_rake :send_section_email, :section_id xxx@xxx.xxx :body => params[:body]
+      # call_rake :send_section_email, xxx@xxx.xxx body: params[:body]
      xxx@xxx.xxx params[:body]
       
       flash[:notice] = "The email had been sent."
@@ -158,7 +158,7 @@ class Admin::SectionsController < ApplicationController
       end
     end
     
-    render :text => "<pre>#{csv_string}</pre>"
+    render plain: "<pre>#{csv_string}</pre>"
   end
   
   def sync_students
@@ -167,9 +167,8 @@ class Admin::SectionsController < ApplicationController
 
     redirect_to( xxx@xxx.xxx )
   end
+  
+  def allowed_params
+    params.require(:section).permit(:course_id, :call_number, :section_number, :meeting_days, :room_number, :start_date, :end_date, :instructor_id, :start_time, :end_time)
+  end
 end
-
-
-
-
-

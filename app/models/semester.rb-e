@@ -1,7 +1,5 @@
-class Semester < ActiveRecord::Base
-  has_many :sections, :dependent => :destroy
-  
-  attr_accessible :year, :season, :start_date, :end_date
+class Semester < ApplicationRecord
+  has_many :sections, dependent: :destroy
   
   validates_presence_of :year
   validates_presence_of :season
@@ -11,7 +9,7 @@ class Semester < ActiveRecord::Base
   end
   
   def self.current
-   xxx@xxx.xxx = Semester.find( :all, :order => 'start_date' )
+   xxx@xxx.xxx = Semester.order('start_date')
    xxx@xxx.xxx do |s|
       if s.start_date <= Time.now.to_date and s.end_date >= Time.now.to_date
         return s
@@ -22,7 +20,7 @@ class Semester < ActiveRecord::Base
   end
   
   def self.future
-    Semester.find(:all, :order => 'start_date').select do |semester|
+    Semester.order('start_date').select do |semester|
       semester.start_date > Time.now.to_date
     end
   end

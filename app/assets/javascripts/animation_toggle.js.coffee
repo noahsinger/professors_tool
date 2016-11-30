@@ -1,6 +1,7 @@
 # control for the animation toggle link
 
-$(document).ready ->
+# $(document).ready ->
+$(document).on "turbolinks:load", ->
 	console.log "preparing to init animations"
 	init_animations( )
 

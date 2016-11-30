@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  before_filter :load_semester
+  before_action :load_semester
   
   def load_semester
    xxx@xxx.xxx = Semester.find( params[:semester_id] )

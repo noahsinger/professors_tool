@@ -1,7 +1,7 @@
 class Admin::ExamplesController < ApplicationController
-  before_filter :authenticate
-  before_filter :load_semester
-  before_filter :load_section
+  before_action :authenticate
+  before_action :load_semester
+  before_action :load_section
   
   def load_semester
    xxx@xxx.xxx = Semester.find( params[:semester_id] )
@@ -18,7 +18,7 @@ class Admin::ExamplesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -29,7 +29,7 @@ class Admin::ExamplesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -40,7 +40,7 @@ class Admin::ExamplesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -58,10 +58,10 @@ class Admin::ExamplesController < ApplicationController
       xxx@xxx.xxx
         flash[:notice] = 'Example was successfully created.'
         format.html { xxx@xxx.xxx }
-        format.xml  { render :xml => @example, :status => :created, :location xxx@xxx.xxx }
+        format.xml  { render xml: @example, status: :created, xxx@xxx.xxx }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+        format.html { render action: "new" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
     end
   end
@@ -77,8 +77,8 @@ class Admin::ExamplesController < ApplicationController
         format.html { xxx@xxx.xxx }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
     end
   end
@@ -94,4 +94,8 @@ class Admin::ExamplesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def allowed_params
+    params.require(:example).permit(:name, :description, :file)
+  end 
 end

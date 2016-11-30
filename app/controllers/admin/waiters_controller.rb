@@ -1,7 +1,7 @@
 class Admin::WaitersController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
-  before_filter :load_course
+  before_action :load_course
   
   def load_course
    xxx@xxx.xxx = Course.find( params[:course_id] )
@@ -39,5 +39,9 @@ class Admin::WaitersController < ApplicationController
       format.html { redirect_to xxx@xxx.xxx }
       format.json { head :ok }
     end
+  end
+  
+  def allowed_params
+    params.require(:waiter).permit(:email)
   end
 end

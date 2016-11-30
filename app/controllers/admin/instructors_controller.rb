@@ -1,5 +1,5 @@
 class Admin::InstructorsController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
   # GET /instructors
   # GET /instructors.xml
@@ -42,7 +42,7 @@ class Admin::InstructorsController < ApplicationController
   # POST /instructors
   # POST /instructors.xml
   def create
-   xxx@xxx.xxx = Instructor.new(params[:instructor])
+   xxx@xxx.xxx = Instructor.new(allowed_params)
 
     respond_to do |format|
       xxx@xxx.xxx
@@ -84,5 +84,8 @@ class Admin::InstructorsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+
+  def allowed_params
+    params.require(:instructor).permit(:title, :first_name, :last_name, :email, :twitter_handle, :office_number, :phone_number, :division_id, :office_hours, :website)
+  end 
 end

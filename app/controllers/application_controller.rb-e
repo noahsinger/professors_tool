@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
-    
+  protect_from_forgery with: :exception
+  
   def authenticate  
   	if session[:authentication_bypass]
   		session[:authentication_bypass] = nil

@@ -1,7 +1,7 @@
 class Admin::LabsController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
-  before_filter :load_course
+  before_action :load_course
   
   def load_course
    xxx@xxx.xxx = Course.find( params[:course_id] )
@@ -91,4 +91,7 @@ class Admin::LabsController < ApplicationController
     end
   end
   
+  def allowed_params
+    params.require(:lab).permit(:title, :objective, :instructions, :visible, :allow_uploads)
+  end
 end

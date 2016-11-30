@@ -21,7 +21,7 @@
 	
 	<%= yield :prefetches %>
 	
-	<%= javascript_include_tag 'application' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	<% if admin? %>
 		<!-- start admin javascript -->
 		<%= javascript_include_tag 'admin/admin' %>
@@ -31,11 +31,11 @@
 	<%= yield :head %>
 	
 	<% unless css_naked_day? %>
-		<%= stylesheet_link_tag 'application', :media => :all %>
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 		<%= javascript_include_tag 'extras/chrome', :async => false %>
 	<% end %>
 	
-	<%= csrf_meta_tag %>
+	<%= csrf_meta_tags %>
 	
 </head>
 <body id="<%= controller_name %>_<%= action_name %>" class="<%= admin? ? "admin": "student" %>">
@@ -80,7 +80,7 @@
 				
 				<section id="page_content">
 					<%= render :partial => 'shared/messages' %>
-					<%= yield  %>
+					<%= yield %>
 				</section>
 				
 			</div>

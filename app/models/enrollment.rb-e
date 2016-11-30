@@ -1,13 +1,11 @@
-class Enrollment < ActiveRecord::Base
+class Enrollment < ApplicationRecord
   belongs_to :student
   belongs_to :section
   belongs_to :enrollment_status
-  has_many :works ,:dependent => :destroy
-  has_many :grade_requests, :dependent => :destroy, :order => 'created_at desc'
-  has_many :homework_return_requests, :dependent => :destroy, :order => 'created_at desc'
-  has_many :attendances, :dependent => :destroy, :order => 'created_at'
-  
-  attr_accessible :student_id, :enrollment_status_id
+  has_many :works ,dependent: :destroy
+  has_many :grade_requests, -> {order 'created_at desc'}, dependent: :destroy
+  has_many :homework_return_requests, -> {order 'created_at desc'}, dependent: :destroy
+  has_many :attendances, -> {order 'created_at'}, dependent: :destroy
   
   def self.active
 		self.where("enrollment_status_id != ?", EnrollmentStatus.dropped)  

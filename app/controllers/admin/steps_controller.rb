@@ -1,7 +1,7 @@
 class Admin::StepsController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   
-  before_filter :load_howto
+  before_action :load_howto
   
   def load_howto
    xxx@xxx.xxx = HowTo.find( params[:how_to_id] )
@@ -88,9 +88,13 @@ class Admin::StepsController < ApplicationController
     end
     
     respond_to do |format|
-      format.html { render :nothing => true, :status => 200 }
+      format.html { head :ok }
       format.js
       format.xml  { head :ok }
     end
+  end
+  
+  def allowed_params
+    params.require(:step).permit(:image, :title, :instructions, :how_to)
   end
 end

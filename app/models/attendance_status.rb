@@ -1,5 +1,4 @@
-class AttendanceStatus < ActiveRecord::Base
-  attr_accessible :name
+class AttendanceStatus < ApplicationRecord
   has_many :attendances
   validates_presence_of :name
   

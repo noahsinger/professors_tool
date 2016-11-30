@@ -1,7 +1,10 @@
 <tr id="<%= syllabus_part.id %>">
 	<td><%= syllabus_part.name %></td>
 	<td><%= truncate syllabus_part.description, :length => 240 %></td>
-	<td class="show"><%= link_to_function 'Add', "add_syllabus_part( '" + xxx@xxx.xxx + "', " + syllabus_part.id.to_s + ", '" + form_authenticity_token + "' );" %></td>
+	<td class="show">
+		<%# link_to_function 'Add', "add_syllabus_part( '" + xxx@xxx.xxx + "', " + syllabus_part.id.to_s + ", '" + form_authenticity_token + "' );" %>
+		<%= link_to 'Add', xxx@xxx.xxx syllabus_part_id: syllabus_part.id), method: :post, remote: true %>
+	</td>
 	<td class="edit"><%= link_to 'Edit', edit_admin_syllabus_part_path( syllabus_part ) %></td>
 	<td class="destroy"><%= link_to 'Destroy', [:admin,syllabus_part], :confirm => 'Are you sure?', :method => :delete %></td>
 </tr>

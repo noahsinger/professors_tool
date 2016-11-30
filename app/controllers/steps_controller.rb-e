@@ -1,6 +1,6 @@
 class StepsController < ApplicationController
-  before_filter :load_course
-  before_filter :load_howto
+  before_action :load_course
+  before_action :load_howto
   
   def load_course
    xxx@xxx.xxx = Course.find( params[:course_id] )

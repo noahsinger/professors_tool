@@ -19,8 +19,8 @@
 </article>
 
 <%  
-	prev_step = @how_to.steps.find( :first, :conditions => ['position=?',@step.position - 1]) xxx@xxx.xxx
-	next_step = @how_to.steps.find( :first, :conditions => ['position=?',@step.position + 1]) xxx@xxx.xxx
+	prev_step = @how_to.steps.where(['position=?',@step.position - 1]).first xxx@xxx.xxx
+	next_step = @how_to.steps.where(['position=?',@step.position + 1]).first xxx@xxx.xxx
 %>
 	
 <ul id="next_prev">

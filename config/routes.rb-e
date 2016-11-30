@@ -1,4 +1,5 @@
-Ingenious::Application.routes.draw do
+Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # no namespace ##########################################    
   resources :general_contacts
   resources :instructors
@@ -170,7 +171,7 @@ Ingenious::Application.routes.draw do
     end
   end
   
-  match 'admin' => 'admin/admin#index', :as => :admin
+  get '/admin', to: 'admin/admin#index'
 
   if Semester.current #favor the current semester
     root :to => "sections#index", :semester_id => Semester.current.id
@@ -184,9 +185,9 @@ Ingenious::Application.routes.draw do
   match 'login' => "sessions#new", :via => :get
   
   # map.connect 'examples/echo', :controller => 'examples', :action => 'echo', :conditions => { :method => [:get, :post] }
-  match 'examples/echo' => 'examples#echo', :method => [:get, :post]
-  match 'examples/test_exception' => 'examples#test_exception', :method => [:get]
-  match 'examples/test_notice' => 'examples#test_notice', :method => [:get]
-  match 'examples/test_error' => 'examples#test_error', :method => [:get]
-  match 'examples/test_tweet' => 'examples#test_tweet', :method => [:get]
+  match 'examples/echo' => 'examples#echo', :via => [:get, :post]
+  match 'examples/test_exception' => 'examples#test_exception', :via => [:get]
+  match 'examples/test_notice' => 'examples#test_notice', :via => [:get]
+  match 'examples/test_error' => 'examples#test_error', :via => [:get]
+  match 'examples/test_tweet' => 'examples#test_tweet', :via => [:get]
 end

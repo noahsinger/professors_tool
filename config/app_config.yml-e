@@ -1,9 +1,9 @@
 development:
-    site_name: Threesuns
+    site_name: Threesuns<span>.</span>org
     owner_email: xxx@xxx.xxx
     banner_location: http://localhost:3000/images/sml_banner.png
     site_url: http://localhost:3000
-    host: localhost:3000
+    host: threesuns.org
     rake_path: /usr/bin/rake
     ted_username: ADMINID
     ted_password: "ADMINPASSWORD"
@@ -11,7 +11,7 @@ development:
     bitly_username: noahsinger
     
 test:
-    site_name: Ingeni<span>o.</span>us
+    site_name: Threesuns.org
     owner_email: xxx@xxx.xxx
     rake_path: /usr/local/bin/rake
     host: localhost:3000
@@ -20,11 +20,11 @@ test:
     bitly_username: noahsinger
 
 production:
-    site_name: suchnull 
+    site_name: Threesuns<span>.</span>org
     owner_email: xxx@xxx.xxx
     banner_location: http://suchnull.com/images/sml_banner.png
-    site_url: http://suchnull.com
-    host: suchnull.com
+    site_url: http://threesuns.org
+    host: threesuns.org
     rake_path: /usr/bin/rake
     ted_username: ADMINID
     ted_password: "ADMINPASSWORD"

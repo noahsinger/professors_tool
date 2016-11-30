@@ -1,8 +1,8 @@
 class Admin::TutorialsController < ApplicationController
-  before_filter :authenticate  
+  before_action :authenticate  
 
-  before_filter :load_course
-  before_filter :clear_referrer
+  before_action :load_course
+  before_action :clear_referrer
   
   def clear_referrer
     if session[:referrer]
@@ -18,11 +18,11 @@ class Admin::TutorialsController < ApplicationController
   # GET /tutorials.xml
   def index
     @tutorials xxx@xxx.xxx
-   xxx@xxx.xxx = HowTo.find( :all )
+   xxx@xxx.xxx = HowTo.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -46,7 +46,7 @@ class Admin::TutorialsController < ApplicationController
     end
     
     respond_to do |format|
-      format.html { render :nothing => true, :status => 200 }
+      format.html { head :ok }
       format.js
       format.xml  { head :ok }
     end
@@ -54,16 +54,20 @@ class Admin::TutorialsController < ApplicationController
   end
   
   def add_how_to
-    @tutorial = Tutorial.new( :course_id xxx@xxx.xxx :how_to_id => params[:how_to_id] )
+    @tutorial = Tutorial.new( xxx@xxx.xxx how_to_id: params[:how_to_id] )
 
     respond_to do |format|
       xxx@xxx.xxx
         format.js
-        format.html { render :nothing => true, :status => 200 }
+        format.html { head :ok }
       else
         flash[:error] = 'There was a problem creating the tutorial.'
-        format.html { render :action => "new" }
+        format.html { render action: "new" }
       end
-    end     
+    end
   end
+  
+  def allowed_params
+    params.require(:tutorial).permit(:course_id, :how_to_id)
+  end 
 end

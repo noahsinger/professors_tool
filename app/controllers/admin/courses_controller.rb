@@ -1,6 +1,6 @@
 class Admin::CoursesController < ApplicationController
-  before_filter :authenticate
-  before_filter :clear_referrer
+  before_action :authenticate
+  before_action :clear_referrer
   
   def clear_referrer
     if session[:referrer]
@@ -49,7 +49,7 @@ class Admin::CoursesController < ApplicationController
   # POST /courses
   # POST /courses.xml
   def create
-   xxx@xxx.xxx = Course.new(params[:course])
+   xxx@xxx.xxx = Course.new(allowed_params)
 
     respond_to do |format|
       xxx@xxx.xxx
@@ -90,5 +90,9 @@ class Admin::CoursesController < ApplicationController
       format.html { redirect_to(admin_courses_url) }
       format.xml  { head :ok }
     end
-  end  
+  end
+  
+  def allowed_params
+    params.require(:course).permit(:title, :description, :discipline, :number, :credits, :prerequisite, :next_course, :required_materials)
+  end 
 end
