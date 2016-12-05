@@ -26,9 +26,6 @@ xxx@xxx.xxx do |howto| %>
 					<% end %>
 		<% end %>
 
-
-<%= render 'assignments_header' %>
-
 <% xxx@xxx.xxx > 0 %>
 xxx@xxx.xxx do |assignment| %>
 		<%= render assignment %>

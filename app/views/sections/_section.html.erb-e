@@ -4,9 +4,11 @@
 	<p><%= section.meeting_days_and_times %></p>
 	<nav>
 		<ul>
-			<li><%= link_to "View the Syllabus", xxx@xxx.xxx section ), :class => "icon file" %></li>
-			<li><%= link_to "Request Your Grades", xxx@xxx.xxx section ), :class => "icon star" %></li>
+			<li><%= link_to "View the Syllabus", xxx@xxx.xxx section ), class: "icon file" %></li>
+			<li><%= link_to "Request Your Grades", xxx@xxx.xxx section ), class: "icon star" %></li>
 			<li><%= link_to 'Email the Instructor', new_general_contact_path %></li>
+			<li><%= link_to( 'Homework RSS Feed' , xxx@xxx.xxx format: :rss), class: 'icon rss' ) %></li>
+			<li><%= link_to( 'Homework ICAL Feed', xxx@xxx.xxx format: :ics, protocol: 'webcal'), title: 'Subscribe to this classes assignments calendar using Outlook or iCal', class: 'icon ical' ) %></li>
 		</ul>
 
 	</nav>
