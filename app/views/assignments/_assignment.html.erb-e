@@ -10,4 +10,23 @@
 		<%= link_to assignment.lab.title, xxx@xxx.xxx @section, assignment) %>
 	</h2>
 	<p><%= assignment.lab.objective %></p>
+	<nav>
+		<ul id="assignment_links">
+			<% if assignment.lab.allow_uploads %>
+				<li><%= link_to "Submit Your Solution", xxx@xxx.xxx @section, assignment ), class: "icon upload" %></li>
+				<li><%= link_to "Request a Return Copy of your Solution", xxx@xxx.xxx class: "icon download" %></li>
+			<% end %>
+
+			<% if defined?(main) %>
+				<li><a href="#" id="print" class="icon file">Print this Assignment</a></li>
+			<% end %>
+
+
+			<% if current_user %>
+				<li><%= link_to 'Edit this Assignment', xxx@xxx.xxx %></li>
+				<li><%= link_to 'Edit this Lab', xxx@xxx.xxx assignment.lab) %></li>
+			<% end %>
+		</ul>
+	</nav>
+
 </div>

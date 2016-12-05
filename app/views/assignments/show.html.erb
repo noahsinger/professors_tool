@@ -1,85 +1,49 @@
 <%# student assignment show %>
 
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
+<%= render 'semesters/semesters_header' %>
+<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
 
-<section>
-	<h1 class="page_description"><%= @assignment.title xxx@xxx.xxx %></h1>
-	
-	<nav>
-		<h1>Navigation</h1>
-		<%= link_to @section.course.title, xxx@xxx.xxx @section ), :class => 'icon back' %>
-	</nav>
-	
-	
+<%= render partial: 'assignment', locals: xxx@xxx.xxx main: true} %>
+
+<div class="block">
 	<header>
-		<p>Due: <%= xxx@xxx.xxx ) %></p>
-		<h1><%= @assignment.title %> - xxx@xxx.xxx %></h1>
+		<h3>Requirements</h3>
 	</header>
-		
-	<div id="resources">
-		<!--<div id="assignment_status">
-			<% xxx@xxx.xxx %>
-				<p class="reminder">Due in <%= xxx@xxx.xxx %></p>
-			<% end %>
-		</div>-->
-		
-		<header id="requirements_header"><h1>Requirements</h1></header>
-		<table id="requirements">
+	<table>
 xxx@xxx.xxx do |r| %>
-				<tr>
-					<td><%= r.description %></td><td><%= r.points %> pts</td>
-				</tr>
-			<% end %>
+			<tr>
+				<td><%= r.description %></td><td><%= r.points %> pts</td>
+			</tr>
+		<% end %>
 xxx@xxx.xxx %> pts</td></tr>
-		</table>
-		
-		<h1>Resources</h1>
-		<ul id="assignment_links">
-			<% xxx@xxx.xxx %>
-				<li><h2><%= link_to "Submit Your Solution", xxx@xxx.xxx @section, @assignment ), :class => "icon upload" %></h2></li>
-				<li><h2><%= link_to "Request Return Copy", xxx@xxx.xxx :class => "icon download" %></h2></li>
-			<% end %>
+	</table>
+</div>
 
-			<li><h2><a href="#" id="print" class="icon file">Print this Assignment</a></h2></li>
-			<% if current_user %>
-				<li><h2><%= link_to 'Edit this Assignment', xxx@xxx.xxx %></h2></li>
-				<li><h2><%= link_to 'Edit this Lab', xxx@xxx.xxx @assignment.lab) %></h2></li>
+<div class="block block--width2">
+	<header>
+		<h3>Instructions</h3>
+	</header>
+	<section>
+		<%= xxx@xxx.xxx %>
+	</section>
+</div>
+
+<% xxx@xxx.xxx > 0 %>
+	<div class="block">
+		<header>
+			<h3>Extras</h3>
+		</header>
+		<ul>
+xxx@xxx.xxx do |extra| %>
+				<li>
+					<%= link_to extra.file.url do %>
+						<div><%= extra.description %></div>
+						<h2><%= extra.file_file_name %></h2>
+						<p></p>
+					<% end %>
+				</li>
 			<% end %>
 		</ul>
 	</div>
-	
-
-	<article id="assignment">
-		<div id="assignment_objective">
-			<strong>Objective</strong>
-xxx@xxx.xxx %></p>
-		</div>
-	
-
-		<header id="assignment_instructions_header"><h1>Instructions</h1></header>
-
-		<div id="assignment_instructions">
-			<%= xxx@xxx.xxx %>
-		</div>
-
-		<% xxx@xxx.xxx > 0 %>
-			<div>
-				<header id="assignment_extras_header"><h1>Extras</h1></header>
-				<ul id="assignment_extras">
-xxx@xxx.xxx do |extra| %>
-						<li>
-							<%= link_to extra.file.url do %>
-								<div><%= extra.description %></div>
-								<h2><%= extra.file_file_name %></h2>
-								<p></p>
-							<% end %>
-						</li>
-					<% end %>
-				</ul>
-			</div>
-		<% end %>		
-	</article>
-
-</section>
+<% end %>

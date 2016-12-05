@@ -15,16 +15,20 @@
 	<li><%= link_to "Section Admin", xxx@xxx.xxx %></li>
 <% end %>
 
-		<% xxx@xxx.xxx > 0 %>
-				<header><h1>Tutorials</h1></header>
+<% xxx@xxx.xxx > 0 %>
+	<div class="block">
+		<header>
+			<h3>Tutorials</h3>
+		</header>
+		<ul>
 xxx@xxx.xxx do |howto| %>
-						<li>
-							<%= link_to xxx@xxx.xxx howto, howto.steps.first ) do %>
-								<h2><%= howto.title %></h2>
-							<% end %>
-						</li>
-					<% end %>
-		<% end %>
+				<li>
+					<%= link_to howto.title, xxx@xxx.xxx howto, howto.steps.first ) %>
+				</li>
+			<% end %>
+			</ul>
+		</div>
+<% end %>
 
 <% xxx@xxx.xxx > 0 %>
 xxx@xxx.xxx do |assignment| %>

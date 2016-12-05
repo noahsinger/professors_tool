@@ -1,31 +1,13 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %> Examples</h1>
-<% end %>
+<%= render 'semesters/semesters_header' %>
+<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
 
-<section>
-	<h1 xxx@xxx.xxx %> Examples</h1>
-	
-	<nav>
-		<h1>Navigation</h1>
-		<%= link_to "Back to #{@section.course.title}", xxx@xxx.xxx @section), :class => "icon back" %>
-	</nav>
-		
-	<header>
-		<p><%= xxx@xxx.xxx "Example" %></p>
-xxx@xxx.xxx %> Examples</h1>
-	</header>
-		
-	<article>	
-		<ul id="section_examples">
+<%= render partial: 'examples/examples_header', locals: xxx@xxx.xxx main: true} %>
+
 xxx@xxx.xxx do |example| %>
-				<li>
-					<%= link_to example.file.url do %>
-						<div class="course_number"><%= example.created_at.to_s(:short) %></div>
-						<h2><%= example.name %></h2>
-						<p><%= example.description %></p>
-					<% end %>
-				</li>		
-			<% end %>		
-		</ul>
-	</article>
-</section>
+	<div class="block">
+		<p><%= example.created_at.to_s(:short) %></p>
+		<h2><%= link_to example.name, example.file.url %></h2>
+		<p><%= example.description %></p>
+	</div>
+<% end %>
