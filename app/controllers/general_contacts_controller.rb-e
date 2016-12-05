@@ -2,6 +2,10 @@ class GeneralContactsController < ApplicationController
   # GET /general_contacts/new
   # GET /general_contacts/new.xml
   def new
+    if params[:section_id]
+     xxx@xxx.xxx = Section.find params[:section_id]
+    end
+
    xxx@xxx.xxx = GeneralContact.new
 
     respond_to do |format|
@@ -27,8 +31,8 @@ class GeneralContactsController < ApplicationController
       end
     end
   end
-  
+
   def allowed_params
     params.require(:general_contact).permit(:return_email, :subject, :body, :attachment)
-  end 
+  end
 end

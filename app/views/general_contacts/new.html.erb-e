@@ -1,21 +1,19 @@
-<%= link_to 'Email the Instructor', new_general_contact_path %>
+<%= render 'semesters/semesters_header' %>
 
+<% xxx@xxx.xxx %>
+	<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
+	<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
+<% end %>
 
-<section>
-	<h1 class="page_description">Contact</h1>
-
-	<nav>
-		<h1>Navigation</h1>
-		<%= link_to 'Home', root_path, :class => "icon back" %>
-	</nav>
-
-
+<div class="block block--width2">
 	<header>
 		<p><%= APP_CONFIG['site_name'].html_safe %></p>
-		<h1>Contact Form</h1>
+		<h3>Contact Form</h3>
 	</header>
+</div>
 
 
+<div class="block">
 	<%= xxx@xxx.xxx :html => {:multipart => :true}) do |f| %>
 		<h1>Complete the form</h1>
 		<%= xxx@xxx.xxx :message => 'This contact email could not be sent for the following reasons:' %>
@@ -43,7 +41,19 @@
 			<li>
 				<div class="details">
 					<%= f.label :attachment %>
-					<p>Students! <strong>DO NOT</strong> use this form for submitting your homework.  Instead, return to the homepage, click on your class, select the assignment, and then click the submit homework link.</p>
+					<p>
+						<% xxx@xxx.xxx %>
+							<strong>DO NOT</strong> use this form for submitting your homework unless you have no other choice.
+							Instead, select the specific assignment for your course, and then click the submit homework link.
+						<% else %>
+							If you are submitting your solution for an assignment use one of the links below:
+							<ul>
+xxx@xxx.xxx do |assignment| %>
+									<li><%= link_to "#{assignment.title}-#{assignment.lab.title}",  xxx@xxx.xxx @section, assignment ) %></li>
+								<% end %>
+							</ul>
+						<% end %>
+					</p>
 				</div>
 				<div class="file field"><span class="prompt">Click to Browse</span><%= f.file_field :attachment %></div>
 				<div class="filename"></div>
@@ -53,4 +63,4 @@
 			</li>
 		</ol>
 	<% end %>
-</section>
+</div>
