@@ -2,3 +2,62 @@
 *= require_self 
 *= require_tree
 */
+
+//.grid-sizer, .block { width: 120px; }
+//
+//.block {
+//	float: left;
+//	background-color: #999;
+//	padding: 20px;
+//}
+//
+//* { box-sizing: border-box; }
+
+/* force scrollbar, prevents initial gap */
+//html { overflow-y: scroll; }
+
+//body { font-family: sans-serif; }
+
+/* ---- grid ---- */
+
+#page {
+	width: 90%;
+	margin: 10px auto;
+}
+
+/* clear fix */
+#page:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .element-item ---- */
+
+/* 5 columns, percentage width */
+.block,
+.grid-sizer {
+  width: 33%;
+	height: 200px;
+}
+
+.block--width2 { width: 66%; }
+.block--height2 { height: 403px; }
+
+.block {
+  float: left;
+  background-color: #ccc;
+	margin: 0 1px;
+	transition: width 1s;
+}
+
+.block h1, .block h2, .block h3, .block p, .block nav {
+	margin: 3px 20px;
+}
+
+.block :first-child {
+	padding-top: 20px;
+}
+
+
+

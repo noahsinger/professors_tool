@@ -1,0 +1,5 @@
+<div class="block <%= double_width_if_main(defined? main) %>">
+	<header>
+		<h2><%= link_to 'Class Examples', semester_section_examples_path(semester,section) %></h2>
+	</header>
+</div>

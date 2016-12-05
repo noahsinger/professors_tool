@@ -1,0 +1,10 @@
+<div class="block <%= double_width_if_main(defined? main) %>">
+	<p>No Assignments are currently available for this class.</p> 
+	<p>
+		You can Subscribe to this classes 
+		<%= link_to( 'RSS' , xxx@xxx.xxx :format => :rss) ) %> 
+		feed or 
+		<%= link_to( 'ICAL', xxx@xxx.xxx :format => :ics, :protocol => 'webcal') ) %> 
+		feed to monitor when new assignments are posted.
+	</p>
+</div>

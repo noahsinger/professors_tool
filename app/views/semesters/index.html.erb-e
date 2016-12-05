@@ -1,36 +1,5 @@
-<%= content_for :header do %>
-	<h1>Semesters</h1>
-<% end %>
+<%= render partial: 'semesters_header', locals: {main: true} %>
 
-<section>
-	<h1 class="page_description">All Semesters</h1>
-	
-	<nav>
-		<h1>Navigation</h1>
-		<%= link_to "Home", '/', :class => "icon back" %>
-	</nav>
-	
-	<header>
-		<p><%= APP_CONFIG['site_name'].html_safe %></p>
-		<h1>Semesters</h1>
-	</header>
-	
-	<ul id="semesters">
-		<% for semester xxx@xxx.xxx %>
-			<li>
-				<%= link_to semester_sections_path( semester ) do %>
-					<div>
-						<%= show_short_date semester.start_date %> thru <%= show_short_date semester.end_date %>
-						<% if semester == Semester.current %>
-							(current)
-						<% end %>
-					</div>
-				
-					<h2><%= semester.name %></h2>
-					
-					<p><%= pluralize semester.sections.count, "section" %></p>
-				<% end %>
-			</li>
-		<% end %>
-	</ul>
-</section>
+<% for semester xxx@xxx.xxx %>
+	<%= render semester %>
+<% end %>
