@@ -3,7 +3,11 @@
 	<h2><%= link_to section.course.title, xxx@xxx.xxx section) %></h2>
 	<p><%= section.meeting_days_and_times %></p>
 	<nav>
-		<%= link_to "View the Syllabus", xxx@xxx.xxx section ), :class => "icon file" %>
-		<%= link_to "Request Your Grades", xxx@xxx.xxx section ), :class => "icon star" %>
+		<ul>
+			<li><%= link_to "View the Syllabus", xxx@xxx.xxx section ), :class => "icon file" %></li>
+			<li><%= link_to "Request Your Grades", xxx@xxx.xxx section ), :class => "icon star" %></li>
+			<li><%= link_to 'Email the Instructor', new_general_contact_path %></li>
+		</ul>
+
 	</nav>
-</div>			
+</div>

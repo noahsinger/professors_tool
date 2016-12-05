@@ -1,22 +1,7 @@
 /*
-*= require_self 
+*= require_self
 *= require_tree
 */
-
-//.grid-sizer, .block { width: 120px; }
-//
-//.block {
-//	float: left;
-//	background-color: #999;
-//	padding: 20px;
-//}
-//
-//* { box-sizing: border-box; }
-
-/* force scrollbar, prevents initial gap */
-//html { overflow-y: scroll; }
-
-//body { font-family: sans-serif; }
 
 /* ---- grid ---- */
 
@@ -32,17 +17,17 @@
   clear: both;
 }
 
-/* ---- .element-item ---- */
+/* ---- .block ---- */
 
-/* 5 columns, percentage width */
 .block,
 .grid-sizer {
   width: 33%;
-	height: 200px;
+	// height: 200px;
+	padding: 20px 0;
 }
 
-.block--width2 { width: 66%; }
-.block--height2 { height: 403px; }
+.block--width2 { width: 66.3%; }
+// .block--height2 { height: 403px; }
 
 .block {
   float: left;
@@ -51,13 +36,16 @@
 	transition: width 1s;
 }
 
-.block h1, .block h2, .block h3, .block p, .block nav {
+.block h1, .block h2, .block h3, .block h4, .block p, .block nav, .block table {
 	margin: 3px 20px;
 }
 
-.block :first-child {
-	padding-top: 20px;
+	.block table {
+		width: 100%;
+	}
+
+.block h1:first-child, .block h2:first-child, .block h3:first-child, .block p:first-child {
+	// padding-top: 20px;
 }
 
-
-
+/* ---- other ---- */

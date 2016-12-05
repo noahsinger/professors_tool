@@ -1,9 +1,7 @@
 <%= render 'semesters/semesters_header' %>
 <%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
+<%= render partial: 'sections/section', locals: xxx@xxx.xxx main: true} %>
 
-<%= render 'general_contacts/general_contacts_header' %>
-			
 <% xxx@xxx.xxx > 0 %>
 	<%= render partial: 'materials/materials_header', locals: xxx@xxx.xxx %>
 <% end %>
@@ -16,10 +14,10 @@
 	<header><h1>Admin</h1></header>
 	<li><%= link_to "Section Admin", xxx@xxx.xxx %></li>
 <% end %>
-		
+
 		<% xxx@xxx.xxx > 0 %>
 				<header><h1>Tutorials</h1></header>
-xxx@xxx.xxx do |howto| %>			
+xxx@xxx.xxx do |howto| %>
 						<li>
 							<%= link_to xxx@xxx.xxx howto, howto.steps.first ) do %>
 								<h2><%= howto.title %></h2>

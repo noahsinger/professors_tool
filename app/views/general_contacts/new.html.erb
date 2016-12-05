@@ -1,22 +1,21 @@
-<%= content_for :header do %>
-	<h1>Contact</h1>
-<% end %>
+<%= link_to 'Email the Instructor', new_general_contact_path %>
+
 
 <section>
 	<h1 class="page_description">Contact</h1>
-	
+
 	<nav>
 		<h1>Navigation</h1>
 		<%= link_to 'Home', root_path, :class => "icon back" %>
 	</nav>
-	
-	
+
+
 	<header>
 		<p><%= APP_CONFIG['site_name'].html_safe %></p>
 		<h1>Contact Form</h1>
 	</header>
 
-	
+
 	<%= xxx@xxx.xxx :html => {:multipart => :true}) do |f| %>
 		<h1>Complete the form</h1>
 		<%= xxx@xxx.xxx :message => 'This contact email could not be sent for the following reasons:' %>
