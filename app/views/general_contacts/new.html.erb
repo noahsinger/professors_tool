@@ -14,16 +14,16 @@
 
 
 <div class="block">
-	<%= xxx@xxx.xxx :html => {:multipart => :true}) do |f| %>
+	<%= xxx@xxx.xxx html: {multipart: :true}) do |f| %>
 		<h1>Complete the form</h1>
-		<%= xxx@xxx.xxx :message => 'This contact email could not be sent for the following reasons:' %>
+		<%= xxx@xxx.xxx message: 'This contact email could not be sent for the following reasons:' %>
 		<ol>
 			<li>
 				<div class="details">
 					<%= f.label :return_email, 'Your Email Address' %>
 					<p>Please provide your email address so a return email can be sent to you if needed.</p>
 				</div>
-				<div class="field"><%= f.email_field :return_email, {:placeholder => xxx@xxx.xxx %></div>
+				<div class="field"><%= f.email_field :return_email, {placeholder: xxx@xxx.xxx %></div>
 			</li>
 			<li>
 				<div class="details">

@@ -11,8 +11,16 @@
 <% end %>
 
 <% if current_user %>
-	<header><h1>Admin</h1></header>
-	<li><%= link_to "Section Admin", xxx@xxx.xxx %></li>
+	<div class="block">
+		<header>
+			<h1>Admin</h1>
+		</header>
+		<nav>
+			<ul>
+				<li><%= link_to "Section Admin", xxx@xxx.xxx %></li>
+			</ul>
+		</nav>
+	</div>
 <% end %>
 
 <% xxx@xxx.xxx > 0 %>
@@ -22,12 +30,10 @@
 		</header>
 		<ul>
 xxx@xxx.xxx do |howto| %>
-				<li>
-					<%= link_to howto.title, xxx@xxx.xxx howto, howto.steps.first ) %>
-				</li>
+				<li><%= link_to howto.title, xxx@xxx.xxx howto, howto.steps.first ) %></li>
 			<% end %>
-			</ul>
-		</div>
+		</ul>
+	</div>
 <% end %>
 
 <% xxx@xxx.xxx > 0 %>
@@ -35,5 +41,5 @@ xxx@xxx.xxx do |assignment| %>
 		<%= render assignment %>
 	<% end %>
 <% else %>
-	<%= render 'no_assignments' %>
+	<%= render partial: 'no_assignments', locals: xxx@xxx.xxx %>
 <% end %>

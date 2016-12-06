@@ -1,9 +1,9 @@
 <div class="block <%= double_width_if_main(defined? main) %>">
-	<header><h2><%= link_to 'Assignments', xxx@xxx.xxx %></h2></header>
+	<header><h2><%= link_to 'Assignments', semester_section_assignments_path(section.semester,section) %></h2></header>
 	<nav>
 		<ul>
-			<li><%= link_to( 'RSS' , xxx@xxx.xxx :format => :rss), :class => 'icon rss' ) %></li>
-			<li><%= link_to( 'ICAL', xxx@xxx.xxx :format => :ics, :protocol => 'webcal'), :title => 'Subscribe to this classes assignments calendar using Outlook or iCal', :class => 'icon ical' ) %></li>
+			<li><%= link_to( 'RSS' , semester_section_assignments_path(section.semester,section, format: :rss), class: 'icon rss' ) %></li>
+			<li><%= link_to( 'ICAL', semester_section_assignments_url(section.semester,section, format: :ics, protocol: 'webcal'), title: 'Subscribe to this classes assignments calendar using Outlook or iCal', class: 'icon ical' ) %></li>
 		</ul>
 	</nav>
 </div>
