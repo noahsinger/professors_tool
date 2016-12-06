@@ -30,7 +30,7 @@
 		</header>
 		<ul>
 xxx@xxx.xxx do |howto| %>
-				<li><%= link_to howto.title, xxx@xxx.xxx howto, howto.steps.first ) %></li>
+				<li><%= link_to howto.title, course_how_to_step_path(@section.course, howto, howto.steps.first, xxx@xxx.xxx %></li>
 			<% end %>
 		</ul>
 	</div>

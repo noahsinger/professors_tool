@@ -36,7 +36,7 @@
 	transition: width 1s;
 }
 
-.block h1, .block h2, .block h3, .block h4, .block p, .block nav, .block table {
+.block h1, .block h2, .block h3, .block h4, .block p, .block nav, .block table, .block section {
 	margin: 3px 20px;
 }
 
@@ -46,6 +46,10 @@
 
 .block h1:first-child, .block h2:first-child, .block h3:first-child, .block p:first-child {
 	// padding-top: 20px;
+}
+
+.how_to_step_image img {
+	max-width: 100%;
 }
 
 /* ---- other ---- */
