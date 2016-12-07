@@ -27,7 +27,7 @@ module ApplicationHelper
     header = options[:message] || "#{pluralize(model.errors.count, "error")} prohibited this #{model.class.name} from being saved:"
     
     if model.errors.any?
-      output += "<div id=\"error_explanation\">"
+      output += "<section id=\"error_explanation\">"
       output += "<h2>#{header}</h2>"
 
       output += "<ul>"
@@ -35,7 +35,7 @@ module ApplicationHelper
         output += "<li>#{msg}</li>"
       end
       output += "</ul>"
-      output += "</div>"
+      output += "</section>"
     end
     
     output.html_safe
