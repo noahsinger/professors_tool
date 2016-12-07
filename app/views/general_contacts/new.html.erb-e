@@ -64,3 +64,7 @@ xxx@xxx.xxx do |assignment| %>
 		</ol>
 	<% end %>
 </div>
+
+<% xxx@xxx.xxx %>
+	<%= render partial: 'instructors/instructor', locals: xxx@xxx.xxx %>
+<% end %>
