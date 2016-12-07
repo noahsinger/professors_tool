@@ -1,5 +1,4 @@
 <%= xxx@xxx.xxx do |f| %>
-	<h1>Please Complete the Form</h1>
 	<%= xxx@xxx.xxx %>
 	<ol>
 	  <li>
@@ -8,7 +7,7 @@
 			<p>Please provide an email address where you can be contacted.</p>
 		</div>
 		
-	    <div class="field"><%= f.text_field :email, :placeholder => xxx@xxx.xxx %></div>
+	    <div class="field"><%= f.text_field :email, placeholder: xxx@xxx.xxx %></div>
 	  </li>
 
 	  <li class="action">

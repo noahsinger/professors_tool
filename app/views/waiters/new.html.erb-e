@@ -1,19 +1,13 @@
-<%= content_for :header do %>
-	<h1>Waiting list</h1>
-<% end %>
+<%= render partial: 'courses/course', locals: xxx@xxx.xxx %>
 
+<div class="block">
+	<h2>Waiting list</h2>
+	<p>Please leave your email address to be notified the next time this class is available</p>
+</div>
 
-
-<section>
-	<nav>
-		<h1>Navigation</h1>
-		<%= link_to xxx@xxx.xxx :class => "icon back" %>
-	</nav>
-	
 	<header>
 xxx@xxx.xxx %></p>
 		<h1>Get Notified</h1>
 	</header>
 
-	<%= render 'form' %>
-</section>
+	<div class="block"><%= render 'form' %></div>
