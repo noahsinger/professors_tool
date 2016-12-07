@@ -6,6 +6,9 @@
 <% end %>
 
 <%= render partial: 'materials_header', locals: xxx@xxx.xxx main: true} %>
+<%= render 'courses/courses_header' %>
+<%= render partial: 'courses/course', locals: xxx@xxx.xxx %>
+
 
 xxx@xxx.xxx do |material| %>
 	<%= render material %>
