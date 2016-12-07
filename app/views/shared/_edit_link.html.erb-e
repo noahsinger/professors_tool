@@ -1,1 +1,0 @@
-<span class="text">Edit - <span class="sub">Edit this <%= controller.controller_name.titleize.singularize %></span></span>
