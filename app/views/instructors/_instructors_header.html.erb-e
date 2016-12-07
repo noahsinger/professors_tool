@@ -1,0 +1,3 @@
+<div class="block <%= double_width_if_main(defined? main) %>">
+	<h2><%= link_to "Instructors", instructors_path %></h2>
+</div>
