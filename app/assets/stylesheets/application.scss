@@ -56,6 +56,20 @@ h1, h2, h3, h4, h5, h6 {
 	// padding-top: 20px;
 }
 
+.block.flash {
+	font-weight: bold;
+}
+
+	.block.flash.error {
+		background-color: #900;
+		color: #fff;
+	}
+
+	.block.flash.notice {
+		background-color: #090;
+		color: #fff;
+	}
+
 .how_to_step_image img {
 	max-width: 100%;
 }
