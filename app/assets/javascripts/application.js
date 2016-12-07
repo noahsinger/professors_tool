@@ -65,7 +65,6 @@ NodeList.prototype.includes = function( other_node ) {
 var current_blocks = null;
 
 // READY
-// document.addEventListener("turbolinks:load", function() {
 $(document).ready(function( ) {
 	console.log("ready");
 
@@ -82,14 +81,14 @@ $(document).ready(function( ) {
 	current_blocks = document.querySelectorAll(".block");
 	console.log("- current_blocks: ");
 	console.log(current_blocks);
-});
+}); //end ready
 
+// LOAD
 document.addEventListener("turbolinks:load", function() {
 	console.log("load");
 	current_blocks = document.querySelectorAll(".block");
 	console.log("- current_blocks: ");
 	console.log(current_blocks);
-
 
 
 	$(".block").click(function( ) {
@@ -104,7 +103,7 @@ document.addEventListener("turbolinks:load", function() {
 
 	console.log("- performing layout");
 	$("#page").isotope('layout');
-});
+}); //end load
 
 
 // BEFORE RENDER
