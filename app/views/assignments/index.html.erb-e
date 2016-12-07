@@ -23,18 +23,7 @@
 	</div>
 <% end %>
 
-<% xxx@xxx.xxx > 0 %>
-	<div class="block">
-		<header>
-			<h3>Tutorials</h3>
-		</header>
-		<ul>
-xxx@xxx.xxx do |howto| %>
-				<li><%= link_to howto.title, course_how_to_step_path(@section.course, howto, howto.steps.first, xxx@xxx.xxx %></li>
-			<% end %>
-		</ul>
-	</div>
-<% end %>
+<%= render partial: 'steps/steps_list', locals: xxx@xxx.xxx %>
 
 <% xxx@xxx.xxx > 0 %>
 xxx@xxx.xxx do |assignment| %>

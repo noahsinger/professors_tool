@@ -1,0 +1,14 @@
+<div class="block <%= double_width_if_main(defined? main) %>">
+  <p><%= course.short_name %></p>
+  <h2>
+    <%= link_to course.title, course_path( course ) %>
+  </h2>
+  <p><%= pluralize course.credits, "credit" %></p>
+
+  <nav>
+    <ul>
+      <li><%= link_to 'Generic Course Syllabus', syllabus_course_path(course), class: "icon star" %></li>
+      <li><%= link_to 'Course Availability', new_course_waiter_path(course), class: "icon star" %></li>
+    </ul>
+  </nav>
+</div>

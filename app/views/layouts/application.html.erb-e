@@ -5,13 +5,13 @@
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 	<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
-	
-	
-	
+
+
+
 	<link rel="mask-icon" mask href="pin.svg" color="#779769" />
-	
+
 	<title><%= render 'shared/title' %></title>
-	
+
 	<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<style type="text/css" media="screen">
@@ -20,22 +20,22 @@
 			}
 		</style>
 	<![endif]-->
-	
+
 	<%= yield :prefetches %>
-	
+
 	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	<% if admin? %>
 		<!-- start admin javascript -->
 		<%= javascript_include_tag 'admin/admin' %>
 		<!-- end admin javascript -->
 	<% end %>
-	
+
 	<%= yield :head %>
-	
+
 	<% unless css_naked_day? %>
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 	<% end %>
-	
+
 	<%= csrf_meta_tags %>
 	<meta name="turbolinks-cache-control" content="no-preview">
 </head>
@@ -46,8 +46,29 @@
 			<header>
 				<h1><%= link_to APP_CONFIG['site_name'].html_safe, root_path %></h1>
 			</header>
+      <nav>
+        <ul>
+        		<li id="animation_link_item"></li>
+        		<li><%= link_to 'Contact', new_general_contact_path %></li>
+        		<li><%= link_to 'Semesters', semesters_path %></li>
+        		<li><%= link_to 'Instructors', instructors_path %></li>
+        		<li><%= link_to 'Courses', courses_path %></li>
+        		<% if current_user %>
+        			<li><%= link_to '404', '/idontexist' %></li>
+        			<li><%= link_to '505', '/examples/test_exception' %></li>
+        			<li><%= link_to 'Error', '/examples/test_error' %></li>
+        			<li><%= link_to 'Notice', '/examples/test_notice' %></li>
+        			<li><%= link_to 'Test Tweet', '/examples/test_tweet' %></li>
+        			<li><%= link_to 'Admin', admin_admin_index_path %></li>
+        			<li><%= link_to 'Signout', logout_path, :method => :delete %></li>
+        		<% end %>
+        </ul>
+      </nav>
+      <p id="copyright">
+        Copyright &copy; 2009 - <%= Time.now.year %> <%= link_to APP_CONFIG['site_name'].html_safe, root_path %> v5.0<br/>
+      </p>
 		</div>
-		
+
 		<!-- <% if css_naked_day? %>
 			<div>
 				<h1>WHERE DID THE DESIGN GO?</h1>
@@ -55,8 +76,8 @@
 				<p>Naked CSS Day is a event that is held once per year (April 9th) to celebrate good & well planned design. The website will be back to its normal state tomorrow.</p>
 			</div>
 		<% end %> -->
-		
-		<!-- 
+
+		<!--
 			<div id="ie_warning" style="display: none;">
 				<h1>Please Don't Use Internet Explorer</h1>
 				<p>
@@ -69,8 +90,8 @@
 					submitted...
 				</p>
 			</div> -->
-		
-		<!-- 
+
+		<!--
 			<noscript>
 				<ul id="javascript_warning">
 					<li>
@@ -78,18 +99,12 @@
 					</li>
 				</ul>
 			</noscript> -->
-				
-				
+
+
 		<%= render partial: 'shared/messages' %>
 		<%= yield %>
-				
-		<!-- 
-			<footer>
-				<%= render partial: 'shared/footer' %>
-			</footer>
-		-->
 	</div>
-	
+
 	<%= yield :end_of_page %>
 </body>
 </html>
