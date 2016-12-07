@@ -1,4 +1,4 @@
-//= require jquery  
+//= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require_directory .
@@ -9,7 +9,6 @@ document.addEventListener("turbolinks:before-visit", function() {console.log("be
 document.addEventListener("turbolinks:visit", function() {console.log("visit")});
 document.addEventListener("turbolinks:request-start", function() {console.log("request-start")});
 document.addEventListener("turbolinks:request-end", function() {console.log("request-end")});
-
 
 // load
 // < "app request visit"
@@ -29,7 +28,7 @@ document.addEventListener("turbolinks:request-end", function() {console.log("req
 // before-visit
 // request-start
 // visit
-// before-cache 
+// before-cache
 // before-render (render from cache)
 // render        (render from cache)
 // request-end
@@ -57,7 +56,7 @@ NodeList.prototype.includes = function( other_node ) {
 			match_found = true;
 		}
 	});
-	
+
 	return match_found;
 };
 
@@ -69,7 +68,17 @@ var current_blocks = null;
 // document.addEventListener("turbolinks:load", function() {
 $(document).ready(function( ) {
 	console.log("ready");
-	
+
+	$('#page').isotope({
+	  layoutMode: 'packery',
+	  itemSelector: '.block',
+	  percentPosition: true,
+	  packery: {
+	    columnWidth: '.grid-sizer',
+			gutter: 3
+	  }
+	});
+
 	current_blocks = document.querySelectorAll(".block");
 	console.log("- current_blocks: ");
 	console.log(current_blocks);
@@ -80,76 +89,71 @@ document.addEventListener("turbolinks:load", function() {
 	current_blocks = document.querySelectorAll(".block");
 	console.log("- current_blocks: ");
 	console.log(current_blocks);
-	
-	$('#page').isotope({
-	  layoutMode: 'packery',
-	  itemSelector: '.block',
-	  percentPosition: true,
-	  packery: {
-	    columnWidth: '.grid-sizer',
-			gutter: 3
-	  }
-	});
-	
+
+
+
 	$(".block").click(function( ) {
 		$(".block--width2").each(function( ) {
 			this.className = this.className.replace(/\b\s?(block--width2)\b/g, '');
 		});
-		
+
 		if( ! /grid-sizer/.test(this.className) ) {
 			this.className += " block--width2";
 		}
 	});
+
+	console.log("- performing layout");
+	$("#page").isotope('layout');
 });
 
 
 // BEFORE RENDER
 document.addEventListener("turbolinks:before-render", function() {
 	console.log("before-render");
-	
+
 	var new_blocks = event.data.newBody.querySelectorAll(".block");
-	
+
 	console.log("- current_blocks: " + current_blocks.length);
 	console.log("- new_blocks: " + new_blocks.length);
-	
-	new_blocks.forEach(function( node ) {		
+
+	new_blocks.forEach(function( node ) {
 		if(current_blocks.includes(node)) {
 			//new block is a current block that's staying
 			console.log("- node staying");
 		} else {
-			//new block is new	
+			//new block is new
 			console.log("- new node");
-			node.style.display = "none";	
+			node.style.display = "none";
 			node.className += " appear";
 			$("#page").append(node);
 		}
 	});
-	
+
 	current_blocks.forEach(function( current_block ) {
 		if(! new_blocks.includes(current_block)) {
-			//current block isn't a new block so it's leaving	
+			//current block isn't a new block so it's leaving
 			console.log("- node leaving");
 			current_block.className += " disappear";
 		}
 	});
-	
+
 }); //end before render listener
 
 
 // RENDER
 document.addEventListener("turbolinks:render", function() {
 	console.log("render");
-	
+
 	console.log("- " + $(".appear").size( ) + " nodes to appear");
 	console.log("- " + $(".disappear").size( ) + " nodes to disappear");
-	
+
 	// $(".appear").fadeIn("slow");
 	$("#page").isotope('insert', $(".appear"));
-	
+
 	$(".disappear").fadeOut("slow", function( ) {
 		$("#page").isotope( 'remove', this ); //.isotope('layout');
 		document.getElementById("page").removeChild(this);
-		
+
 		console.log("- remove node: " + this);
 
 		current_blocks = document.querySelectorAll(".block");
@@ -157,7 +161,7 @@ document.addEventListener("turbolinks:render", function() {
 		console.log(current_blocks);
 		$("#page").isotope('layout');
 	});
-	
+
 	$(".appear, .disappear").each(function( ) {
 		this.className = this.className.replace(/\b\s?((dis)?appear)\b/g, '');
 	});
