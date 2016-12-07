@@ -42,6 +42,7 @@
 <body id="<%= controller_name %>_<%= action_name %>" class="<%= admin? ? "admin": "student" %>">
 
 	<div id="page" data-turbolinks-permanent>
+		
 		<div class="block block--height2 grid-sizer">
 			<header>
 				<h1><%= link_to APP_CONFIG['site_name'].html_safe, root_path %></h1>
@@ -51,7 +52,6 @@
         		<li id="animation_link_item"></li>
         		<li><%= link_to 'Contact', new_general_contact_path %></li>
         		<li><%= link_to 'Semesters', semesters_path %></li>
-        		<li><%= link_to 'Instructors', instructors_path %></li>
         		<li><%= link_to 'Courses', courses_path %></li>
         		<% if current_user %>
         			<li><%= link_to '404', '/idontexist' %></li>
