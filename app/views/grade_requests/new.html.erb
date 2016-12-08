@@ -1,22 +1,16 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
+<%= render 'semesters/semesters_header' %>
+<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
 
-<section>
-	<h1 class="page_description">Grade Request</h1>
-	
-	<nav>
-		<h1>Navigation</h1>
-		<%= link_to "#{@section.course.title}", xxx@xxx.xxx @section ), :class => "icon back" %>
-	</nav>
-	
+<div class="block">
 	<header>
-xxx@xxx.xxx %></p>
-		<h1>Request your grades</h1>
+		<h3>Request your grades</h3>
 	</header>
-	
+</div>
+
+<div class="block">
 	<%= xxx@xxx.xxx @section, @grade_request]) do |f| %>
-		<h1>Complete the Form</h1>
+		<h2>Complete the Form</h2>
 		<%= xxx@xxx.xxx %>
 		<ol>
 			<li>
@@ -31,4 +25,4 @@ xxx@xxx.xxx %></p>
 			</li>
 		</ol>
 	<% end %>
-</section>
+</div>
