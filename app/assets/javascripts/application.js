@@ -96,7 +96,7 @@ document.addEventListener("turbolinks:load", function() {
 			this.className = this.className.replace(/\b\s?(block--width2)\b/g, '');
 		});
 
-		if( ! /grid-sizer/.test(this.className) ) {
+		if( ! /grid-sizer/.test(this.className) && ! /form/.test(this.className) ) {
 			this.className += " block--width2";
 		}
 	});
