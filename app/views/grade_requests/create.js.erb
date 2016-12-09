@@ -1,0 +1,26 @@
+Turbolinks.clearCache();
+
+<% xxx@xxx.xxx == "denied" %>
+  // alert("denied!");
+	$("#page").isotope( 'remove', $(".form") );
+	console.log("-- removed");
+	$("#page").append("<%= escape_javascript(render 'form') %>");
+	console.log("-- appended");
+	
+	$("#page").isotope('insert', $(".form"));
+	
+<% xxx@xxx.xxx == "sent" %>
+  // alert("sent!");
+  Turbolinks.visit('<%= xxx@xxx.xxx %>');
+	
+<% else %>
+  // alert("other");
+	$("#page").isotope( 'remove', $(".form") );
+	console.log("-- removed");
+	$("#page").append("<%= escape_javascript(render 'form') %>");
+	console.log("-- appended");
+	
+	$("#page").isotope('insert', $(".form"));
+<% end %>
+
+$("#page").isotope('layout');

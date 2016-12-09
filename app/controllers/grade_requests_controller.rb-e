@@ -50,7 +50,9 @@ class GradeRequestsController < ApplicationController
            xxx@xxx.xxx status: 'denied'
             @grade_request xxx@xxx.xxx
            xxx@xxx.xxx :email, 'was used to request grades a very short time ago. Please wait awhile before trying again.'
+            # flash[:error] = "That email address was used to request grades a very short time ago. Please wait awhile before trying again."
             format.html { render action: "new" }
+            format.js
           else
            xxx@xxx.xxx
 
@@ -62,12 +64,16 @@ class GradeRequestsController < ApplicationController
         	# if no one in this section has the requesters email address it must be a request from a non-enrolled student
          xxx@xxx.xxx status: 'denied'
          xxx@xxx.xxx :email, 'does not match any enrollments for this section.  Are you sure you are using your school email address and not a personal email address?';
+          # flash[:error] = "That email address does not match any enrollments for this section.  Are you sure you are using your school email address and not a personal email address?"
           format.html { render action: "new" }
         end
       else
       	# if the grade request is incomplete in some way (missing email?)
+        # flash[:error] = "Is your email address typed correctly?"
         format.html { render action: "new" }
       end
+
+      format.js
     end
   end
 
