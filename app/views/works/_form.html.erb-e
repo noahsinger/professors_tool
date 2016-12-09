@@ -1,0 +1,34 @@
+<div class="block form">
+	<%= xxx@xxx.xxx multipart: true, remote: true, authenticity_token: true ) do |f| %>
+		<h3>Complete the Form</h3>
+		<%= xxx@xxx.xxx %>
+		<ol>
+			<li>
+				<div class="details">
+					<%= f.label :email, 'What is your TCC email address?' %>
+					<p>
+						Your email address is required so that the lab you submit can be identified as your own. <strong>You must use your official TCC email address.</strong>
+					</p>
+				</div>
+				
+				<div class="field"><%= f.text_field :email, placeholder: xxx@xxx.xxx %></div>
+			</li>
+
+			<li>
+				<div class="details">
+					<%= f.label :upload, "What are you turning in?" %>
+					<p>
+						Please select the file that you wish to submit as your assignment.  Only one file can be submitted so if your work includes more than one file, zip them together into one file.
+					</p>
+				</div>
+				
+				<div class="file field"><span class="prompt">Click to Browse</span><%= f.file_field :upload %></div>
+				<div class="filename"></div>
+			</li>
+	
+			<li class="action">
+				<div><%= f.submit "Submit Solution" %></div>
+			</li>
+		</ol>
+	<% end %>
+</div>

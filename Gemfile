@@ -35,6 +35,7 @@ gem 'delayed_job', '~> 4.1'
 gem 'delayed_job_active_record', '~> 4.1'
 gem 'redcarpet', '~> 3.3'
 gem 'RedCloth', '~> 4.3'
+gem 'remotipart', '~> 1.3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
