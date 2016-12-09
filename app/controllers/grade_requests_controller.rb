@@ -39,9 +39,12 @@ class GradeRequestsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
-      	# if the request was made by someone in this class
+      	# if no one in this section has the requesters email address it must be a request from a non-enrolled student
+       xxx@xxx.xxx = 'denied'
+       xxx@xxx.xxx :email, 'does not match any enrollments for this section.  Are you sure you are using your school email address and not a personal email address?';
+        format.html { render action: "new" }
+      else
         xxx@xxx.xxx
-
           target = Time.now.ago( 600 ) # 10 minutes ago
 
           # if they have made a request in the last 10 minutes
@@ -50,7 +53,6 @@ class GradeRequestsController < ApplicationController
            xxx@xxx.xxx status: 'denied'
             @grade_request xxx@xxx.xxx
            xxx@xxx.xxx :email, 'was used to request grades a very short time ago. Please wait awhile before trying again.'
-            # flash[:error] = "That email address was used to request grades a very short time ago. Please wait awhile before trying again."
             format.html { render action: "new" }
             format.js
           else
@@ -61,21 +63,14 @@ class GradeRequestsController < ApplicationController
             format.html { redirect_to( xxx@xxx.xxx ) }
           end
         else
-        	# if no one in this section has the requesters email address it must be a request from a non-enrolled student
-         xxx@xxx.xxx status: 'denied'
-         xxx@xxx.xxx :email, 'does not match any enrollments for this section.  Are you sure you are using your school email address and not a personal email address?';
-          # flash[:error] = "That email address does not match any enrollments for this section.  Are you sure you are using your school email address and not a personal email address?"
+        	# if the grade request is incomplete in some way (missing email?)
           format.html { render action: "new" }
         end
-      else
-      	# if the grade request is incomplete in some way (missing email?)
-        # flash[:error] = "Is your email address typed correctly?"
-        format.html { render action: "new" }
-      end
-
+      end #end unless enrollment
+      
       format.js
-    end
-  end
+    end # respond_to
+  end #end method
 
   def allowed_params
     # params.require(:grade_request).permit(:email, :section_id, :semester_id, :student_id, :status)

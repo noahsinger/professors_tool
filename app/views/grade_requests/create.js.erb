@@ -1,26 +1,24 @@
 Turbolinks.clearCache();
 
-<% xxx@xxx.xxx == "denied" %>
-  // alert("denied!");
+$(".form").fadeOut("slow", function( ) {
 	$("#page").isotope( 'remove', $(".form") );
+	$(".form").remove( );
 	console.log("-- removed");
-	$("#page").append("<%= escape_javascript(render 'form') %>");
-	console.log("-- appended");
-	
-	$("#page").isotope('insert', $(".form"));
-	
-<% xxx@xxx.xxx == "sent" %>
-  // alert("sent!");
-  Turbolinks.visit('<%= xxx@xxx.xxx %>');
-	
-<% else %>
-  // alert("other");
-	$("#page").isotope( 'remove', $(".form") );
-	console.log("-- removed");
-	$("#page").append("<%= escape_javascript(render 'form') %>");
-	console.log("-- appended");
-	
-	$("#page").isotope('insert', $(".form"));
-<% end %>
 
-$("#page").isotope('layout');
+	<% xxx@xxx.xxx == "sent" %>
+	  // alert("sent!");
+	  Turbolinks.visit('<%= xxx@xxx.xxx %>');
+	
+	<% else %>
+	  // alert("other");	
+		$("#page").append("<%= escape_javascript(render 'form') %>");
+		console.log("-- appended");	
+		$("#page").isotope('insert', $(".form"));
+		
+		//new/modified form block won't be removed on next nav unless its in current blocks so rebuild current_blocks here
+		current_blocks = document.querySelectorAll(".block"); 
+		$("#page").isotope('layout');		
+	<% end %>
+
+});
+
