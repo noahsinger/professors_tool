@@ -1,6 +1,6 @@
 <div class="block <%= double_width_if_main(defined? main) %>">
 	<header>
 		<p><%= pluralize section.examples.count, "Example" %> available</p>
-		<h2><%= link_to "#{section.course.title} Classroom Examples", semester_section_examples_path(section.semester,section) %></h2>
+		<h3><%= link_to "#{section.course.title} Classroom Examples", semester_section_examples_path(section.semester,section) %></h3>
 	</header>
 </div>
