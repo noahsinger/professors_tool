@@ -176,7 +176,7 @@ document.addEventListener("turbolinks:render", function() {
 }); //end render
 
 
-var process_form_create = function( status, form_partial, success_url ) {
+var process_form_create = function( form_partial, success_url ) {
 	Turbolinks.clearCache();
 
 	$('.form').fadeOut('slow', function( ) {
@@ -184,7 +184,7 @@ var process_form_create = function( status, form_partial, success_url ) {
 		$('.form').remove( );
 		console.log('-- removed');
 
-		if(status == 'failed') {
+		if(success_url == 'failed') {
 			//alert("failed");
 			$('#page').append(form_partial);
 			console.log('-- appended');	
