@@ -104,6 +104,14 @@ document.addEventListener("turbolinks:load", function() {
 
 	console.log("- performing layout");
 	$("#page").isotope('layout');
+	
+	
+	$("form").on("ajax:remotipartComplete", function(e, data){
+		//detect when remote form was submitted using the remotipart gem/technique
+		console.log("remotipart complete:");
+	  console.log(e, data);
+	});
+	
 }); //end load
 
 
