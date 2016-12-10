@@ -2,9 +2,9 @@
 	<header>
 		<p><%= pluralize course.materials.count, "File" %> available</p>
 		<% xxx@xxx.xxx %>
-			<h2><%= link_to "Course Materials", course_materials_path(course, xxx@xxx.xxx %></h2>
+			<h3><%= link_to "Course Materials", course_materials_path(course, xxx@xxx.xxx %></h3>
 		<% else %>
-			<h2><%= link_to "Course Materials", course_materials_path(course) %></h2>
+			<h3><%= link_to "Course Materials", course_materials_path(course) %></h3>
 		<% end %>
 	</header>
 </div>
