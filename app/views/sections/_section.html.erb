@@ -4,6 +4,7 @@
 	<p><%= section.meeting_days_and_times %></p>
 	<nav>
 		<ul>
+			<li><%= link_to "Assignments", semester_section_assignments_path( section.semester, section ), class: "icon file" %></li>
 			<li><%= link_to "View the Syllabus", syllabus_semester_section_path( section.semester, section ), class: "icon file" %></li>
 			<li><%= link_to "Request Your Grades", new_semester_section_grade_request_path( section.semester, section ), class: "icon star" %></li>
 			<li><%= link_to 'Email the Instructor', new_general_contact_path(section_id: section) %></li>
