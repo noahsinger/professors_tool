@@ -168,6 +168,30 @@ document.addEventListener("turbolinks:render", function() {
 }); //end render
 
 
+var process_form_create = function( status, form_partial, success_url ) {
+	Turbolinks.clearCache();
+
+	$('.form').fadeOut('slow', function( ) {
+		$('#page').isotope( 'remove', $('.form') );
+		$('.form').remove( );
+		console.log('-- removed');
+
+		if(status == 'failed') {
+			//alert("failed");
+			$('#page').append(form_partial);
+			console.log('-- appended');	
+			$('#page').isotope('insert', $('.form'));
+	
+			//new/modified form block won't be removed on next nav unless its in current blocks so rebuild current_blocks here
+			current_blocks = document.querySelectorAll('.block'); 
+			$('#page').isotope('layout');
+		} else {
+		  // alert("sent!");
+		  Turbolinks.visit(success_url);
+		}
+	});
+}
+
 
 // jQuery.ajaxSetup({
 //   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}

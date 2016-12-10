@@ -40,6 +40,7 @@ class GradeRequestsController < ApplicationController
     respond_to do |format|
       xxx@xxx.xxx
       	# if no one in this section has the requesters email address it must be a request from a non-enrolled student
+       xxx@xxx.xxx = "failed"
        xxx@xxx.xxx = 'denied'
        xxx@xxx.xxx :email, 'does not match any enrollments for this section.  Are you sure you are using your school email address and not a personal email address?';
         format.html { render action: "new" }
@@ -50,6 +51,7 @@ class GradeRequestsController < ApplicationController
           # if they have made a request in the last 10 minutes
           if prev_request and prev_request.created_at > target
             #dont send email, display error
+           xxx@xxx.xxx = "failed"
            xxx@xxx.xxx status: 'denied'
             @grade_request xxx@xxx.xxx
            xxx@xxx.xxx :email, 'was used to request grades a very short time ago. Please wait awhile before trying again.'
@@ -58,12 +60,14 @@ class GradeRequestsController < ApplicationController
           else
            xxx@xxx.xxx
 
+            @status = xxx@xxx.xxx
            xxx@xxx.xxx status: 'sent'
             flash[:notice] = "A grade email has been sent to your email address"
             format.html { redirect_to( xxx@xxx.xxx ) }
           end
         else
         	# if the grade request is incomplete in some way (missing email?)
+         xxx@xxx.xxx = "failed"
           format.html { render action: "new" }
         end
       end #end unless enrollment
