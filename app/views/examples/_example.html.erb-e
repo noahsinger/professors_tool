@@ -1,0 +1,5 @@
+<div class="block">
+	<p><%= example.created_at.to_s(:short) %></p>
+	<h3><%= link_to example.name, example.file.url %></h3>
+	<p><%= example.description %></p>
+</div>

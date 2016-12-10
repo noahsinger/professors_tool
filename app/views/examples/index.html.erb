@@ -4,10 +4,4 @@
 
 <%= render partial: 'examples/examples_header', locals: xxx@xxx.xxx main: true} %>
 
-xxx@xxx.xxx do |example| %>
-	<div class="block">
-		<p><%= example.created_at.to_s(:short) %></p>
-		<h2><%= link_to example.name, example.file.url %></h2>
-		<p><%= example.description %></p>
-	</div>
-<% end %>
+<%= render partial: 'example', xxx@xxx.xxx %>

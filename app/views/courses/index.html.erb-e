@@ -1,5 +1,2 @@
 <%= render 'courses_header' %>
-
-xxx@xxx.xxx do |course| %>
-	<%= render course %>
-<% end %>
+<%= render partial: 'course', xxx@xxx.xxx %>
