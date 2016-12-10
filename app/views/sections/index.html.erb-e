@@ -2,11 +2,11 @@
 
 <%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
 
-<!-- <%= content_for :prefetches do %>
+<%= content_for :prefetches do %>
 xxx@xxx.xxx do |section| %>
 		<link rel="prefetch" href="<%= xxx@xxx.xxx section) %>">
 	<% end %>
-<% end %> -->
+<% end %>
 
 xxx@xxx.xxx do |section| %>
 	<%= render section %>
