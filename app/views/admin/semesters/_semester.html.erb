@@ -1,0 +1,12 @@
+<div class="block <%= double_width_if_main(defined? main) %>">
+	<p><%= show_short_date semester.start_date %> - <%= show_short_date semester.end_date %></p>
+	<% if semester.is_current? %>
+		<h3><%= link_to semester.name, admin_semester_path(semester) %> <span class="light">(current)</span></h3>
+	<% elsif semester.is_future? %>
+		<h3><%= link_to semester.name, admin_semester_path(semester) %> <span class="light">(coming up)</span></h3>
+	<% else %>
+		<h3><%= link_to semester.name, admin_semester_path(semester) %></h3>
+	<% end %>
+	<p><%= pluralize semester.sections.count, 'section' %></p>
+	<p><%= pluralize semester.student_count, 'students' %></p>
+</div>

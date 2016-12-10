@@ -1,0 +1,4 @@
+<div class="block <%= double_width_if_main(defined? main) %>">
+	<p><%= pluralize Division.count, 'school' %></p>
+	<h3><%= link_to 'Schools', admin_divisions_path %></h3>
+</div>
