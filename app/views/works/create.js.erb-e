@@ -18,5 +18,4 @@ $(".form").fadeOut("slow", function( ) {
 	  // alert("sent!");
 	  xxx@xxx.xxx %>');
 	<% end %>
-
 });
