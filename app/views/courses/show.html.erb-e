@@ -52,17 +52,6 @@ xxx@xxx.xxx do |objective| %>
 
 <% xxx@xxx.xxx > 0 %>
 	<div class="block">
-		<header id="course_labs_header"><h3>Potential Assignments</h3></header>
-		<ul>
-xxx@xxx.xxx do |lab| %>
-				<% if lab.visible %>
-					<li class="overdue">
-						<p><%= pluralize lab.worth, "point" %></p>
-						<p><%= link_to lab.title, xxx@xxx.xxx lab) %></p>
-						<p>Assigned <%= pluralize lab.assignments.count, "time" %></p>
-					</li>
-				<% end %>
-			<% end %>
-		</ul>
+		<header><h3><%= link_to "Potential Assignments", xxx@xxx.xxx %></h3></header>
 	</div>
 <% end %>

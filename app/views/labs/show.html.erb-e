@@ -1,67 +1,43 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
+<%= render partial: 'courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'labs_header', locals: xxx@xxx.xxx %>
 
+<%= render partial: 'lab', locals: xxx@xxx.xxx main: true} %>
 
-
-<section>
-	<nav>
-		<h1>Navigation</h1>
-		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
-	</nav>
-	
-	
-	<header>
-		<p><%= xxx@xxx.xxx 'point' %></p>
-xxx@xxx.xxx %></h1>
-	</header>
-	
-	
-	<div id="resources">
-		<header id="requirements_header"><h1>Requirements</h1></header>
-		<table id="requirements">
+<div class="block">
+	<header id="requirements_header"><h3>Requirements</h3></header>
+	<table id="requirements">
 xxx@xxx.xxx do |r| %>
-				<tr>
-					<td><%= r.description %></td><td><%= r.points %></td>
-				</tr>
-			<% end %>
-xxx@xxx.xxx %> pts</td></tr>
-		</table>
-		
-		<h1>Resources</h1>
-		<ul id="assignment_links">
-			<li><h2><a href="#" id="print" class="icon file">Print this Lab</a></h2></li>
-			<% if current_user %>
-				<li><h2><%= link_to 'Edit this Lab', xxx@xxx.xxx @lab) %></h2></li>
-			<% end %>			
-		</ul>
-	</div>
-
-
-	<article id="assignment">
-		<div id="assignment_objective">
-			<strong>Objective</strong>
-xxx@xxx.xxx %></p>
-		</div>
-
-		<header id="assignment_instructions_header"><h1>Instructions</h1></header>
-		<div id="assignment_instructions">
-			<%= xxx@xxx.xxx %>
-		</div>
-
-		<% xxx@xxx.xxx > 0 %>
-			<header id="assignment_extras_header"><h1>Extras</h1></header>
-			<ul id="assignment_extras">
-xxx@xxx.xxx do |extra| %>
-					<li>
-						<%= link_to extra.file.url do %>
-							<div><%= extra.description %></div>
-							<h2><%= extra.file_file_name %></h2>
-							<p></p>
-						<% end %>
-					</li>
-				<% end %>
-			</ul>
+			<tr>
+				<td><%= r.description %></td><td><%= r.points %></td>
+			</tr>
 		<% end %>
-	</article>
-</section>
+xxx@xxx.xxx %> pts</td></tr>
+	</table>
+</div>
+
+<div class="block">
+	<h3>Objective</h3>
+xxx@xxx.xxx %></p>
+</div>
+		
+<div class="block">
+	<header><h3>Instructions</h3></header>
+	<%= xxx@xxx.xxx %>
+</div>
+
+
+<% xxx@xxx.xxx > 0 %>
+<div class="block">
+	<header><h3>Extras</h3></header>
+	<ul>
+xxx@xxx.xxx do |extra| %>
+			<li>
+				<%= link_to extra.file.url do %>
+					<p><%= extra.description %></p>
+					<p><%= extra.file_file_name %></p>
+				<% end %>
+			</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
