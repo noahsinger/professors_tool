@@ -1,4 +1,7 @@
 <div class="block <%= double_width_if_main(defined? main) %>">
 	<p><%= pluralize Semester.count, 'semester' %></p>
 	<h3><%= link_to 'Semesters', admin_semesters_path %></h3>
+	<ul>
+		<li><%= link_to 'New Semester', new_admin_semester_path %></li>
+	</ul>
 </div>

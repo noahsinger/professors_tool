@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.remotipart
+//= require jquery-ui
 //= require turbolinks
 //= require_directory .
 //= require_self
@@ -105,13 +106,7 @@ document.addEventListener("turbolinks:load", function() {
 	console.log("- performing layout");
 	$("#page").isotope('layout');
 	
-	
-	$("form").on("ajax:remotipartComplete", function(e, data){
-		//detect when remote form was submitted using the remotipart gem/technique
-		console.log("remotipart complete:");
-	  console.log(e, data);
-	});
-	
+	page_element_init( );
 }); //end load
 
 
@@ -176,6 +171,20 @@ document.addEventListener("turbolinks:render", function() {
 }); //end render
 
 
+var page_element_init = function( ) {
+	//prep remoteipart forms
+	$("form").on("ajax:remotipartComplete", function(e, data){
+		//detect when remote form was submitted using the remotipart gem/technique
+		console.log("remotipart complete:");
+	  console.log(e, data);
+	});
+	
+	//prep jquery_datepicker fields	
+	$("#startdatepicker").datepicker( { numberOfMonths: 1, inline: true, altField: '#semester_start_date', dateFormat: 'yy-mm-dd' } );
+	$("#enddatepicker").datepicker( { numberOfMonths: 1, inline: true, altField: '#semester_end_date', defaultDate: "+3m", dateFormat: 'yy-mm-dd' } );
+}
+
+
 var process_form_create = function( form_partial, success_url ) {
 	Turbolinks.clearCache();
 
@@ -193,6 +202,8 @@ var process_form_create = function( form_partial, success_url ) {
 			//new/modified form block won't be removed on next nav unless its in current blocks so rebuild current_blocks here
 			current_blocks = document.querySelectorAll('.block'); 
 			$('#page').isotope('layout');
+			
+			page_element_init( );
 		} else {
 		  // alert("sent!");
 		  Turbolinks.visit(success_url);

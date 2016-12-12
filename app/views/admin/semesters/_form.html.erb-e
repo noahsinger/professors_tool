@@ -1,35 +1,37 @@
-<%= xxx@xxx.xxx remot: true) do |f| %>
-	<%= xxx@xxx.xxx %>
-	<ol>
-		<li><div class="details"><%= f.label :season %><p></p></div><div class="field"><%= f.text_field :season %></div></li>
+<div class="block form">
+	<%= xxx@xxx.xxx remote: true) do |f| %>
+		<%= xxx@xxx.xxx %>
+		<ol>
+			<li><div class="details"><%= f.label :season %><p></p></div><div class="field"><%= f.text_field :season %></div></li>
 		
-		<li><div class="details"><%= f.label :year %><p></p></div><div class="field"><%= f.text_field :year %></div></li>
+			<li><div class="details"><%= f.label :year %><p></p></div><div class="field"><%= f.text_field :year %></div></li>
 
-		<li class="datepicker">
-			<div class="details">
-				<%= f.label :start_date %>
-				<p>Select the starting date for the semester</p>
-			</div>
+			<li class="datepicker">
+				<div class="details">
+					<%= f.label :start_date %>
+					<p>Select the starting date for the semester</p>
+				</div>
 			
-			<div class="field jquery_datepicker">
-				<%= f.hidden_field :start_date %>
-				<div id="startdatepicker" class="datepicker jqueryui"></div>
-			</div>
-		</li>
+				<div class="field jquery_datepicker">
+					<%= f.hidden_field :start_date %>
+					<div id="startdatepicker" class="datepicker jqueryui"></div>
+				</div>
+			</li>
 		
-		<li class="datepicker">
-			<div class="details">
-				<%= f.label :end_date %>
-				<p>Select the ending date for the semester</p>
-			</div>
-			<div class="field jquery_datepicker">
-				<%= f.hidden_field :end_date %>
-				<div id="enddatepicker" class="datepicker jqueryui"></div>
-			</div>
-		</li>
+			<li class="datepicker">
+				<div class="details">
+					<%= f.label :end_date %>
+					<p>Select the ending date for the semester</p>
+				</div>
+				<div class="field jquery_datepicker">
+					<%= f.hidden_field :end_date %>
+					<div id="enddatepicker" class="datepicker jqueryui"></div>
+				</div>
+			</li>
 		
-		<li class="action">
-			<div><%= f.submit submit_text %></div>
-		</li>
-	</ol>
-<% end %>
+			<li class="action">
+				<div><%= f.submit %></div>
+			</li>
+		</ol>
+	<% end %>
+</div>
