@@ -10,13 +10,16 @@
 	
 	<% 
 		total_credits = 0 
-		preps = semester.sections.count > 0 ? semester.sections.collect {|sec| sec.course.title}.uniq.size : 0
+		preps = 0
+		if semester.sections.count > 0
+			preps = semester.sections.where("course_id != ?", "").map {|sec| sec.course.title}.uniq.size
+		end
 		total_onsite_enrollments = 0
 		total_ted_enrollments = 0
 	%>
 
 	<% if semester.sections.count > 0 %>
-		<% for section in semester.sections %>
+		<% for section in semester.sections.where("course_id != ?", "") %>
 			<% total_credits += section.course.credits %>
 			<% total_onsite_enrollments += section.enrollments.active.size %>
 		<% end %>
