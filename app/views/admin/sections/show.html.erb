@@ -1,89 +1,36 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
+<%= render 'admin/admin/admin_header' %>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render 'sections_header' %>
+<%= render xxx@xxx.xxx locals: {main: true} %>
+
 	<div class="block chart" data-script="setTimeout(init_chart,1000)">
 		<section id="enrollments_chart">No Enrollment Data Available</section>
 			
-	<% xxx@xxx.xxx > 0 %>
-		<script type="text/javascript" charset="utf-8">
-			var init_chart = function () {
-				if($("#enrollments_chart").size( ) > 0) {
-					new Highcharts.Chart({
-						chart: { renderTo: 'enrollments_chart', type: 'spline' },
-						title: { text: 'Enrollments by Day' },
-						xAxis: { type: 'datetime' },
-						yAxis: {
-							title: { text: '# of Students'},
-							min: 0
-						},
-						series: [{
-							name: "Enrollments",
-							data: xxx@xxx.xxx {|p| [p.created_at.to_i * 1000, p.enrollment_count]}.inspect %>
-						}]
-					});
-				}
-			}		
-		</script>
-	<% end %>
-</div>
-
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx ), :class => 'icon back' %>
-		<%= link_to 'Edit', [:edit, xxx@xxx.xxx @section], :class => 'icon edit' %>
-	</nav>
-	
-	<header>
-		<p><%= @section.days %> <%= show_time(@section.start_time) %> - <%= xxx@xxx.xxx %></p>
-		<h1><%= link_to @section.course.title, admin_course_path(@section.course) %> xxx@xxx.xxx %>)</h1>
-	</header>
-
-
-	<div class="fancy">
-		<table>
-			<tr>
-				<th>
-					Call number:
-				</th>
-				<th>
-					Section number:
-				</th>
-				<th>
-					Room:
-				</th>
-				<th>Days</th>
-				<th>Times</th>
-				<th>Dates</th>
-			</tr>
-			<tr>			
-				<td>
-xxx@xxx.xxx %>
-				</td>
-				<td>
-xxx@xxx.xxx %>
-				</td>
-				<td>
-xxx@xxx.xxx %>
-				</td>
-xxx@xxx.xxx %></td>
-				<td><%= @section.start_time.to_s(:time) %> - xxx@xxx.xxx %></td>
-				<td><%= @section.start_date %> - xxx@xxx.xxx %></td>
-			</tr>
-		</table>
+		<% xxx@xxx.xxx > 0 %>
+			<script type="text/javascript" charset="utf-8">
+				var init_chart = function () {
+					if($("#enrollments_chart").size( ) > 0) {
+						new Highcharts.Chart({
+							chart: { renderTo: 'enrollments_chart', type: 'spline' },
+							title: { text: 'Enrollments by Day' },
+							xAxis: { type: 'datetime' },
+							yAxis: {
+								title: { text: '# of Students'},
+								min: 0
+							},
+							series: [{
+								name: "Enrollments",
+								data: xxx@xxx.xxx {|p| [p.created_at.to_i * 1000, p.enrollment_count]}.inspect %>
+							}]
+						});
+					}
+				}		
+			</script>
+		<% end %>
 	</div>
 
-	<ul class="actions">
-		<li><%= link_to "Assignments", xxx@xxx.xxx @section ) %></li>
-		<li><%= link_to "Examples", xxx@xxx.xxx @section ) %></li>
-		<li><%= link_to "Email Section", xxx@xxx.xxx @section ) %></li>
-		<li><%= link_to 'Export Gradebook', xxx@xxx.xxx %></li>
-		<li><%= link_to 'Add Student', xxx@xxx.xxx @section ) %></li>
-		<li><%= link_to 'Modify this Course', xxx@xxx.xxx ) %></li>
-		<li><%= link_to 'Sync Students with TED', xxx@xxx.xxx %></li>
-		<li><%= link_to 'Meetings', xxx@xxx.xxx %></li>
-	</ul>
-
-	<div class="fancy">
+	<div class="block">
 		<table>
 			<tr>
 				<th>Name</th>
@@ -116,5 +63,17 @@ xxx@xxx.xxx { |x,y| x.student.last_name <=> y.student.last_name }.each do |enrol
 		</table>
 	</div>
 	
-	
-</section>
+<div class="block">
+	<p><%= xxx@xxx.xxx 'Assignment' %></p>
+	<h3><%= link_to "Assignments", xxx@xxx.xxx @section ) %></h3>
+</div>
+
+<div class="block">
+	<p><%= xxx@xxx.xxx "Example" %></p>
+	<h3><%= link_to "Examples", xxx@xxx.xxx @section ) %></h3>
+</div>
+
+<div class="block">
+	<p><%= xxx@xxx.xxx "Meeting" %></p>
+	<h3><%= link_to 'Meetings', xxx@xxx.xxx %></h3>
+</div>

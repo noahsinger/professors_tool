@@ -7,8 +7,25 @@
 	<% else %>
 		<h3><%= link_to semester.name, admin_semester_sections_path(semester) %></h3>
 	<% end %>
+	
+	<% 
+		total_credits = 0 
+		preps = semester.sections.count > 0 ? semester.sections.collect {|sec| sec.course.title}.uniq.size : 0
+		total_onsite_enrollments = 0
+		total_ted_enrollments = 0
+	%>
+
+	<% if semester.sections.count > 0 %>
+		<% for section in semester.sections %>
+			<% total_credits += section.course.credits %>
+			<% total_onsite_enrollments += section.enrollments.active.size %>
+		<% end %>
+	<% end %>
+
+	<p><%= pluralize total_credits, 'credit' %> (<%= pluralize preps, "prep" %>)</p>	
+	
 	<p><%= pluralize semester.sections.count, 'section' %></p>
-	<p><%= pluralize semester.student_count, 'students' %></p>
+	<p><%= pluralize semester.student_count, 'student' %></p>
 
 	<ul>
 		<li><%= link_to 'Edit', edit_admin_semester_path(semester) %></li>

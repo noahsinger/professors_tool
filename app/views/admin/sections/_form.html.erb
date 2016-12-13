@@ -1,0 +1,100 @@
+<div class="block form">
+	<%= xxx@xxx.xxx remote: true) do |f| %>
+		<%= xxx@xxx.xxx %>
+		<ol>
+			<li>
+				<div class="details">
+					<%= f.label :course %>
+					<p>Course this section belongs to</p>
+				</div>
+			
+				<div class="field"><%=  select( "section", "course_id", Course.all.order(:number).collect {|s| [ s.title, s.id ] }, { include_blank: true } ) %></div>
+			</li>
+	
+			<li>
+				<div class="details">
+					<%= f.label :call_number %>
+					<p>This section's call number</p>
+				</div>
+			
+				<div class="field"><%= f.text_field :call_number, {size: '5', maxlength: '5'} %></div>
+			</li>
+	
+			<li>
+				<div class="details">
+					<%= f.label :section_number %>
+					<p>This sections number</p>
+				</div>
+			
+				<div class="field"><%= f.text_field :section_number, {size: '3', maxlength: '3'} %></div>
+			</li>
+	
+			<li>
+				<div class="details">
+					<%= f.label :room_number %>
+					<p>Where does it meet?</p>
+				</div>
+			
+				<div class="field"><%= f.text_field :room_number %></div>
+			</li>
+	
+			<li>
+				<div class="details">
+					<%= f.label :meeting_days %>
+					<p>On what days?</p>
+				</div>
+			
+				<div class="field"><%= f.text_field :meeting_days, {size: '5', maxlength: '5'} %></div>
+			</li>
+	
+			<li>
+				<div class="details">
+					<%= f.label :start_time %>
+					<p>What time does it start?</p>
+				</div>
+			
+				<div class="field"><%= f.time_select :start_time %></div>
+			</li>
+	
+			<li>
+				<div class="details">
+					<%= f.label :end_time %>
+					<p>What time does it end?</p>
+				</div>
+			
+				<div class="field"><%= f.time_select :end_time %></div>
+			</li>
+
+			<li>
+				<div class="details">
+					<%= f.label :start_date %>
+					<p>What date does it start on?</p>
+				</div>
+			
+				<div class="field"><%= f.date_select :start_date, xxx@xxx.xxx %></div>
+			</li>
+
+			<li>
+				<div class="details">
+					<%= f.label :end_date %>
+					<p>What date does it end on?</p>
+				</div>
+			
+				<div class="field"><%= f.date_select :end_date, xxx@xxx.xxx %></div>
+			</li>
+
+			<li>
+				<div class="details">
+					<%= f.label :instructor %>
+					<p>Who's teaching it?</p>
+				</div>
+			
+				<div class="field"><%=  select( "section", "instructor_id", Instructor.all.collect {|s| [ s.last_name + ", " + s.first_name, s.id ] }, { include_blank: false } ) %></div>
+			</li>
+	
+			<li class="action">
+				<div><%= f.submit %></div>
+			</li>
+		</ol>
+	<% end %>
+</div>

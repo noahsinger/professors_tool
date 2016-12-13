@@ -1,20 +1,10 @@
-<%= content_for :header do %>
-	<h1>Edit Section</h1>
-<% end %>
+<%= render 'admin/admin/admin_header' %>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render 'sections_header' %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx ), :class => "icon back" %>
-	</nav>
-	
-	<header>
-		<p>
-xxx@xxx.xxx %>
-			<%= show_time(@section.start_time) %> - <%= xxx@xxx.xxx %>
-		</p>
-		<h1><%= @section.course.title %> <span xxx@xxx.xxx %>)</span></h1>
-	</header>
-	
-	<%= render :partial xxx@xxx.xxx :locals => {:button_name => 'Update'} %>
+<div class="block block--width2">
+	<header><p>Edit</p><h3>Section</h3></header>
+</div>
 
-</section>
+<%= render 'form' %>
