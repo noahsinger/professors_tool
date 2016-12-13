@@ -1,6 +1,6 @@
 class Admin::SemestersController < ApplicationController
   before_action :authenticate
-  
+
   # GET /semesters
   # GET /semesters.xml
   def index
@@ -56,12 +56,15 @@ class Admin::SemestersController < ApplicationController
     respond_to do |format|
       xxx@xxx.xxx
         flash[:notice] = 'Semester was successfully updated.'
+        @status = xxx@xxx.xxx
         format.html { xxx@xxx.xxx }
         format.xml  { head :ok }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render action: "edit" }
         format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -72,11 +75,14 @@ class Admin::SemestersController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+      flash[:notice] = "The semester has been removed"
+     xxx@xxx.xxx = admin_semesters_url
       format.html { redirect_to(admin_semesters_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
-  
+
   def allowed_params
     params.require(:semester).permit(:year, :season, :start_date, :end_date)
   end

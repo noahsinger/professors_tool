@@ -154,7 +154,7 @@ document.addEventListener("turbolinks:render", function() {
 	$("#page").isotope('insert', $(".appear"));
 
 	$(".disappear").fadeOut("slow", function( ) {
-		$("#page").isotope( 'remove', this ); //.isotope('layout');
+		$("#page").isotope( 'remove', this );
 		document.getElementById("page").removeChild(this);
 
 		console.log("- remove node: " + this);
@@ -179,9 +179,17 @@ var page_element_init = function( ) {
 	  console.log(e, data);
 	});
 	
-	//prep jquery_datepicker fields	
-	$("#startdatepicker").datepicker( { numberOfMonths: 1, inline: true, altField: '#semester_start_date', dateFormat: 'yy-mm-dd' } );
-	$("#enddatepicker").datepicker( { numberOfMonths: 1, inline: true, altField: '#semester_end_date', defaultDate: "+3m", dateFormat: 'yy-mm-dd' } );
+	// if( $("#enrollments_chart").size( ) > 0 ) {
+		// console.log("*** enrollment_chart detected, initalizing chart");
+		// setTimeout(init_chart,3000);
+	// }
+	
+	$(".block").each( function( ) {
+		if( $(this).data("script") ) {
+			console.log("*** script detected with node: " + $(this).data("script"));
+			eval($(this).data("script"));
+		}	
+	});
 }
 
 

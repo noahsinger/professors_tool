@@ -1,28 +1,31 @@
 <%= content_for :header do %>
 xxx@xxx.xxx %></h1>
 <% end %>
-
-<%= content_for :end_of_page do %>
+	<div class="block chart" data-script="setTimeout(init_chart,1000)">
+		<section id="enrollments_chart">No Enrollment Data Available</section>
+			
 	<% xxx@xxx.xxx > 0 %>
 		<script type="text/javascript" charset="utf-8">
-			$(function () {
-				new Highcharts.Chart({
-					chart: { renderTo: 'enrollments_chart', type: 'spline' },
-					title: { text: 'Enrollments by Day' },
-					xAxis: { type: 'datetime' },
-					yAxis: {
-						title: { text: '# of Students'},
-						min: 0
-					},
-					series: [{
-						name: "Enrollments",
-						data: xxx@xxx.xxx {|p| [p.created_at.to_i * 1000, p.enrollment_count]}.inspect %>
-					}]
-				});
-			});		
+			var init_chart = function () {
+				if($("#enrollments_chart").size( ) > 0) {
+					new Highcharts.Chart({
+						chart: { renderTo: 'enrollments_chart', type: 'spline' },
+						title: { text: 'Enrollments by Day' },
+						xAxis: { type: 'datetime' },
+						yAxis: {
+							title: { text: '# of Students'},
+							min: 0
+						},
+						series: [{
+							name: "Enrollments",
+							data: xxx@xxx.xxx {|p| [p.created_at.to_i * 1000, p.enrollment_count]}.inspect %>
+						}]
+					});
+				}
+			}		
 		</script>
 	<% end %>
-<% end %>
+</div>
 
 <section>
 	<nav>
@@ -113,7 +116,5 @@ xxx@xxx.xxx { |x,y| x.student.last_name <=> y.student.last_name }.each do |enrol
 		</table>
 	</div>
 	
-	<div class="admin_comments wide">
-		<div id="enrollments_chart">No Enrollment Data Available</div>
-	</div>
+	
 </section>

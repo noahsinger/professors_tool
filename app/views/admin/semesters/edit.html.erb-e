@@ -1,41 +1,12 @@
-<%= content_for :head do %>
-	<%= stylesheet_link_tag 'jquery-ui-1.7.1.custom', :media => :all %>
-	<%= javascript_include_tag "jquery-ui-1.7.1.custom.min" %>
-	
-	<script type="text/javascript">
-		$(function() {
-			$("#startdatepicker").datepicker( { numberOfMonths: 1, 
-												inline: true, 
-												altField: '#semester_start_date',
-												dateFormat: 'yy-mm-dd',
-												altFormat: 'yy-mm-dd',
-												defaultDate: new Date('<%= xxx@xxx.xxx ) %>')
-											  } );
-											
-			$("#enddatepicker").datepicker( { numberOfMonths: 1, 
-											  inline: true, 
-											  altField: '#semester_end_date',
-											  dateFormat: 'yy-mm-dd',
-											  altFormat: 'yy-mm-dd',
-											  defaultDate: new Date('<%= xxx@xxx.xxx ) %>')
-											} );
-		});
-	</script>
-<% end %>
+<%= render 'admin/admin/admin_header' %>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
 
-<%= content_for :header do %>
-	<h1>Semester</h1>
-<% end %>
-
-<section>
-	<nav>
-		<%= link_to 'Back', admin_semesters_path, :class => "icon back" %>
-	</nav>
-	
+<div class="block">
 	<header>
-		<p>Edit a</p>
-		<h1>Semester</h1>
+		<p>Editing</p>
+		<h3>Semester</h3>
 	</header>
+</div>
 
-	<%= render :partial => 'form', :locals => {:submit_text => 'Update'} %>
-</section>
+<%= render partial: 'form' %>

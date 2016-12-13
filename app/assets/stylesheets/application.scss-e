@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 20px 0;
 }
 
-.block--width2 { width: 66.3%; }
+.block--width2, .chart { width: 66.3%; }
 // .block--height2 { height: 403px; }
 
 .block {
