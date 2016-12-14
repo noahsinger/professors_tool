@@ -15,7 +15,6 @@
 		
 		<li><%= link_to "Email Section", section_email_admin_semester_section_path( section.semester, section ) %></li>
 		<li><%= link_to 'Export Gradebook', export_gradebook_admin_semester_section_path(section.semester,section) %></li>
-		<li><%= link_to 'Add Student', new_admin_semester_section_enrollment_path( section.semester, section ) %></li>
 		<li><%= link_to 'Sync Students with TED', sync_students_admin_semester_section_path(section.semester,section) %></li>
 	</ul>
 

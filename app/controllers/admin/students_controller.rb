@@ -68,14 +68,13 @@ xxx@xxx.xxx = Student.search(params['q'])
         @enrollment.student_id xxx@xxx.xxx
         @enrollment.section_id xxx@xxx.xxx
 
-       xxx@xxx.xxx = EnrollmentStatus.where("name = 'Enrolled'").first
-        @enrollment.enrollment_status xxx@xxx.xxx
+       xxx@xxx.xxx = EnrollmentStatus.enrolled
 
        xxx@xxx.xxx
 
         @status = xxx@xxx.xxx @section)
         flash[:notice] = 'Student was successfully created and enrolled.'
-        format.html { xxx@xxx.xxx }
+        format.html { xxx@xxx.xxx @section)) }
         format.xml  { render xml: @student, status: :created, xxx@xxx.xxx }
       else
        xxx@xxx.xxx = "failed"

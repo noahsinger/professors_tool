@@ -4,73 +4,42 @@
 <%= render 'sections_header' %>
 <%= render xxx@xxx.xxx locals: {main: true} %>
 
-	<div class="block chart" data-script="setTimeout(init_chart,1000)">
-		<section id="enrollments_chart">No Enrollment Data Available</section>
+<div class="block chart" data-script="setTimeout(init_chart,1000)">
+	<section id="enrollments_chart">No Enrollment Data Available</section>
 
-		<% xxx@xxx.xxx > 0 %>
-			<script type="text/javascript" charset="utf-8">
-				var init_chart = function( ) {
-					if($("#enrollments_chart").size( ) > 0) {
-						var chart = new Highcharts.Chart({
-							chart: {
-								renderTo: 'enrollments_chart',
-								type: 'spline',
-								events: {
-		              load: function() {
-		                $(window).resize();
-		              }
-		            }
-							},
-							title: { text: 'Enrollments by Day' },
-							xAxis: { type: 'datetime' },
-							yAxis: {
-								title: { text: '# of Students'},
-								min: 0
-							},
-							series: [{
-								name: "Enrollments",
-								data: xxx@xxx.xxx {|p| [p.created_at.to_i * 1000, p.enrollment_count]}.inspect %>
-							}]
-						});
-					}
-					$('#page').isotope('layout');
+	<% xxx@xxx.xxx > 0 %>
+		<script type="text/javascript" charset="utf-8">
+			var init_chart = function( ) {
+				if($("#enrollments_chart").size( ) > 0) {
+					var chart = new Highcharts.Chart({
+						chart: {
+							renderTo: 'enrollments_chart',
+							type: 'spline',
+							events: {
+	              load: function() {
+	                $(window).resize();
+	              }
+	            }
+						},
+						title: { text: 'Enrollments by Day' },
+						xAxis: { type: 'datetime' },
+						yAxis: {
+							title: { text: '# of Students'},
+							min: 0
+						},
+						series: [{
+							name: "Enrollments",
+							data: xxx@xxx.xxx {|p| [p.created_at.to_i * 1000, p.enrollment_count]}.inspect %>
+						}]
+					});
 				}
-			</script>
-		<% end %>
-	</div>
-
-	<div class="block">
-		<table>
-			<tr>
-				<th>Name</th>
-				<th>Status</th>
-				<th>Attendance</th>
-				<th>Email</th>
-				<th></th>
-				<th></th>
-			</tr>
-xxx@xxx.xxx { |x,y| x.student.last_name <=> y.student.last_name }.each do |enrollment| %>
-				<tr>
-					<td>
-						<%= link_to enrollment.student.first_name + ' ' + (enrollment.student.middle_name || "") + ' ' + enrollment.student.last_name, xxx@xxx.xxx %>
-					</td>
-					<td><%= enrollment.enrollment_status ? enrollment.enrollment_status.name : "unknown" %></td>
-					<td>
-						<%= enrollment.attendances.where("attendance_status_id != ? and attendance_status_id is not null", AttendanceStatus.absent).size %> / xxx@xxx.xxx %>
-					</td>
-					<td>
-						<%= mail_to enrollment.student.email %>
-					</td>
-					<td class="show">
-						<%= link_to 'History', admin_student_path(enrollment.student) %>
-					</td>
-					<td class="deenroll">
-						<%= link_to 'De-Enroll', xxx@xxx.xxx @section, enrollment ), :method => :delete, :confirm => 'Are you sure?' %>
-					</td>
-				</tr>
-			<% end %>
-		</table>
-	</div>
+				$('#page').isotope('layout');
+			}
+		</script>
+	<% end %>
+</div>
+	
+<%= render partial: 'admin/enrollments/enrollments_header', locals: xxx@xxx.xxx %>
 
 <div class="block">
 	<p><%= xxx@xxx.xxx 'Assignment' %></p>

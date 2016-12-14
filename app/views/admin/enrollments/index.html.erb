@@ -3,13 +3,6 @@
 <%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
 <%= render 'admin/sections/sections_header' %>
 <%= render partial: 'admin/sections/section', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/enrollments/enrollments_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/enrollments/enrollments_header', locals: xxx@xxx.xxx main: true} %>
 
-<div class="block block--width2">
-	<header>
-		<p>New Student for</p>
-xxx@xxx.xxx %></h3>
-	</header>
-</div>
-	
-<%= render 'form' %>
+<%= render partial: 'enrollment', xxx@xxx.xxx %>

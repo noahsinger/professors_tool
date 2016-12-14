@@ -178,12 +178,7 @@ var page_element_init = function( ) {
 		console.log("remotipart complete:");
 	  console.log(e, data);
 	});
-	
-	// if( $("#enrollments_chart").size( ) > 0 ) {
-		// console.log("*** enrollment_chart detected, initalizing chart");
-		// setTimeout(init_chart,3000);
-	// }
-	
+		
 	$(".block").each( function( ) {
 		if( $(this).data("script") ) {
 			console.log("*** script detected with node: " + $(this).data("script"));
@@ -214,6 +209,7 @@ var process_form_create = function( form_partial, success_url ) {
 			page_element_init( );
 		} else {
 		  // alert("sent!");
+			console.log("-- visiting " + success_url);
 		  Turbolinks.visit(success_url);
 		}
 	});

@@ -1,0 +1,7 @@
+<div class="block <%= double_width_if_main(defined? main) %>">
+	<p><%= pluralize section.enrollments.size, 'Enrollment' %></p>
+	<h3><%= link_to 'Enrollments', admin_semester_section_enrollments_path(section.semester, section) %></h3>
+	<ul>
+		<li><%= link_to 'Add Enrollment', new_admin_semester_section_enrollment_path( section.semester, section ) %></li>
+	</ul>
+</div>

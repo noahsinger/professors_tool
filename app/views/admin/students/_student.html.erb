@@ -1,12 +1,5 @@
 <div class="block">
-  <h3><%= link_to "#{student.last_name}, #{student.first_name} #{student.middle_name}", admin_student_path(student) %></h3>
-  <p>
-    <% if student.goes_by and not student.goes_by.blank? %>
-      (<%= student.goes_by %>)
-    <% end %>
-  </p>
-  <p><%= mail_to student.email %></p>
-  <p><%= pluralize student.enrollments.count, 'class' %> taken</p>
+  <%= render partial: 'student_data', locals: {student: student} %>
 
   <ul>
     <li><%= link_to 'Edit', edit_admin_student_path(student) %></li>

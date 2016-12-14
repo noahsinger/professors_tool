@@ -1,0 +1,11 @@
+<div class="block <%= double_width_if_main(defined? main) %>">
+	<%= render partial: 'admin/students/student_data', locals: {student: enrollment.student} %>
+	
+	<p><%= enrollment.enrollment_status ? enrollment.enrollment_status.name : "unknown" %></p>
+	<p><%= enrollment.attendances.where("attendance_status_id != ? and attendance_status_id is not null", AttendanceStatus.absent).size %> / xxx@xxx.xxx %></p>
+
+	<ul>
+		<li><%= link_to 'Details for this class', xxx@xxx.xxx @section, enrollment) %></li>
+		<li><%= link_to 'De-Enroll', xxx@xxx.xxx @section, enrollment ), method: :delete, confirm: 'Are you sure?', remote: true %></li>
+	</ul>
+</div>
