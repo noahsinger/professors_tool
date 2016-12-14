@@ -171,7 +171,11 @@ class Admin::SectionsController < ApplicationController
     @section xxx@xxx.xxx
    xxx@xxx.xxx
 
-    redirect_to( xxx@xxx.xxx )
+    respond_to do |format|
+      @status = xxx@xxx.xxx
+      format.html {redirect_to( xxx@xxx.xxx )}
+      format.js
+    end
   end
   
   def allowed_params
