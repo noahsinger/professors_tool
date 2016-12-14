@@ -37,6 +37,7 @@ gem 'redcarpet', '~> 3.3'
 gem 'RedCloth', '~> 4.3'
 gem 'remotipart', '~> 1.3'
 gem 'jquery-ui-rails', '~> 6.0'
+gem 'mechanize', '~> 2.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
