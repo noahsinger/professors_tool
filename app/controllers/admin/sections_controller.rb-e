@@ -104,23 +104,21 @@ class Admin::SectionsController < ApplicationController
   def section_email
     @section xxx@xxx.xxx
     
-    if params[:body] and params[:body] != ""
-      
-      # call_rake :send_section_email, xxx@xxx.xxx body: params[:body]
-     xxx@xxx.xxx params[:body]
-      
-      flash[:notice] = "The email had been sent."
-      redirect_to( xxx@xxx.xxx )
-    else
-      respond_to do |format|
-        format.html # status.html.erb
+    respond_to do |format|
+      if params[:body] and params[:body] != ""
+       xxx@xxx.xxx params[:body]
+        @status = xxx@xxx.xxx
+        flash[:notice] = "The email had been sent."
+        format.html {redirect_to( xxx@xxx.xxx )}
+      else
+       xxx@xxx.xxx = "failed"
+        format.html # section_email.html.erb
       end
-    end    
+      format.js
+    end
   end
   
   def export_gradebook
-# 	  require 'CSV'
-
     @section xxx@xxx.xxx
     
     csv_string = CSV.generate do |csv|

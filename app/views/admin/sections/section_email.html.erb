@@ -1,57 +1,11 @@
-<%= content_for :header do %>
-	<h1>Email Section</h1>
-<% end %>
-
-<nav>
-	<%= link_to 'Back', xxx@xxx.xxx @section ), :class => "icon back"%>
-</nav>
-
-<header>
-	<p><%= @section.days %> <%= show_time(@section.start_time) %> - <%= show_time(@section.end_time) %> xxx@xxx.xxx %>)</p>
-xxx@xxx.xxx %></h1>
-</header>
-
-<%= xxx@xxx.xxx :html => {:method => :get}) do |f| %>
-	<ol>
-		<li>
-			<div class="details">
-				<label>To:</label>
-				<p>All Class Members of Section xxx@xxx.xxx %></p>
-			</div>
-			<div class="field"></div>
-		</li>
-		
-		<li>
-			<div class="details">
-				<label>Subject:</label>
-				<p>Section Announcement from <%= APP_CONFIG['site_name'].html_safe %></p>
-			</div>
-			<div class="field"></div>
-		</li>
-		
-		<li class="textarea">
-			<div class="details">
-				<label for="body">Body</label>	
-				<p></p>
-			</div>
-			<div class="field">
-				<%= text_area_tag :body %>
-			</div>
-		</li>
-		
-		<li>
-			<div class="details">
-				<p><%= @section.instructor.first_name %> <%= @section.instructor.last_name %> xxx@xxx.xxx %></p>
-			</div>
-		</li>
-	
-	
-		<li class="action">
-			<div>
-				<%= f.submit "Send" %>
-			</div>
-		</li>
-	</ol>
-<% end %>
+<%= render 'admin/admin/admin_header' %>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= xxx@xxx.xxx %>
 
 
+<div class="block block--width2">
+	<h3>Email Section</h3>
+</div>
+
+<%= render 'section_email_form' %>

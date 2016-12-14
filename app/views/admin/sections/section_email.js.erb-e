@@ -1,0 +1,1 @@
+process_form_create("<%= escape_javascript(render 'section_email_form') %>", xxx@xxx.xxx %>");
