@@ -6,13 +6,21 @@
 
 	<div class="block chart" data-script="setTimeout(init_chart,1000)">
 		<section id="enrollments_chart">No Enrollment Data Available</section>
-			
+
 		<% xxx@xxx.xxx > 0 %>
 			<script type="text/javascript" charset="utf-8">
 				var init_chart = function( ) {
 					if($("#enrollments_chart").size( ) > 0) {
-						new Highcharts.Chart({
-							chart: { renderTo: 'enrollments_chart', type: 'spline' },
+						var chart = new Highcharts.Chart({
+							chart: {
+								renderTo: 'enrollments_chart',
+								type: 'spline',
+								events: {
+		              load: function() {
+		                $(window).resize();
+		              }
+		            }
+							},
 							title: { text: 'Enrollments by Day' },
 							xAxis: { type: 'datetime' },
 							yAxis: {
@@ -25,7 +33,8 @@
 							}]
 						});
 					}
-				}		
+					$('#page').isotope('layout');
+				}
 			</script>
 		<% end %>
 	</div>
@@ -62,7 +71,7 @@ xxx@xxx.xxx { |x,y| x.student.last_name <=> y.student.last_name }.each do |enrol
 			<% end %>
 		</table>
 	</div>
-	
+
 <div class="block">
 	<p><%= xxx@xxx.xxx 'Assignment' %></p>
 	<h3><%= link_to "Assignments", xxx@xxx.xxx @section ) %></h3>
