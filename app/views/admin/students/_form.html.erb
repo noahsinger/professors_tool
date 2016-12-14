@@ -1,13 +1,15 @@
-<%= xxx@xxx.xxx do |f| %>
-	<%= xxx@xxx.xxx %>
-	<ol>
-		<li><div class="details"><%= f.label :first_name %><p></p></div><div class="field"><%= f.text_field :first_name %></div></li>
-		<li><div class="details"><%= f.label :middle_name %><p></p></div><div class="field"><%= f.text_field :middle_name %></div></li>
-		<li><div class="details"><%= f.label :last_name %><p></p></div><div class="field"><%= f.text_field :last_name %></div></li>
-		<li><div class="details"><%= f.label :goes_by %><p></p></div><div class="field"><%= f.text_field :goes_by %></div></li>
-		<li><div class="details"><%= f.label :email %><p></p></div><div class="field"><%= f.text_field :email %></div></li>
-		<li class="action">
-			<div><%= f.submit submit_name %></div>
-		</li>
-	</ol>
-<% end %>
+<div class="block form">
+	<%= xxx@xxx.xxx remote: true) do |f| %>
+		<%= xxx@xxx.xxx %>
+		<ol>
+			<li><div class="details"><%= f.label :first_name %><p></p></div><div class="field"><%= f.text_field :first_name %></div></li>
+			<li><div class="details"><%= f.label :middle_name %><p></p></div><div class="field"><%= f.text_field :middle_name %></div></li>
+			<li><div class="details"><%= f.label :last_name %><p></p></div><div class="field"><%= f.text_field :last_name %></div></li>
+			<li><div class="details"><%= f.label :goes_by %><p></p></div><div class="field"><%= f.text_field :goes_by %></div></li>
+			<li><div class="details"><%= f.label :email %><p></p></div><div class="field"><%= f.text_field :email %></div></li>
+			<li class="action">
+				<div><%= f.submit %></div>
+			</li>
+		</ol>
+	<% end %>
+</div>

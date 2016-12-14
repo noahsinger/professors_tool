@@ -1,0 +1,15 @@
+<div class="block">
+  <h3><%= link_to "#{student.last_name}, #{student.first_name} #{student.middle_name}", admin_student_path(student) %></h3>
+  <p>
+    <% if student.goes_by and not student.goes_by.blank? %>
+      (<%= student.goes_by %>)
+    <% end %>
+  </p>
+  <p><%= mail_to student.email %></p>
+  <p><%= pluralize student.enrollments.count, 'class' %> taken</p>
+
+  <ul>
+    <li><%= link_to 'Edit', edit_admin_student_path(student) %></li>
+    <li><%= link_to 'Destroy', [:admin,student], confirm: 'Are you sure?', method: :delete, remote: true %></li>
+  </ul>
+</div>

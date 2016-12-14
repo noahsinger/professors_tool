@@ -1,16 +1,5 @@
-<%= content_for :header do %>
-	<h1>Students</h1>
-<% end %>
-
-<section>
-	<nav>
-		<%= link_to 'Back', '/admin', :class => "icon back" %>
-	</nav>
-
-	<header>
-		<p>Listing</p>
-		<h1>All Students</h1>
-	</header>
+<%= render 'admin/admin/admin_header' %>
+<%= render partial: 'admin/students/students_header', locals: xxx@xxx.xxx main: true} %>
 
 <%= form_tag admin_students_path, method: :get do %>
 	<ol>
@@ -20,45 +9,17 @@
 <% end %>
 
 <% if params['q'] %>
-<ul class="actions">
-	<li><%= link_to 'clear search', admin_students_path %></li>
-</ul>
+	<ul class="actions">
+		<li><%= link_to 'clear search', admin_students_path %></li>
+	</ul>
 <% end %>
 
-	<div class="fancy">
-		<table>
-		  <tr>
-		    <th>Name</th>
-		    <th>Email</th>
-				<th># of Classes</th>
+<%= render partial: 'student', xxx@xxx.xxx %>
 
-				<th></th>
-				<th></th>
-				<th></th>
-		  </tr>
-
-		<% for student xxx@xxx.xxx %>
-		  <tr>
-		    <td>
-					<%= student.last_name %>, <%= student.first_name %> <%= student.middle_name %>
-					<% if student.goes_by and not student.goes_by.blank? %>
-						(<%= student.goes_by %>)
-					<% end %>
-				</td>
-		    <td><%= mail_to student.email %></td>
-				<td><%= student.enrollments.count %></td>
-		    <td class="show"><%= link_to 'Show', [:admin,student] %></td>
-		    <td class="edit"><%= link_to 'Edit', edit_admin_student_path(student) %></td>
-		    <td class="destroy"><%= link_to 'Destroy', [:admin,student], :confirm => 'Are you sure?', :method => :delete %></td>
-		  </tr>
-		<% end %>
-		</table>
-	</div>
-	
 	<p class="paginated_links">
 	<% (1..(Student.all.count / 25)).to_a.each do |num| %>
 		<span class="link"><%= link_to_unless_current( num, admin_students_path(page: (num-1))) %></span>
 	<% end %>
 	</p>
-		
+
 </section>
