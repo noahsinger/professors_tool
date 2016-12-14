@@ -136,10 +136,6 @@ class Admin::SectionsController < ApplicationController
       assignments_header << assignments.map {|assignment| "#{assignment.title} - #{assignment.lab.title}"}
       csv << assignments_header.flatten
       
-#       worth_header = ["worth"]
-#       worth_header << assignments.map {|assignment| assignment.worth}
-#       csv << worth_header.flatten
-      
      xxx@xxx.xxx do |enrollment|
         line = []
         line << enrollment.student.last_name_first
@@ -165,7 +161,10 @@ class Admin::SectionsController < ApplicationController
       end
     end
     
-    render plain: "<pre>#{csv_string}</pre>"
+    # render plain: "#{csv_string}"
+    send_data csv_string,
+        type: "text/csv; charset=UTF-8;",
+        disposition: "attachment; xxx@xxx.xxx
   end
   
   def sync_students
