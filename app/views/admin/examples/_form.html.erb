@@ -1,24 +1,26 @@
-<%= xxx@xxx.xxx :html => {:multipart => true}) do |f| %>
-  <%= xxx@xxx.xxx %>
-	<ol>
-	  <li><div class="details"><%= f.label :name %><p></p></div><div class="field"><%= f.text_field :name %></div></li>
-	  <li class="textarea"><div class="details"><%= f.label :description %><p></p></div><div class="field"><%= f.text_area :description %></div></li>
-	  <li>
-			<div class="details">
-				<%= f.label :file %>
-				<p></p>
-			</div>
+<div class="block form">
+	<%= xxx@xxx.xxx html: {multipart: true}, remote: true) do |f| %>
+	  <%= xxx@xxx.xxx %>
+		<ol>
+		  <li><div class="details"><%= f.label :name %><p></p></div><div class="field"><%= f.text_field :name %></div></li>
+		  <li class="textarea"><div class="details"><%= f.label :description %><p></p></div><div class="field"><%= f.text_area :description %></div></li>
+		  <li>
+				<div class="details">
+					<%= f.label :file %>
+					<p></p>
+				</div>
 			
-			<div class="file field">
-				<span class="prompt">Click to Browse</span>
-				<%= f.file_field :file %>
-			</div>
-			<div class="filename"></div>
-		</li>
-	  <li class="action">
-			<div>
-	    	<%= f.submit submit_name %>
-			</div>
-	  </li>
-	</ol>
-<% end %>
+				<div class="file field">
+					<span class="prompt">Click to Browse</span>
+					<%= f.file_field :file %>
+				</div>
+				<div class="filename"></div>
+			</li>
+		  <li class="action">
+				<div>
+		    	<%= f.submit %>
+				</div>
+		  </li>
+		</ol>
+	<% end %>
+</div>
