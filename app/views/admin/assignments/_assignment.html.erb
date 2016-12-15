@@ -1,6 +1,6 @@
 <div class="block <%= double_width_if_main(defined? main) %>">
 	<% unless assignment.graded? %>
-		<p>Not graded</p>
+		<p>Not graded (<%= assignment.works.size %> waiting)</p>
 	<% end %>
 
 	<h3><%= link_to "#{assignment.title} - #{assignment.lab.title}", [:admin,assignment.section.semester,assignment.section,assignment] %></h3>
