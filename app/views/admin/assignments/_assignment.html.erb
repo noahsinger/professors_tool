@@ -1,4 +1,4 @@
-<div class="block">
+<div class="block <%= double_width_if_main(defined? main) %>">
 	<% unless assignment.graded? %>
 		<p>Not graded</p>
 	<% end %>
@@ -12,6 +12,14 @@
 
 	<p>Worth: <%= assignment.worth %></p>
 	<p>Average: <%= assignment.average.round(2) %></p>
+	
+	<ul>
+		<% if assignment.short_url and assignment.short_url =~ /goo\.gl/ %>
+			<li><%= link_to 'Goo.gl Stats', xxx@xxx.xxx %></li>
+		<% elsif assignment.short_url and assignment.short_url =~ /bit\.ly/ %>
+			<li><%= link_to 'Bit.ly Stats', "https://bitly.com/a/bitlinks/" %></li>
+		<% end %>
+	</ul>
 	
 	<ul>
 		<li><%= link_to 'Grade', admin_semester_section_assignment_works_path(assignment.section.semester,assignment.section,assignment) %></li>
