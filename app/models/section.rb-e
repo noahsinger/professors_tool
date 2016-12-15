@@ -119,6 +119,18 @@ class Section < ApplicationRecord
     
     total
   end
+  
+  def next_assignment_due
+    if future_assignments.size > 0
+      future_assignments.last
+    else
+      nil
+    end
+  end
+  
+  def future_assignments
+    self.assignments.where("duedate > ?", Time.now).order("duedate")
+  end
     
   def in_session
     if self.start_date <= Time.now.to_date and self.end_date >= Time.now.to_date
