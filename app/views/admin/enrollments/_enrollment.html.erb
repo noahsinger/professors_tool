@@ -1,4 +1,8 @@
 <div class="block <%= double_width_if_main(defined? main) %>">
+	<% if defined? message %>
+		<p><%= message %></p>
+	<% end %>
+	
 	<%= render partial: 'admin/students/student_data', locals: {student: enrollment.student} %>
 	
 	<p><%= enrollment.enrollment_status ? enrollment.enrollment_status.name : "unknown" %></p>
