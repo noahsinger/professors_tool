@@ -2,7 +2,7 @@
 	<% unless assignment.overdue? %>
 		<p>Due on <%= show_short_date( assignment.duedate ) %> (<%= distance_of_time_in_words(Time.now, assignment.duedate) %>)</p>
 	<% else %>
-		pastdue
+		<p>pastdue</p>
 	<% end %>
 
 	<h3><%= assignment.title %></h3>
