@@ -1,35 +1,14 @@
-<%= content_for :header do %>
-	<h1>New Assignment Tweet</h1>
-<% end %>
+<%= render 'admin/admin/admin_header' %>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
+<%= render xxx@xxx.xxx %>
+<%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx @assignment.section, @assignment ), :class => "icon back" %>
-	</nav>
-	
+<div class="block block--width2">
 	<header>
-xxx@xxx.xxx %></p>
-		<h1>New Tweet for Assignment xxx@xxx.xxx %></h1>
+		<h3>Assignment Tweet</h3>
 	</header>
+</div>
 
-	<%= form_tag :admin_assignment_tweets do %>
-	<%= hidden_field_tag xxx@xxx.xxx %>
-		<ol>
-			<li class="textarea">
-				<div class="details">
-					<%= label_tag :content %>
-					<p>
-						Max of 120 characters
-						<span id="character_count"></span>
-					</p>
-				</div>
-			
-				<div class="field"><%= text_area_tag xxx@xxx.xxx %></div>
-			</li>
-						
-			<li class="action">
-				<div><%= submit_tag 'Tweet' %></div>
-			</li>
-		</ol>
-	<% end %>
-</section>
+<%= render 'form' %>

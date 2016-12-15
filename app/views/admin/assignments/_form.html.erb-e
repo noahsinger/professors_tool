@@ -1,35 +1,37 @@
-<%= xxx@xxx.xxx do |f| %>
-	<%= xxx@xxx.xxx %>
-	<ol>
-		<li>
-			<div class="details">
-				<%= f.label :title %>
-				<p>Assignment title?</p>
-			</div>
+<div class="block form">
+	<%= xxx@xxx.xxx remote: true) do |f| %>
+		<%= xxx@xxx.xxx %>
+		<ol>
+			<li>
+				<div class="details">
+					<%= f.label :title %>
+					<p>Assignment title?</p>
+				</div>
 			
-			<div class="field"><%= f.text_field :title %></div>
-		</li>
+				<div class="field"><%= f.text_field :title %></div>
+			</li>
 				
-		<li>
-			<div class="details">
-				<%= f.label :duedate %>
-				<p>When is it due?</p>
-			</div>
+			<li>
+				<div class="details">
+					<%= f.label :duedate %>
+					<p>When is it due?</p>
+				</div>
 					
-			<div class="field"><%= f.datetime_select :duedate, {:default => 14.days.from_now} %></div>
-		</li>
+				<div class="field"><%= f.datetime_select :duedate, {:default => 14.days.from_now} %></div>
+			</li>
 		
-		<li>
-			<div class="details">
-				<%= f.label :lab %>
-				<p>What lab is this?</p>
-			</div>
+			<li>
+				<div class="details">
+					<%= f.label :lab %>
+					<p>What lab is this?</p>
+				</div>
 	
-			<div class="field"><%= f.collection_select( :lab_id, Lab.where(['course_id = xxx@xxx.xxx :id, :title, :include_blank => true ) %></div>
-		</li>
+				<div class="field"><%= f.collection_select( :lab_id, Lab.where(['course_id = xxx@xxx.xxx :id, :title, :include_blank => true ) %></div>
+			</li>
 		
-		<li class="action">
-			<div><%= f.submit submit_name %></div>
-		</li>
-	</ol>
-<% end %>
+			<li class="action">
+				<div><%= f.submit %></div>
+			</li>
+		</ol>
+	<% end %>
+</div>

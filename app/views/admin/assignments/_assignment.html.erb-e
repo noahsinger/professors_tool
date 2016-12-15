@@ -1,0 +1,21 @@
+<div class="block">
+	<% unless assignment.graded? %>
+		<p>Not graded</p>
+	<% end %>
+
+	<h3><%= link_to "#{assignment.title} - #{assignment.lab.title}", [:admin,assignment.section.semester,assignment.section,assignment] %></h3>
+
+	<p>
+		Due: <%= show_short_date assignment.duedate %>
+		<%= "(#{distance_of_time_in_words_to_now(assignment.duedate)})" if assignment.duedate > Time.now %>
+	</p>
+
+	<p>Worth: <%= assignment.worth %></p>
+	<p>Average: <%= assignment.average.round(2) %></p>
+	
+	<ul>
+		<li><%= link_to 'Grade', admin_semester_section_assignment_works_path(assignment.section.semester,assignment.section,assignment) %></li>
+		<li><%= link_to 'Edit', edit_admin_semester_section_assignment_path(assignment.section.semester,assignment.section,assignment) %></li>
+		<li><%= link_to 'Destroy', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete, remote: true %></li>
+	</ul>
+</div>
