@@ -3,7 +3,7 @@
 		<p>Not graded (<%= assignment.works.size %> waiting)</p>
 	<% end %>
 
-	<h3><%= link_to "#{assignment.title} - #{assignment.lab.title}", [:admin,assignment.section.semester,assignment.section,assignment] %></h3>
+	<h3><%= link_to "#{assignment.title} - #{assignment.lab.title}", admin_semester_section_assignment_works_path(assignment.section.semester,assignment.section,assignment) %></h3>
 
 	<p>
 		Due: <%= show_short_date assignment.duedate %>
@@ -11,19 +11,25 @@
 	</p>
 
 	<p>Worth: <%= assignment.worth %></p>
-	<p>Average: <%= assignment.average.round(2) %></p>
+	<p>Average: <%= assignment.average.round(2) %>%</p>
 	
 	<ul>
 		<% if assignment.short_url and assignment.short_url =~ /goo\.gl/ %>
-			<li><%= link_to 'Goo.gl Stats', xxx@xxx.xxx %></li>
+			<li><%= link_to 'Goo.gl Stats', "http://goo.gl/info/#{assignment.short_url.scan(/http:\/\/goo.gl\/(.*)/)[0][0]}#week" %></li>
 		<% elsif assignment.short_url and assignment.short_url =~ /bit\.ly/ %>
 			<li><%= link_to 'Bit.ly Stats', "https://bitly.com/a/bitlinks/" %></li>
 		<% end %>
 	</ul>
 	
 	<ul>
-		<li><%= link_to 'Grade', admin_semester_section_assignment_works_path(assignment.section.semester,assignment.section,assignment) %></li>
+		<li><%= link_to 'View Assignment', [:admin,assignment.section.semester,assignment.section,assignment] %></li>
 		<li><%= link_to 'Edit', edit_admin_semester_section_assignment_path(assignment.section.semester,assignment.section,assignment) %></li>
-		<li><%= link_to 'Destroy', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete, remote: true %></li>
+		<li><%= link_to 'Destroy', [:admin,assignment.section.semester,assignment.section,assignment], confirm: 'Are you sure?', method: :delete, remote: true %></li>
+	</ul>
+	
+	<ul class="actions">
+		<li><%= link_to 'New Work', new_admin_semester_section_assignment_work_path(assignment.section.semester,assignment.section,assignment) %></li>
+		<li><%= link_to 'New for All', new_for_all_admin_semester_section_assignment_works_path(assignment.section.semester,assignment.section,assignment) %></li>
+		<li><%= link_to 'Tweet Grading Complete', new_admin_assignment_tweet_path( assignment_id: assignment.id, status: "graded" ) %></li>
 	</ul>
 </div>

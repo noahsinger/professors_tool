@@ -1,0 +1,28 @@
+<div class="block <%= double_width_if_main(defined? main) %>">
+	<h3>
+		<% if work.enrollment %>
+	    <%= work.assignment.title %> from <%= work.enrollment.student.last_name %>, <%= work.enrollment.student.first_name %>
+		<% else %>
+			None (<%= link_to 'Edit', edit_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) %>)
+		<% end %>
+	</h3>
+	<p><%= mail_to work.email, work.email, subject: "#{work.assignment.section.course.title} #{work.assignment.title}" %></p>
+
+	<% diff = (work.assignment.duedate.to_date - work.created_at.to_date).to_i %>
+	<p><%= "#{pluralize diff.abs, 'day'} #{((diff < 0) ? 'late' : 'early')}" %></p>
+	<p>(<%= work.created_at.to_s(:short) %>)</p>
+
+	<% if work.awarded_points.size > 0 %>
+		<p><%= work.score %> (<%= number_to_percentage work.percentage, {precision: 2} %>)</p>
+	<% else %>
+		<p>-</p>
+	<% end %>	
+
+	<ul>
+		<li><%= link_to 'Grade', grade_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) %></li>
+	  <!-- <li><%= link_to 'Show', [:admin,work.assignment.section.semester,work.assignment.section,work.assignment,work] %></li> -->
+	  <li><%= link_to 'Edit', edit_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) %></li>
+	  <li><%= link_to 'Destroy', [:admin,work.assignment.section.semester,work.assignment.section,work.assignment,work], confirm: 'Are you sure?', method: :delete, remote: true %></li>
+		<li><%= link_to 'UnGrade', destroy_grade_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work), confirm: 'Are you sure?', method: :delete, remote: true %></li>
+	</ul>
+</div>
