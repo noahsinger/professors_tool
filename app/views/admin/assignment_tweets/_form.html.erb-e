@@ -1,4 +1,4 @@
-<div class="block form">
+<div class="block form" data-script="$.setup_twitter_field( )">
 	<%= form_tag :admin_assignment_tweets, remote: true do %>
 		<%= hidden_field_tag xxx@xxx.xxx %>
 		<ol>
@@ -10,8 +10,7 @@
 						<span id="character_count"></span>
 					</p>
 				</div>
-			
-				<div class="field"><%= text_area_tag xxx@xxx.xxx %></div>
+				<div class="field"><%= xxx@xxx.xxx %></div>
 			</li>
 						
 			<li class="action">
