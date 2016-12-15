@@ -1,7 +1,7 @@
 <%= render 'admin/admin/admin_header' %>
 <%= render 'admin/semesters/semesters_header' %>
 <%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
-<%= render 'sections_header' %>
+<%= render partial: 'sections_header', locals: xxx@xxx.xxx %>
 <%= render xxx@xxx.xxx locals: {main: true} %>
 
 <div class="block chart" data-script="setTimeout(init_chart,1000)">
@@ -41,11 +41,7 @@
 	
 <%= render partial: 'admin/enrollments/enrollments_header', locals: xxx@xxx.xxx %>
 
-<div class="block">
-	<p><%= xxx@xxx.xxx 'Assignment' %></p>
-	<h3><%= link_to "Assignments", xxx@xxx.xxx @section ) %></h3>
-</div>
-
+<%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx %>
 <%= render 'admin/examples/examples_header' %>
 
 <div class="block">

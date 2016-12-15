@@ -1,7 +1,7 @@
 <%= render 'admin/admin/admin_header' %>
 <%= render 'admin/semesters/semesters_header' %>
 <%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
-<%= render 'admin/sections/sections_header' %>
+<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
 <%= render partial: 'admin/sections/section', locals: xxx@xxx.xxx %>
 <%= render partial: 'admin/enrollments/enrollments_header', locals: xxx@xxx.xxx %>
 

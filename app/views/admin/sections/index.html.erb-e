@@ -1,7 +1,7 @@
 <%= render 'admin/admin/admin_header' %>
 <%= render 'admin/semesters/semesters_header' %>
 <%= render xxx@xxx.xxx locals: {main: true} %>
-<%= render partial: 'admin/sections/sections_header' %>
+<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
 <%= render partial: 'section', xxx@xxx.xxx %>
 
 	<div class="block chart" data-script="setTimeout(init_chart,1000)">
