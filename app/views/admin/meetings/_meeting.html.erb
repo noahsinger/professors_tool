@@ -1,0 +1,30 @@
+<div class="block <%= double_width_if_main(defined? main) %>">
+  <% if meeting.attendance_taken? %>
+    <h3><%= link_to show_date_and_time( meeting.when ), admin_semester_section_meeting_attendances_path(meeting.section.semester,meeting.section,meeting) %></h3>
+  <% else %>
+	  <h3><%= link_to show_date_and_time( meeting.when ), admin_semester_section_meeting_attendances_path(meeting.section.semester,meeting.section,meeting) %></h3>
+  <% end %>
+  <ul>
+    <li><%= link_to 'Edit', edit_admin_semester_section_meeting_path(meeting.section.semester,meeting.section,meeting) %></li>
+    <li><%= link_to 'Delete', [:admin,meeting.section.semester,meeting.section,meeting], method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></li>
+	</ul>
+	
+	<ul class="actions">
+		<li><%= link_to 'New Attendance', new_admin_semester_section_meeting_attendance_path(meeting.section.semester,meeting.section,meeting) %></li>
+	</ul>
+	
+	<table>
+		<tr>
+			<% AttendanceStatus.all.each do |status| %>
+				<th><%= status.name %></th>
+			<% end %>
+		</tr>
+		<th></th>
+		<tr>
+			<% AttendanceStatus.all.each do |status| %>
+				<td class="<%= status.name %>_total"><%= Attendance.where(meeting: meeting).where(attendance_status: status).size %></td>
+			<% end %>
+			<td xxx@xxx.xxx %> active</td>
+		</tr>
+	</table>
+</div>

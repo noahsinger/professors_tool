@@ -1,6 +1,19 @@
 
-//$("#attendance_" + window.update_id).replaceWith("<%= xxx@xxx.xxx %>");
-$("#attendance_" + <%= @attendance.id.to_s %>).replaceWith("<%= xxx@xxx.xxx %>");
+$('#page').isotope( 'remove', $("#attendance_" + xxx@xxx.xxx %>) );
+$("#attendance_" + xxx@xxx.xxx %>).remove( );
+console.log('-- removed');
+
+$('#page').append("<%= xxx@xxx.xxx %>");
+console.log('-- appended');	
+$('#page').isotope('insert', $("#attendance_" + xxx@xxx.xxx %>));
+
+//new/modified form block won't be removed on next nav unless its in current blocks so rebuild current_blocks here
+current_blocks = document.querySelectorAll('.block'); 
+$('#page').isotope('layout');
+
+page_element_init( );
+
+
 
 //find totals
 total = $(".present").size();

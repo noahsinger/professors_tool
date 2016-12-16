@@ -36,6 +36,14 @@ class Section < ApplicationRecord
 		end
 	end
   
+  def meetings_complete
+    self.meetings.all - self.meetings_not_complete
+  end
+  
+  def meetings_not_complete
+    self.meetings.includes('attendances').where(attendances: {meeting_id: nil})
+  end
+  
   def class_size
   	num = self.enrollments.where(:enrollment_status_id => EnrollmentStatus.enrolled.id ).size
   	size = if num <= 5
