@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block <%= double_width_if_main(defined? main) %>">	
 	<p>CRN: <%= section.call_number %>  Section: <%= section.section_number %></p>
 
 	<p>Room: <%= section.room_number %></p>
@@ -7,6 +7,7 @@
 
 	<p class="<%= section.in_session ? "green" : "red" %>">*</p>
 
+	<p><%= section.course.short_name %></p>
 	<h3><%= section.meeting_days %> <%= link_to "#{section.course.title}", [:admin,section.semester,section] %></h3>
 
 	<p><%= pluralize section.course.credits, 'credit' %></p>
