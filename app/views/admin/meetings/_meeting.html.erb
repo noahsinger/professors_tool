@@ -14,17 +14,11 @@
 	</ul>
 	
 	<table>
-		<tr>
-			<% AttendanceStatus.all.each do |status| %>
-				<th><%= status.name %></th>
-			<% end %>
-		</tr>
-		<th></th>
-		<tr>
-			<% AttendanceStatus.all.each do |status| %>
-				<td class="<%= status.name %>_total"><%= Attendance.where(meeting: meeting).where(attendance_status: status).size %></td>
-			<% end %>
-			<td xxx@xxx.xxx %> active</td>
-		</tr>
+		<% AttendanceStatus.all.each do |status| %>
+			<tr>
+				<td><%= status.name %></td><td class="<%= status.name %>_total"><%= Attendance.where(meeting: meeting).where(attendance_status: status).size %></td>
+			</tr>
+		<% end %>
+		<td>total</td><td xxx@xxx.xxx %> active</td>
 	</table>
 </div>
