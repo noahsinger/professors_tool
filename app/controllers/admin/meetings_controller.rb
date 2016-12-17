@@ -22,17 +22,6 @@ class Admin::MeetingsController < ApplicationController
     end
   end
 
-  # GET /meetings/1
-  # GET /meetings/1.json
-  def show
-    @meeting xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render xxx@xxx.xxx }
-    end
-  end
-
   # GET /meetings/new
   # GET /meetings/new.json
   def new

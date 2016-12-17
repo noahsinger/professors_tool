@@ -37,17 +37,6 @@ xxx@xxx.xxx = Meeting.find(params[:meeting_id])
     end
   end
 
-  # GET /attendances/1
-  # GET /attendances/1.json
-  def show
-    @attendance xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render xxx@xxx.xxx }
-    end
-  end
-
   # GET /attendances/new
   # GET /attendances/new.json
   def new
