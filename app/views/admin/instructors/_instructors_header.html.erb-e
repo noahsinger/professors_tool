@@ -1,4 +1,7 @@
 <div class="block <%= double_width_if_main(defined? main) %>">
 	<p><%= pluralize Instructor.count, 'instructor' %></p>
 	<h3><%= link_to 'Instructors', admin_instructors_path %></h3>
+	<ul class="actions">
+		<li><%= link_to "Add a New Instructor", new_admin_instructor_path %></li>
+	</ul>
 </div>

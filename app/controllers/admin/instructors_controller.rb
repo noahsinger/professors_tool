@@ -46,13 +46,16 @@ class Admin::InstructorsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Instructor was successfully created.'
         format.html { xxx@xxx.xxx }
         format.xml  { render :xml => @instructor, :status => :created, :location xxx@xxx.xxx }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render :action => "new" }
         format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -63,13 +66,16 @@ class Admin::InstructorsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Instructor was successfully updated.'
         format.html { xxx@xxx.xxx }
         format.xml  { head :ok }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render :action => "edit" }
         format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -80,8 +86,10 @@ class Admin::InstructorsController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+     xxx@xxx.xxx =  admin_instructors_url
       format.html { redirect_to(admin_instructors_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
 

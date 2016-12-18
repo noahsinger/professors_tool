@@ -1,57 +1,44 @@
-<%= content_for :header do %>
-	<h1>Instructor</h1>
-<% end %>
+<%= render 'admin/admin/admin_header' %>
+<%= render 'instructors_header' %>
 
-<section>
-	<nav>
-		<%= link_to "Back", admin_instructors_path, :class => "icon back" %>
-	</nav>
-	
-	<header>
-		<p><%= xxx@xxx.xxx "section" %></p>
-xxx@xxx.xxx %></h1>
-	</header>
+<%= render partial: 'instructor', locals: xxx@xxx.xxx %>
 
-	<ul class="actions">
-		<li><%= link_to "Edit this Instructor", xxx@xxx.xxx %></li>
-	</ul>
-
-	<div class="fancy">
-		<table>
-			<tr>
-				<td class="blank">Phone number:</td>
+<div class="block">
+	<h4>Details</h4>
+	<table>
+		<tr>
+			<td class="blank">Phone number:</td>
 xxx@xxx.xxx %></td>
-			</tr>
+		</tr>
 
-			<tr>
-				<td class="blank">Office number:</td>
+		<tr>
+			<td class="blank">Office number:</td>
 xxx@xxx.xxx %></td>
-			</tr>
+		</tr>
 
-			<tr>
-				<td class="blank">Office Hours: </td>
-				<td><%= link_to( 'office xxx@xxx.xxx )%></td>
-			</tr>
+		<tr>
+			<td class="blank">Office Hours: </td>
+			<td><%= link_to( 'office xxx@xxx.xxx )%></td>
+		</tr>
 
-			<tr>
-				<td class="blank">Email:</td>
+		<tr>
+			<td class="blank">Email:</td>
 xxx@xxx.xxx %></td>
-			</tr>
-			
-			<tr>
-				<td class="blank">Twitter:</td>
-				<td><%= link_to "@#{@instructor.twitter_handle}", xxx@xxx.xxx %></td>
-			</tr>
+		</tr>
+		
+		<tr>
+			<td class="blank">Twitter:</td>
+			<td><%= link_to "@#{@instructor.twitter_handle}", xxx@xxx.xxx %></td>
+		</tr>
 
-			<tr>
-				<td class="blank">Website:</td>
+		<tr>
+			<td class="blank">Website:</td>
 xxx@xxx.xxx %></td>
-			</tr>
+		</tr>
 
-			<tr>
-				<td class="blank">Division:</td>
+		<tr>
+			<td class="blank">Division:</td>
 xxx@xxx.xxx %></td>
-			</tr>
-		</table>
-	</div>
-</section>
+		</tr>
+	</table>
+</div>
