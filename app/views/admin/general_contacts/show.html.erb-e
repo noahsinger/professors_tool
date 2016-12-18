@@ -1,18 +1,9 @@
-<%= content_for :header do %>
-	<h1>General Contact</h1>
-<% end %>
+<%= render 'admin/admin/admin_header' %>
+<%= render 'general_contacts_header' %>
 
-<section>
-	<nav>
-		<%= link_to "Back", admin_general_contacts_path, :class => "back icon" %>
-	</nav>
-	
-	<header>
-xxx@xxx.xxx %></p>
-		<h1>Contact from xxx@xxx.xxx %></h1>
-	</header>
+<%= xxx@xxx.xxx %>
 
-	<div class="fancy">
+	<div class="block">
 		<table>
 			<tr>
 				<td class="blank">Return email:</td>
@@ -34,6 +25,4 @@ xxx@xxx.xxx %></td>
 xxx@xxx.xxx @general_contact.attachment.url %></td>
 			</tr>
 		</table>
-
 	</div>
-</section>
