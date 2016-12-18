@@ -4,14 +4,6 @@
   <% else %>
 	  <h3><%= link_to show_date_and_time( meeting.when ), admin_semester_section_meeting_attendances_path(meeting.section.semester,meeting.section,meeting) %></h3>
   <% end %>
-  <ul>
-    <li><%= link_to 'Edit', edit_admin_semester_section_meeting_path(meeting.section.semester,meeting.section,meeting) %></li>
-    <li><%= link_to 'Delete', [:admin,meeting.section.semester,meeting.section,meeting], method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></li>
-	</ul>
-	
-	<ul class="actions">
-		<li><%= link_to 'New Attendance', new_admin_semester_section_meeting_attendance_path(meeting.section.semester,meeting.section,meeting) %></li>
-	</ul>
 	
 	<table>
 		<% AttendanceStatus.all.each do |status| %>

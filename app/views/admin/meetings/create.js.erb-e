@@ -1,1 +1,0 @@
-process_form_create("<%= escape_javascript(render 'form') %>", xxx@xxx.xxx %>");
