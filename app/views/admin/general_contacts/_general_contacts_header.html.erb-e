@@ -1,4 +1,8 @@
 <div class="block <%= double_width_if_main(defined? main) %>">
 	<p><%= pluralize GeneralContact.count, 'contact' %></p>
 	<h3><%= link_to 'Contacts', admin_general_contacts_path %></h3>
+	
+	<ul class="actions">
+		<li><%= link_to 'Clear All Contacts', destroy_all_admin_general_contacts_path, :confirm => 'Are you sure?', :method => :delete %></li>
+	</ul>
 </div>
