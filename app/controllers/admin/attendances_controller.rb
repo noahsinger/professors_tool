@@ -86,18 +86,6 @@ xxx@xxx.xxx = Meeting.find(params[:meeting_id])
     end
   end
 
-  # DELETE /attendances/1
-  # DELETE /attendances/1.json
-  def destroy
-    @attendance xxx@xxx.xxx
-   xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html { redirect_to xxx@xxx.xxx }
-      format.json { head :no_content }
-    end
-  end
-
   def allowed_params
     params.require(:attendance).permit(:attendance_status_id,:meeting_id,:enrollment_id)
   end
