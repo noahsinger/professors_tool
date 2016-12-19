@@ -12,17 +12,6 @@ class Admin::HomeworkReturnRequestsController < ApplicationController
     end
   end
 
-  # GET /homework_return_requests/1
-  # GET /homework_return_requests/1.xml
-  def show
-   xxx@xxx.xxx = HomeworkReturnRequest.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
   # DELETE /homework_return_requests/1
   # DELETE /homework_return_requests/1.xml
   def destroy
@@ -30,8 +19,10 @@ class Admin::HomeworkReturnRequestsController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+     xxx@xxx.xxx = admin_homework_return_requests_url
       format.html { redirect_to(admin_homework_return_requests_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
   
@@ -42,8 +33,10 @@ class Admin::HomeworkReturnRequestsController < ApplicationController
     end
     
     respond_to do |format|
+     xxx@xxx.xxx = admin_homework_return_requests_url
       format.html { redirect_to(admin_homework_return_requests_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
   
