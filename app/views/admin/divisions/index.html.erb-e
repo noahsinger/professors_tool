@@ -1,45 +1,4 @@
-<%= content_for :header do %>
-	<h1>Divisions</h1>
-<% end %>
+<%= render 'admin/admin/admin_header' %>
+<%= render partial: 'divisions_header', locals: {main: true} %>
 
-<section>
-	<nav>
-		<%= link_to "Back", '/admin', :class => "icon back" %>
-	</nav>
-
-	<header>
-		<p>Listing all</p>
-		<h1>Divisions</h1>
-	</header>
-	
-	<ul class="actions">
-		<li><%= link_to "Create a New Division", new_admin_division_path %></li>
-	</ul>
-
-	<div class="fancy">
-		<table>
-		  <tr>
-		    <th>Name</th>
-		    <th>Office number</th>
-		    <th>Phone number</th>
-		    <th>Associate dean</th>
-
-			<th></th>
-			<th></th>
-			<th></th>
-		  </tr>
-
-		<% for division xxx@xxx.xxx %>
-		  <tr>
-		    <td><%= division.name %></td>
-		    <td><%= division.office_number %></td>
-		    <td><%= division.phone_number %></td>
-		    <td><%= division.associate_dean %></td>
-		    <td class="show"><%= link_to 'Show', [:admin,division] %></td>
-		    <td class="edit"><%= link_to 'Edit', edit_admin_division_path(division) %></td>
-		    <td class="destroy"><%= link_to 'Destroy', [:admin,division], :confirm => 'Are you sure?', :method => :delete %></td>
-		  </tr>
-		<% end %>
-		</table>
-	</div>
-</section>
+<%= render partial: 'division', xxx@xxx.xxx %>

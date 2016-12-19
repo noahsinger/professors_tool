@@ -1,16 +1,8 @@
-<%= content_for :header do %>
-	<h1>Divisions</h1>
-<% end %>
+<%= render 'admin/admin/admin_header' %>
+<%= render partial: 'divisions_header' %>
 
-<section>
-	<nav>
-		<%= link_to "Back", admin_divisions_path, :class => "icon back" %>
-	</nav>
+<div class="block">
+	<h3>Edit Division/School</h3>
+</div>
 
-	<header>
-		<p>Associate Dean: xxx@xxx.xxx %></p>
-xxx@xxx.xxx %></h1>
-	</header>
-
-	<%= render :partial => "form", :locals => {:submit_name => "Create"} %>
-</section>
+<%= render 'form' %>
