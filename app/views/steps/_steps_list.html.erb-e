@@ -1,7 +1,7 @@
 <% if course.how_tos.size > 0 %>
 	<div class="block">
 		<header>
-			<h3>Tutorials</h3>
+			<h4>Tutorials</h4>
 		</header>
 		<ul>
 			<% course.how_tos.each do |howto| %>

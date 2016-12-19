@@ -1,6 +1,6 @@
 <div class="block <%= double_width_if_main(defined? main) %>">
 	<p><%= section.course.short_name %></p>
-	<h2><%= link_to section.course.title, semester_section_assignments_path(section.semester, section) %></h2>
+	<h3><%= link_to section.course.title, semester_section_assignments_path(section.semester, section) %></h3>
 	<p><%= section.meeting_days_and_times %></p>
 	<nav>
 		<ul>

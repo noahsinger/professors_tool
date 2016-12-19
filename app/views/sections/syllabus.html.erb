@@ -3,7 +3,7 @@
 <%= render partial: 'sections/section', locals: xxx@xxx.xxx main: true} %>
 
 	<div class="block">
-		<h2>Syllabus</h2>
+		<h3>Syllabus</h3>
 		<nav>
 			<a href="#" class="icon" id="print">Print this Syllabus</a>
 		</nav>
@@ -63,7 +63,7 @@ xxx@xxx.xxx %>
 	</div>
 
 		<div class="block">
-			<h3>Instructor Information</h3>
+			<h4>Instructor Information</h4>
 			<table>
 				<tr>
 					<td class="second_column">Instructor:</td>
@@ -126,10 +126,10 @@ xxx@xxx.xxx %>
 		</div>
 
 		<div class="block pagebreak">
-			<h3>School of xxx@xxx.xxx %></h3>
+			<h4>School of xxx@xxx.xxx %></h4>
 			<table id="divisionTable">
 				<tr>
-					<td style="width: 175px;">Dean:</td>
+					<td>Dean:</td>
 					<td>
 						<strong>
 xxx@xxx.xxx %>
@@ -156,23 +156,23 @@ xxx@xxx.xxx %>
 		</div>
 
 		<div class="block pagebreak">
-			<h3>Course Prerequisites</h3>
+			<h4>Course Prerequisites</h4>
 			<p>
 xxx@xxx.xxx %>
 			</p>
 		</div>
 
 		<div class="block pagebreak">
-			<h3>Next Course in Sequence</h3>
+			<h4>Next Course in Sequence</h4>
 			<p>
 xxx@xxx.xxx %>
 			</p>
 		</div>
 
 		<div class="block pagebreak">
-			<h3>Books and Resources</h3>
+			<h4>Books and Resources</h4>
 			<% xxx@xxx.xxx > 0 %>
-				<h4><%= xxx@xxx.xxx 'Textbook' %></h4>
+				<p><b><%= xxx@xxx.xxx 'Textbook' %></b></p>
 xxx@xxx.xxx do |book| %>
 					<p>
 						<em>
@@ -189,7 +189,7 @@ xxx@xxx.xxx do |book| %>
 			<% end %>
 
 			<% xxx@xxx.xxx > 0 %>
-				<h4><%= xxx@xxx.xxx 'Website' %></h4>
+				<p><b><%= xxx@xxx.xxx 'Website' %></b></p>
 xxx@xxx.xxx do |website| %>
 					<p>
 						<%= link_to "<strong>#{website.title}</strong>".html_safe, website.url %> at <%= link_to website.url, website.url %>
@@ -199,12 +199,12 @@ xxx@xxx.xxx do |website| %>
 		</div>
 
 		<div class="block pagebreak">
-			<h3>Other Materials</h3>
+			<h4>Other Materials</h4>
 xxx@xxx.xxx %></p>
 		</div>
 
 		<div class="block pagebreak">
-			<h3>Course Objectives</h3>
+			<h4>Course Objectives</h4>
 			<p>Upon completion of this course, a student should be able to do the following:</p>
 			<ol>
 xxx@xxx.xxx do |o| %>
@@ -214,7 +214,7 @@ xxx@xxx.xxx do |o| %>
 		</div>
 
 		<div class="block pagebreak">
-			<h3>Policies</h3>
+			<h4>Policies</h4>
 xxx@xxx.xxx do |policy| %>
 				<section>
 					<h4><%= policy.syllabus_part.title %></h4>

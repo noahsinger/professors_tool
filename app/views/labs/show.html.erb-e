@@ -4,7 +4,7 @@
 <%= render partial: 'lab', locals: xxx@xxx.xxx main: true} %>
 
 <div class="block">
-	<header id="requirements_header"><h3>Requirements</h3></header>
+	<header id="requirements_header"><h4>Requirements</h4></header>
 	<table id="requirements">
 xxx@xxx.xxx do |r| %>
 			<tr>
@@ -16,7 +16,7 @@ xxx@xxx.xxx %> pts</td></tr>
 </div>
 
 <div class="block">
-	<h3>Objective</h3>
+	<h4>Objective</h4>
 xxx@xxx.xxx %></p>
 </div>
 		
@@ -28,7 +28,7 @@ xxx@xxx.xxx %></p>
 
 <% xxx@xxx.xxx > 0 %>
 <div class="block">
-	<header><h3>Extras</h3></header>
+	<header><h4>Extras</h4></header>
 	<ul>
 xxx@xxx.xxx do |extra| %>
 			<li>

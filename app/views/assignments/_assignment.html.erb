@@ -5,10 +5,10 @@
 		<p>pastdue</p>
 	<% end %>
 
-	<h3><%= assignment.title %></h3>
-	<h2 class="<%= "overdue" if assignment.overdue? %>">
+	<h4><%= assignment.title %></h4>
+	<h4 class="<%= "overdue" if assignment.overdue? %>">
 		<%= link_to assignment.lab.title, semester_section_assignment_path(assignment.section.semester, assignment.section, assignment) %>
-	</h2>
+	</h4>
 	<p><%= assignment.lab.objective %></p>
 	<nav>
 		<ul id="assignment_links">

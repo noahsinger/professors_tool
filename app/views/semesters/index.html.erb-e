@@ -1,3 +1,2 @@
 <%= render partial: 'semesters_header', locals: {main: true} %>
-
 <%= render partial: 'semester', xxx@xxx.xxx %>

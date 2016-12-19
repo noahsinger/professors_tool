@@ -1,6 +1,6 @@
 <div class="block form">
 	<%= xxx@xxx.xxx remote: true) do |f| %>
-		<h1>Complete the Form</h1>
+		<h5>Complete the Form</h5>
 		<%= xxx@xxx.xxx %>
 		<ol>
 			<li>

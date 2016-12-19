@@ -22,7 +22,7 @@ xxx@xxx.xxx %> pts</td></tr>
 
 <div class="block block--width2">
 	<header>
-		<h3>Instructions</h3>
+		<h4>Instructions</h4>
 	</header>
 	<section>
 		<%= xxx@xxx.xxx %>
@@ -32,14 +32,14 @@ xxx@xxx.xxx %> pts</td></tr>
 <% xxx@xxx.xxx > 0 %>
 	<div class="block">
 		<header>
-			<h3>Extras</h3>
+			<h4>Extras</h4>
 		</header>
 		<ul>
 xxx@xxx.xxx do |extra| %>
 				<li>
 					<%= link_to extra.file.url do %>
 						<div><%= extra.description %></div>
-						<h2><%= extra.file_file_name %></h2>
+						<b><%= extra.file_file_name %></b>
 						<p></p>
 					<% end %>
 				</li>

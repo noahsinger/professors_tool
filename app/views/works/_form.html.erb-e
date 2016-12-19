@@ -1,6 +1,6 @@
 <div class="block form">
 	<%= xxx@xxx.xxx multipart: true, remote: true, authenticity_token: true ) do |f| %>
-		<h3>Complete the Form</h3>
+		<h5>Complete the Form</h5>
 		<%= xxx@xxx.xxx %>
 		<ol>
 			<li>
