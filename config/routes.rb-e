@@ -54,7 +54,12 @@ Rails.application.routes.draw do
   		end
   	end
     
-    resources :students
+    resources :students do
+      collection do
+        get :search  
+      end
+    end
+    
     resources :enrollment_statuses
     resources :divisions
     resources :instructors

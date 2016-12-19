@@ -13,15 +13,21 @@ class Admin::StudentsController < ApplicationController
   end
 
   def index
-	  if params['q']
-xxx@xxx.xxx = Student.search(params['q'])
-	  else
-  	 xxx@xxx.xxx = Student.paginate(params['page'] || 0).order('last_name')
-  	end
+	 xxx@xxx.xxx = Student.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render xxx@xxx.xxx }
+    end
+  end
+  
+  def search
+	 xxx@xxx.xxx = Student.search(params[:q]).paginate(page: params[:page])
+
+    respond_to do |format|
+      format.html
+      format.xml  { render xxx@xxx.xxx }
+      format.js
     end
   end
 
