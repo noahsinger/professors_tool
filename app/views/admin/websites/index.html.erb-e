@@ -1,41 +1,5 @@
+<%= render 'admin/admin/admin_header' %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'websites_header' %>
 
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
-
-<section>
-	<nav>	
-		<%= link_to 'Back', xxx@xxx.xxx class: "icon back" %>
-	</nav>
-	
-	<header>
-		<p>Websites for</p>
-xxx@xxx.xxx %></h1>
-	</header>
-	
-	<ul class="actions">
-		<li><%= link_to "New website", xxx@xxx.xxx %></li>
-	</ul>
-
-	<div class="fancy">
-		<table>
-		  <tr>
-		    <th>Title</th>
-		    <th>Url</th>
-		    <th></th>
-		    <th></th>
-		    <th></th>
-		  </tr>
-
-xxx@xxx.xxx do |website| %>
-		  <tr>
-		    <td><%= website.title %></td>
-		    <td><%= website.url %></td>
-		    <td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>
-		    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-		    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		  </tr>
-		<% end %>
-		</table>
-	</div>
-</section>
+<%= render partial: 'website', xxx@xxx.xxx %>

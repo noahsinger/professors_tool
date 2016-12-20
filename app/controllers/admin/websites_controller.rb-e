@@ -17,17 +17,6 @@ class Admin::WebsitesController < ApplicationController
     end
   end
 
-  # GET /websites/1
-  # GET /websites/1.json
-  def show
-    @website xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render xxx@xxx.xxx }
-    end
-  end
-
   # GET /websites/new
   # GET /websites/new.json
   def new
@@ -51,12 +40,15 @@ class Admin::WebsitesController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         format.html { redirect_to xxx@xxx.xxx notice: 'Website was successfully created.' }
         format.json { render json: @website, status: :created, xxx@xxx.xxx }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render action: "new" }
         format.json { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -67,12 +59,15 @@ class Admin::WebsitesController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         format.html { redirect_to xxx@xxx.xxx notice: 'Website was successfully updated.' }
         format.json { head :no_content }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render action: "edit" }
         format.json { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -83,8 +78,10 @@ class Admin::WebsitesController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+      @status = xxx@xxx.xxx
       format.html { redirect_to xxx@xxx.xxx }
       format.json { head :no_content }
+      format.js
     end
   end
   

@@ -1,16 +1,12 @@
-<%= content_for :header do %>	
-xxx@xxx.xxx %></h1>
-<% end %>
+<%= render 'admin/admin/admin_header' %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'websites_header' %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx class: "icon back" %>
-	</nav>
-	
+<div class="block">
 	<header>
-		<p>Editing</p>
-xxx@xxx.xxx %></h1>
+		<h4>Edit Website for</h4>
+xxx@xxx.xxx %></p>
 	</header>
+</div>
 
-	<%= render "form" %>
-</section>
+<%= render 'form' %>

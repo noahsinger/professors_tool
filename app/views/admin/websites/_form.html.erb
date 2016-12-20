@@ -1,10 +1,12 @@
-<%= xxx@xxx.xxx do |f| %>
-	<%= xxx@xxx.xxx %>
-	<ol>
-		<li><div class="details"><%= f.label :title %><p>Website's Name</p></div><div class="field"><%= f.text_field :title %></div></li>
-		<li><div class="details"><%= f.label :url %><p>to be linked on syllabus</p></div><div class="field"><%= f.text_field :url %></div></li>
-		<li class="action">
-			<div><%= f.submit %></div>
-		</li>
-	</ol>
-<% end %>
+<div class="block form">
+	<%= xxx@xxx.xxx remote: true) do |f| %>
+		<%= xxx@xxx.xxx %>
+		<ol>
+			<li><div class="details"><%= f.label :title %><p>Website's Name</p></div><div class="field"><%= f.text_field :title %></div></li>
+			<li><div class="details"><%= f.label :url %><p>to be linked on syllabus</p></div><div class="field"><%= f.text_field :url %></div></li>
+			<li class="action">
+				<div><%= f.submit %></div>
+			</li>
+		</ol>
+	<% end %>
+</div>

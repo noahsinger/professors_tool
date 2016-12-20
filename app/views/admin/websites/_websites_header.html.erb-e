@@ -1,0 +1,7 @@
+<div class="block <%= double_width_if_main(defined? main) %>">
+	<h4><%= link_to "Websites", xxx@xxx.xxx %></h4>
+	
+	<ul class="actions">
+		<li><%= link_to "New website", xxx@xxx.xxx %></li>
+	</ul>
+</div>
