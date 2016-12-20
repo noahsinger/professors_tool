@@ -1,31 +1,31 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
+<%= render 'admin/admin/admin_header' %>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
+<%= render xxx@xxx.xxx %>
+<%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/assignments/assignment', locals: xxx@xxx.xxx main: true} %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx @section, @assignment ), :class => "icon back" %>
-	</nav>
+<%= render partial: 'work', xxx@xxx.xxx %>
 
-	<header>
-		<p><%= @assignment.title %> - xxx@xxx.xxx %></p>
-		<h1>
-			Upload: 
-			<% xxx@xxx.xxx == "removed" %>
-				Removed
-			<% xxx@xxx.xxx %>
-				<%= link_to @work.upload_file_name, xxx@xxx.xxx @section, @assignment, @work ) %>
-			<% else %>
-				No Upload
-			<% end %>  
-		</h1>
-	</header>
+	<div class="block">
+		<header>
+			<p><%= @assignment.title %> - xxx@xxx.xxx %></p>
+			<h6>
+				Upload: 
+				<% xxx@xxx.xxx == "removed" %>
+					Removed
+				<% xxx@xxx.xxx %>
+					<%= link_to @work.upload_file_name, xxx@xxx.xxx @section, @assignment, @work ) %>
+				<% else %>
+					No Upload
+				<% end %>  
+			</h6>
+		</header>
+	</div>
 
-	<ul class="actions">
-		<li><%= link_to 'Edit this work', xxx@xxx.xxx %></li>
-	</ul>
-
-	<div class="fancy">
+	<div class="block">
 		<table>
 			<tr>
 				<th>Requirement</th><th>Worth</th><th>Earned</th>
@@ -58,11 +58,12 @@ xxx@xxx.xxx do |r| %>
 		</table>
 	</div>
 
-	<div class="admin_comments">
-		<h1>Instructors Comments:</h1>
+	<div class="block">
+		<h6>Instructors Comments:</h6>
 xxx@xxx.xxx %></p>
 	
-		<strong>Score: </strong>
-		<%= number_to_percentage((earned/possible.to_f)*100) %> - <%= score_to_letter ((earned/possible.to_f)*100) %>
+		<p>
+			<strong>Score: </strong>
+			<%= number_to_percentage((earned/possible.to_f)*100) %> - <%= score_to_letter ((earned/possible.to_f)*100) %>
+		</p>
 	</div>
-</section>
