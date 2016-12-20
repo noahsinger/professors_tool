@@ -1,39 +1,6 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
+<%= render 'admin/admin/admin_header' %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'books_header' %>
 
-<section>
-	<nav>	
-		<%= link_to 'Back', xxx@xxx.xxx class: "icon back" %>
-	</nav>
-	
-	<header>
-		<p>Books for</p>
-xxx@xxx.xxx %></h1>
-	</header>
-	
-	<ul class="actions">
-		<li><%= link_to "New Book", xxx@xxx.xxx %></li>
-	</ul>
+<%= render partial: 'book', xxx@xxx.xxx %>
 
-	<div class="fancy">
-		<table>
-		  <tr>
-		    <th>Title</th>
-		    <th>ISBN</th>
-		    <th>Required</th>
-		  </tr>
-
-xxx@xxx.xxx do |book| %>
-		  <tr>
-		    <td><%= book.title %></td>
-		    <td><%= book.isbn %></td>
-		    <td><%= book.required %></td>
-		    <td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>
-		    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-		    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete %></td>
-		  </tr>
-		<% end %>
-		</table>
-	</div>
-</section>

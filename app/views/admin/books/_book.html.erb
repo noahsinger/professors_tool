@@ -1,0 +1,12 @@
+<div class="block">
+  <h4><%= book.title %></h4>
+	<p>by: <%= book.author %></p>
+  <p><%= book.isbn %></p>
+  <p>required: <%= book.required %></p>
+	<p>publisher: <%= book.publisher %></p>
+	
+	<ul>
+    <li><%= link_to 'Edit', xxx@xxx.xxx %></li>
+    <li><%= link_to 'Destroy', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete, remote: true %></li>
+	</ul>
+</div>
