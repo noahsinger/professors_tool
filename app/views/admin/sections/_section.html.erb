@@ -8,7 +8,7 @@
 	<p class="<%= section.in_session ? "green" : "red" %>">*</p>
 
 	<p><%= section.course.short_name %></p>
-	<h3><%= section.meeting_days %> <%= link_to "#{section.course.title}", [:admin,section.semester,section] %></h3>
+	<h4><%= section.meeting_days %> <%= link_to "#{section.course.title}", [:admin,section.semester,section] %></h4>
 
 	<p><%= pluralize section.course.credits, 'credit' %></p>
 

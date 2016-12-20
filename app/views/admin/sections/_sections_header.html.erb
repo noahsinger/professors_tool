@@ -1,6 +1,6 @@
 <div class="block <%= double_width_if_main(defined? main) %>">
 	<p><%= semester.name %></p>
-	<h3><%= link_to 'Sections', admin_semester_sections_path(semester) %></h3>
+	<h4><%= link_to 'Sections', admin_semester_sections_path(semester) %></h4>
 	
 	<ul class="actions">
 		<li><%= link_to 'New Section', new_admin_semester_section_path(semester) %></li>

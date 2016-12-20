@@ -1,8 +1,8 @@
 <div class="block <%= double_width_if_main(defined? main) %>">
   <% if meeting.attendance_taken? %>
-    <h3><%= link_to show_date_and_time( meeting.when ), admin_semester_section_meeting_attendances_path(meeting.section.semester,meeting.section,meeting) %></h3>
+    <h5><%= link_to show_date_and_time( meeting.when ), admin_semester_section_meeting_attendances_path(meeting.section.semester,meeting.section,meeting) %></h5>
   <% else %>
-	  <h3><%= link_to show_date_and_time( meeting.when ), admin_semester_section_meeting_attendances_path(meeting.section.semester,meeting.section,meeting) %></h3>
+	  <h5><%= link_to show_date_and_time( meeting.when ), admin_semester_section_meeting_attendances_path(meeting.section.semester,meeting.section,meeting) %></h5>
   <% end %>
 	
 	<table>

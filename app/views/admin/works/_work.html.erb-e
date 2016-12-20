@@ -1,11 +1,11 @@
 <div class="block <%= double_width_if_main(defined? main) %>">
-	<h3>
+	<h6>
 		<% if work.enrollment %>
-	    <%= work.assignment.title %> from <%= work.enrollment.student.last_name %>, <%= work.enrollment.student.first_name %>
+	    <%= link_to "#{work.assignment.title} from #{work.enrollment.student.last_name}, #{work.enrollment.student.first_name}", admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) %>
 		<% else %>
 			None (<%= link_to 'Edit', edit_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) %>)
 		<% end %>
-	</h3>
+	</h6>
 	<p><%= mail_to work.email, work.email, subject: "#{work.assignment.section.course.title} #{work.assignment.title}" %></p>
 
 	<% diff = (work.assignment.duedate.to_date - work.created_at.to_date).to_i %>

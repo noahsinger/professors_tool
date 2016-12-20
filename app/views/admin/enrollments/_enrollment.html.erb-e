@@ -5,7 +5,7 @@
 	
 	<%= render partial: 'admin/students/student_data', locals: {student: enrollment.student} %>
 	
-	<p><%= enrollment.enrollment_status ? enrollment.enrollment_status.name : "unknown" %></p>
+	<h5><%= enrollment.enrollment_status ? enrollment.enrollment_status.name : "unknown" %></h5>
 	<p><%= enrollment.attendances.where("attendance_status_id != ? and attendance_status_id is not null", AttendanceStatus.absent).size %> / xxx@xxx.xxx %></p>
 
 	<ul>

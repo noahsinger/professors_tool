@@ -1,7 +1,7 @@
 <div class="block <%= double_width_if_main(defined? main) %>">
 	<header>
 		<p><%= pluralize section.assignments.size, "Assignment" %></p>
-		<h3><%= link_to "Assignments", admin_semester_section_assignments_url(section.semester,section) %></h3>
+		<h5><%= link_to "Assignments", admin_semester_section_assignments_url(section.semester,section) %></h5>
 		<% if section.next_assignment_due %>
 			<p>Next assignment due <%= show_short_date(section.next_assignment_due.duedate) %> (<%= distance_of_time_in_words_to_now(section.next_assignment_due.duedate) %>)</p>
 		<% end %>
