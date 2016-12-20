@@ -1,9 +1,11 @@
-<%= xxx@xxx.xxx do |f| %>
-  <%= xxx@xxx.xxx %>
-	<ol>
-		<li class="textarea"><div class="details"><%= f.label :description %><p></p></div><div class="field"><%= f.text_area :description %></div></li>
-		<li class="action">
-			<div><%= f.submit submit_name %></div>
-		</li>
-	</ol>
-<% end %>
+<div class="block form">
+	<%= xxx@xxx.xxx remote: true) do |f| %>
+	  <%= xxx@xxx.xxx %>
+		<ol>
+			<li class="textarea"><div class="details"><%= f.label :description %><p></p></div><div class="field"><%= f.text_area :description %></div></li>
+			<li class="action">
+				<div><%= f.submit %></div>
+			</li>
+		</ol>
+	<% end %>
+</div>

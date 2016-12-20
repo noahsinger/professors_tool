@@ -40,14 +40,16 @@ class Admin::ObjectivesController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Objective was successfully created.'
         format.html { xxx@xxx.xxx }
-        format.js
         format.xml  { render xml: @objective, status: :created, xxx@xxx.xxx }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render action: "new" }
         format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -58,13 +60,16 @@ class Admin::ObjectivesController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Objective was successfully updated.'
         format.html { xxx@xxx.xxx }
         format.xml  { head :ok }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render action: "edit" }
         format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
   
@@ -89,8 +94,10 @@ class Admin::ObjectivesController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+      @status = xxx@xxx.xxx
       format.html { xxx@xxx.xxx }
       format.xml  { head :ok }
+      format.js
     end
   end
   

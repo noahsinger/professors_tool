@@ -1,5 +1,12 @@
-<nav>
-		<%= link_to 'Back', xxx@xxx.xxx class: "icon back" %>
-	</nav>
+<%= render 'admin/admin/admin_header' %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render 'objectives_header' %>
 
-<%= render partial: 'form', locals: {submit_name: 'Create'} %>
+<div class="block">
+	<header>
+		<h4>New Objective</h4>
+		<p>for xxx@xxx.xxx %></p>
+	</header>
+</div>
+
+<%= render 'form' %>

@@ -1,5 +1,5 @@
 <tr id="<%= objective.id.to_s %>">
 	<td><%= objective.description %></td>
-	<td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-	<td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete %></td>
+	<td><%= link_to 'Edit', xxx@xxx.xxx %></td>
+	<td><%= link_to 'Destroy', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete, remote: true %></td>
 </tr>
