@@ -3,7 +3,7 @@
 <% end %>
 
 <nav>
-	<%= link_to 'Back', admin_admin_index_path, :class => "icon back" %>
+	<%= link_to 'Back', admin_admin_index_path, class: "icon back" %>
 </nav>
 
 <header>
@@ -29,7 +29,7 @@
 	    <td><%= user.username %></td>
 	    <td class="show"><%= link_to 'Show', [:admin,user] %></td>
 	    <td class="edit"><%= link_to 'Edit', edit_admin_user_path(user) %></td>
-	    <td class="destroy"><%= link_to 'Destroy', [:admin,user], :confirm => 'Are you sure?', :method => :delete %></td>
+	    <td class="destroy"><%= link_to 'Destroy', [:admin,user], confirm: 'Are you sure?', method: :delete %></td>
 	  </tr>
 	<% end %>
 	</table>

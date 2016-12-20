@@ -1,9 +1,9 @@
 require 'tweet'
 
 class ExamplesController < ApplicationController
-  protect_from_forgery :except => :echo
+  protect_from_forgery except: :echo
 
-  before_action :load_section, :except => [:test_notice, :test_error, :test_exception, :test_tweet, :echo]
+  before_action :load_section, except: [:test_notice, :test_error, :test_exception, :test_tweet, :echo]
 
   def load_section
    xxx@xxx.xxx = Semester.find params[:semester_id]
@@ -32,7 +32,7 @@ class ExamplesController < ApplicationController
     begin
       Tweet.new.send( "New test    tweet" )
       flash[:notice] = "Tweet tweeted"
-    rescue Twitter::Error => e
+    rescue Twitter:Error: e
       flash[:error] = "Tweet not sent: #{e}"
     end
     redirect_to root_url

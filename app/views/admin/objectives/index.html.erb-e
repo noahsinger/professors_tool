@@ -4,7 +4,7 @@ xxx@xxx.xxx %></h1>
 
 <section>
 	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx ), :class => "icon back" %>
+		<%= link_to 'Back', xxx@xxx.xxx ), class: "icon back" %>
 	</nav>
 	
 	<header>
@@ -15,7 +15,7 @@ xxx@xxx.xxx %></h1>
 	<div class="fancy">
 		<table id="objectives">
 xxx@xxx.xxx do |objective| %>
-				<%= render :partial => objective %>
+				<%= render partial: objective %>
 			<% end %>
 		</table>
 	</div>

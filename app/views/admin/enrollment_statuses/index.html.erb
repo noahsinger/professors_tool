@@ -4,7 +4,7 @@
 
 <section>
 	<nav>
-		<%= link_to "Back", '/admin', :class => "icon back" %>
+		<%= link_to "Back", '/admin', class: "icon back" %>
 	</nav>
 	
 	<header>
@@ -29,7 +29,7 @@
 		  <tr>
 		    <td><%= enrollment_status.name %></td>
 		    <td class="edit"><%= link_to 'Edit', edit_admin_enrollment_status_path(enrollment_status) %></td>
-		    <td class="destroy"><%= link_to 'Destroy', [:admin,enrollment_status], :confirm => 'Are you sure?', :method => :delete %></td>
+		    <td class="destroy"><%= link_to 'Destroy', [:admin,enrollment_status], confirm: 'Are you sure?', method: :delete %></td>
 		  </tr>
 		<% end %>
 		</table>

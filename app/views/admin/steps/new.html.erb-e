@@ -7,7 +7,7 @@
 	<h1>Create a new step</h1>
 </header>
 
-<%= xxx@xxx.xxx :html => {:multipart => true}) do |f| %>
+<%= xxx@xxx.xxx html: {multipart: true}) do |f| %>
 	<%= xxx@xxx.xxx %>
 	<ol>
 		<li>

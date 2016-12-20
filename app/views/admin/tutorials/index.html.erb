@@ -10,7 +10,7 @@ xxx@xxx.xxx %></h1>
 
 <section>
 	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx ), :class => "icon back" %>
+		<%= link_to 'Back', xxx@xxx.xxx ), class: "icon back" %>
 	</nav>
 
 	<header>
@@ -31,7 +31,7 @@ xxx@xxx.xxx %></h1>
 			</thead>
 			<tbody id="tutorials">
 				<% for tutorial xxx@xxx.xxx %>
-					<%= render :partial => tutorial %>
+					<%= render partial: tutorial %>
 				<% end %>
 			</tbody>
 		</table>
@@ -40,7 +40,7 @@ xxx@xxx.xxx %></h1>
 	<ul id="how_tos" class="actions">
 xxx@xxx.xxx do |how_to| %>
 			<% if xxx@xxx.xxx how_to.id]).first %>
-				<%= render :partial => how_to %>
+				<%= render partial: how_to %>
 			<% end %>
 		<% end %>
 	</ul>

@@ -4,7 +4,7 @@ xxx@xxx.xxx %></h1>
 
 <section>
 	<nav>
-		<%= link_to 'Back', session[:referrer], :class => 'icon back'%>
+		<%= link_to 'Back', session[:referrer], class: 'icon back'%>
 	</nav>
 	
 	<%= xxx@xxx.xxx do |f| %>

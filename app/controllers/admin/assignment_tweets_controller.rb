@@ -27,7 +27,7 @@ class Admin::AssignmentTweetsController < ApplicationController
       begin
         Tweet.new.send( params[:content] )
         flash[:notice] = "Tweet tweeted"
-      rescue Twitter::Error => e
+      rescue Twitter:Error: e
         flash[:error] = "Tweet not sent: #{e}"
       end
 

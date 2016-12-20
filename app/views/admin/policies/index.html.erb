@@ -10,7 +10,7 @@ xxx@xxx.xxx %></h1>
 
 <section>
 	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx ), :class => "icon back" %>
+		<%= link_to 'Back', xxx@xxx.xxx ), class: "icon back" %>
 	</nav>
 
 	<header>
@@ -29,7 +29,7 @@ xxx@xxx.xxx %></h1>
 
 			<tbody id="policies">
 				<% for policy xxx@xxx.xxx %>
-					<%= render :partial => policy %>
+					<%= render partial: policy %>
 				<% end %>
 			</tbody>
 		</table>
@@ -42,7 +42,7 @@ xxx@xxx.xxx %></h1>
 			</tr>
 xxx@xxx.xxx do |syllabus_part| %>
 				<% if xxx@xxx.xxx syllabus_part.id]).first %>
-					<%= render :partial => syllabus_part %>
+					<%= render partial: syllabus_part %>
 				<% end %>
 			<% end %>
 		</table>

@@ -5,7 +5,7 @@
 <section>
 	<nav>
 		<% if session[:referrer] %>
-			<%= link_to "Back", session[:referrer], :class => "icon back" %>
+			<%= link_to "Back", session[:referrer], class: "icon back" %>
 		<% end %>
 	</nav>
 	
@@ -24,7 +24,7 @@ xxx@xxx.xxx do |how_to| %>
 				<tr>
 					<td><%= link_to how_to.title, admin_how_to_path(how_to) %></td>
 					<td class="edit"><%= link_to 'Edit', edit_admin_how_to_path(how_to) %></td>
-					<td class="destroy"><%= link_to 'Destroy', [:admin,how_to], :confirm => 'Are you sure?', :method => :delete %></td>
+					<td class="destroy"><%= link_to 'Destroy', [:admin,how_to], confirm: 'Are you sure?', method: :delete %></td>
 				</tr>
 			<% end %>
 		</table>

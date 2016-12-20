@@ -1,3 +1,3 @@
 //javascript to execute when create action completes
-$("#objectives").append("<%= escape_javascript(render(:partial xxx@xxx.xxx %>");
+$("#objectives").append("<%= xxx@xxx.xxx %>");
 $("#new_objective")[0].reset();

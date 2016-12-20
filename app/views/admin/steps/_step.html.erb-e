@@ -9,5 +9,5 @@
 	<td><%= step.title %></td>
 	<td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>
 	<td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-	<td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
+	<td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete %></td>
 </tr>

@@ -8,7 +8,7 @@ class Admin::DivisionsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -19,7 +19,7 @@ class Admin::DivisionsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -38,11 +38,11 @@ class Admin::DivisionsController < ApplicationController
        xxx@xxx.xxx = admin_divisions_url
         flash[:notice] = 'Division was successfully created.'
         format.html { redirect_to(admin_divisions_url) }
-        format.xml  { render :xml => @division, :status => :created, :location xxx@xxx.xxx }
+        format.xml  { render xml: @division, status: :created, xxx@xxx.xxx }
       else
        xxx@xxx.xxx = "failed"
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+        format.html { render action: "new" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
       format.js
     end
@@ -61,8 +61,8 @@ class Admin::DivisionsController < ApplicationController
         format.xml  { head :ok }
       else
        xxx@xxx.xxx = "failed"
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
       format.js
     end

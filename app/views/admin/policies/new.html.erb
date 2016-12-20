@@ -1,5 +1,5 @@
 <nav>
-		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+		<%= link_to 'Back', xxx@xxx.xxx class: "icon back" %>
 	</nav>
 
 
@@ -8,7 +8,7 @@
 	<ol>
 		<li>
 			<%= f.label :syllabus_part, "Syllabus Section to Add" %><br />
-			<%=  select( "policy", "syllabus_part_id", SyllabusPart.all.collect {|s| [ s.name, s.id ] }, { :include_blank => true } ) %>
+			<%=  select( "policy", "syllabus_part_id", SyllabusPart.all.collect {|s| [ s.name, s.id ] }, { include_blank: true } ) %>
 		</li>
 		<li class="submit_bar">
 			<%= f.submit "Add" %>

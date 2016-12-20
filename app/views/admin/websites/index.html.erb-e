@@ -5,7 +5,7 @@ xxx@xxx.xxx %></h1>
 
 <section>
 	<nav>	
-		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+		<%= link_to 'Back', xxx@xxx.xxx class: "icon back" %>
 	</nav>
 	
 	<header>

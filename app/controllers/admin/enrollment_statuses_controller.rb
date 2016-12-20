@@ -8,7 +8,7 @@ class Admin::EnrollmentStatusesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -19,7 +19,7 @@ class Admin::EnrollmentStatusesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -37,10 +37,10 @@ class Admin::EnrollmentStatusesController < ApplicationController
       xxx@xxx.xxx
         flash[:notice] = 'EnrollmentStatus was successfully created.'
         format.html { redirect_to(admin_enrollment_statuses_url) }
-        format.xml  { render :xml => @enrollment_status, :status => :created, :location xxx@xxx.xxx }
+        format.xml  { render xml: @enrollment_status, status: :created, xxx@xxx.xxx }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+        format.html { render action: "new" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
     end
   end
@@ -56,8 +56,8 @@ class Admin::EnrollmentStatusesController < ApplicationController
         format.html { redirect_to(admin_enrollment_statuses_url) }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
     end
   end

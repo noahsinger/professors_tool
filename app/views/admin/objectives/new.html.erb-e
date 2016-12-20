@@ -1,5 +1,5 @@
 <nav>
-		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
+		<%= link_to 'Back', xxx@xxx.xxx class: "icon back" %>
 	</nav>
 
-<%= render :partial => 'form', :locals => {:submit_name => 'Create'} %>
+<%= render partial: 'form', locals: {submit_name: 'Create'} %>

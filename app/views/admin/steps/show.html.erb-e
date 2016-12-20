@@ -28,6 +28,6 @@
 		<li class="prev"><h2><%= link_to( "Go back to the previous step", xxx@xxx.xxx prev_step )  ) %></h2></li>
 	<% end %>
 	<% if next_step %>
-		<li class="next"><h2><%= link_to( "Move on to the next step", xxx@xxx.xxx next_step ), {:class => 'next'} ) %></h2></li>
+		<li class="next"><h2><%= link_to( "Move on to the next step", xxx@xxx.xxx next_step ), {class: 'next'} ) %></h2></li>
 	<% end %>
 </ul>

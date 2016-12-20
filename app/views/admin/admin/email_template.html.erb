@@ -92,7 +92,7 @@ xxx@xxx.xxx = Enrollment.find 6 %> <!-- REMOVE!!! -->
 									<em>
 										Included in this email you will find detailed information on your current grade in
 xxx@xxx.xxx %>.  If you have any questions about these grades
-										please <%= link_to 'contact your instructor', new_general_contact_url(:host => APP_CONFIG['host']) %>.
+										please <%= link_to 'contact your instructor', new_general_contact_url(host: APP_CONFIG['host']) %>.
 									</em>
 								</p>
 								
@@ -134,7 +134,7 @@ xxx@xxx.xxx do |assignment| -%>
 													<p>
 														Your work was submitted after the due date.  Depending on your class's specific policy it
 														may or may not be graded but no grade exists for this lab at this time.  If you feel that this
-														is incorrect you can <%= link_to 'contact your instructor', new_general_contact_url(:host => APP_CONFIG['host']) %>.
+														is incorrect you can <%= link_to 'contact your instructor', new_general_contact_url(host: APP_CONFIG['host']) %>.
 													</p>
 												</div>
 											<%- else -%>
@@ -161,7 +161,7 @@ xxx@xxx.xxx do |assignment| -%>
 													No submission was found from you for this assignment and no grade exists for this work.  
 													If you're certain that there should be a grade here, you know you turned your assignment
 													in, and you know that it has been graded, then you should 
-													<%= link_to 'contact your instructor', new_general_contact_url(:host => APP_CONFIG['host']) %>.
+													<%= link_to 'contact your instructor', new_general_contact_url(host: APP_CONFIG['host']) %>.
 												</p>
 											</div>
 										<%- else -%>
@@ -198,7 +198,7 @@ xxx@xxx.xxx do |assignment| -%>
 									<strong><%= course.title %></strong> is going to be offered at Tulsa Community College.
 								</p>
 								<p>
-									If you have any additional questions about the class please feel free to <%= link_to 'contact me', new_general_contact_url(:host => APP_CONFIG['host']) %>.
+									If you have any additional questions about the class please feel free to <%= link_to 'contact me', new_general_contact_url(host: APP_CONFIG['host']) %>.
 								</p>
 								
 							</td>
@@ -253,8 +253,8 @@ xxx@xxx.xxx = Work.all.first %>
 									An attempt was just made to upload a new solution for <strong><%= assignment.title %></strong> for you.  If you didn't do this, don't worry, it wasn't 
 									accepted.  If you are trying to replace your previous submission with a new one, you must first 
 									<%= link_to 'withdraw your previous submission', withdraw_semester_section_assignment_works_url(semester, section, assignment, 
-											:code xxx@xxx.xxx
-											:host => APP_CONFIG['host']) %>.
+xxx@xxx.xxx
+											host: APP_CONFIG['host']) %>.
 								</p>
 								
 						</td>				
@@ -292,8 +292,8 @@ xxx@xxx.xxx = Work.all.first %>
 									<p>
 										If in the future (but still before the due date of course) you want to replace the submitted version of 
 										your lab with a new one, your will need to <%= link_to 'withdraw your submission', withdraw_semester_section_assignment_works_url(semester, section, assignment, 
-											:code xxx@xxx.xxx 
-											:host => APP_CONFIG['host']) %>.
+xxx@xxx.xxx 
+											host: APP_CONFIG['host']) %>.
 									</p>
 
 								</td>
@@ -384,14 +384,14 @@ xxx@xxx.xxx = Work.all.first %>
 							<p>A solution for <strong><%= assignment.title %></strong> was just submitted using your email address.  If you submitted your own work then 
 							everything is good and you can take this email as evidence that your work has been submitted.
 							If you did not submit this homework assignment you will need to 
-							<%= link_to "contact your instructor", new_general_contact_url(:host => APP_CONFIG['host']) %>
+							<%= link_to "contact your instructor", new_general_contact_url(host: APP_CONFIG['host']) %>
 							immediately.</p>
 
 							<p>If in the future (but still before the due date of course) you want to replace the submitted version of 
 							your lab with a new one, your will need to 
 							<%= link_to "withdraw your submission", withdraw_semester_section_assignment_works_url(semester, section, assignment, 
-								:code xxx@xxx.xxx 
-								:host => APP_CONFIG['host']) %>.</p>
+xxx@xxx.xxx 
+								host: APP_CONFIG['host']) %>.</p>
 							
 							<p>
 								<%= Time.zone.now.to_s(:date) %>

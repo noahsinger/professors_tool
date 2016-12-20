@@ -4,7 +4,7 @@ xxx@xxx.xxx %></h1>
 
 <section>
 	<nav>
-		<%= link_to 'Back to the course', xxx@xxx.xxx :class => "icon back" %>
+		<%= link_to 'Back to the course', xxx@xxx.xxx class: "icon back" %>
 		<%= link_to "Edit this Lab", xxx@xxx.xxx %>
 	</nav>
 	
@@ -38,7 +38,7 @@ xxx@xxx.xxx %></h1>
 						<th>Worth</th>
 					</tr>
 					<% for requirement xxx@xxx.xxx %>
-						<%= render :partial => requirement %>
+						<%= render partial: requirement %>
 					<% end %>
 					<tr class="last_row">
 						<td class="blank">Total:</td>
@@ -53,11 +53,11 @@ xxx@xxx.xxx %></td>
 				<ol>
 					<li>
 						<div class="details"><%= f.label :description %><p></p></div>
-						<div class="field"><%= f.text_field :description, :placeholder => "Description" %></div>
+						<div class="field"><%= f.text_field :description, placeholder: "Description" %></div>
 					</li>
 					<li>
 						<div class="details"><%= f.label :points %><p></p></div>
-						<div class="field"><%= f.text_field :points, :placeholder => "Points" %></div>
+						<div class="field"><%= f.text_field :points, placeholder: "Points" %></div>
 					</li>
 					<li class="action">
 						<div><%= f.submit "Create" %></div>
@@ -92,7 +92,7 @@ xxx@xxx.xxx %></p>
 					    <td class="nav"><%=link_to extra.file_file_name, extra.file.url %></td>
 					    <td><%= extra.description %></td>
 					    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-					    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
+					    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete %></td>
 					  </tr>
 					<% end %>
 					</table>

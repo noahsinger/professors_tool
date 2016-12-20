@@ -4,7 +4,7 @@
 
 <section>
 	<nav>
-		<%= link_to "Back", admin_enrollment_statuses_path, :class => "icon back" %>
+		<%= link_to "Back", admin_enrollment_statuses_path, class: "icon back" %>
 	</nav>
 
 	<header>
@@ -12,5 +12,5 @@
 		<h1>Enrollment Status</h1>
 	</header>
 
-	<%= render :partial => "form", :locals => {:submit_name => 'Create'} %>
+	<%= render partial: "form", locals: {submit_name: 'Create'} %>
 </section>
