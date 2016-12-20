@@ -1,76 +1,58 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
+<%= render 'admin/admin/admin_header' %>s
+<%= render partial: 'courses_header' %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', admin_courses_path, :class => "icon back" %>
-	</nav>
-	
+<%= render partial: 'course', locals: xxx@xxx.xxx main: true} %>
+
+<div class="block">
 	<header>
 		<p>This course has occurred <%= xxx@xxx.xxx "time" %></p>
-xxx@xxx.xxx %></h1>
 	</header>
 	
-	<article class="course_info">
-		<div class="fancy hidden" id="general_information_div">
-			<table>
-				<tr>
-				  <td class="blank">Credits:</td>
-				  xxx@xxx.xxx %></td>
-				</tr>
+	<p><%= link_to(pluralize(@course.waiters.count, 'waiter'), xxx@xxx.xxx %></p>
+			
+	<p>
+		<b>Prerequisite:</b>
+xxx@xxx.xxx %>
+	</p>
 	
-				<tr>
-					<td class="blank">Prerequisite:</td>
-xxx@xxx.xxx %></td>
-				</tr>
+	<p>
+		<b>Description:</b>
+xxx@xxx.xxx %>
+	</p>
 	
-				<tr>
-					<td class="blank">Description:</td>
-xxx@xxx.xxx %></td>
-				</tr>
+	<p>
+		<b>Next Course:</b>
+xxx@xxx.xxx %>
+	</p>
 	
-				<tr>
-					<td class="blank">Next Course:</td>
-xxx@xxx.xxx %></td>
-				</tr>
-	
-				<tr>
-					<td class="blank">Required Materials</td>
-xxx@xxx.xxx %></td>
-				</tr>
-			</table>
-		</div>
-		
-		<ul class="actions">
-			<li><%= link_to "Edit this course", xxx@xxx.xxx %></li>
-			<li><%= link_to 'Waiters', xxx@xxx.xxx %></li>
+	<p>
+		<b>Required Materials:</b>
+xxx@xxx.xxx %>
+	</p>
+</div>
 
-			<li><%= link_to 'Labs', xxx@xxx.xxx %></li>
-			<li><%= link_to 'Materials', xxx@xxx.xxx %></li>
-			<li><%= link_to 'Tutorials', xxx@xxx.xxx %></li>
-			<li><%= link_to 'Objectives', xxx@xxx.xxx %></li>
-			<li><%= link_to 'Policies', xxx@xxx.xxx %></li>
-			<li><%= link_to 'Books', xxx@xxx.xxx %></li>
-			<li><%= link_to 'Websites', xxx@xxx.xxx %></li>
-		</ul>
+<%= render 'admin/labs/labs_header' %>
+<%= render 'admin/materials/materials_header' %>
+<%= render 'admin/tutorials/tutorials_header' %>
+<%= render 'admin/objectives/objectives_header' %>
+<%= render 'admin/policies/policies_header' %>
+<%= render 'admin/books/books_header' %>
+<%= render 'admin/websites/websites_header' %>
 
-		<div style="clear: both;">
-			<header>
-				<h1>Sections</h1>
-			</header>
-		</div>
-		
-		<ul class="actions">
+<div class="block">
+	<header>
+		<h4>Sections</h4>
+	</header>
+
+	<ul class="actions">
 xxx@xxx.xxx do |section| %>
-				<li>
-					<% link_text = section.semester.name %>
-					<% if section.semester.is_current? %>
+			<li>
+				<% link_text = section.semester.name %>
+				<% if section.semester.is_current? %>
 					<% link_text = "*#{link_text}" %>
-					<% end %>
-					<%= link_to link_text, admin_semester_section_path(section.semester,section) %>
-				</li>
-			<% end %>
-		</ul>
-	</article>
-</section>
+				<% end %>
+				<%= link_to link_text, admin_semester_section_path(section.semester,section) %>
+			</li>
+		<% end %>
+	</ul>
+</div>
