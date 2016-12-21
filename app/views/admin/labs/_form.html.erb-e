@@ -1,0 +1,20 @@
+<div class="block form">
+	<%= xxx@xxx.xxx remote: true) do |f| %>
+	  <%= xxx@xxx.xxx %>
+		<ol>
+			<li><div class="details"><%= f.label :visible %><p></p></div><div class="field"><%= f.check_box :visible %></div></li>
+
+			<li><div class="details"><%= f.label :allow_uploads %><p></p></div><div class="field"><%= f.check_box :allow_uploads %></div></li>
+
+			<li><div class="details"><%= f.label :title %><p></p></div><div class="field"><%= f.text_field :title %></div></li>
+	
+			<li><div class="details"><%= f.label :objective %><p></p></div><div class="field"><%= f.text_field :objective %></div></li>
+	
+			<li class="textarea"><div class="details"><%= f.label :instructions %><p></p></div><div class="field"><%= f.text_area :instructions %></div></li>
+	
+			<li class="action">
+				<div><%= f.submit %></div>
+			</li>
+		</ol>
+	<% end %>
+</div>

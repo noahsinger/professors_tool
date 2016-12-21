@@ -1,111 +1,67 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
+<%= render 'admin/admin/admin_header' %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'labs_header', locals: {main: true} %>
 
-<section>
-	<nav>
-		<%= link_to 'Back to the course', xxx@xxx.xxx class: "icon back" %>
-		<%= link_to "Edit this Lab", xxx@xxx.xxx %>
-	</nav>
-	
-	<header>
-		<p>for xxx@xxx.xxx %></p>
-xxx@xxx.xxx %></h1>
-	</header>
-	
-	<div id="details">
-		<section id="requirements">
-			<div class="fancy">
-				<table>
-					<tr>
-						<td xxx@xxx.xxx %></td>
-					</tr>
-					<tr>
-						<td class="blank">Allow xxx@xxx.xxx %></td>
-					</tr>
-					<tr>
-						<td class="blank">Assigned</td>
-						<td><%= xxx@xxx.xxx "time" %></td>
-					</tr>
-				</table>
-			</div>
+<%= render partial: 'lab', locals: xxx@xxx.xxx %>
+
+<div class="block">
+	<h5>Details</h5>
+	<table>
+		<tr>
+			<td xxx@xxx.xxx %></td>
+		</tr>
+		<tr>
+			<td class="blank">Allow xxx@xxx.xxx %></td>
+		</tr>
+		<tr>
+			<td class="blank">Assigned</td>
+			<td><%= xxx@xxx.xxx "time" %></td>
+		</tr>
+	</table>
+</div>
 			
-
-			<div class="fancy">
-				<table id="requirements_table">
-					<tr>
-						<th>Requirement</th>
-						<th>Worth</th>
-					</tr>
-					<% for requirement xxx@xxx.xxx %>
-						<%= render partial: requirement %>
-					<% end %>
-					<tr class="last_row">
-						<td class="blank">Total:</td>
+<div class="block" data-script='$("#requirements_table").reorderTable( "<%= xxx@xxx.xxx ) %>", "<%= form_authenticity_token %>" );'>
+	<h5>Requirements</h5>
+	<table id="requirements_table">
+		<tr>
+			<th>Requirement</th>
+			<th>Worth</th>
+		</tr>
+		<% for requirement xxx@xxx.xxx %>
+			<%= render partial: requirement %>
+		<% end %>
+		<tr class="last_row">
+			<td class="blank">Total:</td>
 xxx@xxx.xxx %></td>
-						<td class="blank"></td>
-						<td class="blank"></td>
-					</tr>
-				</table>
-			</div>
+			<td class="blank"></td>
+			<td class="blank"></td>
+		</tr>
+	</table>
+</div>
 
-			<%= xxx@xxx.xxx do |f| %>
-				<ol>
-					<li>
-						<div class="details"><%= f.label :description %><p></p></div>
-						<div class="field"><%= f.text_field :description, placeholder: "Description" %></div>
-					</li>
-					<li>
-						<div class="details"><%= f.label :points %><p></p></div>
-						<div class="field"><%= f.text_field :points, placeholder: "Points" %></div>
-					</li>
-					<li class="action">
-						<div><%= f.submit "Create" %></div>
-					</li>
-				</ol>
-			<% end %>
-			
-		</section>
+<div class="block">
+	<header id="assignment_instructions_header"><h5>Instructions</h5></header>
+
+	<div id="assignment_instructions">
+		<%= xxx@xxx.xxx %>
 	</div>
+</div>
 	
-	
-	<article id="assignment">
-		<div id="assignment_objective">
-			<strong>Objective</strong>
-xxx@xxx.xxx %></p>
-		</div>
-	
-
-		<header id="assignment_instructions_header"><h1>Instructions</h1></header>
-
-		<div id="assignment_instructions">
-			<%= xxx@xxx.xxx %>
-		</div>
-		
-		<div id="extras">
-			<header id="assignment_extras_header"><h1>Extras</h1></header>
-			<div class="fancy">
-				<% xxx@xxx.xxx > 0 %>
-					<table>
-					<% for extra xxx@xxx.xxx %>
-					  <tr>
-					    <td class="nav"><%=link_to extra.file_file_name, extra.file.url %></td>
-					    <td><%= extra.description %></td>
-					    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-					    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete %></td>
-					  </tr>
-					<% end %>
-					</table>
-				<% end %>
-				<ul class="actions"><li><%= link_to 'Add an extra', xxx@xxx.xxx %></li></ul>
-			</div>
-		</div>
-				
-	</article>
-</section>
-
-<script type="text/javascript" charset="utf-8">
-	$(document).ready(function( ) {	
-		$("#requirements_table").reorderTable( "<%= xxx@xxx.xxx ) %>", "<%= form_authenticity_token %>" );
-	});
-</script>
+<div class="block">
+	<header id="assignment_extras_header"><h5>Extras</h5></header>
+	<div class="fancy">
+		<% xxx@xxx.xxx > 0 %>
+			<table>
+			<% for extra xxx@xxx.xxx %>
+			  <tr>
+			    <td class="nav"><%=link_to extra.file_file_name, extra.file.url %></td>
+			    <td><%= extra.description %></td>
+			    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
+			    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete %></td>
+			  </tr>
+			<% end %>
+			</table>
+		<% end %>
+		<ul class="actions"><li><%= link_to 'Add an extra', xxx@xxx.xxx %></li></ul>
+	</div>
+</div>

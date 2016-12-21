@@ -1,33 +1,12 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
+<%= render 'admin/admin/admin_header' %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'labs_header', locals: {main: true} %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx ), class: "icon back" %>
-	</nav>
-
+<div class="block">
 	<header>
-xxx@xxx.xxx %></p>
-xxx@xxx.xxx %></h1>
+		<p>New Lab For</p>
+xxx@xxx.xxx %></h4>
 	</header>
+</div>
 
-	<%= xxx@xxx.xxx do |f| %>
-		<%= xxx@xxx.xxx %>
-		<ol>
-			<li><div class="details"><%= f.label :visible %><p></p></div><div class="field"><%= f.check_box :visible %></div></li>
-
-			<li><div class="details"><%= f.label :allow_uploads %><p></p></div><div class="field"><%= f.check_box :allow_uploads %></div></li>
-
-			<li><div class="details"><%= f.label :title %><p></p></div><div class="field"><%= f.text_field :title %></div></li>
-
-			<li><div class="details"><%= f.label :objective %><p></p></div><div class="field"><%= f.text_field :objective %></div></li>
-
-			<li class="textarea"><div class="details"><%= f.label :instructions %><p></p></div><div class="field"><%= f.text_area :instructions %></div></li>
-
-			<li class="action">
-				<div><%= f.submit "Create" %></div>
-			</li>
-		</ol>
-	<% end %>
-</section>
+<%= render 'form' %>
