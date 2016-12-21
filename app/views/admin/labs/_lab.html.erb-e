@@ -1,6 +1,9 @@
-<div class="block">	
-	<h4><%= link_to lab.title, xxx@xxx.xxx lab) %></h4>
-	<p><%= lab.objective %></p>
+<div class="block <%= double_width_if_main(defined? main) %>">
+	<h4>
+		<%= link_to lab.title, xxx@xxx.xxx lab) %>
+		(<%= pluralize lab.worth, "point" %>)
+	</h4>
+	<p><b>Objective: </b><%= lab.objective %></p>
 	<p>is lab visible: <%= lab.visible %></p>
 	<p>are uploads allowed: <%= lab.allow_uploads %></p>
 	
