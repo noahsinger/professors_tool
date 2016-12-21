@@ -1,32 +1,15 @@
-<%= content_for :header do %>
-	<h1>Waiters</h1>
-<% end %>
-
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx class: "icon back" %>
-	</nav>
-
-	<header>
-		<p>Waiters for</p>
-xxx@xxx.xxx %></h1>
-	</header>
-
-	<div class="fancy">
-		<table>
-		  <tr>
-		    <th>Email</th>
-		    <th></th>
-		    <th></th>
-		    <th></th>
-		  </tr>
+<%= render 'admin/admin/admin_header' %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
 
 xxx@xxx.xxx do |waiter| %>
-			  <tr>
-			    <td><%= mail_to waiter.email %></td>
-			    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx waiter], confirm: 'Are you sure?', method: :delete %></td>
-			  </tr>
-			<% end %>
-		</table>
+  <div class="block">
+    <h5><%= mail_to waiter.email %></h5>
+		<p>
+		  Created:
+		  <%= show_short_date(waiter.created_at) %>
+		</p>
+		<ul>
+			<li><%= link_to 'Destroy', xxx@xxx.xxx waiter], confirm: 'Are you sure?', method: :delete, remote: true %></li>
+		</ul>
 	</div>
-</section>
+<% end %>
