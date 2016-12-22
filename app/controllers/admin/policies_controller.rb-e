@@ -26,17 +26,6 @@ class Admin::PoliciesController < ApplicationController
     end
   end
 
-  # GET /policies/new
-  # GET /policies/new.xml
-  def new
-    @policy xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render xxx@xxx.xxx }
-    end
-  end
-
   # POST /policies
   # POST /policies.xml
   def create
@@ -81,16 +70,17 @@ class Admin::PoliciesController < ApplicationController
   end
   
   def add_syllabus_part
-    @policy = Policy.new xxx@xxx.xxx syllabus_part_id: params[:syllabus_part_id]
+    @policy = xxx@xxx.xxx syllabus_part_id: params[:syllabus_part_id])
 
     respond_to do |format|
+      @status = xxx@xxx.xxx
       xxx@xxx.xxx
-        format.js
         format.html { head :ok }
       else
         flash[:error] = 'There was a problem creating the policy.'
         format.html { render action: "new" }
       end
+      format.js
     end 
   end
   

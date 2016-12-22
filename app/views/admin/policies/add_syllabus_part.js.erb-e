@@ -1,3 +1,4 @@
+xxx@xxx.xxx %>");
 
-$("#policies").append("<%= xxx@xxx.xxx %>");
-$("#syllabus_parts xxx@xxx.xxx %>").remove( );
+// $("#policies").append("<%# xxx@xxx.xxx %>");
+// xxx@xxx.xxx %>").remove( );

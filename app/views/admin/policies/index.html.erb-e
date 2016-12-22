@@ -1,61 +1,26 @@
-<script type="text/javascript" charset="utf-8">
-	$(document).ready(function( ) {	
-		$("#policies").reorderTable( "<%= xxx@xxx.xxx ) %>", "<%= form_authenticity_token %>" );
-	});
-</script>
+<%= render 'admin/admin/admin_header' %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'policies_header', locals: {main: true} %>
 
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
-
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx ), class: "icon back" %>
-	</nav>
-
-	<header>
-		<p>Policies for</p>
-xxx@xxx.xxx %></h1>
-	</header>
-
-	<div class="fancy">
-		<table>
-			<thead>
-				<tr>
-					<th>Current Policies</th>
-					<th></th>
-				</tr>
-			</thead>
-
-			<tbody id="policies">
-				<% for policy xxx@xxx.xxx %>
-					<%= render partial: policy %>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
-
-	<div class="fancy">
-		<table id="syllabus_parts">
+<div class="block" data-script='$("#policies").reorderTable( "<%= xxx@xxx.xxx ) %>", "<%= form_authenticity_token %>" );'>
+	<table>
+		<thead>
 			<tr>
-				<th colspan="5">Available Policies</th>
+				<th>Current Policies</th>
+				<th></th>
 			</tr>
-xxx@xxx.xxx do |syllabus_part| %>
-				<% if xxx@xxx.xxx syllabus_part.id]).first %>
-					<%= render partial: syllabus_part %>
-				<% end %>
-			<% end %>
-		</table>
-	</div>
+		</thead>
 
-	<%= form_for([:admin,SyllabusPart.new]) do |f| %>
-		<ol>
-			<li><div class="details"><%= f.label :name %><p></p></div><div class="field"><%= f.text_field :name %></div></li>
-			<li><div class="details"><%= f.label :title %><p></p></div><div class="field"><%= f.text_field :title %></div></li>
-			<li class="textarea"><div class="details"><%= f.label :description %><p></p></div><div class="field"><%= f.text_area :description %></div></li>
-			<li class="action">
-				<div><%= f.submit "Add" %></div>
-			</li>
-		</ol>
+		<tbody id="policies">
+			<% for policy xxx@xxx.xxx %>
+				<%= render policy %>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+xxx@xxx.xxx do |syllabus_part| %>
+	<% if xxx@xxx.xxx syllabus_part.id]).first %>
+		<%= render partial: syllabus_part %>
 	<% end %>
-</section>
+<% end %>
