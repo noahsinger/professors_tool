@@ -23,7 +23,6 @@
 
 	<%= yield :prefetches %>
 
-	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	<% if admin? %>
 		<!-- start admin javascript -->
 		<%= javascript_include_tag 'admin/admin' %>
@@ -34,9 +33,11 @@
 
 	<% unless css_naked_day? %>
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	<% end %>
 
 	<%= csrf_meta_tags %>
+	
 	<meta name="turbolinks-cache-control" content="no-preview">
 </head>
 <body id="<%= controller_name %>_<%= action_name %>" class="<%= admin? ? "admin": "student" %>">
@@ -49,7 +50,6 @@
 			</header>
       <nav>
         <ul>
-        		<li id="animation_link_item"></li>
         		<li><%= link_to 'Contact', new_general_contact_path %></li>
         		<li><%= link_to 'Semesters', semesters_path %></li>
         		<li><%= link_to 'Courses', courses_path %></li>
@@ -69,13 +69,13 @@
       </p>
 		</div>
 
-		<!-- <% if css_naked_day? %>
-			<div>
+		<% if css_naked_day? %>
+			<div class="block">
 				<h1>WHERE DID THE DESIGN GO?</h1>
 				<p>This website is not broken, the owner of it has decided to participate in Naked CSS Day <%= Time.now.year %>!</p>
 				<p>Naked CSS Day is a event that is held once per year (April 9th) to celebrate good & well planned design. The website will be back to its normal state tomorrow.</p>
 			</div>
-		<% end %> -->
+		<% end %>
 
 		<!--
 			<div id="ie_warning" style="display: none;">
@@ -90,16 +90,16 @@
 					submitted...
 				</p>
 			</div> -->
-
-		<!--
-			<noscript>
+		
+		<noscript>
+			<div class="block">
 				<ul id="javascript_warning">
 					<li>
 						You must enable javascript for this site to function properly!
 					</li>
 				</ul>
-			</noscript> -->
-
+			</div>
+		</noscript>
 
 		<%= render partial: 'shared/messages' %>
 		<%= yield %>
