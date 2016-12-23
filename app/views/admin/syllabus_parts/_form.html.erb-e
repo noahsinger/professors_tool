@@ -1,4 +1,4 @@
-<div class="block form">
+<div class="block form block--width2">
 	<%= xxx@xxx.xxx remote: true) do |f| %>
 		<input type="hidden" name="course_id" xxx@xxx.xxx %>"/>
 		<ol>

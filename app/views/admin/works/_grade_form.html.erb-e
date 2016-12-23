@@ -1,4 +1,4 @@
-<div class="block form" data-script="setup_field_updates( )">
+<div class="block form block--width2" data-script="setup_field_updates( )">
 	<%= form_for( @work, as: :work, url: xxx@xxx.xxx html: {method: :put}, remote: true ) do |f| %>
 		<%= xxx@xxx.xxx %>
 				<div class="fancy">
