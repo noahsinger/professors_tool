@@ -85,6 +85,7 @@ $(document).ready(function( ) {
 	console.log(current_blocks);
 }); //end ready
 
+
 // LOAD
 document.addEventListener("turbolinks:load", function() {
 	console.log("load");
@@ -179,12 +180,15 @@ var page_element_init = function( ) {
 	  console.log(e, data);
 	});
 		
+	//look for and execute any scripts included with blocks
 	$(".block").each( function( ) {
 		if( $(this).data("script") ) {
 			console.log("*** script detected with node: " + $(this).data("script"));
 			eval($(this).data("script"));
 		}	
 	});
+	
+	
 }
 
 
@@ -215,6 +219,7 @@ var process_form_create = function( form_partial, success_url ) {
 	});
 }
 
+
 jQuery.fn.reorderTable = function( url, token ) {
 	this.tableDnD({
 		onDrop: function(table, row) {
@@ -229,26 +234,6 @@ jQuery.fn.reorderTable = function( url, token ) {
 	});
 };
 
-// jQuery.ajaxSetup({
-//   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
-// })
-//
-// jQuery.fn.submitWithAjax = function( ) {
-//   this.submit(function( ) {
-//     $.post(this.action, $(this).serialize(), null, "script");
-//     return false;
-//   })
-//   return this;
-// };
-
-
-
-// $(document).ready(function( ) {
-// 	$("#new_objective").submitWithAjax( );
-// 	$("#new_syllabus_part").submitWithAjax( );
-// 	$("#new_requirement").submitWithAjax( );
-// }); //end document ready
-//
 // function check_for_ie( ) {
 // 	if( jQuery.support.opacity ) {
 // 		$("#ie_warning").hide( );

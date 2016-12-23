@@ -28,15 +28,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ---- .block ---- */
 
-.block,
-.grid-sizer {
+.block, .grid-sizer {
   width: 33%;
-	// height: 200px;
 	padding: 20px 0;
 }
 
 .block--width2, .chart { width: 66.3%; }
-// .block--height2 { height: 403px; }
 
 .block {
   float: left;
@@ -52,10 +49,6 @@ h1, h2, h3, h4, h5, h6 {
 	.block table {
 		width: 90%;
 	}
-
-.block h1:first-child, .block h2:first-child, .block h3:first-child, .block p:first-child {
-	// padding-top: 20px;
-}
 
 .block.flash {
 	font-weight: bold;
@@ -85,8 +78,7 @@ h1, h2, h3, h4, h5, h6 {
 
 	/* ---- .block ---- */
 
-	.block,
-	.grid-sizer {
+	.block, .grid-sizer {
 	  width: 49%;
 		padding: 20px 0;
 	}
