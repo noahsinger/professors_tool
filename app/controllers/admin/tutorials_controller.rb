@@ -33,6 +33,7 @@ class Admin::TutorialsController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+      @status = xxx@xxx.xxx
       format.html { xxx@xxx.xxx )) }
       format.xml  { head :ok }
     end
@@ -57,13 +58,14 @@ class Admin::TutorialsController < ApplicationController
     @tutorial = Tutorial.new( xxx@xxx.xxx how_to_id: params[:how_to_id] )
 
     respond_to do |format|
+      @status = xxx@xxx.xxx
       xxx@xxx.xxx
-        format.js
         format.html { head :ok }
       else
         flash[:error] = 'There was a problem creating the tutorial.'
         format.html { render action: "new" }
       end
+      format.js
     end
   end
   

@@ -1,33 +1,41 @@
-<nav>
-	<%= link_to 'Back', xxx@xxx.xxx %>
-	<%= link_to 'Edit', xxx@xxx.xxx %>
-</nav>
+<%= render 'admin/admin/admin_header' %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/tutorials/tutorials_header' %>
+<%= render partial: 'admin/how_tos/how_to', locals: xxx@xxx.xxx %>
 
-<header>
-	<p>How to: xxx@xxx.xxx %></p>
-	<h1>Step <%= @step.position %> :: xxx@xxx.xxx %></h1>
-</header>
-
-<article id="tutorial_step">
-	<p>
-		<% xxx@xxx.xxx %>
-			<%= xxx@xxx.xxx ) %>
-		<% end %>
-	</p>
-		
-	<%= xxx@xxx.xxx %>
-</article>
 
 <%  
 	prev_step = @how_to.steps.where(['position=?',@step.position - 1]).first xxx@xxx.xxx
 	next_step = @how_to.steps.where(['position=?',@step.position + 1]).first xxx@xxx.xxx
 %>
+
+
+<div class="block block--width2">
+	<header>
+		<p>How to: xxx@xxx.xxx %></p>
+		<h6>Step <%= @step.position %> :: xxx@xxx.xxx %></h6>
+	</header>
 	
-<ul id="next_prev">
-	<% if prev_step %>
-		<li class="prev"><h2><%= link_to( "Go back to the previous step", xxx@xxx.xxx prev_step )  ) %></h2></li>
-	<% end %>
-	<% if next_step %>
-		<li class="next"><h2><%= link_to( "Move on to the next step", xxx@xxx.xxx next_step ), {class: 'next'} ) %></h2></li>
-	<% end %>
-</ul>
+	<ul>
+		<li><%= link_to 'Edit', xxx@xxx.xxx @course) %></li>
+	</ul>
+
+	<ul id="next_prev">
+		<% if prev_step %>
+			<li class="prev"><%= link_to( "Go back to the previous step", admin_how_to_step_path(@how_to, prev_step, xxx@xxx.xxx  ) %></li>
+		<% end %>
+		<% if next_step %>
+			<li class="next"><%= link_to( "Move on to the next step", admin_how_to_step_path(@how_to, next_step, xxx@xxx.xxx {class: 'next'} ) %></li>
+		<% end %>
+	</ul>
+</div>
+
+<div class="block" id="tutorial_step">
+	<%= xxx@xxx.xxx %>
+</div>
+
+<% xxx@xxx.xxx %>
+	<div class="block">
+		<section class="how_to_step_image"><%= xxx@xxx.xxx ) %></section>
+	</div>
+<% end %>

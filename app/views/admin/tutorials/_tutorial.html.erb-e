@@ -1,4 +1,5 @@
 <tr id="<%= tutorial.id %>">
-	<td><%= tutorial.how_to.title %></td>
-	<td class="destroy"><%= link_to 'Remove from this Course', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete %></td>
+	<td><%= link_to tutorial.how_to.title, admin_how_to_steps_path(tutorial.how_to, xxx@xxx.xxx %></td>
+	<td><%= link_to 'edit', edit_admin_how_to_path(tutorial.how_to, xxx@xxx.xxx %></td>
+	<td><%= link_to 'remove', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete, remote: true %></td>
 </tr>

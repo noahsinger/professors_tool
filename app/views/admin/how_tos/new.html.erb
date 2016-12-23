@@ -1,27 +1,9 @@
-<%= content_for :header do %>
-	<h1>How to's</h1>
-<% end %>
+<%= render 'admin/admin/admin_header' %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/tutorials/tutorials_header', locals: {main: true} %>
 
-<section>
-	<nav>
-		<% if session[:referrer] %>
-			<%= link_to 'Back', session[:referrer], class: "icon back" %>
-		<% end %>
-	</nav>
+<div class="block">
+	<h5>New How to</h5>
+</div>
 
-	<header>
-		<p>How to's</p>
-		<h1>Create a New How to</h1>
-	</header>
-
-	<%= xxx@xxx.xxx do |f| %>
-	<%= xxx@xxx.xxx %>
-		<ol>
-			<li><div class="details"><%= f.label :title %><p></p></div><div class="field"><%= f.text_field :title %></div></li>
-			<li class="textarea"><div class="details"><%= f.label :description %><p></p></div><div class="field"><%= f.text_area :description %></div></li>
-			<li class="action">
-				<div><%= f.submit "Create" %></div>
-			</li>
-		</ol>
-	<% end %>
-</section>
+<%= render 'form' %>
