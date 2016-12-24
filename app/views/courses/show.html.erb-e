@@ -1,7 +1,7 @@
 <%= render 'courses/courses_header' %>
 <%= render partial: 'course', locals: xxx@xxx.xxx main: true} %>
 
-<div class="block">
+<div class="block courses">
 	<p id="disclaimer">
 		The information shown on this page is simply that, information.  This information is related only to this course in
 		general, not to a specific class or instance of this course that is being offered.  The labs shown on this page are
@@ -11,7 +11,7 @@
 	</p>
 </div>
 
-<div class="block">
+<div class="block courses">
 	<header><h3>Course Description</h3></header>
 	<%= xxx@xxx.xxx %>
 </div>
@@ -21,7 +21,7 @@
 
 
 <% xxx@xxx.xxx > 0 %>
-	<div class="block">
+	<div class="block courses">
 		<header>
 			<h3>Past Sections</h3>
 		</header>
@@ -38,7 +38,7 @@ xxx@xxx.xxx do |section| %>
 	</div>
 <% end %>
 
-<div class="block">
+<div class="block courses">
 	<header id="course_objectives_header"><h3>Objectives</h3></header>
 	<ol>
 xxx@xxx.xxx do |objective| %>
@@ -49,7 +49,7 @@ xxx@xxx.xxx do |objective| %>
 
 
 <% xxx@xxx.xxx > 0 %>
-	<div class="block">
+	<div class="block courses">
 		<header><h3><%= link_to "Potential Assignments", xxx@xxx.xxx %></h3></header>
 	</div>
 <% end %>

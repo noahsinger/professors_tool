@@ -2,7 +2,7 @@
 <%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
 
 xxx@xxx.xxx do |waiter| %>
-  <div class="block">
+  <div class="block waiters">
     <h5><%= mail_to waiter.email %></h5>
 		<p>
 		  Created:

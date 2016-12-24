@@ -4,7 +4,7 @@
 <%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
 <%= render partial: 'sections_header', locals: xxx@xxx.xxx %>
 
-<div class="block block--width2">
+<div class="block block--width2 sections">
 	<header><p>Edit</p><h3>Section</h3></header>
 </div>
 

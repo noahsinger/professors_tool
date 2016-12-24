@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block examples header <%= double_width_if_main(defined? main) %>">
 	<header>
 		<p><%= pluralize section.examples.count, "Example" %> available</p>
 		<h4><%= link_to "#{section.course.title} Classroom Examples", semester_section_examples_path(section.semester,section) %></h4>

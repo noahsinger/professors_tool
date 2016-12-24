@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block <%= double_width_if_main(defined? main) %> general_contacts header">
 	<p><%= pluralize GeneralContact.count, 'contact' %></p>
 	<h3><%= link_to 'Contacts', admin_general_contacts_path %></h3>
 	

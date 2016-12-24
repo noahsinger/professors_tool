@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block assignments <%= double_width_if_main(defined? main) %>">
 	<% unless assignment.overdue? %>
 		<p>Due on <%= show_short_date( assignment.duedate ) %> (<%= distance_of_time_in_words(Time.now, assignment.duedate) %>)</p>
 	<% else %>

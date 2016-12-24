@@ -1,13 +1,16 @@
-<nav>
-	<%= link_to 'Home', root_path, :class => "icon back" %>
-</nav>
+<%= render partial: 'semesters/semesters_header' %>
+<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
+<%= render partial: 'assignments/assignment', locals: xxx@xxx.xxx %>
 
-<header>
-	<p>status: xxx@xxx.xxx %></p>
-	<h1>Solution Withdrawal</h1>
-</header>
+<div class="block works block--width2">
+	<header>
+		<p>status: xxx@xxx.xxx %></p>
+		<h5>Solution Withdrawal</h5>
+	</header>
+</div>
 
-<div class="admin_comments">
+<div class="block works admin_comments block--width2">
 	<% xxx@xxx.xxx == "destroyed" %>
 		<p class="green">Your work has been withdrawn.</p>
 	<% else %>

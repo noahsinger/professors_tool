@@ -1,4 +1,4 @@
-<div class="block">
+<div class="block websites">
   <h4><%= website.title %></h4>
   <p><%= website.url %></p>
 	

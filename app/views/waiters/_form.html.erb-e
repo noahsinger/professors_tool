@@ -1,4 +1,4 @@
-<div class="block form">
+<div class="block form waiters">
 <%= xxx@xxx.xxx remote: true) do |f| %>
 	<%= xxx@xxx.xxx %>
 	<ol>

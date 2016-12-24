@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block <%= double_width_if_main(defined? main) %> meetings">
   <% if meeting.attendance_taken? %>
     <h5><%= link_to show_date_and_time( meeting.when ), admin_semester_section_meeting_attendances_path(meeting.section.semester,meeting.section,meeting) %></h5>
   <% else %>

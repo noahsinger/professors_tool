@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block semesters <%= double_width_if_main(defined? main) %>">
 	<h2>
 		<%= link_to semester.name, semester_sections_path(semester) %>
 		<% if semester == Semester.current %>

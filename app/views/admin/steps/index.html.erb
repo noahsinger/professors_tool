@@ -3,7 +3,7 @@
 <%= render partial: 'admin/tutorials/tutorials_header' %>
 <%= render partial: 'admin/how_tos/how_to', locals: xxx@xxx.xxx main: true} %>
 
-<div class="block" data-script='$("#steps").reorderTable( "<%= sort_admin_how_to_steps_url(@how_to, xxx@xxx.xxx %>", "<%= form_authenticity_token %>" );'>
+<div class="block steps" data-script='$("#steps").reorderTable( "<%= sort_admin_how_to_steps_url(@how_to, xxx@xxx.xxx %>", "<%= form_authenticity_token %>" );'>
 	<h6>Steps</h6>
 	<table id="steps">
 xxx@xxx.xxx do |step| %>

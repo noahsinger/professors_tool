@@ -4,7 +4,7 @@
 <%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
 <%= render partial: 'section', xxx@xxx.xxx %>
 
-	<div class="block chart" data-script="setTimeout(init_chart,1000)">
+	<div class="block chart sections" data-script="setTimeout(init_chart,1000)">
 		<section id="enrollments_chart">No Enrollment Data Available</section>
 
 		<%# table_data = {} %>

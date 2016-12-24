@@ -2,7 +2,7 @@
 <%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
 <%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
 
-<div class="block">
+<div class="block grade_request header block--width2">
 	<header>
 		<h4>Request your grades</h4>
 	</header>

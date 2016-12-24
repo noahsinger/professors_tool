@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block <%= double_width_if_main(defined? main) %> assignments header">
 	<header>
 		<p><%= pluralize section.assignments.size, "Assignment" %></p>
 		<h5><%= link_to "Assignments", admin_semester_section_assignments_url(section.semester,section) %></h5>

@@ -1,4 +1,4 @@
-<div class="block student">
+<div class="block student students">
   <%= render partial: 'student_data', locals: {student: student} %>
 
   <ul>

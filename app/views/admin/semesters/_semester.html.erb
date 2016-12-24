@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block semesters <%= double_width_if_main(defined? main) %>">
 	<p><%= show_short_date semester.start_date %> - <%= show_short_date semester.end_date %></p>
 	<% if semester.is_current? %>
 		<h3><%= link_to semester.name, admin_semester_sections_path(semester) %> <span class="light">(current)</span></h3>

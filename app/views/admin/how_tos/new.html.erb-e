@@ -2,7 +2,7 @@
 <%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
 <%= render partial: 'admin/tutorials/tutorials_header', locals: {main: true} %>
 
-<div class="block">
+<div class="block how_tos">
 	<h5>New How to</h5>
 </div>
 

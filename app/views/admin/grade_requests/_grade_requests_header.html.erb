@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block <%= double_width_if_main(defined? main) %> grade_requests header">
 	<p><%= pluralize GradeRequest.count, 'grade request' %></p>
 	<h3><%= link_to 'Grade Requests', admin_grade_requests_path %></h3>
 	<ul class="actions">

@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block assignments <%= double_width_if_main(defined? main) %>">
 	<p>No Assignments are currently available for this class.</p>
 	<p>
 		You can Subscribe to this classes

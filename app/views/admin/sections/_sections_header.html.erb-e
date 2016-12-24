@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block <%= double_width_if_main(defined? main) %> sections header">
 	<p><%= semester.name %></p>
 	<h4><%= link_to 'Sections', admin_semester_sections_path(semester) %></h4>
 	

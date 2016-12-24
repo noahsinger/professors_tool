@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block <%= double_width_if_main(defined? main) %> tutorials header">
 	<h4><%= link_to "Tutorials", xxx@xxx.xxx %></h4>
 	
 	<ul class="actions">

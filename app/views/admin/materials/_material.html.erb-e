@@ -1,4 +1,4 @@
-<div class="block">
+<div class="block materials">
   <h4><%= link_to material.title, material.file.url %></h4>
   <p><%= material.description %></p>
   

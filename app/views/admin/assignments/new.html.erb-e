@@ -6,7 +6,7 @@
 <%= render xxx@xxx.xxx %>
 <%= render partial: 'assignments_header', locals: xxx@xxx.xxx %>
 
-<div class="block block--width2">
+<div class="block block--width2 assignments">
 	<header>
 		<h3>New Assignment</h3>
 	</header>

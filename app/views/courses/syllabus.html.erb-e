@@ -1,7 +1,7 @@
 <%= render 'courses/courses_header' %>
 <%= render partial: 'courses/course', locals: xxx@xxx.xxx main: true} %>
 
-<div class="block">
+<div class="block courses">
 	<h2>Syllabus</h2>
 	<nav>
 		<a href="#" class="icon" id="print">Print this Syllabus</a>
@@ -27,7 +27,7 @@ xxx@xxx.xxx %>
 	</table>
 </div>
 
-<div class="block pagebreak">
+<div class="block pagebreak courses">
 	<h3>Course Prerequisites</h3>
 	<p>
 xxx@xxx.xxx %>
@@ -41,7 +41,7 @@ xxx@xxx.xxx %>
 	</p>
 </div>
 
-<div class="block pagebreak">
+<div class="block pagebreak courses">
 	<h3>Books and Resources</h3>
 	<% xxx@xxx.xxx > 0 %>
 		<h4><%= xxx@xxx.xxx 'Textbook' %></h4>
@@ -70,7 +70,7 @@ xxx@xxx.xxx do |website| %>
 	<% end %>
 </div>
 
-<div class="block pagebreak">
+<div class="block pagebreak courses">
 	<h3>Other Materials</h3>
 xxx@xxx.xxx %></p>
 </div>
@@ -85,7 +85,7 @@ xxx@xxx.xxx do |o| %>
 	</ol>
 </div>
 
-<div class="block pagebreak">
+<div class="block pagebreak courses">
 	<h3>Policies</h3>
 xxx@xxx.xxx do |policy| %>
 		<section>
@@ -96,7 +96,7 @@ xxx@xxx.xxx do |policy| %>
 </div>
 
 
-<div id="endNoteDiv" class="block">
+<div id="endNoteDiv" class="block courses">
 	<p>
 		As a courtesy to the class, if you carry a cell phone for professional or personal purposes please set it to vibrate or a soft ring. If you need to respond to calls or pages please leave the classroom to complete your business. Thank You.
 	</p>

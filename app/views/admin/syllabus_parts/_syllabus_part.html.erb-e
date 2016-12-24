@@ -1,4 +1,4 @@
-<div class="block" id="syllabus_part_<%= syllabus_part.id %>">
+<div class="block syllabus_parts" id="syllabus_part_<%= syllabus_part.id %>">
 	<p>available policy:</p>
 	<h5><%= syllabus_part.name %></h5>
 	<p><%= truncate syllabus_part.description, length: 240 %></p>

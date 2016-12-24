@@ -2,7 +2,7 @@
 <%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
 <%= render partial: 'websites_header' %>
 
-<div class="block">
+<div class="block websites">
 	<header>
 		<h4>New Website for</h4>
 xxx@xxx.xxx %></p>

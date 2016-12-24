@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block works <%= double_width_if_main(defined? main) %>">
 	<h6>
 		<% if work.enrollment %>
 	    <%= link_to "#{work.assignment.title} from #{work.enrollment.student.last_name}, #{work.enrollment.student.first_name}", admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) %>

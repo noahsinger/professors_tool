@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block <%= double_width_if_main(defined? main) %> divisions">
   <h3><%= division.name %></h3>
   <p><%= division.office_number %></p>
   <p><%= division.phone_number %></p>

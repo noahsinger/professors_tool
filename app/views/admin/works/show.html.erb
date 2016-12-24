@@ -9,61 +9,61 @@
 
 <%= render partial: 'work', xxx@xxx.xxx %>
 
-	<div class="block">
-		<header>
-			<p><%= @assignment.title %> - xxx@xxx.xxx %></p>
-			<h6>
-				Upload: 
-				<% xxx@xxx.xxx == "removed" %>
-					Removed
-				<% xxx@xxx.xxx %>
-					<%= link_to @work.upload_file_name, xxx@xxx.xxx @section, @assignment, @work ) %>
-				<% else %>
-					No Upload
-				<% end %>  
-			</h6>
-		</header>
-	</div>
+<div class="block works">
+	<header>
+		<p><%= @assignment.title %> - xxx@xxx.xxx %></p>
+		<h6>
+			Upload: 
+			<% xxx@xxx.xxx == "removed" %>
+				Removed
+			<% xxx@xxx.xxx %>
+				<%= link_to @work.upload_file_name, xxx@xxx.xxx @section, @assignment, @work ) %>
+			<% else %>
+				No Upload
+			<% end %>  
+		</h6>
+	</header>
+</div>
 
-	<div class="block">
-		<table>
-			<tr>
-				<th>Requirement</th><th>Worth</th><th>Earned</th>
-			</tr>
-	
-			<%  
-				possible = 0
-				earned = 0
-			%>
-	
+<div class="block works">
+	<table>
+		<tr>
+			<th>Requirement</th><th>Worth</th><th>Earned</th>
+		</tr>
+
+		<%  
+			possible = 0
+			earned = 0
+		%>
+
 xxx@xxx.xxx do |r| %>
-				<tr>
-					<td><%= r.description %></td>
-					<td><%= r.points %></td>
-			
-					<% 
-						awarded_point xxx@xxx.xxx
-						possible += r.points
-						earned += awarded_point.points if awarded_point
-					%>
-			
-					<td><%= awarded_point.points if awarded_point %></td>
-				</tr>
-			<% end %>
-			<tr class="last_row">
-				<td></td>
-				<td><%= possible %></td>
-				<td><%= earned %></td>
+			<tr>
+				<td><%= r.description %></td>
+				<td><%= r.points %></td>
+		
+				<% 
+					awarded_point xxx@xxx.xxx
+					possible += r.points
+					earned += awarded_point.points if awarded_point
+				%>
+		
+				<td><%= awarded_point.points if awarded_point %></td>
 			</tr>
-		</table>
-	</div>
+		<% end %>
+		<tr class="last_row">
+			<td></td>
+			<td><%= possible %></td>
+			<td><%= earned %></td>
+		</tr>
+	</table>
+</div>
 
-	<div class="block">
-		<h6>Instructors Comments:</h6>
+<div class="block works">
+	<h6>Instructors Comments:</h6>
 xxx@xxx.xxx %></p>
-	
-		<p>
-			<strong>Score: </strong>
-			<%= number_to_percentage((earned/possible.to_f)*100) %> - <%= score_to_letter ((earned/possible.to_f)*100) %>
-		</p>
-	</div>
+
+	<p>
+		<strong>Score: </strong>
+		<%= number_to_percentage((earned/possible.to_f)*100) %> - <%= score_to_letter ((earned/possible.to_f)*100) %>
+	</p>
+</div>

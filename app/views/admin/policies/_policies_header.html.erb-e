@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block <%= double_width_if_main(defined? main) %> policies header">
 	<h4><%= link_to "Policies", xxx@xxx.xxx %></h4>
 	
 	<ul>

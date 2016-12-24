@@ -1,4 +1,4 @@
-<div class="block">
+<div class="block general_contacts">
   <p><%= general_contact.return_email %></p>
   <h3><%= link_to general_contact.subject, [:admin,general_contact] %></h3>
 	<% if general_contact.attachment %>

@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block <%= double_width_if_main(defined? main) %> courses">
 	<p><%= course.title %></p>
 	<h3><%= link_to course.short_name, admin_course_path(course) %></h3>
 	

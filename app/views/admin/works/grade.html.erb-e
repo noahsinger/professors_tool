@@ -9,12 +9,8 @@
 
 <%= render partial: 'work', locals: xxx@xxx.xxx main: true} %>
 
-<%= content_for :header do %>
-	<h1>Grading</h1>
-<% end %>
-
 <% xxx@xxx.xxx %>
-	<div class="block">
+	<div class="block works">
 		<h3>
 			Download: 
 			<% xxx@xxx.xxx == "removed" %>

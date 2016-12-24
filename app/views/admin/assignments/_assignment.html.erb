@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block <%= double_width_if_main(defined? main) %> assignments">
 	<% unless assignment.graded? %>
 		<p>Not graded (<%= assignment.works.size %> waiting)</p>
 	<% end %>

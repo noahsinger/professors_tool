@@ -14,17 +14,6 @@ class Admin::HowTosController < ApplicationController
    xxx@xxx.xxx = Course.find( params[:course_id] )
   end
   
-  # GET /how_tos
-  # GET /how_tos.xml
-  def index
-   xxx@xxx.xxx = HowTo.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
-    end
-  end
-
   # GET /how_tos/new
   # GET /how_tos/new.xml
   def new    

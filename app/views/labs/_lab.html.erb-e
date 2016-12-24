@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %>">
+<div class="block labs <%= double_width_if_main(defined? main) %>">
 	<header>
 		<p><%= pluralize lab.worth, 'point' %></p>
 		<h3><%= link_to lab.title, course_lab_path(lab.course, lab) %></h3>

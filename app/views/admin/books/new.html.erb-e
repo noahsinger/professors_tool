@@ -4,7 +4,7 @@
 
 <%= render partial: 'book', xxx@xxx.xxx %>
 
-<div class="block">
+<div class="block books">
 	<header>
 		<p>Add a New Book for</p>
 xxx@xxx.xxx %></h4>

@@ -4,7 +4,7 @@
 <%= xxx@xxx.xxx %>
 
 
-<div class="block block--width2">
+<div class="block block--width2 sections">
 	<h3>Email Section</h3>
 </div>
 
