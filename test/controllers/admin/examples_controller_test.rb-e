@@ -5,7 +5,6 @@ class Admin::ExamplesControllerTest < ActionDispatch::IntegrationTest
                         {action: 'index'}    => :get,
                         {action: 'new'}      => :get,
                         {action: 'create'}   => :post,
-                        {action: 'show', id: 1}     => :get,
                         {action: 'edit', id: 1}     => :get,
                         {action: 'update', id: 1}   => :put,
                         {action: 'destroy', id: 1}  => :delete)
@@ -37,12 +36,7 @@ class Admin::ExamplesControllerTest < ActionDispatch::IntegrationTest
         }
     end
 
-    assert_redirected_to admin_semester_section_example_path(assigns(:semester),assigns(:section),assigns(:example))
-  end
-
-  test "should show example" do
-    get admin_semester_section_example_url(sections(:jck1003_section_1).semester,sections(:jck1003_section_1),examples(:one))
-    assert_response :success
+    assert_redirected_to admin_semester_section_examples_path(assigns(:semester),assigns(:section))
   end
 
   test "should get edit" do
@@ -59,7 +53,7 @@ class Admin::ExamplesControllerTest < ActionDispatch::IntegrationTest
           file: fixture_file_upload('test/fixtures/files/file.zip', 'application/zip')
         }
       }
-    assert_redirected_to admin_semester_section_example_path(assigns(:semester),assigns(:section),assigns(:example))
+    assert_redirected_to admin_semester_section_examples_path(assigns(:semester),assigns(:section))
   end
 
   test "should destroy example" do

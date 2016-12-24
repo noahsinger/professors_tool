@@ -3,7 +3,6 @@ require 'test_helper'
 class Admin::HomeworkReturnRequestsControllerTest < ActionDispatch::IntegrationTest
   cannot_access_actions('admin/homework_return_requests', {},
                         {action: 'index'}           => :get,
-                        {action: 'show', id: 1}     => :get,
                         {action: 'destroy', id: 1}  => :delete,
                         {action: 'destroy_all'}     => :delete)
 
@@ -13,11 +12,6 @@ class Admin::HomeworkReturnRequestsControllerTest < ActionDispatch::IntegrationT
 
   test "should get index" do
     get admin_homework_return_requests_url
-    assert_response :success
-  end
-
-  test "should show homework return request" do
-    get admin_homework_return_request_url(homework_return_requests(:one))
     assert_response :success
   end
 

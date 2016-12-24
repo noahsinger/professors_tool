@@ -6,6 +6,7 @@ class Admin::MeetingsController < ApplicationController
   def load_section
    xxx@xxx.xxx = Section.find( params[:section_id] )
   end
+
   # GET /meetings
   # GET /meetings.json
   def index

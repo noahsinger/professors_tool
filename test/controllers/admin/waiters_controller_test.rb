@@ -3,7 +3,6 @@ require 'test_helper'
 class Admin::WaitersControllerTest < ActionDispatch::IntegrationTest
   cannot_access_actions('admin/waiters', {course_id: 1},
                         {action: 'index'}    => :get,
-                        {action: 'show', id: 1}     => :get,
                         {action: 'destroy', id: 1}  => :delete)
 
   setup do
@@ -15,11 +14,6 @@ class Admin::WaitersControllerTest < ActionDispatch::IntegrationTest
     get xxx@xxx.xxx
     assert_response :success
     assert_not_nil assigns(:waiters)
-  end
-
-  test "should show waiter" do
-    get xxx@xxx.xxx
-    assert_response :success
   end
 
   test "should destroy waiter" do

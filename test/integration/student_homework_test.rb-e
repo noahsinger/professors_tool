@@ -5,6 +5,10 @@ class StudentHomeworkTest < ActionDispatch::IntegrationTest
 
   test "valid student can submit a lab solution" do
     logout
+    session[:user_id] = nil
+    if page.has_selector?( 'a[href="/logout"]' )
+      click_on("Signout")
+    end
 
     section = sections(:jck1003_section_1)
     semester = section.semester
@@ -28,6 +32,10 @@ class StudentHomeworkTest < ActionDispatch::IntegrationTest
 
   test "invalid student can submit lab solution" do
     logout
+    session[:user_id] = nil
+    if page.has_selector?( 'a[href="/logout"]' )
+      click_on("Signout")
+    end
 
     section = sections(:jck1003_section_1)
     semester = section.semester

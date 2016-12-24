@@ -64,7 +64,6 @@ Rails.application.routes.draw do
     resources :divisions
     resources :instructors
     resources :syllabus_parts
-    resources :users
     resources :assignment_tweets
     
     resources :admin do

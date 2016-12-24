@@ -22,17 +22,6 @@ class Admin::ExamplesController < ApplicationController
     end
   end
 
-  # GET /examples/1
-  # GET /examples/1.xml
-  def show
-    @example xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render xxx@xxx.xxx }
-    end
-  end
-
   # GET /admin_examples/new
   # GET /admin_examples/new.xml
   def new

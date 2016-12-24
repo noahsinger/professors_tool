@@ -3,7 +3,6 @@ require 'test_helper'
 class Admin::GradeRequestsControllerTest < ActionDispatch::IntegrationTest
   cannot_access_actions('admin/grade_requests', {},
                         {action: 'index'}           => :get,
-                        {action: 'show', id: 1}     => :get,
                         {action: 'destroy', id: 1}  => :delete,
                         {action: 'destroy_all'}     => :delete)
 
@@ -13,11 +12,6 @@ class Admin::GradeRequestsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     get admin_grade_requests_url
-    assert_response :success
-  end
-
-  test "should show grade request" do
-    get admin_grade_request_url(grade_requests(:one))
     assert_response :success
   end
 

@@ -2,6 +2,12 @@ class Admin::SyllabusPartsController < ApplicationController
   before_action :authenticate  
   before_action :store_referrer
   
+  before_action :load_course
+  
+  def load_course
+   xxx@xxx.xxx = Course.find(params[:course_id])
+  end
+  
   def store_referrer
     unless session[:referrer]
       session[:referrer] = request.referrer
@@ -9,13 +15,11 @@ class Admin::SyllabusPartsController < ApplicationController
   end
   
   def new
-   xxx@xxx.xxx = Course.find(params[:course_id])
    xxx@xxx.xxx = SyllabusPart.new
   end
 
   # GET /syllabus_parts/1/edit
   def edit
-   xxx@xxx.xxx = Course.find(params[:course_id])
    xxx@xxx.xxx = SyllabusPart.find(params[:id])
   end
 
@@ -23,13 +27,12 @@ class Admin::SyllabusPartsController < ApplicationController
   # POST /syllabus_parts.xml
   def create
    xxx@xxx.xxx = SyllabusPart.new(allowed_params)
-   xxx@xxx.xxx = Course.find params[:course_id]
 
     respond_to do |format|
       xxx@xxx.xxx
         @status = xxx@xxx.xxx
         flash[:notice] = 'SyllabusPart was successfully created.'
-        format.html {redirect_to(session[:referrer] || xxx@xxx.xxx
+        format.html xxx@xxx.xxx
         format.xml  { render xml: @syllabus_part, status: :created, xxx@xxx.xxx }
       else
        xxx@xxx.xxx = "failed"
@@ -44,13 +47,12 @@ class Admin::SyllabusPartsController < ApplicationController
   # PUT /syllabus_parts/1.xml
   def update
    xxx@xxx.xxx = SyllabusPart.find(params[:id])
-   xxx@xxx.xxx = Course.find params[:course_id]
 
     respond_to do |format|
       xxx@xxx.xxx
         @status = xxx@xxx.xxx
         flash[:notice] = 'SyllabusPart was successfully updated.'
-        format.html {redirect_to(session[:referrer] || xxx@xxx.xxx
+        format.html xxx@xxx.xxx
         format.xml  { head :ok }
       else
        xxx@xxx.xxx = "failed"
@@ -65,7 +67,6 @@ class Admin::SyllabusPartsController < ApplicationController
   # DELETE /syllabus_parts/1.xml
   def destroy
    xxx@xxx.xxx = SyllabusPart.find(params[:id])
-   xxx@xxx.xxx = Course.find params[:course_id]
    xxx@xxx.xxx
 
     respond_to do |format|

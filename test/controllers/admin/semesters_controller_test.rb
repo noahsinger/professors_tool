@@ -5,7 +5,6 @@ class Admin::SemestersControllerTest < ActionDispatch::IntegrationTest
                         {action: 'index'}    => :get,
                         {action: 'new'}      => :get,
                         {action: 'create'}   => :post,
-                        {action: 'show', id: 1}     => :get,
                         {action: 'edit', id: 1}     => :get,
                         {action: 'update', id: 1}   => :put,
                         {action: 'destroy', id: 1}  => :delete)
@@ -37,12 +36,7 @@ class Admin::SemestersControllerTest < ActionDispatch::IntegrationTest
          }
     end
 
-    assert_redirected_to admin_semester_path(assigns(:semester))
-  end
-
-  test "should_show_semester" do
-    get admin_semester_url(semesters(:fall))
-    assert_response :success
+    assert_redirected_to admin_semester_sections_path(assigns(:semester))
   end
 
   test "should_get_edit" do
@@ -52,7 +46,7 @@ class Admin::SemestersControllerTest < ActionDispatch::IntegrationTest
 
   test "should_update_semester" do
     put admin_semester_url(semesters(:fall)), params: {semester: { season: 'Spring' }}
-    assert_redirected_to admin_semester_path(assigns(:semester))
+    assert_redirected_to admin_semester_sections_path(assigns(:semester))
   end
 
   test "should_destroy_semester" do

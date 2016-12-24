@@ -23,8 +23,8 @@ class AddStudentToSectionTest < ActionDispatch::IntegrationTest
     assert page.has_selector?( 'input[id=student_last_name][value=Singer]' )
     assert page.has_selector?( xxx@xxx.xxx )
     
-    click_on( "Create" )
+    click_on( "Create Student" )
     
-    assert_equal admin_semester_section_path( semesters(:fall), sections(:jck1003_section_2) ), current_path
+    assert_equal admin_semester_section_enrollments_path( semesters(:fall), sections(:jck1003_section_2) ), current_path
   end
 end
