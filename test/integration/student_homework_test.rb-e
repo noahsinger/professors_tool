@@ -50,7 +50,7 @@ class StudentHomeworkTest < ActionDispatch::IntegrationTest
       click_on("Submit Solution")
     end
 
-    assert_equal nil, Work.last.enrollment
+    assert_nil Work.last.enrollment
     assert_equal xxx@xxx.xxx Work.last.email
 
     assert_equal semester_section_assignment_path(semester,section,assignment), current_path
