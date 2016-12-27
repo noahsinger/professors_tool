@@ -75,8 +75,12 @@ class Section < ApplicationRecord
     if self.days == "Online" or self.days == "Online Course"
       self.days
     else
-      self.days + ' ' + self.start_time.strftime( '%I:%M %p' ) + ' - ' + self.end_time.strftime( '%I:%M %p' )
+      self.days + ' ' + meeting_times
     end
+  end
+  
+  def meeting_times
+    self.start_time.strftime( '%I:%M %p' ) + ' - ' + self.end_time.strftime( '%I:%M %p' )
   end
   
   def days
