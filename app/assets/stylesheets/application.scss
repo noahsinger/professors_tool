@@ -8,10 +8,6 @@ a {
 	text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	line-height: 1.2em;
-}
-
 /* ---- grid ---- */
 
 #page {
@@ -42,13 +38,67 @@ h1, h2, h3, h4, h5, h6 {
 	transition: width 1s;
 }
 
-.block h1, .block h2, .block h3, .block h4, .block h5, .block h6, .block p, .block nav, .block table, .block section {
-	margin: 3px 20px;
-}
-
-	.block table {
+.block {
+	h1, h2, h3, h4, h5, h6, p, nav, table, section, footer {
+		padding: 0 20px;
+		margin: 0;
+	}
+	
+	h1, h2, h3, h4, h5, h6 {
+		line-height: 1.0em;	
+		text-transform: uppercase;
+		font-size: 2em;
+		padding: 20px;
+	
+		& + p {
+			margin-top: 20px;
+		}	
+	}
+	
+	p:first-child {
+		padding-top: 20px;
+		margin-bottom: -20px;
+	}
+	
+	footer {
+		margin-top: 20px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	
+	nav ul {
+		margin: 20px 0 0 0;
+		padding: 0;
+		
+		li {
+			border-width: 1px 0;
+			border-style: solid;
+			margin-top: -1px;
+			
+			a {
+				display: block;
+				padding: 10px 0;
+			}
+		}
+	}
+	
+	table {
 		width: 90%;
 	}
+	
+	textarea {
+		min-height: 200px;
+		width: 90%;
+	
+		border: 0;
+	}
+	
+	&.how_to_step_image img {
+		max-width: 100%;
+	}
+} // end .block
+
+
 
 .block.flash {
 	font-weight: bold;
@@ -64,9 +114,10 @@ h1, h2, h3, h4, h5, h6 {
 		color: #fff;
 	}
 
-.how_to_step_image img {
-	max-width: 100%;
-}
+
+
+
+
 
 /* ---- other ---- */
 

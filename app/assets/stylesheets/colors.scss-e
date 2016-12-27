@@ -1,0 +1,93 @@
+@import 'material_colors';
+
+body {
+	background-color: $blue_grey_900;
+}
+
+.grid-sizer {
+	background-color: $purple_800;
+	color: $grey_300;
+	
+	h1, h2, h3, h4, h5, h6, footer {
+		background-color: $purple_700;
+		
+		a {  
+			color: $amber_50;
+		}
+	}
+	
+	footer {
+		color: $purple_500;
+		
+		a {
+			color: $purple_400;
+		}
+	}
+	
+	nav ul li {
+		border-color: $purple_700;
+		
+		a {
+			color: $grey_400;
+		}
+	}
+
+	p:first-child {
+		background-color: $purple_700;
+		color: $grey_400;
+	}
+}
+
+.sections {
+	background-color: $red_800;
+	color: $grey_300;
+	
+	h1, h2, h3, h4, h5, h6 {
+		background-color: $red_700;
+		
+		a {  
+			color: $amber_50;
+		}
+	}
+
+	p:first-child {
+		background-color: $red_700;
+		color: $grey_400;
+	}
+	
+	nav ul li {
+		border-color: $red_700;
+		
+		a {
+			text-transform: lowercase;
+			background: linear-gradient(to right, $red_800 , $red_900);
+			color: $grey_300;
+			
+			&:visited {
+				color: $grey_400;
+			}
+		}
+	}
+}
+
+.semesters {
+	background-color: $lime_800;
+	color: $grey_300;
+	
+	h1, h2, h3, h4, h5, h6 {
+		background-color: $lime_700;
+		
+		a {  
+			color: $amber_50;
+		}
+	}
+
+	p:first-child {
+		background-color: $lime_700;
+		color: $grey_700;
+	}
+	
+	&.header {
+		background-color: $lime_900;
+	}
+}
