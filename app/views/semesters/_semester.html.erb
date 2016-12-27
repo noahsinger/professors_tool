@@ -1,4 +1,5 @@
 <div class="block semesters <%= double_width_if_main(defined? main) %>">
+	<p><%= pluralize semester.sections.count, "section" %></p>
 	<h2>
 		<%= link_to semester.name, semester_sections_path(semester) %>
 		<% if semester == Semester.current %>
@@ -6,5 +7,4 @@
 		<% end %>
 	</h2>
 	<p><%= show_short_date(semester.start_date) %> - <%= show_short_date(semester.end_date) %></p>
-	<p><%= pluralize semester.sections.count, "section" %></p>
 </div>
