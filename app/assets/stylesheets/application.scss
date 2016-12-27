@@ -8,11 +8,11 @@ a {
 	text-decoration: none;
 }
 
-/* ---- grid ---- */
+//GRID
 
 #page {
-	width: 90%;
-	margin: 10px auto;
+	width: 100%;
+	margin: 5px auto;
 }
 
 /* clear fix */
@@ -22,14 +22,16 @@ a {
   clear: both;
 }
 
-/* ---- .block ---- */
-
-.block, .grid-sizer {
-  width: 33%;
+.block,
+.grid-sizer {
+  width: 99%;
 	padding: 20px 0;
 }
 
-.block--width2, .chart { width: 66.3%; }
+.block--width2 { width: 99%; }
+
+
+//BLOCK STYLES
 
 .block {
   float: left;
@@ -116,40 +118,60 @@ a {
 
 
 
+//	ABOVE 667 GO TO SIDE BY SIDE 2 BLOCK LAYOUT
+@media screen and (min-width: 667px) {
+		#page {
+			width: 95%;
+			margin: 5px auto;
+		}
+
+		/* ---- .block ---- */
+
+		.block, .grid-sizer {
+		  width: 49%;
+			padding: 20px 0;
+		}
+
+		.block--width2 { width: 98%; }	
+}
 
 
+//ABVOE 1024 GO TO SIDE BY SIDE 3 BLOCK LAYOUT
+@media screen and (min-width: 1024px) {
+	/* ---- grid ---- */
 
-/* ---- other ---- */
-
-@media screen and (max-width: 800px) {
 	#page {
-		width: 95%;
-		margin: 5px auto;
+		width: 90%;
+		margin: 10px auto;
 	}
+
 
 	/* ---- .block ---- */
 
 	.block, .grid-sizer {
-	  width: 49%;
+	  width: 33%;
 		padding: 20px 0;
 	}
 
-	.block--width2 { width: 98%; }
+	.block--width2, .chart { width: 66.3%; }
 }
 
-@media screen and (max-width: 480px) {
+//ABVOE 1366 GO TO SIDE BY SIDE 3 BLOCK LAYOUT
+@media screen and (min-width: 1366px) {
+	/* ---- grid ---- */
+
 	#page {
-		width: 100%;
-		margin: 5px auto;
+		width: 90%;
+		margin: 10px auto;
 	}
+
 
 	/* ---- .block ---- */
 
-	.block,
-	.grid-sizer {
-	  width: 99%;
+	.block, .grid-sizer {
+	  width: 24%;
 		padding: 20px 0;
 	}
 
-	.block--width2 { width: 99%; }
+	.block--width2, .chart { width: 48.2%; }
 }
