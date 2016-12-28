@@ -85,6 +85,11 @@ $(document).ready(function( ) {
 	console.log(current_blocks);
 }); //end ready
 
+$(window).resize(function( ) {
+	console.log("--- resized, performing layout");
+	$("#page").isotope('layout');	
+});
+
 
 // LOAD
 document.addEventListener("turbolinks:load", function() {
@@ -187,8 +192,6 @@ var page_element_init = function( ) {
 			eval($(this).data("script"));
 		}	
 	});
-	
-	
 }
 
 
