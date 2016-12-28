@@ -32,7 +32,7 @@ class ExamplesController < ApplicationController
     begin
       Tweet.new.send( "New test    tweet" )
       flash[:notice] = "Tweet tweeted"
-    rescue Twitter:Error: e
+    rescue Twitter::Error => e
       flash[:error] = "Tweet not sent: #{e}"
     end
     redirect_to root_url
