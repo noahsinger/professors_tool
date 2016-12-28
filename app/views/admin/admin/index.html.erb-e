@@ -1,4 +1,3 @@
-<%= render partial: 'admin/admin/admin_header', locals: {main: true} %>
 <%= render partial: 'admin/semesters/semesters_header' %>
 <%= render partial: 'admin/courses/courses_header' %>
 <%= render partial: 'admin/students/students_header', locals: {students: Student.all} %>

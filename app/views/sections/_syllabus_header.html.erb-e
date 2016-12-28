@@ -1,0 +1,3 @@
+<div class="block sections header <%= double_width_if_main(defined? main) %>">
+	<h3><%= link_to 'Syllabus', xxx@xxx.xxx @section) %></h3>
+</div>

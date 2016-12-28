@@ -1,26 +1,22 @@
 <div class="block assignments <%= double_width_if_main(defined? main) %>">
-	<% unless assignment.overdue? %>
-		<p>Due on <%= show_short_date( assignment.duedate ) %> (<%= distance_of_time_in_words(Time.now, assignment.duedate) %>)</p>
-	<% else %>
-		<p>pastdue</p>
-	<% end %>
-
-	<h4><%= assignment.title %></h4>
-	<h4 class="<%= "overdue" if assignment.overdue? %>">
-		<%= link_to assignment.lab.title, semester_section_assignment_path(assignment.section.semester, assignment.section, assignment) %>
-	</h4>
-	<p><%= assignment.lab.objective %></p>
+	<header>
+		<% unless assignment.overdue? %>
+			<p>Due on <%= show_short_date( assignment.duedate ) %> (<%= distance_of_time_in_words(Time.now, assignment.duedate) %>)</p>
+		<% else %>
+			<p>pastdue</p>
+		<% end %>
+	
+		<h4 class="<%= "overdue" if assignment.overdue? %>">
+			<%= link_to "#{assignment.title} - #{assignment.lab.title}", semester_section_assignment_path(assignment.section.semester, assignment.section, assignment) %>
+		</h4>
+		<p>Objective: <b><%= assignment.lab.objective %></b></p>
+	</header>
+	
 	<nav>
 		<ul id="assignment_links">
-			<% if assignment.lab.allow_uploads %>
-				<li><%= link_to "Submit Your Solution", new_semester_section_assignment_work_path( assignment.section.semester, assignment.section, assignment ), class: "icon upload" %></li>
-				<li><%= link_to "Request a Return Copy of your Solution", new_semester_section_assignment_homework_return_request_path(assignment.section.semester,assignment.section,assignment), class: "icon download" %></li>
-			<% end %>
-
 			<% if defined?(main) %>
 				<li><a href="#" id="print" class="icon file">Print this Assignment</a></li>
 			<% end %>
-
 
 			<% if current_user %>
 				<li><%= link_to 'Edit this Assignment', edit_admin_semester_section_assignment_path(assignment.section.semester,assignment.section,assignment) %></li>

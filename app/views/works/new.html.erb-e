@@ -3,11 +3,6 @@
 <%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
 <%= render partial: 'assignments/assignment', locals: xxx@xxx.xxx %>
 
-<div class="block works">
-	<header>
-xxx@xxx.xxx %></p>
-		<h5>Submit Your Solution for xxx@xxx.xxx %></h5>
-	</header>
-</div>
+<%= render partial: "works/works_header", locals: {main: true} %>
 	
 <%= render 'form' %>

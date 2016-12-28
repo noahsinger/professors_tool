@@ -1,4 +1,4 @@
-<%= render 'admin/admin/admin_header' %>
+
 <%= render 'instructors_header' %>
 
 <%= render partial: 'instructor', xxx@xxx.xxx %>

@@ -1,4 +1,4 @@
-<%= render 'admin/admin/admin_header' %>
+
 <%= render partial: 'admin/students/students_header', locals: {students: Student.all} %>
 
 <div class="block students">

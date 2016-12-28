@@ -1,6 +1,8 @@
-<%= render 'semesters/semesters_header' %>
 <%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
 <%= render partial: 'sections/section', locals: xxx@xxx.xxx main: true} %>
+
+<%= render 'sections/syllabus_header' %>
+<%= render 'grade_requests/grade_requests_header' %>
 
 <% xxx@xxx.xxx > 0 %>
 	<%= render partial: 'materials/materials_header', locals: xxx@xxx.xxx %>
@@ -13,7 +15,7 @@
 <%= render partial: 'steps/steps_list', locals: xxx@xxx.xxx %>
 
 <% xxx@xxx.xxx > 0 %>
-		<%= render partial: 'assignment', xxx@xxx.xxx %>
+	<%= render partial: 'assignment', xxx@xxx.xxx %>
 <% else %>
 	<%= render partial: 'no_assignments', locals: xxx@xxx.xxx %>
 <% end %>

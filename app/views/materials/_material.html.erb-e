@@ -1,5 +1,8 @@
 <div class="block materials">
-	<p><%= material.created_at.to_s(:short) %></p>
-	<h3><%= link_to material.title, material.file.url %></h3>
+	<header>
+		<p><%= material.created_at.to_s(:short) %></p>
+		<h3><%= link_to material.title, material.file.url %></h3>
+	</header>
+	
 	<p><%= material.description %></p>
 </div>

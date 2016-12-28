@@ -48,27 +48,21 @@
 			<header>
 				<h1><%= link_to APP_CONFIG['site_name'].html_safe, root_path %></h1>
 			</header>
-      <nav>
-        <ul>
-        		<li><%= link_to 'Contact', new_general_contact_path %></li>
-        		<li><%= link_to 'Semesters', semesters_path %></li>
-        		<li><%= link_to 'Courses', courses_path %></li>
-        		<% if current_user %>
-        			<li><%= link_to '404', '/idontexist' %></li>
-        			<li><%= link_to '505', '/examples/test_exception' %></li>
-        			<li><%= link_to 'Error', '/examples/test_error' %></li>
-        			<li><%= link_to 'Notice', '/examples/test_notice' %></li>
-        			<li><%= link_to 'Test Tweet', '/examples/test_tweet' %></li>
-        			<li><%= link_to 'Admin', admin_admin_index_path %></li>
-        			<li><%= link_to 'Signout', logout_path, :method => :delete %></li>
-        		<% end %>
-        </ul>
-      </nav>
-			
+						
       <footer id="copyright">
         Copyright &copy; 2009 - <%= Time.now.year %> <%= link_to APP_CONFIG['site_name'].html_safe, root_path %> v5.0<br/>
 			</footer>
 		</div>
+
+		<% if current_user %>
+			<%= render 'admin/admin/admin_header' %>
+		<% end %>		
+		
+		<%= render 'general_contacts/general_contacts_header' %>
+		<%= render 'semesters/semesters_header' %>
+		<%= render 'courses/courses_header' %>
+		
+
 
 		<% if css_naked_day? %>
 			<div class="block">

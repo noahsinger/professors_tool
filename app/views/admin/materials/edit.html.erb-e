@@ -1,4 +1,4 @@
-<%= render 'admin/admin/admin_header' %>
+
 <%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
 <%= render partial: 'materials_header' %>
 

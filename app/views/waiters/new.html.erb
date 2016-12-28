@@ -1,15 +1,5 @@
 <%= render partial: 'courses/course', locals: xxx@xxx.xxx %>
 
-<div class="block waiters">
-	<h3>Waiting list</h3>
-	<p>Please leave your email address to be notified the next time this class is available</p>
-</div>
-
-<div class="block waiters">
-	<header>
-xxx@xxx.xxx %></p>
-		<h4>Get Notified</h4>
-	</header>
-</div>
+<%= render partial: "waiters/waiters_header", locals: {main: true} %>
 
 <%= render 'form' %>

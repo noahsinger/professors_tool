@@ -1,3 +1,6 @@
-<div class="block block--width2 courses header">
-	<h2><%= link_to "Courses", courses_path %></h2>
+<div class="block courses header <%= double_width_if_main(defined? main) %></">
+	<header>
+		<p>All Courses</p>
+		<h2><%= link_to "Courses", courses_path %></h2>
+	</header>
 </div>

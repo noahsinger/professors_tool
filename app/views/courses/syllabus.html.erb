@@ -1,10 +1,11 @@
 <%= render 'courses/courses_header' %>
-<%= render partial: 'courses/course', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: "courses/syllabus_header", locals: {main: true} %>
 
 <div class="block courses">
-	<h2>Syllabus</h2>
+	<h2>Section Details</h2>
 	<nav>
-		<a href="#" class="icon" id="print">Print this Syllabus</a>
+		<p><a href="#" class="icon" id="print">Print this Syllabus</a></p>
 	</nav>
 
 	<table>

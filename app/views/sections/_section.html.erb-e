@@ -1,13 +1,16 @@
 <div class="block sections <%= double_width_if_main(defined? main) %>">
-	<p><%= section.course.short_name %></p>
-	<h3><%= link_to section.course.title, semester_section_assignments_path(section.semester, section) %></h3>
-	<p><%= section.days %></p>
-	<p><%= section.meeting_times %></p>
+	<header>
+		<p><%= section.course.short_name %></p>
+		<h3><%= link_to section.course.title, semester_section_assignments_path(section.semester, section) %></h3>
+	</header>
+	
+	<p>
+		<%= section.days %><br/>
+		<%= section.meeting_times %>
+	</p>
+	
 	<nav>
 		<ul>
-			<li><%= link_to "View the Syllabus", syllabus_semester_section_path( section.semester, section ), class: "icon file" %></li>
-			<li><%= link_to "Request Your Grades", new_semester_section_grade_request_path( section.semester, section ), class: "icon star" %></li>
-			<li><%= link_to "Email the Instructor", new_general_contact_path(section_id: section) %></li>
 			<li><%= link_to "Homework RSS Feed" , semester_section_assignments_path(section.semester,section, format: :rss), class: 'icon rss' %></li>
 			<li><%= link_to "Homework ICAL Feed", semester_section_assignments_url(section.semester,section, format: :ics, protocol: 'webcal'), title: 'Subscribe to this classes assignments calendar using Outlook or iCal', class: 'icon ical' %></li>
 		</ul>
