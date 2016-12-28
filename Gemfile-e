@@ -39,6 +39,7 @@ gem 'remotipart', '~> 1.3'
 gem 'jquery-ui-rails', '~> 6.0'
 gem 'mechanize', '~> 2.7'
 gem 'will_paginate', '~> 3.1'
+gem 'coderay', '~> 1.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
