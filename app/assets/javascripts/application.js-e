@@ -12,6 +12,34 @@ document.addEventListener("turbolinks:visit", function() {console.log("visit")})
 document.addEventListener("turbolinks:request-start", function() {console.log("request-start")});
 document.addEventListener("turbolinks:request-end", function() {console.log("request-end")});
 
+
+////////////////////////////////////
+// professors_tool application.js
+////////////////////////////////////
+
+// READY
+$(document).ready(function( ) {
+	console.log("ready");
+	FlyingBlocks.init( );
+}); //end ready
+
+//RESIZE
+$(window).resize(function( ) {
+	console.log("--- resized, performing layout");
+	$("#page").isotope('layout');	
+});
+
+// LOAD
+document.addEventListener("turbolinks:load", FlyingBlocks.load);
+
+// BEFORE RENDER
+document.addEventListener("turbolinks:before-render", FlyingBlocks.before_render);
+
+// RENDER
+document.addEventListener("turbolinks:render", FlyingBlocks.render);
+
+// TURBOLINKS EVENT EXCUTION  ORDER
+//
 // load
 // < "app request visit"
 // click
@@ -46,202 +74,3 @@ document.addEventListener("turbolinks:request-end", function() {console.log("req
 // render
 // load
 // < "end of restoration"
-
-////////////////////////////////////
-// professors_tool application.js
-////////////////////////////////////
-
-NodeList.prototype.includes = function( other_node ) {
-	var match_found = false;
-	this.forEach(function( this_node ) {
-		if(this_node.innerHTML == other_node.innerHTML) {
-			match_found = true;
-		}
-	});
-
-	return match_found;
-};
-
-
-
-var current_blocks = null;
-
-// READY
-$(document).ready(function( ) {
-	console.log("ready");
-
-	$('#page').isotope({
-	  layoutMode: 'packery',
-	  itemSelector: '.block',
-	  percentPosition: true,
-	  packery: {
-	    columnWidth: '.grid-sizer',
-			gutter: 3
-	  }
-	});
-
-	current_blocks = document.querySelectorAll(".block");
-	console.log("- current_blocks: ");
-	console.log(current_blocks);
-}); //end ready
-
-$(window).resize(function( ) {
-	console.log("--- resized, performing layout");
-	$("#page").isotope('layout');	
-});
-
-
-// LOAD
-document.addEventListener("turbolinks:load", function() {
-	console.log("load");
-	current_blocks = document.querySelectorAll(".block");
-	console.log("- current_blocks: ");
-	console.log(current_blocks);
-
-
-	$(".block").click(function( ) {
-		$(".block--width2").each(function( ) {
-			this.className = this.className.replace(/\b\s?(block--width2)\b/g, '');
-		});
-
-		if( ! /grid-sizer/.test(this.className) && ! /form/.test(this.className) ) {
-			this.className += " block--width2";
-		}
-	});
-
-	console.log("- performing layout");
-	$("#page").isotope('layout');
-	
-	page_element_init( );
-}); //end load
-
-
-// BEFORE RENDER
-document.addEventListener("turbolinks:before-render", function() {
-	console.log("before-render");
-
-	var new_blocks = event.data.newBody.querySelectorAll(".block");
-
-	console.log("- current_blocks: " + current_blocks.length);
-	console.log("- new_blocks: " + new_blocks.length);
-
-	new_blocks.forEach(function( node ) {
-		if(current_blocks.includes(node)) {
-			//new block is a current block that's staying
-			console.log("- node staying");
-		} else {
-			//new block is new
-			console.log("- new node");
-			node.style.display = "none";
-			node.className += " appear";
-			$("#page").append(node);
-		}
-	});
-
-	current_blocks.forEach(function( current_block ) {
-		if(! new_blocks.includes(current_block)) {
-			//current block isn't a new block so it's leaving
-			console.log("- node leaving");
-			current_block.className += " disappear";
-		}
-	});
-
-}); //end before render listener
-
-
-// RENDER
-document.addEventListener("turbolinks:render", function() {
-	console.log("render");
-
-	console.log("- " + $(".appear").size( ) + " nodes to appear");
-	console.log("- " + $(".disappear").size( ) + " nodes to disappear");
-
-	// $(".appear").fadeIn("slow");
-	$("#page").isotope('insert', $(".appear"));
-
-	$(".disappear").fadeOut("slow", function( ) {
-		$("#page").isotope( 'remove', this );
-		document.getElementById("page").removeChild(this);
-
-		console.log("- remove node: " + this);
-
-		current_blocks = document.querySelectorAll(".block");
-		console.log("- rebuild node list");
-		console.log(current_blocks);
-		$("#page").isotope('layout');
-	});
-
-	$(".appear, .disappear").each(function( ) {
-		this.className = this.className.replace(/\b\s?((dis)?appear)\b/g, '');
-	});
-}); //end render
-
-
-var page_element_init = function( ) {
-	//prep remoteipart forms
-	$("form").on("ajax:remotipartComplete", function(e, data){
-		//detect when remote form was submitted using the remotipart gem/technique
-		console.log("remotipart complete:");
-	  console.log(e, data);
-	});
-		
-	//look for and execute any scripts included with blocks
-	$(".block").each( function( ) {
-		if( $(this).data("script") ) {
-			console.log("*** script detected with node: " + $(this).data("script"));
-			eval($(this).data("script"));
-		}	
-	});
-}
-
-
-var process_form_create = function( form_partial, success_url ) {
-	Turbolinks.clearCache();
-
-	$('.form').fadeOut('slow', function( ) {
-		$('#page').isotope( 'remove', $('.form') );
-		$('.form').remove( );
-		console.log('-- removed');
-
-		if(success_url == 'failed') {
-			//alert("failed");
-			$('#page').append(form_partial);
-			console.log('-- appended');	
-			$('#page').isotope('insert', $('.form'));
-	
-			//new/modified form block won't be removed on next nav unless its in current blocks so rebuild current_blocks here
-			current_blocks = document.querySelectorAll('.block'); 
-			$('#page').isotope('layout');
-			
-			page_element_init( );
-		} else {
-		  // alert("sent!");
-			console.log("-- visiting " + success_url);
-		  Turbolinks.visit(success_url);
-		}
-	});
-}
-
-
-jQuery.fn.reorderTable = function( url, token ) {
-	this.tableDnD({
-		onDrop: function(table, row) {
-			$.ajax({
-				type: "POST",
-				url: url,
-				processData: false,
-				data: $.tableDnD.serialize() + '&authenticity_token=' + encodeURIComponent(token),
-				dataType: "script"
-			});
-		}
-	});
-};
-
-
-// function check_for_ie( ) {
-// 	if( jQuery.support.opacity ) {
-// 		$("#ie_warning").hide( );
-// 	} else {
-// 		$("#ie_warning").show( );
-// 	}
-// }

@@ -3,4 +3,4 @@
 // $("#syllabus_parts").append("<%# xxx@xxx.xxx %>");
 // $("#new_syllabus_part")[0].reset();
 
-process_form_create("<%= escape_javascript(render 'form') %>", xxx@xxx.xxx %>");
+FlyingBlocks.process_form("<%= escape_javascript(render 'form') %>", xxx@xxx.xxx %>");
