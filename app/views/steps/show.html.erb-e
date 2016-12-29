@@ -28,10 +28,6 @@ next_step xxx@xxx.xxx + 1]).first
 xxx@xxx.xxx %></h6>
 	<nav>
 		<ul>
-			<% if current_user %>
-				<li><%= link_to 'Edit this step', xxx@xxx.xxx @step) %></li>
-			<% end %>
-
 			<% if prev_step %>
 				<li class="prev"><%= link_to( "Go back to the previous step", prev_url ) %></li>
 			<% end %>
