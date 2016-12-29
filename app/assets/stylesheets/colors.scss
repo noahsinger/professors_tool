@@ -1,93 +1,203 @@
 @import 'material_colors';
 
+@mixin block_style($header_background_color, $header_font_color, $normal_background_color, $noraml_font_color) {
+	//for the non-header version
+	background-color: $normal_background_color;
+	color: $noraml_font_color;
+	
+	ul li a {
+		color: lighten($noraml_font_color, 10%);
+	}
+	
+	h1, h2, h3, h4, h5, h6, header, footer {
+		background-color: lighten($normal_background_color, 10%);
+		
+		a {  
+			color: lighten($noraml_font_color, 10%);
+		}
+	} //end h's
+	
+	//for the header version
+	&.header { 
+		background-color: $header_background_color;
+		color: $header_font_color;
+		
+		h1, h2, h3, h4, h5, h6, header, footer {
+			background-color: lighten($header_background_color, 10%);
+			
+			a {
+				color: lighten($header_font_color, 10%);
+			}
+		} // end h's
+	} //end &.header
+} //end block_style
+
+
 body {
 	background-color: $blue_grey_900;
 }
 
-.grid-sizer {
-	background-color: $purple_800;
-	color: $grey_300;
-	
-	h1, h2, h3, h4, h5, h6, footer {
-		background-color: $purple_700;
-		
-		a {  
-			color: $amber_50;
-		}
-	}
-	
-	footer {
-		color: $purple_500;
-		
-		a {
-			color: $purple_400;
-		}
-	}
-	
-	nav ul li {
-		border-color: $purple_700;
-		
-		a {
-			color: $grey_400;
-		}
-	}
+//X red
+//X pink
 
-	p:first-child {
-		background-color: $purple_700;
-		color: $grey_400;
-	}
+//X purple
+//X deep_purple
+//X indigo
+
+//X blue
+//X light_blue
+//X cyan
+//X teal
+
+//X green
+//X light_green
+//X lime
+
+//X yellow
+//X amber
+//X orange
+//X deep_orange
+
+//X brown
+//X grey
+//X blue_grey
+
+//MAIN, ADMIN
+.grid-sizer, .admin_header {
+xxx@xxx.xxx block_style($purple_700, $grey_300, $purple_600, $amber_50);
 }
 
-.sections {
-	background-color: $red_800;
-	color: $grey_300;
-	
-	h1, h2, h3, h4, h5, h6 {
-		background-color: $red_700;
-		
-		a {  
-			color: $amber_50;
-		}
+	//STUDENTS
+	.students {
+xxx@xxx.xxx block_style($red_700, $grey_300, $red_600, $amber_50);
 	}
 
-	p:first-child {
-		background-color: $red_700;
-		color: $grey_400;
+	//DIVISIONS
+	.divisions {
+xxx@xxx.xxx block_style($teal_700, $grey_300, $teal_600, $amber_50);
 	}
 	
-	nav ul li {
-		border-color: $red_700;
+	//INSTRUCTORS
+	.instructors {
+xxx@xxx.xxx block_style($deep_purple_900, $grey_300, $deep_purple_800, $amber_50);
+	}
+
+	//GENERAL CONTACTS
+	.general_contact, .general_contacts {
+xxx@xxx.xxx block_style($yellow_800, $grey_300, $yellow_700, $grey_700);
+	}
+
+	//SEMESTERS
+	.semesters {
+xxx@xxx.xxx block_style($green_700, $grey_300, $green_500, $amber_50);
+	}
+	
+		//SECTIONS
+		.sections {
+xxx@xxx.xxx block_style($lime_900, $grey_300, $lime_800, $amber_50);
+		}
 		
-		a {
-			text-transform: lowercase;
-			background: linear-gradient(to right, $red_800 , $red_900);
-			color: $grey_300;
-			
-			&:visited {
-				color: $grey_400;
+			//ENROLLMENTS
+			.enrollments {
+xxx@xxx.xxx block_style($deep_purple_900, $grey_300, $deep_purple_800, $amber_50);
 			}
-		}
-	}
-}
+			
+			//MEETINGS
+			.meetings {
+xxx@xxx.xxx block_style($indigo_900, $grey_300, $indigo_800, $amber_50);
+			}
 
-.semesters {
-	background-color: $lime_800;
-	color: $grey_300;
+				//ATTENDANCES
+				.attendances {
+xxx@xxx.xxx block_style($indigo_500, $grey_300, $indigo_400, $amber_50);
+				}
+
+			//EXAMPLES
+			.examples {
+xxx@xxx.xxx block_style($light_green_900, $grey_300, $light_green_800, $amber_50);
+			}
+
+			//GRADE REQUESTS
+			.grade_requests {
+xxx@xxx.xxx block_style($amber_900, $grey_300, $amber_800, $amber_50);
+			}
+			
+			//ASSIGNMENTS
+			.assignments {
+xxx@xxx.xxx block_style($light_blue_700, $grey_300, $light_blue_100, $grey_700);
+			}
+
+				//WORKS
+				.works {
+xxx@xxx.xxx block_style($blue_700, $grey_300, $blue_100, $grey_700);
+				}
+				
+				//HOMEWORK RETURN REQUESTS
+				.homework_return_requests {
+xxx@xxx.xxx block_style($cyan_700, $grey_300, $cyan_100, $grey_700);
+				}
+
+	//COURSES
+	.courses {
+xxx@xxx.xxx block_style($brown_700, $grey_300, $brown_500, $amber_50);
+	}
 	
-	h1, h2, h3, h4, h5, h6 {
-		background-color: $lime_700;
+		//WAITERS
+		.waiters {
+xxx@xxx.xxx block_style($pink_900, $grey_300, $pink_800, $amber_50);
+		}
 		
-		a {  
-			color: $amber_50;
+		//MATERIALS
+		.materials {
+xxx@xxx.xxx block_style($deep_orange_700, $grey_300, $deep_orange_500, $amber_50);
 		}
-	}
-
-	p:first-child {
-		background-color: $lime_700;
-		color: $grey_700;
-	}
-	
-	&.header {
-		background-color: $lime_900;
-	}
-}
+		
+		//BOOKS
+		.books {
+xxx@xxx.xxx block_style($grey_700, $grey_300, $grey_500, $amber_50);
+		}
+		
+		//WEBSITES
+		.websites {
+xxx@xxx.xxx block_style($grey_700, $grey_300, $grey_500, $amber_50);
+		}
+		
+		//OBJECTIVES
+		.objectives {
+xxx@xxx.xxx block_style($blue_grey_700, $grey_300, $blue_grey_500, $amber_50);
+		}
+		
+		//POLICIES AND SYLLABUS PARTS
+		.policies, .syllabus_parts {
+xxx@xxx.xxx block_style($deep_orange_700, $grey_300, $deep_orange_500, $amber_50);
+		}
+		
+		//TUTORIALS
+		.tutorials {
+xxx@xxx.xxx block_style($blue_700, $grey_300, $blue_100, $grey_700);
+		}
+		
+			//HOW TOS
+			.how_tos {
+xxx@xxx.xxx block_style($blue_500, $grey_300, $blue_400, $grey_700);
+			}
+			
+				//STEPS
+				.steps {
+xxx@xxx.xxx block_style($blue_grey_700, $grey_300, $blue_grey_500, $amber_50);
+				}
+		
+		//LABS
+		.labs {
+xxx@xxx.xxx block_style($orange_700, $grey_300, $orange_500, $amber_50);
+		}
+		
+			//REQUIREMENTS
+			.requirements {
+xxx@xxx.xxx block_style($orange_500, $grey_300, $orange_300, $amber_50);
+			}
+			
+			//EXTRAS
+			.extras {
+xxx@xxx.xxx block_style($orange_300, $grey_300, $orange_200, $amber_50);
+			}

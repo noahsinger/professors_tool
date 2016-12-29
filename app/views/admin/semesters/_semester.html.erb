@@ -1,12 +1,14 @@
 <div class="block semesters <%= double_width_if_main(defined? main) %>">
-	<p><%= show_short_date semester.start_date %> - <%= show_short_date semester.end_date %></p>
-	<% if semester.is_current? %>
-		<h3><%= link_to semester.name, admin_semester_sections_path(semester) %> <span class="light">(current)</span></h3>
-	<% elsif semester.is_future? %>
-		<h3><%= link_to semester.name, admin_semester_sections_path(semester) %> <span class="light">(coming up)</span></h3>
-	<% else %>
-		<h3><%= link_to semester.name, admin_semester_sections_path(semester) %></h3>
-	<% end %>
+	<header>
+		<p><%= show_short_date semester.start_date %> - <%= show_short_date semester.end_date %></p>
+		<% if semester.is_current? %>
+			<h3><%= link_to semester.name, admin_semester_sections_path(semester) %> <span class="light">(current)</span></h3>
+		<% elsif semester.is_future? %>
+			<h3><%= link_to semester.name, admin_semester_sections_path(semester) %> <span class="light">(coming up)</span></h3>
+		<% else %>
+			<h3><%= link_to semester.name, admin_semester_sections_path(semester) %></h3>
+		<% end %>
+	</header>
 	
 	<% 
 		total_credits = 0 
@@ -25,10 +27,11 @@
 		<% end %>
 	<% end %>
 
-	<p><%= pluralize total_credits, 'credit' %> (<%= pluralize preps, "prep" %>)</p>	
-	
-	<p><%= pluralize semester.sections.count, 'section' %></p>
-	<p><%= pluralize semester.student_count, 'student' %></p>
+	<p>
+		<%= pluralize total_credits, 'credit' %> (<%= pluralize preps, "prep" %>)<br/>
+		<%= pluralize semester.sections.count, 'section' %><br/>
+		<%= pluralize semester.student_count, 'student' %>
+	</p>
 
 	<ul>
 		<li><%= link_to 'Edit', edit_admin_semester_path(semester) %></li>

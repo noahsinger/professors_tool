@@ -22,13 +22,12 @@ a {
   clear: both;
 }
 
-.block,
-.grid-sizer {
+.block, .grid-sizer {
   width: 99%;
 	padding: 20px 0;
 }
 
-.block--width2 { width: 99%; }
+.block--width2, .chart { width: 99%; }
 
 
 //BLOCK STYLES
@@ -41,25 +40,44 @@ a {
 }
 
 .block {
-	h1, h2, h3, h4, h5, h6, p, nav, table, section, footer {
+	h1, h2, h3, h4, h5, h6, p, table, footer, div.pagination {
 		padding: 0 20px;
 		margin: 0;
 	}
 	
 	h1, h2, h3, h4, h5, h6 {
-		line-height: 1.0em;	
+		line-height: 1.2em;	
 		text-transform: uppercase;
-		font-size: 2em;
 		padding: 20px;
+		font-weight: normal;
 	
 		& + p {
 			margin-top: 20px;
-		}	
+		}
+		
+		& + section {
+			margin-top: 50px;
+		}
+	} //end headers
+	
+	p + h1, p + h2, p + h3, p + h4, p + h5, p + h6 {
+		padding-bottom: 9px;
 	}
 	
-	p:first-child {
-		padding-top: 20px;
-		margin-bottom: -20px;
+	p {
+		padding: 10px 20px;
+	}
+	
+	header {
+		p + h1, p + h2, p + h3, p + h4, p + h5, p + h6 {
+			margin-top: 0px;
+			padding-top: 0px;
+		}
+	
+		p {
+			margin: 0;
+			padding-bottom: 3px;
+		}
 	}
 	
 	footer {
@@ -67,39 +85,58 @@ a {
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
-	
-	nav ul {
-		margin: 20px 0 0 0;
-		padding: 0;
 		
-		li {
-			border-width: 1px 0;
-			border-style: solid;
-			margin-top: -1px;
-			
-			a {
-				display: block;
-				padding: 10px 0;
+	table {
+		width: 90%;
+		margin-top: 20px;
+		
+		tr {
+			td {
+				padding: 5px 20px;
 			}
 		}
 	}
 	
-	table {
-		width: 90%;
-	}
-	
 	textarea {
 		min-height: 200px;
-		width: 90%;
+		width: 80%;
+		padding: 10px;
 	
 		border: 0;
 	}
 	
-	&.how_to_step_image img {
-		max-width: 100%;
+	input[type=text], input[type=email] {
+		width: 80%;
+		padding: 10px;
+	}
+	
+	.how_to_step_image {
+		padding: 20px;
+		text-align: center;
+		
+		img {
+			max-width: 100%;
+		}
 	}
 } // end .block
 
+#enrollments_chart {
+	margin: 0 20px;
+}
+
+.in_progress_indicator {
+	display: block;
+	height: 10px;
+	width: 100%;
+	
+	&.green {
+		background-color: #090;
+	}
+	
+	&.red {
+		background-color: #900;
+	}
+}
 
 
 .block.flash {

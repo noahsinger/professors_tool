@@ -4,10 +4,9 @@
 <%= render partial: 'sections/syllabus_header', locals: {main: true} %>
 
 	<div class="block sections">
-		<h3>Section Details</h3>
-		<nav>
-			<a href="#" class="icon" id="print">Print this Syllabus</a>
-		</nav>
+		<header><h3>Section Details</h3></header>
+		
+		<p><a href="#" class="icon" id="print">Print this Syllabus</a></p>
 
 		<table>
 			<tr>

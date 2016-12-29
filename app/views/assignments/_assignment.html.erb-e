@@ -1,4 +1,4 @@
-<div class="block assignments <%= double_width_if_main(defined? main) %>">
+<div class="block assignments header <%= double_width_if_main(defined? main) %>">
 	<header>
 		<% unless assignment.overdue? %>
 			<p>Due on <%= show_short_date( assignment.duedate ) %> (<%= distance_of_time_in_words(Time.now, assignment.duedate) %>)</p>
@@ -9,8 +9,9 @@
 		<h4 class="<%= "overdue" if assignment.overdue? %>">
 			<%= link_to "#{assignment.title} - #{assignment.lab.title}", semester_section_assignment_path(assignment.section.semester, assignment.section, assignment) %>
 		</h4>
-		<p>Objective: <b><%= assignment.lab.objective %></b></p>
 	</header>
+	
+	<p>Objective: <b><%= assignment.lab.objective %></b></p>
 	
 	<nav>
 		<ul id="assignment_links">

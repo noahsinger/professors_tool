@@ -7,6 +7,7 @@
 				(current)
 			<% end %>
 		</h2>
-		<p><%= show_short_date(semester.start_date) %> - <%= show_short_date(semester.end_date) %></p>
 	</header>
+	
+	<p><%= show_short_date(semester.start_date) %> - <%= show_short_date(semester.end_date) %></p>
 </div>

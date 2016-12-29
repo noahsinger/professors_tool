@@ -237,6 +237,7 @@ jQuery.fn.reorderTable = function( url, token ) {
 	});
 };
 
+
 // function check_for_ie( ) {
 // 	if( jQuery.support.opacity ) {
 // 		$("#ie_warning").hide( );

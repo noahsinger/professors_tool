@@ -1,6 +1,9 @@
 <div class="block <%= double_width_if_main(defined? main) %> homework_return_requests header">
-	<p><%= pluralize HomeworkReturnRequest.count, 'homework return request' %></p>
-	<h3><%= link_to 'Homework Return Requests', admin_homework_return_requests_path %></h3>
+	<header>
+		<p><%= pluralize HomeworkReturnRequest.count, 'homework return request' %></p>
+		<h3><%= link_to 'Homework Return Requests', admin_homework_return_requests_path %></h3>
+	</header>
+	
 	<ul class="actions">
 		<li><%= link_to 'Clear All Homework Return Requests', destroy_all_admin_homework_return_requests_path, confirm: 'Are you sure?', method: :delete, remote: true %></li>
 	</ul>

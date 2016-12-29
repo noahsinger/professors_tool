@@ -1,5 +1,5 @@
 <div class="block search students <%= double_width_if_main(defined? main) %>">
-	<section><%= xxx@xxx.xxx %></section>
+	<%= xxx@xxx.xxx %>
 	
 	<%= form_tag search_admin_students_path, method: :get, remote: true do %>
 		<ol>

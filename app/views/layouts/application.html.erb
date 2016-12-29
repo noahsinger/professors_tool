@@ -23,17 +23,17 @@
 
 	<%= yield :prefetches %>
 
-	<% if admin? %>
-		<!-- start admin javascript -->
-		<%= javascript_include_tag 'admin/admin' %>
-		<!-- end admin javascript -->
-	<% end %>
-
 	<%= yield :head %>
 
 	<% unless css_naked_day? %>
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+		
+		<% if admin? %>
+			<!-- start admin javascript -->
+			<%= javascript_include_tag 'admin/admin' %>
+			<!-- end admin javascript -->
+		<% end %>
 	<% end %>
 
 	<%= csrf_meta_tags %>
@@ -44,7 +44,7 @@
 
 	<div id="page" data-turbolinks-permanent>
 		
-		<div class="block block--height2 grid-sizer">
+		<div class="block header block--height2 grid-sizer">
 			<header>
 				<h1><%= link_to APP_CONFIG['site_name'].html_safe, root_path %></h1>
 			</header>

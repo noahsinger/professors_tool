@@ -1,16 +1,20 @@
 <div class="block <%= double_width_if_main(defined? main) %> sections">
-	<p>CRN: <%= section.call_number %>  Section: <%= section.section_number %></p>
-
-	<p>Room: <%= section.room_number %></p>
-	<p>Times: <%= section.start_time.to_s(:time) %> - <%= section.end_time.to_s(:time) %></p>
-	<p>Dates: <%= section.start_date %> - <%= section.end_date %></p>
-
-	<p class="<%= section.in_session ? "green" : "red" %>">*</p>
-
-	<p><%= section.course.short_name %></p>
-	<h4><%= section.meeting_days %> <%= link_to "#{section.course.title}", [:admin,section.semester,section] %></h4>
+	<header>
+		<p><%= section.course.short_name %> <%= section.call_number %> - <%= section.section_number %></p>
+		<h4>
+			<%= section.meeting_days %> <%= link_to "#{section.course.title}", [:admin,section.semester,section] %>
+		</h4>
+		
+		<span class="in_progress_indicator <%= section.in_session ? "green" : "red" %>"></span>
+	</header>
 
 	<p><%= pluralize section.course.credits, 'credit' %></p>
+	<p>
+		Room: <b><%= section.room_number %></b><br/>
+		Times: <b><%= section.start_time.to_s(:time) %> - <%= section.end_time.to_s(:time) %></b><br/>
+		Dates: <b><%= section.start_date %> - <%= section.end_date %></b>
+	</p>
+	
 
 	<ul class="actions">
 		
@@ -19,7 +23,7 @@
 		<li><%= link_to 'Sync Students with TED', sync_students_admin_semester_section_path(section.semester,section) %></li>
 	</ul>
 
-	<section>
+	<p>
 		<% total_ted_enrollments = 0 %>
 		<%= pluralize section.enrollments.active.size, 'active enrollment' %> / 
 		<% if section.enrollment_snapshots.count > 0 %>
@@ -28,7 +32,7 @@
 		<% else %>
 			NA
 		<% end %>
-	</section>
+	</p>
 
 	<ul>
 		<li><%= link_to 'Edit', [:edit, :admin, section.semester, section] %></li>
