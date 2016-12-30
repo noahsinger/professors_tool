@@ -31,7 +31,7 @@
 		
 		<% if admin? %>
 			<!-- start admin javascript -->
-			<%= javascript_include_tag 'admin/admin' %>
+			<%= javascript_include_tag 'admin/admin', 'data-turbolinks-track': 'reload' %>
 			<!-- end admin javascript -->
 		<% end %>
 	<% end %>
