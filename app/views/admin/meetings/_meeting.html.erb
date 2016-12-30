@@ -1,6 +1,6 @@
-<div class="block <%= double_width_if_main(defined? main) %> meetings">
+<div class="block <%= double_width_if_main(defined? main) %> meetings <%= meeting.attendance_taken? ? "attendance_taken" : "" %>" data-active="<%= meeting.attendance_taken? ? "inactive" : "active" %>">
   <% if meeting.attendance_taken? %>
-    <h5><%= link_to show_date_and_time( meeting.when ), admin_semester_section_meeting_attendances_path(meeting.section.semester,meeting.section,meeting) %></h5>
+    <h5><strike><%= link_to show_date_and_time( meeting.when ), admin_semester_section_meeting_attendances_path(meeting.section.semester,meeting.section,meeting) %></strike></h5>
   <% else %>
 	  <h5><%= link_to show_date_and_time( meeting.when ), admin_semester_section_meeting_attendances_path(meeting.section.semester,meeting.section,meeting) %></h5>
   <% end %>
@@ -8,9 +8,13 @@
 	<table>
 		<% AttendanceStatus.all.each do |status| %>
 			<tr>
-				<td><%= status.name %></td><td class="<%= status.name %>_total"><%= Attendance.where(meeting: meeting).where(attendance_status: status).size %></td>
+				<td><%= status.name %></td>
+				<td class="<%= status.name %>_total"><%= Attendance.where(meeting: meeting).where(attendance_status: status).size %></td>
 			</tr>
 		<% end %>
-		<td>total</td><td xxx@xxx.xxx %> active</td>
+		<tr>
+			<td>total</td>
+			<td xxx@xxx.xxx %> active</td>
+		</tr>
 	</table>
 </div>

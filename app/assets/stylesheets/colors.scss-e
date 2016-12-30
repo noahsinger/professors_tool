@@ -82,11 +82,29 @@ xxx@xxx.xxx block_style($deep_purple_900, $grey_300, $deep_purple_800, $amber_50
 			//MEETINGS
 			.meetings {
 xxx@xxx.xxx block_style($indigo_900, $grey_300, $indigo_800, $amber_50);
+				
+				&.attendance_taken {
+					background-color: $grey_200;
+					color: $grey_400;
+					
+					h5, header {
+						background-color: $grey_300;
+					}
+				}
 			}
 
 				//ATTENDANCES
 				.attendances {
 xxx@xxx.xxx block_style($indigo_500, $grey_300, $indigo_400, $amber_50);
+					
+					&.attendance_taken {
+						background-color: $grey_200;
+						color: $grey_400;
+					
+						h3, header {
+							background-color: $grey_300;
+						}
+					}
 				}
 
 			//EXAMPLES
