@@ -11,6 +11,6 @@
 			<%= link_to 'Add to this course', xxx@xxx.xxx syllabus_part_id: syllabus_part.id), method: :post, remote: true %>
 		</li>
 		<li><%= link_to 'Edit', edit_admin_syllabus_part_path( syllabus_part, xxx@xxx.xxx ) %></li>
-		<li><%= link_to 'Destroy', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete, remote: true %></li>
+		<li><%= link_to 'Destroy', xxx@xxx.xxx data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
 	</ul>
 </div>

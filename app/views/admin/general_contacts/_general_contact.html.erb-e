@@ -5,6 +5,6 @@
 		<p><%= link_to general_contact.attachment_file_name, general_contact.attachment.url %></p>
 	<% end %>
 	<ul>
-    <li><%= link_to 'Destroy', [:admin,general_contact], confirm: 'Are you sure?', method: :delete, remote: true %></li>
+    <li><%= link_to 'Destroy', [:admin,general_contact], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
 	</ul>
 </div>

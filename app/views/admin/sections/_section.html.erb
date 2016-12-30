@@ -36,6 +36,6 @@
 
 	<ul>
 		<li><%= link_to 'Edit', [:edit, :admin, section.semester, section] %></li>
-		<li><%= link_to 'Destroy', [:admin,section.semester, section], confirm: 'Are you sure?', method: :delete, remote: true %></li>
+		<li><%= link_to 'Destroy', [:admin,section.semester, section], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
 	</ul>
 </div>

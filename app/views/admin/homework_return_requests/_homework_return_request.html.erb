@@ -14,6 +14,6 @@
 		<%= homework_return_request.status %>
 	</p>
 	<ul>
-	  <li><%= link_to 'Destroy', [:admin,homework_return_request], confirm: 'Are you sure?', method: :delete, remote: true %></li>
+	  <li><%= link_to 'Destroy', [:admin,homework_return_request], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
 	</ul>
 </div>

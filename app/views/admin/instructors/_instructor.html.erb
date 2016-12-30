@@ -10,6 +10,6 @@
 	<p><%= instructor.division.name %></p>
 	<ul>
 		<li><%= link_to 'Edit', edit_admin_instructor_path(instructor) %></li>
-		<li><%= link_to 'Destroy', [:admin,instructor], confirm: 'Are you sure?', method: :delete, remote: true %></li>
+		<li><%= link_to 'Destroy', [:admin,instructor], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
 	</ul>
 </div>

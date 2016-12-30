@@ -5,6 +5,6 @@
 	</header>
 	
 	<ul class="actions">
-		<li><%= link_to 'Clear All Grade Requests', destroy_all_admin_grade_requests_path, confirm: 'Are you sure?', method: :delete, remote: true %></li>
+		<li><%= link_to 'Clear All Grade Requests', destroy_all_admin_grade_requests_path, data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
 	</ul>
 </div>

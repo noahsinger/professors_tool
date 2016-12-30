@@ -61,7 +61,7 @@ xxx@xxx.xxx %></td>
 			    <td class="nav"><%=link_to extra.file_file_name, extra.file.url %></td>
 			    <td><%= extra.description %></td>
 			    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-			    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete, remote: true %></td>
+			    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></td>
 			  </tr>
 			<% end %>
 			</table>

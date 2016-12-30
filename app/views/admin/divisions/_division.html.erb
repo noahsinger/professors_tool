@@ -6,6 +6,6 @@
 
   <ul>
     <li><%= link_to 'Edit', edit_admin_division_path(division) %></li>
-    <li><%= link_to 'Destroy', [:admin,division], confirm: 'Are you sure?', method: :delete, remote: true %></li>
+    <li><%= link_to 'Destroy', [:admin,division], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
 	</ul>
 </div>

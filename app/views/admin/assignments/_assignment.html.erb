@@ -24,7 +24,7 @@
 	<ul>
 		<li><%= link_to 'View Assignment', [:admin,assignment.section.semester,assignment.section,assignment] %></li>
 		<li><%= link_to 'Edit', edit_admin_semester_section_assignment_path(assignment.section.semester,assignment.section,assignment) %></li>
-		<li><%= link_to 'Destroy', [:admin,assignment.section.semester,assignment.section,assignment], confirm: 'Are you sure?', method: :delete, remote: true %></li>
+		<li><%= link_to 'Destroy', [:admin,assignment.section.semester,assignment.section,assignment], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
 	</ul>
 	
 	<ul class="actions">

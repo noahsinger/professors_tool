@@ -22,7 +22,7 @@
 		<li><%= link_to 'Grade', grade_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) %></li>
 	  <!-- <li><%= link_to 'Show', [:admin,work.assignment.section.semester,work.assignment.section,work.assignment,work] %></li> -->
 	  <li><%= link_to 'Edit', edit_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) %></li>
-	  <li><%= link_to 'Destroy', [:admin,work.assignment.section.semester,work.assignment.section,work.assignment,work], confirm: 'Are you sure?', method: :delete, remote: true %></li>
-		<li><%= link_to 'UnGrade', destroy_grade_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work), confirm: 'Are you sure?', method: :delete, remote: true %></li>
+	  <li><%= link_to 'Destroy', [:admin,work.assignment.section.semester,work.assignment.section,work.assignment,work], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
+		<li><%= link_to 'UnGrade', destroy_grade_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work), data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
 	</ul>
 </div>

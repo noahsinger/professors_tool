@@ -35,6 +35,6 @@
 
 	<ul>
 		<li><%= link_to 'Edit', edit_admin_semester_path(semester) %></li>
-		<li><%= link_to 'Destroy', [:admin,semester], confirm: 'Are you sure?', method: :delete, remote: true %></li>
+		<li><%= link_to 'Destroy', [:admin,semester], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
 	</ul>
 </div>

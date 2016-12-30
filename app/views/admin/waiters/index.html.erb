@@ -9,7 +9,7 @@ xxx@xxx.xxx do |waiter| %>
 		  <%= show_short_date(waiter.created_at) %>
 		</p>
 		<ul>
-			<li><%= link_to 'Destroy', xxx@xxx.xxx waiter], confirm: 'Are you sure?', method: :delete, remote: true %></li>
+			<li><%= link_to 'Destroy', xxx@xxx.xxx waiter], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
 		</ul>
 	</div>
 <% end %>
