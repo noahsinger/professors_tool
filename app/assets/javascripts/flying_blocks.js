@@ -12,6 +12,9 @@ NodeList.prototype.includes = function( other_node ) {
 
 // FLYING BLOCKS ------------------------
 var FlyingBlocks = {
+	// store all blocks on the current page to be compared with new blocks loaded to 
+	// determine what's new and will apprear, what's the same and will stay, and
+	// what is leaving and will disappear
 	current_blocks : [],
 	
 	//INIT
@@ -29,11 +32,12 @@ var FlyingBlocks = {
 		FlyingBlocks.record_current_blocks( );
 	}, //end init
 	
+	
 	//RECORD CURRENT BLOCKS
 	record_current_blocks : function( ) {
-		current_blocks = document.querySelectorAll(".block");
-		console.log("- current_blocks: ");
-		console.log(current_blocks);
+		FlyingBlocks.current_blocks = document.querySelectorAll(".block");
+		// console.log("- current_blocks: ");
+		// console.log(current_blocks);
 	}, //end record_current_blocks
 	
 	
@@ -53,9 +57,7 @@ var FlyingBlocks = {
 			}
 		});
 
-		console.log("- performing layout");
-		$("#page").isotope('layout');
-	
+		FlyingBlocks.refresh( );
 		FlyingBlocks.init_elements( );
 	}, //end load
 	
@@ -66,11 +68,11 @@ var FlyingBlocks = {
 
 		var new_blocks = event.data.newBody.querySelectorAll(".block");
 
-		console.log("- current_blocks: " + current_blocks.length);
+		console.log("- current_blocks: " + FlyingBlocks.current_blocks.length);
 		console.log("- new_blocks: " + new_blocks.length);
 
 		new_blocks.forEach(function( node ) {
-			if(current_blocks.includes(node)) {
+			if(FlyingBlocks.current_blocks.includes(node)) {
 				//new block is a current block that's staying
 				console.log("- node staying");
 			} else {
@@ -82,7 +84,7 @@ var FlyingBlocks = {
 			}
 		});
 
-		current_blocks.forEach(function( current_block ) {
+		FlyingBlocks.current_blocks.forEach(function( current_block ) {
 			if(! new_blocks.includes(current_block)) {
 				//current block isn't a new block so it's leaving
 				console.log("- node leaving");
@@ -109,7 +111,7 @@ var FlyingBlocks = {
 			console.log("- remove node: " + this);
 
 			FlyingBlocks.record_current_blocks( );
-			$("#page").isotope('layout');
+			FlyingBlocks.refresh( );
 		});
 
 		$(".appear, .disappear").each(function( ) {
@@ -135,8 +137,7 @@ var FlyingBlocks = {
 	
 				//new/modified form block won't be removed on next nav unless it's in current blocks so rebuild current_blocks here
 				FlyingBlocks.record_current_blocks( );
-				$('#page').isotope('layout');
-			
+				FlyingBlocks.refresh( );
 				FlyingBlocks.init_elements( );
 			} else {
 			  // alert("sent!");
@@ -163,5 +164,31 @@ var FlyingBlocks = {
 				eval($(this).data("script"));
 			}	
 		});
-	} //end init_elements
+	}, //end init_elements
+	
+	
+	//REFRESH
+	refresh : function( ) {
+		console.log("- refreshing layout");
+		$("#page").isotope({
+			getSortData: {
+		    active: function( block ) {
+		    	var val = $(block).data("active");
+					if( val ) {
+						return val;
+					} else {
+						return "active";
+					}
+		    }
+			},
+			
+			// sortAscending: {
+			// 	active: true
+			// },
+
+			sortBy: [ 'active' ]
+		});
+		$("#page").isotope('updateSortData');
+		$("#page").isotope('layout');
+	}
 }; //end FlyingBlocks

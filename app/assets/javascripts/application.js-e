@@ -25,8 +25,8 @@ $(document).ready(function( ) {
 
 //RESIZE
 $(window).resize(function( ) {
-	console.log("--- resized, performing layout");
-	$("#page").isotope('layout');	
+	console.log("--- resized");
+	FlyingBlocks.refresh( );
 });
 
 // LOAD
