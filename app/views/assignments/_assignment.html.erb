@@ -1,4 +1,4 @@
-<div class="block assignments header <%= double_width_if_main(defined? main) %> <%= assignment.overdue? ? "overdue" : "" %>">
+<div class="block assignments header <%= double_width_if_main(defined? main) %> <%= assignment.overdue? ? "overdue" : "" %>" data-active="<%= assignment.overdue? ? 'inactive' : 'active' %>">
 	<header>
 		<% unless assignment.overdue? %>
 			<p>Due on <%= show_short_date( assignment.duedate ) %> (<%= distance_of_time_in_words(Time.now, assignment.duedate) %>)</p>
