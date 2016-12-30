@@ -7,6 +7,6 @@
 		<li><%= link_to 'Error', '/examples/test_error' %></li>
 		<li><%= link_to 'Notice', '/examples/test_notice' %></li>
 		<li><%= link_to 'Test Tweet', '/examples/test_tweet' %></li>
-		<li><%= link_to 'Signout', logout_path, :method => :delete %></li>
+		<li><%= link_to 'Signout', logout_path, method: :delete, remote: true %></li>
 	</ul>    
 </div>
