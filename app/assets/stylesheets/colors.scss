@@ -33,34 +33,11 @@
 } //end block_style
 
 
+
 body {
 	background-color: $blue_grey_900;
 }
 
-//X red
-//X pink
-
-//X purple
-//X deep_purple
-//X indigo
-
-//X blue
-//X light_blue
-//X cyan
-//X teal
-
-//X green
-//X light_green
-//X lime
-
-//X yellow
-//X amber
-//X orange
-//X deep_orange
-
-//X brown
-//X grey
-//X blue_grey
 
 //MAIN, ADMIN
 .grid-sizer, .admin_header {
@@ -125,7 +102,16 @@ xxx@xxx.xxx block_style($amber_900, $grey_300, $amber_800, $amber_50);
 			//ASSIGNMENTS
 			.assignments {
 xxx@xxx.xxx block_style($light_blue_700, $grey_300, $light_blue_100, $grey_700);
-			}
+				
+				&.overdue {
+					background-color: $grey_200;
+					color: $grey_400;
+					
+					h4, header {
+						background-color: $grey_300;
+					}
+				}
+ 			}
 
 				//WORKS
 				.works {
