@@ -16,7 +16,7 @@
 			color: lighten($noraml_font_color, 10%);
 		}
 	} //end h's
-	
+		
 	//for the header version
 	&.header { 
 		background-color: $header_background_color;

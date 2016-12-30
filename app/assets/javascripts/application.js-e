@@ -1,7 +1,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.remotipart
-//= require jquery-ui
+//  require jquery-ui
+//= require jquery-ui/widgets/datepicker
 //= require turbolinks
 //= require_directory .
 //= require_self

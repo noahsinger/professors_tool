@@ -1,6 +1,7 @@
 /*
 *= require_self
-*= require jquery-ui
+*  require jquery-ui
+*= require jquery-ui/datepicker
 *= require_tree
 */
 
@@ -89,10 +90,18 @@ a {
 	table {
 		width: 90%;
 		margin-top: 20px;
-		
+
 		tr {
 			td {
 				padding: 5px 20px;
+			}
+		}
+	}
+	
+	.jqueryui table {		
+		tr {
+			td {
+				padding: 2px;
 			}
 		}
 	}
