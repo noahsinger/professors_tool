@@ -7,4 +7,4 @@
 
 <%= render partial: 'admin/meetings/meetings_header', locals: xxx@xxx.xxx main: true} %>
 
-<%= render partial: 'meeting', xxx@xxx.xxx %>
+<%= render partial: 'meeting', xxx@xxx.xxx cached: true %>

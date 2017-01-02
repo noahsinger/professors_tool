@@ -15,7 +15,7 @@
 <%= render partial: 'steps/steps_list', locals: xxx@xxx.xxx %>
 
 <% xxx@xxx.xxx > 0 %>
-	<%= render partial: 'assignment', xxx@xxx.xxx %>
+	<%= render partial: 'assignment', xxx@xxx.xxx cached: true %>
 <% else %>
 	<%= render partial: 'no_assignments', locals: xxx@xxx.xxx %>
 <% end %>

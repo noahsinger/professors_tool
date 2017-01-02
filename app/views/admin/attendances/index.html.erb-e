@@ -9,7 +9,7 @@
 
 <%= render partial: 'admin/meetings/meeting', locals: xxx@xxx.xxx %>
 
-<%= render partial: 'attendance', xxx@xxx.xxx %>
+<%= render partial: 'attendance', xxx@xxx.xxx cached: true %>
 		
 <script type="text/javascript">
 	//setup links for normal page load

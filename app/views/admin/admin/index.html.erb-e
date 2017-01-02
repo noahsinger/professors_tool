@@ -7,4 +7,4 @@
 <%= render partial: 'admin/grade_requests/grade_requests_header' %>
 <%= render partial: 'admin/homework_return_requests/homework_return_requests_header' %>
 
-<%= render partial: 'admin/semesters/semester', xxx@xxx.xxx %>
+<%= render partial: 'admin/semesters/semester', xxx@xxx.xxx cached: true %>

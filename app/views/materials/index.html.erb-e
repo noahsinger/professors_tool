@@ -10,4 +10,4 @@
 <%= render partial: 'courses/course', locals: xxx@xxx.xxx %>
 
 
-<%= render partial: 'material', xxx@xxx.xxx %>
+<%= render partial: 'material', xxx@xxx.xxx cached: true %>

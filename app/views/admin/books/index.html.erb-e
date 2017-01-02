@@ -2,5 +2,5 @@
 <%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
 <%= render partial: 'books_header' %>
 
-<%= render partial: 'book', xxx@xxx.xxx %>
+<%= render partial: 'book', xxx@xxx.xxx cached: true %>
 

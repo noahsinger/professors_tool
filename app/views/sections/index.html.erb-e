@@ -6,4 +6,4 @@ xxx@xxx.xxx do |section| %>
 	<% end %>
 <% end %>
 
-<%= render partial: 'section', xxx@xxx.xxx %>
+<%= render partial: 'section', xxx@xxx.xxx cached: true %>

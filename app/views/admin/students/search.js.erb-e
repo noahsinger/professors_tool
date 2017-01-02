@@ -4,7 +4,7 @@ $('.student.block, .search.block').fadeOut('slow', function( ) {
 	$('.student.block, .search.block').remove( );
 	console.log('-- blocks removed');
 
-	$('#page').append("<%= escape_javascript(render partial: 'student', xxx@xxx.xxx %>");
+	$('#page').append("<%= escape_javascript(render partial: 'student', xxx@xxx.xxx cached: true) %>");
 	$('#page').append("<%= escape_javascript(render partial: 'pages_and_search') %>");
 	console.log('-- appended');	
 	$('#page').isotope('insert', $('.student.block, .search.block'));

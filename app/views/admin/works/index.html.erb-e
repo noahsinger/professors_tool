@@ -7,7 +7,7 @@
 <%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx %>
 <%= render partial: 'admin/assignments/assignment', locals: xxx@xxx.xxx main: true} %>
 
-<%= render partial: 'work', xxx@xxx.xxx %>
+<%= render partial: 'work', xxx@xxx.xxx cached: true %>
 
 	
 <% xxx@xxx.xxx > 0 %>
