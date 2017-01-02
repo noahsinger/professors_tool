@@ -1,8 +1,11 @@
 <div class="block labs <%= double_width_if_main(defined? main) %>">
 	<header>
-		<p><%= pluralize lab.worth, 'point' %></p>
-		<h3><%= link_to lab.title, course_lab_path(lab.course, lab) %></h3>
+		<%= link_to course_lab_path(lab.course, lab) do %>
+			<p><%= pluralize lab.worth, 'point' %></p>
+			<h3><%= lab.title %></h3>
+		<% end %>
 	</header>
+	
 	<ul id="assignment_links">
 		<li><a href="#" id="print" class="icon file">Print this Lab</a></li>
 		

@@ -1,7 +1,9 @@
 <div class="block <%= double_width_if_main(defined? main) %> examples header">
 	<header>
-		<p><%= xxx@xxx.xxx "Example" %></p>
-		<h5><%= link_to "Examples", xxx@xxx.xxx @section ) %></h5>
+		<%= link_to xxx@xxx.xxx @section ) do %>
+			<p><%= xxx@xxx.xxx "Example" %></p>
+			<h5>Examples</h5>
+		<% end %>
 	</header>
 	
 	<ul class="actions">

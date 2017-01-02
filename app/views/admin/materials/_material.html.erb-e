@@ -1,6 +1,10 @@
 <div class="block materials">
-  <h4><%= link_to material.title, material.file.url %></h4>
-  <p><%= material.description %></p>
+	<header>
+		<%= link_to material.file.url do %>
+	  	<h4><%= material.title %></h4>
+			<p><%= material.description %></p>
+		<% end %>
+	</header>
   
 	<ul>
     <li><%= link_to 'Edit', xxx@xxx.xxx %></li>

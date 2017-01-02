@@ -1,6 +1,8 @@
 <div class="block courses header <%= double_width_if_main(defined? main) %></">
 	<header>
-		<p>All Courses</p>
-		<h2><%= link_to "Courses", courses_path %></h2>
+		<%= link_to courses_path do %>
+			<p>All Courses</p>
+			<h2>Courses</h2>
+		<% end %>
 	</header>
 </div>

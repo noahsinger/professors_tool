@@ -1,5 +1,9 @@
 <div class="block <%= double_width_if_main(defined? main) %> policies header">
-	<header><h4><%= link_to "Policies", xxx@xxx.xxx %></h4></header>
+	<header>
+		<%= link_to xxx@xxx.xxx do %>
+		<h4>Policies</h4>
+		<% end %>
+	</header>
 	
 	<ul>
 		<li><%= link_to "Create a new syllabus part", xxx@xxx.xxx %></li>

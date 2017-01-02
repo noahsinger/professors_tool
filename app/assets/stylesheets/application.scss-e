@@ -38,12 +38,39 @@ a {
   background-color: #ccc;
 	margin: 0 1px;
 	transition: width 1s;
-}
-
-.block {
+	overflow: hidden;
+	
+	h1 {
+		font-size: 1.8em;
+	}
+	
+	h2 {
+		font-size: 1.6em;
+	}
+	
+	h3 {
+		font-size: 1.4em;
+	}
+	
+	h4 {
+		font-size: 1.3em;
+	}
+	
+	h5 {
+		font-size: 1.2em;
+	}
+	
+	h6 {
+		font-size: 1.1em;
+	}
+	
 	h1, h2, h3, h4, h5, h6, p, table, footer, div.pagination {
 		padding: 0 20px;
 		margin: 0;
+	}
+	
+	p {
+		padding: 10px 20px;
 	}
 	
 	h1, h2, h3, h4, h5, h6 {
@@ -51,33 +78,26 @@ a {
 		text-transform: uppercase;
 		padding: 20px;
 		font-weight: normal;
-	
-		& + p {
-			margin-top: 20px;
-		}
-		
-		& + section {
-			margin-top: 50px;
-		}
 	} //end headers
 	
-	p + h1, p + h2, p + h3, p + h4, p + h5, p + h6 {
-		padding-bottom: 9px;
-	}
-	
-	p {
-		padding: 10px 20px;
-	}
-	
 	header {
-		p + h1, p + h2, p + h3, p + h4, p + h5, p + h6 {
-			margin-top: 0px;
-			padding-top: 0px;
+		h1, h2, h3, h4, h5, h6 {
+			padding-bottom: 20px;
 		}
-	
+		
 		p {
 			margin: 0;
-			padding-bottom: 3px;
+			padding: 20px;
+		}
+		
+		p + h1, p + h2, p + h3, p + h4, p + h5, p + h6 {
+			margin: -20px 0 0 0;
+			padding: 0px 20px 20px 20px;
+		}
+	
+		h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
+			margin-top: -20px;
+			padding: 0 20px 20px 20px;
 		}
 	}
 	
@@ -114,7 +134,7 @@ a {
 		border: 0;
 	}
 	
-	input[type=text], input[type=email], input[type=password] {
+	input[type=text], input[type=email], input[type=password], input[type=number] {
 		width: 80%;
 		padding: 10px;
 	}

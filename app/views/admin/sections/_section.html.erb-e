@@ -1,11 +1,13 @@
 <div class="block <%= double_width_if_main(defined? main) %> sections">
 	<header>
-		<p><%= section.course.short_name %> <%= section.call_number %> - <%= section.section_number %></p>
-		<h4>
-			<%= section.meeting_days %> <%= link_to "#{section.course.title}", [:admin,section.semester,section] %>
-		</h4>
+		<%= link_to [:admin,section.semester,section] do %>
+			<p><%= section.course.short_name %> <%= section.call_number %> - <%= section.section_number %></p>
+			<h4>
+				<%= "#{section.meeting_days} #{section.course.title}" %>
+			</h4>
 		
-		<span class="in_progress_indicator <%= section.in_session ? "green" : "red" %>"></span>
+			<span class="in_progress_indicator <%= section.in_session ? "green" : "red" %>"></span>
+		<% end %>
 	</header>
 
 	<p><%= pluralize section.course.credits, 'credit' %></p>

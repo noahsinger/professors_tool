@@ -1,7 +1,9 @@
 <div class="block <%= double_width_if_main(defined? main) %> general_contacts header">
 	<header>
-		<p><%= pluralize GeneralContact.count, 'contact' %></p>
-		<h3><%= link_to 'Contacts', admin_general_contacts_path %></h3>
+		<%= link_to admin_general_contacts_path do %>
+			<p><%= pluralize GeneralContact.count, 'contact' %></p>
+			<h3>Contacts</h3>
+		<% end %>
 	</header>
 	
 	<ul class="actions">

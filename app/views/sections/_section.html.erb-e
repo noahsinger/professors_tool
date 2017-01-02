@@ -1,7 +1,9 @@
 <div class="block sections header <%= double_width_if_main(defined? main) %>">
 	<header>
-		<p><%= section.course.short_name %></p>
-		<h3><%= link_to section.course.title, semester_section_assignments_path(section.semester, section) %></h3>
+		<%= link_to semester_section_assignments_path(section.semester, section) do %>
+			<p><%= section.course.short_name %></p>
+			<h3><%= section.course.title %></h3>
+		<% end %>
 	</header>
 	
 	<p>

@@ -10,7 +10,7 @@
 	</header>
 </div>
 
-<div class="block works admin_comments block--width2">
+<div class="block works block--width2">
 	<% xxx@xxx.xxx == "destroyed" %>
 		<p class="green">Your work has been withdrawn.</p>
 	<% else %>

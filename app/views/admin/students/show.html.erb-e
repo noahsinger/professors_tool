@@ -3,10 +3,14 @@
 <%= render partial: 'admin/students/student', locals: xxx@xxx.xxx main: true} %>
 
 <div class="block block--width2 students">
+	<header>
+		<h4>Student History</h4>
+	</header>
+	
 	<table>
 		<tr>
-			<th>Course/Section</th>
-			<th>Students Final Score</th>
+			<th>Course</th>
+			<th>Final Score</th>
 			<th>Semester</th>
 			<th>Section Status</th>
 			<th>Status</th>

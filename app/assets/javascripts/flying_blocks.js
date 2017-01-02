@@ -157,12 +157,13 @@ var FlyingBlocks = {
 		  console.log(e, data);
 		});
 		
-		//look for and execute any scripts included with blocks
+		
 		$(".block").each( function( ) {
+			//look for and execute any scripts included with blocks
 			if( $(this).data("script") ) {
 				console.log("*** script detected with node: " + $(this).data("script"));
 				eval($(this).data("script"));
-			}	
+			}
 		});
 	}, //end init_elements
 	

@@ -1,14 +1,6 @@
 body {
-  color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 14px;
 }
 
 pre {
@@ -50,6 +42,7 @@ div {
   margin-bottom: 20px;
   background-color: #900;
 	color: #fff;
+
   h2 {
     text-align: left;
     font-weight: bold;
@@ -68,6 +61,5 @@ div {
 	    font-size: 12px;
 	    list-style: square;
 	  }	
-  }
-	
+  }	
 }

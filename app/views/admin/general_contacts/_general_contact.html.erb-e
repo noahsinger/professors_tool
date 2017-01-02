@@ -1,9 +1,15 @@
 <div class="block general_contacts">
-  <p><%= general_contact.return_email %></p>
-  <h3><%= link_to general_contact.subject, [:admin,general_contact] %></h3>
+	<header>
+		<%= link_to [:admin,general_contact] do %>
+			<p><%= general_contact.return_email %></p>
+			<h3><%= general_contact.subject %></h3>
+		<% end %>
+	</header>
+	
 	<% if general_contact.attachment %>
 		<p><%= link_to general_contact.attachment_file_name, general_contact.attachment.url %></p>
 	<% end %>
+	
 	<ul>
     <li><%= link_to 'Destroy', [:admin,general_contact], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
 	</ul>

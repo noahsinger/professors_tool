@@ -62,7 +62,7 @@ xxx@xxx.xxx %>
 		</table>
 	</div>
 
-		<div class="block sections">
+		<div class="block instructors">
 			<h4>Instructor Information</h4>
 			<table>
 				<tr>
@@ -125,7 +125,7 @@ xxx@xxx.xxx %>
 			</table>
 		</div>
 
-		<div class="block sections pagebreak">
+		<div class="block divisions pagebreak">
 			<h4>School of xxx@xxx.xxx %></h4>
 			<table id="divisionTable">
 				<tr>
@@ -155,7 +155,7 @@ xxx@xxx.xxx %>
 			</table>
 		</div>
 
-		<div class="block sections pagebreak">
+		<div class="block courses pagebreak">
 			<h4>Course Prerequisites</h4>
 			<p>
 xxx@xxx.xxx %>
@@ -169,7 +169,7 @@ xxx@xxx.xxx %>
 			</p>
 		</div>
 
-		<div class="block sections pagebreak">
+		<div class="block books pagebreak">
 			<h4>Books and Resources</h4>
 			<% xxx@xxx.xxx > 0 %>
 				<p><b><%= xxx@xxx.xxx 'Textbook' %></b></p>
@@ -198,12 +198,12 @@ xxx@xxx.xxx do |website| %>
 			<% end %>
 		</div>
 
-		<div class="block sections pagebreak">
+		<div class="block courses pagebreak">
 			<h4>Other Materials</h4>
 xxx@xxx.xxx %></p>
 		</div>
 
-		<div class="block sections pagebreak">
+		<div class="block courses pagebreak">
 			<h4>Course Objectives</h4>
 			<p>Upon completion of this course, a student should be able to do the following:</p>
 			<ol>
@@ -213,7 +213,7 @@ xxx@xxx.xxx do |o| %>
 			</ol>
 		</div>
 
-		<div class="block sections pagebreak">
+		<div class="block policies pagebreak">
 			<h4>Policies</h4>
 xxx@xxx.xxx do |policy| %>
 				<section>

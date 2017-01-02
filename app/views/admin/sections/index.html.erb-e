@@ -7,14 +7,6 @@
 	<div class="block chart sections" data-script="setTimeout(init_chart,1000)">
 		<section id="enrollments_chart">No Enrollment Data Available</section>
 
-		<%# table_data = {} %>
-		<%# EnrollmentSnapshot.joins(:section).where(sections: {semester_id: 1}).order(:created_at).map {|s| [s.created_at.strftime('%m/%d/%y'), s.section_id, s.enrollment_count]}.each do |date, id, count|
-			if table_data[date]
-				table_data[date].push({section_id: id, enrollment_count: count})
-			else
-				table_data[date] = [{section_id: id, enrollment_count: count}]
-			end
-		end %>
 
 		<script type="text/javascript" charset="utf-8">
 			var init_chart = function () {

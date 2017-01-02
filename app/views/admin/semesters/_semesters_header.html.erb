@@ -1,7 +1,9 @@
 <div class="block <%= double_width_if_main(defined? main) %> semesters header">
 	<header>
-		<p><%= pluralize Semester.count, 'semester' %></p>
-		<h3><%= link_to 'Semesters', admin_semesters_path %></h3>
+		<%= link_to admin_semesters_path do %>
+			<p><%= pluralize Semester.count, 'semester' %></p>
+			<h3>Semesters</h3>
+		<% end %>
 	</header>	
 
 	<ul>

@@ -1,3 +1,7 @@
 <div class="block labs header <%= double_width_if_main(defined? main) %>">
-	<h3><%= link_to 'Labs', course_labs_path(course) %></h3>
+	<header>
+		<%= link_to course_labs_path(course) do %>
+			<h3>Labs</h3>
+		<% end %>
+	</header>
 </div>

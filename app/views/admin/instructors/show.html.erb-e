@@ -4,7 +4,8 @@
 <%= render partial: 'instructor', locals: xxx@xxx.xxx %>
 
 <div class="block instructors">
-	<h4>Details</h4>
+	<header><h4>Details</h4></header>
+	
 	<table>
 		<tr>
 			<td class="blank">Phone number:</td>

@@ -1,5 +1,5 @@
 <div class="block assignments <%= double_width_if_main(defined? main) %>">
-	<p>No Assignments are currently available for this class.</p>
+	<header><p>No Assignments are currently available for this class.</p></header>
 	<p>
 		You can Subscribe to this classes
 		<%= link_to( 'RSS' , semester_section_assignments_path(section.semester,section, format: :rss) ) %>

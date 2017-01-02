@@ -5,10 +5,6 @@
 	background-color: $normal_background_color;
 	color: $noraml_font_color;
 	
-	ul li a {
-		color: lighten($noraml_font_color, 10%);
-	}
-	
 	h1, h2, h3, h4, h5, h6, header, footer {
 		background-color: lighten($normal_background_color, 10%);
 		
@@ -30,6 +26,14 @@
 			}
 		} // end h's
 	} //end &.header
+	
+	ul li a {
+		color: lighten($noraml_font_color, 10%);
+	}
+	
+	table tr td a {
+		color: lighten($noraml_font_color, 10%);
+	}
 } //end block_style
 
 

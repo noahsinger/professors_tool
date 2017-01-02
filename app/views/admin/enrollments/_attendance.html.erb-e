@@ -1,4 +1,4 @@
-<tr id="attendance_<%= attendance.id.to_s %>" class="attendance_row enrollments attendances">
+<tr id="attendance_<%= attendance.id.to_s %>" class="attendance_row enrollments">
 	<td>
 		<%= link_to show_date_and_time(attendance.meeting.when), xxx@xxx.xxx %>
 	</td>

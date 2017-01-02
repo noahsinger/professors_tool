@@ -1,5 +1,9 @@
 <div class="block admin_header <%= double_width_if_main(defined? main) %>">
-	<header><h2><%= link_to 'Admin', admin_admin_index_path %></h2></header>
+	<header>
+		<%= link_to admin_admin_index_path do %>
+			<h2>Admin</h2>
+		<% end %>
+	</header>
 
 	<ul>
 		<li><%= link_to '404', '/idontexist' %></li>

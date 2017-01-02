@@ -1,8 +1,10 @@
-<h3><%= link_to "#{student.last_name}, #{student.first_name} #{student.middle_name}", admin_student_path(student) %></h3>
-<p>
-  <% if student.goes_by and not student.goes_by.blank? %>
-    (<%= student.goes_by %>)
-  <% end %>
-</p>
-<p><%= mail_to student.email %></p>
+<header>
+	<%= link_to admin_student_path(student) do %>
+		<p><%= student.email %></p>
+		<h3><%= "#{student.last_name}, #{student.first_name} #{student.middle_name}" %></h3>
+  	<% if student.goes_by and not student.goes_by.blank? %>
+    	<p>(<%= student.goes_by %>)</p>
+		<% end %>
+	<% end %>
+</header>
 <p><%= pluralize student.enrollments.count, 'class' %> taken</p>

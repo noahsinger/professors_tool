@@ -1,7 +1,9 @@
 <div class="block <%= double_width_if_main(defined? main) %> enrollments header">
 	<header>
-		<p><%= pluralize section.enrollments.size, 'Enrollment' %></p>
-		<h5><%= link_to 'Enrollments', admin_semester_section_enrollments_path(section.semester, section) %></h5>
+		<%= link_to admin_semester_section_enrollments_path(section.semester, section) do %>
+			<p><%= pluralize section.enrollments.size, 'Enrollment' %></p>
+			<h5>Enrollments</h5>
+		<% end %>
 	</header>
 	
 	<ul>

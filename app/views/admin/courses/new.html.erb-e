@@ -1,4 +1,4 @@
-s
+
 <%= render partial: 'courses_header', locals: {main: true} %>
 
 <div class="block courses">

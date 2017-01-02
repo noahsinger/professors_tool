@@ -1,6 +1,8 @@
 <div class="block homework_return_requests header <%= double_width_if_main(defined? main) %>">
 	<header>
+		<%= link_to xxx@xxx.xxx do %>
 xxx@xxx.xxx %></p>
-		<h5><%= link_to "Request a Return Copy of your Solution", xxx@xxx.xxx %></h5>
+			<h5>Request a Return Copy of your Solution</h5>
+		<% end %>
 	</header>
 </div>

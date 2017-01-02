@@ -15,6 +15,9 @@
 
 
 <div class="block block--width2 enrollments">
+	<header>
+		<h5>Assignments</h5>
+	</header>
 	<table>
 		<tr>
 			<th>Assignment</th>
@@ -57,13 +60,22 @@ xxx@xxx.xxx do |assignment| %>
 </div>
 
 <div class="block enrollments">
+	<header>
+		<h3>
+			Current Score:
+			<%= @enrollment.current_average %>% - xxx@xxx.xxx %><br/>
+			Absences: xxx@xxx.xxx AttendanceStatus.absent.id).count %>
+			/ xxx@xxx.xxx %>
+		</h3>
+	</header>
+	
 	<p>
 xxx@xxx.xxx = EnrollmentStatus.all -%>
 		<%- outputs = [] -%>
 
 xxx@xxx.xxx do |status| %>
 			<% xxx@xxx.xxx == status.name %>
-				<% outputs << status.name %>
+				<% outputs << "<b>#{status.name}</b>" %>
 			<% else %>
 				<% outputs << link_to( status.name, xxx@xxx.xxx @section, @enrollment, enrollment: {enrollment_status_id: status.id} ), method: :put, remote: true ) %>
 			<% end %>
@@ -71,16 +83,11 @@ xxx@xxx.xxx do |status| %>
 		
 		<%= outputs.join( " &bull; " ).html_safe %>
 	</p>
-	<h3>
-		Current Score:
-		<%= @enrollment.current_average %>% - xxx@xxx.xxx %>
-		 :: Absences: xxx@xxx.xxx AttendanceStatus.absent.id).count %>
-		 /
-		 xxx@xxx.xxx %>
-	</h3>
+	
 </div>
 	
 <div class="block block--width2 enrollments">
+	<header><h5>Attendances</h5></header>
 	<table>
 		<tr>
 			<th>Date</th>

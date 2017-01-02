@@ -1,17 +1,23 @@
 <div class="block <%= double_width_if_main(defined? main) %> assignments">
-	<% unless assignment.graded? %>
-		<p>Not graded (<%= assignment.works.size %> waiting)</p>
-	<% end %>
-
-	<h5><%= link_to "#{assignment.title} - #{assignment.lab.title}", admin_semester_section_assignment_works_path(assignment.section.semester,assignment.section,assignment) %></h5>
+	<header>
+		<%= link_to admin_semester_section_assignment_works_path(assignment.section.semester,assignment.section,assignment) do %>
+			<% unless assignment.graded? %>
+				<p>Not graded (<%= assignment.works.size %> waiting)</p>
+			<% end %>
+	
+			<h5><%= "#{assignment.title} - #{assignment.lab.title}" %></h5>
+			
+			<p>
+				Due: <%= show_short_date assignment.duedate %>
+				<%= "(#{distance_of_time_in_words_to_now(assignment.duedate)})" if assignment.duedate > Time.now %>
+			</p>
+		<% end %>
+	</header>
 
 	<p>
-		Due: <%= show_short_date assignment.duedate %>
-		<%= "(#{distance_of_time_in_words_to_now(assignment.duedate)})" if assignment.duedate > Time.now %>
+		Worth: <%= assignment.worth %><br/>
+	  Average: <%= assignment.average.round(2) %>%
 	</p>
-
-	<p>Worth: <%= assignment.worth %></p>
-	<p>Average: <%= assignment.average.round(2) %>%</p>
 	
 	<ul>
 		<% if assignment.short_url and assignment.short_url =~ /goo\.gl/ %>

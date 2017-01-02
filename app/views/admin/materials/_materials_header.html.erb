@@ -1,5 +1,9 @@
 <div class="block <%= double_width_if_main(defined? main) %> materials header">
-	<header><h4><%= link_to "Materials", xxx@xxx.xxx %></h4></header>
+	<header>
+		<%= link_to xxx@xxx.xxx do %>
+			<h4>Materials</h4>
+		<% end %>
+	</header>
 	
 	<ul class="actions">
 		<li><%= link_to "New Material", xxx@xxx.xxx %></li>

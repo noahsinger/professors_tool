@@ -4,6 +4,11 @@
 
 <div class="block objectives" data-script='$("#objectives").reorderTable( "<%= xxx@xxx.xxx ) %>", "<%= form_authenticity_token %>" )'>
 	<table id="objectives">
+		<tr>
+			<th>objective</th>
+			<th></th>
+			<th></th>
+		</tr>
 xxx@xxx.xxx do |objective| %>
 			<%= render objective %>
 		<% end %>

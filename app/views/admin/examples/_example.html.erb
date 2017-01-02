@@ -1,7 +1,12 @@
 <div class="block examples">
-	<h5><%= link_to example.name, example.file.url %></h5>
+	<header>
+		<%= link_to example.file.url do %>
+			<p><%= show_date_and_time(example.created_at) %></p>
+			<h5><%= example.name %></h5>
+		<% end %>
+	</header>
+	
 	<p><%= example.description %></p>
-	<p><%= show_date_and_time(example.created_at) %></p>
 	
 	<ul>
 		<li><%= link_to 'Edit', xxx@xxx.xxx %></li>

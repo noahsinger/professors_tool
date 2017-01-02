@@ -1,7 +1,9 @@
 <div class="block <%= double_width_if_main(defined? main) %> sections header">
 	<header>
-		<p><%= semester.name %></p>
-		<h4><%= link_to 'Sections', admin_semester_sections_path(semester) %></h4>
+		<%= link_to admin_semester_sections_path(semester) do %>
+			<p><%= semester.name %></p>
+			<h4>Sections</h4>
+		<% end %>
 	</header>
 	
 	<ul class="actions">

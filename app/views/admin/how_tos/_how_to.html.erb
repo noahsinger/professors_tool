@@ -1,5 +1,10 @@
 <div id="how_to_<%= how_to.id.to_s %>" class="how_to block <%= double_width_if_main(defined? main) %> how_tos">
-	<h5><%= link_to how_to.title, admin_how_to_steps_path(how_to, xxx@xxx.xxx %></h5>
+	<header>
+		<%= link_to admin_how_to_steps_path(how_to, xxx@xxx.xxx do %>
+			<h5><%= how_to.title %></h5>
+		<% end %>
+	</header>
+	
 	<p><%= how_to.description %></p>
 	
 	<% xxx@xxx.xxx {|tutorial| tutorial.how_to}.include?(how_to) %>

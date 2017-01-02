@@ -1,14 +1,17 @@
 <div class="block <%= double_width_if_main(defined? main) %> labs">
 	<header>
-		<p><%= pluralize lab.worth, "point" %></p>
-		<h4>
-			<%= link_to lab.title, xxx@xxx.xxx lab) %>
-		</h4>
+		<%= link_to xxx@xxx.xxx lab) do %>
+			<p><%= pluralize lab.worth, "point" %></p>
+			<h4>
+				<%= lab.title %>
+			</h4>
+			<p><b>Objective: </b><%= lab.objective %></p>
+		<% end %>
 	</header>
 
-	<p><b>Objective: </b><%= lab.objective %></p>
-	<p>is lab visible: <%= lab.visible %></p>
-	<p>are uploads allowed: <%= lab.allow_uploads %></p>
+	
+	<p><b>is lab visible:</b> <%= lab.visible %></p>
+	<p><b>are uploads allowed:</b> <%= lab.allow_uploads %></p>
 	
 	<ul>
 		<li><%= link_to 'Edit', xxx@xxx.xxx %></li>

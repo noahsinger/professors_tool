@@ -1,17 +1,19 @@
 <div class="block assignments header <%= double_width_if_main(defined? main) %> <%= assignment.overdue? ? "overdue" : "" %>" data-active="<%= assignment.overdue? ? 'inactive' : 'active' %>">
 	<header>
-		<% unless assignment.overdue? %>
-			<p>Due on <%= show_short_date( assignment.duedate ) %> (<%= distance_of_time_in_words(Time.now, assignment.duedate) %>)</p>
-		<% else %>
-			<p>pastdue</p>
+		<%= link_to semester_section_assignment_path(assignment.section.semester, assignment.section, assignment) do %>
+			<% unless assignment.overdue? %>
+				<p>Due on <%= show_short_date( assignment.duedate ) %> (<%= distance_of_time_in_words(Time.now, assignment.duedate) %>)</p>
+			<% else %>
+				<p>pastdue</p>
+			<% end %>
+	
+			<h4 class="<%= "overdue" if assignment.overdue? %>">
+				<%= "#{assignment.title} - #{assignment.lab.title}" %>
+			</h4>
+			
+			<p>Objective: <b><%= assignment.lab.objective %></b></p>
 		<% end %>
-	
-		<h4 class="<%= "overdue" if assignment.overdue? %>">
-			<%= link_to "#{assignment.title} - #{assignment.lab.title}", semester_section_assignment_path(assignment.section.semester, assignment.section, assignment) %>
-		</h4>
 	</header>
-	
-	<p>Objective: <b><%= assignment.lab.objective %></b></p>
 	
 	<nav>
 		<ul id="assignment_links">

@@ -1,9 +1,11 @@
 <div class="block <%= double_width_if_main(defined? main) %> courses">
 	<header>
-	  <p><%= course.short_name %></p>
-	  <h2>
-	    <%= link_to course.title, course_path( course ) %>
-	  </h2>
-	  <p><%= pluralize course.credits, "credit" %></p>
+		<%= link_to course_path( course ) do %>
+		  <p><%= course.short_name %></p>
+		  <h2>
+		    <%= course.title %>
+		  </h2>
+		  <p><%= pluralize course.credits, "credit" %></p>
+		<% end %>
 	</header>
 </div>

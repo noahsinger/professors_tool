@@ -1,17 +1,8 @@
-<%= content_for :header do %>
-	<h1>Echo</h1>
-<% end %>
+<div class="block block--width2">
+	<header>
+		<p>echo example service</p>
+		<h1>Echo</h1>
+	</header>
 
-<nav>
-	<%= link_to 'Home', root_path, :class => "icon back" %>
-</nav>
-
-<header>
-	<p>echo example service</p>
-	<h1>Echo</h1>
-</header>
-
-<section class="admin_comments">
-	<h1>Received Values</h1>
 	<p><%= debug( params ) %></p>
-</section>
+</div>

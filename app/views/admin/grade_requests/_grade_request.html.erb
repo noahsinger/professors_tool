@@ -1,15 +1,19 @@
 <div class="block grade_requests <%= double_width_if_main(defined? main) %>">
 	<header>
 		<p><%= grade_request.section.course.title %></p>
-		<%- if grade_request.enrollment -%>
+		<% if grade_request.enrollment %>
 			<h3><%= grade_request.enrollment.student.last_name %>, <%= grade_request.enrollment.student.first_name %></h3>
-		<%- else -%>
+		<% else %>
 			<h3>Unknown</h3>
-		<%- end -%>
+		<% end %>
 	</header>
 	
-	<p><%= mail_to grade_request.email %></p>
-	<p><%=show_short_date grade_request.created_at %> @ <%= show_time grade_request.created_at %></p>
+	<p>
+		<%= mail_to grade_request.email %><br/>
+		<%=show_short_date grade_request.created_at %> @ <%= show_time grade_request.created_at %>
+	</p>
+	
+	
 	<ul>
 		<li><%= link_to 'Destroy', [:admin,grade_request], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
 	</ul>
