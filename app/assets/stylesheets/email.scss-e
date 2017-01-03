@@ -1,0 +1,14 @@
+body.email {
+	#page {
+		margin: 20px auto;
+		max-width: 1200px;
+	}
+	
+	.block {
+		margin: 5px;
+		
+		h2, h3 {
+			font-size: 1.3em;
+		}
+	}
+}

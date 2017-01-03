@@ -1,27 +1,23 @@
-<table class="tab">
-	<tr class="tab_header">
-		<td>
-			<% assignment xxx@xxx.xxx %>
-			<% section = assignment.section %>
-			<% semester = section.semester %>
-			
+<% assignment xxx@xxx.xxx %>
+<% section = assignment.section %>
+<% semester = section.semester %>
+
+<div class="block works">
+	<header>
+		<h3>
 			<%= section.course.title %>
-		</td>
-	</tr>
-	<tr class="tab_content">
-		<td>
+		</h3>
+	</header>
+</div>
 
-				<h3>Your Homework has Already Been Submitted for <%= assignment.title %></h3>
-				<hr/>
+<div class="block works">
+	<header><h3>Your Homework has Already Been Submitted for <%= assignment.title %></h3></header>
 
-				<p>
-					An attempt was just made to upload a new solution for <strong><%= assignment.title %></strong> for you.  If you didn't do this, don't worry, it wasn't 
-					accepted.  If you are trying to replace your previous submission with a new one, you must first 
-					<%= link_to 'withdraw your previous submission', withdraw_semester_section_assignment_works_url(semester, section, assignment, 
-							:code xxx@xxx.xxx
-							:host => APP_CONFIG['host']) %>.
-				</p>
-				
-		</td>				
-	</tr>		
-</table>
+	<p>
+		An attempt was just made to upload a new solution for <strong><%= assignment.title %></strong> for you.  If you didn't do this, don't worry, it wasn't 
+		accepted.  If you are trying to replace your previous submission with a new one, you must first 
+		<%= link_to 'withdraw your previous submission', withdraw_semester_section_assignment_works_url(semester, section, assignment, 
+xxx@xxx.xxx
+				host: APP_CONFIG['host']) %>.
+	</p>	
+</div>

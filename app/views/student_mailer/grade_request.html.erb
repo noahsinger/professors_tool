@@ -1,109 +1,115 @@
-<table class="tab">
-	<tr class="tab_header">
-		<td colspan="2">
-			Your Grades for <%= @enrollment.section.course.title %> xxx@xxx.xxx %>						
-		</td>
-	</tr>
-	<tr class="tab_content grade_summary">
-		<td>
-			<h2>Grade Summary</h2>
-			<p>
-				Your current grade is: <strong xxx@xxx.xxx %></strong>
-				<br/>
-				There have been xxx@xxx.xxx %></strong> points assigned
-				and you have earned xxx@xxx.xxx %></strong> points leaving you
-				with a <strong><%= xxx@xxx.xxx %></strong> average.
-			</p>
-			<hr/>
-			<p>
-				<em>
-					Included in this email you will find detailed information on your current grade in
+<div class="block block--width2 sections">
+	<header>
+xxx@xxx.xxx %></p>
+		<h3>Your Grades for xxx@xxx.xxx %></h3>
+	</header>
+</div>
+
+
+
+<div class="block block--width2 labs">
+	<h2>Grade Summary</h2>
+	<p>
+		Your current grade is: <strong xxx@xxx.xxx %></strong>
+		<br/>
+		There have been xxx@xxx.xxx %></strong> points assigned
+		and you have earned xxx@xxx.xxx %></strong> points leaving you
+		with a <strong><%= xxx@xxx.xxx %></strong> average.
+	</p>
+
+	<p>
+		<em>
+			Included in this email you will find detailed information on your current grade in
 xxx@xxx.xxx %>.  If you have any questions about these grades
-					please <%= link_to 'contact your instructor', new_general_contact_url(:host => APP_CONFIG['host']) %>.
-				</em>
-			</p>
+			please <%= link_to 'contact your instructor', new_general_contact_url(:host => APP_CONFIG['host']) %>.
+		</em>
+	</p>		
+</div>
 		
-		</td>
-		<td class="grade_details">
+		
+
 xxx@xxx.xxx do |assignment| -%>	
-			<%- work = xxx@xxx.xxx ) -%>
-		
 
-				<h1><%= assignment.title %> : <%= assignment.lab.title %></h1>
-		
-				<%- if work -%>
-					<%- if work.graded? -%>
-						<!-- work exists and has been graded = show grade -->
-						<p><strong>Your Score:</strong> <%= number_to_percentage ((work.score / work.assignment.worth.to_f)*100) %></p>
+	<div class="block works">
+		<%- work = xxx@xxx.xxx ) -%>
 
-						<% unless work.instructors_comments.blank? %>
-							<div class="inset">
-								<h4>Instructors Comments</h4>
-								<p><%= work.instructors_comments %></p>
-							</div>
-						<% end %>
-			
+		<header>
+			<h3><%= assignment.title %> : <%= assignment.lab.title %></h3>
+		</header>
 
-						<div class="point_breakdown">
-							<h4>Point Breakdown</h4>
-							<%- work.awarded_points.each do |p| -%>
-								<div><%= p.requirement.description %> ( <%= p.points %> pts out of <%= p.requirement.points %> pts )</div>
-							<%- end -%>
-						</div>
-					<%- else -%>
-						<!-- work exists but hasn't been graded -->
-						<%- if work.created_at > assignment.duedate -%>
-							<!-- word exists but was turned in late = it was late -->
-							<p><strong>Your Score:</strong> - </p>
+		<%- if work -%>
+			<%- if work.graded? -%>
+				<!-- work exists and has been graded = show grade -->
+				<p><strong>Your Score:</strong> <%= number_to_percentage ((work.score / work.assignment.worth.to_f)*100) %></p>
 
-							<div class="inset">	
-								<h4>Comments</h4>
-								<p>
-									Your work was submitted after the due date.  Depending on your class's specific policy it
-									may or may not be graded but no grade exists for this lab at this time.  If you feel that this
-									is incorrect you can <%= link_to 'contact your instructor', new_general_contact_url(:host => APP_CONFIG['host']) %>.
-								</p>
-							</div>
-						<%- else -%>
-							<!-- work exists and wasn't turned in late = wait for grading -->
-							<p><strong>Your Score:</strong> - </p>
+				<% unless work.instructors_comments.blank? %>
+					<section>
+						<h4>Instructors Comments</h4>
+						<p><%= work.instructors_comments %></p>
+					</section>
+				<% end %>
 
-							<div class="inset">	
-								<h4>Comments</h4>
-								<p>
-									Your lab was submitted and is awaiting grading.
-								</p>
-							</div>
+
+				<section>
+					<h4>Point Breakdown</h4>
+					<ul>
+						<%- work.awarded_points.each do |p| -%>
+							<li><%= p.requirement.description %> (<%= p.points %> pts out of <%= p.requirement.points %> pts)</li>
 						<%- end -%>
-					<%- end -%>
-				<%- else -%>
-					<!-- work doesn't exist -->
-					<%- if assignment.overdue? -%>
-						<!-- work doesn't exist and should have been turned in by now = nothing submitted? -->
-						<p><strong>Your Score:</strong> -</p>
+					</ul>
+				</section>
+			<%- else -%>
+				<!-- work exists but hasn't been graded -->
+				<%- if work.created_at > assignment.duedate -%>
+					<!-- word exists but was turned in late = it was late -->
+					<p><strong>Your Score:</strong> - </p>
 
-						<div class="inset">	
-							<h4>Comments</h4>
-							<p>
-								No submission was found from you for this assignment and no grade exists for this work.  
-								If you're certain that there should be a grade here, you know you turned your assignment
-								in, and you know that it has been graded, then you should 
-								<%= link_to 'contact your instructor', new_general_contact_url(:host => APP_CONFIG['host']) %>.
-							</p>
-						</div>
-					<%- else -%>
-						<!-- word doesn't exist and isn't due yet = wait for the due date -->
-						<div class="inset">	
-							<h4>Comments</h4>
-							<p>
-								This assignment has not been submitted and is not yet due.  Submit your assignment by <%= assignment.duedate.strftime '%A %B %d, %Y %I:%M %p' %>
-								to make sure that you receive credit for your work.
-							</p>
-						</div>
-				
-					<%- end -%>
+					<section>	
+						<h4>Comments</h4>
+						<p>
+							Your work was submitted after the due date.  Depending on your class's specific policy it
+							may or may not be graded but no grade exists for this lab at this time.  If you feel that this
+							is incorrect you can <%= link_to 'contact your instructor', new_general_contact_url(host: APP_CONFIG['host']) %>.
+						</p>
+					</section>
+				<%- else -%>
+					<!-- work exists and wasn't turned in late = wait for grading -->
+					<p><strong>Your Score:</strong> - </p>
+
+					<section>	
+						<h4>Comments</h4>
+						<p>
+							Your lab was submitted and is awaiting grading.
+						</p>
+					</section>
 				<%- end -%>
 			<%- end -%>
-		</td>
-	</tr>
-</table>
+		<%- else -%>
+			<!-- work doesn't exist -->
+			<%- if assignment.overdue? -%>
+				<!-- work doesn't exist and should have been turned in by now = nothing submitted? -->
+				<p><strong>Your Score:</strong> -</p>
+
+				<section>	
+					<h4>Comments</h4>
+					<p>
+						No submission was found from you for this assignment and no grade exists for this work.  
+						If you're certain that there should be a grade here, you know you turned your assignment
+						in, and you know that it has been graded, then you should 
+						<%= link_to 'contact your instructor', new_general_contact_url(host: APP_CONFIG['host']) %>.
+					</p>
+				</section>
+			<%- else -%>
+				<!-- work doesn't exist and isn't due yet = wait for the due date -->
+				<section>
+					<h4>Comments</h4>
+					<p>
+						This assignment has not been submitted and is not yet due.  Submit your assignment by 
+						<%= assignment.duedate.strftime '%A %B %d, %Y %I:%M %p' %>
+						to make sure that you receive credit for your work.
+					</p>
+				</section>
+			<%- end -%>
+		<%- end -%>
+	</div> <!-- end block -->
+<%- end -%>

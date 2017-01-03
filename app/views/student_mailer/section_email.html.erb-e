@@ -1,28 +1,21 @@
-<table class="tab">
-	<tr class="tab_header">
-		<td>
+	<div class="block general_contacts">
+		<h3>
 			Section Announcement for xxx@xxx.xxx %>
-		</td>
-	</tr>
-	<tr class="tab_content">
-		<td>
+		</h3>
+	</div>
 
-			<p>
-				<strong>To:</strong> All Class Members of Section <%= @section.call_number %> of xxx@xxx.xxx %><br/>
-				<strong>Subject:</strong> Section Announcement
-			</p>
+	<div class="block general_contacts">
+		<header>
+			<p><strong>To:</strong> All Class Members of Section <%= @section.call_number %> of xxx@xxx.xxx %></p>
+			<p><strong>Subject:</strong> Section Announcement</p>
+		</header>
 
-			<p>
-				<%= xxx@xxx.xxx %>
-			</p>
+		<%= xxx@xxx.xxx %>
 
-			<hr/>
+		<hr/>
 
-			<div>
-				<%= @section.instructor.first_name %> xxx@xxx.xxx %><br/>
+		<footer>
+			<%= @section.instructor.first_name %> xxx@xxx.xxx %><br/>
 xxx@xxx.xxx %>
-			</div>
-		
-		</td>
-	</tr>
-</table>
+		</footer>
+	</div>
