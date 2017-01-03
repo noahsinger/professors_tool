@@ -2,7 +2,7 @@ class SectionsController < ApplicationController
   before_action :load_semester
   
   def load_semester
-   xxx@xxx.xxx = Semester.find( params[:semester_id] )
+   xxx@xxx.xxx = Semester.find(params[:semester_id])
   end
   
   # GET /sections
