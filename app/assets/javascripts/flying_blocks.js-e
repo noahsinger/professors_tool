@@ -63,7 +63,7 @@ var FlyingBlocks = {
 	
 	
 	//BEFORE_RENDER
-	before_render : function( ) {
+	before_render : function(event) {
 		console.log("before-render");
 
 		var new_blocks = event.data.newBody.querySelectorAll(".block");
