@@ -209,3 +209,11 @@ xxx@xxx.xxx block_style($orange_500, $grey_300, $orange_300, $amber_50);
 			.extras {
 xxx@xxx.xxx block_style($orange_300, $grey_300, $orange_200, $amber_50);
 			}
+			
+.block.flash.error {
+xxx@xxx.xxx block_style(#900, #eee, #900, #fff);
+}
+
+.block.flash.notice {
+xxx@xxx.xxx block_style(#090, #eee, #090, #fff);
+}
