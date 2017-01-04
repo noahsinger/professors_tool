@@ -1,10 +1,9 @@
 class Admin::LabsController < ApplicationController
   before_action :authenticate
-  
   before_action :load_course
   
   def load_course
-   xxx@xxx.xxx = Course.find( params[:course_id] )
+   xxx@xxx.xxx = Course.find(params[:course_id])
   end
   
   # GET /labs
@@ -72,6 +71,10 @@ class Admin::LabsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        # if the lab's course has changed (it's been moved) then it needs to 
+        #  be reloaded to report the correct course for redirection below
+       xxx@xxx.xxx 
+        
         @status = xxx@xxx.xxx
         flash[:notice] = 'Lab was successfully updated.'
         format.html { xxx@xxx.xxx }
@@ -118,6 +121,6 @@ class Admin::LabsController < ApplicationController
   end
   
   def allowed_params
-    params.require(:lab).permit(:title, :objective, :instructions, :visible, :allow_uploads)
+    params.require(:lab).permit(:title, :objective, :instructions, :visible, :allow_uploads, :course_id)
   end
 end

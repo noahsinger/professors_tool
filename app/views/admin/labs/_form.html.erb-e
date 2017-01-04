@@ -9,6 +9,8 @@
 			<li><div class="details"><%= f.label :title %><p></p></div><div class="field"><%= f.text_field :title %></div></li>
 	
 			<li><div class="details"><%= f.label :objective %><p></p></div><div class="field"><%= f.text_field :objective %></div></li>
+			
+			<li><div class="details"><%= f.label :course_id %><p></p></div><div class="field"><%= f.collection_select( :course_id, Course.all, :id, :title ) %></div></li>
 	
 			<li class="textarea"><div class="details"><%= f.label :instructions %><p></p></div><div class="field"><%= f.text_area :instructions %></div></li>
 	
