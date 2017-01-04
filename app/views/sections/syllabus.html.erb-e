@@ -213,15 +213,13 @@ xxx@xxx.xxx do |o| %>
 			</ol>
 		</div>
 
-		<div class="block policies pagebreak">
-			<h4>Policies</h4>
+		
 xxx@xxx.xxx do |policy| %>
-				<section>
-					<h4><%= policy.syllabus_part.title %></h4>
-					<%= markdown policy.syllabus_part.description %>
-				</section>
-			<% end %>
-		</div>
+			<div class="block policies pagebreak">
+				<header><h4><%= policy.syllabus_part.title %></h4></header>
+				<%= markdown policy.syllabus_part.description %>
+			</div>
+		<% end %>
 
 
 		<div id="endNoteDiv" class="block sections">
