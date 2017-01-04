@@ -1,5 +1,7 @@
 <div class="block courses header <%= double_width_if_main(defined? main) %>">
-	<%= link_to xxx@xxx.xxx do %>
-		<h4>Generic Course Syllabus</h4>
-	<% end %>
+	<header>
+		<%= link_to xxx@xxx.xxx do %>
+			<h4>Generic Course Syllabus</h4>
+		<% end %>
+	</header>
 </div>
