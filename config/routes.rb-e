@@ -158,6 +158,10 @@ Rails.application.routes.draw do
       end
             
       resources :labs do
+        member do
+          post 'duplicate'
+        end
+        
         resources :requirements do
           collection do
             post 'sort'

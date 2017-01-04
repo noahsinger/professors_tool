@@ -15,6 +15,7 @@
 	
 	<ul>
 		<li><%= link_to 'Edit', xxx@xxx.xxx %></li>
+		<li><%= link_to 'Duplicate', xxx@xxx.xxx method: :post, remote: true %></li>
 		<li><%= link_to 'Destroy', xxx@xxx.xxx data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
 	</ul>
 </div>

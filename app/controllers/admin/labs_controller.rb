@@ -84,6 +84,24 @@ class Admin::LabsController < ApplicationController
       format.js
     end
   end
+  
+  def duplicate
+    @orig_lab xxx@xxx.xxx
+    
+    @lab xxx@xxx.xxx
+    @orig_lab.requirements.each xxx@xxx.xxx req.dup}
+    @orig_lab.extras.each xxx@xxx.xxx ex.dup}
+    
+   xxx@xxx.xxx
+    
+    respond_to do |format|
+      flash[:notice] = 'Duplication is complete'
+      @status = xxx@xxx.xxx @lab)
+      format.html { xxx@xxx.xxx }
+      format.xml  { head :ok }
+      format.js
+    end
+  end
 
   # DELETE /labs/1
   # DELETE /labs/1.xml

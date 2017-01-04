@@ -41,6 +41,18 @@ class Admin::LabsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to admin_course_lab_path(assigns(:course),assigns(:lab))
   end
+  
+  test "should_duplicate_lab" do
+    assert_difference('Lab.count') do
+      post duplicate_admin_course_lab_url(courses(:intro_to_jackassery), courses(:intro_to_jackassery).labs.first)
+    end
+
+    assert_equal assigns(:orig_lab).title, assigns(:lab).title
+    assert_equal assigns(:orig_lab).requirements.size, assigns(:lab).requirements.size
+    assert_equal assigns(:orig_lab).extras.size, assigns(:lab).extras.size
+
+    assert_redirected_to admin_course_lab_path(assigns(:course),assigns(:lab))
+  end
 
   test "should_show_lab" do
     get admin_course_lab_url(courses(:intro_to_jackassery),labs(:hello_world))
