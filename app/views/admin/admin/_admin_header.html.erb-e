@@ -1,4 +1,4 @@
-<div class="block admin_header <%= double_width_if_main(defined? main) %>">
+<div class="block admin_header header <%= double_width_if_main(defined? main) %>">
 	<header>
 		<%= link_to admin_admin_index_path do %>
 			<h2>Admin</h2>
