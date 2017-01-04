@@ -17,6 +17,56 @@ var FlyingBlocks = {
 	// what is leaving and will disappear
 	current_blocks : [],
 	
+	
+	on : function( ) {
+		// NOT CURRENTLY USED
+		document.addEventListener("turbolinks:click", function() {console.log("---------------------------------------------\nclick")});
+		document.addEventListener("turbolinks:before-visit", function() {console.log("before-visit")});
+		document.addEventListener("turbolinks:visit", function() {console.log("visit")});
+		document.addEventListener("turbolinks:request-start", function() {console.log("request-start")});
+		document.addEventListener("turbolinks:request-end", function() {console.log("request-end")});
+
+		// READY
+		$(document).ready(function( ) {
+			console.log("ready");
+			FlyingBlocks.init( );
+		}); //end ready
+
+		//RESIZE
+		$(window).resize(function( ) {
+			console.log("--- resized");
+			FlyingBlocks.refresh( );
+		});
+
+		// LOAD
+		document.addEventListener("turbolinks:load", FlyingBlocks.load);
+
+		// BEFORE RENDER
+		document.addEventListener("turbolinks:before-render", FlyingBlocks.before_render);
+
+		// RENDER
+		document.addEventListener("turbolinks:render", FlyingBlocks.render);
+		
+		
+		FlyingBlocks.init( );
+	}, //end on 
+	
+	
+	off : function( ) {
+		console.log("shutting down isotope");
+		$('#page').isotope(null);
+		
+		// LOAD
+		document.removeEventListener("turbolinks:load", FlyingBlocks.load);
+
+		// BEFORE RENDER
+		document.removeEventListener("turbolinks:before-render", FlyingBlocks.before_render);
+
+		// RENDER
+		document.removeEventListener("turbolinks:render", FlyingBlocks.render);
+	}, //end off
+	
+	
 	//INIT
 	init : function( ) {
 		$('#page').isotope({

@@ -7,37 +7,11 @@
 //= require_directory .
 //= require_self
 
-document.addEventListener("turbolinks:click", function() {console.log("---------------------------------------------\nclick")});
-document.addEventListener("turbolinks:before-visit", function() {console.log("before-visit")});
-document.addEventListener("turbolinks:visit", function() {console.log("visit")});
-document.addEventListener("turbolinks:request-start", function() {console.log("request-start")});
-document.addEventListener("turbolinks:request-end", function() {console.log("request-end")});
-
-
 ////////////////////////////////////
 // professors_tool application.js
 ////////////////////////////////////
 
-// READY
-$(document).ready(function( ) {
-	console.log("ready");
-	FlyingBlocks.init( );
-}); //end ready
-
-//RESIZE
-$(window).resize(function( ) {
-	console.log("--- resized");
-	FlyingBlocks.refresh( );
-});
-
-// LOAD
-document.addEventListener("turbolinks:load", FlyingBlocks.load);
-
-// BEFORE RENDER
-document.addEventListener("turbolinks:before-render", FlyingBlocks.before_render);
-
-// RENDER
-document.addEventListener("turbolinks:render", FlyingBlocks.render);
+FlyingBlocks.on( );
 
 // TURBOLINKS EVENT EXCUTION  ORDER
 //
