@@ -1,4 +1,4 @@
-<div class="block form assignments">
+<div class="block form assignments" data-script="init_assignment_form( )">
 	<%= xxx@xxx.xxx remote: true) do |f| %>
 		<%= xxx@xxx.xxx %>
 		<ol>
@@ -17,7 +17,11 @@
 					<p>When is it due?</p>
 				</div>
 					
-				<div class="field"><%= f.datetime_select :duedate, {default: 14.days.from_now} %></div>
+				<!-- <div class="field"><%# f.datetime_select :duedate, {default: 14.days.from_now} %></div> -->
+				<div class="field jquery_datepicker">
+					<%= f.hidden_field :duedate %>
+					<div id="duedateepicker" class="datepicker jqueryui"></div>
+				</div>
 			</li>
 		
 			<li>
@@ -34,4 +38,17 @@
 			</li>
 		</ol>
 	<% end %>
+	
+	<script type="text/javascript">
+		var init_assignment_form = function() {
+			console.log("*** init'ing datapicker field");
+			$("#duedateepicker").datepicker( { numberOfMonths: 1, 
+												inline: true, 
+												altField: '#assignment_duedate',
+												dateFormat: 'yy-mm-dd',
+												altFormat: 'yy-mm-dd',
+												defaultDate: new Date('<%= std_date( 14.days.from_now ) %>')
+											 });
+		}
+	</script>
 </div>
