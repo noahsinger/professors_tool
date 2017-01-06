@@ -9,7 +9,6 @@ $page_background: $blue_grey_900;
 	
 	h1, h2, h3, h4, h5, h6, header, footer, header p {
 		background-color: lighten($normal_background_color, 10%);
-		border-color: $page_background;
 		
 		a {  
 			color: lighten($noraml_font_color, 10%);
@@ -17,6 +16,11 @@ $page_background: $blue_grey_900;
 	} //end h's
 	
 	input[type=submit], input[type=clear], input[type=button] {
+		background-color: $header_background_color;
+		color: $header_font_color;
+	}
+	
+	.button {
 		background-color: $header_background_color;
 		color: $header_font_color;
 	}
@@ -28,7 +32,6 @@ $page_background: $blue_grey_900;
 		
 		h1, h2, h3, h4, h5, h6, header, footer, header p {
 			background-color: lighten($header_background_color, 10%);
-			border-color: $page_background;
 			
 			a {
 				color: lighten($header_font_color, 10%);
@@ -37,7 +40,7 @@ $page_background: $blue_grey_900;
 	} //end &.header
 	
 	ul li a {
-		color: lighten($noraml_font_color, 10%);
+		color: lighten($header_font_color, 10%);
 	}
 	
 	table tr td a {
@@ -132,13 +135,13 @@ xxx@xxx.xxx block_style($amber_900, $grey_300, $amber_800, $amber_50);
 			
 			//ASSIGNMENTS
 			.assignments {
-xxx@xxx.xxx block_style($light_blue_700, $grey_300, $light_blue_100, $grey_700);
+xxx@xxx.xxx block_style($light_blue_700, $grey_100, $light_blue_100, $grey_700);
 				
 				&.overdue {
 					background-color: $grey_200;
 					color: $grey_400;
 					
-					h4, header {
+					h4, header, header p {
 						background-color: $grey_300;
 					}
 				}

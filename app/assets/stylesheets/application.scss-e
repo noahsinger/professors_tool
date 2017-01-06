@@ -79,7 +79,6 @@ a {
 		line-height: 1.2em;	
 		text-transform: uppercase;
 		padding: 20px;
-		font-weight: normal;
 		margin-bottom: 2px;
 	} //end headers
 	
@@ -108,7 +107,7 @@ a {
 			margin-top: -10px;
 			padding: 0 20px 20px 20px;
 		}
-	}
+	} //end header
 	
 	footer {
 		margin-top: 20px;
@@ -152,12 +151,16 @@ a {
 		padding: 10px;
 	}
 	
-	input[type=submit], input[type=clear], input[type=button] {
+	input[type=submit], input[type=clear], input[type=button], .button {
 		width: 82%;
 		padding: 10px;
 		border: 0;
 		font-size: 1.1em;
 		text-transform: uppercase;
+	}
+	
+	.button {
+		list-style: none;
 	}
 	
 	.how_to_step_image {
