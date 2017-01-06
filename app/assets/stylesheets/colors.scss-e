@@ -1,25 +1,34 @@
 @import 'material_colors';
 
+$page_background: $blue_grey_900;
+
 @mixin block_style($header_background_color, $header_font_color, $normal_background_color, $noraml_font_color) {
 	//for the non-header version
 	background-color: $normal_background_color;
 	color: $noraml_font_color;
 	
-	h1, h2, h3, h4, h5, h6, header, footer {
+	h1, h2, h3, h4, h5, h6, header, footer, header p {
 		background-color: lighten($normal_background_color, 10%);
+		border-color: $page_background;
 		
 		a {  
 			color: lighten($noraml_font_color, 10%);
 		}
 	} //end h's
+	
+	input[type=submit], input[type=clear], input[type=button] {
+		background-color: $header_background_color;
+		color: $header_font_color;
+	}
 		
 	//for the header version
 	&.header { 
 		background-color: $header_background_color;
 		color: $header_font_color;
 		
-		h1, h2, h3, h4, h5, h6, header, footer {
+		h1, h2, h3, h4, h5, h6, header, footer, header p {
 			background-color: lighten($header_background_color, 10%);
+			border-color: $page_background;
 			
 			a {
 				color: lighten($header_font_color, 10%);
@@ -39,7 +48,7 @@
 
 
 body {
-	background-color: $blue_grey_900;
+	background-color: $page_background;
 }
 
 
