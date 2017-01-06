@@ -6,7 +6,7 @@
 	<div class="block sections">
 		<header><h3>Section Details</h3></header>
 		
-		<p><a href="#" class="icon" id="print">Print this Syllabus</a></p>
+		<p id="print_p"><a href="#" class="icon" id="print">Print this Syllabus</a></p>
 
 		<table>
 			<tr>

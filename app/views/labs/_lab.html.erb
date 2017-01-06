@@ -7,7 +7,9 @@
 	</header>
 	
 	<ul id="assignment_links">
-		<li><a href="#" id="print" class="icon file">Print this Lab</a></li>
+		<% if defined?(main) %>
+			<li><a href="#" id="print" class="icon file">Print this Lab</a></li>
+		<% end %>
 		
 		<% if current_user %>
 			<li><%= link_to 'Edit this Lab', edit_admin_course_lab_path(lab.course, lab) %></li>

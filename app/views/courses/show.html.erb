@@ -1,4 +1,4 @@
-<%= render 'courses/courses_header' %>
+
 <%= render partial: 'course', locals: xxx@xxx.xxx main: true} %>
 <%= render partial: "courses/syllabus_header" %>
 <%= render partial: "waiters/waiters_header" %>
@@ -23,7 +23,7 @@
 
 
 <% xxx@xxx.xxx > 0 %>
-	<div class="block courses">
+	<div class="block sections">
 		<header>
 			<h3>Past Sections</h3>
 		</header>
@@ -51,7 +51,5 @@ xxx@xxx.xxx do |objective| %>
 
 
 <% xxx@xxx.xxx > 0 %>
-	<div class="block courses">
-		<header><h3><%= link_to "Potential Assignments", xxx@xxx.xxx %></h3></header>
-	</div>
+	<%= render partial: 'labs/labs_header', locals: xxx@xxx.xxx %>
 <% end %>

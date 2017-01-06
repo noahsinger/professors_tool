@@ -5,7 +5,7 @@
 <div class="block courses">
 	<h2>Section Details</h2>
 	<nav>
-		<p><a href="#" class="icon" id="print">Print this Syllabus</a></p>
+		<p id="print_p"><a href="#" class="icon" id="print">Print this Syllabus</a></p>
 	</nav>
 
 	<table>

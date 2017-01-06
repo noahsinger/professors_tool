@@ -54,7 +54,7 @@ var FlyingBlocks = {
 	
 	off : function( ) {
 		console.log("shutting down isotope");
-		$('#page').isotope(null);
+		$('#page').isotope('destroy');
 		
 		// LOAD
 		document.removeEventListener("turbolinks:load", FlyingBlocks.load);

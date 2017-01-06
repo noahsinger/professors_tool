@@ -1,7 +1,7 @@
 <div class="block semesters <%= double_width_if_main(defined? main) %>">
 	<header>
 		<%= link_to semester_sections_path(semester) do %>
-			<p><%= pluralize semester.sections.count, "section" %></p>
+
 			<h2>
 				<%= semester.name %>
 				<% if semester == Semester.current %>
