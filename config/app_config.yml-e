@@ -7,8 +7,6 @@ development:
     rake_path: /usr/bin/rake
     ted_username: ADMINID
     ted_password: "ADMINPASSWORD"
-    bitly_api_key: R_6fb60eaabee27d77bb380210c7f0e1b3
-    bitly_username: noahsinger
     
 test:
     site_name: Threesuns.org
@@ -16,8 +14,6 @@ test:
     rake_path: /usr/local/bin/rake
     host: localhost:3000
     site_url: http://localhost:3000
-    bitly_api_key: R_6fb60eaabee27d77bb380210c7f0e1b3
-    bitly_username: noahsinger
 
 production:
     site_name: Threesuns<span>.</span>org
@@ -28,5 +24,3 @@ production:
     rake_path: /usr/bin/rake
     ted_username: ADMINID
     ted_password: "ADMINPASSWORD"
-    bitly_api_key: R_6fb60eaabee27d77bb380210c7f0e1b3
-    bitly_username: noahsinger

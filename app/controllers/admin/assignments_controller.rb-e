@@ -1,5 +1,3 @@
-require 'shortly'
-
 class Admin::AssignmentsController < ApplicationController
   before_action :authenticate
   before_action :load_semester
