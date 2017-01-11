@@ -1,3 +1,5 @@
+require 'csv'
+
 class Admin::SectionsController < ApplicationController
   before_action :authenticate    
   before_action :load_semester
