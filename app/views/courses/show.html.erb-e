@@ -14,7 +14,7 @@
 </div>
 
 <div class="block courses">
-	<header><h3>Course Description</h3></header>
+	<header><h3>Description</h3></header>
 	<%= xxx@xxx.xxx %>
 </div>
 
@@ -25,7 +25,8 @@
 <% xxx@xxx.xxx > 0 %>
 	<div class="block sections">
 		<header>
-			<h3>Past Sections</h3>
+			<p>Sections</p>
+			<h3>Past</h3>
 		</header>
 
 		<ul>

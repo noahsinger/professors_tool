@@ -5,7 +5,7 @@
 
 
 <div class="block block--width2 sections">
-	<h3>Email Section</h3>
+	<header><h3>Email Section</h3></header>
 </div>
 
 <%= render 'section_email_form' %>

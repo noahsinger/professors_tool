@@ -4,31 +4,33 @@
 <%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
 <%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
 <%= render xxx@xxx.xxx %>
-<%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/assignments/assignment', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'admin/assignments/assignment', locals: xxx@xxx.xxx %>
 
 <%= render partial: 'work', locals: xxx@xxx.xxx %>
 
 <div class="block works">
 	<header>
-		<p><%= @assignment.title %> - xxx@xxx.xxx %></p>
-		<h6>
-			Upload: 
 			<% xxx@xxx.xxx == "removed" %>
-				Removed
+				<p>Removed</p>
+				<h6>Upload</h6>
 			<% xxx@xxx.xxx %>
-				<%= link_to @work.upload_file_name, xxx@xxx.xxx @section, @assignment, @work ) %>
+				<%= link_to xxx@xxx.xxx @section, @assignment, @work ) do %>
+xxx@xxx.xxx %></p>
+					<h6>Upload</h6>
+				<% end %>
 			<% else %>
-				No Upload
-			<% end %>  
-		</h6>
+				<p>No Upload</p>
+				<h6>Upload</h6>
+			<% end %>
 	</header>
 </div>
 
 <div class="block works">
+	<header><h6>Requirements</h6></header>
 	<table>
 		<tr>
-			<th>Requirement</th><th>Worth</th><th>Earned</th>
+			<th></th><th>Worth</th><th>Earned</th>
 		</tr>
 
 		<%  
@@ -59,7 +61,7 @@ xxx@xxx.xxx do |r| %>
 </div>
 
 <div class="block works">
-	<h6>Instructors Comments:</h6>
+	<header><h6>Comments</h6></header>
 xxx@xxx.xxx %></p>
 
 	<p>

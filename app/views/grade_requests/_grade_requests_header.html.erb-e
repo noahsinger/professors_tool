@@ -1,8 +1,8 @@
 <div class="block grade_requests header <%= double_width_if_main(defined? main) %>">
 	<header>
 		<%= link_to xxx@xxx.xxx @section) do %>
-xxx@xxx.xxx %></p>
-			<h3>Request Your Grades</h3>
+			<p>Request Your Grades</p>
+			<h3>Request</h3>
 		<% end %>
 	</header>
 </div>

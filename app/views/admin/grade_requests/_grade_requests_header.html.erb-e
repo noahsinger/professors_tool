@@ -2,7 +2,7 @@
 	<header>
 		<%= link_to admin_grade_requests_path do %>
 			<p><%= pluralize GradeRequest.count, 'grade request' %></p>
-			<h3>Grade Requests</h3>
+			<h3>GradeRequests</h3>
 		<% end %>
 	</header>
 	

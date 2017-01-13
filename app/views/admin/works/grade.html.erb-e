@@ -11,16 +11,18 @@
 
 <% xxx@xxx.xxx %>
 	<div class="block works">
-		<h3>
-			Download: 
-			<% xxx@xxx.xxx == "removed" %>
-				Removed
-			<% xxx@xxx.xxx %>
-				<%= link_to @work.upload_file_name, xxx@xxx.xxx %>
-			<% else %>
-				No Upload
-			<% end %>  
-		</h3>
+		<header>
+				<% xxx@xxx.xxx == "removed" %>
+					<h3>Removed</h3>
+				<% xxx@xxx.xxx %>
+					<%= link_to xxx@xxx.xxx do %>
+xxx@xxx.xxx %></p>
+						<h3>Download</h3>
+					<% end %>
+				<% else %>
+					<h3>No Upload</h3>
+				<% end %>  
+		</header>
 	</div>
 <% end %>
 

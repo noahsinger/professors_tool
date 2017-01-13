@@ -75,7 +75,7 @@ var FlyingBlocks = {
 		  percentPosition: true,
 		  packery: {
 		    columnWidth: '.grid-sizer',
-				gutter: 3
+				gutter: 5
 		  }
 		});
 

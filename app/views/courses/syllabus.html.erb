@@ -3,7 +3,10 @@
 <%= render partial: "courses/syllabus_header", locals: {main: true} %>
 
 <div class="block courses">
-	<h2>Section Details</h2>
+	<header>
+		<h2>Details</h2>
+	</header>
+
 	<nav>
 		<p id="print_p"><a href="#" class="icon" id="print">Print this Syllabus</a></p>
 	</nav>
@@ -29,23 +32,32 @@ xxx@xxx.xxx %>
 </div>
 
 <div class="block pagebreak courses">
-	<h3>Course Prerequisites</h3>
+	<header>
+		<h3>Prerequisites</h3>
+	</header>
+
 	<p>
 xxx@xxx.xxx %>
 	</p>
 </div>
 
 <div class="block pagebreak courses">
-	<h3>Next Course in Sequence</h3>
+	<header>
+		<h3>Next Course</h3>
+	</header>
+
 	<p>
 xxx@xxx.xxx %>
 	</p>
 </div>
 
 <div class="block pagebreak courses">
-	<h3>Books and Resources</h3>
+	<header>
+		<h3>Resources</h3>
+	</header>
+
 	<% xxx@xxx.xxx > 0 %>
-		<h4><%= xxx@xxx.xxx 'Textbook' %></h4>
+		<p><b><%= xxx@xxx.xxx 'Textbook' %></b></p>
 xxx@xxx.xxx do |book| %>
 			<p>
 				<em>
@@ -62,7 +74,7 @@ xxx@xxx.xxx do |book| %>
 	<% end %>
 
 	<% xxx@xxx.xxx > 0 %>
-		<h4><%= xxx@xxx.xxx 'Website' %></h4>
+		<p><b><%= xxx@xxx.xxx 'Website' %></b></p>
 xxx@xxx.xxx do |website| %>
 			<p>
 				<%= link_to "<strong>#{website.title}</strong>".html_safe, website.url %> at <%= link_to website.url, website.url %>
@@ -72,12 +84,18 @@ xxx@xxx.xxx do |website| %>
 </div>
 
 <div class="block pagebreak courses">
-	<h3>Other Materials</h3>
+	<header>
+		<h3>Materials</h3>
+	</header>
+
 xxx@xxx.xxx %></p>
 </div>
 
 <div class="block pagebreak courses">
-	<h3>Course Objectives</h3>
+	<header>
+		<h3>Objectives</h3>
+	</header>
+
 	<p>Upon completion of this course, a student should be able to do the following:</p>
 	<ol>
 xxx@xxx.xxx do |o| %>

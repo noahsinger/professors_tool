@@ -1,7 +1,6 @@
 development:
-    site_name: Threesuns<span>.</span>org
+    site_name: Threesuns
     owner_email: xxx@xxx.xxx
-    banner_location: http://localhost:3000/images/sml_banner.png
     site_url: http://localhost:3000
     host: threesuns.org
     rake_path: /usr/bin/rake
@@ -16,9 +15,8 @@ test:
     site_url: http://localhost:3000
 
 production:
-    site_name: Threesuns<span>.</span>org
+    site_name: Threesuns
     owner_email: xxx@xxx.xxx
-    banner_location: http://suchnull.com/images/sml_banner.png
     site_url: http://threesuns.org
     host: threesuns.org
     rake_path: /usr/bin/rake

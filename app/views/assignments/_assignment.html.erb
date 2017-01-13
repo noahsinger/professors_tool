@@ -1,23 +1,25 @@
 <div class="block assignments header <%= double_width_if_main(defined? main) %> <%= assignment.overdue? ? "overdue" : "" %>" data-active="<%= assignment.overdue? ? 'inactive' : 'active' %>">
 	<header>
 		<%= link_to semester_section_assignment_path(assignment.section.semester, assignment.section, assignment) do %>
-			<% unless assignment.overdue? %>
-				<p>Due on <%= show_short_date( assignment.duedate ) %> (<%= distance_of_time_in_words(Time.now, assignment.duedate) %>)</p>
-			<% else %>
-				<p>pastdue</p>
-			<% end %>
-	
+			<p><%= assignment.lab.title %></p>
+
 			<h4 class="<%= "overdue" if assignment.overdue? %>">
-				<%= "#{assignment.title} - #{assignment.lab.title}" %>
+				<%= assignment.title %>
 			</h4>
-			
-			<p>Objective: <b><%= assignment.lab.objective %></b></p>
 		<% end %>
 	</header>
-	
+
+	<p>Objective: <b><%= assignment.lab.objective %></b></p>
+
+	<% unless assignment.overdue? %>
+		<p>Due on <%= show_short_date( assignment.duedate ) %> (<%= distance_of_time_in_words(Time.now, assignment.duedate) %>)</p>
+	<% else %>
+		<p>pastdue</p>
+	<% end %>
+
 	<ul id="assignment_links">
 		<% if defined?(main) %>
-			<li><a href="#" id="print">Print this Assignment</a></li>
+			<li class="button"><a href="#" id="print">Print this Assignment</a></li>
 		<% end %>
 
 		<% if current_user %>

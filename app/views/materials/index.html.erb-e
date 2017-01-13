@@ -1,12 +1,9 @@
-<%= render 'semesters/semesters_header' %>
-
 <% xxx@xxx.xxx %>
 	<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
 	<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
 <% end %>
 
 <%= render partial: 'materials_header', locals: xxx@xxx.xxx main: true} %>
-<%= render 'courses/courses_header' %>
 <%= render partial: 'courses/course', locals: xxx@xxx.xxx %>
 
 

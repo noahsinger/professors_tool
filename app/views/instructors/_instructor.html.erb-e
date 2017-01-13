@@ -1,18 +1,18 @@
 <div class="block instructors">
 	<header>
-		<p><%= instructor.title %></p>
-		<h2><%= instructor.name %></h2>
+		<p><%= instructor.title %> <%= instructor.name %></p>
+		<h2>Instructor</h2>
 	</header>
-	
+
 	<div id="instructor_details">
 		<p><%= image_tag 'tcc_logo_150.png', class: 'tcc_logo', style: 'float: right;' %></p>
 		<p class="org">Tulsa Community College</p>
 		<p class="fn" style="display: none;"><%= instructor.name %></p>
-		
+
 		<p class="honorific-prefix" style="display: none;"><%= instructor.title %></p>
 		<p><%= instructor.division.name %> Division</p>
 	</div>
-	
+
 	<section class="contact">
 		<p class="tel"><a href="tel:<%= instructor.phone_number %>"><%= instructor.phone_number %></a></p>
 		<p class="email">Email: <%= link_to instructor.email, new_general_contact_path %></p>
@@ -22,7 +22,7 @@
 		<p>Website: <%= link_to instructor.website, instructor.website, class: "url" %></p>
 		<p class="note office_hours"><strong><%= link_to( 'office hours', instructor.office_hours.url )%></strong></p>
 	</section>
-	
+
 	<p class="note address">Metro Campus - <strong><%= instructor.office_number %></strong></p>
 	<p class="street-address">909 S Boston Ave</p>
 	<p><span class="locality">Tulsa</span>, <span class="region">OK</span>  <span class="postal-code">74135</span></p>

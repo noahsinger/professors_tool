@@ -1,18 +1,19 @@
 <div class="block <%= double_width_if_main(defined? main) %> assignments">
 	<header>
 		<%= link_to admin_semester_section_assignment_works_path(assignment.section.semester,assignment.section,assignment) do %>
-			<% unless assignment.graded? %>
-				<p>Not graded (<%= assignment.works.size %> waiting)</p>
-			<% end %>
-	
-			<h5><%= "#{assignment.title} - #{assignment.lab.title}" %></h5>
-			
-			<p>
-				Due: <%= show_short_date assignment.duedate %>
-				<%= "(#{distance_of_time_in_words_to_now(assignment.duedate)})" if assignment.duedate > Time.now %>
-			</p>
+			<p><%= assignment.lab.title %></p>
+			<h5><%= assignment.title %></h5>
 		<% end %>
 	</header>
+	
+	<% unless assignment.graded? %>
+		<p>Not graded (<%= assignment.works.size %> waiting)</p>
+	<% end %>
+	
+	<p>
+		Due: <%= show_short_date assignment.duedate %>
+		<%= "(#{distance_of_time_in_words_to_now(assignment.duedate)})" if assignment.duedate > Time.now %>
+	</p>
 
 	<p>
 		Worth: <%= assignment.worth %><br/>

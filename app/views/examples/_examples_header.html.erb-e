@@ -2,7 +2,7 @@
 	<header>
 		<%= link_to semester_section_examples_path(section.semester,section) do %>
 			<p><%= pluralize section.examples.count, "Example" %> available</p>
-			<h4><%= "#{section.course.title} Classroom Examples" %></h4>
+			<h4>Examples</h4>
 		<% end %>
 	</header>
 </div>

@@ -5,7 +5,10 @@
 <%= render partial: 'lab', locals: xxx@xxx.xxx %>
 
 <div class="block labs">
-	<h5>Details</h5>
+	<header>
+		<h5>Details</h5>
+	</header>
+
 	<table>
 		<tr>
 			<td xxx@xxx.xxx %></td>
@@ -19,7 +22,7 @@
 		</tr>
 	</table>
 </div>
-			
+
 <div class="block labs" data-script='$("#requirements_table").reorderTable( "<%= xxx@xxx.xxx ) %>", "<%= form_authenticity_token %>" );'>
 	<header><h5>Requirements</h5></header>
 	<table id="requirements_table">
@@ -37,20 +40,20 @@ xxx@xxx.xxx %></td>
 			<td class="blank"></td>
 		</tr>
 	</table>
-	
+
 	<ul>
 		<li><%= link_to 'Add Requirement', xxx@xxx.xxx %></li>
 	</ul>
 </div>
 
-<div class="block labs">
+<div class="block labs block--width2">
 	<header id="assignment_instructions_header"><h5>Instructions</h5></header>
 
 	<div id="assignment_instructions">
 		<%= xxx@xxx.xxx %>
 	</div>
 </div>
-	
+
 <div class="block labs">
 	<header id="assignment_extras_header"><h5>Extras</h5></header>
 	<div class="fancy">

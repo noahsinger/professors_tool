@@ -1,18 +1,20 @@
 <div class="block labs <%= double_width_if_main(defined? main) %>">
 	<header>
 		<%= link_to course_lab_path(lab.course, lab) do %>
-			<p><%= pluralize lab.worth, 'point' %></p>
-			<h3><%= lab.title %></h3>
+			<p><%= lab.title %></p>
+			<h3>Lab</h3>
 		<% end %>
 	</header>
-	
+
+	<p><%= pluralize lab.worth, 'point' %></p>
+
 	<ul id="assignment_links">
 		<% if defined?(main) %>
 			<li><a href="#" id="print" class="icon file">Print this Lab</a></li>
 		<% end %>
-		
+
 		<% if current_user %>
 			<li><%= link_to 'Edit this Lab', edit_admin_course_lab_path(lab.course, lab) %></li>
-		<% end %>			
+		<% end %>
 	</ul>
 </div>

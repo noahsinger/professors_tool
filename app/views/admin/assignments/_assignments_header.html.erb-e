@@ -3,11 +3,12 @@
 		<%= link_to admin_semester_section_assignments_url(section.semester,section) do %>
 			<p><%= pluralize section.assignments.size, "Assignment" %></p>
 			<h5>Assignments</h5>
-			<% if section.next_assignment_due %>
-				<p>Next assignment due <%= show_short_date(section.next_assignment_due.duedate) %> (<%= distance_of_time_in_words_to_now(section.next_assignment_due.duedate) %>)</p>
-			<% end %>
 		<% end %>
 	</header>
+	
+	<% if section.next_assignment_due %>
+		<p>Next assignment due <%= show_short_date(section.next_assignment_due.duedate) %> (<%= distance_of_time_in_words_to_now(section.next_assignment_due.duedate) %>)</p>
+	<% end %>
 	
 	<ul class="actions">
 		<li><%= link_to 'Add New Assignment', new_admin_semester_section_assignment_path( section.semester, section ) %></li>

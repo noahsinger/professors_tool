@@ -4,8 +4,8 @@
 <%= render partial: 'sections/syllabus_header', locals: {main: true} %>
 
 	<div class="block sections">
-		<header><h3>Section Details</h3></header>
-		
+		<header><h3>Details</h3></header>
+
 		<p id="print_p"><a href="#" class="icon" id="print">Print this Syllabus</a></p>
 
 		<table>
@@ -63,7 +63,10 @@ xxx@xxx.xxx %>
 	</div>
 
 		<div class="block instructors">
-			<h4>Instructor Information</h4>
+			<header>
+				<h4>Instructor</h4>
+			</header>
+
 			<table>
 				<tr>
 					<td class="second_column">Instructor:</td>
@@ -126,7 +129,11 @@ xxx@xxx.xxx %>
 		</div>
 
 		<div class="block divisions pagebreak">
-			<h4>School of xxx@xxx.xxx %></h4>
+			<header>
+xxx@xxx.xxx %></p>
+				<h4>School</h4>
+			</header>
+
 			<table id="divisionTable">
 				<tr>
 					<td>Dean:</td>
@@ -156,21 +163,30 @@ xxx@xxx.xxx %>
 		</div>
 
 		<div class="block courses pagebreak">
-			<h4>Course Prerequisites</h4>
+			<header>
+				<h4>Prerequisites</h4>
+			</header>
+
 			<p>
 xxx@xxx.xxx %>
 			</p>
 		</div>
 
 		<div class="block sections pagebreak">
-			<h4>Next Course in Sequence</h4>
+			<header>
+				<h4>Next Course</h4>
+			</header>
+
 			<p>
 xxx@xxx.xxx %>
 			</p>
 		</div>
 
 		<div class="block books pagebreak">
-			<h4>Books and Resources</h4>
+			<header>
+				<h4>Resources</h4>
+			</header>
+
 			<% xxx@xxx.xxx > 0 %>
 				<p><b><%= xxx@xxx.xxx 'Textbook' %></b></p>
 xxx@xxx.xxx do |book| %>
@@ -199,12 +215,18 @@ xxx@xxx.xxx do |website| %>
 		</div>
 
 		<div class="block courses pagebreak">
-			<h4>Other Materials</h4>
+			<header>
+				<h4>Materials</h4>
+			</header>
+
 xxx@xxx.xxx %></p>
 		</div>
 
 		<div class="block courses pagebreak">
-			<h4>Course Objectives</h4>
+			<header>
+			<h4>Objectives</h4>
+			</header>
+
 			<p>Upon completion of this course, a student should be able to do the following:</p>
 			<ol>
 xxx@xxx.xxx do |o| %>
@@ -213,7 +235,7 @@ xxx@xxx.xxx do |o| %>
 			</ol>
 		</div>
 
-		
+
 xxx@xxx.xxx do |policy| %>
 			<div class="block policies pagebreak">
 				<header><h4><%= policy.syllabus_part.title %></h4></header>

@@ -3,9 +3,9 @@
 		<%= link_to admin_semester_section_meeting_attendances_path(meeting.section.semester,meeting.section,meeting) do %>
 			<h5>
 			  <% if meeting.attendance_taken? %>
-			    <strike><%= show_date_and_time( meeting.when ) %></strike>
+			    <strike><%= show_short_date( meeting.when ) %></strike>
 			  <% else %>
-				  <%= show_date_and_time( meeting.when ) %>
+				  <%= show_short_date( meeting.when ) %>
 			  <% end %>
 			</h5>
 		<% end %>

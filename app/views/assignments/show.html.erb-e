@@ -43,9 +43,8 @@ xxx@xxx.xxx %> pts</td></tr>
 xxx@xxx.xxx do |extra| %>
 				<li>
 					<%= link_to extra.file.url do %>
-						<div><%= extra.description %></div>
+						<%= extra.description %><br/>
 						<b><%= extra.file_file_name %></b>
-						<p></p>
 					<% end %>
 				</li>
 			<% end %>

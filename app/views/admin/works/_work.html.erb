@@ -2,11 +2,12 @@
 	<header>
 		<% if work.enrollment %>
 	    <%= link_to admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) do %>
-				<h6><%= "#{work.assignment.title} from #{work.enrollment.student.last_name}, #{work.enrollment.student.first_name}" %></h6>
+				<p><%= "#{work.assignment.title} from #{work.enrollment.student.last_name}, #{work.enrollment.student.first_name}" %></p>
+				<h6><%= work.enrollment.student.last_name %></h6>
 			<% end %>
 		<% else %>
 			<%= link_to edit_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) do %>
-				<h6>Student Unknown</h6>
+				<h6>Unknown</h6>
 			<% end %>
 		<% end %>
 	</header>

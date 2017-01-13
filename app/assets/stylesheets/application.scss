@@ -38,87 +38,160 @@ a {
 .block {
   float: left;
   background-color: #ccc;
-	margin: 0 1px;
+//	margin: 0 1px;
 	transition: width 1s;
 	overflow: hidden;
-	
+
 	h1 {
-		font-size: 1.8em;
+		font-size: 5em;
 	}
-	
+
 	h2 {
-		font-size: 1.6em;
+		font-size: 4.5em;
 	}
-	
+
 	h3 {
-		font-size: 1.4em;
+		font-size: 4em;
 	}
-	
+
 	h4 {
-		font-size: 1.2em;
+		font-size: 3.5em;
 	}
-	
+
 	h5 {
-		font-size: 1.0em;
+		font-size: 3.0em;
 	}
-	
+
 	h6 {
-		font-size: .9em;
+		font-size: 2.9em;
 	}
-	
-	h1, h2, h3, h4, h5, h6, p, table, footer, div.pagination {
+
+	p, table, footer, div.pagination {
 		padding: 0 20px;
 		margin: 0;
 	}
-	
+
 	p {
 		padding: 10px 20px;
 	}
-	
+
 	h1, h2, h3, h4, h5, h6 {
-		line-height: 1.2em;	
+		font-family: "Avenir", "Helvetica Narrow", "Arial Narrow", "Helivetica", "Arial", sans-serif;
+
+		letter-spacing: -5px;
+		line-height: 1.2em;
 		text-transform: uppercase;
 		padding: 20px;
 		margin-bottom: 2px;
 	} //end headers
-	
+
 	header {
-		h1, h2, h3, h4, h5, h6, p {
-			border-width: 0 0px;
-			border-style: solid;
-		}
-		
+
 		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: 0;
-			padding-bottom: 20px;
+			margin: 0;
+			padding: 0;
+			position: relative;
 		}
-		
+
+			h1 {
+				top: -19px;
+				left: -3px;
+				height: .64em;
+			}
+
+			h2 {
+				top: -17px;
+				left: -5px;
+				height: .63em;
+			}
+
+			h3 {
+				top: -13px;
+				left: -5px;
+				height: .66em;
+			}
+
+			h4 {
+				top: -11px;
+				left: -5px;
+				height: .65em;
+			}
+
+			h5 {
+				top: -11px;
+				left: -3px;
+				height: .63em;
+			}
+			
+			h6 {
+				top: -9px;
+				left: -3px;
+				height: .63em;
+			}
+
+
 		p {
 			margin: 0;
-			padding: 20px;
+			padding: 0 0 0 20px;
+
+			font-weight: bold;
+			font-size: 1.2em;
+
+			position: relative;
+			top: 20px;
+			z-index: 1;
 		}
-		
-		p + h1, p + h2, p + h3, p + h4, p + h5, p + h6 {
-			margin: -18px 0 0 0;
-			padding: 0px 20px 20px 20px;
+
+		p + h1 {
+			top: -35px;
+			height: .4em;
+			left: -6px;
 		}
-	
-		h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
-			margin-top: -10px;
-			padding: 0 20px 20px 20px;
-		}
+
+			p + h2 {
+				top: -35px;
+				height: .35em;
+			}
+
+			p + h3 {
+				top: -35px;
+				height: .29em;
+			}
+
+			p + h4 {
+				top: -29px;
+				height: .3em;
+			}
+
+			p + h5 {
+				top: -29px;
+				height: .21em;
+			}
+
+			p + h6 {
+				top: -25px;
+				height: .3em;
+			}
 	} //end header
-	
+
 	footer {
 		margin-top: 20px;
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
-	
+
 	ul {
-		padding-right: 20px;
-	}
+		padding: 0 20px;
+		list-style: none;
+		margin: 10px 0 0 0;
 		
+		li {
+			background-color: #999;
+			margin: 1px 0;
+			padding: 10px;
+		}
+	}
+
 	table {
 		width: 90%;
 		margin-top: 20px;
@@ -129,28 +202,28 @@ a {
 			}
 		}
 	}
-	
-	.jqueryui table {		
+
+	.jqueryui table {
 		tr {
 			td {
 				padding: 2px;
 			}
 		}
 	}
-	
+
 	textarea {
 		min-height: 200px;
 		width: 80%;
 		padding: 10px;
-	
+
 		border: 0;
 	}
-	
+
 	input[type=text], input[type=email], input[type=password], input[type=number] {
 		width: 80%;
 		padding: 10px;
 	}
-	
+
 	input[type=submit], input[type=clear], input[type=button], .button {
 		width: 82%;
 		padding: 10px;
@@ -158,15 +231,15 @@ a {
 		font-size: 1.1em;
 		text-transform: uppercase;
 	}
-	
+
 	.button {
 		list-style: none;
 	}
-	
+
 	.how_to_step_image {
 		padding: 20px;
 		text-align: center;
-		
+
 		img {
 			max-width: 100%;
 		}
@@ -181,11 +254,11 @@ a {
 	display: block;
 	height: 10px;
 	width: 100%;
-	
+
 	&.green {
 		background-color: #090;
 	}
-	
+
 	&.red {
 		background-color: #900;
 	}
@@ -211,7 +284,7 @@ a {
 			padding: 20px 0;
 		}
 
-		.block--width2 { width: 98%; }	
+		.block--width2 { width: 98%; }
 }
 
 

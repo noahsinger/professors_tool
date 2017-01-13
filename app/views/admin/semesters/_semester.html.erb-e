@@ -2,18 +2,19 @@
 	<header>
 		<%= link_to admin_semester_sections_path(semester) do %>
 			<p><%= show_short_date semester.start_date %> - <%= show_short_date semester.end_date %></p>
-			<% if semester.is_current? %>
-				<h3><%= semester.name %> <span class="light">(current)</span></h3>
-			<% elsif semester.is_future? %>
-				<h3><%= semester.name %> <span class="light">(coming up)</span></h3>
-			<% else %>
-				<h3><%= semester.name %></h3>
-			<% end %>
+
+			<h3><%= semester.year %><%= semester.season %></h3>
 		<% end %>
 	</header>
-	
-	<% 
-		total_credits = 0 
+
+	<% if semester.is_current? %>
+		<p>(current)</p>
+	<% elsif semester.is_future? %>
+		<p>(coming up)</p>
+	<% end %>
+
+	<%
+		total_credits = 0
 		preps = 0
 		if semester.sections.count > 0
 			preps = semester.sections.where("course_id != ?", "").map {|sec| sec.course.title}.uniq.size

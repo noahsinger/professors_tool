@@ -1,15 +1,17 @@
 <div class="block <%= double_width_if_main(defined? main) %> sections">
 	<header>
 		<%= link_to [:admin,section.semester,section] do %>
-			<p><%= section.course.short_name %> <%= section.call_number %> - <%= section.section_number %></p>
+			<p><%= "#{section.meeting_days} #{section.course.title}" %></p>
 			<h4>
-				<%= "#{section.meeting_days} #{section.course.title}" %>
+				<%= section.course.short_name %>
 			</h4>
-		
-			<span class="in_progress_indicator <%= section.in_session ? "green" : "red" %>"></span>
 		<% end %>
 	</header>
 
+	<p><span class="in_progress_indicator <%= section.in_session ? "green" : "red" %>"></span></p>
+
+
+	<p><%= section.call_number %> - <%= section.section_number %></p>
 	<p><%= pluralize section.course.credits, 'credit' %></p>
 	<p>
 		Room: <b><%= section.room_number %></b><br/>
@@ -19,7 +21,6 @@
 	
 
 	<ul class="actions">
-		
 		<li><%= link_to "Email Section", section_email_admin_semester_section_path( section.semester, section ) %></li>
 		<li><%= link_to 'Export Gradebook', export_gradebook_admin_semester_section_path(section.semester,section) %></li>
 		<li><%= link_to 'Sync Students with TED', sync_students_admin_semester_section_path(section.semester,section) %></li>
