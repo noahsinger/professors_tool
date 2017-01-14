@@ -28,9 +28,16 @@ $page_background: $blue_grey_900;
 		color: $font_color;
 	}
 
-	ul li a {
-		color: lighten($font_color, 10%);
-	}
+	ul {
+		li {
+			background-color: lighten($background_color, 10%);;
+			
+			a {
+					color: darken($background_color,20%);
+					border-color: darken($background_color,1%);
+			}	
+		}
+	} 
 
 	table tr td a {
 		color: lighten($font_color, 10%);
@@ -130,7 +137,7 @@ xxx@xxx.xxx block_style($light_blue_100, $grey_700);
 
 				//WORKS
 				.works {
-xxx@xxx.xxx block_style($blue_400, $grey_700);
+xxx@xxx.xxx block_style($blue_400, $grey_200);
 				}
 
 				//HOMEWORK RETURN REQUESTS

@@ -7,40 +7,38 @@ body.print {
 		background-color: #fff;
 		color: #000;
 		
-		a {
+		a, p {
 			color: #000;
 		}
 				
-		h1,h2,h3,h4,h5,h6, header p {
+		h1,h2,h3,h4,h5,h6, header, header p {
+			left: 0;
+			letter-spacing: inherit;
+			width: 100%;
 			color: #fff;
 			background-color: #444;
+		}
+		
+		header {
+			p, h1, h2, h3, h4 ,h5 .h6 {
+				position: static;	
+				height: inherit;
+				
+				margin: 0;
+				padding: 0 20px;
+			}
 			
-			font-weight: bold;
+			p {
+				padding-top: 20px;
+			}
+			
+			p + h1, p + h2, p + h3, p + h4, p + h5, p + h6 {
+				line-height: .9em;
+				padding-bottom: 20px;
+				margin-left: -3px;
+			} 
 		}
 		
-		h1 {
-			font-size: 3em;
-		}
-		
-		h2 {
-			font-size: 2.2em;
-		}
-		
-		h3 {
-			font-size: 1.5em;
-		}
-		
-		h4 {
-			font-size: 1.4em;
-		}
-		
-		h5 {
-			font-size: 1.3em;
-		}
-		
-		h6 {
-			font-size: 1.1em;
-		}
 		
 		&.admin_header, &.semesters.header, &.general_contact, &.courses.header, &.grid-sizer, &.semesters p, &.sections ul, #print_p, #assignment_links, &.works.header, &.homework_return_requests.header, &.labs.header {
 			display: none;
@@ -56,8 +54,9 @@ body.print {
 		
 		&.sections {
 			&.header {
+				display: block;
 				padding: 0;
-				
+
 				h3 {
 					font-size: 2.5em;
 				}
@@ -66,6 +65,15 @@ body.print {
 		
 		td {
 			width: 25%;
+		}
+		
+		ul li {
+			float: none;
+			background-color: inherit;
+			
+			a {
+				border: none;
+			}
 		}
 	
 		&#endNoteDiv {

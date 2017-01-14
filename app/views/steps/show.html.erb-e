@@ -22,8 +22,10 @@ next_step xxx@xxx.xxx + 1]).first
 
 
 <div class="block block--width2 steps">
-	<h5><%= "Step #{@step.position}: xxx@xxx.xxx %></h5>
-xxx@xxx.xxx %></h6>
+	<header>
+xxx@xxx.xxx %></p>
+		<h5><%= "Step xxx@xxx.xxx %></h5>
+	</header>
 	<nav>
 		<ul>
 			<% if prev_step %>
@@ -45,6 +47,7 @@ xxx@xxx.xxx %></h6>
 <% end %>
 
 <div class="block steps">
+xxx@xxx.xxx %></h5></header>
 	<%= xxx@xxx.xxx %>
 
 	<% if prev_step or next_step %>
