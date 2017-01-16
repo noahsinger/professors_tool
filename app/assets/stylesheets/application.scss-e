@@ -235,7 +235,7 @@ ul:after {
 			padding: 20px 0;
 		}
 
-		.block--width2 { width: 98%; }
+		.block--width2 { width: 98.5%; }
 }
 
 
@@ -256,7 +256,7 @@ ul:after {
 		padding: 20px 0;
 	}
 
-	.block--width2, .chart { width: 66.3%; }
+	.block--width2, .chart { width: 66.5%; }
 }
 
 //ABVOE 1366 GO TO SIDE BY SIDE 3 BLOCK LAYOUT
@@ -276,5 +276,5 @@ ul:after {
 		padding: 20px 0;
 	}
 
-	.block--width2, .chart { width: 48.2%; }
+	.block--width2, .chart { width: 48.3%; }
 }
