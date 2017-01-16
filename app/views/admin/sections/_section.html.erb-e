@@ -8,7 +8,11 @@
 		<% end %>
 	</header>
 
-	<p><span class="in_progress_indicator <%= section.in_session ? "green" : "red" %>"></span></p>
+	<% if section.in_session %>
+		<p class=" in_progress_indicator green">In Session</p>
+	<% else %>
+		<p class="in_progress_indicator red">Not in Session</p>
+	<% end %>
 
 
 	<p><%= section.call_number %> - <%= section.section_number %></p>
