@@ -31,16 +31,20 @@ $page_background: $blue_grey_900;
 	ul {
 		li {
 			background-color: lighten($background_color, 10%);;
-			
+
 			a {
 					color: darken($background_color,20%);
 					border-color: darken($background_color,1%);
-			}	
+			}
 		}
-	} 
+	}
 
-	table tr td a {
-		color: lighten($font_color, 10%);
+	table tr td {
+		border-color: darken($background_color, 10%);
+
+		a {
+			color: lighten($font_color, 10%);
+		}
 	}
 } //end block_style
 
@@ -84,7 +88,7 @@ xxx@xxx.xxx block_style($green_500, $amber_50);
 		//SECTIONS
 		.sections {
 xxx@xxx.xxx block_style($light_green_800, $amber_50);
-			
+
 		}
 
 			//ENROLLMENTS
@@ -112,7 +116,7 @@ xxx@xxx.xxx block_style($indigo_50, $grey_400);
 
 			//EXAMPLES
 			.examples {
-xxx@xxx.xxx block_style($lime_600, $grey_700);	
+xxx@xxx.xxx block_style($lime_600, $grey_700);
 			}
 
 			//GRADE REQUESTS
@@ -123,7 +127,7 @@ xxx@xxx.xxx block_style($amber_800, $amber_50);
 			//ASSIGNMENTS
 			.assignments {
 xxx@xxx.xxx block_style($blue_grey_500, $amber_50);
-				
+
 
 				&.overdue {
 xxx@xxx.xxx block_style($blue_grey_200, #fff);
@@ -132,7 +136,7 @@ xxx@xxx.xxx block_style($blue_grey_200, #fff);
 
 				//ASSIGNMENT TWEETS
 				.assignment_tweets {
-xxx@xxx.xxx block_style($light_blue_100, $grey_700);	
+xxx@xxx.xxx block_style($light_blue_100, $grey_700);
 				}
 
 				//WORKS

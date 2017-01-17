@@ -144,12 +144,29 @@ ul:after {
 	}
 
 	table {
-		width: 90%;
+		width: 100%;
 		margin-top: 20px;
 
 		tr {
+			&.last_row {
+				font-weight: bold;
+			}
+
+			th {
+				display: none;
+			}
+
 			td {
 				padding: 5px 20px;
+				border-bottom: 1px solid #999;
+
+				&.destroy {
+					width: 10px;
+				}
+
+				&.edit {
+					width: 10px;
+				}
 			}
 		}
 	}
