@@ -96,10 +96,10 @@ ul:after {
 			margin: 0;
 			padding: 0;
 			position: relative;
-			
-			top: -.245em;
+
+			top: -.27em;
 			left: -.07em;
-			height: .71em;
+			height: .67em;
 		}
 
 		p {
@@ -116,7 +116,7 @@ ul:after {
 
 		p + h1, p + h2, p + h3, p + h4, p + h5, p + h6 {
 			top: -.547em;
-			height: .4em;
+			height: .39em;
 		}
 	} //end header
 
@@ -130,11 +130,11 @@ ul:after {
 		padding: 0 20px;
 		list-style: none;
 		margin: 10px 0 0 0;
-		
+
 		li {
 			margin: 3px 3px 3px 0;
 			float: left;
-			
+
 			a {
 				display: block;
 				border: 1px solid #eee;
