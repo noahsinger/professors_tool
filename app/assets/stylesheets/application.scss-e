@@ -48,7 +48,7 @@ ul:after {
 	overflow: hidden;
 
 	h1 {
-		font-size: 6.3em;
+		font-size: 5.1em;
 	}
 
 	h2 {
@@ -99,7 +99,7 @@ ul:after {
 
 			top: -.27em;
 			left: -.07em;
-			height: .67em;
+			height: .661em;
 		}
 
 		p {
