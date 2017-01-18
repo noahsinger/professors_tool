@@ -29,6 +29,8 @@
 		<tr>
 			<th></th>
 			<th>pts</th>
+			<th></th>
+			<th></th>
 		</tr>
 		<% for requirement xxx@xxx.xxx %>
 			<%= render requirement %>

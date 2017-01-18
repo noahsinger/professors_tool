@@ -1,23 +1,24 @@
 <div id="how_to_<%= how_to.id.to_s %>" class="how_to block <%= double_width_if_main(defined? main) %> how_tos">
 	<header>
 		<%= link_to admin_how_to_steps_path(how_to, xxx@xxx.xxx do %>
-			<h5><%= how_to.title %></h5>
+			<p><%= how_to.title %></p>
+			<h5>HowTo</h5>
 		<% end %>
 	</header>
-	
+
 	<p><%= how_to.description %></p>
-	
+
 	<% xxx@xxx.xxx {|tutorial| tutorial.how_to}.include?(how_to) %>
 		<ul>
 			<li><%= link_to "Add to this course", xxx@xxx.xxx how_to_id: how_to.id), method: :post, remote: true %></li>
-		</ul>	
+		</ul>
 	<% end %>
-	
+
 	<ul>
 		<li><%= link_to 'edit', xxx@xxx.xxx %></li>
 		<li><%= link_to 'destroy', admin_how_to_path(how_to, xxx@xxx.xxx data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
 	</ul>
-	
+
 	<ul>
 		<li><%= link_to "New step", new_admin_how_to_step_path(how_to, xxx@xxx.xxx %></li>
 	</ul>

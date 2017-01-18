@@ -4,7 +4,7 @@
 <%= render partial: 'admin/how_tos/how_to', locals: xxx@xxx.xxx %>
 
 
-<%  
+<%
 	prev_step = @how_to.steps.where(['position=?',@step.position - 1]).first xxx@xxx.xxx
 	next_step = @how_to.steps.where(['position=?',@step.position + 1]).first xxx@xxx.xxx
 %>
@@ -12,10 +12,10 @@
 
 <div class="block block--width2 steps">
 	<header>
-		<p>How to: xxx@xxx.xxx %></p>
-		<h6>Step <%= @step.position %> :: xxx@xxx.xxx %></h6>
+		<p>Step <%= @step.position %> :: xxx@xxx.xxx %></p>
+		<h6>How to: xxx@xxx.xxx %></h6>
 	</header>
-	
+
 	<ul>
 		<li><%= link_to 'Edit', xxx@xxx.xxx @course) %></li>
 	</ul>
