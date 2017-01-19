@@ -102,6 +102,7 @@ xxx@xxx.xxx block_style($indigo_800, $grey_200);
 
 				&.attendance_taken {
 xxx@xxx.xxx block_style($indigo_100, $amber_50);
+					opacity: .5;
 				}
 			}
 
@@ -111,6 +112,7 @@ xxx@xxx.xxx block_style($indigo_400, $amber_50);
 
 					&.attendance_taken {
 xxx@xxx.xxx block_style($indigo_50, $grey_400);
+						opacity: .5;
 					}
 				}
 
@@ -131,6 +133,7 @@ xxx@xxx.xxx block_style($blue_grey_500, $amber_50);
 
 				&.overdue {
 xxx@xxx.xxx block_style($blue_grey_200, #fff);
+					opacity: .5;
 				}
  			}
 
