@@ -1,1 +1,1 @@
-Google::UrlShortener::Base.api_key = "AIzaSyBdTdhJBJoWzyxHUKvr7aDo8b3b0MBeTvE"
+Google::UrlShortener::Base.api_key = "<%= ENV['google_shortener_api_key'] %>"
