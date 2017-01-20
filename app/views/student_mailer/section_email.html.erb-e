@@ -1,13 +1,16 @@
 	<div class="block general_contacts">
-		<h3>
-			Section Announcement for xxx@xxx.xxx %>
-		</h3>
+		<header>
+			<p>
+				Section Announcement for xxx@xxx.xxx %>
+			</p>
+xxx@xxx.xxx %></h3>
+		</header>
 	</div>
 
 	<div class="block general_contacts">
 		<header>
-			<p><strong>To:</strong> All Class Members of Section <%= @section.call_number %> of xxx@xxx.xxx %></p>
-			<p><strong>Subject:</strong> Section Announcement</p>
+			<p>To: Section <%= @section.call_number %> of xxx@xxx.xxx %></p>
+			<h3>Announcement</h3>
 		</header>
 
 		<%= xxx@xxx.xxx %>

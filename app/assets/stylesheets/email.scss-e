@@ -1,14 +1,25 @@
+div.clear {
+	content: '';
+  display: block;
+  clear: both;
+}
+
 body.email {
 	#page {
 		margin: 20px auto;
 		max-width: 1200px;
 	}
-	
+
 	.block {
 		margin: 5px;
-		
-		h2, h3 {
-			font-size: 1.3em;
+
+		ul {
+			list-style: circle;
+			margin-left: 20px;
+
+			li {
+				background-color: inherit;
+			}
 		}
 	}
 }

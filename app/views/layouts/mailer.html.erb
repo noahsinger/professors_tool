@@ -7,18 +7,18 @@
 </head>
 <body class="email">
 	<div id="page">
-	
+
 		<div class="block block--width2 header grid-sizer">
 			<header>
 				<%= link_to APP_CONFIG['site_url'] do %>
+          <p>Email</p>
 					<h1><%= APP_CONFIG['site_name'].html_safe %></h1>
-					<p>Email</p>
 				<% end %>
 			</header>
 		</div>
-	
+
 		<%= yield %>
-		
-	</div>	
+
+	</div>
 </body>
 </html>
