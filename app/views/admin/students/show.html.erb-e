@@ -1,57 +1,45 @@
-<%= content_for :header do %>
-	<h1>Student</h1>
-<% end %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', admin_students_path, :class => "icon back" %>
-	</nav>
-	
+<%= render partial: 'admin/students/students_header', locals: {students: Student.all} %>
+<%= render partial: 'admin/students/student', locals: xxx@xxx.xxx main: true} %>
+
+<div class="block block--width2 students">
 	<header>
-xxx@xxx.xxx %></p>
-xxx@xxx.xxx %></h1>
+		<h4>Student History</h4>
 	</header>
-
-	<ul class="actions">
-		<li><%= link_to "Edit this Student", xxx@xxx.xxx %></li>
-		<li><%= xxx@xxx.xxx %></li>
-	</ul>
-
-	<div class="fancy">
-		<table>
-			<tr>
-				<th>Course/Section</th>
-				<th>Students Final Score</th>
-				<th>Semester</th>
-				<th>Section Status</th>
-				<th>Status</th>
-				<th>Meetings/Absences</th>
-			</tr>
+	
+	<table>
+		<tr>
+			<th>Course</th>
+			<th>Final Score</th>
+			<th>Semester</th>
+			<th>Section Status</th>
+			<th>Status</th>
+			<th>Meetings/Absences</th>
+		</tr>
 xxx@xxx.xxx do |section| %>
-				<tr>
-					<td><%= link_to( section.meeting_days + " :: " + section.course.title, admin_semester_section_path(section.semester,section) ) %></td>
-					<td><%= xxx@xxx.xxx ) * 100) %></td>
-					<td><%= section.semester.name %></td>
+			<tr>
+				<td><%= link_to( section.meeting_days + " :: " + section.course.title, admin_semester_section_path(section.semester,section) ) %></td>
+				<td><%= xxx@xxx.xxx ) * 100) %></td>
+				<td><%= section.semester.name %></td>
 
-						<% if section.is_past %>
-							<td>Complete</td>
+					<% if section.is_past %>
+						<td>Complete</td>
+					<% else %>
+						<% if section.is_future %>
+							<td>Has Not Started</td>
 						<% else %>
-							<% if section.is_future %>
-								<td>Has Not Started</td>
-							<% else %>
-								<td>In Session</td>
-							<% end %>
+							<td>In Session</td>
 						<% end %>
-				
-						<% enrollment xxx@xxx.xxx = ?", section.id]).first %>
-						<td><%= enrollment.enrollment_status.name %></td>
-						<td>
-							<%= section.meetings.count %>
-							/
+					<% end %>
+
+					<% enrollment xxx@xxx.xxx = ?", section.id]).first %>
+					<td><%= enrollment.enrollment_status.name %></td>
+					<td>
+						<%= section.meetings.count %>
+						/
 xxx@xxx.xxx section.id).first.attendances.where(attendance_status_id: AttendanceStatus.absent.id).count %>
-						</td>
-				</tr>
-			<% end %>
-		</table>
-	</div>
-</section>
+					</td>
+			</tr>
+		<% end %>
+	</table>
+</div>

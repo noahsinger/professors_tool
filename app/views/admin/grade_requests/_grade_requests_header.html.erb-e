@@ -1,0 +1,12 @@
+<div class="block <%= double_width_if_main(defined? main) %> grade_requests header">
+	<header>
+		<%= link_to admin_grade_requests_path do %>
+			<p><%= pluralize GradeRequest.count, 'grade request' %></p>
+			<h3>GradeRequests</h3>
+		<% end %>
+	</header>
+	
+	<ul class="actions">
+		<li><%= link_to 'Clear All Grade Requests', destroy_all_admin_grade_requests_path, data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
+	</ul>
+</div>

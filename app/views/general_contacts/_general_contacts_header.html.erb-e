@@ -1,0 +1,15 @@
+<div class="block general_contact header <%= double_width_if_main(defined? main) %>">
+	<header>
+		<% if defined?(@section) xxx@xxx.xxx %>
+			<%= link_to xxx@xxx.xxx do %>
+				<p>Email the Instructor</p>
+				<h2>Contact</h2>
+			<% end %>
+		<% else %>
+			<%= link_to new_general_contact_path do %>
+				<p>Email</p>
+				<h2>Contact</h2>
+			<% end %>
+		<% end %>
+	</header>
+</div>

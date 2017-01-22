@@ -1,16 +1,16 @@
-<%= content_for :header do %>
-	<h1>New Work</h1>
-<% end %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx @section, @assignment ), :class => "icon back"%>
-	</nav>
-	
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
+<%= render xxx@xxx.xxx %>
+<%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/assignments/assignment', locals: xxx@xxx.xxx main: true} %>
+
+<div class="block works">
 	<header>
-		<p>for xxx@xxx.xxx %></p>
-		<h1>New xxx@xxx.xxx %></h1>
+		<h3>New Work</h3>
 	</header>
+</div>
 
-	<%= render :partial => 'form', :locals => {:submit_name => 'Create'} %>
-</section>
+<%= render 'form' %>

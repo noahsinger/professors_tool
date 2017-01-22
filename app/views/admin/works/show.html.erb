@@ -1,68 +1,71 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx @section, @assignment ), :class => "icon back" %>
-	</nav>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
+<%= render xxx@xxx.xxx %>
+<%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'admin/assignments/assignment', locals: xxx@xxx.xxx %>
 
+<%= render partial: 'work', locals: xxx@xxx.xxx %>
+
+<div class="block works">
 	<header>
-		<p><%= @assignment.title %> - xxx@xxx.xxx %></p>
-		<h1>
-			Upload: 
 			<% xxx@xxx.xxx == "removed" %>
-				Removed
+				<p>Removed</p>
+				<h6>Upload</h6>
 			<% xxx@xxx.xxx %>
-				<%= link_to @work.upload_file_name, xxx@xxx.xxx @section, @assignment, @work ) %>
-			<% else %>
-				No Upload
-			<% end %>  
-		</h1>
-	</header>
-
-	<ul class="actions">
-		<li><%= link_to 'Edit this work', xxx@xxx.xxx %></li>
-	</ul>
-
-	<div class="fancy">
-		<table>
-			<tr>
-				<th>Requirement</th><th>Worth</th><th>Earned</th>
-			</tr>
-	
-			<%  
-				possible = 0
-				earned = 0
-			%>
-	
-xxx@xxx.xxx do |r| %>
-				<tr>
-					<td><%= r.description %></td>
-					<td><%= r.points %></td>
-			
-					<% 
-						awarded_point xxx@xxx.xxx
-						possible += r.points
-						earned += awarded_point.points if awarded_point
-					%>
-			
-					<td><%= awarded_point.points if awarded_point %></td>
-				</tr>
-			<% end %>
-			<tr class="last_row">
-				<td></td>
-				<td><%= possible %></td>
-				<td><%= earned %></td>
-			</tr>
-		</table>
-	</div>
-
-	<div class="admin_comments">
-		<h1>Instructors Comments:</h1>
+				<%= link_to xxx@xxx.xxx @section, @assignment, @work ) do %>
 xxx@xxx.xxx %></p>
-	
+					<h6>Upload</h6>
+				<% end %>
+			<% else %>
+				<p>No Upload</p>
+				<h6>Upload</h6>
+			<% end %>
+	</header>
+</div>
+
+<div class="block works">
+	<header><h6>Requirements</h6></header>
+	<table>
+		<tr>
+			<th></th><th>Worth</th><th>Earned</th>
+		</tr>
+
+		<%  
+			possible = 0
+			earned = 0
+		%>
+
+xxx@xxx.xxx do |r| %>
+			<tr>
+				<td><%= r.description %></td>
+				<td><%= r.points %></td>
+		
+				<% 
+					awarded_point xxx@xxx.xxx
+					possible += r.points
+					earned += awarded_point.points if awarded_point
+				%>
+		
+				<td><%= awarded_point.points if awarded_point %></td>
+			</tr>
+		<% end %>
+		<tr class="last_row">
+			<td></td>
+			<td><%= possible %></td>
+			<td><%= earned %></td>
+		</tr>
+	</table>
+</div>
+
+<div class="block works">
+	<header><h6>Comments</h6></header>
+xxx@xxx.xxx %></p>
+
+	<p>
 		<strong>Score: </strong>
 		<%= number_to_percentage((earned/possible.to_f)*100) %> - <%= score_to_letter ((earned/possible.to_f)*100) %>
-	</div>
-</section>
+	</p>
+</div>

@@ -1,3 +1,5 @@
+require 'csv'
+
 class Admin::SectionsController < ApplicationController
   before_action :authenticate    
   before_action :load_semester
@@ -54,12 +56,15 @@ class Admin::SectionsController < ApplicationController
         num_waiters xxx@xxx.xxx
        xxx@xxx.xxx
         flash[:notice] = "Section was successfully created and #{num_waiters} were notified."
+        @status = xxx@xxx.xxx
         format.html { xxx@xxx.xxx }
         format.xml  { render xml: @section, status: :created, xxx@xxx.xxx }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render action: "new" }
         format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -70,13 +75,16 @@ class Admin::SectionsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Section was successfully updated.'
         format.html { xxx@xxx.xxx }
         format.xml  { head :ok }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render action: "edit" }
         format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -87,31 +95,32 @@ class Admin::SectionsController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+      @status = xxx@xxx.xxx
+      flash[:notice] = "The section has been destroyed"
       format.html { xxx@xxx.xxx }
       format.xml  { head :ok }
+      format.js
     end
   end
   
   def section_email
     @section xxx@xxx.xxx
     
-    if params[:body] and params[:body] != ""
-      
-      # call_rake :send_section_email, xxx@xxx.xxx body: params[:body]
-     xxx@xxx.xxx params[:body]
-      
-      flash[:notice] = "The email had been sent."
-      redirect_to( xxx@xxx.xxx )
-    else
-      respond_to do |format|
-        format.html # status.html.erb
+    respond_to do |format|
+      if params[:body] and params[:body] != ""
+       xxx@xxx.xxx params[:body]
+        @status = xxx@xxx.xxx
+        flash[:notice] = "The email had been sent."
+        format.html {redirect_to( xxx@xxx.xxx )}
+      else
+       xxx@xxx.xxx = "failed"
+        format.html # section_email.html.erb
       end
-    end    
+      format.js
+    end
   end
   
   def export_gradebook
-# 	  require 'CSV'
-
     @section xxx@xxx.xxx
     
     csv_string = CSV.generate do |csv|
@@ -128,10 +137,6 @@ class Admin::SectionsController < ApplicationController
       assignments_header = ["STUDENT NAME",	"Letter Grade",	"% Grade",	"Total Points",	"Total Absence",	"Participation", ""]
       assignments_header << assignments.map {|assignment| "#{assignment.title} - #{assignment.lab.title}"}
       csv << assignments_header.flatten
-      
-#       worth_header = ["worth"]
-#       worth_header << assignments.map {|assignment| assignment.worth}
-#       csv << worth_header.flatten
       
      xxx@xxx.xxx do |enrollment|
         line = []
@@ -158,14 +163,21 @@ class Admin::SectionsController < ApplicationController
       end
     end
     
-    render plain: "<pre>#{csv_string}</pre>"
+    # render plain: "#{csv_string}"
+    send_data csv_string,
+        type: "text/csv; charset=UTF-8;",
+        disposition: "attachment; xxx@xxx.xxx
   end
   
   def sync_students
     @section xxx@xxx.xxx
    xxx@xxx.xxx
 
-    redirect_to( xxx@xxx.xxx )
+    respond_to do |format|
+      @status = xxx@xxx.xxx
+      format.html {redirect_to( xxx@xxx.xxx )}
+      format.js
+    end
   end
   
   def allowed_params

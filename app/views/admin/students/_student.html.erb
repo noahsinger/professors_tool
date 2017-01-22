@@ -1,0 +1,8 @@
+<div class="block student students">
+  <%= render partial: 'student_data', locals: {student: student} %>
+
+  <ul>
+    <li><%= link_to 'Edit', edit_admin_student_path(student) %></li>
+    <li><%= link_to 'Destroy', [:admin,student], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
+  </ul>
+</div>

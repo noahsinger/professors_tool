@@ -22,14 +22,18 @@ class Admin::AssignmentTweetsController < ApplicationController
   end
 
   def create
-   xxx@xxx.xxx = Assignment.find params[:assignment_id]
-    begin
-      Tweet.new.send( params[:content] )
-      flash[:notice] = "Tweet tweeted"
-    rescue Twitter::Error => e
-      flash[:error] = "Tweet not sent: #{e}"
-    end
+    respond_to do |format|
+     xxx@xxx.xxx = Assignment.find params[:assignment_id]
+      begin
+        Tweet.new.send( params[:content] )
+        flash[:notice] = "Tweet tweeted"
+      rescue Twitter::Error => e
+        flash[:error] = "Tweet not sent: #{e}"
+      end
 
-    redirect_to xxx@xxx.xxx @assignment.section, @assignment)
+      @status = xxx@xxx.xxx @assignment.section, @assignment)
+      format.html {redirect_to xxx@xxx.xxx @assignment.section, @assignment)}
+      format.js
+    end
   end
 end

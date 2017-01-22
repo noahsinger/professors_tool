@@ -9,7 +9,6 @@ class Admin::WorksController < ApplicationController
   def bypass_authentication
   	work = Work.find( params[:id] )
 	  if work and work.withdrawal_code == params[:code]    
-# 	    skip_filter :authenticate
 			session[:authentication_bypass] = true
 	    logger.info("authentication skipped, proper code submitted")
 	  else
@@ -44,12 +43,8 @@ class Admin::WorksController < ApplicationController
   def download
     work = Work.find( params[:id] )
         
-    # TODO: try changing this to x_send_file which will use the x_send_file plugin which has the potential to
-    # send the file much more efficiently than send_file does.  Didn't work in development through mongrel
-    # but might work when it's running through apache.
     send_file( work.upload.path, 
                 type: work.upload_content_type, 
-#                 disposition: 'inline',  # change to attachment?
 								disposition: 'attachment',
                 filename: work.upload_file_name )
   end
@@ -108,7 +103,13 @@ class Admin::WorksController < ApplicationController
     end
     
     respond_to do |format|
+      xxx@xxx.xxx
+        flash[:error] = "Can not mass create assignments that require uploads"
+      end
+      
+      @status = xxx@xxx.xxx
       format.html { xxx@xxx.xxx }
+      format.js
     end
   end
 
@@ -123,17 +124,21 @@ class Admin::WorksController < ApplicationController
     @work xxx@xxx.xxx
 
     respond_to do |format|
-      @work.email xxx@xxx.xxx
+      xxx@xxx.xxx
+        @work.email xxx@xxx.xxx
+      end
 
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Work was successfully created.'
-        # format.html { xxx@xxx.xxx }
         format.html { xxx@xxx.xxx }
         format.xml  { render xml: @work, status: :created, xxx@xxx.xxx }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render action: "new" }
         format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -144,13 +149,16 @@ class Admin::WorksController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Work was successfully updated.'
         format.html { xxx@xxx.xxx }
         format.xml  { head :ok }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render action: "edit" }
         format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -161,8 +169,10 @@ class Admin::WorksController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+      @status = xxx@xxx.xxx @section, @assignment)
       format.html { xxx@xxx.xxx @section, @assignment )) }
       format.xml  { head :ok }
+      format.js
     end
   end
 
@@ -178,8 +188,10 @@ class Admin::WorksController < ApplicationController
     flash[:notice] = "The grade has been destroyed."
 
     respond_to do |format|
+      @status = xxx@xxx.xxx @section, @assignment)
       format.html { xxx@xxx.xxx @section, @assignment )) }
       format.xml  { head :ok }
+      format.js
     end
   end
   
@@ -210,12 +222,15 @@ class Admin::WorksController < ApplicationController
           end
         end
     
+        @status = xxx@xxx.xxx @section, @assignment)
         format.html { xxx@xxx.xxx @section, @assignment )) }
         format.xml  { head :ok }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render action: "edit" }
         format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end    
   end
   

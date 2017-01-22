@@ -1,16 +1,4 @@
-<%= content_for :header do %>
-	<h1>Instructor</h1>
-<% end %>
 
-<section>
-	<nav>
-		<%= link_to "Back", xxx@xxx.xxx :class => "icon back" %>
-	</nav>
-	
-	<header>
-		<p><%= xxx@xxx.xxx "section" %></p>
-xxx@xxx.xxx %></h1>
-	</header>
+<%= render 'instructors_header' %>
 
-	<%= render :partial => "form", :locals => {:submit_name => 'Update'} %>
-</section>
+<%= render 'form' %>

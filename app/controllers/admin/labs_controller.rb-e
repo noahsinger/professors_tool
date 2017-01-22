@@ -1,10 +1,9 @@
 class Admin::LabsController < ApplicationController
   before_action :authenticate
-  
   before_action :load_course
   
   def load_course
-   xxx@xxx.xxx = Course.find( params[:course_id] )
+   xxx@xxx.xxx = Course.find(params[:course_id])
   end
   
   # GET /labs
@@ -14,7 +13,7 @@ class Admin::LabsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -25,7 +24,7 @@ class Admin::LabsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -36,7 +35,7 @@ class Admin::LabsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -52,13 +51,16 @@ class Admin::LabsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Lab was successfully created.'
         format.html { xxx@xxx.xxx }
-        format.xml  { render :xml => @lab, :status => :created, :location xxx@xxx.xxx }
+        format.xml  { render xml: @lab, status: :created, xxx@xxx.xxx }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+       xxx@xxx.xxx = "failed"
+        format.html { render action: "new" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -69,13 +71,38 @@ class Admin::LabsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        # if the lab's course has changed (it's been moved) then it needs to 
+        #  be reloaded to report the correct course for redirection below
+       xxx@xxx.xxx 
+        
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Lab was successfully updated.'
         format.html { xxx@xxx.xxx }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+       xxx@xxx.xxx = "failed"
+        format.html { render action: "edit" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
+    end
+  end
+  
+  def duplicate
+    @orig_lab xxx@xxx.xxx
+    
+    @lab xxx@xxx.xxx
+    @orig_lab.requirements.each xxx@xxx.xxx req.dup}
+    @orig_lab.extras.each xxx@xxx.xxx ex.dup}
+    
+   xxx@xxx.xxx
+    
+    respond_to do |format|
+      flash[:notice] = 'Duplication is complete'
+      @status = xxx@xxx.xxx @lab)
+      format.html { xxx@xxx.xxx }
+      format.xml  { head :ok }
+      format.js
     end
   end
 
@@ -86,12 +113,14 @@ class Admin::LabsController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+      @status = xxx@xxx.xxx
       format.html { xxx@xxx.xxx )) }
       format.xml  { head :ok }
+      format.js
     end
   end
   
   def allowed_params
-    params.require(:lab).permit(:title, :objective, :instructions, :visible, :allow_uploads)
+    params.require(:lab).permit(:title, :objective, :instructions, :visible, :allow_uploads, :course_id)
   end
 end

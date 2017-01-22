@@ -41,6 +41,10 @@ class Semester < ApplicationRecord
     end
   end
   
+  def is_future?
+    self.is_future
+  end
+  
   def is_future
     if self.start_date > Time.now.to_date
       true

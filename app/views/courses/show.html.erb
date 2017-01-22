@@ -1,107 +1,56 @@
-<%= content_for :header do %>
-	<h1>Course Details</h1>
-<% end %>
 
+<%= render partial: 'course', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: "courses/syllabus_header" %>
+<%= render partial: "waiters/waiters_header" %>
 
-<section>
-	<nav>
-		<h1>Navigation</h1>
-		<%= link_to "Back", courses_path, :class => "icon back" %>
-	</nav>
-
-	<header>
-		<p><%= xxx@xxx.xxx "credit" %></p>
-xxx@xxx.xxx %></h1>
-	</header>
-	
-	
-	
+<div class="block courses">
 	<p id="disclaimer">
 		The information shown on this page is simply that, information.  This information is related only to this course in
 		general, not to a specific class or instance of this course that is being offered.  The labs shown on this page are
-		those that I have created for this course, they are not those that are specifically assigned.  For actual class 
-		information, the information that my current students should be looking at, return to the 
+		those that I have created for this course, they are not those that are specifically assigned.  For actual class
+		information, the information that my current students should be looking at, return to the
 		<%= link_to 'homepage', '/' %> and choose a currently offered class.
 	</p>
+</div>
+
+<div class="block courses">
+	<header><h3>Description</h3></header>
+	<%= xxx@xxx.xxx %>
+</div>
+
+<%= render partial: 'materials/materials_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'steps/steps_list', locals: xxx@xxx.xxx %>
 
 
-	<div id="resources">
-		<h1>Resources</h1>
-	
-		<ul id="course_links">
-			<li><h2><%= link_to 'Generic Course Syllabus', xxx@xxx.xxx :class => "icon star" %></h2></li>
-			<li><h2><%= link_to 'Course Availability', xxx@xxx.xxx :class => "icon star" %></h2></li>
-			<li><h2><%= link_to 'Course Materials', xxx@xxx.xxx :class => "icon wrench" %></h2></li>
+<% xxx@xxx.xxx > 0 %>
+	<div class="block sections">
+		<header>
+			<p>Sections</p>
+			<h3>Past</h3>
+		</header>
+
+		<ul>
+xxx@xxx.xxx do |section| %>
+				<li>
+					<%= link_to semester_section_path( section.semester, section ) do %>
+						<%= section.semester.name %> (<%= section.enrollments.size %> enrolled)
+					<% end %>
+				</li>
+			<% end %>
 		</ul>
-		
-		<% xxx@xxx.xxx > 0 %>
-			<article>
-				<header><h1>Tutorials</h1></header>
-				<ul id="tutorials">
-xxx@xxx.xxx do |howto| %>			
-						<li>
-							<%= link_to xxx@xxx.xxx howto, howto.steps.first ) do %>
-								<h2><%= howto.title %></h2>
-							<% end %>
-						</li>
-					<% end %>
-				</ul>
-			</article>
-		<% end %>	
-		
-		<% xxx@xxx.xxx > 0 %>
-			<article>
-				<header><h1>Past Sections</h1></header>
-				<ul id="past_sections">
-xxx@xxx.xxx do |section| %>			
-						<li>
-							<%= link_to semester_section_path( section.semester, section ) do %>
-								<h2><%= section.semester.name %> (<%= section.enrollments.size %> enrolled)</h2>
-							<% end %>
-						</li>
-					<% end %>
-				</ul>
-			</article>
-		<% end %>
 	</div>
-	
+<% end %>
 
-	<article>
-		<header id="course_description_header"><h1>Course Description</h1></header>
-		<div id="course_description">
-			<%= xxx@xxx.xxx %>
-		</div>
-	</article>
-
-
-	<article>
-		<header id="course_objectives_header"><h1>Objectives</h1></header>
-		<div id="course_objectives">
-			<ol>
+<div class="block courses">
+	<header id="course_objectives_header"><h3>Objectives</h3></header>
+	<ol>
 xxx@xxx.xxx do |objective| %>
-					<li><%= objective.description %></li>
-				<% end %>
-			</ol>
-		</div>
-	</article>	
+			<li><%= objective.description %></li>
+		<% end %>
+	</ol>
+</div>
 
 
-	<% xxx@xxx.xxx > 0 %>
-		<article>
-			<header id="course_labs_header"><h1>Potential Assignments</h1></header>
-			<ul id="course_labs">
-xxx@xxx.xxx do |lab| %>
-					<% if lab.visible %>
-						<li class="overdue">
-							<%= link_to xxx@xxx.xxx lab) do %>
-								<div><%= pluralize lab.worth, "point" %></div>
-								<h2><%= lab.title %></h2>
-								<p>Assigned <%= pluralize lab.assignments.count, "time" %></p>
-							<% end %>
-						</li>				
-					<% end %>
-				<% end %>
-			</ul>
-		</article>
-	<% end %>
-</section>
+<% xxx@xxx.xxx > 0 %>
+	<%= render partial: 'labs/labs_header', locals: xxx@xxx.xxx %>
+<% end %>

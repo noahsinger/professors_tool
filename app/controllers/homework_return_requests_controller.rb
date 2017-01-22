@@ -46,12 +46,14 @@ class HomeworkReturnRequestsController < ApplicationController
          xxx@xxx.xxx status: 'denied'
           @homework_return_request xxx@xxx.xxx
           flash[:notice] = "That assignment's attachment is no longer stored on this site as it's more than 1 year old."
+          @status = xxx@xxx.xxx
           format.html { xxx@xxx.xxx }
         elsif prev_request and prev_request.created_at > target
           #dont send email, display error
          xxx@xxx.xxx status: 'denied'
           @homework_return_request xxx@xxx.xxx
          xxx@xxx.xxx :email, 'was used to make a homework return request just a short while ago. Please wait a while before making this request again.'
+         xxx@xxx.xxx = "failed"
           format.html { render action: "new" }
         else
          xxx@xxx.xxx params[:homework_return_request][:email])
@@ -59,11 +61,14 @@ class HomeworkReturnRequestsController < ApplicationController
          xxx@xxx.xxx status: 'sent'
 
           flash[:notice] = "An email has been sent to your address with your assignment attached"
+          @status = xxx@xxx.xxx
           format.html { xxx@xxx.xxx }  
         end
       else
+       xxx@xxx.xxx = "failed"
         format.html { render action: "new" }
       end
+      format.js
     end
   end
   

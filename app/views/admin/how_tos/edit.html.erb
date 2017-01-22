@@ -1,25 +1,11 @@
-<%= content_for :header do %>
-	<h1>Edit How to</h1>
-<% end %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
-	</nav>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/tutorials/tutorials_header', locals: {main: true} %>
 
+<div class="block how_tos">
 	<header>
-		<p>How to:</p>
-xxx@xxx.xxx %></h1>
+		<h5>Edit How to</h5>
 	</header>
+</div>
 
-	<%= xxx@xxx.xxx do |f| %>
-	<%= xxx@xxx.xxx %>
-		<ol>
-			<li><div class="details"><%= f.label :title %><p>The title for the entire how to</p></div><div class="field"><%= f.text_field :title %></div></li>
-			<li class="textarea"><div class="details"><%= f.label :description %><p>A description of what will be worked through in this how to</p></div><div class="field"><%= f.text_area :description %></div></li>
-			<li class="action">
-				<div><%= f.submit "Update" %></div>
-			</li>
-		</ol>
-	<% end %>
-</section>
+<%= render 'form' %>

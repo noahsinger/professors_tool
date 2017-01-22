@@ -1,59 +1,9 @@
-<%= content_for :header do %>
-	<h1>Assignments</h1>
-<% end %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx @section ), :class => "icon back" %>		
-	</nav>
-	
-	<header>
-		<p>Call Number: xxx@xxx.xxx %></p>
-		<h1>Assignments for <%= @section.course.title %> <span xxx@xxx.xxx %>)</span></h1>
-	</header>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
+<%= render xxx@xxx.xxx %>
+<%= render partial: 'assignments_header', locals: xxx@xxx.xxx main: true} %>
 
-	<ul class="actions">
-		<li><%= link_to 'Add New Assignment', xxx@xxx.xxx @section ) %></li>
-		<li><%= link_to 'Add New Lab for this Course', xxx@xxx.xxx ) %></li>
-	</ul>
-
-	<div class="fancy">
-		<table>
-		  <tr>
-		    <th>Title</th>
-		    <th>Duedate</th>
-				<th>Worth</th>
-				<th>Average</th>
-
-				<th></th>
-				<th></th>
-				<th></th>
-		  </tr>
-
-		<% for assignment xxx@xxx.xxx %>
-			<% if assignment.graded? %>
-				<% klass = 'class=""' %>
-			<% else %>
-				<% klass = 'class="red"' %>
-			<% end %>
-			<tr <%= klass %>>
-				<td>
-					<%= link_to xxx@xxx.xxx do %>
-						<%= assignment.title %>
-						<br/><span style="font-size: .7em;"><%= assignment.lab.title %></span>
-					<% end %>
-				</td>
-				<td>
-					<%= show_short_date assignment.duedate %>
-					<br/><span style="font-size: .7em;"><%= distance_of_time_in_words_to_now( assignment.duedate ) if assignment.duedate > Time.now %></span>
-				</td>
-				<td class="worth"><%= assignment.worth %></td>
-				<td class="avg"><%= assignment.average.round(2) %></td>
-				<td class="grade"><%= link_to 'Grade', xxx@xxx.xxx %></td>
-				<td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-				<td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
-			</tr>
-		<% end %>
-		</table>
-	</div>
-</section>
+<%= render partial: 'assignment', xxx@xxx.xxx cached: true %>

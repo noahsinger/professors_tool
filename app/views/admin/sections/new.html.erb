@@ -1,16 +1,10 @@
-<%= content_for :header do %>
-	<h1>New Section for xxx@xxx.xxx %></h1>
-<% end %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx ), :class => "icon back" %>
-	</nav>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'sections_header', locals: xxx@xxx.xxx %>
 
-	<header>
-xxx@xxx.xxx %></p>
-		<h1>New Section</h1>
-	</header>
+<div class="block block--width2 sections">
+	<header><p>Create a new</p><h3>Section</h3></header>
+</div>
 
-	<%= render :partial xxx@xxx.xxx :locals => {:button_name => 'Create'} %>
-</section>
+<%= render 'form' %>

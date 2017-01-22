@@ -1,0 +1,16 @@
+<div class="block admin_header header <%= double_width_if_main(defined? main) %>">
+	<header>
+		<%= link_to admin_admin_index_path do %>
+			<h2>Admin</h2>
+		<% end %>
+	</header>
+
+	<ul>
+		<li><%= link_to '404', '/idontexist' %></li>
+		<li><%= link_to '505', '/examples/test_exception' %></li>
+		<li><%= link_to 'Error', '/examples/test_error' %></li>
+		<li><%= link_to 'Notice', '/examples/test_notice' %></li>
+		<li><%= link_to 'Test Tweet', '/examples/test_tweet' %></li>
+		<li><%= link_to 'Signout', logout_path, method: :delete, remote: true %></li>
+	</ul>    
+</div>

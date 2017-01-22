@@ -1,41 +1,6 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
 
-<section>
-	<nav>
-		<%= link_to "Back", xxx@xxx.xxx :class => "icon back" %>
-	</nav>
-	
-	<header>
-		<p>Labs for</p>
-xxx@xxx.xxx %></h1>
-	</header>
-	
-	<ul class="actions">
-		<li><%= link_to 'New lab', xxx@xxx.xxx ) %></li>
-	</ul>
-	
-	<div class="fancy">
-		<table>
-		  <tr>
-		    <th>Title</th>
-		    <th>Objective</th>
-			<th>Visible</th>
-			<th>Uploads Allowed</th>
-		  </tr>
-	
-		<% for lab xxx@xxx.xxx %>
-		  <tr>
-		    <td><%= lab.title %></td>
-		    <td><%= lab.objective %></td>
-			<td><%= lab.visible %></td>
-			<td><%= lab.allow_uploads %></td>
-		    <td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>
-		    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-		    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
-		  </tr>
-		<% end %>
-		</table>
-	</div>
-</section>
+<%= render partial: 'admin/courses/courses_header' %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'labs_header', locals: {main: true} %>
+
+<%= render partial: 'lab', xxx@xxx.xxx cached: true %>

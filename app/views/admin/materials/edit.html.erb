@@ -1,15 +1,12 @@
-<%= content_for :header do %>
-<% end %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
-	</nav>
-	
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'materials_header' %>
+
+<div class="block materials">
 	<header>
-		<p>for xxx@xxx.xxx %></p>
-xxx@xxx.xxx %></h1>
+		<p>Editing Material For</p>
+xxx@xxx.xxx %></h4>
 	</header>
+</div>
 
-	<%= render "form" %>
-</section>
+<%= render "form" %>

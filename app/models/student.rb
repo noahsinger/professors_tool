@@ -23,11 +23,7 @@ class Student < ApplicationRecord
     self.first_name + " " + self.middle_name + " " + self.last_name
   end
   
-  def self.paginate(page)
-	  self.offset(page.to_i*25).limit(25)
-	end
-  
   def self.search(criteria)
-		Student.where("first_name like ? or last_name like ?", "%#{criteria}%", "%#{criteria}%" )   
+		Student.where("first_name like ? or last_name like ?", "%#{criteria}%", "%#{criteria}%" )
 	end
 end

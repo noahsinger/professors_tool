@@ -2,9 +2,18 @@ class Admin::StepsController < ApplicationController
   before_action :authenticate
   
   before_action :load_howto
+  before_action :load_course
   
   def load_howto
    xxx@xxx.xxx = HowTo.find( params[:how_to_id] )
+  end
+  
+  def load_course
+   xxx@xxx.xxx = Course.find(params[:course_id])
+  end
+
+  def index
+    @steps xxx@xxx.xxx
   end
 
   # GET /steps/1
@@ -14,7 +23,7 @@ class Admin::StepsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -25,7 +34,7 @@ class Admin::StepsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -41,13 +50,16 @@ class Admin::StepsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = admin_how_to_step_path(@how_to,@step, xxx@xxx.xxx
         flash[:notice] = 'Step was successfully created.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { render :xml => @step, :status => :created, :location xxx@xxx.xxx }
+        format.html { redirect_to(admin_how_to_step_path(@how_to,@step, xxx@xxx.xxx }
+        format.xml  { render xml: @step, status: :created, xxx@xxx.xxx }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+       xxx@xxx.xxx = "failed"
+        format.html { render action: "new" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -58,13 +70,15 @@ class Admin::StepsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = admin_how_to_step_path(@how_to,@step, xxx@xxx.xxx
         flash[:notice] = 'Step was successfully updated.'
-        format.html { xxx@xxx.xxx }
+        format.html { redirect_to(admin_how_to_step_path(@how_to,@step, xxx@xxx.xxx }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -75,8 +89,10 @@ class Admin::StepsController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
-      format.html { xxx@xxx.xxx }
+      @status = admin_how_to_steps_path(@how_to, xxx@xxx.xxx
+      format.html { redirect_to(admin_how_to_steps_url(@how_to, xxx@xxx.xxx }
       format.xml  { head :ok }
+      format.js
     end
   end
   

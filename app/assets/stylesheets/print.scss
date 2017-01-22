@@ -1,227 +1,83 @@
-@import 'mixins';
-
 body.print {
-	width: auto;
-	background: none;
-	font-size: .8em;
+	background-color: #fff;
 	
-	.pagebreak	{ display: block; page-break-inside: avoid; }
+	.block {
+		width: 100%;
+		float: none;
+		background-color: #fff;
+		color: #000;
 		
-	#page {
-		width: auto;
-		margin: 0 0px;
+		a, p {
+			color: #000;
+		}
+				
+		h1,h2,h3,h4,h5,h6, header, header p {
+			left: 0;
+			letter-spacing: inherit;
+			width: 100%;
+			color: #fff;
+			background-color: #444;
+		}
 		
-//		a:after {
-//			content: " [" attr(href) "] ";
-//		}
+		header {
+			p, h1, h2, h3, h4 ,h5 .h6 {
+				position: static;	
+				height: inherit;
+				
+				margin: 0;
+				padding: 0 20px;
+			}
 			
-		nav, #assignment_status, footer, header {
+			p {
+				padding-top: 20px;
+			}
+			
+			p + h1, p + h2, p + h3, p + h4, p + h5, p + h6 {
+				line-height: .9em;
+				padding-bottom: 20px;
+				margin-left: -3px;
+			} 
+		}
+		
+		
+		&.admin_header, &.semesters.header, &.general_contact, &.courses.header, &.grid-sizer, &.semesters p, &.sections ul, #print_p, #assignment_links, &.works.header, &.homework_return_requests.header, &.labs.header {
 			display: none;
 		}
 		
-		#resources {
-			margin-top: 40px;
+		&.semesters {
+			padding: 0;
 			
-			h1 {
-				display: none;
-			}
-			
-			#assignment_links {
-				display: none;
+			h2 {
+				font-size: 3em;
 			}
 		}
-	
-		header {
-			width: auto;
-		}
-	
-		section {
-			width: auto;
-			
 		
-			header {
+		&.sections {
+			&.header {
 				display: block;
-				background: none;
-				box-shadow: none;
-				margin: 30px 0 0 0;
-	
-				h1, p {
-					color: #000;
-					margin: 0;
-					padding: 0;
+				padding: 0;
+
+				h3 {
+					font-size: 2.5em;
 				}
 			}
 		}
-	
-		#outer_container {
-			width: auto;
-			background: none;
-			padding: 0;
-	
-			#inner_container {
-				width: auto;
-				background: none;	
-				padding: 0;
-					
-				#page_content {
-					width: auto;
-					margin: 0;
-					padding: 10px;
-					
-					h1.page_description {
-						display: none;
-					}
-					
-					header {
-						display: block;
-						background: none;
-						box-shadow: none;
-						margin: 30px 0 0 0;
-
-						h1 {
-							color: #000;
-							margin: 0 0 20px 0;
-							padding: 0;
-							font-size: 4em;
-						} 
-						
-						p {
-							display: none;
-						}
-					}
-				
-					#requirements {
-						display: block;
-						float: right;
-						color: #000;
-						background: none;
-						box-shadow: none;
-						width: auto;
-						margin: 0 0 20px 20px;
-					
-						background-color: #eee;
-						padding: 20px;
-					
-						header {
-							float: none;
-							background: none;
-							box-shadow: none;
-							width: auto;
-							top: 0;
-							margin-bottom: 30px;
-						
-							h1 {
-								border: 0;
-								margin: 0;
-								padding: 0;
-							}
-						}
 		
-						td {
-							padding: 10px 0;
-						}
-					}
-					
-					header#requirements_header {						
-						h1 {
-							border: 0;
-							font-size: 1em;
-						}	
-					}
-					
+		td {
+			width: 25%;
+		}
 		
-					#assignment {
-						margin: 0;
-						width: auto;
-					
-						#assignment_extras, #assignment_extras_header {
-							display: none;
-						}
-					
-						#assignment_objective {
-							background: none;
-							box-shadow: none;
-							width: auto;
-							float: none;
-						
-							strong, p {
-								color: #000;
-								margin: 0;
-								padding: 0;
-								font-size: 1.5em;
-							}
-						}
-
-						#assignment_instructions_header {
-							margin: 0;
-							width: auto;
-							position: block;
-							background: none;
-							box-shadow: none;
-							float: none;
-							position: static;
-							margin: 0;
-						
-							h1 {
-								color: #000;
-								border: 0;
-								margin: 0;
-								font-size: 1em;
-							}
-						}
-					
-						#assignment_instructions {
-							float: none;
-							position: block;
-							top: 0;
-							box-shadow: none;
-							background: none;
-							margin: 0;
-							padding: 0;
-							width: auto;
-						
-							h1,h2 {
-								margin: 20px 0 0 0;
-							}
-						
-							p {
-								margin: 20px 0 0 0;
-								padding: 0;
-							}
-						
-							code {
-								display: block;
-								background-color: #eee;
-								padding: 10px;
-							}
-						
-							table {
-								border-collapse: collapse;
-							
-								td {
-									border: 1px solid #eee;
-									padding: 5px 10px;
-								}
-							
-								th {
-									text-align: left;
-								}
-							}
-						}
-					} // #assignment
-				
-					article#syllabus {
-						box-shadow: none;
-						background: none;
-						margin: 0;
-						padding: 0;
-					
-						&:before, &:after {
-							box-shadow: none;
-						}
-					} // article#syllabus
-				} //end #page_content
-			} // #inner_container
-		} // #outer_container
-	} // #page
-} // body.print
+		ul li {
+			float: none;
+			background-color: inherit;
+			
+			a {
+				border: none;
+			}
+		}
+	
+		&#endNoteDiv {
+			font-style: italic;
+		}
+	}
+}

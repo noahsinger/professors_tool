@@ -1,16 +1,8 @@
-<%= content_for :header do %>
-	<h1>New Student</h1>
-<% end %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx @section ), :class => "icon back"%>
-	</nav>
+<%= render partial: 'admin/students/students_header', locals: {students: Student.all} %>
 
-	<header>
-		<p>Add new Student to</p>
-xxx@xxx.xxx %></h1>
-	</header>
+<div class="block students">
+	<h3>New Student</h3>
+</div>
 
-	<%= render :partial => 'form', :locals => {:submit_name => 'Create'} %>
-</section>
+<%= render 'form' %>

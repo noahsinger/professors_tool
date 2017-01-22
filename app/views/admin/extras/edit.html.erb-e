@@ -1,35 +1,7 @@
-<%= content_for :header do %>
-	<h1>Edit Extra</h1>
-<% end %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back"%>
-	</nav>
-	
-	<header>
-xxx@xxx.xxx %></p>
-xxx@xxx.xxx %></h1>
-	</header>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/labs/labs_header' %>
 
-	<%= xxx@xxx.xxx :html => {:multipart => true}) do |f| %>
-		<%= xxx@xxx.xxx %>
-		<ol>
-			<li>
-				<div class="details">
-					<%= f.label :file %>
-					<p>Choose the file to upload</p>
-				</div>
-				<div class="file field">
-					<span class="prompt">Click to Browse</span>
-					<%= f.file_field :file %>
-				</div>
-				<div class="filename"></div>
-			</li>
-			<li><div class="details"><%= f.label :description %><p></p></div><div class="field"><%= f.text_field :description %></div></li>
-			<li class="action">
-				<div><%= f.submit "Create" %></div>
-			</li>
-		</ol>
-	<% end %>
-</section>
+<%= render partial: 'admin/labs/lab', locals: xxx@xxx.xxx main: true} %>
+
+<%= render 'form' %>

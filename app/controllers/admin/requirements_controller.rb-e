@@ -19,7 +19,7 @@ class Admin::RequirementsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -35,14 +35,16 @@ class Admin::RequirementsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Requirement was successfully created.'
         format.html { xxx@xxx.xxx }
-        format.js
-        format.xml  { render :xml => @requirement, :status => :created, :location xxx@xxx.xxx }
+        format.xml  { render xml: @requirement, status: :created, xxx@xxx.xxx }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+       xxx@xxx.xxx = "failed"
+        format.html { render action: "new" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -53,13 +55,16 @@ class Admin::RequirementsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Requirement was successfully updated.'
         format.html { xxx@xxx.xxx }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+       xxx@xxx.xxx = "failed"
+        format.html { render action: "edit" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
   
@@ -71,7 +76,7 @@ class Admin::RequirementsController < ApplicationController
     end
     
     respond_to do |format|
-      format.html { render :nothing => true, :status => 200 }
+      format.html { render nothing: true, status: 200 }
       format.js
       format.xml  { head :ok }
     end
@@ -84,8 +89,10 @@ class Admin::RequirementsController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+      @status = xxx@xxx.xxx
       format.html { xxx@xxx.xxx @lab )) }
       format.xml  { head :ok }
+      format.js
     end
   end
   

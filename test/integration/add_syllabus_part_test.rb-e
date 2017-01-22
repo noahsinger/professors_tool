@@ -16,16 +16,16 @@ class AddSyllabusPartTest < ActionDispatch::IntegrationTest
     
     # try to add syllabus part
     course = Course.all.first
-    visit admin_course_policies_path( course )
+    visit new_admin_syllabus_part_path(course_id: course)
     
     fill_in("syllabus_part_name", with: "Test Part")
     fill_in("syllabus_part_title", with: "Test Policy")
     fill_in("syllabus_part_description", with: "This is a policy to be")
     
-    click_on("Add")
+    click_on("Create Syllabus part")
     
-    part = SyllabusPart.find_by_name( "Test Part" );
-    
+    # was it added?
+    assert_equal admin_course_policies_path(course), current_path
     assert page.has_content?("Test Part")
   end
 end

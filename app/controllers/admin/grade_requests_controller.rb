@@ -8,18 +8,7 @@ class Admin::GradeRequestsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
-  # GET /grade_requests/1
-  # GET /grade_requests/1.xml
-  def show
-   xxx@xxx.xxx = GradeRequest.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -30,8 +19,10 @@ class Admin::GradeRequestsController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+     xxx@xxx.xxx = admin_grade_requests_url
       format.html { redirect_to(admin_grade_requests_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
   
@@ -42,8 +33,10 @@ class Admin::GradeRequestsController < ApplicationController
     end
     
     respond_to do |format|
+     xxx@xxx.xxx = admin_grade_requests_url
       format.html { redirect_to(admin_grade_requests_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
   

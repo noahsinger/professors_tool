@@ -1,0 +1,14 @@
+<div class="block semesters <%= double_width_if_main(defined? main) %>">
+	<header>
+		<%= link_to semester_sections_path(semester) do %>
+			<h2><%= semester.year %><%= semester.season %></h2>
+		<% end %>
+	</header>
+	
+	<p>
+		<%= show_short_date(semester.start_date) %> - <%= show_short_date(semester.end_date) %>
+		<% if semester == Semester.current %>
+			(current)
+		<% end %>
+	</p>
+</div>

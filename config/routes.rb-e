@@ -47,6 +47,13 @@ Rails.application.routes.draw do
     
   # admin namespace #######################################
   namespace :admin do
+
+    resources :admin
+    resources :enrollment_statuses
+    resources :divisions
+    resources :instructors
+    resources :syllabus_parts
+    resources :assignment_tweets
   
   	resources :works do
   		member do
@@ -54,20 +61,17 @@ Rails.application.routes.draw do
   		end
   	end
     
-    resources :students
-    resources :enrollment_statuses
-    resources :divisions
-    resources :instructors
-    resources :syllabus_parts
-    resources :users
-    resources :assignment_tweets
-    
-    resources :admin do
+    resources :students do
       collection do
-        get 'email_template'
-      #   get 'signin'
-      #   post 'signin', :as => :signin
-      #   get 'signout'
+        get :search  
+      end
+    end
+    
+    resources :how_tos do
+      resources :steps do
+        collection do
+          post 'sort'
+        end
       end
     end
     
@@ -77,6 +81,19 @@ Rails.application.routes.draw do
       end
     end
     
+    resources :grade_requests do
+      collection do
+        delete 'destroy_all'
+      end
+    end
+    
+    resources :homework_return_requests do
+      collection do
+        delete 'destroy_all'
+      end
+    end
+    
+    # admin semesters namespace #####################
     resources :semesters do
       resources :sections do
         member do
@@ -114,6 +131,7 @@ Rails.application.routes.draw do
       end
     end
     
+    # admin courses namespace #####################
     resources :courses do
       resources :waiters
       resources :materials
@@ -140,6 +158,10 @@ Rails.application.routes.draw do
       end
             
       resources :labs do
+        member do
+          post 'duplicate'
+        end
+        
         resources :requirements do
           collection do
             post 'sort'
@@ -149,45 +171,24 @@ Rails.application.routes.draw do
         resources :extras
       end
     end
-
-    resources :how_tos do
-      resources :steps do
-        collection do
-          post 'sort'
-        end
-      end
-    end
-    
-    resources :grade_requests do
-      collection do
-        delete 'destroy_all'
-      end
-    end
-    
-    resources :homework_return_requests do
-      collection do
-        delete 'destroy_all'
-      end
-    end
   end
   
   get '/admin', to: 'admin/admin#index'
 
   if Semester.current #favor the current semester
-    root :to => "sections#index", :semester_id => Semester.current.id
+    root to:  "sections#index", semester_id:  Semester.current.id
   elsif Semester.future.first #if were not in semester choose the next one to start 
-    root :to => "sections#index", :semester_id => Semester.future.first.id
+    root to:  "sections#index", semester_id:  Semester.future.first.id
   else # otherwise just show a list of all semesters
-    root :to => "semesters#index"
+    root to:  "semesters#index"
   end
   
-  match 'logout' => "sessions#destroy", :via => :delete
-  match 'login' => "sessions#new", :via => :get
+  match 'logout' => "sessions#destroy", via:  :delete
+  match 'login' => "sessions#new", via:  :get
   
-  # map.connect 'examples/echo', :controller => 'examples', :action => 'echo', :conditions => { :method => [:get, :post] }
-  match 'examples/echo' => 'examples#echo', :via => [:get, :post]
-  match 'examples/test_exception' => 'examples#test_exception', :via => [:get]
-  match 'examples/test_notice' => 'examples#test_notice', :via => [:get]
-  match 'examples/test_error' => 'examples#test_error', :via => [:get]
-  match 'examples/test_tweet' => 'examples#test_tweet', :via => [:get]
+  match 'examples/echo' => 'examples#echo', via:  [:get, :post]
+  match 'examples/test_exception' => 'examples#test_exception', via:  [:get]
+  match 'examples/test_notice' => 'examples#test_notice', via:  [:get]
+  match 'examples/test_error' => 'examples#test_error', via:  [:get]
+  match 'examples/test_tweet' => 'examples#test_tweet', via:  [:get]
 end

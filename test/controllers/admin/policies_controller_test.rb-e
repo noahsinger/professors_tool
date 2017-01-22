@@ -3,7 +3,6 @@ require 'test_helper'
 class Admin::PoliciesControllerTest < ActionDispatch::IntegrationTest
   cannot_access_actions('admin/policies', {course_id: 1},
                         {action: 'index'}             => :get,
-                        {action: 'new'}               => :get,
                         {action: 'create'}            => :post,
                         {action: 'destroy', id: 1}    => :delete,
                         {action: 'sort'}              => :post,
@@ -15,11 +14,6 @@ class Admin::PoliciesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     get admin_course_policies_url(courses(:intro_to_jackassery))
-    assert_response :success
-  end
-
-  test "should get new" do
-    get new_admin_course_policy_url(courses(:intro_to_jackassery))
     assert_response :success
   end
 

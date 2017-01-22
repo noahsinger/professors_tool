@@ -46,7 +46,7 @@ class GradeRequestsControllerTest < ActionDispatch::IntegrationTest
 
   test "should not create grade_request for non-enrolled student" do
     assert_enqueued_jobs 0 do 
-      assert_difference('GradeRequest.count') do
+      assert_no_difference('GradeRequest.count') do
         post semester_section_grade_requests_url(Semester.current, Semester.current.sections.first),
           params: {
             grade_request: {
@@ -56,7 +56,6 @@ class GradeRequestsControllerTest < ActionDispatch::IntegrationTest
       end
     end
 
-    assert_equal 'denied', GradeRequest.last.status
     assert_response :success
   end
 

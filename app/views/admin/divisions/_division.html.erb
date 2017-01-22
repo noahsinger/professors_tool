@@ -1,0 +1,13 @@
+<div class="block <%= double_width_if_main(defined? main) %> divisions">
+  
+	<header><h3><%= division.name %></h3></header>
+
+  <p>Office Number: <b><%= division.office_number %></b></p>
+  <p>Phone: <b><%= division.phone_number %></b></p>
+  <p>Dean: <b><%= division.associate_dean %></b></p>
+
+  <ul>
+    <li><%= link_to 'Edit', edit_admin_division_path(division) %></li>
+    <li><%= link_to 'Destroy', [:admin,division], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
+	</ul>
+</div>

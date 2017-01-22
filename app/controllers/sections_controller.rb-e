@@ -2,7 +2,7 @@ class SectionsController < ApplicationController
   before_action :load_semester
   
   def load_semester
-   xxx@xxx.xxx = Semester.find( params[:semester_id] )
+   xxx@xxx.xxx = Semester.find(params[:semester_id])
   end
   
   # GET /sections
@@ -12,7 +12,7 @@ class SectionsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -23,7 +23,7 @@ class SectionsController < ApplicationController
 
     # respond_to do |format|
       # format.html # show.html.erb
-      # format.xml  { render :xml xxx@xxx.xxx }
+      # format.xml  { render xxx@xxx.xxx }
     # end
     
     redirect_to xxx@xxx.xxx @section)

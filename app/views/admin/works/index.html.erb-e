@@ -1,99 +1,17 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx class: "icon back" %>
-	</nav>
-	
-	<header>
-		<p><strong>Due: </strong> <%= show_short_date @assignment.duedate %> &bull; <strong>Worth: </strong> <%= xxx@xxx.xxx "point" %></p>
-		<h1><%= @assignment.title %> - xxx@xxx.xxx %></h1>
-	</header>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
+<%= render xxx@xxx.xxx %>
+<%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/assignments/assignment', locals: xxx@xxx.xxx main: true} %>
 
-	<ul class="actions">
-		<li><%= link_to 'New Work', xxx@xxx.xxx %></li>
-		<li><%= link_to 'New for All', xxx@xxx.xxx %></li>
-		<li><%= link_to 'Tweet Grading Complete', new_admin_assignment_tweet_path( xxx@xxx.xxx status: "graded" ) %></li>
-	</ul>
-
-	<% xxx@xxx.xxx > 0 %>
-		<div class="fancy">
-			<table>
-			  <tr>
-			    <th>Student</th>
-					<th>Submitted</th>
-					<th>Score</th>
-	
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-			  </tr>
-
-			<% for work xxx@xxx.xxx %>
-			  <tr>
-					<td>
-						<% if work.enrollment %>
-					    	<%= work.enrollment.student.last_name %>, <%= work.enrollment.student.first_name %>
-						<% else %>
-							None (<%= link_to 'Edit', xxx@xxx.xxx %>)
-						<% end %>
-						<br/><span style="font-size: .7em; font-weight: normal;"><%= mail_to work.email, work.email, subject: "#{@section.course.title} xxx@xxx.xxx %></span>
-					</td>
-	
-					<td>
-						<% diff = (work.assignment.duedate.to_date - work.created_at.to_date).to_i %>
-						<%= "#{pluralize diff.abs, 'day'} #{((diff < 0) ? 'late' : 'early')}" %><br/>
-						<span style="font-size: .6em;">(<%= work.created_at.to_s(:short) %>)</span>
-					</td>
-	
-					<% if work.awarded_points.size > 0 %>
-						<td><span class="green"><%= work.score %> (<%= number_to_percentage work.percentage, {precision: 2} %>)</span></td>
-					<% else %>
-						<td><span class="red">-</span></td>
-					<% end %>	
-
-					<td class="grade"><%= link_to 'Grade', xxx@xxx.xxx %></td>
-			    <td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>
-			    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-			    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete %></td>
-					<td class="ungrade"><%= link_to 'UnGrade', xxx@xxx.xxx confirm: 'Are you sure?', method: :delete %></td>
-			  </tr>
-			<% end %>
-			<tr>
-				<td colspan="2" class="blank"></td>
-				<td>
-xxx@xxx.xxx %>%
-				</td>
-				<td colspan="5" class="blank"></td>
-			</tr>
-			</table>
-		</div>
-	<% else %>
-		<div class="fancy">
-			<table>
-				<tr><td>None</td></tr>
-			</table>
-		</div>
-	<% end %>
+<%= render partial: 'work', xxx@xxx.xxx cached: true %>
 
 	
-	<% xxx@xxx.xxx > 0 %>
-		<header>
-			<h1>Students Without Works</h1>
-		</header>
-
-		<div class="fancy">
-			<table>
+<% xxx@xxx.xxx > 0 %>
 xxx@xxx.xxx do |enrollment| %>
-					<tr>
-						<td><%= mail_to enrollment.student.email, "#{enrollment.student.last_name_first} (Click to email)", subject: "#{@section.course.title} xxx@xxx.xxx %></td>
-					</tr>
-				<% end %>
-			</table>
-		</div>
+		<%= render partial: 'admin/enrollments/enrollment', locals: {enrollment: enrollment, message: "No work for"} %>
 	<% end %>
-</section>
+<% end %>

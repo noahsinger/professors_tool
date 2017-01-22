@@ -36,6 +36,14 @@ class Section < ApplicationRecord
 		end
 	end
   
+  def meetings_complete
+    self.meetings.all - self.meetings_not_complete
+  end
+  
+  def meetings_not_complete
+    self.meetings.includes('attendances').where(attendances: {meeting_id: nil})
+  end
+  
   def class_size
   	num = self.enrollments.where(:enrollment_status_id => EnrollmentStatus.enrolled.id ).size
   	size = if num <= 5
@@ -67,8 +75,12 @@ class Section < ApplicationRecord
     if self.days == "Online" or self.days == "Online Course"
       self.days
     else
-      self.days + ' ' + self.start_time.strftime( '%I:%M %p' ) + ' - ' + self.end_time.strftime( '%I:%M %p' )
+      self.days + ' ' + meeting_times
     end
+  end
+  
+  def meeting_times
+    self.start_time.strftime( '%I:%M %p' ) + ' - ' + self.end_time.strftime( '%I:%M %p' )
   end
   
   def days
@@ -118,6 +130,18 @@ class Section < ApplicationRecord
     end
     
     total
+  end
+  
+  def next_assignment_due
+    if future_assignments.size > 0
+      future_assignments.last
+    else
+      nil
+    end
+  end
+  
+  def future_assignments
+    self.assignments.where("duedate > ?", Time.now).order("duedate")
   end
     
   def in_session

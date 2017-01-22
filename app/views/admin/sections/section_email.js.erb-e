@@ -1,0 +1,1 @@
+FlyingBlocks.process_form("<%= escape_javascript(render 'section_email_form') %>", xxx@xxx.xxx %>");

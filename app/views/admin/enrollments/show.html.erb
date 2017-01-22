@@ -1,16 +1,12 @@
-<%= content_for :header do %>
-	<h1>Student Information</h1>
-<% end %>
 
-<section>
-	<nav>
-			<%= link_to 'Back', xxx@xxx.xxx @section ), :class => "icon back" %>
-	</nav>
-	
-	<header>
-		<p>Enrollment for <%= @section.days %> xxx@xxx.xxx %></p>
-xxx@xxx.xxx %></h1>
-	</header>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/sections/section', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/enrollments/enrollments_header', locals: xxx@xxx.xxx %>
+
+<%= render partial: 'admin/enrollments/enrollment', locals: xxx@xxx.xxx main: true} %>
 
 	<% 
 		possible = 0 
@@ -18,81 +14,87 @@ xxx@xxx.xxx %></h1>
 	%>
 
 
-	<div class="fancy">
-		<table>
-			<tr>
-				<th>Assignment</th>
-				<th>Lab</th>
-				<th>Worth</th>
-				<th>Score</th>
-			</tr>
-xxx@xxx.xxx do |assignment| %>
-				<% 
-					work xxx@xxx.xxx
-					earned += work.score if work
-					possible += assignment.worth
-				%>
-	
-				<tr>
-					<td>
-						<% if work %>
-							<%= link_to assignment.title, xxx@xxx.xxx @section, assignment, work ) %>
-						<% else %>
-							<%= assignment.title %>
-						<% end %>
-					</td>
-					<td><%= assignment.lab.title %></td>
-					<td><%= assignment.worth %></td>		
-					<td>
-						<% if work %>
-							<%= work.score %>
-						<% else %>
-							-
-						<% end %>
-					</td>
-				</tr>
-			<% end %>
-			<tr>
-				<td colspan="2" class="blank">Totals:</td>
-				<td><%= possible %></td>
-				<td><%= earned %></td>
-			</tr>
-		</table>
-	</div>
-
+<div class="block block--width2 enrollments">
 	<header>
-			<p>
-xxx@xxx.xxx = EnrollmentStatus.all -%>
-				<%- outputs = [] -%>
-	
-xxx@xxx.xxx do |status| %>
-					<% xxx@xxx.xxx == status.name %>
-						<% outputs << status.name %>
+		<h5>Assignments</h5>
+	</header>
+	<table>
+		<tr>
+			<th>Assignment</th>
+			<th>Lab</th>
+			<th>Worth</th>
+			<th>Score</th>
+		</tr>
+xxx@xxx.xxx do |assignment| %>
+			<% 
+				work xxx@xxx.xxx
+				earned += work.score if work
+				possible += assignment.worth
+			%>
+
+			<tr>
+				<td>
+					<% if work %>
+						<%= link_to assignment.title, xxx@xxx.xxx @section, assignment, work ) %>
 					<% else %>
-						<% outputs << link_to( status.name, xxx@xxx.xxx @section, @enrollment, :enrollment => {:enrollment_status_id => status.id} ), :method => :put ) %>
+						<%= assignment.title %>
 					<% end %>
-				<% end %>
-				
-				<%= outputs.join( " &bull; " ).html_safe %>
-			</p>
-			<h1>
-				Current Score:
-				<%= @enrollment.current_average %>% - xxx@xxx.xxx %>
-				 :: Absences: xxx@xxx.xxx AttendanceStatus.absent.id).count %>
-				 /
-				 xxx@xxx.xxx %>
-			</h1>
+				</td>
+				<td><%= assignment.lab.title %></td>
+				<td><%= assignment.worth %></td>		
+				<td>
+					<% if work %>
+						<%= work.score %>
+					<% else %>
+						-
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+		<tr>
+			<td colspan="2" class="blank">Totals:</td>
+			<td><%= possible %></td>
+			<td><%= earned %></td>
+		</tr>
+	</table>
+</div>
+
+<div class="block enrollments">
+	<header>
+		<h3>
+			Current Score:
+			<%= @enrollment.current_average %>% - xxx@xxx.xxx %><br/>
+			Absences: xxx@xxx.xxx AttendanceStatus.absent.id).count %>
+			/ xxx@xxx.xxx %>
+		</h3>
 	</header>
 	
-	<div class="fancy">
-		<table>
-			<tr>
-				<th>Date</th>
-			</tr>
-xxx@xxx.xxx do |attendance| %>
-				<%= render :partial => 'attendance', :locals => {:attendance => attendance} %>
+	<p>
+xxx@xxx.xxx = EnrollmentStatus.all -%>
+		<%- outputs = [] -%>
+
+xxx@xxx.xxx do |status| %>
+			<% xxx@xxx.xxx == status.name %>
+				<% outputs << "<b>#{status.name}</b>" %>
+			<% else %>
+				<% outputs << link_to( status.name, xxx@xxx.xxx @section, @enrollment, enrollment: {enrollment_status_id: status.id} ), method: :put, remote: true ) %>
 			<% end %>
-		</table>
-	</div>
+		<% end %>
+		
+		<%= outputs.join( " &bull; " ).html_safe %>
+	</p>
 	
-</section>
+</div>
+	
+<div class="block block--width2 enrollments">
+	<header><h5>Attendances</h5></header>
+	<table>
+		<tr>
+			<th>Date</th>
+		</tr>
+xxx@xxx.xxx do |attendance| %>
+			<%= render partial: 'attendance', locals: {attendance: attendance} %>
+		<% end %>
+	</table>
+</div>
+	

@@ -1,16 +1,10 @@
-<%= content_for :header do %>
-	<h1>Edit Course</h1>
-<% end %>
+s
+<%= render partial: 'courses_header', locals: {main: true} %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', admin_courses_path, :class => "icon back" %>
-	</nav>
-	
+<div class="block courses">
 	<header>
-		<p>This course has been occurred <%= xxx@xxx.xxx 'time' %></p>
-		<h1>Edit xxx@xxx.xxx %></h1>
+		<h4>Edit Course</h4>
 	</header>
+</div>
 
-	<%= render :partial => 'form', :locals => {:submit_name => 'Update'} %>
-</section>
+<%= render 'form' %>

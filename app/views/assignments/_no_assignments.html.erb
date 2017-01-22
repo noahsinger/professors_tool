@@ -1,0 +1,13 @@
+<div class="block assignments <%= double_width_if_main(defined? main) %>">
+	<header>
+		<p>No Assignments are currently available for this class.</p>
+		<h4>Assignments</h4>
+	</header>
+	<p>
+		You can Subscribe to this classes
+		<%= link_to( 'RSS' , semester_section_assignments_path(section.semester,section, format: :rss) ) %>
+		feed or
+		<%= link_to( 'ICAL', semester_section_assignments_url(section.semester,section, format: :ics, protocol: 'webcal') ) %>
+		feed to monitor when new assignments are posted.
+	</p>
+</div>

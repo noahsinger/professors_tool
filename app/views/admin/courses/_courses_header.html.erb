@@ -1,0 +1,12 @@
+<div class="block <%= double_width_if_main(defined? main) %> courses header">
+	<header>
+		<%= link_to admin_courses_path do %>
+			<p><%= pluralize Course.count, 'course' %></p>
+			<h3>Courses</h3>
+		<% end %>
+	</header>
+	
+	<ul class="actions">
+		<li><%= link_to 'New Course', new_admin_course_path %></li>
+	</ul>
+</div>

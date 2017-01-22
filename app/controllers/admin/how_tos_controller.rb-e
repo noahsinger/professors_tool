@@ -2,6 +2,7 @@ class Admin::HowTosController < ApplicationController
   before_action :authenticate
   
   before_action :store_referrer
+  before_action :load_course
   
   def store_referrer
     unless session[:referrer]
@@ -9,28 +10,10 @@ class Admin::HowTosController < ApplicationController
     end
   end
   
-  # GET /how_tos
-  # GET /how_tos.xml
-  def index
-   xxx@xxx.xxx = HowTo.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
+  def load_course
+   xxx@xxx.xxx = Course.find( params[:course_id] )
   end
-
-  # GET /how_tos/1
-  # GET /how_tos/1.xml
-  def show
-   xxx@xxx.xxx = HowTo.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
+  
   # GET /how_tos/new
   # GET /how_tos/new.xml
   def new    
@@ -38,7 +21,7 @@ class Admin::HowTosController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -54,13 +37,16 @@ class Admin::HowTosController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = admin_how_to_steps_url(@how_to, xxx@xxx.xxx
         flash[:notice] = 'HowTo was successfully created.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { render :xml => @how_to, :status => :created, :location xxx@xxx.xxx }
+        format.html { redirect_to(admin_how_to_steps_url(@how_to, xxx@xxx.xxx }
+        format.xml  { render xml: @how_to, status: :created, xxx@xxx.xxx }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+       xxx@xxx.xxx = "failed"
+        format.html { render action: "new" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -71,13 +57,16 @@ class Admin::HowTosController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = admin_how_to_steps_url(@how_to, xxx@xxx.xxx
         flash[:notice] = 'HowTo was successfully updated.'
-        format.html { xxx@xxx.xxx }
+        format.html { redirect_to(admin_how_to_steps_url(@how_to, xxx@xxx.xxx }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+       xxx@xxx.xxx = "failed"
+        format.html { render action: "edit" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -88,7 +77,8 @@ class Admin::HowTosController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
-      format.html { redirect_to(admin_how_tos_url) }
+      @status = xxx@xxx.xxx
+      format.html { xxx@xxx.xxx }
       format.xml  { head :ok }
     end
   end

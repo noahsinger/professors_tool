@@ -1,53 +1,8 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
 
+<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
+<%= render partial: 'assignments/assignment', locals: xxx@xxx.xxx %>
 
-<section>
-	<h1 class="page_description">Submit Solution</h1>
+<%= render partial: "works/works_header", locals: {main: true} %>
 	
-	<nav>
-		<h1>Navigation</h1>
-		<%= link_to "#{@assignment.title} - #{@assignment.lab.title}", xxx@xxx.xxx @section, @assignment ), :class => 'icon back' %>
-	</nav>
-
-	
-	<header>
-xxx@xxx.xxx %></p>
-		<h1>Submit Your Solution for xxx@xxx.xxx %></h1>
-	</header>
-	
-		
-	<%= xxx@xxx.xxx :html => {:multipart => true}) do |f| %>
-		<h1>Complete the Form</h1>
-		<%= xxx@xxx.xxx %>
-		<ol>
-			<li>
-				<div class="details">
-					<%= f.label :email, 'What is your TCC email address?' %>
-					<p>
-						Your email address is required so that the lab you submit can be identified as your own. <strong>You must use your official TCC email address.</strong>
-					</p>
-				</div>
-				
-				<div class="field"><%= f.text_field :email, :placeholder => xxx@xxx.xxx %></div>
-			</li>
-
-			<li>
-				<div class="details">
-					<%= f.label :upload, "What are you turning in?" %>
-					<p>
-						Please select the file that you wish to submit as your assignment.  Only one file can be submitted so if your work includes more than one file, zip them together into one file.
-					</p>
-				</div>
-				
-				<div class="file field"><span class="prompt">Click to Browse</span><%= f.file_field :upload %></div>
-				<div class="filename"></div>
-			</li>
-	
-			<li class="action">
-				<div><%= f.submit "Submit Solution" %></div>
-			</li>
-		</ol>
-	<% end %>
-</section>
+<%= render 'form' %>

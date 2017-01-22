@@ -1,39 +1,9 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx @section ), :class => "icon back" %>
-	</nav>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/sections/section', locals: xxx@xxx.xxx %>
 
-	<header>
-		<p>Call Number: xxx@xxx.xxx %></p>
-		<h1>Examples for xxx@xxx.xxx %></h1>
-	</header>
+<%= render 'examples_header' %>
 
-	<ul class="actions">
-		<li><%= link_to 'New Example', xxx@xxx.xxx @section ) %></li>
-	</ul>
-
-	<div class="fancy">
-		<table>
-		  <tr>
-		    <th>Name</th>
-		    <th>Description</th>
-		    <th>File</th>
-		  </tr>
-
-xxx@xxx.xxx do |example| %>
-		  <tr>
-		    <td><%= example.name %></td>
-		    <td><%= truncate example.description %></td>
-				<td><%= show_date_and_time(example.created_at) %></td>
-		    <td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>
-		    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-		    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
-		  </tr>
-		<% end %>
-		</table>
-	</div>
-</section>
+<%= render partial: 'example', xxx@xxx.xxx cached: true %>

@@ -1,0 +1,17 @@
+console.log("searching...");
+$('.student.block, .search.block').fadeOut('slow', function( ) {
+	$('#page').isotope( 'remove', $('.student.block, .search.block') );
+	$('.student.block, .search.block').remove( );
+	console.log('-- blocks removed');
+
+	$('#page').append("<%= escape_javascript(render partial: 'student', xxx@xxx.xxx cached: true) %>");
+	$('#page').append("<%= escape_javascript(render partial: 'pages_and_search') %>");
+	console.log('-- appended');	
+	$('#page').isotope('insert', $('.student.block, .search.block'));
+
+	//new/modified form block won't be removed on next nav unless its in current blocks so rebuild current_blocks here
+	current_blocks = document.querySelectorAll('.block');
+	$('#page').isotope('layout');
+	
+	page_element_init( );
+});

@@ -1,98 +1,22 @@
-<%= content_for :head do %>
-	<link rel="alternate" type="application/rss+xml" title="<%= @section.meeting_days + " " + @section.course.title + " Assignments for " + " " + @semester.name %>" href="<%= xxx@xxx.xxx @section, :format => :rss ) %>" />
+<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'sections/section', locals: xxx@xxx.xxx main: true} %>
+
+<%= render 'sections/syllabus_header' %>
+<%= render 'grade_requests/grade_requests_header' %>
+
+<% xxx@xxx.xxx > 0 %>
+	<%= render partial: 'materials/materials_header', locals: xxx@xxx.xxx %>
 <% end %>
 
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
+<% xxx@xxx.xxx > 0 %>
+	<%= render partial: 'examples/examples_header', locals: {semester: @semester, xxx@xxx.xxx %>
 <% end %>
 
-<section>
-	<h1 xxx@xxx.xxx %></h1>
-	
-	<nav>
-		<h1>Navigation</h1>
-		<%= link_to( 'Home', root_path, :class => 'icon back' ) %>
-		<%= link_to( 'RSS' , xxx@xxx.xxx :format => :rss), :class => 'icon rss' ) %>
-		<%= link_to( 'ICAL', xxx@xxx.xxx :format => :ics, :protocol => 'webcal'), :title => 'Subscribe to this classes assignments calendar using Outlook or iCal', :class => 'icon ical' ) %>
-	</nav>
+<%= render partial: 'steps/steps_list', locals: xxx@xxx.xxx %>
 
-
-	<header>
-xxx@xxx.xxx %></p>
-xxx@xxx.xxx %></h1>
-	</header>
-
-
-	<div id="resources">
-		<h1>Resources</h1>
-		<ul id="section_links">
-			<li><h2><%= link_to "View the Syllabus", xxx@xxx.xxx @section ), :class => "icon file" %></h2></li>
-			<li><h2><%= link_to "Email the Instructor", new_general_contact_path, :class => "icon email" %></h2></li>
-			<li><h2><%= link_to "Request Your Grades", xxx@xxx.xxx @section ), :class => "icon star" %></h2></li>
-			<% xxx@xxx.xxx > 0 %>
-				<li><h2><%= link_to 'Materials', xxx@xxx.xxx :class => "icon wrench" %></h2></li>
-			<% end %>
-			<% xxx@xxx.xxx > 0 %>
-				<li><h2><%= link_to 'Examples', xxx@xxx.xxx :class => "icon cog" %></h2></li>
-			<% end %>
-			
-			<% if current_user %>
-				<header><h1>Admin</h1></header>
-				<li><%= link_to "Section Admin", xxx@xxx.xxx %></li>
-			<% end %>
-		</ul>
-		
-		<% xxx@xxx.xxx > 0 %>
-			<article>
-				<header><h1>Tutorials</h1></header>
-				<ul id="tutorials">
-xxx@xxx.xxx do |howto| %>			
-						<li>
-							<%= link_to xxx@xxx.xxx howto, howto.steps.first ) do %>
-								<h2><%= howto.title %></h2>
-							<% end %>
-						</li>
-					<% end %>
-				</ul>
-			</article>
-		<% end %>
-	</div>
-
-
-	<article>
-		<header id="assignments_header"><h1>Assignments</h1></header>
-		<% xxx@xxx.xxx > 0 %>
-			<ul id="assignments">
-xxx@xxx.xxx do |assignment| %>
-					<!--<% unless assignment.overdue? %>
-						<li class="reminder">Due in <%= distance_of_time_in_words(Time.now, assignment.duedate) %></li>
-					<% end %>-->
-					
-					<li class="<%= "overdue" if assignment.overdue? %>">
-						<%= link_to xxx@xxx.xxx @section, assignment) do %>
-							<div>
-								<% unless assignment.overdue? %>
-									Due on <%= show_short_date( assignment.duedate ) %>
-								<% else %>
-									pastdue
-								<% end %>
-							</div>
-							<h2><span><%= assignment.title %></span> <%= assignment.lab.title %></h2>
-							<p><%= assignment.lab.objective %></p>
-						<% end %>
-					</li>
-				<% end %>
-			</ul>
-		<% else %>
-			<p id="no_assignments">
-				No Assignments are currently available for this class. You can 
-				Subscribe to this classes 
-				<%= link_to( 'RSS' , xxx@xxx.xxx :format => :rss) ) %> 
-				feed or 
-				<%= link_to( 'ICAL', xxx@xxx.xxx :format => :ics, :protocol => 'webcal') ) %> 
-				feed to monitor when new assignments are posted.
-			</p>
-		<% end %>
-	</article>
-
-</section>
+<% xxx@xxx.xxx > 0 %>
+	<%= render partial: 'assignment', xxx@xxx.xxx cached: true %>
+<% else %>
+	<%= render partial: 'no_assignments', locals: xxx@xxx.xxx %>
+<% end %>

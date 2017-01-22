@@ -1,0 +1,38 @@
+<div class="block works <%= double_width_if_main(defined? main) %>">
+	<header>
+		<% if work.enrollment %>
+	    <%= link_to admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) do %>
+				<p><%= "#{work.assignment.title} from #{work.enrollment.student.last_name}, #{work.enrollment.student.first_name}" %></p>
+				<h6><%= work.enrollment.student.last_name %></h6>
+			<% end %>
+		<% else %>
+			<%= link_to edit_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) do %>
+				<h6>Unknown</h6>
+			<% end %>
+		<% end %>
+	</header>
+	
+	<p><%= mail_to work.email, work.email, subject: "#{work.assignment.section.course.title} #{work.assignment.title}" %></p>
+
+	<% diff = (work.assignment.duedate.to_date - work.created_at.to_date).to_i %>
+	<p>
+		submitted: 
+		<b>
+			<%= "#{pluralize diff.abs, 'day'} #{((diff < 0) ? 'late' : 'early')}" %>
+			(<%= work.created_at.to_s(:short) %>)
+		</b>
+	</p>
+
+	<% if work.awarded_points.size > 0 %>
+		<p>score: <b><%= work.score %> (<%= number_to_percentage work.percentage, {precision: 2} %>)</b></p>
+	<% else %>
+		<p>score: <b>-</b></p>
+	<% end %>	
+
+	<ul>
+		<li><%= link_to 'Grade', grade_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) %></li>
+	  <li><%= link_to 'Edit', edit_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) %></li>
+	  <li><%= link_to 'Destroy', [:admin,work.assignment.section.semester,work.assignment.section,work.assignment,work], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
+		<li><%= link_to 'UnGrade', destroy_grade_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work), data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
+	</ul>
+</div>

@@ -1,0 +1,21 @@
+<div class="block form block--width2 assignment_tweets" data-script="$.setup_twitter_field( )">
+	<%= form_tag :admin_assignment_tweets, remote: true do %>
+		<%= hidden_field_tag xxx@xxx.xxx %>
+		<ol>
+			<li class="textarea">
+				<div class="details">
+					<%= label_tag :content %>
+					<p>
+						Max of 120 characters
+						<span id="character_count"></span>
+					</p>
+				</div>
+				<div class="field"><%= xxx@xxx.xxx %></div>
+			</li>
+						
+			<li class="action">
+				<div><%= submit_tag 'Tweet' %></div>
+			</li>
+		</ol>
+	<% end %>
+</div>

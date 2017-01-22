@@ -1,0 +1,21 @@
+<div class="block <%= double_width_if_main(defined? main) %> labs">
+	<header>
+		<%= link_to xxx@xxx.xxx lab) do %>
+			<p><%= lab.title %></p>
+			<h4>Lab</h4>
+		<% end %>
+	</header>
+
+	<p><%= lab.objective %></p>
+
+	<p><%= pluralize lab.worth, "point" %></p>
+
+	<p><b>is lab visible:</b> <%= lab.visible %></p>
+	<p><b>are uploads allowed:</b> <%= lab.allow_uploads %></p>
+
+	<ul>
+		<li><%= link_to 'Edit', xxx@xxx.xxx %></li>
+		<li><%= link_to 'Duplicate', xxx@xxx.xxx method: :post, remote: true %></li>
+		<li><%= link_to 'Destroy', xxx@xxx.xxx data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
+	</ul>
+</div>

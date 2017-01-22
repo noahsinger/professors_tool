@@ -1,5 +1,3 @@
-require 'shortly'
-
 class Assignment < ApplicationRecord
   include Rails.application.routes.url_helpers # to allow the use of named routes in this model (:host attribute required for urls)
   
@@ -20,13 +18,7 @@ class Assignment < ApplicationRecord
   end
   
   def generate_short_url
-#     googl = Shortly::Clients::Googl
-#     update_attribute :short_url, googl.shorten(semester_section_assignment_url(self.section.semester,self.section,self,:host => APP_CONFIG['host']),{:apiKey => APP_CONFIG['google_api_key']}).shortUrl
-
-		bitly = Shortly::Clients::Bitly
-		url = semester_section_assignment_url(self.section.semester,self.section,self,host: APP_CONFIG['host'])
- xxx@xxx.xxx = bitly.shorten( url, {apiKey: APP_CONFIG['bitly_api_key'], login: APP_CONFIG['bitly_username']} )
-    update_attribute xxx@xxx.xxx
+    Google::UrlShortener.shorten! semester_section_assignment_url(self.section.semester,self.section,self,host: APP_CONFIG['host'])
   end
   
   def worth

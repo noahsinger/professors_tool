@@ -1,34 +1,10 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
+<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
 
-<section>
-	<h1 class="page_description">Grade Request</h1>
-	
-	<nav>
-		<h1>Navigation</h1>
-		<%= link_to "#{@section.course.title}", xxx@xxx.xxx @section ), :class => "icon back" %>
-	</nav>
-	
+<div class="block grade_requests header block--width2">
 	<header>
-xxx@xxx.xxx %></p>
-		<h1>Request your grades</h1>
+		<h4>Request your grades</h4>
 	</header>
-	
-	<%= xxx@xxx.xxx @section, @grade_request]) do |f| %>
-		<h1>Complete the Form</h1>
-		<%= xxx@xxx.xxx %>
-		<ol>
-			<li>
-				<div class="details">
-					<%= f.label :email %>
-					<p>Provide your official email address so your grades can be found.</p>
-				</div>
-				<div class="field"><%= f.email_field :email, {:placeholder => xxx@xxx.xxx %></div>
-			</li>
-			<li class="action">
-				<div><%= f.submit "Send Request" %></div>
-			</li>
-		</ol>
-	<% end %>
-</section>
+</div>
+
+<%= render 'form' %>

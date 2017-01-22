@@ -42,8 +42,10 @@ class Admin::GeneralContactsController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+     xxx@xxx.xxx  = admin_general_contacts_url
       format.html { redirect_to(admin_general_contacts_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
   
@@ -54,8 +56,10 @@ class Admin::GeneralContactsController < ApplicationController
     end
     
     respond_to do |format|
+     xxx@xxx.xxx = admin_general_contacts_url
       format.html { redirect_to(admin_general_contacts_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
   

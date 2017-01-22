@@ -1,56 +1,20 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
 
-<section>
-	<nav>	
-		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
-	</nav>
-	
-	<header>
-		<p><strong>Attendance for</strong> xxx@xxx.xxx %></p>
-		<h1><%= xxx@xxx.xxx %></h1>
-	</header>
-	
-	<ul class="actions">
-		<li><%= link_to 'New Attendance', xxx@xxx.xxx %></li>
-	</ul>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
+<%= render xxx@xxx.xxx %>
 
-	<div class="fancy">
-		<table>
-		  <tr>
-			  <% AttendanceStatus.all.each do |status| %>
-				  <th><%= status.name.capitalize %></th>
-			  <% end %>
-			  
-		    <th>Student</th>
-		    <th></th>
-		    <th></th>
-		    <th></th>
-		  </tr>
-		  
-xxx@xxx.xxx do |attendance| %>
-		  <%= render attendance %>
-		<% end %>
+<%= render partial: 'admin/meetings/meetings_header', locals: xxx@xxx.xxx %>
+
+<%= render partial: 'admin/meetings/meeting', locals: xxx@xxx.xxx %>
+
+<%= render partial: 'attendance', xxx@xxx.xxx cached: true %>
 		
-		<tr>
-			<% AttendanceStatus.all.each do |status| %>
-				<td class="<%= status.name %>_total"></td>
-			<% end %>
-			<td xxx@xxx.xxx %> active</td>
-			<td class="blank"></td>
-			<td class="blank"></td>
-			<td class="blank"></td>
-		</tr>
-		</table>
-	</div>
-</section>
-
 <script type="text/javascript">
 	//setup links for normal page load
 	$(document).ready(function(  ) {
 		console.log("document ready");
-// 		links_set_update_id();
 		
 		//find totals
 		total = $(".present").size();
@@ -62,7 +26,6 @@ xxx@xxx.xxx do |attendance| %>
 	//still setup the links even if turbo links has rebuilt that page
 	$(document).on('page:load', function(  ) {
 		console.log("page loaded");
-// 		links_set_update_id();
 		
 		//find totals
 		total = $(".present").size();
@@ -70,31 +33,4 @@ xxx@xxx.xxx do |attendance| %>
 			$(".<%= status.name %>_total").html(total - $(".<%= status.name %>_link").size());
 		<% end %>
 	});
-	
-/*
-	var links_set_update_id = function( ) {
-		links = $("a[data-remote]");
-		links.each(function() {
-			if( this.onclick == null ) {
-				this.onclick = function() {
-					window.update_id = this.id.split("_")[1];
-				};
-			}
-		});
-	} //end links_set_update_id
-*/
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

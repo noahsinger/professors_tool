@@ -6,15 +6,15 @@ class Work < ApplicationRecord
   has_many :awarded_points, dependent: :destroy
   
   has_attached_file :upload,
-                    :path => ":rails_root/uploads/:class/:id/:attachment/:basename.:extension",
-                    :url => "/admin/:class/:id/download",
-                    :default_url => ''
+                    path: ":rails_root/uploads/:class/:id/:attachment/:basename.:extension",
+                    url: "/admin/:class/:id/download",
+                    default_url: ''
                     
   do_not_validate_attachment_file_type :upload
                     
   validates_format_of( :email, 
-                       :with => xxx@xxx.xxx 
-                       :on => :create, 
+                       with: xxx@xxx.xxx 
+                       on: :create, 
                        :message=>"has an invalid format." )
 
   after_create :generate_withdrawal_code

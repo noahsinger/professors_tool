@@ -1,109 +1,29 @@
-<%= content_for :header do %>
-	<h1>Grading</h1>
+
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
+<%= render xxx@xxx.xxx %>
+<%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/assignments/assignment', locals: xxx@xxx.xxx %>
+
+<%= render partial: 'work', locals: xxx@xxx.xxx main: true} %>
+
+<% xxx@xxx.xxx %>
+	<div class="block works">
+		<header>
+				<% xxx@xxx.xxx == "removed" %>
+					<h3>Removed</h3>
+				<% xxx@xxx.xxx %>
+					<%= link_to xxx@xxx.xxx do %>
+xxx@xxx.xxx %></p>
+						<h3>Download</h3>
+					<% end %>
+				<% else %>
+					<h3>No Upload</h3>
+				<% end %>  
+		</header>
+	</div>
 <% end %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx @section, @assignment ), class: "icon back"%>
-	</nav>
-	
-	<header>
-xxx@xxx.xxx %></p>
-		<h1>
-			<% xxx@xxx.xxx %>
-				<%= @work.enrollment.student.last_name %>, xxx@xxx.xxx %>
-			<% else %>
-				Unknown
-			<% end %> 
-			-
-xxx@xxx.xxx %>
-		
-			<% xxx@xxx.xxx %>
-				::
-			
-				<% xxx@xxx.xxx == "removed" %>
-					Removed
-				<% xxx@xxx.xxx %>
-					<%# xxx@xxx.xxx @work.upload.url %>
-					<%= link_to @work.upload_file_name, xxx@xxx.xxx %>
-				<% else %>
-					No Upload
-				<% end %>  
-			<% end %>
-		</h1>		
-	</header>
-
-	<%= form_for( @work, as: :work, url: xxx@xxx.xxx html: {method: :put} ) do |f| %>
-		<%= xxx@xxx.xxx %>
-				<div class="fancy">
-					<table>
-						<tr>
-							<th>Requirement</th>
-							<th>Worth</th>
-							<th>Awarded</th>
-						</tr>
-xxx@xxx.xxx do |r| %>
-							<tr>
-								<td><label for="awarded_points[<%= r.id %>]"><%= r.description %></label></td>
-								<td><%= r.points %></td>
-				
-								<% x xxx@xxx.xxx = ?', r]).first || r %>
-				
-								<td><%= number_field :awarded_points, r.id, max_length: 3, size: 4, value: x.points, class: 'awarded_points_field' %></td>
-							</tr>
-						<% end %>
-						<tr>
-							<td></td>
-							<td id="assignment_worth">
-xxx@xxx.xxx %>
-							</td>
-							<td>
-								<span xxx@xxx.xxx %></span>
-							</td>
-						</tr>
-					</table>
-				</div>
-		<ol>
-			<li class="textarea">
-				<div class="details">
-					<%= f.label :instructors_comments %>
-					<p></p>
-				</div>
-				
-				<div class="field">
-					<%= f.text_area :instructors_comments %>
-				</div>
-			</li>
-
-			<li class="action">
-				<div><%= f.submit "Record Score" %></div>
-			</li>
-		</ol>
-	<% end %>
-
-	<script type="text/javascript" charset="utf-8">
-		$(".awarded_points_field").each( function(i) {
-			$(this).blur( function(x) {
-				var total = find_total( );
-				show_total( total );
-				console.log(this.value);
-			});
-		});
-	
-		function find_total( ) {
-			var total = 0;
-		
-			$(".awarded_points_field").each( function(i) {
-				total += parseInt(this.value);
-			});
-		
-			return total;
-		}
-	
-		function show_total( total ) {
-			var assignment_worth = parseInt($("#assignment_worth").text( ));
-			console.log( "worth is " + assignment_worth );
-			$("#running_total").html( total + " (" + ((total / assignment_worth)*100).toFixed(2) + "%)" );
-		}
-	</script>
-</section>
+<%= render 'grade_form' %>

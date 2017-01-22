@@ -1,3 +1,1 @@
-//javascript to execute when create action completes
-$("#objectives").append("<%= escape_javascript(render(:partial xxx@xxx.xxx %>");
-$("#new_objective")[0].reset();
+FlyingBlocks.process_form("<%= escape_javascript(render 'form') %>", xxx@xxx.xxx %>");

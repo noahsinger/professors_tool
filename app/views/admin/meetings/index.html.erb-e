@@ -1,44 +1,10 @@
-<%= content_for :header do %>
-	<h1><%= @section.course.title %> xxx@xxx.xxx %>) Meetings</h1>
-<% end %>
 
-<section>
-	
-	<nav>	
-		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
-	</nav>
-	
-	<header>
-		<p>Meetings for</p>
-		<h1><%= @section.course.title %> xxx@xxx.xxx %>)</h1>
-	</header>
-	
-	<ul class="actions">
-		<li><%= link_to 'New Meeting', xxx@xxx.xxx %></li>
-	</ul>
-	
-	<div class="fancy"> 
-		<table>
-		  <tr>
-		    <th>When</th>
-		    <th></th>
-		    <th></th>
-		    <th></th>
-		  </tr>
-		
-xxx@xxx.xxx do |meeting| %>
-		  <tr>
-		    <td>
-			    <% if meeting.attendance_taken? %>
-				    <strike><%= link_to show_date_and_time( meeting.when ), xxx@xxx.xxx %></strike>
-				  <% else %>
-					  <%= link_to show_date_and_time( meeting.when ), xxx@xxx.xxx %>
-				  <% end %>
-			  </td>
-		    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-		    <td class="destroy"><%= link_to 'X', xxx@xxx.xxx method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		  </tr>
-		<% end %>
-		</table>
-	</div>
-</section>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
+<%= render xxx@xxx.xxx %>
+
+<%= render partial: 'admin/meetings/meetings_header', locals: xxx@xxx.xxx main: true} %>
+
+<%= render partial: 'meeting', xxx@xxx.xxx cached: true %>

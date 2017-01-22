@@ -1,14 +1,9 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
 
-<nav>
-		<%= link_to 'Back', xxx@xxx.xxx @section ), :class => "icon back"%>
-</nav>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/sections/section', locals: xxx@xxx.xxx %>
 
-<header>
-xxx@xxx.xxx %></p>
-	<h1>New Example for xxx@xxx.xxx %></h1>
-</header>
+<%= render 'examples_header' %>
 
-<%= render :partial => 'form', :locals => {:submit_name => 'Create'} %>
+<%= render 'form'%>

@@ -22,7 +22,7 @@ class WorksController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -56,11 +56,13 @@ class WorksController < ApplicationController
           # send the student an email including the withdrawal link
          xxx@xxx.xxx params[:work][:email].downcase
         
+          @status = xxx@xxx.xxx
           format.html { xxx@xxx.xxx } 
-          format.xml  { render :xml => @work, :status => :created, :location xxx@xxx.xxx }
+          format.xml  { render xml: @work, status: :created, xxx@xxx.xxx }
         else
-          format.html { render :action => "new" }
-          format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+         xxx@xxx.xxx = "failed"
+          format.html { render action: "new" }
+          format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
         end
       else
          xxx@xxx.xxx :email, 'has already submitted this work. If you want to resubmit, you must first withdraw your previous submission (check your email)'
@@ -68,9 +70,11 @@ class WorksController < ApplicationController
           # send the submitter a reminder including the withdrawal link
           prev_works[0].send_reminder_email # params[:work][:email]
         
-          format.html { render :action => "new" }
-          format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+         xxx@xxx.xxx = "failed"
+          format.html { render action: "new" }
+          format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
   

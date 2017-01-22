@@ -1,0 +1,8 @@
+<div class="block <%= double_width_if_main(defined? main) %> meetings header">
+	<header>
+		<%= link_to admin_semester_section_meetings_path(section.semester,section) do %>
+			<p><%= pluralize section.meetings_complete.size, "Meeting" %> out of <%= section.meetings_not_complete.size %> complete</p>
+			<h5>Meetings</h5>
+		<% end %>
+	</header>
+</div>

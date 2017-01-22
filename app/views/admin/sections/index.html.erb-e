@@ -1,111 +1,44 @@
-<%= content_for :header do %>
-	<h1>Sections</h1>
-<% end %>
 
-<%= content_for :end_of_page do %>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render xxx@xxx.xxx locals: {main: true} %>
+<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'section', xxx@xxx.xxx cached: true %>
+
+	<div class="block chart sections" data-script="setTimeout(init_chart,1000)">
+		<section id="enrollments_chart">No Enrollment Data Available</section>
+
+
 		<script type="text/javascript" charset="utf-8">
-			$(function () {
-				chart = new Highcharts.Chart({
-					chart: { renderTo: 'enrollments_chart', type: 'spline' },
-					title: { text: 'Enrollments by Day' },
-					xAxis: { type: 'datetime' },
-					yAxis: {
-						title: { text: '# of Students'},
-						min: 0
-					},
-					series: [
+			var init_chart = function () {
+				if($("#enrollments_chart").size( ) > 0) {
+					var chart = new Highcharts.Chart({
+						chart: {
+							renderTo: 'enrollments_chart',
+							type: 'spline',
+							events: {
+	              load: function() {
+	                $(window).resize();
+	              }
+	            }
+						},
+						title: { text: 'Enrollments by Day' },
+						xAxis: { type: 'datetime' },
+						yAxis: {
+							title: { text: '# of Students'},
+							min: 0
+						},
+						series: [
 xxx@xxx.xxx do |section| %>
-						<% if section.enrollment_snapshots.count > 0 %>
-							{
-								name: "<%= section.meeting_days %> <%= section.course.title %>",
-								data: <%= section.enrollment_snapshots.order(:created_at).collect {|p| [p.created_at.to_i * 1000, p.enrollment_count]}.inspect %>
-							},
-						<% end %>
-					<% end %>]
-				});
-			});
+							<%# if section.enrollment_snapshots.count > 0 %>
+								{
+									name: "<%= section.meeting_days %> <%= section.course.title %>",
+									data: <%= section.enrollment_snapshots.order(:created_at).collect {|p| [p.created_at.to_i * 1000, p.enrollment_count]}.inspect %>
+								},
+							<%# end %>
+						<% end %>]
+					});
+				}
+				$('#page').isotope('layout');
+			}
 		</script>
-<% end %>
-
-<section>
-	<nav>
-		<h1>Navigation</h1>
-		<%= link_to 'Back', '/admin', :class => "icon back" %>
-	</nav>
-
-	<header>
-		<p><%= xxx@xxx.xxx 'Section' %></p>
-xxx@xxx.xxx %></h1>
-	</header>
-
-	<ul class="actions">
-		<li><%= link_to 'New Section', xxx@xxx.xxx ) %></li>
-	</ul>
-
-	<div class="fancy">
-		<table>
-		  <tr>
-				<th>Days</th>
-				<th>CallNo</th>
-				<th></th>
-		    <th>Course</th>
-				<th>Credits</th>
-				<th>Enrolled onsite/TED</th>
-		
-				<th></th>
-				<th></th>
-		  </tr>
-
-		<% 
-			total_credits = 0 
-			preps xxx@xxx.xxx {|sec| sec.course.title}.uniq.size
-			total_onsite_enrollments = 0
-			total_ted_enrollments = 0
-		%>
-
-		<% for section xxx@xxx.xxx %>
-			<% total_credits += section.course.credits %>
-			
-		  <tr>
-			  <td class="days"><%= section.meeting_days %></td>
-			  
-		    <td><%= section.call_number %></td>
-		    
-				<td class="status <%= section.in_session ? "green" : "red" %>"></td>
-				
-			  <td class="title">
-					<%=link_to "#{section.course.title}", xxx@xxx.xxx %><br/>
-				</td>
-				
-		    <td><%= section.course.credits %></td>
-		    
-				<td class="enrollments">
-					<% total_onsite_enrollments += section.enrollments.active.size %>
-					<%= section.enrollments.active.size %> / 
-					<% if section.enrollment_snapshots.count > 0 %>
-						<%= section.enrollment_snapshots.last.enrollment_count %>
-						<% total_ted_enrollments += section.enrollment_snapshots.last.enrollment_count %>
-					<% else %>
-						NA
-					<% end %>
-				</td>
-
-		    <td class="edit"><%= link_to 'Edit', [:edit, xxx@xxx.xxx section] %></td>
-		    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx section], :confirm => 'Are you sure?', :method => :delete %></td>
-		  </tr>
-		<% end %>
-			<tr>
-				<td colspan="3" class="blank"></td>
-				<td><%= pluralize preps, "prep" %></td>
-				<td><%= total_credits %></td>
-				<td class="enrollments"><%= total_onsite_enrollments %> / <%= total_ted_enrollments %></td>
-				<td colspan="2" class="blank"></td>
-			</tr>
-		</table>
 	</div>
-	
-	<div class="admin_comments wide">
-		<div id="enrollments_chart">No Enrollment Data Available</div>
-	</div>
-	
-</section>

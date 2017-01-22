@@ -2,21 +2,20 @@ class Admin::SyllabusPartsController < ApplicationController
   before_action :authenticate  
   before_action :store_referrer
   
+  before_action :load_course
+  
+  def load_course
+   xxx@xxx.xxx = Course.find(params[:course_id])
+  end
+  
   def store_referrer
     unless session[:referrer]
       session[:referrer] = request.referrer
     end
   end
   
-  # GET /syllabus_parts/1
-  # GET /syllabus_parts/1.xml
-  def show
-   xxx@xxx.xxx = SyllabusPart.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render xxx@xxx.xxx }
-    end
+  def new
+   xxx@xxx.xxx = SyllabusPart.new
   end
 
   # GET /syllabus_parts/1/edit
@@ -31,14 +30,16 @@ class Admin::SyllabusPartsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'SyllabusPart was successfully created.'
-        format.js
-        format.html {redirect_to(session[:referrer] || xxx@xxx.xxx
+        format.html xxx@xxx.xxx
         format.xml  { render xml: @syllabus_part, status: :created, xxx@xxx.xxx }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render action: "new" }
         format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -49,13 +50,16 @@ class Admin::SyllabusPartsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'SyllabusPart was successfully updated.'
-        format.html {redirect_to(session[:referrer] || xxx@xxx.xxx
+        format.html xxx@xxx.xxx
         format.xml  { head :ok }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render action: "edit" }
         format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -66,8 +70,10 @@ class Admin::SyllabusPartsController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+      @status = xxx@xxx.xxx
       format.html {redirect_to(session[:referrer] || admin_syllabus_parts_url)}
       format.xml  { head :ok }
+      format.js
     end
   end
   

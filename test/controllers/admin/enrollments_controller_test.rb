@@ -28,7 +28,7 @@ class Admin::EnrollmentsControllerTest < ActionDispatch::IntegrationTest
         params: {email: students(:stew).email}
     end
 
-    assert_redirected_to admin_semester_section_path( semesters(:spring), sections(:jck1003_section_1) )
+    assert_redirected_to admin_semester_section_enrollments_url( semesters(:spring), sections(:jck1003_section_1) )
   end
 
   test "should_update_enrollment" do
@@ -42,6 +42,6 @@ class Admin::EnrollmentsControllerTest < ActionDispatch::IntegrationTest
       delete admin_semester_section_enrollment_url(semesters(:spring),sections(:jck1003_section_1),enrollments(:stews_enrollment))
     end
 
-    assert_redirected_to admin_semester_section_path( semesters(:spring), sections(:jck1003_section_1) )
+    assert_redirected_to admin_semester_section_enrollments_path( semesters(:spring), sections(:jck1003_section_1) )
   end
 end

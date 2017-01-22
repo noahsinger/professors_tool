@@ -1,6 +1,6 @@
 class AddAdminUser < ActiveRecord::Migration
   def self.up
-    admin = User.new( :username => 'profnoah', :password => 'test' )
+    admin = User.new( :username => 'admin', :password => 'test' )
     admin.save
   end
 

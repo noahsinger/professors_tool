@@ -1,29 +1,35 @@
-<tr id="attendance_<%= attendance.id.to_s %>" class="attendance_row">
-	
-	<% AttendanceStatus.all.each do |status| %>
-		<td class="<%= status.name %> attendance_cell">
-	  <% if attendance.attendance_status and attendance.attendance_status.id == status.id %>
-	    <%= attendance.attendance_status.name %>
-	  <% else %>
-	  	<%= link_to( '-', xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: status.id} ), id: "#{status.name}_#{attendance.id}", method: :put, remote: true, class: "#{status.name}_link attendance_link" ) %>
-	  <% end %>
-	  </td>
-	<% end %>
-	  
-  <td>
-    <% if attendance.enrollment.enrollment_status.id == EnrollmentStatus.dropped.id %>
-	    <strike><%= attendance.enrollment.student.last_name_first %></strike>
-	  <% else %>
-	  	<span <%= unless attendance.attendance_status then 'style="font-weight: bold;"'.html_safe end %>>
-			  <%= link_to( attendance.enrollment.student.last_name_first, edit_admin_student_path(attendance.enrollment.student) ) %>
-			</span>
-			
-		  <% if attendance.enrollment.student.goes_by and not attendance.enrollment.student.goes_by.blank? %>
-		  	("<%= attendance.enrollment.student.goes_by %>")
-		  <% end %>
-	  	
-	  <% end %>
-  </td>
-  <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-  <td class="destroy"><%= link_to 'X', xxx@xxx.xxx method: :delete, data: { confirm: 'Are you sure?' } %></td>
-</tr>
+<div id="attendance_<%= attendance.id.to_s %>" class="block attendance_row attendances <%= attendance.attendance_status ? "attendance_taken" : "" %>"  data-active="<%= attendance.attendance_status ? "inactive" : "active" %>">
+	<header>
+		<%= link_to edit_admin_student_path(attendance.enrollment.student) do %> 
+			<p><%= attendance.enrollment.student.last_name_first %></p>
+		  <h3>
+		    <% if attendance.enrollment.enrollment_status.id == EnrollmentStatus.dropped.id %>
+			    <strike><%= attendance.enrollment.student.last_name %></strike>
+			  <% else %>
+			  	<span <%= unless attendance.attendance_status then 'style="font-weight: bold;"'.html_safe end %>>
+					  <%= attendance.enrollment.student.last_name %>
+					</span>
+				
+				  <% if attendance.enrollment.student.goes_by and not attendance.enrollment.student.goes_by.blank? %>
+				  	("<%= attendance.enrollment.student.goes_by %>")
+				  <% end %>		  	
+			  <% end %>
+			</h3>
+		<% end %>
+	</header>
+
+	<table>
+			<% AttendanceStatus.all.each do |status| %>
+			<tr>
+				<td class="<%= status.name %> attendance_cell">
+				  <% if attendance.attendance_status and attendance.attendance_status.id == status.id %>
+				    <b><%= attendance.attendance_status.name %></b>
+				  <% else %>
+				  	<%= link_to( status.name, xxx@xxx.xxx @section, @meeting, attendance, attendance: {attendance_status_id: status.id} ), id: "#{status.name}_#{attendance.id}", method: :put, remote: true, class: "#{status.name}_link attendance_link" ) %>
+				  <% end %>
+				</td>
+			</tr>
+			<% end %>
+	</table>
+
+</div>

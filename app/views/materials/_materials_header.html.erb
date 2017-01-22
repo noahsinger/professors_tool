@@ -1,0 +1,15 @@
+<div class="block materials header <%= double_width_if_main(defined? main) %>">
+	<header>
+		<% xxx@xxx.xxx %>
+			<%= link_to course_materials_path(course, xxx@xxx.xxx do %>
+				<p><%= pluralize course.materials.count, "File" %> available</p>
+				<h3>Materials</h3>
+			<% end %>
+		<% else %>
+			<%= link_to course_materials_path(course) do %>
+				<p><%= pluralize course.materials.count, "File" %> available</p>
+				<h3>Materials</h3>
+			<% end %>
+		<% end %>
+	</header>
+</div>

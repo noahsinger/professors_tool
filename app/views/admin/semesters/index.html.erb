@@ -1,44 +1,4 @@
-<%= content_for :header do %>
-	<h1>Semesters</h1>
-<% end %>
 
-<section>
-	<nav>
-		<%= link_to "Back", '/admin', :class => "icon back" %>
-	</nav>
-	
-	<header>
-		<p>Showing all</p>
-		<h1>Semesters</h1>
-	</header>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'semester', xxx@xxx.xxx cached: true %>
 
-	<ul class="actions">
-		<li><%= link_to "Create a New Semseter", new_admin_semester_path %></li>
-	</ul>
-
-	<div class="fancy">
-		<table>
-		  <tr>
-		    <th>Semester</th>
-				<th>Dates</th>
-				<th>Student Count</th>
-	
-				<th></th>
-				<th></th>
-				<th></th>
-		  </tr>
-
-		<% for semester xxx@xxx.xxx %>
-			<tr>
-				<td><%= semester.season %> <%= semester.year %></td>
-				<td><%= show_short_date semester.start_date %> to <%= show_short_date semester.end_date %></td>
-				<td><%= semester.student_count %> Students</td>
-
-				<td class="show"><%= link_to 'Show', [:admin,semester] %></td>
-				<td class="edit"><%= link_to 'Edit', edit_admin_semester_path(semester) %></td>
-				<td class="destroy"><%= link_to 'Destroy', [:admin,semester], :confirm => 'Are you sure?', :method => :delete %></td>
-			</tr>
-		<% end %>
-		</table>
-	</div>
-</section>

@@ -1,0 +1,77 @@
+<div class="block form block--width2 works" data-script="setup_field_updates( )">
+	<%= form_for( @work, as: :work, url: xxx@xxx.xxx html: {method: :put}, remote: true ) do |f| %>
+		<%= xxx@xxx.xxx %>
+				<div class="fancy">
+					<table>
+						<tr>
+							<th>Requirement</th>
+							<th>Worth</th>
+							<th>Awarded</th>
+						</tr>
+xxx@xxx.xxx do |r| %>
+							<tr>
+								<td><label for="awarded_points[<%= r.id %>]"><%= r.description %></label></td>
+								<td><%= r.points %></td>
+				
+								<% x xxx@xxx.xxx = ?', r]).first || r %>
+				
+								<td><%= number_field :awarded_points, r.id, max_length: 3, size: 4, value: x.points, class: 'awarded_points_field' %></td>
+							</tr>
+						<% end %>
+						<tr>
+							<td></td>
+							<td id="assignment_worth">
+xxx@xxx.xxx %>
+							</td>
+							<td>
+								<span xxx@xxx.xxx %></span>
+							</td>
+						</tr>
+					</table>
+				</div>
+		<ol>
+			<li class="textarea">
+				<div class="details">
+					<%= f.label :instructors_comments %>
+					<p></p>
+				</div>
+				
+				<div class="field">
+					<%= f.text_area :instructors_comments %>
+				</div>
+			</li>
+
+			<li class="action">
+				<div><%= f.submit "Record Score" %></div>
+			</li>
+		</ol>
+	<% end %>
+
+	<script type="text/javascript" charset="utf-8">
+		var setup_field_updates = function( ) {
+			$(".awarded_points_field").each( function(i) {
+				$(this).blur( function(x) {
+					var total = find_total( );
+					show_total( total );
+					console.log("new total: " + this.value);
+				});
+			});
+		}
+	
+		function find_total( ) {
+			var total = 0;
+		
+			$(".awarded_points_field").each( function(i) {
+				total += parseInt(this.value);
+			});
+		
+			return total;
+		}
+	
+		function show_total( total ) {
+			var assignment_worth = parseInt($("#assignment_worth").text( ));
+			console.log( "worth: " + assignment_worth );
+			$("#running_total").html( total + " (" + ((total / assignment_worth)*100).toFixed(2) + "%)" );
+		}
+	</script>
+</div>

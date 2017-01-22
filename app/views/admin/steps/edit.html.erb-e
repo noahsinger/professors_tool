@@ -1,47 +1,13 @@
-<nav>
-	<%= link_to 'Back', xxx@xxx.xxx %>
-</nav>
-	
-<header>
-	<p>How to: xxx@xxx.xxx %></p>
-xxx@xxx.xxx %></h1>
-</header>
 
-<%= xxx@xxx.xxx :html => {:multipart => true}) do |f| %>
-	<%= xxx@xxx.xxx %>
-	<ol>
-		<li>
-			<div class="details">
-				<%= f.label :title %>
-				<p>The title of this Step</p>
-			</div>
-			<div class="field"><%= f.text_field :title %></div>
-		</li>
-		
-		<li class="textarea">
-			<div class="details">
-				<%= f.label :instructions %>
-				<p>This steps instructions</p>
-			</div>
-			<div class="field"><%= f.text_area :instructions %></div>
-		</li>
-		
-		<li>
-			<div class="details">
-				<%= f.label :image %>
-				<p>Select an image to go with this step if there is an image that you want to use. Otherwise leave this field blank</p>
-			</div>
-			<div class="file field">
-				<span class="prompt">Click to Browse</span>
-				<%= f.file_field :image %>
-			</div>
-			<div class="filename"></div>
-		</li>
-		
-		<li class="action">
-			<div><%= f.submit "Update" %></div>
-		</li>
-	</ol>
-<% end %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/tutorials/tutorials_header' %>
+<%= render partial: 'admin/how_tos/how_to', locals: xxx@xxx.xxx %>
 
+<div class="block steps">
+	<header>
+		<p>How to: xxx@xxx.xxx %></p>
+		<h6>Edit a new step</h6>
+	</header>	
+</div>
 
+<%= render 'form' %>

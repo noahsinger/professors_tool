@@ -1,0 +1,12 @@
+<div class="block <%= double_width_if_main(defined? main) %> enrollments header">
+	<header>
+		<%= link_to admin_semester_section_enrollments_path(section.semester, section) do %>
+			<p><%= pluralize section.enrollments.size, 'Enrollment' %></p>
+			<h5>Enrollments</h5>
+		<% end %>
+	</header>
+	
+	<ul>
+		<li><%= link_to 'Add Enrollment', new_admin_semester_section_enrollment_path( section.semester, section ) %></li>
+	</ul>
+</div>

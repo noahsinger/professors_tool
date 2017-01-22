@@ -15,7 +15,7 @@ class Lab < ApplicationRecord
   def worth
     worth = 0
     self.requirements.each do |r|
-      worth += r.points
+      worth += r.points if r.points
     end
     
     worth

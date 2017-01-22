@@ -1,98 +1,48 @@
-<%= xxx@xxx.xxx do |f| %>
-<%= xxx@xxx.xxx %>
-	<ol>
-		<li>
-			<div class="details">
-				<%= f.label :course %>
-				<p>Course this section belongs to</p>
-			</div>
-			
-			<div class="field"><%=  select( "section", "course_id", Course.all.order(:number).collect {|s| [ s.title, s.id ] }, { :include_blank => true } ) %></div>
-		</li>
-	
-		<li>
-			<div class="details">
-				<%= f.label :call_number %>
-				<p>This section's call number</p>
-			</div>
-			
-			<div class="field"><%= f.text_field :call_number, {:size => '5', :maxlength => '5'} %></div>
-		</li>
-	
-		<li>
-			<div class="details">
-				<%= f.label :section_number %>
-				<p>This sections number</p>
-			</div>
-			
-			<div class="field"><%= f.text_field :section_number, {:size => '3', :maxlength => '3'} %></div>
-		</li>
-	
-		<li>
-			<div class="details">
-				<%= f.label :room_number %>
-				<p>Where does it meet?</p>
-			</div>
-			
-			<div class="field"><%= f.text_field :room_number %></div>
-		</li>
-	
-		<li>
-			<div class="details">
-				<%= f.label :meeting_days %>
-				<p>On what days?</p>
-			</div>
-			
-			<div class="field"><%= f.text_field :meeting_days, {:size => '5', :maxlength => '5'} %></div>
-		</li>
-	
-		<li>
-			<div class="details">
-				<%= f.label :start_time %>
-				<p>What time does it start?</p>
-			</div>
-			
-			<div class="field"><%= f.time_select :start_time %></div>
-		</li>
-	
-		<li>
-			<div class="details">
-				<%= f.label :end_time %>
-				<p>What time does it end?</p>
-			</div>
-			
-			<div class="field"><%= f.time_select :end_time %></div>
-		</li>
+<div class="block <%= double_width_if_main(defined? main) %> sections">
+	<header>
+		<%= link_to [:admin,section.semester,section] do %>
+			<p><%= "#{section.meeting_days} #{section.course.title}" %></p>
+			<h4>
+				<%= section.course.short_name %>
+			</h4>
+		<% end %>
+	</header>
 
-		<li>
-			<div class="details">
-				<%= f.label :start_date %>
-				<p>What date does it start on?</p>
-			</div>
-			
-			<div class="field"><%= f.date_select :start_date %></div>
-		</li>
+	<% if section.in_session %>
+		<p class=" in_progress_indicator green">In Session</p>
+	<% else %>
+		<p class="in_progress_indicator red">Not in Session</p>
+	<% end %>
 
-		<li>
-			<div class="details">
-				<%= f.label :end_date %>
-				<p>What date does it end on?</p>
-			</div>
-			
-			<div class="field"><%= f.date_select :end_date, :default => 16.weeks.from_now %></div>
-		</li>
 
-		<li>
-			<div class="details">
-				<%= f.label :instructor %>
-				<p>Who's teaching it?</p>
-			</div>
-			
-			<div class="field"><%=  select( "section", "instructor_id", Instructor.all.collect {|s| [ s.last_name + ", " + s.first_name, s.id ] }, { :include_blank => false } ) %></div>
-		</li>
+	<p><%= section.call_number %> - <%= section.section_number %></p>
+	<p><%= pluralize section.course.credits, 'credit' %></p>
+	<p>
+		Room: <b><%= section.room_number %></b><br/>
+		Times: <b><%= section.start_time.to_s(:time) %> - <%= section.end_time.to_s(:time) %></b><br/>
+		Dates: <b><%= section.start_date %> - <%= section.end_date %></b>
+	</p>
 	
-		<li class="action">
-			<div><%= f.submit button_name %></div>
-		</li>
-	</ol>
-<% end %>
+
+	<ul class="actions">
+		<li><%= link_to "Email Section", section_email_admin_semester_section_path( section.semester, section ) %></li>
+		<li><%= link_to 'Export Gradebook', export_gradebook_admin_semester_section_path(section.semester,section) %></li>
+		<li><%= link_to 'Sync Students with TED', sync_students_admin_semester_section_path(section.semester,section) %></li>
+	</ul>
+
+	<p>
+		<% total_ted_enrollments = 0 %>
+		<%= pluralize section.enrollments.active.size, 'active enrollment' %> / 
+		<% if section.enrollment_snapshots.count > 0 %>
+			<%= pluralize section.enrollment_snapshots.last.enrollment_count, 'ted enrollment' %>
+			<% total_ted_enrollments += section.enrollment_snapshots.last.enrollment_count %>
+		<% else %>
+			NA
+		<% end %>
+	</p>
+
+	<ul>
+		<li><%= link_to 'Edit', [:edit, :admin, section.semester, section] %></li>
+		<li><%= link_to 'Destroy', [:admin,section.semester, section], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
+	</ul>
+</div>

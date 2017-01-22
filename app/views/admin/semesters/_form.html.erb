@@ -1,35 +1,58 @@
-<%= xxx@xxx.xxx do |f| %>
-	<%= xxx@xxx.xxx %>
-	<ol>
-		<li><div class="details"><%= f.label :season %><p></p></div><div class="field"><%= f.text_field :season %></div></li>
+<div class="block form semesters" data-script="init_semester_form( )">
+	<%= xxx@xxx.xxx remote: true) do |f| %>
+		<%= xxx@xxx.xxx %>
+		<ol>
+			<li><div class="details"><%= f.label :season %><p></p></div><div class="field"><%= f.text_field :season %></div></li>
 		
-		<li><div class="details"><%= f.label :year %><p></p></div><div class="field"><%= f.text_field :year %></div></li>
+			<li><div class="details"><%= f.label :year %><p></p></div><div class="field"><%= f.text_field :year %></div></li>
 
-		<li class="datepicker">
-			<div class="details">
-				<%= f.label :start_date %>
-				<p>Select the starting date for the semester</p>
-			</div>
+			<li class="datepicker">
+				<div class="details">
+					<%= f.label :start_date %>
+					<p>Select the starting date for the semester</p>
+				</div>
 			
-			<div class="field jquery_datepicker">
-				<%= f.hidden_field :start_date %>
-				<div id="startdatepicker" class="datepicker jqueryui"></div>
-			</div>
-		</li>
+				<div class="field jquery_datepicker">
+					<%= f.hidden_field :start_date %>
+					<div id="startdatepicker" class="datepicker jqueryui"></div>
+				</div>
+			</li>
 		
-		<li class="datepicker">
-			<div class="details">
-				<%= f.label :end_date %>
-				<p>Select the ending date for the semester</p>
-			</div>
-			<div class="field jquery_datepicker">
-				<%= f.hidden_field :end_date %>
-				<div id="enddatepicker" class="datepicker jqueryui"></div>
-			</div>
-		</li>
+			<li class="datepicker">
+				<div class="details">
+					<%= f.label :end_date %>
+					<p>Select the ending date for the semester</p>
+				</div>
+				<div class="field jquery_datepicker">
+					<%= f.hidden_field :end_date %>
+					<div id="enddatepicker" class="datepicker jqueryui"></div>
+				</div>
+			</li>
 		
-		<li class="action">
-			<div><%= f.submit submit_text %></div>
-		</li>
-	</ol>
-<% end %>
+			<li class="action">
+				<div><%= f.submit %></div>
+			</li>
+		</ol>
+	<% end %>
+	
+	<script type="text/javascript">
+		var init_semester_form = function() {
+			console.log("*** init'ing datapicker fields");
+			$("#startdatepicker").datepicker( { numberOfMonths: 1, 
+												inline: true, 
+												altField: '#semester_start_date',
+												dateFormat: 'yy-mm-dd',
+												altFormat: 'yy-mm-dd',
+												defaultDate: new Date('<%= xxx@xxx.xxx || 1.day.from_now ) %>')
+											 });
+											
+			$("#enddatepicker").datepicker( { numberOfMonths: 1, 
+											  inline: true, 
+											  altField: '#semester_end_date',
+											  dateFormat: 'yy-mm-dd',
+											  altFormat: 'yy-mm-dd',
+											  defaultDate: new Date('<%= xxx@xxx.xxx || 4.months.from_now ) %>')
+											});
+		}
+	</script>
+</div>

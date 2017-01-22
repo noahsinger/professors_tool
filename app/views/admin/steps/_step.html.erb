@@ -6,8 +6,7 @@
 			X
 		<% end %>
 	</td>
-	<td><%= step.title %></td>
-	<td class="show"><%= link_to 'Show', xxx@xxx.xxx %></td>
-	<td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-	<td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= link_to step.title, admin_how_to_step_path(@how_to, step, xxx@xxx.xxx %></td>
+	<td class="edit"><%= link_to 'Edit', edit_admin_how_to_step_path(@how_to, step, xxx@xxx.xxx %></td>
+	<td class="destroy"><%= link_to 'Destroy', admin_how_to_step_path(@how_to, step, xxx@xxx.xxx data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></td>
 </tr>

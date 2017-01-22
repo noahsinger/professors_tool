@@ -1,0 +1,26 @@
+<div class="block <%= double_width_if_main(defined? main) %> meetings <%= meeting.attendance_taken? ? "attendance_taken" : "" %>" data-active="<%= meeting.attendance_taken? ? "inactive" : "active" %>">
+	<header>
+		<%= link_to admin_semester_section_meeting_attendances_path(meeting.section.semester,meeting.section,meeting) do %>
+			<h5>
+			  <% if meeting.attendance_taken? %>
+			    <strike><%= show_short_date( meeting.when ) %></strike>
+			  <% else %>
+				  <%= show_short_date( meeting.when ) %>
+			  <% end %>
+			</h5>
+		<% end %>
+	</header>
+	
+	<table>
+		<% AttendanceStatus.all.each do |status| %>
+			<tr>
+				<td><%= status.name %></td>
+				<td class="<%= status.name %>_total"><%= Attendance.where(meeting: meeting).where(attendance_status: status).size %></td>
+			</tr>
+		<% end %>
+		<tr>
+			<td>total</td>
+			<td xxx@xxx.xxx %> active</td>
+		</tr>
+	</table>
+</div>

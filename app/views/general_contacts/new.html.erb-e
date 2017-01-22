@@ -1,57 +1,10 @@
-<%= content_for :header do %>
-	<h1>Contact</h1>
+<% xxx@xxx.xxx %>
+	<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
+	<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
 <% end %>
 
-<section>
-	<h1 class="page_description">Contact</h1>
-	
-	<nav>
-		<h1>Navigation</h1>
-		<%= link_to 'Home', root_path, :class => "icon back" %>
-	</nav>
-	
-	
-	<header>
-		<p><%= APP_CONFIG['site_name'].html_safe %></p>
-		<h1>Contact Form</h1>
-	</header>
+<%= render 'form' %>
 
-	
-	<%= xxx@xxx.xxx :html => {:multipart => :true}) do |f| %>
-		<h1>Complete the form</h1>
-		<%= xxx@xxx.xxx :message => 'This contact email could not be sent for the following reasons:' %>
-		<ol>
-			<li>
-				<div class="details">
-					<%= f.label :return_email, 'Your Email Address' %>
-					<p>Please provide your email address so a return email can be sent to you if needed.</p>
-				</div>
-				<div class="field"><%= f.email_field :return_email, {:placeholder => xxx@xxx.xxx %></div>
-			</li>
-			<li>
-				<div class="details">
-					<%= f.label :subject %>
-				</div>
-				<div class="field"><%= f.text_field :subject %></div>
-			</li>
-			<li class="textarea">
-				<div class="details">
-					<%= f.label :body %>
-					<p>Please be concise and include the details that are needed to provide you with an answer that will be beneficial.</p>
-				</div>
-				<div class="field"><%= f.text_area :body %></div>
-			</li>
-			<li>
-				<div class="details">
-					<%= f.label :attachment %>
-					<p>Students! <strong>DO NOT</strong> use this form for submitting your homework.  Instead, return to the homepage, click on your class, select the assignment, and then click the submit homework link.</p>
-				</div>
-				<div class="file field"><span class="prompt">Click to Browse</span><%= f.file_field :attachment %></div>
-				<div class="filename"></div>
-			</li>
-			<li class="action">
-				<div><%= f.submit "Send" %></div>
-			</li>
-		</ol>
-	<% end %>
-</section>
+<% xxx@xxx.xxx %>
+	<%= render partial: 'instructors/instructor', locals: xxx@xxx.xxx %>
+<% end %>

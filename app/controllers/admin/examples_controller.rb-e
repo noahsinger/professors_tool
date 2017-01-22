@@ -22,17 +22,6 @@ class Admin::ExamplesController < ApplicationController
     end
   end
 
-  # GET /examples/1
-  # GET /examples/1.xml
-  def show
-    @example xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render xxx@xxx.xxx }
-    end
-  end
-
   # GET /admin_examples/new
   # GET /admin_examples/new.xml
   def new
@@ -56,13 +45,16 @@ class Admin::ExamplesController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Example was successfully created.'
         format.html { xxx@xxx.xxx }
         format.xml  { render xml: @example, status: :created, xxx@xxx.xxx }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render action: "new" }
         format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -73,13 +65,16 @@ class Admin::ExamplesController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Example was successfully updated.'
         format.html { xxx@xxx.xxx }
         format.xml  { head :ok }
       else
+       xxx@xxx.xxx = "failed"
         format.html { render action: "edit" }
         format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -90,8 +85,10 @@ class Admin::ExamplesController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+      @status = xxx@xxx.xxx
       format.html { xxx@xxx.xxx }
       format.xml  { head :ok }
+      format.js
     end
   end
   

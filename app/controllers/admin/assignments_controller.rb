@@ -1,5 +1,3 @@
-require 'shortly'
-
 class Admin::AssignmentsController < ApplicationController
   before_action :authenticate
   before_action :load_semester
@@ -20,7 +18,7 @@ class Admin::AssignmentsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -31,7 +29,7 @@ class Admin::AssignmentsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -42,7 +40,7 @@ class Admin::AssignmentsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -59,13 +57,15 @@ class Admin::AssignmentsController < ApplicationController
     respond_to do |format|
       xxx@xxx.xxx
         flash[:notice] = 'Assignment was successfully created.'
-        # format.html { xxx@xxx.xxx }
-        format.html { redirect_to(new_admin_assignment_tweet_url(:assignment_id xxx@xxx.xxx :status => 'new')) }
-        format.xml  { render :xml => @assignment, :status => :created, :location xxx@xxx.xxx }
+        @status = xxx@xxx.xxx status: 'new')
+        format.html { xxx@xxx.xxx status: 'new')) }
+        format.xml  { render xml: @assignment, status: :created, xxx@xxx.xxx }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+       xxx@xxx.xxx = "failed"
+        format.html { render action: "new" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -81,15 +81,18 @@ class Admin::AssignmentsController < ApplicationController
 
         destination = xxx@xxx.xxx
         xxx@xxx.xxx == old_duedate
-          destination = new_admin_assignment_tweet_url(:assignment_id xxx@xxx.xxx :status => "duedate")
+          destination = xxx@xxx.xxx status: "duedate")
         end
 
+       xxx@xxx.xxx = destination
         format.html { redirect_to(destination) }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+       xxx@xxx.xxx = "failed"
+        format.html { render action: "edit" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -100,8 +103,10 @@ class Admin::AssignmentsController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
-      format.html { xxx@xxx.xxx @section )) }
+      @status = xxx@xxx.xxx @section)
+      format.html { xxx@xxx.xxx @section)) }
       format.xml  { head :ok }
+      format.js
     end
   end
 

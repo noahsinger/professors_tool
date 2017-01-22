@@ -2,46 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-	<link rel="stylesheet" href="<%= APP_CONFIG['site_url'] %>/assets/application.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	<link rel="stylesheet" href="<%= APP_CONFIG['site_url'] %>/assets/email.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	
-	<style type="text/css" media="screen">
-		table#header td#hanging_tabs {
-			height: 300px;
-			width: 50%;
-			background-image: url( <%= APP_CONFIG['site_url'] %>/assets/hanging_tabs.png );
-			background-repeat: no-repeat;
-			background-position: top left;
-		}
-	</style>
-	
+	<!-- <link rel="stylesheet" href="<%= APP_CONFIG['site_url'] %>/assets/application.css" type="text/css" media="screen" title="no title" charset="utf-8"> -->
+	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
-<body>
-	<table id="header">
-		<tr>
-			<td class="title">
-				<%= link_to APP_CONFIG['site_name'].html_safe, APP_CONFIG['site_url'] %>
-				<div id="subtitle">Email</div>
-			</td>
-			<td id="hanging_tabs"></td>
-		</tr>
-	</table>
-	
-	 <table id="body">
-		<tr id="content_row">
-			<td></td>
-			<td id="content">
+<body class="email">
+	<div id="page">
 
-				<%= yield %>
-				
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="footer" colspan="3">
-				<a href="<%= APP_CONFIG['site_url'] %>"><%= APP_CONFIG['site_name'].html_safe %></a>
-			</td>
-		</tr>
-	</table>
+		<div class="block block--width2 header grid-sizer">
+			<header>
+				<%= link_to APP_CONFIG['site_url'] do %>
+          <p>Email</p>
+					<h1><%= APP_CONFIG['site_name'].html_safe %></h1>
+				<% end %>
+			</header>
+		</div>
+
+		<%= yield %>
+
+	</div>
 </body>
 </html>

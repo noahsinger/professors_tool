@@ -1,16 +1,14 @@
-<%= content_for :header do %>	
-xxx@xxx.xxx %></h1>
-<% end %>
 
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
-	</nav>
-	
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'books_header' %>
+
+<%= render partial: 'book', xxx@xxx.xxx cached: true %>
+
+<div class="block books">
 	<header>
-		<p>Editing</p>
-xxx@xxx.xxx %></h1>
+		<p>Add a New Book for</p>
+xxx@xxx.xxx %></h4>
 	</header>
+</div>
 
-	<%= render "form" %>
-</section>
+<%= render "form" %>

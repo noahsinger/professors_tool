@@ -41,7 +41,7 @@ class Admin::StudentsControllerTest < ActionDispatch::IntegrationTest
     assert_equal assigns(:student).id, assigns(:enrollment).student_id
     assert_equal sections(:jck1003_section_1).id, assigns(:enrollment).section_id
 
-    assert_redirected_to admin_semester_section_path(assigns(:semester),assigns(:section))
+    assert_redirected_to admin_semester_section_enrollments_path(assigns(:semester),assigns(:section))
   end
 
   test "should show student" do

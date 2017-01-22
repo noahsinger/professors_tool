@@ -1,0 +1,15 @@
+<div class="block materials">
+	<header>
+		<%= link_to material.file.url do %>
+			<p><%= material.title %></p>
+	  	<h4>Material</h4>
+		<% end %>
+	</header>
+
+	<p><%= material.description %></p>
+
+	<ul>
+    <li><%= link_to 'Edit', xxx@xxx.xxx %></li>
+    <li><%= link_to 'Destroy', xxx@xxx.xxx data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
+  </ul>
+</div>

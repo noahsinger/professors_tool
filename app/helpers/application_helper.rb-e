@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def double_width_if_main(main)
+    main ? "block--width2" : ""
+  end
+  
   def pluralize_without_count(count, noun, text = nil)
     if count != 0
       count == 1 ? "#{noun}#{text}" : "#{noun.pluralize}#{text}"
@@ -23,7 +27,7 @@ module ApplicationHelper
     header = options[:message] || "#{pluralize(model.errors.count, "error")} prohibited this #{model.class.name} from being saved:"
     
     if model.errors.any?
-      output += "<div id=\"error_explanation\">"
+      output += "<section id=\"error_explanation\">"
       output += "<h2>#{header}</h2>"
 
       output += "<ul>"
@@ -31,7 +35,7 @@ module ApplicationHelper
         output += "<li>#{msg}</li>"
       end
       output += "</ul>"
-      output += "</div>"
+      output += "</section>"
     end
     
     output.html_safe

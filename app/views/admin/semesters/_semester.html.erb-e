@@ -1,0 +1,43 @@
+<div class="block semesters <%= double_width_if_main(defined? main) %>">
+	<header>
+		<%= link_to admin_semester_sections_path(semester) do %>
+			<p><%= show_short_date semester.start_date %> - <%= show_short_date semester.end_date %></p>
+
+			<h3><%= semester.year %><%= semester.season %></h3>
+		<% end %>
+	</header>
+
+	<% if semester.is_current? %>
+		<p>(current)</p>
+	<% elsif semester.is_future? %>
+		<p>(coming up)</p>
+	<% end %>
+
+	<%
+		total_credits = 0
+		preps = 0
+		if semester.sections.count > 0
+			preps = semester.sections.where("course_id != ?", "").map {|sec| sec.course.title}.uniq.size
+		end
+		total_onsite_enrollments = 0
+		total_ted_enrollments = 0
+	%>
+
+	<% if semester.sections.count > 0 %>
+		<% for section in semester.sections.where("course_id != ?", "") %>
+			<% total_credits += section.course.credits %>
+			<% total_onsite_enrollments += section.enrollments.active.size %>
+		<% end %>
+	<% end %>
+
+	<p>
+		<%= pluralize total_credits, 'credit' %> (<%= pluralize preps, "prep" %>)<br/>
+		<%= pluralize semester.sections.count, 'section' %><br/>
+		<%= pluralize semester.student_count, 'student' %>
+	</p>
+
+	<ul>
+		<li><%= link_to 'Edit', edit_admin_semester_path(semester) %></li>
+		<li><%= link_to 'Destroy', [:admin,semester], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
+	</ul>
+</div>

@@ -1,5 +1,12 @@
-<nav>
-		<%= link_to 'Back', xxx@xxx.xxx :class => "icon back" %>
-	</nav>
 
-<%= render :partial => 'form', :locals => {:submit_name => 'Create'} %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render 'objectives_header' %>
+
+<div class="block objectives">
+	<header>
+		<p>for xxx@xxx.xxx %></p>
+		<h4>New Objective</h4>
+	</header>
+</div>
+
+<%= render 'form' %>

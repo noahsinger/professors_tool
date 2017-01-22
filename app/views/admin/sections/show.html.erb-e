@@ -1,119 +1,46 @@
-<%= content_for :header do %>
-xxx@xxx.xxx %></h1>
-<% end %>
 
-<%= content_for :end_of_page do %>
+<%= render 'admin/semesters/semesters_header' %>
+<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'sections_header', locals: xxx@xxx.xxx %>
+<%= render xxx@xxx.xxx locals: {main: true} %>
+
+<%= render partial: 'admin/enrollments/enrollments_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx %>
+<%= render 'admin/examples/examples_header' %>
+<%= render partial: 'admin/meetings/meetings_header', locals: xxx@xxx.xxx %>
+
+<div class="block chart sections" data-script="setTimeout(init_chart,1000)">
+	<section id="enrollments_chart">No Enrollment Data Available</section>
+
 	<% xxx@xxx.xxx > 0 %>
 		<script type="text/javascript" charset="utf-8">
-			$(function () {
-				new Highcharts.Chart({
-					chart: { renderTo: 'enrollments_chart', type: 'spline' },
-					title: { text: 'Enrollments by Day' },
-					xAxis: { type: 'datetime' },
-					yAxis: {
-						title: { text: '# of Students'},
-						min: 0
-					},
-					series: [{
-						name: "Enrollments",
-						data: xxx@xxx.xxx {|p| [p.created_at.to_i * 1000, p.enrollment_count]}.inspect %>
-					}]
-				});
-			});		
+			var init_chart = function( ) {
+				if($("#enrollments_chart").size( ) > 0) {
+					var chart = new Highcharts.Chart({
+						chart: {
+							renderTo: 'enrollments_chart',
+							type: 'spline',
+							events: {
+	              load: function() {
+	                $(window).resize();
+	              }
+	            }
+						},
+						title: { text: 'Enrollments by Day' },
+						xAxis: { type: 'datetime' },
+						yAxis: {
+							title: { text: '# of Students'},
+							min: 0
+						},
+						series: [{
+							name: "Enrollments",
+							data: xxx@xxx.xxx {|p| [p.created_at.to_i * 1000, p.enrollment_count]}.inspect %>
+						}]
+					});
+				}
+				$('#page').isotope('layout');
+			}
 		</script>
 	<% end %>
-<% end %>
-
-<section>
-	<nav>
-		<%= link_to 'Back', xxx@xxx.xxx ), :class => 'icon back' %>
-		<%= link_to 'Edit', [:edit, xxx@xxx.xxx @section], :class => 'icon edit' %>
-	</nav>
-	
-	<header>
-		<p><%= @section.days %> <%= show_time(@section.start_time) %> - <%= xxx@xxx.xxx %></p>
-		<h1><%= link_to @section.course.title, admin_course_path(@section.course) %> xxx@xxx.xxx %>)</h1>
-	</header>
-
-
-	<div class="fancy">
-		<table>
-			<tr>
-				<th>
-					Call number:
-				</th>
-				<th>
-					Section number:
-				</th>
-				<th>
-					Room:
-				</th>
-				<th>Days</th>
-				<th>Times</th>
-				<th>Dates</th>
-			</tr>
-			<tr>			
-				<td>
-xxx@xxx.xxx %>
-				</td>
-				<td>
-xxx@xxx.xxx %>
-				</td>
-				<td>
-xxx@xxx.xxx %>
-				</td>
-xxx@xxx.xxx %></td>
-				<td><%= @section.start_time.to_s(:time) %> - xxx@xxx.xxx %></td>
-				<td><%= @section.start_date %> - xxx@xxx.xxx %></td>
-			</tr>
-		</table>
-	</div>
-
-	<ul class="actions">
-		<li><%= link_to "Assignments", xxx@xxx.xxx @section ) %></li>
-		<li><%= link_to "Examples", xxx@xxx.xxx @section ) %></li>
-		<li><%= link_to "Email Section", xxx@xxx.xxx @section ) %></li>
-		<li><%= link_to 'Export Gradebook', xxx@xxx.xxx %></li>
-		<li><%= link_to 'Add Student', xxx@xxx.xxx @section ) %></li>
-		<li><%= link_to 'Modify this Course', xxx@xxx.xxx ) %></li>
-		<li><%= link_to 'Sync Students with TED', xxx@xxx.xxx %></li>
-		<li><%= link_to 'Meetings', xxx@xxx.xxx %></li>
-	</ul>
-
-	<div class="fancy">
-		<table>
-			<tr>
-				<th>Name</th>
-				<th>Status</th>
-				<th>Attendance</th>
-				<th>Email</th>
-				<th></th>
-				<th></th>
-			</tr>
-xxx@xxx.xxx { |x,y| x.student.last_name <=> y.student.last_name }.each do |enrollment| %>
-				<tr>
-					<td>
-						<%= link_to enrollment.student.first_name + ' ' + (enrollment.student.middle_name || "") + ' ' + enrollment.student.last_name, xxx@xxx.xxx %>
-					</td>
-					<td><%= enrollment.enrollment_status ? enrollment.enrollment_status.name : "unknown" %></td>
-					<td>
-						<%= enrollment.attendances.where("attendance_status_id != ? and attendance_status_id is not null", AttendanceStatus.absent).size %> / xxx@xxx.xxx %>
-					</td>
-					<td>
-						<%= mail_to enrollment.student.email %>
-					</td>
-					<td class="show">
-						<%= link_to 'History', admin_student_path(enrollment.student) %>
-					</td>
-					<td class="deenroll">
-						<%= link_to 'De-Enroll', xxx@xxx.xxx @section, enrollment ), :method => :delete, :confirm => 'Are you sure?' %>
-					</td>
-				</tr>
-			<% end %>
-		</table>
-	</div>
-	
-	<div class="admin_comments wide">
-		<div id="enrollments_chart">No Enrollment Data Available</div>
-	</div>
-</section>
+</div>

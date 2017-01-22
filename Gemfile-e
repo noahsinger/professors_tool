@@ -30,11 +30,16 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'twitter', '~> 5.16'
 gem 'paperclip', '~> 5.1'
 gem 'icalendar', '~> 2.4'
-gem 'shortly', '~> 0.3'
+gem 'google_url_shortener', '~> 1.1'
 gem 'delayed_job', '~> 4.1'
 gem 'delayed_job_active_record', '~> 4.1'
 gem 'redcarpet', '~> 3.3'
 gem 'RedCloth', '~> 4.3'
+gem 'remotipart', '~> 1.3'
+gem 'jquery-ui-rails', '~> 6.0'
+gem 'mechanize', '~> 2.7'
+gem 'will_paginate', '~> 3.1'
+gem 'coderay', '~> 1.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

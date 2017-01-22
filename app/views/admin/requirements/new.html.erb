@@ -1,16 +1,7 @@
-<nav>
-		<%= link_to 'Back', xxx@xxx.xxx @lab ), :class => "icon back"%>
-	</nav>
 
-<%= xxx@xxx.xxx do |f| %>
-	<%= xxx@xxx.xxx %>
-	<ol>
-		<li><div class="details"><%= f.label :description %><p></p></div><div class="field"><%= f.text_field :description %></div></li>
-		<li><div class="details"><%= f.label :points %><p></p></div><div class="field"><%= f.text_field :points %></div></li>
-		<li class="submit_bar">
-			<%= f.submit "Create" %>
-		</li>
-	</ol>
-<% end %>
+<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/labs/labs_header' %>
 
+<%= render partial: 'admin/labs/lab', locals: xxx@xxx.xxx main: true} %>
 
+<%= render 'form' %>

@@ -3,7 +3,7 @@ class EnrollmentStatus < ApplicationRecord
   validates_presence_of :name
   
   def self.method_missing( method_sym, *args, &block )
-    status = where( :name => method_sym.to_s ).first || where( :name => method_sym.to_s.capitalize ).first
+    status = where( name: method_sym.to_s ).first || where( name: method_sym.to_s.capitalize ).first
     # puts "looking for method called #{method_sym}, found status is #{status}"
     if status
       # create a class method for this status so that it will be there next time it's called
@@ -19,7 +19,7 @@ class EnrollmentStatus < ApplicationRecord
   end
   
 #   def self.respond_to? method_sym, *args
-# 		if where( :name => method_sym.to_s ).first || where( :name => method_sym.to_s.capitalize ).first
+# 		if where( name: method_sym.to_s ).first || where( name: method_sym.to_s.capitalize ).first
 #       true
 #     else
 #       super

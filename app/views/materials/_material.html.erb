@@ -1,8 +1,10 @@
-<% if material.file_file_name %>
-	<li>
-		<h5><%= link_to material.title, material.file.url, {:title => material.description} %></h5>
-		<%= material.description %>
-	</li>
-<% else %>
-	<a title="<%= material.description %>"><%= material.title %></a>
-<% end %>
+<div class="block materials">
+	<header>
+		<%= link_to material.file.url do %>
+			<p><%= material.title %></p>
+			<h3><%= material.created_at.to_s(:short) %></h3>
+		<% end %>
+	</header>
+	
+	<p><%= material.description %></p>
+</div>

@@ -15,7 +15,7 @@ class Admin::StepsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_admin_how_to_step_path(how_tos(:one))
+    get new_admin_how_to_step_path(how_tos(:one), course_id: courses(:intro_to_jackassery).id)
     assert_response :success
   end
 
@@ -23,6 +23,7 @@ class Admin::StepsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Step.count') do
       post admin_how_to_steps_path(how_tos(:one)),
         params: {
+          course_id: courses(:intro_to_jackassery).id,
           step: {
             title: 'Something',
             instructions: "something",
@@ -31,35 +32,40 @@ class Admin::StepsControllerTest < ActionDispatch::IntegrationTest
         }
     end
 
-    assert_redirected_to admin_how_to_path(assigns(:how_to))
+    assert_redirected_to admin_how_to_step_path(assigns(:how_to), assigns(:step), course_id: assigns(:course))
   end
 
   test "should show step" do
-    get admin_how_to_step_path(how_tos(:one), steps(:one))
+    get admin_how_to_step_path(how_tos(:one), steps(:one), course_id: courses(:intro_to_jackassery).id)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_admin_how_to_step_path(how_tos(:one), steps(:one))
+    get edit_admin_how_to_step_path(how_tos(:one), steps(:one), course_id: courses(:intro_to_jackassery).id)
     assert_response :success
   end
 
   test "should update step" do
     put admin_how_to_step_path(how_tos(:one), steps(:one)),
-        params: {step: { title: 'blah blah' }}
-    assert_redirected_to admin_how_to_step_path(assigns(:how_to),assigns(:step))
+        params: {
+          course_id: courses(:intro_to_jackassery).id,
+          step: { 
+            title: 'blah blah' 
+          }
+        }
+    assert_redirected_to admin_how_to_step_path(assigns(:how_to), assigns(:step), course_id: assigns(:course))
   end
 
   test "should destroy step" do
     assert_difference('Step.count', -1) do
-      delete admin_how_to_step_path(how_tos(:one), steps(:one))
+      delete admin_how_to_step_path(how_tos(:one), steps(:one), course_id: courses(:intro_to_jackassery).id)
     end
 
-    assert_redirected_to admin_how_to_path(assigns(:how_to))
+    assert_redirected_to admin_how_to_steps_path(assigns(:how_to), course_id: assigns(:course))
   end
 
   test "should sort steps" do
-    post sort_admin_how_to_steps_path(how_tos(:one)), params: {steps: [2,1]}
+    post sort_admin_how_to_steps_path(how_tos(:one)), params: {steps: [2,1], course_id: courses(:intro_to_jackassery).id}
     assert_response :success
 
     assert_equal [1,2], assigns(:how_to).steps.map {|s| s.position}

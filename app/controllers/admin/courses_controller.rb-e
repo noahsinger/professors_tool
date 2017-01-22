@@ -15,7 +15,7 @@ class Admin::CoursesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -26,7 +26,7 @@ class Admin::CoursesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -37,7 +37,7 @@ class Admin::CoursesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -53,13 +53,16 @@ class Admin::CoursesController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Course was successfully created.'
         format.html { xxx@xxx.xxx }
-        format.xml  { render :xml => @course, :status => :created, :location xxx@xxx.xxx }
+        format.xml  { render xml: @course, status: :created, xxx@xxx.xxx }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+       xxx@xxx.xxx = "failed"
+        format.html { render action: "new" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -70,13 +73,16 @@ class Admin::CoursesController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Course was successfully updated.'
         format.html { xxx@xxx.xxx }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+       xxx@xxx.xxx = "failed"
+        format.html { render action: "edit" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -87,8 +93,10 @@ class Admin::CoursesController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+     xxx@xxx.xxx = admin_courses_url
       format.html { redirect_to(admin_courses_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
   

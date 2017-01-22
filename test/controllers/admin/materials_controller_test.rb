@@ -5,7 +5,6 @@ class Admin::MaterialsControllerTest < ActionDispatch::IntegrationTest
                         {action: 'index'}    => :get,
                         {action: 'new'}      => :get,
                         {action: 'create'}   => :post,
-                        {action: 'show', id: 1}     => :get,
                         {action: 'edit', id: 1}     => :get,
                         {action: 'update', id: 1}   => :put,
                         {action: 'destroy', id: 1}  => :delete)
@@ -16,11 +15,6 @@ class Admin::MaterialsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     get admin_course_materials_url(courses(:intro_to_jackassery))
-    assert_response :success
-  end
-
-  test "should get show" do
-    get admin_course_material_url(courses(:intro_to_jackassery),materials(:one))
     assert_response :success
   end
 

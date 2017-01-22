@@ -1,9 +1,0 @@
-<%= xxx@xxx.xxx do |f| %>
-	<%= xxx@xxx.xxx %>
-	<ol>
-		<li><div class="details"><%= f.label :name %><p></p></div><div class="field"><%= f.text_field :name %></div></li>
-		<li class="action">
-			<div><%= f.submit submit_name %></div>
-		</li>
-	</ol>
-<% end %>

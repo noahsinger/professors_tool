@@ -14,18 +14,7 @@ class Admin::MaterialsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
-    end
-  end
-
-  # GET /materials/1
-  # GET /materials/1.xml
-  def show
-    @material xxx@xxx.xxx
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -36,7 +25,7 @@ class Admin::MaterialsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml xxx@xxx.xxx }
+      format.xml  { render xxx@xxx.xxx }
     end
   end
 
@@ -52,13 +41,16 @@ class Admin::MaterialsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Material was successfully created.'
         format.html { xxx@xxx.xxx }
-        format.xml  { render :xml => @material, :status => :created, :location xxx@xxx.xxx }
+        format.xml  { render xml: @material, status: :created, xxx@xxx.xxx }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+       xxx@xxx.xxx = "failed"
+        format.html { render action: "new" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -69,13 +61,16 @@ class Admin::MaterialsController < ApplicationController
 
     respond_to do |format|
       xxx@xxx.xxx
+        @status = xxx@xxx.xxx
         flash[:notice] = 'Material was successfully updated.'
         format.html { xxx@xxx.xxx }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml xxx@xxx.xxx :status => :unprocessable_entity }
+       xxx@xxx.xxx = "failed"
+        format.html { render action: "edit" }
+        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -86,8 +81,10 @@ class Admin::MaterialsController < ApplicationController
    xxx@xxx.xxx
 
     respond_to do |format|
+      @status = xxx@xxx.xxx
       format.html { xxx@xxx.xxx }
       format.xml  { head :ok }
+      format.js
     end
   end
   

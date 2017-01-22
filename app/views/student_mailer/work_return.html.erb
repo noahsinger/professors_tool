@@ -1,96 +1,93 @@
+<div class="clear"></div>
+
 <%- xxx@xxx.xxx -%>
 	<%- assignment xxx@xxx.xxx -%>
 	<%- section = assignment.section -%>
 	<%- semester = section.semester -%>
-	<%= section.course.title %>
 
 	<% xxx@xxx.xxx == "removed" %>
 
-		<table class="tab">
-			<tr class="tab_header">
-				<td colspan="2">
-			
-					Submitted Homework for <%= assignment.title %>
-		
-				</td>
-			</tr>
-			<tr class="tab_content">
-				<td class="left">
+		<div class="block works">
+			<header>
+				<p><%= section.course.title %></p>
+				<h3>Here it is</h3>
+			</header>
+			<p>
+				You requested a copy of the assignment that was submitted for
+				<strong><%= assignment.title %></strong> from your email address.
+				The requested assignment is attached to this email.
+			</p>
 
-					<p>
-						Here it is.  You requested a copy of the assignment that was submitted for 
-						<strong><%= assignment.title %></strong> from your email address.  The requested assignment is attached to this email.
-					</p>
+			<p>
+				If in the future (but still before the due date of course) you want to replace the submitted version of
+				your lab with a new one, your will need to <%= link_to 'withdraw your submission', withdraw_semester_section_assignment_works_url(semester, section, assignment,
+xxx@xxx.xxx
+					host: APP_CONFIG['host']) %>.
+			</p>
+		</div>
 
-					<p>
-						If in the future (but still before the due date of course) you want to replace the submitted version of 
-						your lab with a new one, your will need to <%= link_to 'withdraw your submission', withdraw_semester_section_assignment_works_url(semester, section, assignment, 
-							:code xxx@xxx.xxx 
-							:host => APP_CONFIG['host']) %>.
-					</p>
 
-				</td>
-				<td class="right">
-			
-					<h3>Submitted Work Details:</h3>
-					<p>
-						<strong>Name:</strong> xxx@xxx.xxx %><br/>
-						<strong>Size:</strong> <%= xxx@xxx.xxx %><br/>
-						<strong>File type:</strong> xxx@xxx.xxx %><br/>
-					</p>
-			
-					<p>Your assignment file is attached</p>
-			
-				</td>				
-			</tr>		
-		</table>
-	
+		<div class="block works">
+			<header>
+				<p>Submitted Homework</p>
+				<h3><%= assignment.title %></h3>
+			</header>
+		</div>
+
+
+		<div class="block works">
+			<header>
+				<h4>Details</h4>
+			</header>
+			<p>
+				<strong>Name:</strong> xxx@xxx.xxx %><br/>
+			</p>
+			<p>
+				<strong>Size:</strong> <%= xxx@xxx.xxx %><br/>
+			</p>
+			<p>
+				<strong>File type:</strong> xxx@xxx.xxx %><br/>
+			</p>
+
+			<p>Your assignment file is attached</p>
+		</div>
+
 	<% else %>
-	
-		<table class="tab">
-			<tr class="tab_header">
-				<td colspan="2">
-			
-					Submitted Homework for <%= assignment.title %>
-		
-				</td>
-			</tr>
-			<tr class="tab_content">
-				<td>
 
-					<p>
-						You requested a copy of the assignment that was submitted for 
-						<strong><%= assignment.title %></strong> from your email address.
-					</p>
-				
-					<p>
-						The assignment you requested be return is no longer available.  Due to disk space considerations, homework assignments
-						must be removed after a certain period of time.
-					</p>
+		<div class="block works">
+			<header>
+				<p>Submitted Homework</p>
+				<h3><%= assignment.title %></h3>
+			</header>
+		</div>
 
-				</td>
-			</tr>		
-		</table>
-	
+		<div class="block works">
+			<header>
+				<p>
+					Requested copy of assignment
+				</p>
+				<h3><%= assignment.title %></h3>
+			</header>
+
+			<p>
+				The assignment you requested be return is no longer available.  Due to disk space considerations, homework assignments
+				must be removed after a certain period of time.
+			</p>
+		</div>
+
 	<% end %>
 
 <% else %>
 
-	<table class="tab">
-		<tr class="tab_header">
-			<td>
-				
-				Homework Return 
-		
-			</td>
-		</tr>
-		<tr class="tab_content">
-			<td>
+	<div class="block works">
+		<header>
+			<h3>Homework Return</h3>
+		</header>
+	</div>
 
-				A request was made to have an assignment returned to this address.  Unfortunately, no work for this address could be found. 
-			
-			</td>				
-		</tr>		
-	</table>
+
+	<div class="block works">
+		<p>A request was made to have an assignment returned to this address.  Unfortunately, no work for this address could be found. </p>
+	</div>
 
 <% end %>

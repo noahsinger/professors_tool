@@ -5,7 +5,6 @@ class Admin::DivisionsControllerTest < ActionDispatch::IntegrationTest
                         {action: 'index'}    => :get,
                         {action: 'new'}      => :get,
                         {action: 'create'}   => :post,
-                        {action: 'show', id: 1}     => :get,
                         {action: 'edit', id: 1}     => :get,
                         {action: 'update', id: 1}   => :put,
                         {action: 'destroy', id: 1}  => :delete)
@@ -38,12 +37,7 @@ class Admin::DivisionsControllerTest < ActionDispatch::IntegrationTest
         }
     end
 
-    assert_redirected_to admin_division_path(assigns(:division))
-  end
-
-  test "should_show_division" do
-    get admin_division_url(divisions(:bit))
-    assert_response :success
+    assert_redirected_to admin_divisions_path
   end
 
   test "should_get_edit" do
@@ -53,7 +47,7 @@ class Admin::DivisionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should_update_division" do
     put admin_division_url(divisions(:bit)), params: {division: { name: 'new test division' }}
-    assert_redirected_to admin_division_path(assigns(:division))
+    assert_redirected_to admin_divisions_path
   end
 
   test "should_destroy_division" do
