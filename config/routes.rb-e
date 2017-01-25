@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # no namespace ##########################################    
+  # no namespace ##########################################
   resources :general_contacts
   resources :instructors
   resources :sessions
-  
+
   # semesters namespace #######################################
   resources :semesters do
     resources :sections do
@@ -25,26 +25,26 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+
   # courses namespace #######################################
   resources :courses do
-    resources :sections    
+    resources :sections
     resources :waiters
     resources :materials
-    
+
     member do
       get 'syllabus'
     end
-    
+
     resources :how_tos do
       resources :steps
     end
-    
+
     resources :labs do
       resources :requirements
     end
   end
-    
+
   # admin namespace #######################################
   namespace :admin do
 
@@ -54,19 +54,19 @@ Rails.application.routes.draw do
     resources :instructors
     resources :syllabus_parts
     resources :assignment_tweets
-  
+
   	resources :works do
   		member do
   			get "download"
   		end
   	end
-    
+
     resources :students do
       collection do
-        get :search  
+        get :search
       end
     end
-    
+
     resources :how_tos do
       resources :steps do
         collection do
@@ -74,25 +74,25 @@ Rails.application.routes.draw do
         end
       end
     end
-    
+
     resources :general_contacts do
       collection do
         delete :destroy_all
       end
     end
-    
+
     resources :grade_requests do
       collection do
         delete 'destroy_all'
       end
     end
-    
+
     resources :homework_return_requests do
       collection do
         delete 'destroy_all'
       end
     end
-    
+
     # admin semesters namespace #####################
     resources :semesters do
       resources :sections do
@@ -102,15 +102,15 @@ Rails.application.routes.draw do
           get 'sync_students'
         end
       end
-      
+
       resources :sections do
         resources :students
         resources :enrollments
         resources :examples
         resources :meetings do
-		      resources :attendances  
+		      resources :attendances
 	      end
-        
+
         resources :assignments do
           resources :works do
             member do
@@ -119,7 +119,7 @@ Rails.application.routes.draw do
               delete 'destroy_grade'
               get 'download'
             end
-            
+
             collection do
                 get 'new_for_all'
             end
@@ -130,7 +130,7 @@ Rails.application.routes.draw do
         end
       end
     end
-    
+
     # admin courses namespace #####################
     resources :courses do
       resources :waiters
@@ -143,49 +143,53 @@ Rails.application.routes.draw do
           post 'add_how_to'
         end
       end
-      
+
       resources :objectives do
         collection do
           post 'sort'
         end
       end
-      
+
       resources :policies do
         collection do
           post 'sort'
           post 'add_syllabus_part'
         end
       end
-            
+
       resources :labs do
         member do
           post 'duplicate'
         end
-        
+
         resources :requirements do
           collection do
             post 'sort'
           end
         end
-        
+
         resources :extras
       end
     end
   end
-  
+
   get '/admin', to: 'admin/admin#index'
 
-  if Semester.current #favor the current semester
-    root to:  "sections#index", semester_id:  Semester.current.id
-  elsif Semester.future.first #if were not in semester choose the next one to start 
-    root to:  "sections#index", semester_id:  Semester.future.first.id
-  else # otherwise just show a list of all semesters
-    root to:  "semesters#index"
+  # make this conditional on the Semesters table existing because the routes
+  #  file has to load before rails db:migrate can run
+  if ActiveRecord::Base.connection.table_exists? 'Semester'
+    if Semester.current #favor the current semester
+      root to:  "sections#index", semester_id:  Semester.current.id
+    elsif Semester.future.first #if were not in semester choose the next one to start
+      root to:  "sections#index", semester_id:  Semester.future.first.id
+    else # otherwise just show a list of all semesters
+      root to:  "semesters#index"
+    end
   end
-  
+
   match 'logout' => "sessions#destroy", via:  :delete
   match 'login' => "sessions#new", via:  :get
-  
+
   match 'examples/echo' => 'examples#echo', via:  [:get, :post]
   match 'examples/test_exception' => 'examples#test_exception', via:  [:get]
   match 'examples/test_notice' => 'examples#test_notice', via:  [:get]
