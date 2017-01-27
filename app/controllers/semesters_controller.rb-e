@@ -10,14 +10,19 @@ class SemestersController < ApplicationController
     end
   end
 
-  # GET /semesters/1
-  # GET /semesters/1.xml
-  def show
-   xxx@xxx.xxx = Semester.find(params[:id])
-
+  def current
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      if Semester.current
+        format.html { redirect_to semester_sections_url(Semester.current) }
+        format.json { render json: Semester.current, status: :ok, location: Semester.current }
+      elsif Semester.future.first
+        format.html { redirect_to semester_sections_url(Semester.future.first) }
+        format.json { render json: Semester.future.first, status: :ok, location: Semester.future.first }
+      else
+       xxx@xxx.xxx = Semester.order('start_date desc')
+        format.html { render :index }
+        format.json  { render xxx@xxx.xxx }
+      end
     end
   end
 end

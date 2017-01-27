@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   # semesters namespace #######################################
   resources :semesters do
+    get 'current', on: :collection
+
     resources :sections do
       member do
          get 'syllabus'
@@ -95,6 +97,7 @@ Rails.application.routes.draw do
 
     # admin semesters namespace #####################
     resources :semesters do
+
       resources :sections do
         member do
           get 'section_email'
@@ -175,17 +178,7 @@ Rails.application.routes.draw do
 
   get '/admin', to: 'admin/admin#index'
 
-  # make this conditional on the Semesters table existing because the routes
-  #  file has to load before rails db:migrate can run
-  if ActiveRecord::Base.connection.table_exists? 'Semester'
-    if Semester.current #favor the current semester
-      root to:  "sections#index", semester_id:  Semester.current.id
-    elsif Semester.future.first #if were not in semester choose the next one to start
-      root to:  "sections#index", semester_id:  Semester.future.first.id
-    else # otherwise just show a list of all semesters
-      root to:  "semesters#index"
-    end
-  end
+  root "semesters#current"
 
   match 'logout' => "sessions#destroy", via:  :delete
   match 'login' => "sessions#new", via:  :get
