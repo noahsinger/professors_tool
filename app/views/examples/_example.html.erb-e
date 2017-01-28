@@ -1,10 +1,10 @@
 <div class="block examples">
 	<header>
 		<%= link_to example.file.url do %>
-			<p><%= example.created_at.to_s(:short) %></p>
-			<h5><%= example.name %></h5>
+			<p><%= example.name %></p>
+			<h5><%= show_short_date example.created_at %></h5>
 		<% end %>
 	</header>
-	
+
 	<p><%= example.description %></p>
 </div>

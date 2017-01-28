@@ -1,13 +1,13 @@
 <div class="block examples">
 	<header>
 		<%= link_to example.file.url do %>
-			<p><%= show_date_and_time(example.created_at) %></p>
-			<h5><%= example.name %></h5>
+			<p><%= example.name %></p>
+			<h5><%= show_short_date(example.created_at) %></h5>
 		<% end %>
 	</header>
-	
+
 	<p><%= example.description %></p>
-	
+
 	<ul>
 		<li><%= link_to 'Edit', xxx@xxx.xxx %></li>
 		<li><%= link_to 'Destroy', xxx@xxx.xxx data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
