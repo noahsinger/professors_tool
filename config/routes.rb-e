@@ -180,12 +180,12 @@ Rails.application.routes.draw do
 
   root "semesters#current"
 
-  match 'logout' => "sessions#destroy", via:  :delete
-  match 'login' => "sessions#new", via:  :get
+  match 'logout' => "sessions#destroy", via: :delete
+  match 'login' => "sessions#new", via: :get
 
-  match 'examples/echo' => 'examples#echo', via:  [:get, :post]
-  match 'examples/test_exception' => 'examples#test_exception', via:  [:get]
-  match 'examples/test_notice' => 'examples#test_notice', via:  [:get]
-  match 'examples/test_error' => 'examples#test_error', via:  [:get]
-  match 'examples/test_tweet' => 'examples#test_tweet', via:  [:get]
+  match 'examples/echo' => 'examples#echo', via: [:get, :post]
+  match 'examples/test_exception' => 'examples#test_exception', via: [:get]
+  match 'examples/test_notice' => 'examples#test_notice', via: [:get]
+  match 'examples/test_error' => 'examples#test_error', via: [:get]
+  match 'examples/test_tweet' => 'examples#test_tweet', via: [:get]
 end
