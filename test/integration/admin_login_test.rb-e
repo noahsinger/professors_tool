@@ -12,7 +12,9 @@ class AdminLoginTest < ActionDispatch::IntegrationTest
     fill_in("Password", with: 'test')
     click_on("Sign in")
 
-    click_on( "Signout" )
+    if page.has_selector?( 'a[href="/logout"]' )
+      click_on("Signout")
+    end
   end
 
   test "user can login" do
