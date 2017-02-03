@@ -5,9 +5,13 @@
 			<%= homework_return_request.assignment.title %><%= homework_return_request.assignment.lab.course.short_name %>
 		</h3>
 	</header>
-		
+
+	<ul>
+		<li class="icon"><%= link_to [:admin,homework_return_request], {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">Destroy</span><% end %></li>
+	</ul>
+
 	<p><%= show_short_date homework_return_request.created_at %> @ <%= show_time homework_return_request.created_at %></p>
-		
+
 	<p>
 		<% if homework_return_request.enrollment %>
 			from <%= homework_return_request.enrollment.student.last_name %>, <%= homework_return_request.enrollment.student.first_name %>
@@ -15,13 +19,10 @@
 			No Enrollment Found
 		<% end %>
 	</p>
-		
+
 	<p>
 		<b>Status:</b>
 		<%= homework_return_request.status %>
 	</p>
-	
-	<ul>
-	  <li><%= link_to 'Destroy', [:admin,homework_return_request], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
-	</ul>
+
 </div>

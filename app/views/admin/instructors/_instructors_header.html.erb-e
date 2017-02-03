@@ -7,6 +7,6 @@
 	</header>
 	
 	<ul class="actions">
-		<li><%= link_to "Add a New Instructor", new_admin_instructor_path %></li>
+		<li class="icon"><%= link_to new_admin_instructor_path, {class: "icon icon-plus", title: "New"} do %><span class="text_label">Add a New Instructor</span><% end %></li>
 	</ul>
 </div>

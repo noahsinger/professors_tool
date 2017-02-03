@@ -10,6 +10,7 @@
 %>
 
 
+
 <div class="block block--width2 steps">
 	<header>
 		<p>Step <%= @step.position %> :: xxx@xxx.xxx %></p>
@@ -17,7 +18,7 @@
 	</header>
 
 	<ul>
-		<li><%= link_to 'Edit', xxx@xxx.xxx @course) %></li>
+		<li class="icon"><%= link_to xxx@xxx.xxx @course), {class: "icon icon-note", title: "Edit"} do %><span class="text_label">Edit</span><% end %></li>
 	</ul>
 
 	<ul id="next_prev">

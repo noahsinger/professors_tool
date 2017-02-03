@@ -3,13 +3,17 @@
 
 xxx@xxx.xxx do |waiter| %>
   <div class="block waiters">
-    <h5><%= mail_to waiter.email %></h5>
+    <header>
+      <h5><%= mail_to waiter.email %></h5>
+    </header>
+
+    <ul>
+      <li class="icon"><%= link_to xxx@xxx.xxx waiter], {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">Destroy</span><% end %></li>
+    </ul>
+
 		<p>
 		  Created:
 		  <%= show_short_date(waiter.created_at) %>
 		</p>
-		<ul>
-			<li><%= link_to 'Destroy', xxx@xxx.xxx waiter], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
-		</ul>
 	</div>
 <% end %>

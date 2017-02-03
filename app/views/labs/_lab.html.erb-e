@@ -6,15 +6,15 @@
 		<% end %>
 	</header>
 
-	<p><%= pluralize lab.worth, 'point' %></p>
-
 	<ul id="assignment_links">
 		<% if defined?(main) %>
 			<li><a href="#" id="print" class="icon file">Print this Lab</a></li>
 		<% end %>
 
 		<% if current_user %>
-			<li><%= link_to 'Edit this Lab', edit_admin_course_lab_path(lab.course, lab) %></li>
+			<li class="icon"><%= link_to edit_admin_course_lab_path(lab.course, lab), {class: "icon icon-note", title: "Edit this Lab"} do %><span class="text_label">Edit this Lab</span><% end %></li>
 		<% end %>
 	</ul>
+
+	<p><%= pluralize lab.worth, 'point' %></p>
 </div>

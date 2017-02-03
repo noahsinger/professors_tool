@@ -6,10 +6,11 @@
 		<% end %>
 	</header>
 
+	<ul>
+		<li class="icon"><%= link_to xxx@xxx.xxx {class: "icon icon-note", title: "Edit"} do %><span class="text_label">Edit</span><% end %></li>
+		<li class="icon"><%= link_to xxx@xxx.xxx {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">Destroy</span><% end %></li>
+	</ul>
+
 	<p><%= example.description %></p>
 
-	<ul>
-		<li><%= link_to 'Edit', xxx@xxx.xxx %></li>
-		<li><%= link_to 'Destroy', xxx@xxx.xxx data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
-	</ul>
 </div>

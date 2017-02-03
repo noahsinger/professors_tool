@@ -4,13 +4,13 @@
 		<h5>available policy</h5>
 	</header>
 
-	<p><%= truncate syllabus_part.description, length: 240 %></p>
-
 	<ul>
 		<li>
 			<%= link_to 'Add to this course', xxx@xxx.xxx syllabus_part_id: syllabus_part.id), method: :post, remote: true %>
 		</li>
-		<li><%= link_to 'Edit', edit_admin_syllabus_part_path( syllabus_part, xxx@xxx.xxx ) %></li>
-		<li><%= link_to 'Destroy', xxx@xxx.xxx data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
+		<li class="icon"><%= link_to edit_admin_syllabus_part_path( syllabus_part, xxx@xxx.xxx ), {class: "icon icon-note", title: "Edit"} do %><span class="text_label">Edit</span><% end %></li>
+		<li class="icon"><%= link_to xxx@xxx.xxx {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">Destroy</span><% end %></li>
 	</ul>
+
+	<p><%= truncate syllabus_part.description, length: 240 %></p>
 </div>

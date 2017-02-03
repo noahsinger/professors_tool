@@ -6,6 +6,6 @@
 	</header>
 	
 	<ul>
-		<li><%= link_to 'New Objective', xxx@xxx.xxx %></li>
+		<li class="icon"><%= link_to xxx@xxx.xxx {class: "icon icon-plus", title: "New"} do %><span class="text_label">New Objective</span><% end %></li>
 	</ul>
 </div>

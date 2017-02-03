@@ -2,7 +2,7 @@
   <%= render partial: 'student_data', locals: {student: student} %>
 
   <ul>
-    <li><%= link_to 'Edit', edit_admin_student_path(student) %></li>
-    <li><%= link_to 'Destroy', [:admin,student], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
+    <li class="icon"><%= link_to edit_admin_student_path(student), {class: "icon icon-note", title: "Edit"} do %><span class="text_label">Edit</span><% end %></li>
+    <li class="icon"><%= link_to [:admin,student], {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">Destroy</span><% end %></li>
   </ul>
 </div>

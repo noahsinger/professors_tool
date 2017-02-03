@@ -5,9 +5,8 @@
 			<h4>Sections</h4>
 		<% end %>
 	</header>
-	
+
 	<ul class="actions">
-		<li><%= link_to 'New Section', new_admin_semester_section_path(semester) %></li>
+		<li class="icon"><%= link_to new_admin_semester_section_path(semester), {class: "icon icon-plus", title: "New"} do %><span class="text_label">New Section</span><% end %></li>
 	</ul>
 </div>
-	

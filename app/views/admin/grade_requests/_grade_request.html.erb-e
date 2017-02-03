@@ -8,6 +8,10 @@
 		<% end %>
 	</header>
 
+	<ul>
+		<li class="icon"><%= link_to [:admin,grade_request], {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">Destroy</span><% end %></li>
+	</ul>
+	
 	<p>
 		<%= grade_request.section.course.title %><br/>
 		<%= mail_to grade_request.email %><br/>
@@ -15,7 +19,4 @@
 	</p>
 
 
-	<ul>
-		<li><%= link_to 'Destroy', [:admin,grade_request], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
-	</ul>
 </div>

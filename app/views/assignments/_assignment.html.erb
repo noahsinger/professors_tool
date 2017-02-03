@@ -9,6 +9,17 @@
 		<% end %>
 	</header>
 
+	<ul id="assignment_links">
+		<% if defined?(main) %>
+			<li class="icon"><a href="#" id="print" class="icon icon-printer" title="Print this Assignment"><span class="text_label">Print this Assignment</span></a></li>
+		<% end %>
+
+		<% if current_user %>
+			<li class="icon"><%= link_to edit_admin_semester_section_assignment_path(assignment.section.semester,assignment.section,assignment), {class: "icon icon-note", title: "Edit this Assignment"} do %><span class="text_label">Edit this Assignment</span><% end %></li>
+			<li class="icon"><%= link_to edit_admin_course_lab_path(assignment.section.course, assignment.lab), {class: "icon icon-note", title: "Edit this Lab"} do %><span class="text_label">Edit this Lab</span><% end %></li>
+		<% end %>
+	</ul>
+
 	<p>Objective: <b><%= assignment.lab.objective %></b></p>
 
 	<% unless assignment.overdue? %>
@@ -16,16 +27,4 @@
 	<% else %>
 		<p>pastdue</p>
 	<% end %>
-
-	<ul id="assignment_links">
-		<% if defined?(main) %>
-			<li><a href="#" id="print">Print this Assignment</a></li>
-		<% end %>
-
-		<% if current_user %>
-			<li><%= link_to 'Edit this Assignment', edit_admin_semester_section_assignment_path(assignment.section.semester,assignment.section,assignment) %></li>
-			<li><%= link_to 'Edit this Lab', edit_admin_course_lab_path(assignment.section.course, assignment.lab) %></li>
-		<% end %>
-	</ul>
-
 </div>

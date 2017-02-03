@@ -6,6 +6,12 @@
 		<% end %>
 	</header>
 
+	<ul>
+		<li class="icon"><%= link_to xxx@xxx.xxx {class: "icon icon-note", title: "edit"} do %><span class="text_label">edit</span><% end %></li>
+		<li class="icon"><%= link_to admin_how_to_path(how_to, xxx@xxx.xxx {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">destroy</span><% end %></li>
+		<li class="icon"><%= link_to new_admin_how_to_step_path(how_to, xxx@xxx.xxx {class: "icon icon-plus", title: "New"} do %><span class="text_label">New step</span><% end %></li>
+	</ul>
+
 	<p><%= how_to.description %></p>
 
 	<% xxx@xxx.xxx {|tutorial| tutorial.how_to}.include?(how_to) %>
@@ -14,12 +20,4 @@
 		</ul>
 	<% end %>
 
-	<ul>
-		<li><%= link_to 'edit', xxx@xxx.xxx %></li>
-		<li><%= link_to 'destroy', admin_how_to_path(how_to, xxx@xxx.xxx data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
-	</ul>
-
-	<ul>
-		<li><%= link_to "New step", new_admin_how_to_step_path(how_to, xxx@xxx.xxx %></li>
-	</ul>
 </div>

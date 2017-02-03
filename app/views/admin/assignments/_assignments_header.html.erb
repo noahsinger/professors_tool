@@ -5,12 +5,14 @@
 			<h5>Assignments</h5>
 		<% end %>
 	</header>
-	
+
+	<ul class="actions">
+		<li class="icon"><%= link_to new_admin_semester_section_assignment_path( section.semester, section ), {class: "icon icon-plus", title: "New"} do %><span class="text_label">Add New Assignment</span><% end %></li>
+	</ul>
+
 	<% if section.next_assignment_due %>
 		<p>Next assignment due <%= show_short_date(section.next_assignment_due.duedate) %> (<%= distance_of_time_in_words_to_now(section.next_assignment_due.duedate) %>)</p>
 	<% end %>
-	
-	<ul class="actions">
-		<li><%= link_to 'Add New Assignment', new_admin_semester_section_assignment_path( section.semester, section ) %></li>
-	</ul>
+
+
 </div>

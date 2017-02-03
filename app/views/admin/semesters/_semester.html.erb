@@ -8,10 +8,15 @@
 	</header>
 
 	<% if semester.is_current? %>
-		<p>(current)</p>
+		<p class="in_progress_indicator green">current</p>
 	<% elsif semester.is_future? %>
-		<p>(coming up)</p>
+		<p class="in_progress_indicator">coming up</p>
 	<% end %>
+
+	<ul>
+		<li class="icon"><%= link_to edit_admin_semester_path(semester), {class: "icon icon-note", title: "Edit"} do %><span class="text_label">Edit</span><% end %></li>
+		<li class="icon"><%= link_to [:admin,semester], {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">Destroy</span><% end %></li>
+	</ul>
 
 	<%
 		total_credits = 0
@@ -35,9 +40,4 @@
 		<%= pluralize semester.sections.count, 'section' %><br/>
 		<%= pluralize semester.student_count, 'student' %>
 	</p>
-
-	<ul>
-		<li><%= link_to 'Edit', edit_admin_semester_path(semester) %></li>
-		<li><%= link_to 'Destroy', [:admin,semester], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
-	</ul>
 </div>

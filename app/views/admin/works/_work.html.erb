@@ -11,12 +11,19 @@
 			<% end %>
 		<% end %>
 	</header>
-	
+
+	<ul>
+		<li class="icon"><%= link_to grade_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work), {class: "icon icon-check", title: "Grade"} do %> <span class="text_label">Grade</span> <% end %></li>
+		<li class="icon"><%= link_to edit_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work), {class: "icon icon-note", title: "Edit"} do %><span class="text_label">Edit</span><% end %></li>
+		<li class="icon"><%= link_to [:admin,work.assignment.section.semester,work.assignment.section,work.assignment,work], {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">Destroy</span><% end %></li>
+		<li class="icon"><%= link_to destroy_grade_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work), {class: "icon icon-close", title: "UnGrade", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %> <span class="text_label">UnGrade</span> <% end %></li>
+	</ul>
+
 	<p><%= mail_to work.email, work.email, subject: "#{work.assignment.section.course.title} #{work.assignment.title}" %></p>
 
 	<% diff = (work.assignment.duedate.to_date - work.created_at.to_date).to_i %>
 	<p>
-		submitted: 
+		submitted:
 		<b>
 			<%= "#{pluralize diff.abs, 'day'} #{((diff < 0) ? 'late' : 'early')}" %>
 			(<%= work.created_at.to_s(:short) %>)
@@ -27,12 +34,5 @@
 		<p>score: <b><%= work.score %> (<%= number_to_percentage work.percentage, {precision: 2} %>)</b></p>
 	<% else %>
 		<p>score: <b>-</b></p>
-	<% end %>	
-
-	<ul>
-		<li><%= link_to 'Grade', grade_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) %></li>
-	  <li><%= link_to 'Edit', edit_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) %></li>
-	  <li><%= link_to 'Destroy', [:admin,work.assignment.section.semester,work.assignment.section,work.assignment,work], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
-		<li><%= link_to 'UnGrade', destroy_grade_admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work), data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></li>
-	</ul>
+	<% end %>
 </div>

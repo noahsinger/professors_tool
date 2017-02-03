@@ -4,9 +4,9 @@
 			<p><%= pluralize Semester.count, 'semester' %></p>
 			<h3>Semesters</h3>
 		<% end %>
-	</header>	
+	</header>
 
 	<ul>
-		<li><%= link_to 'New Semester', new_admin_semester_path %></li>
+		<li class="icon"><%= link_to new_admin_semester_path, {class: "icon icon-plus", title: "New"} do %><span class="text_label">New Semester</span><% end %></li>
 	</ul>
 </div>
