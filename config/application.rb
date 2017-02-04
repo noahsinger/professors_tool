@@ -19,3 +19,5 @@ Rails.application.config.active_record.time_zone_aware_types = [:datetime, :time
 
 # autoload classes in the lib folder
 Rails.application.config.autoload_paths << "#{Rails.root}/lib"
+
+Rails.application.config.active_job.queue_adapter = :delayed_job
