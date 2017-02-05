@@ -41,6 +41,7 @@ gem 'simple-line-icons-rails'
 gem 'mechanize', '~> 2.7'
 gem 'will_paginate', '~> 3.1'
 gem 'coderay', '~> 1.1'
+gem 'premailer-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

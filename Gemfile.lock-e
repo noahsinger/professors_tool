@@ -66,6 +66,8 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
+    css_parser (1.4.8)
+      addressable
     debug_inspector (0.0.2)
     delayed_job (4.1.2)
       activesupport (>= 3.0, < 5.1)
@@ -89,6 +91,7 @@ GEM
       rest-client (>= 1.6.7)
       trollop (>= 1.16.2)
     hirb (0.7.3)
+    htmlentities (4.3.4)
     http (1.0.4)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -155,6 +158,12 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     pg (0.19.0)
+    premailer (1.9.2)
+      css_parser (>= 1.4.8)
+      htmlentities (>= 4.0.0)
+    premailer-rails (1.9.5)
+      actionmailer (>= 3, < 6)
+      premailer (~> 1.7, >= 1.7.9)
     public_suffix (2.0.5)
     puma (3.6.2)
     rack (2.0.1)
@@ -285,6 +294,7 @@ DEPENDENCIES
   mocha (~> 1.2)
   paperclip (~> 5.1)
   pg
+  premailer-rails
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-controller-testing (~> 1.0)
