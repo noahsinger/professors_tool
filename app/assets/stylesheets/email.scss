@@ -13,6 +13,11 @@ body.email {
 	.block {
 		margin: 5px;
 
+		a {
+			color: #777;
+			text-decoration: none;
+		}
+
 		ul {
 			list-style: circle;
 			margin-left: 20px;
