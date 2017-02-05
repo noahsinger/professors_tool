@@ -23,6 +23,14 @@ $page_background: $blue_grey_900;
 		}
 	} //end h's
 
+	#assignment_instructions {
+		h1, h2, h3, h4, h5, h6 {
+			margin: 0 0 -20px 0;
+			padding-bottom: 0;
+			color: lighten($background_color, 10%);
+		}
+	}
+
 	input[type=submit], input[type=clear], input[type=button] {
 		background-color: lighten($background_color, 20%);
 		color: $font_color;

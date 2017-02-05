@@ -29,9 +29,9 @@ xxx@xxx.xxx %> pts</td></tr>
 	<header>
 		<h4>Instructions</h4>
 	</header>
-	<section>
+	<div id="assignment_instructions">
 		<%= xxx@xxx.xxx %>
-	</section>
+	</div>
 </div>
 
 <% xxx@xxx.xxx > 0 %>
