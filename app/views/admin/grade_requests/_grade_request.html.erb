@@ -1,6 +1,12 @@
 <div class="block grade_requests <%= double_width_if_main(defined? main) %>">
 	<header>
-		<p><%= grade_request.enrollment.student.last_name %>, <%= grade_request.enrollment.student.first_name %></p>
+		<p>
+			<% if grade_request.enrollment %>
+				<%= grade_request.enrollment.student.last_name %>, <%= grade_request.enrollment.student.first_name %>
+			<% else %>
+				No Enrollment
+			<% end %>
+		</p>
 		<% if grade_request.enrollment %>
 			<h3><%= grade_request.enrollment.section.course.short_name %></h3>
 		<% else %>
@@ -11,7 +17,7 @@
 	<ul>
 		<li class="icon"><%= link_to [:admin,grade_request], {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">Destroy</span><% end %></li>
 	</ul>
-	
+
 	<p>
 		<%= grade_request.section.course.title %><br/>
 		<%= mail_to grade_request.email %><br/>
