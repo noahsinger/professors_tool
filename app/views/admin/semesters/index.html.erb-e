@@ -1,4 +1,0 @@
-
-<%= render 'admin/semesters/semesters_header' %>
-<%= render partial: 'semester', xxx@xxx.xxx cached: true %>
-

@@ -1,8 +1,0 @@
-<div class="block block--width2">
-	<header>
-		<p>echo example service</p>
-		<h1>Echo</h1>
-	</header>
-
-	<p><%= debug( params ) %></p>
-</div>

@@ -1,8 +1,0 @@
-
-<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
-<%= render partial: 'assignments/assignment', locals: xxx@xxx.xxx %>
-
-<%= render partial: 'homework_return_requests/homework_return_requests_header', locals: {main: true} %>	
-
-<%= render 'form' %>

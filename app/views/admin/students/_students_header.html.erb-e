@@ -1,8 +1,0 @@
-<div class="block <%= double_width_if_main(defined? main) %> students header">
-	<header>
-		<%= link_to admin_students_path do %>
-			<p><%= pluralize students.count, 'student' %></p>
-			<h3>Students</h3>
-		<% end %>
-	</header>	
-</div>

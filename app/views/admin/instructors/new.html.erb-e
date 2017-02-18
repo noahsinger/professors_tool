@@ -1,4 +1,0 @@
-
-<%= render 'instructors_header' %>
-
-<%= render 'form' %>

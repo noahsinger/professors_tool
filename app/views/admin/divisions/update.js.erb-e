@@ -1,1 +1,0 @@
-FlyingBlocks.process_form("<%= escape_javascript(render 'form') %>", xxx@xxx.xxx %>");

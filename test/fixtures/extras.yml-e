@@ -1,9 +1,0 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-download_1:
-  file_file_name: testfile.txt
-  file_content_type: text/text
-  file_file_size: 50
-  file_updated_at: <%= Time.now %>
-  lab_id: 1
-  description: Download this to help with lab1

@@ -1,7 +1,0 @@
-$("#steps").empty( );
-
-xxx@xxx.xxx do |step| %>
-	$("#steps").append("<%= escape_javascript(render(partial: step)) %>")
-<% end %>
-
-$("#steps").reorderTable( "<%= xxx@xxx.xxx ) %>", "<%= form_authenticity_token %>" );

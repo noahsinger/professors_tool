@@ -1,8 +1,0 @@
-<div class="block works header <%= double_width_if_main(defined? main) %>">
-	<header>
-		<%= link_to xxx@xxx.xxx @section, @assignment ) do %>
-			<p>Submit Your Solution</p>
-xxx@xxx.xxx %></h5>
-		<% end %>
-	</header>
-</div>

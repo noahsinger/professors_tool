@@ -1,4 +1,0 @@
-
-<%= render 'instructors_header' %>
-
-<%= render partial: 'instructor', xxx@xxx.xxx cached: true %>

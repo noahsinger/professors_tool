@@ -1,8 +1,0 @@
-
-<%= render partial: 'divisions_header' %>
-
-<div class="block divisions">
-	<h3>New Division/School</h3>
-</div>
-
-<%= render 'form' %>

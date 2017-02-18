@@ -1,8 +1,0 @@
-
-<%= render partial: 'admin/students/students_header', locals: {students: Student.all} %>
-
-<div class="block students">
-	<h3>New Student</h3>
-</div>
-
-<%= render 'form' %>

@@ -1,6 +1,0 @@
-<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
-
-<%= render partial: 'examples/examples_header', locals: xxx@xxx.xxx main: true} %>
-
-<%= render partial: 'example', xxx@xxx.xxx cached: true %>

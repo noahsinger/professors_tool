@@ -1,4 +1,0 @@
-
-<%= render 'general_contacts_header' %>
-
-<%= render partial: 'general_contact', xxx@xxx.xxx cached: true %>

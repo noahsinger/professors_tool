@@ -1,4 +1,0 @@
-
-<%= render partial: 'grade_requests_header' %>
-
-<%= render partial: 'grade_request', xxx@xxx.xxx cached: true %>

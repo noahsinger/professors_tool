@@ -1,7 +1,0 @@
-<div class="block instructors header <%= double_width_if_main(defined? main) %>">
-	<header>
-		<%= link_to instructors_path do %>
-			<h2>Instructors</h2>
-		<% end %>
-	</header>
-</div>
