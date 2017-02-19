@@ -1,6 +1,6 @@
 <tr id="<%= requirement.id.to_s %>">
   <td><%= requirement.description %></td>
   <td><%= requirement.points %></td>
-  <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-  <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></td>
+  <td class="edit"><%= link_to 'Edit', edit_admin_course_lab_requirement_path(@course,@lab,requirement) %></td>
+  <td class="destroy"><%= link_to 'Destroy', [:admin,@course,@lab,requirement], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></td>
 </tr>

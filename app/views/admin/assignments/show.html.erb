@@ -2,25 +2,25 @@
 
 
 <%= render 'admin/semesters/semesters_header' %>
-<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
-<%= render xxx@xxx.xxx %>
-<%= render partial: 'assignments_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/semesters/semester', locals: {semester: @semester} %>
+<%= render partial: 'admin/courses/course', locals: {course: @section.course} %>
+<%= render partial: 'admin/sections/sections_header', locals: {semester: @semester} %>
+<%= render partial: @section %>
+<%= render partial: 'assignments_header', locals: {section: @section} %>
 
-<%= render partial: 'assignment', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'assignment', locals: {assignment: @assignment, main: true} %>
 
 <div class="block assignments">
 	<header>
 		<h3>Requirements</h3>
 	</header>
 	<table>
-xxx@xxx.xxx do |r| %>
+		<% @assignment.lab.requirements.each do |r| %>
 			<tr>
 				<td><%= r.description %></td><td><%= r.points %> pts</td>
 			</tr>
 		<% end %>
-xxx@xxx.xxx %> pts</td></tr>
+		<tr><td>Total</td><td><%= @assignment.worth %> pts</td></tr>
 	</table>
 </div>
 
@@ -29,17 +29,17 @@ xxx@xxx.xxx %> pts</td></tr>
 		<h3>Instructions</h3>
 	</header>
 	<section>
-		<%= xxx@xxx.xxx %>
+		<%= markdown @assignment.lab.instructions %>
 	</section>
 </div>
 
-<% xxx@xxx.xxx > 0 %>
+<% if @assignment.lab.extras.size > 0 %>
 	<div class="block assignments">
 		<header>
 			<h3>Extras</h3>
 		</header>
 		<ul>
-xxx@xxx.xxx do |extra| %>
+			<% @assignment.lab.extras.each do |extra| %>
 				<li>
 					<%= link_to extra.file.url do %>
 						<div><%= extra.description %></div>

@@ -1,6 +1,6 @@
 <div class="block form divisions">
-	<%= xxx@xxx.xxx remote: true) do |f| %>
-		<%= xxx@xxx.xxx %>
+	<%= form_for([:admin,@division], remote: true) do |f| %>
+		<%= show_error_messages_for @division %>
 		<ol>
 			<li><div class="details"><%= f.label :name %><p></p></div><div class="field"><%= f.text_field :name %></div></li>
 			<li><div class="details"><%= f.label :office_number %><p></p></div><div class="field"><%= f.text_field :office_number %></div></li>

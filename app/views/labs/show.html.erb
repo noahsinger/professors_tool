@@ -1,36 +1,36 @@
-<%= render partial: 'courses/course', locals: xxx@xxx.xxx %>
-<%= render partial: 'labs_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'courses/course', locals: {course: @course} %>
+<%= render partial: 'labs_header', locals: {course: @course} %>
 
-<%= render partial: 'lab', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'lab', locals: {lab: @lab, main: true} %>
 
 <div class="block labs">
 	<header id="requirements_header"><h4>Requirements</h4></header>
 	<table id="requirements">
-xxx@xxx.xxx do |r| %>
+		<% @lab.requirements.each do |r| %>
 			<tr>
 				<td><%= r.description %></td><td><%= r.points %></td>
 			</tr>
 		<% end %>
-xxx@xxx.xxx %> pts</td></tr>
+		<tr><td>Total</td><td><%= @lab.worth %> pts</td></tr>
 	</table>
 </div>
 
 <div class="block labs">
 	<header><h4>Objective</h4></header>
-xxx@xxx.xxx %></p>
+	<p><%= @lab.objective %></p>
 </div>
 
 <div class="block labs block--width2">
 	<header><h3>Instructions</h3></header>
-	<%= xxx@xxx.xxx %>
+	<%= markdown @lab.instructions %>
 </div>
 
 
-<% xxx@xxx.xxx > 0 %>
+<% if @lab.extras.size > 0 %>
 <div class="block labs">
 	<header><h4>Extras</h4></header>
 	<ul>
-xxx@xxx.xxx do |extra| %>
+		<% @lab.extras.each do |extra| %>
 			<li>
 				<%= link_to extra.file.url do %>
 					<p><%= extra.description %></p>

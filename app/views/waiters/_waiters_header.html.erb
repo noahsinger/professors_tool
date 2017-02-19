@@ -1,7 +1,7 @@
 <div class="block waiters header <%= double_width_if_main(defined? main) %>">
 	<header>
-		<%= link_to xxx@xxx.xxx do %>
-xxx@xxx.xxx %></p>
+		<%= link_to new_course_waiter_path(@course) do %>
+			<p><%= @course.title %></p>
 			<h4>Get Notified</h4>
 		<% end %>
 	</header>

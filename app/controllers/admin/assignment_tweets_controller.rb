@@ -2,28 +2,28 @@ class Admin::AssignmentTweetsController < ApplicationController
   before_action :authenticate
 
   def new
-   xxx@xxx.xxx = Assignment.find params[:assignment_id]
+    @assignment = Assignment.find params[:assignment_id]
 
-    @content = xxx@xxx.xxx for"
+    @content = "#{@assignment.title} for"
 
-    xxx@xxx.xxx
-	  	@content = "#{@content} xxx@xxx.xxx
+    unless @assignment.section.days.empty?
+	  	@content = "#{@content} #{@assignment.section.short_days}"
 	  end
 
-	  @content = "#{@content} xxx@xxx.xxx
+	  @content = "#{@content} #{@assignment.section.course.title}"
 
     if params[:status] == "graded"
-	    @content = "#{@content} class has been graded. xxx@xxx.xxx
+	    @content = "#{@content} class has been graded. #{@assignment.short_url}"
     elsif params[:status] == "new"
-    	@content = "#{@content} class is now available. xxx@xxx.xxx
+    	@content = "#{@content} class is now available. #{@assignment.short_url}"
     elsif params[:status] == "duedate"
-    	@content = "#{@content} class has had its due date changed. xxx@xxx.xxx
+    	@content = "#{@content} class has had its due date changed. #{@assignment.short_url}"
     end
   end
 
   def create
     respond_to do |format|
-     xxx@xxx.xxx = Assignment.find params[:assignment_id]
+      @assignment = Assignment.find params[:assignment_id]
       begin
         Tweet.new.send( params[:content] )
         flash[:notice] = "Tweet tweeted"
@@ -31,8 +31,8 @@ class Admin::AssignmentTweetsController < ApplicationController
         flash[:error] = "Tweet not sent: #{e}"
       end
 
-      @status = xxx@xxx.xxx @assignment.section, @assignment)
-      format.html {redirect_to xxx@xxx.xxx @assignment.section, @assignment)}
+      @status = admin_semester_section_assignment_path(@assignment.section.semester, @assignment.section, @assignment)
+      format.html {redirect_to admin_semester_section_assignment_path(@assignment.section.semester, @assignment.section, @assignment)}
       format.js
     end
   end

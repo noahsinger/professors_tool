@@ -1,5 +1,5 @@
 
-<%= render partial: 'course', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'course', locals: {course: @course, main: true} %>
 <%= render partial: "courses/syllabus_header" %>
 <%= render partial: "waiters/waiters_header" %>
 
@@ -15,14 +15,14 @@
 
 <div class="block courses">
 	<header><h3>Description</h3></header>
-	<%= xxx@xxx.xxx %>
+	<%= markdown @course.description %>
 </div>
 
-<%= render partial: 'materials/materials_header', locals: xxx@xxx.xxx %>
-<%= render partial: 'steps/steps_list', locals: xxx@xxx.xxx %>
+<%= render partial: 'materials/materials_header', locals: {course: @course} %>
+<%= render partial: 'steps/steps_list', locals: {course: @course} %>
 
 
-<% xxx@xxx.xxx > 0 %>
+<% if @course.sections.size > 0 %>
 	<div class="block sections">
 		<header>
 			<p>Sections</p>
@@ -30,7 +30,7 @@
 		</header>
 
 		<ul>
-xxx@xxx.xxx do |section| %>
+			<% @course.sections.each do |section| %>
 				<li>
 					<%= link_to semester_section_path( section.semester, section ) do %>
 						<%= section.semester.name %> (<%= section.enrollments.size %> enrolled)
@@ -44,13 +44,13 @@ xxx@xxx.xxx do |section| %>
 <div class="block courses">
 	<header id="course_objectives_header"><h3>Objectives</h3></header>
 	<ol>
-xxx@xxx.xxx do |objective| %>
+		<% @course.objectives.each do |objective| %>
 			<li><%= objective.description %></li>
 		<% end %>
 	</ol>
 </div>
 
 
-<% xxx@xxx.xxx > 0 %>
-	<%= render partial: 'labs/labs_header', locals: xxx@xxx.xxx %>
+<% if @course.labs.size > 0 %>
+	<%= render partial: 'labs/labs_header', locals: {course: @course} %>
 <% end %>

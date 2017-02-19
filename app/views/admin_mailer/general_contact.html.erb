@@ -11,24 +11,24 @@
 
 <div class="block general_contacts">
 	<header>
-xxx@xxx.xxx %></p>
+		<p><%= @contact.return_email %></p>
 		<h3>From</h3>
 	</header>
 
-	<p>Subject: xxx@xxx.xxx %></p>
+	<p>Subject: <%= @contact.subject %></p>
 
-	<% xxx@xxx.xxx %>
+	<% if @contact.attachment_file_name %>
 		<p>
 			<strong>Attachment included</strong><br/>
-			Content-type: xxx@xxx.xxx %><br/>
-			Size: xxx@xxx.xxx %><br/>
-			Name: xxx@xxx.xxx %><br/>
+			Content-type: <%= @contact.attachment_content_type %><br/>
+			Size: <%= @contact.attachment_file_size %><br/>
+			Name: <%= @contact.attachment_file_name %><br/>
 		</p>
 	<% end %>
 </div>
 
 <div class="block general_contacts block--width2">
 	<p>
-		<%= xxx@xxx.xxx %>
+		<%= markdown @contact.body %>
 	</p>
 </div>

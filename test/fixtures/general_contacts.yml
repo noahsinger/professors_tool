@@ -1,7 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  return_email: xxx@xxx.xxx
+  return_email: noah@threesuns.org
   subject: This is test 1
   body: This is the first test
   attachment_file_name:

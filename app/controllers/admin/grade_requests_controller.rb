@@ -4,22 +4,22 @@ class Admin::GradeRequestsController < ApplicationController
   # GET /grade_requests
   # GET /grade_requests.xml
   def index
-   xxx@xxx.xxx = GradeRequest.order('created_at desc')
+    @grade_requests = GradeRequest.order('created_at desc')
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @grade_requests }
     end
   end
 
   # DELETE /grade_requests/1
   # DELETE /grade_requests/1.xml
   def destroy
-   xxx@xxx.xxx = GradeRequest.find(params[:id])
-   xxx@xxx.xxx
+    @grade_request = GradeRequest.find(params[:id])
+    @grade_request.destroy
 
     respond_to do |format|
-     xxx@xxx.xxx = admin_grade_requests_url
+      @status = admin_grade_requests_url
       format.html { redirect_to(admin_grade_requests_url) }
       format.xml  { head :ok }
       format.js
@@ -27,13 +27,13 @@ class Admin::GradeRequestsController < ApplicationController
   end
   
   def destroy_all
-   xxx@xxx.xxx = GradeRequest.all
-   xxx@xxx.xxx do |grade_request|
+    @grade_requests = GradeRequest.all
+    @grade_requests.each do |grade_request|
       grade_request.destroy
     end
     
     respond_to do |format|
-     xxx@xxx.xxx = admin_grade_requests_url
+      @status = admin_grade_requests_url
       format.html { redirect_to(admin_grade_requests_url) }
       format.xml  { head :ok }
       format.js

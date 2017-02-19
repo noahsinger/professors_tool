@@ -1,8 +1,8 @@
 
 <%= render 'admin/semesters/semesters_header' %>
-<%= render xxx@xxx.xxx locals: {main: true} %>
-<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
-<%= render partial: 'section', xxx@xxx.xxx cached: true %>
+<%= render partial: @semester, locals: {main: true} %>
+<%= render partial: 'admin/sections/sections_header', locals: {semester: @semester} %>
+<%= render partial: 'section', collection: @sections, cached: true %>
 
 	<div class="block chart sections" data-script="setTimeout(init_chart,1000)">
 		<section id="enrollments_chart">No Enrollment Data Available</section>
@@ -28,7 +28,7 @@
 							min: 0
 						},
 						series: [
-xxx@xxx.xxx do |section| %>
+						<% @semester.sections.all.each do |section| %>
 							<%# if section.enrollment_snapshots.count > 0 %>
 								{
 									name: "<%= section.meeting_days %> <%= section.course.title %>",

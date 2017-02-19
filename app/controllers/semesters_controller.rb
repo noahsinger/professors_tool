@@ -2,11 +2,11 @@ class SemestersController < ApplicationController
   # GET /semesters
   # GET /semesters.xml
   def index
-   xxx@xxx.xxx = Semester.order('start_date desc')
+    @semesters = Semester.order('start_date desc')
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @semesters }
     end
   end
 
@@ -19,9 +19,9 @@ class SemestersController < ApplicationController
         format.html { redirect_to semester_sections_url(Semester.future.first) }
         format.json { render json: Semester.future.first, status: :ok, location: Semester.future.first }
       else
-       xxx@xxx.xxx = Semester.order('start_date desc')
+        @semesters = Semester.order('start_date desc')
         format.html { render :index }
-        format.json  { render xxx@xxx.xxx }
+        format.json  { render json: @semesters }
       end
     end
   end

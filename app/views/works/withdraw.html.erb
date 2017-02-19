@@ -1,26 +1,26 @@
 
-<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
-<%= render partial: 'assignments/assignment', locals: xxx@xxx.xxx %>
+<%= render partial: 'semesters/semester', locals: {semester: @semester} %>
+<%= render partial: 'sections/section', locals: {section: @section} %>
+<%= render partial: 'assignments/assignment', locals: {assignment: @assignment} %>
 
 <div class="block works block--width2">
 	<header>
-		<p>status: xxx@xxx.xxx %></p>
+		<p>status: <%= @condition %></p>
 		<h5>Solution Withdrawal</h5>
 	</header>
 </div>
 
 <div class="block works block--width2">
-	<% xxx@xxx.xxx == "destroyed" %>
+	<% if @condition == "destroyed" %>
 		<p class="green">Your work has been withdrawn.</p>
 	<% else %>
-		<% xxx@xxx.xxx == "no works" %>
+		<% if @condition == "no works" %>
 			<p class="red">Your work HAS NOT been withdrawn, are you sure you clicked the link in the correct email?</p>
 		<% else %>
-			<% xxx@xxx.xxx == "no code" %>
+			<% if @condition == "no code" %>
 				<p class="red">Quit messing around.</p>
 			<% else %>
-				<% xxx@xxx.xxx == "pastdue" %>
+				<% if @condition == "pastdue" %>
 					<p class="red">That assignment is past due so it cannot be withdrawn.</p>
 				<% end %>
 			<% end %>

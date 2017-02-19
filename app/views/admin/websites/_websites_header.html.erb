@@ -1,11 +1,11 @@
 <div class="block <%= double_width_if_main(defined? main) %> websites header">
 	<header>
-		<%= link_to xxx@xxx.xxx do %>
+		<%= link_to admin_course_websites_path(@course) do %>
 			<h4>Websites</h4>
 		<% end %>
 	</header>
 	
 	<ul class="actions">
-		<li class="icon"><%= link_to xxx@xxx.xxx {class: "icon icon-plus", title: "New"} do %><span class="text_label">New website</span><% end %></li>
+		<li class="icon"><%= link_to new_admin_course_website_path(@course), {class: "icon icon-plus", title: "New"} do %><span class="text_label">New website</span><% end %></li>
 	</ul>
 </div>

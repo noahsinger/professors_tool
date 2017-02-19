@@ -5,44 +5,44 @@ class Admin::RequirementsController < ApplicationController
   before_action :load_course
   
   def load_lab
-   xxx@xxx.xxx = Lab.find( params[:lab_id] )
+    @lab = Lab.find( params[:lab_id] )
   end
   
   def load_course
-   xxx@xxx.xxx = Course.find( params[:course_id] )
+    @course = Course.find( params[:course_id] )
   end
   
   # GET /requirements/new
   # GET /requirements/new.xml
   def new
-    @requirement xxx@xxx.xxx
+    @requirement = @lab.requirements.build
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @requirement }
     end
   end
 
   # GET /requirements/1/edit
   def edit
-    @requirement xxx@xxx.xxx
+    @requirement = @lab.requirements.find(params[:id])
   end
 
   # POST /requirements
   # POST /requirements.xml
   def create
-    @requirement xxx@xxx.xxx
+    @requirement = @lab.requirements.build(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @requirement.save
+        @status = admin_course_lab_url(@course,@lab)
         flash[:notice] = 'Requirement was successfully created.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { render xml: @requirement, status: :created, xxx@xxx.xxx }
+        format.html { redirect_to([:admin,@course,@lab]) }
+        format.xml  { render xml: @requirement, status: :created, location: @requirement }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @requirement.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -51,25 +51,25 @@ class Admin::RequirementsController < ApplicationController
   # PUT /requirements/1
   # PUT /requirements/1.xml
   def update
-    @requirement xxx@xxx.xxx
+    @requirement = @lab.requirements.find(params[:id])
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @requirement.update_attributes(allowed_params)
+        @status = admin_course_lab_url(@course,@lab)
         flash[:notice] = 'Requirement was successfully updated.'
-        format.html { xxx@xxx.xxx }
+        format.html { redirect_to([:admin,@course,@lab]) }
         format.xml  { head :ok }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @requirement.errors, status: :unprocessable_entity }
       end
       format.js
     end
   end
   
   def sort
-   xxx@xxx.xxx do |requirement|
+    @lab.requirements.all.each do |requirement|
       if position = params[:requirements_table].index(requirement.id.to_s)
         requirement.update_attribute(:position, position + 1) unless requirement.position == position + 1
       end
@@ -85,12 +85,12 @@ class Admin::RequirementsController < ApplicationController
   # DELETE /requirements/1
   # DELETE /requirements/1.xml
   def destroy
-    @requirement xxx@xxx.xxx
-   xxx@xxx.xxx
+    @requirement = @lab.requirements.find(params[:id])
+    @requirement.destroy
 
     respond_to do |format|
-      @status = xxx@xxx.xxx
-      format.html { xxx@xxx.xxx @lab )) }
+      @status = admin_course_lab_url(@course,@lab)
+      format.html { redirect_to(admin_course_lab_url( @course, @lab )) }
       format.xml  { head :ok }
       format.js
     end

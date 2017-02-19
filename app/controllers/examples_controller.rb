@@ -6,12 +6,12 @@ class ExamplesController < ApplicationController
   before_action :load_section, except: [:test_notice, :test_error, :test_exception, :test_tweet, :echo]
 
   def load_section
-   xxx@xxx.xxx = Semester.find params[:semester_id]
-   xxx@xxx.xxx = Section.find params[:section_id]
+    @semester = Semester.find params[:semester_id]
+    @section = Section.find params[:section_id]
   end
 
   def index
-    @examples xxx@xxx.xxx
+    @examples = @section.examples.all
   end
 
   def test_exception

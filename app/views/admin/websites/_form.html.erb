@@ -1,6 +1,6 @@
 <div class="block form websites">
-	<%= xxx@xxx.xxx remote: true) do |f| %>
-		<%= xxx@xxx.xxx %>
+	<%= form_for([:admin,@course,@website], remote: true) do |f| %>
+		<%= show_error_messages_for @website %>
 		<ol>
 			<li><div class="details"><%= f.label :title %><p>Website's Name</p></div><div class="field"><%= f.text_field :title %></div></li>
 			<li><div class="details"><%= f.label :url %><p>to be linked on syllabus</p></div><div class="field"><%= f.text_field :url %></div></li>

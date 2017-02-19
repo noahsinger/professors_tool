@@ -1,4 +1,4 @@
-<%= render partial: 'courses/course', locals: xxx@xxx.xxx %>
-<%= render partial: 'labs_header', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'courses/course', locals: {course: @course} %>
+<%= render partial: 'labs_header', locals: {course: @course, main: true} %>
 
-<%= render partial: 'lab', xxx@xxx.xxx cached: true %>
+<%= render partial: 'lab', collection: @labs, cached: true %>

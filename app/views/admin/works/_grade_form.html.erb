@@ -1,6 +1,6 @@
 <div class="block form block--width2 works" data-script="setup_field_updates( )">
-	<%= form_for( @work, as: :work, url: xxx@xxx.xxx html: {method: :put}, remote: true ) do |f| %>
-		<%= xxx@xxx.xxx %>
+	<%= form_for( @work, as: :work, url: record_score_admin_semester_section_assignment_work_url(@semester,@section,@assignment,@work), html: {method: :put}, remote: true ) do |f| %>
+		<%= show_error_messages_for @work %>
 				<div class="fancy">
 					<table>
 						<tr>
@@ -8,12 +8,12 @@
 							<th>Worth</th>
 							<th>Awarded</th>
 						</tr>
-xxx@xxx.xxx do |r| %>
+						<% @assignment.lab.requirements.each do |r| %>
 							<tr>
 								<td><label for="awarded_points[<%= r.id %>]"><%= r.description %></label></td>
 								<td><%= r.points %></td>
 				
-								<% x xxx@xxx.xxx = ?', r]).first || r %>
+								<% x = @work.awarded_points.where(['requirement_id = ?', r]).first || r %>
 				
 								<td><%= number_field :awarded_points, r.id, max_length: 3, size: 4, value: x.points, class: 'awarded_points_field' %></td>
 							</tr>
@@ -21,10 +21,10 @@ xxx@xxx.xxx do |r| %>
 						<tr>
 							<td></td>
 							<td id="assignment_worth">
-xxx@xxx.xxx %>
+								<%= @assignment.worth %>
 							</td>
 							<td>
-								<span xxx@xxx.xxx %></span>
+								<span id="running_total"><%= @assignment.worth %></span>
 							</td>
 						</tr>
 					</table>

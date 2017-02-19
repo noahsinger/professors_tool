@@ -1,22 +1,22 @@
 
 <%= render 'admin/semesters/semesters_header' %>
-<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
-<%= render xxx@xxx.xxx %>
-<%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/assignments/assignment', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/semesters/semester', locals: {semester: @semester} %>
+<%= render partial: 'admin/courses/course', locals: {course: @section.course} %>
+<%= render partial: 'admin/sections/sections_header', locals: {semester: @semester} %>
+<%= render partial: @section %>
+<%= render partial: 'admin/assignments/assignments_header', locals: {section: @section} %>
+<%= render partial: 'admin/assignments/assignment', locals: {assignment: @assignment} %>
 
-<%= render partial: 'work', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'work', locals: {work: @work, main: true} %>
 
-<% xxx@xxx.xxx %>
+<% if @work.assignment.lab.allow_uploads %>
 	<div class="block works">
 		<header>
-				<% xxx@xxx.xxx == "removed" %>
+				<% if @work.upload_content_type == "removed" %>
 					<h3>Removed</h3>
-				<% xxx@xxx.xxx %>
-					<%= link_to xxx@xxx.xxx do %>
-xxx@xxx.xxx %></p>
+				<% elsif @work.upload %>
+					<%= link_to "#{@work.upload.url}&code=#{@work.withdrawal_code}" do %>
+						<p><%= @work.upload_file_name %></p>
 						<h3>Download</h3>
 					<% end %>
 				<% else %>

@@ -72,7 +72,7 @@ class Assignment < ApplicationRecord
   end
 
   def self.visible
-   xxx@xxx.xxx = Assignment.all.joins([:lab]).where("labs.visible = ?", true).order('duedate desc')
+    @assignments = Assignment.all.joins([:lab]).where("labs.visible = ?", true).order('duedate desc')
   end
 
   def to_ical_event

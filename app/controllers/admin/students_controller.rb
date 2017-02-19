@@ -5,116 +5,116 @@ class Admin::StudentsController < ApplicationController
   before_action :load_section, only: [:new, :create, :unenroll]
 
   def load_semester
-   xxx@xxx.xxx = Semester.find(params[:semester_id])
+    @semester = Semester.find(params[:semester_id])
   end
 
   def load_section
-   xxx@xxx.xxx = Section.find(params[:section_id])
+    @section = Section.find(params[:section_id])
   end
 
   def index
-	 xxx@xxx.xxx = Student.paginate(page: params[:page])
+	  @students = Student.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @students }
     end
   end
   
   def search
-	 xxx@xxx.xxx = Student.search(params[:q]).paginate(page: params[:page])
+	  @students = Student.search(params[:q]).paginate(page: params[:page])
 
     respond_to do |format|
       format.html
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @students }
       format.js
     end
   end
 
   def show
-   xxx@xxx.xxx = Student.find(params[:id])
+    @student = Student.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @student }
     end
   end
 
   def new
-   xxx@xxx.xxx = Student.new
+    @student = Student.new
 
     if session[:email]
-     xxx@xxx.xxx = session[:email]
+      @student.email = session[:email]
       session[:email] = nil
 
       # extract the first and last name from the email address
-      d = @student.email.match xxx@xxx.xxx
+      d = @student.email.match /^(\w+)\.([a-zA-Z]+)\d*@/
       if d
-       xxx@xxx.xxx = d[1].capitalize
-       xxx@xxx.xxx = d[2].capitalize
+        @student.first_name = d[1].capitalize
+        @student.last_name = d[2].capitalize
       end
     end
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @student }
     end
   end
 
   def edit
-   xxx@xxx.xxx = Student.find(params[:id])
+    @student = Student.find(params[:id])
   end
 
   def create
-   xxx@xxx.xxx = Student.new(allowed_params)
+    @student = Student.new(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
-       xxx@xxx.xxx = Enrollment.new
-        @enrollment.student_id xxx@xxx.xxx
-        @enrollment.section_id xxx@xxx.xxx
+      if @student.save
+        @enrollment = Enrollment.new
+        @enrollment.student_id = @student.id
+        @enrollment.section_id = @section.id
 
-       xxx@xxx.xxx = EnrollmentStatus.enrolled
+        @enrollment.enrollment_status = EnrollmentStatus.enrolled
 
-       xxx@xxx.xxx
+        @enrollment.save
 
-        @status = xxx@xxx.xxx @section)
+        @status = admin_semester_section_enrollments_url(@semester, @section)
         flash[:notice] = 'Student was successfully created and enrolled.'
-        format.html { xxx@xxx.xxx @section)) }
-        format.xml  { render xml: @student, status: :created, xxx@xxx.xxx }
+        format.html { redirect_to(admin_semester_section_enrollments_url(@semester, @section)) }
+        format.xml  { render xml: @student, status: :created, location: @student }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @student.errors, status: :unprocessable_entity }
       end #if save
       format.js
     end #respond_to
   end
 
   def update
-   xxx@xxx.xxx = Student.find(params[:id])
+    @student = Student.find(params[:id])
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @student.update_attributes(allowed_params)
+        @status = admin_student_url(@student)
         flash[:notice] = 'Student was successfully updated.'
-        format.html { xxx@xxx.xxx }
+        format.html { redirect_to([:admin,@student]) }
         format.xml  { head :ok }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @student.errors, status: :unprocessable_entity }
       end
       format.js
     end
   end
 
   def destroy
-   xxx@xxx.xxx = Student.find(params[:id])
-   xxx@xxx.xxx
+    @student = Student.find(params[:id])
+    @student.destroy
 
     respond_to do |format|
-     xxx@xxx.xxx = admin_students_url
+      @status = admin_students_url
       format.html { redirect_to(admin_students_url) }
       format.xml  { head :ok }
       format.js

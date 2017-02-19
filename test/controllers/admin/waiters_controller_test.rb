@@ -6,21 +6,21 @@ class Admin::WaitersControllerTest < ActionDispatch::IntegrationTest
                         {action: 'destroy', id: 1}  => :delete)
 
   setup do
-   xxx@xxx.xxx = waiters(:one)
+    @waiter = waiters(:one)
     login_as(:admin)
   end
 
   test "should get index" do
-    get xxx@xxx.xxx
+    get admin_course_waiters_url(@waiter.course)
     assert_response :success
     assert_not_nil assigns(:waiters)
   end
 
   test "should destroy waiter" do
     assert_difference('Waiter.count', -1) do
-      delete xxx@xxx.xxx
+      delete admin_course_waiter_url(@waiter.course,@waiter)
     end
 
-    assert_redirected_to xxx@xxx.xxx
+    assert_redirected_to admin_course_waiters_path(@waiter.course)
   end
 end

@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
-  email: xxx@xxx.xxx
+  email: noah@threesuns.org
   course_id: 1
 
 two:
-  email: xxx@xxx.xxx
+  email: noah.singer@gmail.com
   course_id: 1 
   
 three:
-  email: xxx@xxx.xxx
+  email: noah.singer@gmail.com
   course_id: 2

@@ -11,36 +11,36 @@ class Admin::TutorialsController < ApplicationController
   end
   
   def load_course
-   xxx@xxx.xxx = Course.find( params[:course_id] )
+    @course = Course.find( params[:course_id] )
   end
   
   # GET /tutorials
   # GET /tutorials.xml
   def index
-    @tutorials xxx@xxx.xxx
-   xxx@xxx.xxx = HowTo.all
+    @tutorials = @course.tutorials.all
+    @how_tos = HowTo.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @tutorials }
     end
   end
 
   # DELETE /tutorials/1
   # DELETE /tutorials/1.xml
   def destroy
-    @tutorial xxx@xxx.xxx
-   xxx@xxx.xxx
+    @tutorial = @course.tutorials.find(params[:id])
+    @tutorial.destroy
 
     respond_to do |format|
-      @status = xxx@xxx.xxx
-      format.html { xxx@xxx.xxx )) }
+      @status = admin_course_tutorials_url(@course)
+      format.html { redirect_to(admin_course_tutorials_url( @course )) }
       format.xml  { head :ok }
     end
   end
   
   def sort
-   xxx@xxx.xxx do |t|
+    @course.tutorials.all.each do |t|
       if position = params[:tutorials].index(t.id.to_s)
         t.update_attribute(:position, position + 1) unless t.position == position + 1
       end
@@ -55,11 +55,11 @@ class Admin::TutorialsController < ApplicationController
   end
   
   def add_how_to
-    @tutorial = Tutorial.new( xxx@xxx.xxx how_to_id: params[:how_to_id] )
+    @tutorial = Tutorial.new( course_id: @course.id, how_to_id: params[:how_to_id] )
 
     respond_to do |format|
-      @status = xxx@xxx.xxx
-      xxx@xxx.xxx
+      @status = admin_course_tutorials_path(@course)
+      if @tutorial.save
         format.html { head :ok }
       else
         flash[:error] = 'There was a problem creating the tutorial.'

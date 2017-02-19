@@ -4,22 +4,22 @@ class Admin::MeetingsController < ApplicationController
   before_action :load_section
   
   def load_section
-   xxx@xxx.xxx = Section.find( params[:section_id] )
+    @section = Section.find( params[:section_id] )
   end
 
   # GET /meetings
   # GET /meetings.json
   def index
-    @meetings xxx@xxx.xxx
+    @meetings = @section.meetings.all
     
-    xxx@xxx.xxx > 0
-	  xxx@xxx.xxx
-	  	@meetings xxx@xxx.xxx  
+    unless @meetings.size > 0
+	  	@section.create_meetings
+	  	@meetings = @section.meetings.all  
 	  end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render xxx@xxx.xxx }
+      format.json { render json: @meetings }
     end
   end
   

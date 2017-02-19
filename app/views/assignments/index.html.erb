@@ -1,22 +1,22 @@
-<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'courses/course', locals: xxx@xxx.xxx %>
-<%= render partial: 'sections/section', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'semesters/semester', locals: {semester: @semester} %>
+<%= render partial: 'courses/course', locals: {course: @section.course} %>
+<%= render partial: 'sections/section', locals: {section: @section, main: true} %>
 
 <%= render 'sections/syllabus_header' %>
 <%= render 'grade_requests/grade_requests_header' %>
 
-<% xxx@xxx.xxx > 0 %>
-	<%= render partial: 'materials/materials_header', locals: xxx@xxx.xxx %>
+<% if @section.course.materials.size > 0 %>
+	<%= render partial: 'materials/materials_header', locals: {course: @section.course} %>
 <% end %>
 
-<% xxx@xxx.xxx > 0 %>
-	<%= render partial: 'examples/examples_header', locals: {semester: @semester, xxx@xxx.xxx %>
+<% if @section.examples.size > 0 %>
+	<%= render partial: 'examples/examples_header', locals: {semester: @semester, section: @section} %>
 <% end %>
 
-<%= render partial: 'steps/steps_list', locals: xxx@xxx.xxx %>
+<%= render partial: 'steps/steps_list', locals: {course: @section.course} %>
 
-<% xxx@xxx.xxx > 0 %>
-	<%= render partial: 'assignment', xxx@xxx.xxx cached: true %>
+<% if @assignments.size > 0 %>
+	<%= render partial: 'assignment', collection: @assignments, cached: true %>
 <% else %>
-	<%= render partial: 'no_assignments', locals: xxx@xxx.xxx %>
+	<%= render partial: 'no_assignments', locals: {section: @section} %>
 <% end %>

@@ -1,6 +1,6 @@
 <div class="block form semesters" data-script="init_semester_form( )">
-	<%= xxx@xxx.xxx remote: true) do |f| %>
-		<%= xxx@xxx.xxx %>
+	<%= form_for([:admin,@semester], remote: true) do |f| %>
+		<%= show_error_messages_for @semester %>
 		<ol>
 			<li><div class="details"><%= f.label :season %><p></p></div><div class="field"><%= f.text_field :season %></div></li>
 		
@@ -43,7 +43,7 @@
 												altField: '#semester_start_date',
 												dateFormat: 'yy-mm-dd',
 												altFormat: 'yy-mm-dd',
-												defaultDate: new Date('<%= xxx@xxx.xxx || 1.day.from_now ) %>')
+												defaultDate: new Date('<%= std_date( @semester.start_date || 1.day.from_now ) %>')
 											 });
 											
 			$("#enddatepicker").datepicker( { numberOfMonths: 1, 
@@ -51,7 +51,7 @@
 											  altField: '#semester_end_date',
 											  dateFormat: 'yy-mm-dd',
 											  altFormat: 'yy-mm-dd',
-											  defaultDate: new Date('<%= xxx@xxx.xxx || 4.months.from_now ) %>')
+											  defaultDate: new Date('<%= std_date( @semester.end_date || 4.months.from_now ) %>')
 											});
 		}
 	</script>

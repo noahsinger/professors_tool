@@ -4,55 +4,55 @@ class Admin::ExamplesController < ApplicationController
   before_action :load_section
   
   def load_semester
-   xxx@xxx.xxx = Semester.find( params[:semester_id] )
+    @semester = Semester.find( params[:semester_id] )
   end
   
   def load_section
-   xxx@xxx.xxx = Section.find( params[:section_id] )
+    @section = Section.find( params[:section_id] )
   end
   
   # GET /admin_examples
   # GET /admin_examples.xml
   def index
-    @examples xxx@xxx.xxx
+    @examples = @section.examples.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @examples }
     end
   end
 
   # GET /admin_examples/new
   # GET /admin_examples/new.xml
   def new
-    @example xxx@xxx.xxx
+    @example = @section.examples.build
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @example }
     end
   end
 
   # GET /admin_examples/1/edit
   def edit
-    @example xxx@xxx.xxx
+    @example = @section.examples.find(params[:id])
   end
 
   # POST /admin_examples
   # POST /admin_examples.xml
   def create
-    @example xxx@xxx.xxx
+    @example = @section.examples.build(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @example.save
+        @status = admin_semester_section_examples_url(@semester,@section)
         flash[:notice] = 'Example was successfully created.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { render xml: @example, status: :created, xxx@xxx.xxx }
+        format.html { redirect_to(admin_semester_section_examples_url(@semester,@section)) }
+        format.xml  { render xml: @example, status: :created, location: @example }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @example.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -61,18 +61,18 @@ class Admin::ExamplesController < ApplicationController
   # PUT /admin_examples/1
   # PUT /admin_examples/1.xml
   def update
-    @example xxx@xxx.xxx
+    @example = @section.examples.find(params[:id])
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @example.update_attributes(allowed_params)
+        @status = admin_semester_section_examples_url(@semester,@section)
         flash[:notice] = 'Example was successfully updated.'
-        format.html { xxx@xxx.xxx }
+        format.html { redirect_to(admin_semester_section_examples_url(@semester,@section)) }
         format.xml  { head :ok }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @example.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -81,12 +81,12 @@ class Admin::ExamplesController < ApplicationController
   # DELETE /admin_examples/1
   # DELETE /admin_examples/1.xml
   def destroy
-    @example xxx@xxx.xxx
-   xxx@xxx.xxx
+    @example = @section.examples.find(params[:id])
+    @example.destroy
 
     respond_to do |format|
-      @status = xxx@xxx.xxx
-      format.html { xxx@xxx.xxx }
+      @status = admin_semester_section_examples_url(@semester,@section)
+      format.html { redirect_to(admin_semester_section_examples_url(@semester,@section)) }
       format.xml  { head :ok }
       format.js
     end

@@ -5,18 +5,18 @@ stew:
   first_name: Stew
   middle_name: E
   last_name: Dent
-  email: xxx@xxx.xxx
+  email: noah@threesuns.org
 
 lia:
   id: 2
   first_name: Lia
   middle_name: E
   last_name: Earner
-  email: xxx@xxx.xxx
+  email: noah@foolaloof.com
 
 pue:
   id: 3
   first_name: Pue
   middle_name: P
   last_name: Pill
-  email: xxx@xxx.xxx
+  email: noah@ingenio.us.com

@@ -1,47 +1,47 @@
-<%= render partial: 'courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'courses/course', locals: {course: @course} %>
 
 <%
-prev_step xxx@xxx.xxx - 1]).first
-next_step xxx@xxx.xxx + 1]).first
+prev_step = @how_to.steps.where(['position=?',@step.position - 1]).first
+next_step = @how_to.steps.where(['position=?',@step.position + 1]).first
 %>
 
-<% xxx@xxx.xxx %>
-	<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
-	<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
+<% if @section %>
+	<%= render partial: 'semesters/semester', locals: {semester: @section.semester} %>
+	<%= render partial: 'sections/section', locals: {section: @section} %>
 
 	<%
-		prev_url = course_how_to_step_path(@course, @how_to, prev_step, xxx@xxx.xxx if prev_step
-		next_url = course_how_to_step_path(@course, @how_to, next_step, xxx@xxx.xxx if next_step
+		prev_url = course_how_to_step_path(@course, @how_to, prev_step, section_id: @section) if prev_step
+		next_url = course_how_to_step_path(@course, @how_to, next_step, section_id: @section) if next_step
 	%>
 <% else %>
 	<%
-		prev_url = xxx@xxx.xxx @how_to, prev_step) if prev_step
-		next_url = xxx@xxx.xxx @how_to, next_step) if next_step
+		prev_url = course_how_to_step_path(@course, @how_to, prev_step) if prev_step
+		next_url = course_how_to_step_path(@course, @how_to, next_step) if next_step
 	%>
 <% end %>
 
 
 <div class="block block--width2 steps">
 	<header>
-xxx@xxx.xxx %></p>
+		<p><%= @step.how_to.title %></p>
 		<h5>How To</h5>
 	</header>
 </div>
 
-<% xxx@xxx.xxx %>
+<% if @step.image_file_name %>
 	<div class="block steps">
 		<section class="how_to_step_image">
-			<%= xxx@xxx.xxx ) %>
+			<%= image_tag( @step.image.url(:large) ) %>
 		</section>
 	</div>
 <% end %>
 
 <div class="block steps">
 	<header>
-xxx@xxx.xxx %></p>
-		<h5>Step xxx@xxx.xxx %></h5>
+		<p><%= @step.title %></p>
+		<h5>Step <%= @step.position %></h5>
 	</header>
-	<%= xxx@xxx.xxx %>
+	<%= markdown @step.instructions %>
 
 	<% if prev_step or next_step %>
 		<ul id="next_prev">

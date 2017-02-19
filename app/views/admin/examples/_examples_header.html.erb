@@ -1,12 +1,12 @@
 <div class="block <%= double_width_if_main(defined? main) %> examples header">
 	<header>
-		<%= link_to xxx@xxx.xxx @section ) do %>
-			<p><%= xxx@xxx.xxx "Example" %></p>
+		<%= link_to admin_semester_section_examples_path( @semester, @section ) do %>
+			<p><%= pluralize @section.examples.size, "Example" %></p>
 			<h5>Examples</h5>
 		<% end %>
 	</header>
 	
 	<ul class="actions">
-		<li class="icon"><%= link_to xxx@xxx.xxx @section ), {class: "icon icon-plus", title: "New"} do %><span class="text_label">New Example</span><% end %></li>
+		<li class="icon"><%= link_to new_admin_semester_section_example_path( @semester, @section ), {class: "icon icon-plus", title: "New"} do %><span class="text_label">New Example</span><% end %></li>
 	</ul>
 </div>

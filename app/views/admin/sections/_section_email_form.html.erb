@@ -1,10 +1,10 @@
 <div class="block form block--width2 sections">
-	<%= xxx@xxx.xxx html: {method: :get}, remote: true) do |f| %>
+	<%= form_for(section_email_admin_semester_section_path(@semester,@section), html: {method: :get}, remote: true) do |f| %>
 		<ol>
 			<li>
 				<div class="details">
 					<label>To:</label>
-					<p>All Class Members of Section xxx@xxx.xxx %></p>
+					<p>All Class Members of Section <%= @section.call_number %></p>
 				</div>
 				<div class="field"></div>
 			</li>
@@ -29,7 +29,7 @@
 		
 			<li>
 				<div class="details">
-					<p><%= @section.instructor.first_name %> <%= @section.instructor.last_name %> xxx@xxx.xxx %></p>
+					<p><%= @section.instructor.first_name %> <%= @section.instructor.last_name %> <%= @section.instructor.title %></p>
 				</div>
 			</li>
 	

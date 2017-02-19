@@ -1,22 +1,22 @@
 
 <%= render 'admin/semesters/semesters_header' %>
-<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
-<%= render xxx@xxx.xxx %>
-<%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx main: true} %>
-<%= render partial: 'admin/assignments/assignment', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/semesters/semester', locals: {semester: @semester} %>
+<%= render partial: 'admin/courses/course', locals: {course: @section.course} %>
+<%= render partial: 'admin/sections/sections_header', locals: {semester: @semester} %>
+<%= render partial: @section %>
+<%= render partial: 'admin/assignments/assignments_header', locals: {section: @section, main: true} %>
+<%= render partial: 'admin/assignments/assignment', locals: {assignment: @assignment} %>
 
-<%= render partial: 'work', locals: xxx@xxx.xxx %>
+<%= render partial: 'work', locals: {work: @work} %>
 
 <div class="block works">
 	<header>
-			<% xxx@xxx.xxx == "removed" %>
+			<% if @work.upload_content_type == "removed" %>
 				<p>Removed</p>
 				<h6>Upload</h6>
-			<% xxx@xxx.xxx %>
-				<%= link_to xxx@xxx.xxx @section, @assignment, @work ) do %>
-xxx@xxx.xxx %></p>
+			<% elsif @work.upload %>
+				<%= link_to download_admin_semester_section_assignment_work_url( @semester, @section, @assignment, @work ) do %>
+					<p><%= @work.upload_file_name %></p>
 					<h6>Upload</h6>
 				<% end %>
 			<% else %>
@@ -38,13 +38,13 @@ xxx@xxx.xxx %></p>
 			earned = 0
 		%>
 
-xxx@xxx.xxx do |r| %>
+		<% @work.assignment.lab.requirements.each do |r| %>
 			<tr>
 				<td><%= r.description %></td>
 				<td><%= r.points %></td>
 		
 				<% 
-					awarded_point xxx@xxx.xxx
+					awarded_point = @work.awarded_points.where(['requirement_id=?',r]).first
 					possible += r.points
 					earned += awarded_point.points if awarded_point
 				%>
@@ -62,7 +62,7 @@ xxx@xxx.xxx do |r| %>
 
 <div class="block works">
 	<header><h6>Comments</h6></header>
-xxx@xxx.xxx %></p>
+	<p><%= @work.instructors_comments %></p>
 
 	<p>
 		<strong>Score: </strong>

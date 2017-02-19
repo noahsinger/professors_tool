@@ -1,9 +1,9 @@
-<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'semesters/semester', locals: {semester: @semester, main: true} %>
 
 <%= content_for :prefetches do %>
-xxx@xxx.xxx do |section| %>
-		<link rel="prefetch" href="<%= xxx@xxx.xxx section) %>">
+	<% @sections.each do |section| %>
+		<link rel="prefetch" href="<%= semester_section_assignments_url(@semester, section) %>">
 	<% end %>
 <% end %>
 
-<%= render partial: 'section', xxx@xxx.xxx cached: true %>
+<%= render partial: 'section', collection: @sections, cached: true %>

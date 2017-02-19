@@ -1,4 +1,4 @@
-<% course xxx@xxx.xxx %>
+<% course = @section.course %>
 =====================================
 Course Availability Notification
 =====================================
@@ -10,14 +10,14 @@ If you have any additional questions about the class please feel free to contact
 (<%= new_general_contact_url(:host => APP_CONFIG['host']) %>).
 
 A new section of <%= course.title %> was just created and will be offered during
-the <%= @section.semester.name %> semester which begins on <%= xxx@xxx.xxx %>.
+the <%= @section.semester.name %> semester which begins on <%= show_short_date(@section.start_date) %>.
 
 Class Details
 -------------
 Course name: <%= course.title %>
 Course number: <%= course.short_name %>
-Section number (CRN): xxx@xxx.xxx %>
-Meeting Days/Times: xxx@xxx.xxx %>
+Section number (CRN): <%= @section.call_number %>
+Meeting Days/Times: <%= @section.meeting_days_and_times %>
 
 If you are interested in enrolling in this class you can visit any TCC campus (http://tulsacc.edu)
 or enroll online (https://mytcc.tulsacc.edu/) using the above information.

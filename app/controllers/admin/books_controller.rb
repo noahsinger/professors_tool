@@ -3,44 +3,44 @@ class Admin::BooksController < ApplicationController
   before_action :load_course
   
   def load_course
-   xxx@xxx.xxx = Course.find( params[:course_id] )
+    @course = Course.find( params[:course_id] )
   end
   
   def index
-    @books xxx@xxx.xxx
+    @books = @course.books.all;
   end
   
   # GET /books/new
   # GET /books/new.xml
   def new
-    @book xxx@xxx.xxx
+    @book = @course.books.build
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @book }
     end
   end
 
   # GET /books/1/edit
   def edit
-    @book xxx@xxx.xxx
+    @book = @course.books.find(params[:id])
   end
 
   # POST /books
   # POST /books.xml
   def create
-    @book xxx@xxx.xxx
+    @book = @course.books.build(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @book.save
+        @status = admin_course_books_url(@course)
         flash[:notice] = 'Book was successfully created.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { render xml: @book, status: :created, xxx@xxx.xxx }
+        format.html { redirect_to(admin_course_books_url(@course)) }
+        format.xml  { render xml: @book, status: :created, location: @book }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @book.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -49,18 +49,18 @@ class Admin::BooksController < ApplicationController
   # PUT /books/1
   # PUT /books/1.xml
   def update
-   xxx@xxx.xxx = Book.find(params[:id])
+    @book = Book.find(params[:id])
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @book.update_attributes(allowed_params)
+        @status = admin_course_books_url(@course)
         flash[:notice] = 'Book was successfully updated.'
-        format.html { xxx@xxx.xxx }
+        format.html { redirect_to(admin_course_books_url(@course)) }
         format.xml  { head :ok }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @book.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -69,12 +69,12 @@ class Admin::BooksController < ApplicationController
   # DELETE /books/1
   # DELETE /books/1.xml
   def destroy
-   xxx@xxx.xxx = Book.find(params[:id])
-   xxx@xxx.xxx
+    @book = Book.find(params[:id])
+    @book.destroy
 
     respond_to do |format|
-      @status = xxx@xxx.xxx
-      format.html { xxx@xxx.xxx }
+      @status = admin_course_books_url(@course)
+      format.html { redirect_to(admin_course_books_url(@course)) }
       format.xml  { head :ok }
       format.js
     end

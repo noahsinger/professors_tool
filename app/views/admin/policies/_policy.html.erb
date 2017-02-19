@@ -1,5 +1,5 @@
 <tr id="<%= policy.id %>">
 	<td><%= policy.syllabus_part.name %></td>
-	<td><%= link_to 'edit', edit_admin_syllabus_part_path(policy.syllabus_part, xxx@xxx.xxx %></td>
-	<td><%= link_to 'remove', xxx@xxx.xxx data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></td>
+	<td><%= link_to 'edit', edit_admin_syllabus_part_path(policy.syllabus_part, course_id: @course) %></td>
+	<td><%= link_to 'remove', [:admin,@course,policy], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></td>
 </tr>

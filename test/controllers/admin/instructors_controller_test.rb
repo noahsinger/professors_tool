@@ -32,7 +32,7 @@ class Admin::InstructorsControllerTest < ActionDispatch::IntegrationTest
           instructor: { first_name: 'test',
             last_name: 'test',
             phone_number: '9185555555',
-            email: xxx@xxx.xxx
+            email: 'test@test.com',
             division_id: divisions(:bit).id
           }
         }

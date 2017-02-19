@@ -3,62 +3,62 @@ class Admin::LabsController < ApplicationController
   before_action :load_course
   
   def load_course
-   xxx@xxx.xxx = Course.find(params[:course_id])
+    @course = Course.find(params[:course_id])
   end
   
   # GET /labs
   # GET /labs.xml
   def index
-    @labs xxx@xxx.xxx
+    @labs = @course.labs.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @labs }
     end
   end
 
   # GET /labs/1
   # GET /labs/1.xml
   def show
-    @lab xxx@xxx.xxx
+    @lab = @course.labs.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @lab }
     end
   end
 
   # GET /labs/new
   # GET /labs/new.xml
   def new
-    @lab xxx@xxx.xxx
+    @lab = @course.labs.build
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @lab }
     end
   end
 
   # GET /labs/1/edit
   def edit
-    @lab xxx@xxx.xxx
+    @lab = @course.labs.find(params[:id])
   end
 
   # POST /labs
   # POST /labs.xml
   def create
-    @lab xxx@xxx.xxx
+    @lab = @course.labs.build(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @lab.save
+        @status = admin_course_lab_url(@course,@lab)
         flash[:notice] = 'Lab was successfully created.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { render xml: @lab, status: :created, xxx@xxx.xxx }
+        format.html { redirect_to([:admin,@course,@lab]) }
+        format.xml  { render xml: @lab, status: :created, location: @lab }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @lab.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -67,40 +67,40 @@ class Admin::LabsController < ApplicationController
   # PUT /labs/1
   # PUT /labs/1.xml
   def update
-    @lab xxx@xxx.xxx
+    @lab = @course.labs.find(params[:id])
 
     respond_to do |format|
-      xxx@xxx.xxx
+      if @lab.update_attributes(allowed_params)
         # if the lab's course has changed (it's been moved) then it needs to 
         #  be reloaded to report the correct course for redirection below
-       xxx@xxx.xxx 
+        @lab.reload 
         
-        @status = xxx@xxx.xxx
+        @status = admin_course_lab_url(@lab.course,@lab)
         flash[:notice] = 'Lab was successfully updated.'
-        format.html { xxx@xxx.xxx }
+        format.html { redirect_to([:admin,@lab.course,@lab]) }
         format.xml  { head :ok }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @lab.errors, status: :unprocessable_entity }
       end
       format.js
     end
   end
   
   def duplicate
-    @orig_lab xxx@xxx.xxx
+    @orig_lab = @course.labs.find(params[:id])
     
-    @lab xxx@xxx.xxx
-    @orig_lab.requirements.each xxx@xxx.xxx req.dup}
-    @orig_lab.extras.each xxx@xxx.xxx ex.dup}
+    @lab = @orig_lab.dup
+    @orig_lab.requirements.each {|req| @lab.requirements.push req.dup}
+    @orig_lab.extras.each {|ex| @lab.extras.push ex.dup}
     
-   xxx@xxx.xxx
+    @lab.save
     
     respond_to do |format|
       flash[:notice] = 'Duplication is complete'
-      @status = xxx@xxx.xxx @lab)
-      format.html { xxx@xxx.xxx }
+      @status = admin_course_lab_url(@course, @lab)
+      format.html { redirect_to(admin_course_lab_url(@course,@lab)) }
       format.xml  { head :ok }
       format.js
     end
@@ -109,12 +109,12 @@ class Admin::LabsController < ApplicationController
   # DELETE /labs/1
   # DELETE /labs/1.xml
   def destroy
-    @lab xxx@xxx.xxx
-   xxx@xxx.xxx
+    @lab = @course.labs.find(params[:id])
+    @lab.destroy
 
     respond_to do |format|
-      @status = xxx@xxx.xxx
-      format.html { xxx@xxx.xxx )) }
+      @status = admin_course_labs_url(@course)
+      format.html { redirect_to(admin_course_labs_url( @course )) }
       format.xml  { head :ok }
       format.js
     end

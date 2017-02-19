@@ -1,6 +1,6 @@
 <div class="block form block--width2 objectives">
-	<%= xxx@xxx.xxx remote: true) do |f| %>
-	  <%= xxx@xxx.xxx %>
+	<%= form_for([:admin,@course,@objective], remote: true) do |f| %>
+	  <%= show_error_messages_for @objective %>
 		<ol>
 			<li class="textarea"><div class="details"><%= f.label :description %><p></p></div><div class="field"><%= f.text_area :description %></div></li>
 			<li class="action">

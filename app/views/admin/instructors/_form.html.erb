@@ -1,6 +1,6 @@
 <div class="block form instructors">
-<%= xxx@xxx.xxx html: {multipart: :true}, remote: true) do |f| %>
-	<%= xxx@xxx.xxx %>
+<%= form_for([:admin,@instructor], html: {multipart: :true}, remote: true) do |f| %>
+	<%= show_error_messages_for @instructor %>
 	<ol>
 		<li><div class="details"><%= f.label :first_name %><p></p></div><div class="field"><%= f.text_field :first_name %></div></li>
 	
@@ -15,8 +15,8 @@
 		<li>
 			<div class="details">
 				<%= f.label :office_hours %>
-				<% xxx@xxx.xxx %>
-				<p>Off hours file is currently: xxx@xxx.xxx %></p>
+				<% if @instructor.office_hours %>
+				<p>Off hours file is currently: <%= @instructor.office_hours_file_name %></p>
 				<% else %>
 					<p>Choose a file containing the instrucors office hours to upload.  This file is best as a pdf.</p>
 				<% end %>

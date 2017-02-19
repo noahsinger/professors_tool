@@ -6,7 +6,7 @@ class Admin::MeetingsControllerTest < ActionDispatch::IntegrationTest
 
   setup do
 	  login_as(:admin)
-   xxx@xxx.xxx = meetings(:one)
+    @meeting = meetings(:one)
   end
 
   test "should get index" do

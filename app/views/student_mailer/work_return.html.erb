@@ -1,11 +1,11 @@
 <div class="clear"></div>
 
-<%- xxx@xxx.xxx -%>
-	<%- assignment xxx@xxx.xxx -%>
+<%- if @work -%>
+	<%- assignment = @work.assignment -%>
 	<%- section = assignment.section -%>
 	<%- semester = section.semester -%>
 
-	<% xxx@xxx.xxx == "removed" %>
+	<% unless @work.upload_content_type == "removed" %>
 
 		<div class="block works">
 			<header>
@@ -21,7 +21,7 @@
 			<p>
 				If in the future (but still before the due date of course) you want to replace the submitted version of
 				your lab with a new one, your will need to <%= link_to 'withdraw your submission', withdraw_semester_section_assignment_works_url(semester, section, assignment,
-xxx@xxx.xxx
+					code: @work.withdrawal_code.to_s,
 					host: APP_CONFIG['host']) %>.
 			</p>
 		</div>
@@ -40,13 +40,13 @@ xxx@xxx.xxx
 				<h4>Details</h4>
 			</header>
 			<p>
-				<strong>Name:</strong> xxx@xxx.xxx %><br/>
+				<strong>Name:</strong> <%= @work.upload_file_name %><br/>
 			</p>
 			<p>
-				<strong>Size:</strong> <%= xxx@xxx.xxx %><br/>
+				<strong>Size:</strong> <%= number_to_human_size(@work.upload_file_size) %><br/>
 			</p>
 			<p>
-				<strong>File type:</strong> xxx@xxx.xxx %><br/>
+				<strong>File type:</strong> <%= @work.upload_content_type %><br/>
 			</p>
 
 			<p>Your assignment file is attached</p>

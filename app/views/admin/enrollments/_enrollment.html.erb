@@ -7,11 +7,11 @@
 	
 	<p>
 		<%= enrollment.enrollment_status ? enrollment.enrollment_status.name : "unknown" %><br/>
-		<%= enrollment.attendances.where("attendance_status_id != ? and attendance_status_id is not null", AttendanceStatus.absent).size %> / xxx@xxx.xxx %>
+		<%= enrollment.attendances.where("attendance_status_id != ? and attendance_status_id is not null", AttendanceStatus.absent).size %> / <%= @section.meetings.size %>
 	</p>
 
 	<ul>
-		<li><%= link_to 'Details for this class', xxx@xxx.xxx @section, enrollment) %></li>
-		<li><%= link_to 'De-Enroll', xxx@xxx.xxx @section, enrollment ), method: :delete, data: {confirm: 'Are you sure?'}, remote: true %></li>
+		<li><%= link_to 'Details for this class', admin_semester_section_enrollment_path(@semester, @section, enrollment) %></li>
+		<li><%= link_to 'De-Enroll', admin_semester_section_enrollment_path( @semester, @section, enrollment ), method: :delete, data: {confirm: 'Are you sure?'}, remote: true %></li>
 	</ul>
 </div>

@@ -3,20 +3,20 @@ class MaterialsController < ApplicationController
 
   def load_course
     if params[:section_id]
-     xxx@xxx.xxx = Section.find params[:section_id]
+      @section = Section.find params[:section_id]
     end
 
-   xxx@xxx.xxx = Course.find( params[:course_id] )
+    @course = Course.find( params[:course_id] )
   end
 
   # GET /materials
   # GET /materials.xml
   def index
-    @materials xxx@xxx.xxx
+    @materials = @course.materials.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @materials }
     end
   end
 end

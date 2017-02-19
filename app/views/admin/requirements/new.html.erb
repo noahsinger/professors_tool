@@ -1,7 +1,7 @@
 
-<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: {course: @course} %>
 <%= render partial: 'admin/labs/labs_header' %>
 
-<%= render partial: 'admin/labs/lab', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'admin/labs/lab', locals: {lab: @lab, main: true} %>
 
 <%= render 'form' %>

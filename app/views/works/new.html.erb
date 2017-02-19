@@ -1,7 +1,7 @@
 
-<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
-<%= render partial: 'assignments/assignment', locals: xxx@xxx.xxx %>
+<%= render partial: 'semesters/semester', locals: {semester: @semester} %>
+<%= render partial: 'sections/section', locals: {section: @section} %>
+<%= render partial: 'assignments/assignment', locals: {assignment: @assignment} %>
 
 <%= render partial: "works/works_header", locals: {main: true} %>
 	

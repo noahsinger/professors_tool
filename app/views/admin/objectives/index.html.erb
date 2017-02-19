@@ -1,15 +1,15 @@
 
-<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: {course: @course} %>
 <%= render 'objectives_header' %>
 
-<div class="block objectives" data-script='$("#objectives").reorderTable( "<%= xxx@xxx.xxx ) %>", "<%= form_authenticity_token %>" )'>
+<div class="block objectives" data-script='$("#objectives").reorderTable( "<%= sort_admin_course_objectives_url( @course ) %>", "<%= form_authenticity_token %>" )'>
 	<table id="objectives">
 		<tr>
 			<th>objective</th>
 			<th></th>
 			<th></th>
 		</tr>
-xxx@xxx.xxx do |objective| %>
+		<% @objectives.each do |objective| %>
 			<%= render objective %>
 		<% end %>
 	</table>

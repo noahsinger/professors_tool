@@ -11,7 +11,7 @@ class GeneralContactsControllerTest < ActionDispatch::IntegrationTest
       post general_contacts_url,
         params: {
           general_contact: {
-            return_email: xxx@xxx.xxx
+            return_email: 'student@test.com',
             subject: 'test',
             body: 'I ahve a question?'
           }

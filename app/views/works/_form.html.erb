@@ -1,6 +1,6 @@
 <div class="block form works">
-	<%= xxx@xxx.xxx multipart: true, remote: true, authenticity_token: true ) do |f| %>
-		<%= xxx@xxx.xxx %>
+	<%= form_for([@semester,@section,@assignment,@work], multipart: true, remote: true, authenticity_token: true ) do |f| %>
+		<%= show_error_messages_for @work %>
 		<ol>
 			<li>
 				<div class="details">
@@ -10,7 +10,7 @@
 					</p>
 				</div>
 
-				<div class="field"><%= f.text_field :email, placeholder: xxx@xxx.xxx %></div>
+				<div class="field"><%= f.text_field :email, placeholder: "first.last@tulsacc.edu" %></div>
 			</li>
 
 			<li>

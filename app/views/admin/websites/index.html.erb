@@ -1,5 +1,5 @@
 
-<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: {course: @course} %>
 <%= render partial: 'websites_header' %>
 
-<%= render partial: 'website', xxx@xxx.xxx cached: true %>
+<%= render partial: 'website', collection: @websites, cached: true %>

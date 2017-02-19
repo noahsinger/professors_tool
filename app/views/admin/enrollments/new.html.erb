@@ -1,15 +1,15 @@
 
 <%= render 'admin/semesters/semesters_header' %>
-<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/sections/section', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/enrollments/enrollments_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/semesters/semester', locals: {semester: @semester} %>
+<%= render partial: 'admin/courses/course', locals: {course: @section.course} %>
+<%= render partial: 'admin/sections/sections_header', locals: {semester: @semester} %>
+<%= render partial: 'admin/sections/section', locals: {section: @section} %>
+<%= render partial: 'admin/enrollments/enrollments_header', locals: {section: @section} %>
 
 <div class="block block--width2 enrollments">
 	<header>
 		<p>New Student for</p>
-xxx@xxx.xxx %></h3>
+		<h3><%= @section.course.title %></h3>
 	</header>
 </div>
 	

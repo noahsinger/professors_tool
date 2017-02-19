@@ -1,7 +1,7 @@
 <div class="block form block--width2 steps">
-	<%= xxx@xxx.xxx html: {multipart: true}, remote: true) do |f| %>
-		<%= xxx@xxx.xxx %>
-		<input type="hidden" name="course_id" xxx@xxx.xxx %>">
+	<%= form_for([:admin,@how_to,@step], html: {multipart: true}, remote: true) do |f| %>
+		<%= show_error_messages_for @step %>
+		<input type="hidden" name="course_id" value="<%= @course.id %>">
 		<ol>
 			<li>
 				<div class="details">

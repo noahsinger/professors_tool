@@ -5,7 +5,7 @@ class Admin::SyllabusPartsController < ApplicationController
   before_action :load_course
   
   def load_course
-   xxx@xxx.xxx = Course.find(params[:course_id])
+    @course = Course.find(params[:course_id])
   end
   
   def store_referrer
@@ -15,29 +15,29 @@ class Admin::SyllabusPartsController < ApplicationController
   end
   
   def new
-   xxx@xxx.xxx = SyllabusPart.new
+    @syllabus_part = SyllabusPart.new
   end
 
   # GET /syllabus_parts/1/edit
   def edit
-   xxx@xxx.xxx = SyllabusPart.find(params[:id])
+    @syllabus_part = SyllabusPart.find(params[:id])
   end
 
   # POST /syllabus_parts
   # POST /syllabus_parts.xml
   def create
-   xxx@xxx.xxx = SyllabusPart.new(allowed_params)
+    @syllabus_part = SyllabusPart.new(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @syllabus_part.save
+        @status = admin_course_policies_url(@course)
         flash[:notice] = 'SyllabusPart was successfully created.'
-        format.html xxx@xxx.xxx
-        format.xml  { render xml: @syllabus_part, status: :created, xxx@xxx.xxx }
+        format.html {redirect_to(admin_course_policies_url(@course))}
+        format.xml  { render xml: @syllabus_part, status: :created, location: @syllabus_part }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @syllabus_part.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -46,18 +46,18 @@ class Admin::SyllabusPartsController < ApplicationController
   # PUT /syllabus_parts/1
   # PUT /syllabus_parts/1.xml
   def update
-   xxx@xxx.xxx = SyllabusPart.find(params[:id])
+    @syllabus_part = SyllabusPart.find(params[:id])
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @syllabus_part.update_attributes(allowed_params)
+        @status = admin_course_policies_url(@course)
         flash[:notice] = 'SyllabusPart was successfully updated.'
-        format.html xxx@xxx.xxx
+        format.html {redirect_to(admin_course_policies_url(@course))}
         format.xml  { head :ok }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @syllabus_part.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -66,11 +66,11 @@ class Admin::SyllabusPartsController < ApplicationController
   # DELETE /syllabus_parts/1
   # DELETE /syllabus_parts/1.xml
   def destroy
-   xxx@xxx.xxx = SyllabusPart.find(params[:id])
-   xxx@xxx.xxx
+    @syllabus_part = SyllabusPart.find(params[:id])
+    @syllabus_part.destroy
 
     respond_to do |format|
-      @status = xxx@xxx.xxx
+      @status = admin_course_policies_url(@course)
       format.html {redirect_to(session[:referrer] || admin_syllabus_parts_url)}
       format.xml  { head :ok }
       format.js

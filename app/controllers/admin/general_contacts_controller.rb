@@ -16,33 +16,33 @@ class Admin::GeneralContactsController < ApplicationController
   # GET /general_contacts
   # GET /general_contacts.xml
   def index
-   xxx@xxx.xxx = GeneralContact.order('created_at desc')
+    @general_contacts = GeneralContact.order('created_at desc')
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @general_contacts }
     end
   end
 
   # GET /general_contacts/1
   # GET /general_contacts/1.xml
   def show
-   xxx@xxx.xxx = GeneralContact.find(params[:id])
+    @general_contact = GeneralContact.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @general_contact }
     end
   end
 
   # DELETE /general_contacts/1
   # DELETE /general_contacts/1.xml
   def destroy
-   xxx@xxx.xxx = GeneralContact.find(params[:id])
-   xxx@xxx.xxx
+    @general_contact = GeneralContact.find(params[:id])
+    @general_contact.destroy
 
     respond_to do |format|
-     xxx@xxx.xxx  = admin_general_contacts_url
+      @status  = admin_general_contacts_url
       format.html { redirect_to(admin_general_contacts_url) }
       format.xml  { head :ok }
       format.js
@@ -56,7 +56,7 @@ class Admin::GeneralContactsController < ApplicationController
     end
     
     respond_to do |format|
-     xxx@xxx.xxx = admin_general_contacts_url
+      @status = admin_general_contacts_url
       format.html { redirect_to(admin_general_contacts_url) }
       format.xml  { head :ok }
       format.js

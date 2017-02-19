@@ -1,6 +1,6 @@
 <div class="block form extras">
-	<%= xxx@xxx.xxx html: {multipart: true}, remote: true) do |f| %>
-		<%= xxx@xxx.xxx %>
+	<%= form_for([:admin,@course,@lab,@extra], html: {multipart: true}, remote: true) do |f| %>
+		<%= show_error_messages_for @extra %>
 		<ol>
 			<li>
 				<div class="details">

@@ -5,8 +5,8 @@
 		</header>
 		<ul>
 			<% course.how_tos.each do |howto| %>
-        <% xxx@xxx.xxx %>
-				  <li><%= link_to howto.title, course_how_to_step_path(course, howto, howto.steps.first, xxx@xxx.xxx %></li>
+        <% if @section %>
+				  <li><%= link_to howto.title, course_how_to_step_path(course, howto, howto.steps.first, section_id: @section) %></li>
         <% else %>
           <li><%= link_to howto.title, course_how_to_step_path(course, howto, howto.steps.first) %></li>
         <% end %>

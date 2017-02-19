@@ -1,35 +1,35 @@
 
 <%= render partial: 'courses_header' %>
 
-<%= render partial: 'course', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'course', locals: {course: @course, main: true} %>
 
 <div class="block courses">
 	<header>
 		<h4>Details</h4>
 	</header>
 
-	<p>This course has occurred <%= xxx@xxx.xxx "time" %></p>
+	<p>This course has occurred <%= pluralize @course.sections.size, "time" %></p>
 
-	<p><%= link_to(pluralize(@course.waiters.count, 'waiter'), xxx@xxx.xxx %></p>
+	<p><%= link_to(pluralize(@course.waiters.count, 'waiter'), admin_course_waiters_path(@course)) %></p>
 
 	<p>
 		<b>Prerequisite:</b>
-xxx@xxx.xxx %>
+		<%= @course.prerequisite %>
 	</p>
 
 	<p>
 		<b>Description:</b>
-xxx@xxx.xxx %>
+		<%= @course.description %>
 	</p>
 
 	<p>
 		<b>Next Course:</b>
-xxx@xxx.xxx %>
+		<%= @course.next_course %>
 	</p>
 
 	<p>
 		<b>Required Materials:</b>
-xxx@xxx.xxx %>
+		<%= @course.required_materials %>
 	</p>
 </div>
 
@@ -47,7 +47,7 @@ xxx@xxx.xxx %>
 	</header>
 
 	<ul class="actions">
-xxx@xxx.xxx do |section| %>
+		<% @course.sections.each do |section| %>
 			<li>
 				<% link_text = section.semester.name %>
 				<% if section.semester.is_current? %>

@@ -2,13 +2,13 @@ require 'test_helper'
 
 class StepsControllerTest < ActionDispatch::IntegrationTest
   def setup
-   xxx@xxx.xxx = steps(:one)
-    @how_to xxx@xxx.xxx
-    @course xxx@xxx.xxx
+    @step = steps(:one)
+    @how_to = @step.how_to
+    @course = @how_to.tutorials.first.course
   end
 
   test "should_show_step" do
-    get xxx@xxx.xxx @how_to, @step)
+    get course_how_to_step_url(@course, @how_to, @step)
     assert_response :success
   end
 end

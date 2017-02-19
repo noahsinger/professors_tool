@@ -1,11 +1,11 @@
 
-<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: {course: @course} %>
 <%= render partial: 'websites_header' %>
 
 <div class="block websites">
 	<header>
 		<h4>Edit Website for</h4>
-xxx@xxx.xxx %></p>
+		<p><%= @course.title %></p>
 	</header>
 </div>
 

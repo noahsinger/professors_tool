@@ -43,7 +43,7 @@ class StudentHomeworkTest < ActionDispatch::IntegrationTest
     student = section.enrollments.first.student
 
     visit new_semester_section_assignment_work_path(semester,section,assignment)
-    fill_in("work_email", with: xxx@xxx.xxx
+    fill_in("work_email", with: "unknown@test.com")
     attach_file("work_upload", "#{fixture_path}/files/file.zip")
 
     assert_difference("Work.count") do
@@ -51,7 +51,7 @@ class StudentHomeworkTest < ActionDispatch::IntegrationTest
     end
 
     assert_nil Work.last.enrollment
-    assert_equal xxx@xxx.xxx Work.last.email
+    assert_equal "unknown@test.com", Work.last.email
 
     assert_equal semester_section_assignment_path(semester,section,assignment), current_path
     assert page.has_content?("Your work was successfully uploaded.")

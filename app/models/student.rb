@@ -7,12 +7,12 @@ class Student < ApplicationRecord
   validates_presence_of :email
 
   validates_format_of( :email, 
-                       with: xxx@xxx.xxx 
+                       with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, 
                        # on: :create, 
                        message: "has an invalid format." )
 
   validates_uniqueness_of :email, 
-                          with: xxx@xxx.xxx 
+                          with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, 
                           message: 'address is already in use.'  
 
   def last_name_first

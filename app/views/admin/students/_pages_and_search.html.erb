@@ -1,6 +1,6 @@
 <div class="block search students <%= double_width_if_main(defined? main) %>">
 	<header>
-		<p><%= xxx@xxx.xxx %></p>
+		<p><%= will_paginate @students %></p>
 	</header>
 	
 	<%= form_tag search_admin_students_path, method: :get, remote: true do %>

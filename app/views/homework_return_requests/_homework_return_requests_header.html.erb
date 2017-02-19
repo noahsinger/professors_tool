@@ -1,8 +1,8 @@
 <div class="block homework_return_requests header <%= double_width_if_main(defined? main) %>">
 	<header>
-		<%= link_to xxx@xxx.xxx do %>
+		<%= link_to new_semester_section_assignment_homework_return_request_path(@semester,@section,@assignment) do %>
 			<p>Request a Copy of your Solution</p>
-xxx@xxx.xxx %></h5>
+			<h5><%= @assignment.title %></h5>
 		<% end %>
 	</header>
 </div>

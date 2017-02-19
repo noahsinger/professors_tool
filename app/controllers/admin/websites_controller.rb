@@ -3,50 +3,50 @@ class Admin::WebsitesController < ApplicationController
   before_action :load_course
   
   def load_course
-   xxx@xxx.xxx = Course.find( params[:course_id] )
+    @course = Course.find( params[:course_id] )
   end
   
   # GET /websites
   # GET /websites.json
   def index
-    @websites xxx@xxx.xxx
+    @websites = @course.websites.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render xxx@xxx.xxx }
+      format.json { render json: @websites }
     end
   end
 
   # GET /websites/new
   # GET /websites/new.json
   def new
-    @website xxx@xxx.xxx
+    @website = @course.websites.build
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render xxx@xxx.xxx }
+      format.json { render json: @website }
     end
   end
 
   # GET /websites/1/edit
   def edit
-   xxx@xxx.xxx = Website.find(params[:id])
+    @website = Website.find(params[:id])
   end
 
   # POST /websites
   # POST /websites.json
   def create
-    @website xxx@xxx.xxx
+    @website = @course.websites.build(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
-        format.html { redirect_to xxx@xxx.xxx notice: 'Website was successfully created.' }
-        format.json { render json: @website, status: :created, xxx@xxx.xxx }
+      if @website.save
+        @status = admin_course_websites_url(@course)
+        format.html { redirect_to admin_course_websites_url(@course), notice: 'Website was successfully created.' }
+        format.json { render json: @website, status: :created, location: @website }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "new" }
-        format.json { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.json { render json: @website.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -55,17 +55,17 @@ class Admin::WebsitesController < ApplicationController
   # PUT /websites/1
   # PUT /websites/1.json
   def update
-    @website xxx@xxx.xxx
+    @website = @course.websites.find(params[:id])
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
-        format.html { redirect_to xxx@xxx.xxx notice: 'Website was successfully updated.' }
+      if @website.update_attributes(allowed_params)
+        @status = admin_course_websites_url(@course)
+        format.html { redirect_to admin_course_websites_url(@course), notice: 'Website was successfully updated.' }
         format.json { head :no_content }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.json { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.json { render json: @website.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -74,12 +74,12 @@ class Admin::WebsitesController < ApplicationController
   # DELETE /websites/1
   # DELETE /websites/1.json
   def destroy
-    @website xxx@xxx.xxx
-   xxx@xxx.xxx
+    @website = @course.websites.find(params[:id])
+    @website.destroy
 
     respond_to do |format|
-      @status = xxx@xxx.xxx
-      format.html { redirect_to xxx@xxx.xxx }
+      @status = admin_course_websites_url(@course)
+      format.html { redirect_to admin_course_websites_url(@course) }
       format.json { head :no_content }
       format.js
     end

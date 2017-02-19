@@ -1,9 +1,9 @@
-<%- xxx@xxx.xxx -%>
-<%- assignment xxx@xxx.xxx -%>
+<%- if @work -%>
+<%- assignment = @work.assignment -%>
 <%- section = assignment.section -%>
 <%- semester = section.semester -%>
 <%= section.course.title %>
-<%- xxx@xxx.xxx == "removed" -%>
+<%- unless @work.upload_content_type == "removed" -%>
 --------------------------------------------------
 Submitted Homework for <%= assignment.title %>
 --------------------------------------------------
@@ -14,14 +14,14 @@ Here it is.  You requested a copy of the assignment that was submitted for
 If in the future (but still before the due date of course) you want to replace the submitted version of 
 your lab with a new one, your will need to withdraw your submission
 (<%= withdraw_semester_section_assignment_works_url(semester, section, assignment, 
-	:code xxx@xxx.xxx 
+	:code => @work.withdrawal_code.to_s, 
 	:host => APP_CONFIG['host']) %>).
 
 --------------------------------------------------
 Submitted Work Details:
-Name: xxx@xxx.xxx %>
-Size: <%= xxx@xxx.xxx %>
-Content-type: xxx@xxx.xxx %>
+Name: <%= @work.upload_file_name %>
+Size: <%= number_to_human_size(@work.upload_file_size) %>
+Content-type: <%= @work.upload_content_type %>
 ~Assignment file is attached~
 <%- else -%>
 --------------------------------------------------

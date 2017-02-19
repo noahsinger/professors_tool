@@ -2,23 +2,23 @@ require 'test_helper'
 
 class SectionsControllerTest < ActionDispatch::IntegrationTest
   def setup
-   xxx@xxx.xxx = Semester.first
-    @section xxx@xxx.xxx
+    @semester = Semester.first
+    @section = @semester.sections.first
   end
 
   test "should_get_index" do
-    get xxx@xxx.xxx
+    get semester_sections_url(@semester)
     assert_response :success
     assert_not_nil assigns(:sections)
   end
 
   test "should_show_section" do
-    get xxx@xxx.xxx @section)
-    assert_redirected_to xxx@xxx.xxx @section)
+    get semester_section_url(@semester, @section)
+    assert_redirected_to semester_section_assignments_path(@semester, @section)
   end
 
   test "should_get_syllabus" do
-    get xxx@xxx.xxx @section)
+    get syllabus_semester_section_url(@semester, @section)
     assert_response :success
   end
 end

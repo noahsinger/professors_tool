@@ -14,7 +14,7 @@
 	<p>
 		<%= mail_to instructor.email %>
 		<% if instructor.twitter_handle %>
-			<br/>or <%= link_to xxx@xxx.xxx "http://twitter.com/#{instructor.twitter_handle}" %>
+			<br/>or <%= link_to "@#{instructor.twitter_handle}", "http://twitter.com/#{instructor.twitter_handle}" %>
 		<% end %>
 	</p>
 

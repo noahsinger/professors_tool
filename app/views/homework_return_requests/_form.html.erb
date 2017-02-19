@@ -1,13 +1,13 @@
 <div class="block form homework_return_requests">
-	<%= xxx@xxx.xxx remote: true) do |f| %>
-		<%= xxx@xxx.xxx %>
+	<%= form_for([@semester,@section,@assignment,@homework_return_request], remote: true) do |f| %>
+		<%= show_error_messages_for @homework_return_request %>
 		<ol>
 			<li>
 				<div class="details">
 					<%= f.label :email, "What is your TCC email address?" %>
 					<p>Your email address is required so that the lab you submitted can be found.</p>
 				</div>
-				<div class="field"><%= f.text_field :email, :placeholder => xxx@xxx.xxx %></div>
+				<div class="field"><%= f.text_field :email, :placeholder => "first.last@tulsacc.edu" %></div>
 			</li>
 			<li class="action">
 				<div><%= f.submit "Send Request" %></div>

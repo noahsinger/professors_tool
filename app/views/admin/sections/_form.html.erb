@@ -1,6 +1,6 @@
 <div class="block form sections">
-	<%= xxx@xxx.xxx remote: true) do |f| %>
-		<%= xxx@xxx.xxx %>
+	<%= form_for([:admin,@semester,@section], remote: true) do |f| %>
+		<%= show_error_messages_for @section %>
 		<ol>
 			<li>
 				<div class="details">
@@ -71,7 +71,7 @@
 					<p>What date does it start on?</p>
 				</div>
 			
-				<div class="field"><%= f.date_select :start_date, xxx@xxx.xxx %></div>
+				<div class="field"><%= f.date_select :start_date, default: @semester.start_date %></div>
 			</li>
 
 			<li>
@@ -80,7 +80,7 @@
 					<p>What date does it end on?</p>
 				</div>
 			
-				<div class="field"><%= f.date_select :end_date, xxx@xxx.xxx %></div>
+				<div class="field"><%= f.date_select :end_date, default: @semester.end_date %></div>
 			</li>
 
 			<li>

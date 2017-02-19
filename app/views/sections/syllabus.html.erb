@@ -1,6 +1,6 @@
 
-<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
+<%= render partial: 'semesters/semester', locals: {semester: @semester} %>
+<%= render partial: 'sections/section', locals: {section: @section} %>
 <%= render partial: 'sections/syllabus_header', locals: {main: true} %>
 
 	<div class="block sections">
@@ -15,7 +15,7 @@
 				<td>Course number:</td>
 				<td>
 					<strong>
-xxx@xxx.xxx %>
+						<%= @section.course.short_name %>
 					</strong>
 				</td>
 			</tr>
@@ -23,32 +23,32 @@ xxx@xxx.xxx %>
 				<td>Call Number:</td>
 				<td>
 					<strong>
-xxx@xxx.xxx %>
+						<%= @section.call_number %>
 					</strong>
 				</td>
 			</tr>
 			<tr>
-				<% xxx@xxx.xxx == "Online" %>
+				<% if @section.days == "Online" %>
 					<td>Course Type:</td>
-xxx@xxx.xxx %></td>
+					<td><%= @section.days %></td>
 				<% else %>
 					<td>Meeting Days:</td>
 					<td>
 						<strong>
-xxx@xxx.xxx %>
+							<%= @section.days %>
 						</strong>
 					</td>
 				<% end %>
 			</tr>
 			<tr>
-				<% xxx@xxx.xxx == "Online" %>
+				<% if @section.days == "Online" %>
 					<td class="blank"></td>
 					<td class="blank"></td>
 				<% else %>
 					<td>Meeting Times: </td>
 					<td>
 						<strong>
-							<%= show_time @section.start_time %> - <%= xxx@xxx.xxx %>
+							<%= show_time @section.start_time %> - <%= show_time @section.end_time %>
 						</strong>
 					</td>
 				<% end %>
@@ -57,7 +57,7 @@ xxx@xxx.xxx %>
 				<td>Room Number:</td>
 				<td>
 					<strong>
-xxx@xxx.xxx %>
+						<%= @section.room_number %>
 					</strong>
 				</td>
 			</tr>
@@ -74,7 +74,7 @@ xxx@xxx.xxx %>
 					<td class="second_column">Instructor:</td>
 					<td>
 						<strong>
-							<%= @section.instructor.first_name %> xxx@xxx.xxx %>
+							<%= @section.instructor.first_name %> <%= @section.instructor.last_name %>
 						</strong>
 					</td>
 				</tr>
@@ -82,7 +82,7 @@ xxx@xxx.xxx %>
 					<td class="second_column">Office Number:</td>
 					<td>
 						<strong>
-xxx@xxx.xxx %>
+							<%= @section.instructor.office_number %>
 						</strong>
 					</td>
 				</tr>
@@ -90,7 +90,7 @@ xxx@xxx.xxx %>
 					<td class="second_column">Office Hours:</td>
 					<td>
 						<strong>
-							<%= link_to( 'See xxx@xxx.xxx ) %>
+							<%= link_to( 'See Website', @section.instructor.office_hours.url ) %>
 						</strong>
 					</td>
 				</tr>
@@ -98,7 +98,7 @@ xxx@xxx.xxx %>
 					<td class="second_column">Office Phone:</td>
 					<td>
 						<strong>
-xxx@xxx.xxx %>
+							<%= @section.instructor.phone_number %>
 						</strong>
 					</td>
 				</tr>
@@ -106,14 +106,14 @@ xxx@xxx.xxx %>
 					<td class="second_column">Email Address:</td>
 					<td>
 						<strong>
-							<%= xxx@xxx.xxx %>
+							<%= mail_to @section.instructor.email %>
 						</strong>
 					</td>
 				</tr>
 				<tr>
-					<% xxx@xxx.xxx %>
+					<% if @section.instructor.twitter_handle %>
 						<td>Twitter:</td>
-						<td><%= link_to "@#{@section.instructor.twitter_handle}", xxx@xxx.xxx %></td>
+						<td><%= link_to "@#{@section.instructor.twitter_handle}", "http://twitter.com/#{@section.instructor.twitter_handle}" %></td>
 					<% else %>
 						<td class="blank"></td>
 						<td class="blank"></td>
@@ -123,7 +123,7 @@ xxx@xxx.xxx %>
 					<td class="second_column">Web Site:</td>
 					<td>
 						<strong>
-xxx@xxx.xxx %>
+							<%= @section.instructor.website %>
 						</strong>
 					</td>
 				</tr>
@@ -132,7 +132,7 @@ xxx@xxx.xxx %>
 
 		<div class="block divisions pagebreak">
 			<header>
-xxx@xxx.xxx %></p>
+				<p><%= @section.instructor.division.name %></p>
 				<h4>School</h4>
 			</header>
 
@@ -141,7 +141,7 @@ xxx@xxx.xxx %></p>
 					<td>Dean:</td>
 					<td>
 						<strong>
-xxx@xxx.xxx %>
+							<%= @section.instructor.division.associate_dean %>
 						</strong>
 					</td>
 				</tr>
@@ -149,7 +149,7 @@ xxx@xxx.xxx %>
 					<td>Office Number:</td>
 					<td>
 						<strong>
-xxx@xxx.xxx %>
+							<%= @section.instructor.division.office_number %>
 						</strong>
 					</td>
 				</tr>
@@ -157,7 +157,7 @@ xxx@xxx.xxx %>
 					<td>Phone Number:</td>
 					<td>
 						<strong>
-xxx@xxx.xxx %>
+							<%= @section.instructor.division.phone_number %>
 						</strong>
 					</td>
 				</tr>
@@ -170,7 +170,7 @@ xxx@xxx.xxx %>
 			</header>
 
 			<p>
-xxx@xxx.xxx %>
+				<%= @section.course.prerequisite %>
 			</p>
 		</div>
 
@@ -180,7 +180,7 @@ xxx@xxx.xxx %>
 			</header>
 
 			<p>
-xxx@xxx.xxx %>
+				<%= @section.course.next_course %>
 			</p>
 		</div>
 
@@ -189,9 +189,9 @@ xxx@xxx.xxx %>
 				<h4>Resources</h4>
 			</header>
 
-			<% xxx@xxx.xxx > 0 %>
-				<p><b><%= xxx@xxx.xxx 'Textbook' %></b></p>
-xxx@xxx.xxx do |book| %>
+			<% if @section.course.books.size > 0 %>
+				<p><b><%= pluralize_without_count @section.course.books.size, 'Textbook' %></b></p>
+				<% @section.course.books.each do |book| %>
 					<p>
 						<em>
 							<% if book.required %>
@@ -206,9 +206,9 @@ xxx@xxx.xxx do |book| %>
 				<% end %>
 			<% end %>
 
-			<% xxx@xxx.xxx > 0 %>
-				<p><b><%= xxx@xxx.xxx 'Website' %></b></p>
-xxx@xxx.xxx do |website| %>
+			<% if @section.course.websites.size > 0 %>
+				<p><b><%= pluralize_without_count @section.course.websites.size, 'Website' %></b></p>
+				<% @section.course.websites.each do |website| %>
 					<p>
 						<%= link_to "<strong>#{website.title}</strong>".html_safe, website.url %> at <%= link_to website.url, website.url %>
 					</p>
@@ -221,7 +221,7 @@ xxx@xxx.xxx do |website| %>
 				<h4>Materials</h4>
 			</header>
 
-xxx@xxx.xxx %></p>
+			<p><%= @section.course.required_materials %></p>
 		</div>
 
 		<div class="block courses pagebreak">
@@ -231,14 +231,14 @@ xxx@xxx.xxx %></p>
 
 			<p>Upon completion of this course, a student should be able to do the following:</p>
 			<ol>
-xxx@xxx.xxx do |o| %>
+				<% @section.course.objectives.each do |o| %>
 					<li><%= o.description %></li>
 				<% end %>
 			</ol>
 		</div>
 
 
-xxx@xxx.xxx do |policy| %>
+		<% @section.course.policies.each do |policy| %>
 			<div class="block policies pagebreak">
 				<header><h4><%= policy.syllabus_part.title %></h4></header>
 				<%= markdown policy.syllabus_part.description %>

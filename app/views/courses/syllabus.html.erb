@@ -1,5 +1,5 @@
 
-<%= render partial: 'courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'courses/course', locals: {course: @course} %>
 <%= render partial: "courses/syllabus_header", locals: {main: true} %>
 
 <div class="block courses">
@@ -16,7 +16,7 @@
 			<td>Course number:</td>
 			<td>
 				<strong>
-xxx@xxx.xxx %>
+					<%= @course.short_name %>
 				</strong>
 			</td>
 		</tr>
@@ -37,7 +37,7 @@ xxx@xxx.xxx %>
 	</header>
 
 	<p>
-xxx@xxx.xxx %>
+		<%= @course.prerequisite %>
 	</p>
 </div>
 
@@ -47,7 +47,7 @@ xxx@xxx.xxx %>
 	</header>
 
 	<p>
-xxx@xxx.xxx %>
+		<%= @course.next_course %>
 	</p>
 </div>
 
@@ -56,9 +56,9 @@ xxx@xxx.xxx %>
 		<h3>Resources</h3>
 	</header>
 
-	<% xxx@xxx.xxx > 0 %>
-		<p><b><%= xxx@xxx.xxx 'Textbook' %></b></p>
-xxx@xxx.xxx do |book| %>
+	<% if @course.books.size > 0 %>
+		<p><b><%= pluralize_without_count @course.books.size, 'Textbook' %></b></p>
+		<% @course.books.each do |book| %>
 			<p>
 				<em>
 					<% if book.required %>
@@ -73,9 +73,9 @@ xxx@xxx.xxx do |book| %>
 		<% end %>
 	<% end %>
 
-	<% xxx@xxx.xxx > 0 %>
-		<p><b><%= xxx@xxx.xxx 'Website' %></b></p>
-xxx@xxx.xxx do |website| %>
+	<% if @course.websites.size > 0 %>
+		<p><b><%= pluralize_without_count @course.websites.size, 'Website' %></b></p>
+		<% @course.websites.each do |website| %>
 			<p>
 				<%= link_to "<strong>#{website.title}</strong>".html_safe, website.url %> at <%= link_to website.url, website.url %>
 			</p>
@@ -88,7 +88,7 @@ xxx@xxx.xxx do |website| %>
 		<h3>Materials</h3>
 	</header>
 
-xxx@xxx.xxx %></p>
+	<p><%= @course.required_materials %></p>
 </div>
 
 <div class="block pagebreak courses">
@@ -98,13 +98,13 @@ xxx@xxx.xxx %></p>
 
 	<p>Upon completion of this course, a student should be able to do the following:</p>
 	<ol>
-xxx@xxx.xxx do |o| %>
+		<% @course.objectives.each do |o| %>
 			<li><%= o.description %></li>
 		<% end %>
 	</ol>
 </div>
 
-xxx@xxx.xxx do |policy| %>
+<% @course.policies.each do |policy| %>
 	<div class="block policies pagebreak">
 		<header><h4><%= policy.syllabus_part.title %></h4></header>
 		<%= markdown policy.syllabus_part.description %>

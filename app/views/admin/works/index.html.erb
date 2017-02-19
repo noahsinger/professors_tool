@@ -1,17 +1,17 @@
 
 <%= render 'admin/semesters/semesters_header' %>
-<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
-<%= render xxx@xxx.xxx %>
-<%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/assignments/assignment', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'admin/semesters/semester', locals: {semester: @semester} %>
+<%= render partial: 'admin/courses/course', locals: {course: @section.course} %>
+<%= render partial: 'admin/sections/sections_header', locals: {semester: @semester} %>
+<%= render partial: @section %>
+<%= render partial: 'admin/assignments/assignments_header', locals: {section: @section} %>
+<%= render partial: 'admin/assignments/assignment', locals: {assignment: @assignment, main: true} %>
 
-<%= render partial: 'work', xxx@xxx.xxx cached: true %>
+<%= render partial: 'work', collection: @works, cached: true %>
 
 	
-<% xxx@xxx.xxx > 0 %>
-xxx@xxx.xxx do |enrollment| %>
+<% if @enrollments_without_works.size > 0 %>
+	<% @enrollments_without_works.each do |enrollment| %>
 		<%= render partial: 'admin/enrollments/enrollment', locals: {enrollment: enrollment, message: "No work for"} %>
 	<% end %>
 <% end %>

@@ -9,8 +9,8 @@ class Semester < ApplicationRecord
   end
   
   def self.current
-   xxx@xxx.xxx = Semester.order('start_date')
-   xxx@xxx.xxx do |s|
+    @semesters = Semester.order('start_date')
+    @semesters.each do |s|
       if s.start_date <= Time.now.to_date and s.end_date >= Time.now.to_date
         return s
       end

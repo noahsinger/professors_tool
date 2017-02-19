@@ -1,5 +1,5 @@
-// $("#tutorials").append("<%# xxx@xxx.xxx %>");
-// xxx@xxx.xxx %>").remove( );
-// $("#tutorials").reorderTable( "<%# xxx@xxx.xxx ) %>", "<%# form_authenticity_token %>" );
+// $("#tutorials").append("<%# escape_javascript(render(partial: @tutorial)) %>");
+// $("#how_to_<%# @tutorial.how_to_id %>").remove( );
+// $("#tutorials").reorderTable( "<%# sort_admin_course_tutorials_url( @course ) %>", "<%# form_authenticity_token %>" );
 
-xxx@xxx.xxx %>");
+Turbolinks.visit("<%= @status %>");

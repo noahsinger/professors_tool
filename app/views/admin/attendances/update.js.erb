@@ -1,11 +1,11 @@
 
-$('#page').isotope( 'remove', $("#attendance_" + xxx@xxx.xxx %>) );
-$("#attendance_" + xxx@xxx.xxx %>).remove( );
+$('#page').isotope( 'remove', $("#attendance_" + <%= @attendance.id.to_s %>) );
+$("#attendance_" + <%= @attendance.id.to_s %>).remove( );
 console.log('-- removed');
 
-$('#page').append("<%= xxx@xxx.xxx %>");
+$('#page').append("<%= escape_javascript(render(partial: @attendance)) %>");
 console.log('-- appended');	
-$('#page').isotope('insert', $("#attendance_" + xxx@xxx.xxx %>));
+$('#page').isotope('insert', $("#attendance_" + <%= @attendance.id.to_s %>));
 
 //new/modified form block won't be removed on next nav unless its in current blocks so rebuild current_blocks here
 FlyingBlocks.record_current_blocks( );

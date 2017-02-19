@@ -2,35 +2,35 @@ class SectionsController < ApplicationController
   before_action :load_semester
 
   def load_semester
-   xxx@xxx.xxx = Semester.find(params[:semester_id])
+    @semester = Semester.find(params[:semester_id])
   end
 
   # GET /sections
   # GET /sections.xml
   def index
     response.headers.delete "X-Frame-Options" #so the home page can be shown in a iframe
-    @sections xxx@xxx.xxx
+    @sections = @semester.sections.includes(:course).all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @sections }
     end
   end
 
   # GET /sections/1
   # GET /sections/1.xml
   def show
-    @section xxx@xxx.xxx
+    @section = @semester.sections.find(params[:id])
 
     # respond_to do |format|
       # format.html # show.html.erb
-      # format.xml  { render xxx@xxx.xxx }
+      # format.xml  { render xml: @section }
     # end
 
-    redirect_to xxx@xxx.xxx @section)
+    redirect_to semester_section_assignments_path(@semester, @section)
   end
 
   def syllabus
-    @section xxx@xxx.xxx
+    @section = @semester.sections.find(params[:id])
   end
 end

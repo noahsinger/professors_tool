@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
 
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-       xxx@xxx.xxx = admin_admin_index_url
+        @status = admin_admin_index_url
         format.html {redirect_to admin_admin_index_url, notice: "Logged in!"}
       else
-       xxx@xxx.xxx = new_session_url #redirect back to this page, don't just render, so that flash can be shown
+        @status = new_session_url #redirect back to this page, don't just render, so that flash can be shown
         flash[:error] = "Invalid email or password"
         format.html {render "new"}
       end

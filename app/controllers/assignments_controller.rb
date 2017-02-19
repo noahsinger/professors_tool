@@ -10,34 +10,34 @@ class AssignmentsController < ApplicationController
   end
   
   def load_section
-   xxx@xxx.xxx = Section.includes(:semester,:examples,:course).find( params[:section_id] )
+    @section = Section.includes(:semester,:examples,:course).find( params[:section_id] )
   end
 
   def load_semester
-    @semester xxx@xxx.xxx
+    @semester = @section.semester
   end
   
   # GET /assignments
   # GET /assignments.xml
   def index
-    @assignments xxx@xxx.xxx
+    @assignments = @section.assignments.includes(:lab).visible
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml { render xxx@xxx.xxx }
+      format.xml { render xml: @assignments }
       format.rss { render layout: false }
-      format.ics { render xxx@xxx.xxx
+      format.ics { render text: @section.to_ical}
     end
   end
 
   # GET /assignments/1
   # GET /assignments/1.xml
   def show
-    @assignment xxx@xxx.xxx
+    @assignment = @section.assignments.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @assignment }
     end
   end
 end

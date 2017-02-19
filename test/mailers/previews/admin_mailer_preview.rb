@@ -1,7 +1,7 @@
 # Preview all emails at http://localhost:3000/rails/mailers/admin_mailer
 class AdminMailerPreview < ActionMailer::Preview
   def general_contact
-#     gc = GeneralContact.create return_email: xxx@xxx.xxx
+#     gc = GeneralContact.create return_email: "noah@threesuns.org",
 #                                subject: "test",
 #                                attachment: File.open('test/fixtures/files/file.zip','r'),
 #                                body: <<END_HERE

@@ -17,35 +17,35 @@ class Admin::WorksControllerTest < ActionDispatch::IntegrationTest
   def setup
     login_as(:admin)
 
-   xxx@xxx.xxx = sections(:jck1003_section_1)
-    @semester xxx@xxx.xxx
-    @assignment xxx@xxx.xxx
+    @section = sections(:jck1003_section_1)
+    @semester = @section.semester
+    @assignment = @section.assignments.find(2)
   end
 
   test "should get index" do
-    get xxx@xxx.xxx
+    get admin_semester_section_assignment_works_url(@semester,@section,@assignment)
     assert_response :success
     assert_not_nil assigns(:works)
   end
 
   test "should get new" do
-    get xxx@xxx.xxx
+    get new_admin_semester_section_assignment_work_url(@semester,@section,@assignment)
     assert_response :success
   end
 
   test "should get new for all" do
-    get xxx@xxx.xxx
+    get new_for_all_admin_semester_section_assignment_works_url(@semester,@section,@assignment)
 
-   xxx@xxx.xxx do |e|
-      assert_not_nil e.works.where(['assignment_id = xxx@xxx.xxx
+    @section.enrollments.each do |e|
+      assert_not_nil e.works.where(['assignment_id = ?', @assignment.id]).first
     end
 
-    assert_redirected_to xxx@xxx.xxx
+    assert_redirected_to admin_semester_section_assignment_works_url(@semester,@section,@assignment)
   end
 
   test "should create work" do
     assert_difference('Work.count') do
-      post xxx@xxx.xxx
+      post admin_semester_section_assignment_works_url(@semester,@section,@assignment),
         params: {
           work: {
             enrollment_id: enrollments(:stews_enrollment).id,
@@ -55,57 +55,57 @@ class Admin::WorksControllerTest < ActionDispatch::IntegrationTest
         }
     end
 
-    assert_redirected_to xxx@xxx.xxx
+    assert_redirected_to admin_semester_section_assignment_works_url(@semester,@section,@assignment)
   end
 
   test "should show work" do
-    get xxx@xxx.xxx
+    get admin_semester_section_assignment_work_url(@semester,@section,@assignment,works(:pues_lab1))
     assert_response :success
   end
 
   test "should get edit" do
-    get xxx@xxx.xxx
+    get edit_admin_semester_section_assignment_work_url(@semester,@section,@assignment,works(:pues_lab1))
     assert_response :success
   end
 
   test "should update work" do
-    put xxx@xxx.xxx
+    put admin_semester_section_assignment_work_url(@semester,@section,@assignment,works(:pues_lab1)),
       params: {work: { enrollment_id: enrollments(:pues_enrollment) }}
     assert_redirected_to admin_semester_section_assignment_work_path(assigns(:semester),assigns(:section),assigns(:assignment),assigns(:work))
   end
 
   test "should destroy work" do
     assert_difference('Work.count', -1) do
-      delete xxx@xxx.xxx
+      delete admin_semester_section_assignment_work_url(@semester,@section,@assignment,works(:pues_lab1))
     end
 
-    assert_redirected_to xxx@xxx.xxx @section, @assignment )
+    assert_redirected_to admin_semester_section_assignment_works_url( @semester, @section, @assignment )
   end
 
   test "should get grade" do
-    get xxx@xxx.xxx
+    get grade_admin_semester_section_assignment_work_url(@semester,@section,@assignment,works(:pues_lab1))
     assert_response :success
     assert_not_nil assigns(:work)
   end
 
   test "should destroy grade" do
-    delete xxx@xxx.xxx
+    delete destroy_grade_admin_semester_section_assignment_work_url(@semester,@section,@assignment,works(:pues_lab1))
     assert_not_nil assigns(:work)
     assert_equal 0, assigns(:work).awarded_points.size
     assert_equal "", assigns(:work).instructors_comments
 
-    assert_redirected_to xxx@xxx.xxx @section, @assignment )
+    assert_redirected_to admin_semester_section_assignment_works_url( @semester, @section, @assignment )
   end
 
   test "should record score" do
-    put xxx@xxx.xxx
-      params: {work: {email: works(:pues_lab1).email}, xxx@xxx.xxx {|hash, req| hash[req.id] = req.points; hash}}
+    put record_score_admin_semester_section_assignment_work_url(@semester,@section,@assignment,works(:pues_lab1)),
+      params: {work: {email: works(:pues_lab1).email}, awarded_points: @assignment.lab.requirements.inject({}) {|hash, req| hash[req.id] = req.points; hash}}
 
     assert_not_nil assigns(:work)
     assigns(:work).reload
-    xxx@xxx.xxx assigns(:work).awarded_points.size
-    xxx@xxx.xxx assigns(:work).score
+    assert_equal @assignment.lab.requirements.size, assigns(:work).awarded_points.size
+    assert_equal @assignment.worth, assigns(:work).score
 
-    assert_redirected_to xxx@xxx.xxx @section, @assignment )
+    assert_redirected_to admin_semester_section_assignment_works_url( @semester, @section, @assignment )
   end
 end

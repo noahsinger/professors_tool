@@ -1,6 +1,6 @@
 
-<%= render partial: 'admin/students/students_header', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'admin/students/students_header', locals: {students: @students, main: true} %>
 
 <%= render 'pages_and_search' %>
 
-<%= render partial: 'student', xxx@xxx.xxx cached: true %>
+<%= render partial: 'student', collection: @students, cached: true %>

@@ -1,8 +1,8 @@
 <%= render partial: 'admin/courses/courses_header' %>
-<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: {course: @course} %>
 <%= render partial: 'labs_header', locals: {main: true} %>
 
-<%= render partial: 'lab', locals: xxx@xxx.xxx %>
+<%= render partial: 'lab', locals: {lab: @lab} %>
 
 <div class="block labs">
 	<header>
@@ -11,19 +11,19 @@
 
 	<table>
 		<tr>
-			<td xxx@xxx.xxx %></td>
+			<td class="blank">Visible</td><td><%= @lab.visible %></td>
 		</tr>
 		<tr>
-			<td class="blank">Allow xxx@xxx.xxx %></td>
+			<td class="blank">Allow Uploads</td><td><%= @lab.allow_uploads %></td>
 		</tr>
 		<tr>
 			<td class="blank">Assigned</td>
-			<td><%= xxx@xxx.xxx "time" %></td>
+			<td><%= pluralize @lab.assignments.count, "time" %></td>
 		</tr>
 	</table>
 </div>
 
-<div class="block labs" data-script='$("#requirements_table").reorderTable( "<%= xxx@xxx.xxx ) %>", "<%= form_authenticity_token %>" );'>
+<div class="block labs" data-script='$("#requirements_table").reorderTable( "<%= sort_admin_course_lab_requirements_url( @course,@lab ) %>", "<%= form_authenticity_token %>" );'>
 	<header><h5>Requirements</h5></header>
 	<table id="requirements_table">
 		<tr>
@@ -32,19 +32,19 @@
 			<th></th>
 			<th></th>
 		</tr>
-		<% for requirement xxx@xxx.xxx %>
+		<% for requirement in @lab.requirements %>
 			<%= render requirement %>
 		<% end %>
 		<tr class="last_row">
 			<td class="blank">Total:</td>
-xxx@xxx.xxx %></td>
+			<td><%= @lab.worth %></td>
 			<td class="blank"></td>
 			<td class="blank"></td>
 		</tr>
 	</table>
 
 	<ul>
-		<li><%= link_to 'Add Requirement', xxx@xxx.xxx %></li>
+		<li><%= link_to 'Add Requirement', new_admin_course_lab_requirement_path(@course,@lab) %></li>
 	</ul>
 </div>
 
@@ -52,25 +52,25 @@ xxx@xxx.xxx %></td>
 	<header id="assignment_instructions_header"><h5>Instructions</h5></header>
 
 	<div id="assignment_instructions">
-		<%= xxx@xxx.xxx %>
+		<%= markdown @lab.instructions %>
 	</div>
 </div>
 
 <div class="block labs">
 	<header id="assignment_extras_header"><h5>Extras</h5></header>
 	<div class="fancy">
-		<% xxx@xxx.xxx > 0 %>
+		<% if @lab.extras.size > 0 %>
 			<table>
-			<% for extra xxx@xxx.xxx %>
+			<% for extra in @lab.extras %>
 			  <tr>
 			    <td class="nav"><%=link_to extra.file_file_name, extra.file.url %></td>
 			    <td><%= extra.description %></td>
-			    <td class="edit"><%= link_to 'Edit', xxx@xxx.xxx %></td>
-			    <td class="destroy"><%= link_to 'Destroy', xxx@xxx.xxx data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></td>
+			    <td class="edit"><%= link_to 'Edit', edit_admin_course_lab_extra_path(@course,@lab,extra) %></td>
+			    <td class="destroy"><%= link_to 'Destroy', [:admin,@course,@lab,extra], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></td>
 			  </tr>
 			<% end %>
 			</table>
 		<% end %>
-		<ul class="actions"><li><%= link_to 'Add an extra', xxx@xxx.xxx %></li></ul>
+		<ul class="actions"><li><%= link_to 'Add an extra', new_admin_course_lab_extra_path(@course,@lab) %></li></ul>
 	</div>
 </div>

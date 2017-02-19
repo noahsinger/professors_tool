@@ -3,51 +3,51 @@ class Admin::ObjectivesController < ApplicationController
   before_action :load_course
   
   def load_course
-   xxx@xxx.xxx = Course.find( params[:course_id] )
+    @course = Course.find( params[:course_id] )
   end
   
   # GET /objectives
   # GET /objectives.xml
   def index
-    @objectives xxx@xxx.xxx
+    @objectives = @course.objectives.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @objectives }
     end
   end
 
   # GET /objectives/new
   # GET /objectives/new.xml
   def new
-    @objective xxx@xxx.xxx
+    @objective = @course.objectives.build
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @objective }
     end
   end
 
   # GET /objectives/1/edit
   def edit
-    @objective xxx@xxx.xxx
+    @objective = @course.objectives.find(params[:id])
   end
 
   # POST /objectives
   # POST /objectives.xml
   def create
-    @objective xxx@xxx.xxx
+    @objective = @course.objectives.build(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @objective.save
+        @status = admin_course_objectives_url(@course)
         flash[:notice] = 'Objective was successfully created.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { render xml: @objective, status: :created, xxx@xxx.xxx }
+        format.html { redirect_to(admin_course_objectives_url(@course)) }
+        format.xml  { render xml: @objective, status: :created, location: @objective }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @objective.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -56,25 +56,25 @@ class Admin::ObjectivesController < ApplicationController
   # PUT /objectives/1
   # PUT /objectives/1.xml
   def update
-    @objective xxx@xxx.xxx
+    @objective = @course.objectives.find(params[:id])
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @objective.update_attributes(allowed_params)
+        @status = admin_course_objectives_url(@course)
         flash[:notice] = 'Objective was successfully updated.'
-        format.html { xxx@xxx.xxx }
+        format.html { redirect_to(admin_course_objectives_url(@course)) }
         format.xml  { head :ok }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @objective.errors, status: :unprocessable_entity }
       end
       format.js
     end
   end
   
   def sort
-   xxx@xxx.xxx do |objective|
+    @course.objectives.all.each do |objective|
       if position = params[:objectives].index(objective.id.to_s)
         objective.update_attribute(:position, position + 1) unless objective.position == position + 1
       end
@@ -90,12 +90,12 @@ class Admin::ObjectivesController < ApplicationController
   # DELETE /objectives/1
   # DELETE /objectives/1.xml
   def destroy
-   xxx@xxx.xxx = Objective.find(params[:id])
-   xxx@xxx.xxx
+    @objective = Objective.find(params[:id])
+    @objective.destroy
 
     respond_to do |format|
-      @status = xxx@xxx.xxx
-      format.html { xxx@xxx.xxx }
+      @status = admin_course_objectives_url(@course)
+      format.html { redirect_to(admin_course_objectives_url(@course)) }
       format.xml  { head :ok }
       format.js
     end

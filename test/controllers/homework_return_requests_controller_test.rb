@@ -4,39 +4,39 @@ class HomeworkReturnRequestsControllerTest < ActionDispatch::IntegrationTest
   include ActiveJob::TestHelper 
   
   def setup
-   xxx@xxx.xxx = sections(:jck1003_section_1)
-    @semester xxx@xxx.xxx
-    @assignment xxx@xxx.xxx
+    @section = sections(:jck1003_section_1)
+    @semester = @section.semester
+    @assignment = @section.assignments.first
 
-   xxx@xxx.xxx = students(:stew)
-    @enrollment = @section.enrollments.build( xxx@xxx.xxx )
-   xxx@xxx.xxx
+    @student = students(:stew)
+    @enrollment = @section.enrollments.build( student_id: @student.id )
+    @enrollment.save
 
-    @work = @assignment.works.build( enrollment_id: @enrollment.id, xxx@xxx.xxx )
-   xxx@xxx.xxx
+    @work = @assignment.works.build( enrollment_id: @enrollment.id, email: @student.email )
+    @work.save
   end
 
   test "should get new" do
-    get xxx@xxx.xxx @section, @assignment)
+    get new_semester_section_assignment_homework_return_request_url(@semester, @section, @assignment)
     assert_response :success
   end
 
   test "should create homework_return_request for enrolled student" do
     assert_enqueued_jobs 1 do 
       assert_difference('HomeworkReturnRequest.count') do
-        post xxx@xxx.xxx @section, @assignment),
-          params: {homework_return_request: { xxx@xxx.xxx }}
+        post semester_section_assignment_homework_return_requests_url(@semester, @section, @assignment),
+          params: {homework_return_request: { email: @student.email }}
       end
     end
 
     assert_equal 'sent', assigns(:homework_return_request).status
-    assert_redirected_to xxx@xxx.xxx @section, @assignment)
+    assert_redirected_to semester_section_assignment_url(@semester, @section, @assignment)
   end
 
   test "should not create homework_return_request for non-enrolled student" do
     assert_enqueued_jobs 0 do 
-      post xxx@xxx.xxx @section, @assignment),
-        params: {homework_return_request: { email: xxx@xxx.xxx }}
+      post semester_section_assignment_homework_return_requests_url(@semester, @section, @assignment),
+        params: {homework_return_request: { email: 'joe@shmo.com' }}
     end
 
     assert_response :success
@@ -46,8 +46,8 @@ class HomeworkReturnRequestsControllerTest < ActionDispatch::IntegrationTest
     assert_enqueued_jobs 1 do # 1 enqueued job, not 2
       2.times do
         assert_difference('HomeworkReturnRequest.count') do
-          post xxx@xxx.xxx @section, @assignment),
-            params: {homework_return_request: { xxx@xxx.xxx }}
+          post semester_section_assignment_homework_return_requests_url(@semester, @section, @assignment),
+            params: {homework_return_request: { email: @student.email }}
           end
         end
     end

@@ -1,4 +1,4 @@
-<% course xxx@xxx.xxx %>
+<% course = @section.course %>
 
 <div class="block waiters">
 	<header>
@@ -24,15 +24,15 @@
 
 	<p>
 		A new section of <strong><%= course.title %></strong> was just created and will be offered during
-		the xxx@xxx.xxx %> semester</strong> which begins on
-		<strong><%= xxx@xxx.xxx %></strong>.
+		the <strong><%= @section.semester.name %> semester</strong> which begins on
+		<strong><%= show_short_date(@section.start_date) %></strong>.
 	</p>
 
 	<p>
 		<strong>Course name:</strong> <%= course.title %><br/>
 		<strong>Course number:</strong> <%= course.short_name %><br/>
-		<strong>Section number (CRN):</strong> xxx@xxx.xxx %><br/>
-		<strong>Meeting Days/Times:</strong> xxx@xxx.xxx %>
+		<strong>Section number (CRN):</strong> <%= @section.call_number %><br/>
+		<strong>Meeting Days/Times:</strong> <%= @section.meeting_days_and_times %>
 	</p>
 
 	<p>

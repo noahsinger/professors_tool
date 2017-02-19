@@ -1,10 +1,10 @@
 
 <%= render 'admin/semesters/semesters_header' %>
-<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
-<%= render xxx@xxx.xxx %>
-<%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/assignments/assignment', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/semesters/semester', locals: {semester: @assignment.section.semester} %>
+<%= render partial: 'admin/sections/sections_header', locals: {semester: @assignment.section.semester} %>
+<%= render partial: @assignment.section %>
+<%= render partial: 'admin/assignments/assignments_header', locals: {section: @assignment.section} %>
+<%= render partial: 'admin/assignments/assignment', locals: {assignment: @assignment} %>
 
 <div class="block block--width2 assignment_tweets">
 	<header>

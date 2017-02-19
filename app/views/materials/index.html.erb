@@ -1,10 +1,10 @@
-<% xxx@xxx.xxx %>
-	<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
-	<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
+<% if @section %>
+	<%= render partial: 'semesters/semester', locals: {semester: @section.semester} %>
+	<%= render partial: 'sections/section', locals: {section: @section} %>
 <% end %>
 
-<%= render partial: 'materials_header', locals: xxx@xxx.xxx main: true} %>
-<%= render partial: 'courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'materials_header', locals: {course: @course, main: true} %>
+<%= render partial: 'courses/course', locals: {course: @course} %>
 
 
-<%= render partial: 'material', xxx@xxx.xxx cached: true %>
+<%= render partial: 'material', collection: @materials, cached: true %>

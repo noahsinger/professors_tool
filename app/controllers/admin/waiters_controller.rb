@@ -4,29 +4,29 @@ class Admin::WaitersController < ApplicationController
   before_action :load_course
   
   def load_course
-   xxx@xxx.xxx = Course.find( params[:course_id] )
+    @course = Course.find( params[:course_id] )
   end
   
   # GET /waiters
   # GET /waiters.json
   def index
-    @waiters xxx@xxx.xxx
+    @waiters = @course.waiters.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render xxx@xxx.xxx }
+      format.json { render json: @waiters }
     end
   end
 
   # DELETE /waiters/1
   # DELETE /waiters/1.json
   def destroy
-    @waiter xxx@xxx.xxx
-   xxx@xxx.xxx
+    @waiter = @course.waiters.find(params[:id])
+    @waiter.destroy
 
     respond_to do |format|
-      @status = xxx@xxx.xxx
-      format.html { redirect_to xxx@xxx.xxx }
+      @status = admin_course_waiters_url(@course)
+      format.html { redirect_to admin_course_waiters_url(@course) }
       format.json { head :ok }
       format.js
     end

@@ -1,5 +1,5 @@
 <tr id="<%= tutorial.id %>">
-	<td><%= link_to tutorial.how_to.title, admin_how_to_steps_path(tutorial.how_to, xxx@xxx.xxx %></td>
-	<td><%= link_to 'edit', edit_admin_how_to_path(tutorial.how_to, xxx@xxx.xxx %></td>
-	<td><%= link_to 'remove', xxx@xxx.xxx data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></td>
+	<td><%= link_to tutorial.how_to.title, admin_how_to_steps_path(tutorial.how_to, course_id: @course) %></td>
+	<td><%= link_to 'edit', edit_admin_how_to_path(tutorial.how_to, course_id: @course) %></td>
+	<td><%= link_to 'remove', [:admin,@course,tutorial], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></td>
 </tr>

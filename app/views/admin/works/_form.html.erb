@@ -1,6 +1,6 @@
 <div class="block form works">
-	<%= xxx@xxx.xxx html: {multipart: true}, remote: true) do |f| %>
-		<%= xxx@xxx.xxx %>
+	<%= form_for([:admin,@semester,@section,@assignment,@work], html: {multipart: true}, remote: true) do |f| %>
+		<%= show_error_messages_for @work %>
 		<ol>
 			<li>
 				<div class="details">
@@ -17,17 +17,17 @@
 					<p>For whom?</p>
 				</div>
 
-				<div class="field"><%=  select( "work", "enrollment_id", Enrollment.where(['section_id = xxx@xxx.xxx {|s| [ s.student.last_name + ', ' + s.student.first_name, s.id ] }.sort, { include_blank: true } ) %></div>
+				<div class="field"><%=  select( "work", "enrollment_id", Enrollment.where(['section_id = ?', @section]).collect {|s| [ s.student.last_name + ', ' + s.student.first_name, s.id ] }.sort, { include_blank: true } ) %></div>
 			</li>
 
-			<% xxx@xxx.xxx %>
+			<% if @work.assignment.lab.allow_uploads %>
 				<li>
 					<div class="details">
 						<%= f.label :upload %>
 					
 						<p>			
-							<% xxx@xxx.xxx %>
-								Current upload: <%= xxx@xxx.xxx @work.upload.url %>
+							<% if @work.upload_file_name %>
+								Current upload: <%= link_to @work.upload_file_name, @work.upload.url %>
 							<% else %>
 								No upload included yet
 							<% end %>

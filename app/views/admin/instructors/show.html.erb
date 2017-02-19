@@ -1,7 +1,7 @@
 
 <%= render 'instructors_header' %>
 
-<%= render partial: 'instructor', locals: xxx@xxx.xxx %>
+<%= render partial: 'instructor', locals: {instructor: @instructor} %>
 
 <div class="block instructors">
 	<header><h4>Details</h4></header>
@@ -9,37 +9,37 @@
 	<table>
 		<tr>
 			<td class="blank">Phone number:</td>
-xxx@xxx.xxx %></td>
+			<td><%= @instructor.phone_number %></td>
 		</tr>
 
 		<tr>
 			<td class="blank">Office number:</td>
-xxx@xxx.xxx %></td>
+			<td><%= @instructor.office_number %></td>
 		</tr>
 
 		<tr>
 			<td class="blank">Office Hours: </td>
-			<td><%= link_to( 'office xxx@xxx.xxx )%></td>
+			<td><%= link_to( 'office hours', @instructor.office_hours.url )%></td>
 		</tr>
 
 		<tr>
 			<td class="blank">Email:</td>
-xxx@xxx.xxx %></td>
+			<td><%= @instructor.email %></td>
 		</tr>
 		
 		<tr>
 			<td class="blank">Twitter:</td>
-			<td><%= link_to "@#{@instructor.twitter_handle}", xxx@xxx.xxx %></td>
+			<td><%= link_to "@#{@instructor.twitter_handle}", "http://twitter.com/#{@instructor.twitter_handle}" %></td>
 		</tr>
 
 		<tr>
 			<td class="blank">Website:</td>
-xxx@xxx.xxx %></td>
+			<td><%= @instructor.website %></td>
 		</tr>
 
 		<tr>
 			<td class="blank">Division:</td>
-xxx@xxx.xxx %></td>
+			<td><%= @instructor.division.name %></td>
 		</tr>
 	</table>
 </div>

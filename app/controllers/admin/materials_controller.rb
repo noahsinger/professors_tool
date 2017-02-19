@@ -4,51 +4,51 @@ class Admin::MaterialsController < ApplicationController
   before_action :load_course
   
   def load_course
-   xxx@xxx.xxx = Course.find( params[:course_id] )
+    @course = Course.find( params[:course_id] )
   end
   
   # GET /materials
   # GET /materials.xml
   def index
-    @materials xxx@xxx.xxx
+    @materials = @course.materials.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @materials }
     end
   end
 
   # GET /materials/new
   # GET /materials/new.xml
   def new
-    @material xxx@xxx.xxx
+    @material = @course.materials.build
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @material }
     end
   end
 
   # GET /materials/1/edit
   def edit
-    @material xxx@xxx.xxx
+    @material = @course.materials.find(params[:id])
   end
 
   # POST /materials
   # POST /materials.xml
   def create
-    @material xxx@xxx.xxx
+    @material = @course.materials.new(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @material.save
+        @status = admin_course_materials_url(@course)
         flash[:notice] = 'Material was successfully created.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { render xml: @material, status: :created, xxx@xxx.xxx }
+        format.html { redirect_to(admin_course_materials_url(@course)) }
+        format.xml  { render xml: @material, status: :created, location: @material }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @material.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -57,18 +57,18 @@ class Admin::MaterialsController < ApplicationController
   # PUT /materials/1
   # PUT /materials/1.xml
   def update
-    @material xxx@xxx.xxx
+    @material = @course.materials.find(params[:id])
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @material.update_attributes(allowed_params)
+        @status = admin_course_materials_url(@course)
         flash[:notice] = 'Material was successfully updated.'
-        format.html { xxx@xxx.xxx }
+        format.html { redirect_to(admin_course_materials_url(@course)) }
         format.xml  { head :ok }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @material.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -77,12 +77,12 @@ class Admin::MaterialsController < ApplicationController
   # DELETE /materials/1
   # DELETE /materials/1.xml
   def destroy
-   xxx@xxx.xxx = Material.find(params[:id])
-   xxx@xxx.xxx
+    @material = Material.find(params[:id])
+    @material.destroy
 
     respond_to do |format|
-      @status = xxx@xxx.xxx
-      format.html { xxx@xxx.xxx }
+      @status = admin_course_materials_url(@course)
+      format.html { redirect_to(admin_course_materials_url(@course)) }
       format.xml  { head :ok }
       format.js
     end

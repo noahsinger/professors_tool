@@ -1,22 +1,22 @@
 	<div class="block general_contacts">
 		<header>
 			<p>
-				Section Announcement for xxx@xxx.xxx %>
+				Section Announcement for <%= @section.course.title %>
 			</p>
-xxx@xxx.xxx %></h3>
+			<h3><%= @section.course.short_name %></h3>
 		</header>
 	</div>
 
 	<div class="block general_contacts">
 		<header>
-			<p>To: Section <%= @section.call_number %> of xxx@xxx.xxx %></p>
+			<p>To: Section <%= @section.call_number %> of <%= @section.course.title %></p>
 			<h3>Announcement</h3>
 		</header>
 
-		<%= xxx@xxx.xxx %>
+		<%= markdown @text %>
 
 		<footer>
-			<%= @section.instructor.first_name %> xxx@xxx.xxx %><br/>
-xxx@xxx.xxx %>
+			<%= @section.instructor.first_name %> <%= @section.instructor.last_name %><br/>
+			<%= @section.instructor.title %>
 		</footer>
 	</div>

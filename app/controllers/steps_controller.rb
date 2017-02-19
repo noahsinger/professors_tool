@@ -4,15 +4,15 @@ class StepsController < ApplicationController
   before_action :load_howto
 
   def load_section
-   xxx@xxx.xxx = Section.find( params[:section_id] ) if params[:section_id]
+    @section = Section.find( params[:section_id] ) if params[:section_id]
   end
 
   def load_course
-   xxx@xxx.xxx = Course.find( params[:course_id] )
+    @course = Course.find( params[:course_id] )
   end
 
   def load_howto
-   xxx@xxx.xxx = HowTo.find( params[:how_to_id] )
+    @how_to = HowTo.find( params[:how_to_id] )
   end
 
   # GET /steps/1
@@ -22,11 +22,11 @@ class StepsController < ApplicationController
       session[:referrer] = request.referrer
     end
 
-   xxx@xxx.xxx = Step.find(params[:id])
+    @step = Step.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @step }
     end
   end
 end

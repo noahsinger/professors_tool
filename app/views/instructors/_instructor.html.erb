@@ -17,7 +17,7 @@
 		<p class="tel"><a href="tel:<%= instructor.phone_number %>"><%= instructor.phone_number %></a></p>
 		<p class="email">Email: <%= link_to instructor.email, new_general_contact_path %></p>
 		<% if instructor.twitter_handle %>
-			<p>Twitter: <%= link_to xxx@xxx.xxx "http://twitter.com/#{instructor.twitter_handle}" %></p>
+			<p>Twitter: <%= link_to "@#{instructor.twitter_handle}", "http://twitter.com/#{instructor.twitter_handle}" %></p>
 		<% end %>
 		<p>Website: <%= link_to instructor.website, instructor.website, class: "url" %></p>
 		<p class="note office_hours"><strong><%= link_to( 'office hours', instructor.office_hours.url )%></strong></p>

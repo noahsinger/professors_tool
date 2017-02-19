@@ -3,46 +3,46 @@ class GeneralContactsController < ApplicationController
   # GET /general_contacts/new.xml
   def new
     if params[:section_id]
-     xxx@xxx.xxx = Section.find params[:section_id]
+      @section = Section.find params[:section_id]
     end
 
-   xxx@xxx.xxx = GeneralContact.new
+    @general_contact = GeneralContact.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @general_contact }
     end
   end
 
   # POST /general_contacts
   # POST /general_contacts.xml
   def create
-   xxx@xxx.xxx = GeneralContact.new(allowed_params)
+    @general_contact = GeneralContact.new(allowed_params)
     
     if params[:section_id]
-     xxx@xxx.xxx = Section.find params[:section_id]
+      @section = Section.find params[:section_id]
     end
 
     respond_to do |format|
-      xxx@xxx.xxx
-       xxx@xxx.xxx
+      if @general_contact.save
+        @general_contact.send_email
         flash[:notice] = 'Contact Email was successfully sent.'
         
-        xxx@xxx.xxx
-          @status = xxx@xxx.xxx
-          format.html { redirect_to( xxx@xxx.xxx ) }
+        if @section
+          @status = semester_section_assignments_url(@section.semester,@section)
+          format.html { redirect_to( semester_section_assignments_url(@section.semester,@section) ) }
         else
-         xxx@xxx.xxx = root_url
+          @status = root_url
           format.html { redirect_to( root_url ) }
         end
         
         format.js
-        format.xml  { render xml: @general_contact, status: :created, xxx@xxx.xxx }
+        format.xml  { render xml: @general_contact, status: :created, location: @general_contact }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.js
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @general_contact.errors, status: :unprocessable_entity }
       end
     end
   end

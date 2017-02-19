@@ -14,14 +14,14 @@ class AddStudentToSectionTest < ActionDispatch::IntegrationTest
     # add new student
     visit new_admin_semester_section_enrollment_path( semesters(:fall), sections(:jck1003_section_2) )
     
-    fill_in("email", with: xxx@xxx.xxx
+    fill_in("email", with: "noah.singer@tulsacc.edu")
     click_on("Enroll")
     
     assert_equal new_admin_semester_section_student_path( semesters(:fall), sections(:jck1003_section_2) ), current_path
     
     assert page.has_selector?( 'input[id=student_first_name][value=Noah]' )
     assert page.has_selector?( 'input[id=student_last_name][value=Singer]' )
-    assert page.has_selector?( xxx@xxx.xxx )
+    assert page.has_selector?( 'input[id=student_email][value="noah.singer@tulsacc.edu"]' )
     
     click_on( "Create Student" )
     

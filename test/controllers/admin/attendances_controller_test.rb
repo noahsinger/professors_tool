@@ -10,7 +10,7 @@ class Admin::AttendancesControllerTest < ActionDispatch::IntegrationTest
   end
 
   setup do
-   xxx@xxx.xxx = attendances(:one)
+    @attendance = attendances(:one)
   end
 
   test "should get index" do

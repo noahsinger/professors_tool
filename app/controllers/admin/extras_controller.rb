@@ -5,44 +5,44 @@ class Admin::ExtrasController < ApplicationController
   before_action :load_lab
   
   def load_course
-   xxx@xxx.xxx = Course.find( params[:course_id] )
+    @course = Course.find( params[:course_id] )
   end
   
   def load_lab
-   xxx@xxx.xxx = Lab.find( params[:lab_id] )
+    @lab = Lab.find( params[:lab_id] )
   end
   
   # GET /extras/new
   # GET /extras/new.xml
   def new
-    @extra xxx@xxx.xxx
+    @extra = @lab.extras.build
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @extra }
     end
   end
 
   # GET /extras/1/edit
   def edit
-    @extra xxx@xxx.xxx
+    @extra = @lab.extras.find(params[:id])
   end
 
   # POST /extras
   # POST /extras.xml
   def create
-    @extra xxx@xxx.xxx
+    @extra = @lab.extras.build(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @extra.save
+        @status = admin_course_lab_url(@course,@lab)
         flash[:notice] = 'Extra was successfully created.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { render xml: @extra, status: :created, xxx@xxx.xxx }
+        format.html { redirect_to([:admin,@course,@lab]) }
+        format.xml  { render xml: @extra, status: :created, location: @extra }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @extra.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -51,18 +51,18 @@ class Admin::ExtrasController < ApplicationController
   # PUT /extras/1
   # PUT /extras/1.xml
   def update
-    @extra xxx@xxx.xxx
+    @extra = @lab.extras.find(params[:id])
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @extra.update_attributes(allowed_params)
+        @status = admin_course_lab_url(@course,@lab)
         flash[:notice] = 'Extra was successfully updated.'
-        format.html { xxx@xxx.xxx }
+        format.html { redirect_to([:admin,@course,@lab]) }
         format.xml  { head :ok }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @extra.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -71,12 +71,12 @@ class Admin::ExtrasController < ApplicationController
   # DELETE /extras/1
   # DELETE /extras/1.xml
   def destroy
-   xxx@xxx.xxx = Extra.find(params[:id])
-   xxx@xxx.xxx
+    @extra = Extra.find(params[:id])
+    @extra.destroy
 
     respond_to do |format|
-      @status = xxx@xxx.xxx
-      format.html { xxx@xxx.xxx }
+      @status = admin_course_lab_url(@course,@lab)
+      format.html { redirect_to(admin_course_lab_url(@course,@lab)) }
       format.xml  { head :ok }
       format.js
     end

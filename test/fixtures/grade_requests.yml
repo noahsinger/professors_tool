@@ -3,11 +3,11 @@
 one:
  section_id: 1
  enrollment_id: 1
- email: xxx@xxx.xxx
+ email: noah@threesuns.org
  created_at: <%= 1.hour.ago %>
 
 two:
  section_id: 1
  enrollment_id: 2
- email: xxx@xxx.xxx
+ email: noah@ingenio.us.com
  created_at: <%= 2.hours.ago %>

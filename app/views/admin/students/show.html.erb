@@ -1,6 +1,6 @@
 
 <%= render partial: 'admin/students/students_header', locals: {students: Student.all} %>
-<%= render partial: 'admin/students/student', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'admin/students/student', locals: {student: @student, main: true} %>
 
 <div class="block block--width2 students">
 	<header>
@@ -16,10 +16,10 @@
 			<th>Status</th>
 			<th>Meetings/Absences</th>
 		</tr>
-xxx@xxx.xxx do |section| %>
+		<% @student.sections.each do |section| %>
 			<tr>
 				<td><%= link_to( section.meeting_days + " :: " + section.course.title, admin_semester_section_path(section.semester,section) ) %></td>
-				<td><%= xxx@xxx.xxx ) * 100) %></td>
+				<td><%= number_to_percentage(section.final_grade_for( @student ) * 100) %></td>
 				<td><%= section.semester.name %></td>
 
 					<% if section.is_past %>
@@ -32,12 +32,12 @@ xxx@xxx.xxx do |section| %>
 						<% end %>
 					<% end %>
 
-					<% enrollment xxx@xxx.xxx = ?", section.id]).first %>
+					<% enrollment = @student.enrollments.where(["section_id = ?", section.id]).first %>
 					<td><%= enrollment.enrollment_status.name %></td>
 					<td>
 						<%= section.meetings.count %>
 						/
-xxx@xxx.xxx section.id).first.attendances.where(attendance_status_id: AttendanceStatus.absent.id).count %>
+						<%= @student.enrollments.where(section_id: section.id).first.attendances.where(attendance_status_id: AttendanceStatus.absent.id).count %>
 					</td>
 			</tr>
 		<% end %>

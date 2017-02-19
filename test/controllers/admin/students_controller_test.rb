@@ -32,7 +32,7 @@ class Admin::StudentsControllerTest < ActionDispatch::IntegrationTest
           student: {
             first_name: "Something",
             last_name: "Something",
-            email: xxx@xxx.xxx
+            email: "test123@test.com"
           }
         }
     end

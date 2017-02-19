@@ -1,7 +1,7 @@
 /**
  * TableDnD plug-in for JQuery, allows you to drag and drop table rows
  * You can set up various options to control how the system will work
- * Copyright (c) Denis Howlett xxx@xxx.xxx
+ * Copyright (c) Denis Howlett <denish@isocra.com>
  * Licensed like jQuery, see http://docs.jquery.com/License.
  *
  * Configuration options:

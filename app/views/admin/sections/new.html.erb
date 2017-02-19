@@ -1,7 +1,7 @@
 
 <%= render 'admin/semesters/semesters_header' %>
-<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'sections_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/semesters/semester', locals: {semester: @semester} %>
+<%= render partial: 'sections_header', locals: {semester: @semester} %>
 
 <div class="block block--width2 sections">
 	<header><p>Create a new</p><h3>Section</h3></header>

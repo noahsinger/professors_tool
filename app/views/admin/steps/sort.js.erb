@@ -1,7 +1,7 @@
 $("#steps").empty( );
 
-xxx@xxx.xxx do |step| %>
+<% @how_to.steps.each do |step| %>
 	$("#steps").append("<%= escape_javascript(render(partial: step)) %>")
 <% end %>
 
-$("#steps").reorderTable( "<%= xxx@xxx.xxx ) %>", "<%= form_authenticity_token %>" );
+$("#steps").reorderTable( "<%= sort_admin_how_to_steps_url( @how_to ) %>", "<%= form_authenticity_token %>" );

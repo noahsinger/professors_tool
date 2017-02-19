@@ -50,7 +50,7 @@ class GradeRequestsControllerTest < ActionDispatch::IntegrationTest
         post semester_section_grade_requests_url(Semester.current, Semester.current.sections.first),
           params: {
             grade_request: {
-              email: xxx@xxx.xxx
+              email: 'joe@shmo.com'
             }
           }
       end

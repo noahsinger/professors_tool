@@ -7,8 +7,8 @@
 	</header>
 
 	<ul>
-		<li class="icon"><%= link_to xxx@xxx.xxx {class: "icon icon-note", title: "Edit"} do %><span class="text_label">Edit</span><% end %></li>
-		<li class="icon"><%= link_to xxx@xxx.xxx {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">Destroy</span><% end %></li>
+		<li class="icon"><%= link_to edit_admin_course_material_path(@course,material), {class: "icon icon-note", title: "Edit"} do %><span class="text_label">Edit</span><% end %></li>
+		<li class="icon"><%= link_to [:admin,@course,material], {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">Destroy</span><% end %></li>
 	</ul>
 
 	<p><%= material.description %></p>

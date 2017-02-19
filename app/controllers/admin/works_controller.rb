@@ -18,25 +18,25 @@ class Admin::WorksController < ApplicationController
   
   def load_semester
     if params[:semester_id]
-     xxx@xxx.xxx = Semester.find( params[:semester_id] )
+      @semester = Semester.find( params[:semester_id] )
     else
-     xxx@xxx.xxx = Work.find(params[:id]).assignment.section.semester
+      @semester = Work.find(params[:id]).assignment.section.semester
     end
   end
   
   def load_section
     if params[:section_id]
-     xxx@xxx.xxx = Section.find( params[:section_id] )
+      @section = Section.find( params[:section_id] )
     else
-     xxx@xxx.xxx = Work.find(params[:id]).assignment.section
+      @section = Work.find(params[:id]).assignment.section
     end
   end
 
   def load_assignment
     if params[:assignment_id]
-     xxx@xxx.xxx = Assignment.find( params[:assignment_id] )
+      @assignment = Assignment.find( params[:assignment_id] )
     else
-     xxx@xxx.xxx = Work.find(params[:id]).assignment
+      @assignment = Work.find(params[:id]).assignment
     end
   end  
   
@@ -52,91 +52,91 @@ class Admin::WorksController < ApplicationController
   # GET /works
   # GET /works.xml
   def index
-    @works xxx@xxx.xxx
+    @works = @assignment.works.order(:created_at)
     
-   xxx@xxx.xxx = Array.new
+    @enrollments_without_works = Array.new
 
-   xxx@xxx.xxx do |enrollment|
-      if not xxx@xxx.xxx )
-       xxx@xxx.xxx << enrollment
+    @section.enrollments.each do |enrollment|
+      if not enrollment.works.find_by_assignment_id( @assignment )
+        @enrollments_without_works << enrollment
       end
     end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @works }
     end
   end
 
   # GET /works/1
   # GET /works/1.xml
   def show
-    @work xxx@xxx.xxx
+    @work = @assignment.works.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @work }
     end
   end
 
   # GET /works/new
   # GET /works/new.xml
   def new
-    @work xxx@xxx.xxx
+    @work = @assignment.works.build
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @work }
     end
   end
   
   def new_for_all
-   xxx@xxx.xxx do |e|
+    @section.enrollments.each do |e|
       if e.enrollment_status.id != EnrollmentStatus.dropped.id
-        unless e.works.where('assignment_id = xxx@xxx.xxx
-          @work xxx@xxx.xxx
-         xxx@xxx.xxx = e.student.email
-         xxx@xxx.xxx = e
-         xxx@xxx.xxx
+        unless e.works.where('assignment_id = ?', @assignment.id).first
+          @work = @assignment.works.build
+          @work.email = e.student.email
+          @work.enrollment = e
+          @work.save
         end
       end
     end
     
     respond_to do |format|
-      xxx@xxx.xxx
+      if @assignment.lab.allow_uploads
         flash[:error] = "Can not mass create assignments that require uploads"
       end
       
-      @status = xxx@xxx.xxx
-      format.html { xxx@xxx.xxx }
+      @status = admin_semester_section_assignment_works_url(@semester,@section,@assignment)
+      format.html { redirect_to(admin_semester_section_assignment_works_url(@semester,@section,@assignment)) }
       format.js
     end
   end
 
   # GET /works/1/edit
   def edit
-    @work xxx@xxx.xxx
+    @work = @assignment.works.find(params[:id])
   end
 
   # POST /works
   # POST /works.xml
   def create
-    @work xxx@xxx.xxx
+    @work = @assignment.works.build(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @work.email xxx@xxx.xxx
+      if @work.enrollment
+        @work.email = @work.enrollment.student.email
       end
 
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @work.save
+        @status = admin_semester_section_assignment_works_url(@semester,@section,@assignment)
         flash[:notice] = 'Work was successfully created.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { render xml: @work, status: :created, xxx@xxx.xxx }
+        format.html { redirect_to(admin_semester_section_assignment_works_url(@semester,@section,@assignment)) }
+        format.xml  { render xml: @work, status: :created, location: @work }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @work.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -145,18 +145,18 @@ class Admin::WorksController < ApplicationController
   # PUT /works/1
   # PUT /works/1.xml
   def update
-    @work xxx@xxx.xxx
+    @work = @assignment.works.find(params[:id])
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @work.update_attributes(allowed_params)
+        @status = admin_semester_section_assignment_work_url(@semester,@section,@assignment,@work)
         flash[:notice] = 'Work was successfully updated.'
-        format.html { xxx@xxx.xxx }
+        format.html { redirect_to([:admin,@semester,@section,@assignment,@work]) }
         format.xml  { head :ok }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @work.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -165,70 +165,70 @@ class Admin::WorksController < ApplicationController
   # DELETE /works/1
   # DELETE /works/1.xml
   def destroy
-    @work xxx@xxx.xxx
-   xxx@xxx.xxx
+    @work = @assignment.works.find(params[:id])
+    @work.destroy
 
     respond_to do |format|
-      @status = xxx@xxx.xxx @section, @assignment)
-      format.html { xxx@xxx.xxx @section, @assignment )) }
+      @status = admin_semester_section_assignment_works_url(@semester, @section, @assignment)
+      format.html { redirect_to(admin_semester_section_assignment_works_url( @semester, @section, @assignment )) }
       format.xml  { head :ok }
       format.js
     end
   end
 
   def destroy_grade
-    @work xxx@xxx.xxx
-   xxx@xxx.xxx do |ap|
+    @work = @assignment.works.find(params[:id])
+    @work.awarded_points.each do |ap|
       ap.destroy
     end
     
-   xxx@xxx.xxx = ""
-   xxx@xxx.xxx
+    @work.instructors_comments = ""
+    @work.save
     
     flash[:notice] = "The grade has been destroyed."
 
     respond_to do |format|
-      @status = xxx@xxx.xxx @section, @assignment)
-      format.html { xxx@xxx.xxx @section, @assignment )) }
+      @status = admin_semester_section_assignment_works_url(@semester, @section, @assignment)
+      format.html { redirect_to(admin_semester_section_assignment_works_url( @semester, @section, @assignment )) }
       format.xml  { head :ok }
       format.js
     end
   end
   
   def grade
-    @work xxx@xxx.xxx
+    @work = @assignment.works.find(params[:id])
   end
   
   def record_score
-    @work xxx@xxx.xxx
+    @work = @assignment.works.find(params[:id])
 
     respond_to do |format|
-      xxx@xxx.xxx
+      if @work.update_attributes(allowed_params)
         #ap[0] is the requirements id 
         #ap[1] is the earned points submitted from the form
 
         # if no points have been previously awarded for this work
-        if @work.awarded_points.size xxx@xxx.xxx
+        if @work.awarded_points.size < @work.assignment.lab.requirements.size
           #create a new set of awarded points for it
           params[:awarded_points].each do |point_id, amount|
             awarded_point = AwardedPoint.create
-            xxx@xxx.xxx requirement: Requirement.find(point_id), points: amount)
+            awarded_point.update_attributes(work: @work, requirement: Requirement.find(point_id), points: amount)
           end
         else
           #change the awarded points that already go with this work
           params[:awarded_points].each do |point_id, amount|
-            existing_point xxx@xxx.xxx point_id).first
+            existing_point = @work.awarded_points.where('requirement_id=?', point_id).first
             existing_point.update_attribute( :points, amount )
           end
         end
     
-        @status = xxx@xxx.xxx @section, @assignment)
-        format.html { xxx@xxx.xxx @section, @assignment )) }
+        @status = admin_semester_section_assignment_works_url(@semester, @section, @assignment)
+        format.html { redirect_to(admin_semester_section_assignment_works_url( @semester, @section, @assignment )) }
         format.xml  { head :ok }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @work.errors, status: :unprocessable_entity }
       end
       format.js
     end    

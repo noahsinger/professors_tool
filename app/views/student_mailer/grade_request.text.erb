@@ -1,21 +1,21 @@
 =====================================================================
-Your Grades for <%= @enrollment.section.course.title %> xxx@xxx.xxx %>
+Your Grades for <%= @enrollment.section.course.title %> <%= @enrollment.section.semester.name %>
 =====================================================================
 
 Grade Summary
-Your current grade is: xxx@xxx.xxx %>
+Your current grade is: <%= @enrollment.current_grade %>
 
 
-There have been xxx@xxx.xxx %> points assigned
-and you have earned xxx@xxx.xxx %> points leaving you
-with a <%= xxx@xxx.xxx %> average.
+There have been <%= @enrollment.section.points_assigned %> points assigned
+and you have earned <%= @enrollment.current_points %> points leaving you
+with a <%= number_to_percentage @enrollment.current_average %> average.
 
 Included in this email you will find detailed information on your current grade in
-xxx@xxx.xxx %>.  If you have any questions about these grades
+<%= @enrollment.section.course.title %>.  If you have any questions about these grades
 please contact your instructor (<%= new_general_contact_url(:host => APP_CONFIG['host']) %>).
 
-xxx@xxx.xxx do |assignment| -%>	
-<%- work = xxx@xxx.xxx ) -%>
+<%- @enrollment.section.assignments.each do |assignment| -%>	
+<%- work = assignment.works.find_by_enrollment_id( @enrollment ) -%>
 ----------------------------------------------------
 <%= assignment.title %> : <%= assignment.lab.title %>
 ----------------------------------------------------

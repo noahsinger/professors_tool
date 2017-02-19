@@ -2,7 +2,7 @@ class AdminMailer < ApplicationMailer
   add_template_helper(ApplicationHelper)
   
   def general_contact( contact )
-   xxx@xxx.xxx = contact
+    @contact = contact
 
 		if contact.attachment_file_name
       attachments[contact.attachment_file_name] = File.read(contact.attachment.path)

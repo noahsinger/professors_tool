@@ -1,22 +1,22 @@
 <div id="how_to_<%= how_to.id.to_s %>" class="how_to block <%= double_width_if_main(defined? main) %> how_tos">
 	<header>
-		<%= link_to admin_how_to_steps_path(how_to, xxx@xxx.xxx do %>
+		<%= link_to admin_how_to_steps_path(how_to, course_id: @course) do %>
 			<p><%= how_to.title %></p>
 			<h5>HowTo</h5>
 		<% end %>
 	</header>
 
 	<ul>
-		<li class="icon"><%= link_to xxx@xxx.xxx {class: "icon icon-note", title: "edit"} do %><span class="text_label">edit</span><% end %></li>
-		<li class="icon"><%= link_to admin_how_to_path(how_to, xxx@xxx.xxx {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">destroy</span><% end %></li>
-		<li class="icon"><%= link_to new_admin_how_to_step_path(how_to, xxx@xxx.xxx {class: "icon icon-plus", title: "New"} do %><span class="text_label">New step</span><% end %></li>
+		<li class="icon"><%= link_to edit_admin_how_to_path(how_to,course_id: @course), {class: "icon icon-note", title: "edit"} do %><span class="text_label">edit</span><% end %></li>
+		<li class="icon"><%= link_to admin_how_to_path(how_to, course_id: @course), {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">destroy</span><% end %></li>
+		<li class="icon"><%= link_to new_admin_how_to_step_path(how_to, course_id: @course), {class: "icon icon-plus", title: "New"} do %><span class="text_label">New step</span><% end %></li>
 	</ul>
 
 	<p><%= how_to.description %></p>
 
-	<% xxx@xxx.xxx {|tutorial| tutorial.how_to}.include?(how_to) %>
+	<% unless @course.tutorials.map {|tutorial| tutorial.how_to}.include?(how_to) %>
 		<ul>
-			<li><%= link_to "Add to this course", xxx@xxx.xxx how_to_id: how_to.id), method: :post, remote: true %></li>
+			<li><%= link_to "Add to this course", add_how_to_admin_course_tutorials_path(@course, how_to_id: how_to.id), method: :post, remote: true %></li>
 		</ul>
 	<% end %>
 

@@ -1,11 +1,11 @@
 <div class="block <%= double_width_if_main(defined? main) %> tutorials header">
 	<header>
-		<%= link_to xxx@xxx.xxx do %>
+		<%= link_to admin_course_tutorials_path(@course) do %>
 			<h4>Tutorials</h4>
 		<% end %>
 	</header>
 	
 	<ul class="actions">
-		<li class="icon"><%= link_to xxx@xxx.xxx {class: "icon icon-plus", title: "New"} do %><span class="text_label">New How To</span><% end %></li>
+		<li class="icon"><%= link_to new_admin_how_to_path(course_id: @course), {class: "icon icon-plus", title: "New"} do %><span class="text_label">New How To</span><% end %></li>
 	</ul>
 </div>

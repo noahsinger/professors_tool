@@ -32,7 +32,7 @@ class WorkTest < ActiveJob::TestCase
     assert_respond_to Work.first, :send_submitted_email
     
     assert_enqueued_jobs 1 do 
-      Work.first.send_submitted_email xxx@xxx.xxx
+      Work.first.send_submitted_email "noah@test.com"
     end
   end
   

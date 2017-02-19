@@ -11,34 +11,34 @@ class Admin::PoliciesController < ApplicationController
   end
   
   def load_course
-   xxx@xxx.xxx = Course.find( params[:course_id] )
+    @course = Course.find( params[:course_id] )
   end
   
   # GET /policies
   # GET /policies.xml
   def index
-    @policies xxx@xxx.xxx
-   xxx@xxx.xxx = SyllabusPart.order('name')
+    @policies = @course.policies.all
+    @syllabus_parts = SyllabusPart.order('name')
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @policies }
     end
   end
 
   # POST /policies
   # POST /policies.xml
   def create
-    @policy xxx@xxx.xxx
+    @policy = @course.policies.build(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
+      if @policy.save
         flash[:notice] = 'Policy was successfully created.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { render xml: @policy, status: :created, xxx@xxx.xxx }
+        format.html { redirect_to([:admin,@course]) }
+        format.xml  { render xml: @policy, status: :created, location: @policy }
       else
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @policy.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,17 +46,17 @@ class Admin::PoliciesController < ApplicationController
   # DELETE /policies/1
   # DELETE /policies/1.xml
   def destroy
-    @policy xxx@xxx.xxx
-   xxx@xxx.xxx
+    @policy = @course.policies.find(params[:id])
+    @policy.destroy
 
     respond_to do |format|
-      format.html { xxx@xxx.xxx }
+      format.html { redirect_to(admin_course_policies_url(@course)) }
       format.xml  { head :ok }
     end
   end
   
   def sort
-   xxx@xxx.xxx do |policy|
+    @course.policies.all.each do |policy|
       if position = params[:policies].index(policy.id.to_s)
         policy.update_attribute(:position, position + 1) unless policy.position == position + 1
       end
@@ -70,11 +70,11 @@ class Admin::PoliciesController < ApplicationController
   end
   
   def add_syllabus_part
-    @policy = xxx@xxx.xxx syllabus_part_id: params[:syllabus_part_id])
+    @policy = Policy.new(course_id: @course.id.to_i, syllabus_part_id: params[:syllabus_part_id])
 
     respond_to do |format|
-      @status = xxx@xxx.xxx
-      xxx@xxx.xxx
+      @status = admin_course_policies_url(@course)
+      if @policy.save
         format.html { head :ok }
       else
         flash[:error] = 'There was a problem creating the policy.'

@@ -1,15 +1,15 @@
 ----------------------------------------------------------
-Section Announcement for xxx@xxx.xxx %>
+Section Announcement for <%= @section.course.title %>
 ----------------------------------------------------------
 
-To: All Class Members of Section <%= @section.call_number %> of xxx@xxx.xxx %>
+To: All Class Members of Section <%= @section.call_number %> of <%= @section.course.title %>
 Subject: Section Announcement
 
-xxx@xxx.xxx %>
+<%= @text %>
 
 
-<%= @section.instructor.first_name %> xxx@xxx.xxx %>
-xxx@xxx.xxx %>
+<%= @section.instructor.first_name %> <%= @section.instructor.last_name %>
+<%= @section.instructor.title %>
 
 
 

@@ -1,4 +1,4 @@
-<%- assignment xxx@xxx.xxx -%>
+<%- assignment = @work.assignment -%>
 <%- section = assignment.section -%>
 <%- semester = section.semester -%>
 
@@ -24,7 +24,7 @@
 			<p>If in the future (but still before the due date of course) you want to replace the submitted version of 
 			your lab with a new one, you will need to 
 			<%= link_to "withdraw your submission", withdraw_semester_section_assignment_works_url(semester, section, assignment, 
-xxx@xxx.xxx 
+				code: @work.withdrawal_code.to_s, 
 				host: APP_CONFIG['host']) %>.</p>
 		
 			<p>

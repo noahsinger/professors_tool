@@ -1,14 +1,14 @@
 
-<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: {course: @course} %>
 
-xxx@xxx.xxx do |waiter| %>
+<% @waiters.each do |waiter| %>
   <div class="block waiters">
     <header>
       <h5><%= mail_to waiter.email %></h5>
     </header>
 
     <ul>
-      <li class="icon"><%= link_to xxx@xxx.xxx waiter], {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">Destroy</span><% end %></li>
+      <li class="icon"><%= link_to [:admin, @course, waiter], {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">Destroy</span><% end %></li>
     </ul>
 
 		<p>

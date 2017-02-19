@@ -4,66 +4,66 @@ class Admin::AssignmentsController < ApplicationController
   before_action :load_section
 
   def load_semester
-   xxx@xxx.xxx = Semester.find( params[:semester_id] )
+    @semester = Semester.find( params[:semester_id] )
   end
 
   def load_section
-   xxx@xxx.xxx = Section.find( params[:section_id] )
+    @section = Section.find( params[:section_id] )
   end
 
   # GET /assignments
   # GET /assignments.xml
   def index
-    @assignments xxx@xxx.xxx desc')
+    @assignments = @section.assignments.order('duedate desc')
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @assignments }
     end
   end
 
   # GET /assignments/1
   # GET /assignments/1.xml
   def show
-    @assignment xxx@xxx.xxx
+    @assignment = @section.assignments.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @assignment }
     end
   end
 
   # GET /assignments/new
   # GET /assignments/new.xml
   def new
-    @assignment xxx@xxx.xxx
+    @assignment = @section.assignments.build
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @assignment }
     end
   end
 
   # GET /assignments/1/edit
   def edit
-    @assignment xxx@xxx.xxx
+    @assignment = @section.assignments.find(params[:id])
   end
 
   # POST /assignments
   # POST /assignments.xml
   def create
-    @assignment xxx@xxx.xxx
+    @assignment = @section.assignments.build(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
+      if @assignment.save
         flash[:notice] = 'Assignment was successfully created.'
-        @status = xxx@xxx.xxx status: 'new')
-        format.html { xxx@xxx.xxx status: 'new')) }
-        format.xml  { render xml: @assignment, status: :created, xxx@xxx.xxx }
+        @status = new_admin_assignment_tweet_url(assignment_id: @assignment, status: 'new')
+        format.html { redirect_to(new_admin_assignment_tweet_url(assignment_id: @assignment, status: 'new')) }
+        format.xml  { render xml: @assignment, status: :created, location: @assignment }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @assignment.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -72,25 +72,25 @@ class Admin::AssignmentsController < ApplicationController
   # PUT /assignments/1
   # PUT /assignments/1.xml
   def update
-    @assignment xxx@xxx.xxx
-    old_duedate xxx@xxx.xxx
+    @assignment = @section.assignments.find(params[:id])
+    old_duedate = @assignment.duedate
 
     respond_to do |format|
-      xxx@xxx.xxx
+      if @assignment.update_attributes(allowed_params)
         flash[:notice] = 'Assignment was successfully updated.'
 
-        destination = xxx@xxx.xxx
-        xxx@xxx.xxx == old_duedate
-          destination = xxx@xxx.xxx status: "duedate")
+        destination = admin_semester_section_assignment_url(@semester,@section,@assignment)
+        unless @assignment.duedate == old_duedate
+          destination = new_admin_assignment_tweet_url(assignment_id: @assignment, status: "duedate")
         end
 
-       xxx@xxx.xxx = destination
+        @status = destination
         format.html { redirect_to(destination) }
         format.xml  { head :ok }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @assignment.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -99,12 +99,12 @@ class Admin::AssignmentsController < ApplicationController
   # DELETE /assignments/1
   # DELETE /assignments/1.xml
   def destroy
-    @assignment xxx@xxx.xxx
-   xxx@xxx.xxx
+    @assignment = @section.assignments.find(params[:id])
+    @assignment.destroy
 
     respond_to do |format|
-      @status = xxx@xxx.xxx @section)
-      format.html { xxx@xxx.xxx @section)) }
+      @status = admin_semester_section_assignments_url(@semester, @section)
+      format.html { redirect_to(admin_semester_section_assignments_url(@semester, @section)) }
       format.xml  { head :ok }
       format.js
     end

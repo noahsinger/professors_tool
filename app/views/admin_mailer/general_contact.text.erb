@@ -2,17 +2,17 @@
 Email from <%= APP_CONFIG['host'] %> Contact Form
 ==================================
 
-Subject: xxx@xxx.xxx %>
-Return Email: xxx@xxx.xxx %>
+Subject: <%= @contact.subject.html_safe %>
+Return Email: <%= @contact.return_email %>
 			
-<% xxx@xxx.xxx %>
+<% if @contact.attachment_file_name %>
   Attachment included
   -------------------
-  Content-type: xxx@xxx.xxx %>
-  Size: xxx@xxx.xxx %>
-  Name: xxx@xxx.xxx %>
+  Content-type: <%= @contact.attachment_content_type %>
+  Size: <%= @contact.attachment_file_size %>
+  Name: <%= @contact.attachment_file_name %>
 <% end %>
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-xxx@xxx.xxx %>
+<%= @contact.body.html_safe %>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

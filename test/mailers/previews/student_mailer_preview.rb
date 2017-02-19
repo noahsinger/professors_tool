@@ -7,13 +7,13 @@ class StudentMailerPreview < ActionMailer::Preview
   
   def section_availability_notification
     section = Section.first
-    email = xxx@xxx.xxx
+    email = "victrola_firecracker@woodpecker.com"
     StudentMailer.section_availability_notification(section, email)
   end
   
   def section_email
     section = Section.first
-    address = xxx@xxx.xxx
+    address = "victrola_firecracker@woodpecker.com"
 
 text = <<ENDEMAILBODYHERE
 Hello Everyone,

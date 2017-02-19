@@ -1,6 +1,6 @@
 <tr id="attendance_<%= attendance.id.to_s %>" class="attendance_row enrollments">
 	<td>
-		<%= link_to show_date_and_time(attendance.meeting.when), xxx@xxx.xxx %>
+		<%= link_to show_date_and_time(attendance.meeting.when), admin_semester_section_meeting_attendances_path(@semester,@section,attendance.meeting) %>
 	</td>
 	<% AttendanceStatus.all.each do |status| %>
 		<td class="<%= status.name %> attendance_cell">

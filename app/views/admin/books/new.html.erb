@@ -1,13 +1,13 @@
 
-<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/courses/course', locals: {course: @course} %>
 <%= render partial: 'books_header' %>
 
-<%= render partial: 'book', xxx@xxx.xxx cached: true %>
+<%= render partial: 'book', collection: @books, cached: true %>
 
 <div class="block books">
 	<header>
 		<p>Add a New Book for</p>
-xxx@xxx.xxx %></h4>
+		<h4><%= @course.title %></h4>
 	</header>
 </div>
 

@@ -11,56 +11,56 @@ class Admin::CoursesController < ApplicationController
   # GET /courses
   # GET /courses.xml
   def index
-   xxx@xxx.xxx = Course.order(:title)
+    @courses = Course.order(:title)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @courses }
     end
   end
 
   # GET /courses/1
   # GET /courses/1.xml
   def show
-   xxx@xxx.xxx = Course.find(params[:id])
+    @course = Course.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @course }
     end
   end
 
   # GET /courses/new
   # GET /courses/new.xml
   def new
-   xxx@xxx.xxx = Course.new
+    @course = Course.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @course }
     end
   end
 
   # GET /courses/1/edit
   def edit
-   xxx@xxx.xxx = Course.find(params[:id])
+    @course = Course.find(params[:id])
   end
 
   # POST /courses
   # POST /courses.xml
   def create
-   xxx@xxx.xxx = Course.new(allowed_params)
+    @course = Course.new(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @course.save
+        @status = admin_course_url(@course)
         flash[:notice] = 'Course was successfully created.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { render xml: @course, status: :created, xxx@xxx.xxx }
+        format.html { redirect_to([:admin,@course]) }
+        format.xml  { render xml: @course, status: :created, location: @course }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @course.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -69,18 +69,18 @@ class Admin::CoursesController < ApplicationController
   # PUT /courses/1
   # PUT /courses/1.xml
   def update
-   xxx@xxx.xxx = Course.find(params[:id])
+    @course = Course.find(params[:id])
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @course.update_attributes(allowed_params)
+        @status = admin_course_url(@course)
         flash[:notice] = 'Course was successfully updated.'
-        format.html { xxx@xxx.xxx }
+        format.html { redirect_to([:admin,@course]) }
         format.xml  { head :ok }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @course.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -89,11 +89,11 @@ class Admin::CoursesController < ApplicationController
   # DELETE /courses/1
   # DELETE /courses/1.xml
   def destroy
-   xxx@xxx.xxx = Course.find(params[:id])
-   xxx@xxx.xxx
+    @course = Course.find(params[:id])
+    @course.destroy
 
     respond_to do |format|
-     xxx@xxx.xxx = admin_courses_url
+      @status = admin_courses_url
       format.html { redirect_to(admin_courses_url) }
       format.xml  { head :ok }
       format.js

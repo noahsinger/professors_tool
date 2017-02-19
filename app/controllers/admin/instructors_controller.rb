@@ -4,56 +4,56 @@ class Admin::InstructorsController < ApplicationController
   # GET /instructors
   # GET /instructors.xml
   def index
-   xxx@xxx.xxx = Instructor.all
+    @instructors = Instructor.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @instructors }
     end
   end
 
   # GET /instructors/1
   # GET /instructors/1.xml
   def show
-   xxx@xxx.xxx = Instructor.find(params[:id])
+    @instructor = Instructor.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @instructor }
     end
   end
 
   # GET /instructors/new
   # GET /instructors/new.xml
   def new
-   xxx@xxx.xxx = Instructor.new
+    @instructor = Instructor.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @instructor }
     end
   end
 
   # GET /instructors/1/edit
   def edit
-   xxx@xxx.xxx = Instructor.find(params[:id])
+    @instructor = Instructor.find(params[:id])
   end
 
   # POST /instructors
   # POST /instructors.xml
   def create
-   xxx@xxx.xxx = Instructor.new(allowed_params)
+    @instructor = Instructor.new(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @instructor.save
+        @status = admin_instructor_url(@instructor)
         flash[:notice] = 'Instructor was successfully created.'
-        format.html { xxx@xxx.xxx }
-        format.xml  { render xml: @instructor, status: :created, xxx@xxx.xxx }
+        format.html { redirect_to([:admin,@instructor]) }
+        format.xml  { render xml: @instructor, status: :created, location: @instructor }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @instructor.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -62,18 +62,18 @@ class Admin::InstructorsController < ApplicationController
   # PUT /instructors/1
   # PUT /instructors/1.xml
   def update
-   xxx@xxx.xxx = Instructor.find(params[:id])
+    @instructor = Instructor.find(params[:id])
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @instructor.update_attributes(allowed_params)
+        @status = admin_instructor_url(@instructor)
         flash[:notice] = 'Instructor was successfully updated.'
-        format.html { xxx@xxx.xxx }
+        format.html { redirect_to([:admin,@instructor]) }
         format.xml  { head :ok }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @instructor.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -82,11 +82,11 @@ class Admin::InstructorsController < ApplicationController
   # DELETE /instructors/1
   # DELETE /instructors/1.xml
   def destroy
-   xxx@xxx.xxx = Instructor.find(params[:id])
-   xxx@xxx.xxx
+    @instructor = Instructor.find(params[:id])
+    @instructor.destroy
 
     respond_to do |format|
-     xxx@xxx.xxx =  admin_instructors_url
+      @status =  admin_instructors_url
       format.html { redirect_to(admin_instructors_url) }
       format.xml  { head :ok }
       format.js

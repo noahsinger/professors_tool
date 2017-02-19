@@ -1,15 +1,15 @@
 
 <%= render 'admin/semesters/semesters_header' %>
-<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
-<%= render xxx@xxx.xxx %>
+<%= render partial: 'admin/semesters/semester', locals: {semester: @section.semester} %>
+<%= render partial: 'admin/courses/course', locals: {course: @section.course} %>
+<%= render partial: 'admin/sections/sections_header', locals: {semester: @section.semester} %>
+<%= render partial: @section %>
 
-<%= render partial: 'admin/meetings/meetings_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/meetings/meetings_header', locals: {section: @section} %>
 
-<%= render partial: 'admin/meetings/meeting', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/meetings/meeting', locals: {meeting: @meeting} %>
 
-<%= render partial: 'attendance', xxx@xxx.xxx cached: true %>
+<%= render partial: 'attendance', collection: @attendances, cached: true %>
 		
 <script type="text/javascript">
 	//setup links for normal page load

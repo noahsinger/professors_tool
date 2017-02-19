@@ -1,6 +1,6 @@
 <div class="block form enrollments">
-	<%= xxx@xxx.xxx remote: true) do |f| %>
-		<%= xxx@xxx.xxx %>
+	<%= form_for([:admin,@semester,@section,@enrollment], remote: true) do |f| %>
+		<%= show_error_messages_for @enrollment %>
 		<ol>
 			<li>
 				<div class="details">

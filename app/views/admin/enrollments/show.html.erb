@@ -1,12 +1,12 @@
 
 <%= render 'admin/semesters/semesters_header' %>
-<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/sections/sections_header', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/sections/section', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/enrollments/enrollments_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/semesters/semester', locals: {semester: @semester} %>
+<%= render partial: 'admin/courses/course', locals: {course: @section.course} %>
+<%= render partial: 'admin/sections/sections_header', locals: {semester: @semester} %>
+<%= render partial: 'admin/sections/section', locals: {section: @section} %>
+<%= render partial: 'admin/enrollments/enrollments_header', locals: {section: @section} %>
 
-<%= render partial: 'admin/enrollments/enrollment', locals: xxx@xxx.xxx main: true} %>
+<%= render partial: 'admin/enrollments/enrollment', locals: {enrollment: @enrollment, main: true} %>
 
 	<% 
 		possible = 0 
@@ -25,9 +25,9 @@
 			<th>Worth</th>
 			<th>Score</th>
 		</tr>
-xxx@xxx.xxx do |assignment| %>
+		<% @section.assignments.each do |assignment| %>
 			<% 
-				work xxx@xxx.xxx
+				work = @enrollment.works.where(['assignment_id=?',assignment]).first
 				earned += work.score if work
 				possible += assignment.worth
 			%>
@@ -35,7 +35,7 @@ xxx@xxx.xxx do |assignment| %>
 			<tr>
 				<td>
 					<% if work %>
-						<%= link_to assignment.title, xxx@xxx.xxx @section, assignment, work ) %>
+						<%= link_to assignment.title, admin_semester_section_assignment_work_path( @semester, @section, assignment, work ) %>
 					<% else %>
 						<%= assignment.title %>
 					<% end %>
@@ -63,21 +63,21 @@ xxx@xxx.xxx do |assignment| %>
 	<header>
 		<h3>
 			Current Score:
-			<%= @enrollment.current_average %>% - xxx@xxx.xxx %><br/>
-			Absences: xxx@xxx.xxx AttendanceStatus.absent.id).count %>
-			/ xxx@xxx.xxx %>
+			<%= @enrollment.current_average %>% - <%= @enrollment.current_grade %><br/>
+			Absences: <%= @enrollment.attendances.where(attendance_status_id: AttendanceStatus.absent.id).count %>
+			/ <%= @enrollment.attendances.count %>
 		</h3>
 	</header>
 	
 	<p>
-xxx@xxx.xxx = EnrollmentStatus.all -%>
+		<%- @statuses = EnrollmentStatus.all -%>
 		<%- outputs = [] -%>
 
-xxx@xxx.xxx do |status| %>
-			<% xxx@xxx.xxx == status.name %>
+		<% @statuses.each do |status| %>
+			<% if @enrollment.enrollment_status.name == status.name %>
 				<% outputs << "<b>#{status.name}</b>" %>
 			<% else %>
-				<% outputs << link_to( status.name, xxx@xxx.xxx @section, @enrollment, enrollment: {enrollment_status_id: status.id} ), method: :put, remote: true ) %>
+				<% outputs << link_to( status.name, admin_semester_section_enrollment_path( @semester, @section, @enrollment, enrollment: {enrollment_status_id: status.id} ), method: :put, remote: true ) %>
 			<% end %>
 		<% end %>
 		
@@ -92,7 +92,7 @@ xxx@xxx.xxx do |status| %>
 		<tr>
 			<th>Date</th>
 		</tr>
-xxx@xxx.xxx do |attendance| %>
+		<% @enrollment.attendances.each do |attendance| %>
 			<%= render partial: 'attendance', locals: {attendance: attendance} %>
 		<% end %>
 	</table>

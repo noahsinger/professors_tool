@@ -5,64 +5,64 @@ class Admin::SectionsController < ApplicationController
   before_action :load_semester
 
   def load_semester
-   xxx@xxx.xxx = Semester.find( params[:semester_id] )
+    @semester = Semester.find( params[:semester_id] )
   end
 
   # GET /sections
   # GET /sections.xml
   def index
-    @sections xxx@xxx.xxx
+    @sections = @semester.sections.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @sections }
     end
   end
 
   # GET /sections/1
   # GET /sections/1.xml
   def show
-    @section xxx@xxx.xxx
+    @section = @semester.sections.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @section }
     end
   end
 
   # GET /sections/new
   # GET /sections/new.xml
   def new
-    @section xxx@xxx.xxx
+    @section = @semester.sections.build
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render xxx@xxx.xxx }
+      format.xml  { render xml: @section }
     end
   end
 
   # GET /sections/1/edit
   def edit
-    @section xxx@xxx.xxx
+    @section = @semester.sections.find(params[:id])
   end
 
   # POST /sections
   # POST /sections.xml
   def create
-    @section xxx@xxx.xxx
+    @section = @semester.sections.build(allowed_params)
 
     respond_to do |format|
-      xxx@xxx.xxx
-        num_waiters xxx@xxx.xxx
-       xxx@xxx.xxx
+      if @section.save
+        num_waiters = @section.course.waiters.count
+        @section.notify_waiters
         flash[:notice] = "Section was successfully created and #{num_waiters} were notified."
-        @status = xxx@xxx.xxx
-        format.html { xxx@xxx.xxx }
-        format.xml  { render xml: @section, status: :created, xxx@xxx.xxx }
+        @status = admin_semester_section_url(@semester,@section)
+        format.html { redirect_to([:admin,@semester,@section]) }
+        format.xml  { render xml: @section, status: :created, location: @section }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "new" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @section.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -71,18 +71,18 @@ class Admin::SectionsController < ApplicationController
   # PUT /sections/1
   # PUT /sections/1.xml
   def update
-    @section xxx@xxx.xxx
+    @section = @semester.sections.find(params[:id])
 
     respond_to do |format|
-      xxx@xxx.xxx
-        @status = xxx@xxx.xxx
+      if @section.update_attributes(allowed_params)
+        @status = admin_semester_section_url(@semester,@section)
         flash[:notice] = 'Section was successfully updated.'
-        format.html { xxx@xxx.xxx }
+        format.html { redirect_to([:admin,@semester,@section]) }
         format.xml  { head :ok }
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html { render action: "edit" }
-        format.xml  { render xxx@xxx.xxx status: :unprocessable_entity }
+        format.xml  { render xml: @section.errors, status: :unprocessable_entity }
       end
       format.js
     end
@@ -91,29 +91,29 @@ class Admin::SectionsController < ApplicationController
   # DELETE /sections/1
   # DELETE /sections/1.xml
   def destroy
-    @section xxx@xxx.xxx
-   xxx@xxx.xxx
+    @section = @semester.sections.find(params[:id])
+    @section.destroy
 
     respond_to do |format|
-      @status = xxx@xxx.xxx
+      @status = admin_semester_sections_url(@semester)
       flash[:notice] = "The section has been destroyed"
-      format.html { xxx@xxx.xxx }
+      format.html { redirect_to(admin_semester_sections_url(@semester)) }
       format.xml  { head :ok }
       format.js
     end
   end
   
   def section_email
-    @section xxx@xxx.xxx
+    @section = @semester.sections.find(params[:id])
     
     respond_to do |format|
       if params[:body] and params[:body] != ""
-       xxx@xxx.xxx params[:body]
-        @status = xxx@xxx.xxx
+        @section.send_email params[:body]
+        @status = admin_semester_section_url(@semester,@section)
         flash[:notice] = "The email had been sent."
-        format.html {redirect_to( xxx@xxx.xxx )}
+        format.html {redirect_to( [:admin,@semester,@section] )}
       else
-       xxx@xxx.xxx = "failed"
+        @status = "failed"
         format.html # section_email.html.erb
       end
       format.js
@@ -121,24 +121,24 @@ class Admin::SectionsController < ApplicationController
   end
   
   def export_gradebook
-    @section xxx@xxx.xxx
+    @section = @semester.sections.find(params[:id])
     
     csv_string = CSV.generate do |csv|
-      assignments xxx@xxx.xxx
+      assignments = @section.assignments.except(:order).order(:duedate).all
       
       csv << ["Tulsa Community College"]
-      csv << xxx@xxx.xxx "Grade Scale", "A = 90-100%"]
+      csv << [@section.instructor.name,"", "Grade Scale", "A = 90-100%"]
       csv << [APP_CONFIG['ted_username'],"","","B = 80-89%"]
-      csv << xxx@xxx.xxx = 70-79%"]
-      csv << ["#{@section.course.short_name} - xxx@xxx.xxx = 60-69%"]
-      csv << ["#{@section.semester.season}/#{@section.semester.year} xxx@xxx.xxx = < 60%"]
+      csv << [@section.course.title,"","","C = 70-79%"]
+      csv << ["#{@section.course.short_name} - (#{@section.call_number})","","","D = 60-69%"]
+      csv << ["#{@section.semester.season}/#{@section.semester.year} (#{@section.semester.numeric})","","","F = < 60%"]
       csv << [] #blank row
       
       assignments_header = ["STUDENT NAME",	"Letter Grade",	"% Grade",	"Total Points",	"Total Absence",	"Participation", ""]
       assignments_header << assignments.map {|assignment| "#{assignment.title} - #{assignment.lab.title}"}
       csv << assignments_header.flatten
       
-     xxx@xxx.xxx do |enrollment|
+      @section.enrollments.each do |enrollment|
         line = []
         line << enrollment.student.last_name_first
         
@@ -166,16 +166,16 @@ class Admin::SectionsController < ApplicationController
     # render plain: "#{csv_string}"
     send_data csv_string,
         type: "text/csv; charset=UTF-8;",
-        disposition: "attachment; xxx@xxx.xxx
+        disposition: "attachment; filename=#{@section.course.short_name}-#{@section.section_number}.csv"
   end
   
   def sync_students
-    @section xxx@xxx.xxx
-   xxx@xxx.xxx
+    @section = @semester.sections.find(params[:id])
+    @section.sync_students_with_ted
 
     respond_to do |format|
-      @status = xxx@xxx.xxx
-      format.html {redirect_to( xxx@xxx.xxx )}
+      @status = admin_semester_section_url(@semester,@section)
+      format.html {redirect_to( [:admin,@semester,@section] )}
       format.js
     end
   end

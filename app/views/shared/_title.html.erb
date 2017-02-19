@@ -1,6 +1,6 @@
 <%= APP_CONFIG['host'].html_safe.gsub(/\<.*\>/,'') %>  &bull;
-<% if @section xxx@xxx.xxx %>
-xxx@xxx.xxx %>
+<% if @section and @section.course %>
+	<%= @section.course.short_name %>
 <% else %>
 	<%= controller.controller_name.titleize %> 
 <% end %>

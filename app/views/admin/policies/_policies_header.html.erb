@@ -1,11 +1,11 @@
 <div class="block <%= double_width_if_main(defined? main) %> policies header">
 	<header>
-		<%= link_to xxx@xxx.xxx do %>
+		<%= link_to admin_course_policies_path(@course) do %>
 		<h4>Policies</h4>
 		<% end %>
 	</header>
 	
 	<ul>
-		<li class="icon"><%= link_to xxx@xxx.xxx {class: "icon icon-plus", title: "New"} do %><span class="text_label">Create a new syllabus part</span><% end %></li>
+		<li class="icon"><%= link_to new_admin_syllabus_part_path(course_id: @course.id), {class: "icon icon-plus", title: "New"} do %><span class="text_label">Create a new syllabus part</span><% end %></li>
 	</ul>
 </div>

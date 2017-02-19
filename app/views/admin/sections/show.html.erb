@@ -1,19 +1,19 @@
 
 <%= render 'admin/semesters/semesters_header' %>
-<%= render partial: 'admin/semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/courses/course', locals: xxx@xxx.xxx %>
-<%= render partial: 'sections_header', locals: xxx@xxx.xxx %>
-<%= render xxx@xxx.xxx locals: {main: true} %>
+<%= render partial: 'admin/semesters/semester', locals: {semester: @semester} %>
+<%= render partial: 'admin/courses/course', locals: {course: @section.course} %>
+<%= render partial: 'sections_header', locals: {semester: @semester} %>
+<%= render partial: @section, locals: {main: true} %>
 
-<%= render partial: 'admin/enrollments/enrollments_header', locals: xxx@xxx.xxx %>
-<%= render partial: 'admin/assignments/assignments_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/enrollments/enrollments_header', locals: {section: @section} %>
+<%= render partial: 'admin/assignments/assignments_header', locals: {section: @section} %>
 <%= render 'admin/examples/examples_header' %>
-<%= render partial: 'admin/meetings/meetings_header', locals: xxx@xxx.xxx %>
+<%= render partial: 'admin/meetings/meetings_header', locals: {section: @section} %>
 
 <div class="block chart sections" data-script="setTimeout(init_chart,1000)">
 	<section id="enrollments_chart">No Enrollment Data Available</section>
 
-	<% xxx@xxx.xxx > 0 %>
+	<% if @section.enrollment_snapshots.count > 0 %>
 		<script type="text/javascript" charset="utf-8">
 			var init_chart = function( ) {
 				if($("#enrollments_chart").size( ) > 0) {
@@ -35,7 +35,7 @@
 						},
 						series: [{
 							name: "Enrollments",
-							data: xxx@xxx.xxx {|p| [p.created_at.to_i * 1000, p.enrollment_count]}.inspect %>
+							data: <%= @section.enrollment_snapshots.order(:created_at).collect {|p| [p.created_at.to_i * 1000, p.enrollment_count]}.inspect %>
 						}]
 					});
 				}

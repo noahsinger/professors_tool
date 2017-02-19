@@ -1,5 +1,5 @@
-<%= render partial: 'semesters/semester', locals: xxx@xxx.xxx %>
-<%= render partial: 'sections/section', locals: xxx@xxx.xxx %>
+<%= render partial: 'semesters/semester', locals: {semester: @semester} %>
+<%= render partial: 'sections/section', locals: {section: @section} %>
 
 <div class="block grade_requests header block--width2">
 	<header>
