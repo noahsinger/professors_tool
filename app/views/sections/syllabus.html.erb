@@ -63,6 +63,15 @@
 			</tr>
 		</table>
 	</div>
+	
+	<div class="block sections">
+		<header>
+			<h4>Description</h4>
+		</header>
+		<p>
+			<%= @section.course.description %>
+		</p>
+	</div>
 
 		<div class="block instructors">
 			<header>
@@ -240,7 +249,10 @@
 
 		<% @section.course.policies.each do |policy| %>
 			<div class="block policies pagebreak">
-				<header><h4><%= policy.syllabus_part.title %></h4></header>
+				<header>
+					<p><%= policy.syllabus_part.title %></p>
+					<h4>Policy</h4>
+				</header>
 				<%= markdown policy.syllabus_part.description %>
 			</div>
 		<% end %>

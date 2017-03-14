@@ -2,6 +2,7 @@ body.print {
 	background-color: #fff;
 
 	.block {
+		page-break-inside: avoid;
 		width: 100%;
 		float: none;
 		background-color: #fff;
@@ -26,6 +27,7 @@ body.print {
 
 				margin: 0;
 				padding: 0 20px;
+				font-size: 30px;
 			}
 
 			p {
@@ -35,7 +37,7 @@ body.print {
 			p + h1, p + h2, p + h3, p + h4, p + h5, p + h6 {
 				line-height: .9em;
 				padding-bottom: 20px;
-				margin-left: -3px;
+				margin-left: 1px;
 			}
 		}
 
