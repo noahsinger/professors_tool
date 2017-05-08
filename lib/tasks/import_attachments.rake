@@ -4,7 +4,7 @@
 # instructors - office_hours
 # steps - images
 
-namespace :paperclip do
+namespace :paperclip_custom do
   desc "Recreate attachments and save them to new destination"
   task :import_attachments => :environment do
 
