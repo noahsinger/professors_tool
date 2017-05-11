@@ -1,10 +1,10 @@
 NodeList.prototype.includes = function( other_node ) {
 	var match_found = false;
-	this.forEach(function( this_node ) {
+	for(this_node of this) {
 		if(this_node.innerHTML == other_node.innerHTML) {
 			match_found = true;
 		}
-	});
+	}
 
 	return match_found;
 };
@@ -87,8 +87,6 @@ var FlyingBlocks = {
 	//RECORD CURRENT BLOCKS
 	record_current_blocks : function( ) {
 		FlyingBlocks.current_blocks = document.querySelectorAll(".block");
-		// console.log("- current_blocks: ");
-		// console.log(current_blocks);
 	}, //end record_current_blocks
 
 
@@ -97,16 +95,6 @@ var FlyingBlocks = {
 		console.log("load");
 
 		FlyingBlocks.record_current_blocks( );
-
-		// $(".block").click(function( ) {
-		// 	$(".block--width2").each(function( ) {
-		// 		this.className = this.className.replace(/\b\s?(block--width2)\b/g, '');
-		// 	});
-		//
-		// 	if( ! /grid-sizer/.test(this.className) && ! /form/.test(this.className) ) {
-		// 		this.className += " block--width2";
-		// 	}
-		// });
 
 		FlyingBlocks.refresh( );
 		FlyingBlocks.init_elements( );
@@ -122,7 +110,8 @@ var FlyingBlocks = {
 		console.log("- current_blocks: " + FlyingBlocks.current_blocks.length);
 		console.log("- new_blocks: " + new_blocks.length);
 
-		new_blocks.forEach(function( node ) {
+		for(x = 0 ; x < new_blocks.length ; x++) {
+			node = new_blocks[x];
 			if(FlyingBlocks.current_blocks.includes(node)) {
 				//new block is a current block that's staying
 				console.log("- node staying");
@@ -133,15 +122,16 @@ var FlyingBlocks = {
 				node.className += " appear";
 				$("#page").append(node);
 			}
-		});
+		}
 
-		FlyingBlocks.current_blocks.forEach(function( current_block ) {
+		for(x = 0 ; x < FlyingBlocks.current_blocks.length ; x++) {
+			current_block = FlyingBlocks.current_blocks[x];
 			if(! new_blocks.includes(current_block)) {
 				//current block isn't a new block so it's leaving
 				console.log("- node leaving");
 				current_block.className += " disappear";
 			}
-		});
+		}
 	}, //end before_render
 
 
@@ -216,26 +206,6 @@ var FlyingBlocks = {
 				eval($(this).data("script"));
 			}
 		});
-
-		// $(".block").css("transform", "scale(1)");
-		//
-		// var subjects = [];
-		// var scale_factor = 15;
-		// //get all of the full names from the current URL (in order)
-		// window.location.pathname.match(/\/(\w+)\/?/g).forEach(function(val) {
-		// 	subjects.push(val.replace(/\//g,''));
-		// });
-		//
-		// for (var i = 0 ; i < subjects.length ; i++) {
-		// 	var classname = "." + subjects[i];
-		// 	$(classname).each(function( ) {
-		// 		var scale = 1.15-(((subjects.length - i) * scale_factor)/100.0);
-		// 		console.log("scaling " + classname + " to " + scale)
-		// 		// $(this).css("transform", "scale(" + scale + ")");
-		// 		$(this).addClass("smaller");
-		// 	});
-		// }
-
 	}, //end init_elements
 
 
