@@ -1,6 +1,6 @@
 NodeList.prototype.includes = function( other_node ) {
 	var match_found = false;
-	for(this_node of this) {
+	for(this_node in this) {
 		if(this_node.innerHTML == other_node.innerHTML) {
 			match_found = true;
 		}
