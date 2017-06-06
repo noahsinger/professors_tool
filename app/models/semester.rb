@@ -88,6 +88,7 @@ class Semester < ApplicationRecord
 	    # a.ssl_version='SSLv3'
     end
 
+    agent.verify_mode= OpenSSL::SSL::VERIFY_NONE # TED is missing intermediate certificates so it has to be ignored to work
     agent.follow_meta_refresh = true
 
     #login to ted directly
