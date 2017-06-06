@@ -18,7 +18,8 @@ class Assignment < ApplicationRecord
   end
 
   def generate_short_url
-    Google::UrlShortener.shorten! semester_section_assignment_url(self.section.semester,self.section,self,host: APP_CONFIG['host'])
+    # Google::UrlShortener.shorten! semester_section_assignment_url(self.section.semester,self.section,self,host: APP_CONFIG['host'])
+    semester_section_assignment_url(self.section.semester,self.section,self,host: APP_CONFIG['host'])
   end
 
   def worth
