@@ -43,7 +43,7 @@ gem 'will_paginate', '~> 3.1'
 gem 'coderay', '~> 1.1'
 gem 'premailer-rails'
 
-gem 'skylight'
+# gem 'skylight'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
