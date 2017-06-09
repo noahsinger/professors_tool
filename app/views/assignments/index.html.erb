@@ -16,7 +16,7 @@
 <%= render partial: 'steps/steps_list', locals: {course: @section.course} %>
 
 <% if @assignments.size > 0 %>
-	<%= render partial: 'assignment', collection: @assignments, cached: true %>
+	<%= render partial: 'assignment', collection: @assignments %>
 <% else %>
 	<%= render partial: 'no_assignments', locals: {section: @section} %>
 <% end %>
