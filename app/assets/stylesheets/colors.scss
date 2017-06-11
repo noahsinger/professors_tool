@@ -154,6 +154,11 @@ body {
 				//WORKS
 				.works {
 					@include block_style($blue_400, $grey_200);
+
+					&.graded {
+						@include block_style($blue_400, $grey_400);
+						opacity: .5;
+					}
 				}
 
 				//HOMEWORK RETURN REQUESTS

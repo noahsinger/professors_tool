@@ -9,24 +9,24 @@
 
 <%= render partial: 'admin/meetings/meeting', locals: {meeting: @meeting} %>
 
-<%= render partial: 'attendance', collection: @attendances, cached: true %>
-		
+<%= render partial: 'attendance', collection: @attendances %>
+
 <script type="text/javascript">
 	//setup links for normal page load
 	$(document).ready(function(  ) {
 		console.log("document ready");
-		
+
 		//find totals
 		total = $(".present").size();
 		<% AttendanceStatus.all.each do |status| %>
 			$(".<%= status.name %>_total").html(total - $(".<%= status.name %>_link").size());
 		<% end %>
 	});
-		
+
 	//still setup the links even if turbo links has rebuilt that page
 	$(document).on('page:load', function(  ) {
 		console.log("page loaded");
-		
+
 		//find totals
 		total = $(".present").size();
 		<% AttendanceStatus.all.each do |status| %>

@@ -1,4 +1,4 @@
-<div class="block works <%= double_width_if_main(defined? main) %>">
+<div class="block works <%= double_width_if_main(defined? main) %> <%= work.graded? ? "graded" : "" %>" data-active="<%= work.graded? ? "inactive" : "active" %>">
 	<header>
 		<% if work.enrollment %>
 	    <%= link_to admin_semester_section_assignment_work_path(work.assignment.section.semester,work.assignment.section,work.assignment,work) do %>
@@ -30,7 +30,7 @@
 		</b>
 	</p>
 
-	<% if work.awarded_points.size > 0 %>
+	<% if work.graded? %>
 		<p>score: <b><%= work.score %> (<%= number_to_percentage work.percentage, {precision: 2} %>)</b></p>
 	<% else %>
 		<p>score: <b>-</b></p>
