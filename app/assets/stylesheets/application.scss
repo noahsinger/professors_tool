@@ -269,6 +269,16 @@ ul:after {
 	font-weight: bold;
 }
 
+#assignment_instructions {
+	ul {
+		float: none;
+		li {
+			float: none;
+			padding: 10px;
+		}
+	}
+}
+
 
 //	ABOVE 667 GO TO SIDE BY SIDE 2 BLOCK LAYOUT
 @media screen and (min-width: 667px) {

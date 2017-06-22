@@ -28,9 +28,9 @@
 	<header>
 		<h3>Instructions</h3>
 	</header>
-	<section>
+	<div  id="assignment_instructions">
 		<%= markdown @assignment.lab.instructions %>
-	</section>
+	</div>
 </div>
 
 <% if @assignment.lab.extras.size > 0 %>
@@ -43,7 +43,7 @@
 				<li>
 					<%= link_to extra.file.url do %>
 						<div><%= extra.description %></div>
-						<h2><%= extra.file_file_name %></h2>
+						<b><%= extra.file_file_name %></b>
 						<p></p>
 					<% end %>
 				</li>
