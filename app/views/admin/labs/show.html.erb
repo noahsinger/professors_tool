@@ -26,20 +26,12 @@
 <div class="block labs" data-script='$("#requirements_table").reorderTable( "<%= sort_admin_course_lab_requirements_url( @course,@lab ) %>", "<%= form_authenticity_token %>" );'>
 	<header><h5>Requirements</h5></header>
 	<table id="requirements_table">
-		<tr>
-			<th></th>
-			<th>pts</th>
-			<th></th>
-			<th></th>
-		</tr>
 		<% for requirement in @lab.requirements %>
 			<%= render requirement %>
 		<% end %>
 		<tr class="last_row">
 			<td class="blank">Total:</td>
 			<td><%= @lab.worth %></td>
-			<td class="blank"></td>
-			<td class="blank"></td>
 		</tr>
 	</table>
 
@@ -63,10 +55,17 @@
 			<table>
 			<% for extra in @lab.extras %>
 			  <tr>
-			    <td class="nav"><%=link_to extra.file_file_name, extra.file.url %></td>
-			    <td><%= extra.description %></td>
-			    <td class="edit"><%= link_to 'Edit', edit_admin_course_lab_extra_path(@course,@lab,extra) %></td>
-			    <td class="destroy"><%= link_to 'Destroy', [:admin,@course,@lab,extra], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></td>
+			    <td>
+						<%= extra.description %><br/>
+						<b>
+							<%=link_to extra.file_file_name, extra.file.url %>
+						</b>
+						<br/>
+						<br/>
+						<span class="edit"><%= link_to 'Edit', edit_admin_course_lab_extra_path(@course,@lab,extra) %></span> |
+						<span class="destroy"><%= link_to 'Destroy', [:admin,@course,@lab,extra], data: {confirm: 'Are you sure?'}, method: :delete, remote: true %></span>
+					</td>
+
 			  </tr>
 			<% end %>
 			</table>
