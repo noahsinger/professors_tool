@@ -8,7 +8,7 @@
 
 	<ul>
 		<li class="icon"><%= link_to [:edit,:admin,@course,lab], {class: "icon icon-note", title: "Edit"} do %><span class="text_label">Edit</span><% end %></li>
-		<li><%= link_to 'Duplicate', [:duplicate,:admin,@course,lab], method: :post, remote: true %></li>
+		<li class="icon"><%= link_to [:duplicate,:admin,@course,lab], {class: "icon icon-docs", title: "Duplicate", data: {method: :post, remote: true}} do %><span class="text_label">Duplicate</span><% end %></li>
 		<li class="icon"><%= link_to [:admin,@course,lab], {class: "icon icon-trash", title: "Destroy", data: {confirm: 'Are you sure?', method: :delete, remote: true}} do %><span class="text_label">Destroy</span><% end %></li>
 	</ul>
 

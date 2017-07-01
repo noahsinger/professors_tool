@@ -44,7 +44,7 @@
 	</table>
 
 	<ul>
-		<li><%= link_to 'Add Requirement', new_admin_course_lab_requirement_path(@course,@lab) %></li>
+		<li class="icon"><%= link_to new_admin_course_lab_requirement_path(@course,@lab), {class: "icon icon-plus", title: "New"} do %><span class="text_label">Add Requirement</span><% end %></li>
 	</ul>
 </div>
 
@@ -58,7 +58,7 @@
 
 <div class="block labs">
 	<header id="assignment_extras_header"><h5>Extras</h5></header>
-	<div class="fancy">
+	<div class="extras_table">
 		<% if @lab.extras.size > 0 %>
 			<table>
 			<% for extra in @lab.extras %>
@@ -71,6 +71,8 @@
 			<% end %>
 			</table>
 		<% end %>
-		<ul class="actions"><li><%= link_to 'Add an extra', new_admin_course_lab_extra_path(@course,@lab) %></li></ul>
+		<ul class="actions">
+			<li class="icon"><%= link_to new_admin_course_lab_extra_path(@course,@lab), {class: "icon icon-plus", title: "New"} do %><span class="text_label">Add an extra</span><% end %></li>
+		</ul>
 	</div>
 </div>
