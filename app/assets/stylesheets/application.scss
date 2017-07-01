@@ -107,8 +107,7 @@ ul:after {
 			margin: 0;
 			padding: 0 0 0 20px;
 
-			font-weight: bold;
-			font-size: 1.3em;
+			font-size: 1.5em;
 
 			position: relative;
 			top: 30px;
@@ -116,8 +115,8 @@ ul:after {
 		}
 
 		p + h1, p + h2, p + h3, p + h4, p + h5, p + h6 {
-			top: -.547em;
-			height: .39em;
+			top: -.57em;
+			height: .37em;
 		}
 	} //end header
 
@@ -138,7 +137,6 @@ ul:after {
 
 			&.icon {
 				float: left;
-				// margin: -10px 0 0 0;
 			}
 
 			a {
@@ -174,12 +172,21 @@ ul:after {
 				padding: 5px 20px;
 				border-bottom: 1px solid #999;
 
+				&.destroy, &.edit {
+					// border: 1px solid red;
+					// display: block;
+					// width: 20px;
+					// height: 30px;
+					// float: right;
+					// padding-top: 20px;
+				}
+
 				&.destroy {
-					width: 10px;
+					// width: 10px;
 				}
 
 				&.edit {
-					width: 10px;
+					// width: 10px;
 				}
 			}
 		}
