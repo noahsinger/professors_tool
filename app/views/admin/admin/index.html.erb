@@ -7,4 +7,8 @@
 <%= render partial: 'admin/grade_requests/grade_requests_header' %>
 <%= render partial: 'admin/homework_return_requests/homework_return_requests_header' %>
 
+<% if Semester.current %>
+  <%= render partial: 'admin/sections/section', collection: Semester.current.sections %>
+<% end %>
+
 <%= render partial: 'admin/semesters/semester', collection: @semesters %>
