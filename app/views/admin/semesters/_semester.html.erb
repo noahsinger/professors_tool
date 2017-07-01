@@ -1,4 +1,4 @@
-<div class="block semesters <%= double_width_if_main(defined? main) %>">
+<div class="block semesters <%= double_width_if_main(defined? main) %> <%= semester.is_current? ? "" : "not_current" %>" data-active="<%= semester.is_current? ? "active" : "inactive" %>">
 	<header>
 		<%= link_to admin_semester_sections_path(semester) do %>
 			<p><%= show_short_date semester.start_date %> - <%= show_short_date semester.end_date %></p>
@@ -6,12 +6,6 @@
 			<h3><%= semester.year %><%= semester.season %></h3>
 		<% end %>
 	</header>
-
-	<% if semester.is_current? %>
-		<p class="in_progress_indicator green">current</p>
-	<% elsif semester.is_future? %>
-		<p class="in_progress_indicator">coming up</p>
-	<% end %>
 
 	<ul>
 		<li class="icon"><%= link_to edit_admin_semester_path(semester), {class: "icon icon-note", title: "Edit"} do %><span class="text_label">Edit</span><% end %></li>

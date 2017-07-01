@@ -16,7 +16,7 @@ $page_background: $blue_grey_900;
 	}
 
 	header, footer {
-		background-color: lighten($background_color, 10%);
+		background-color: lighten($background_color, 7%);
 
 		a {
 			color: $background_color;
@@ -92,12 +92,19 @@ body {
 	//SEMESTERS
 	.semesters {
 		@include block_style($green_500, $amber_50);
+
+		&.not_current {
+			opacity: .5;
+		}
 	}
 
 		//SECTIONS
 		.sections {
 			@include block_style($light_green_800, $amber_50);
 
+			&.not_in_session {
+				opacity: .5;
+			}
 		}
 
 			//ENROLLMENTS
@@ -140,7 +147,7 @@ body {
 				@include block_style($blue_grey_500, $amber_50);
 
 
-				&.overdue {
+				&.overdue, &.complete {
 					@include block_style($blue_grey_200, #fff);
 					opacity: .5;
 				}
@@ -228,7 +235,7 @@ body {
 
 			//EXTRAS
 			.extras {
-				@include block_style($orange_200, $amber_50);
+				@include block_style($orange_900, $amber_50);
 			}
 
 .block.flash.error {

@@ -1,4 +1,4 @@
-<div class="block <%= double_width_if_main(defined? main) %> sections">
+<div class="block <%= double_width_if_main(defined? main) %> sections <%= section.in_session ? "" : "not_in_session" %>" data-active="<%= section.in_session ? "active" : "inactive" %>">
 	<header>
 		<%= link_to [:admin,section.semester,section] do %>
 			<p><%= "#{section.meeting_days} #{section.course.title}" %></p>
@@ -7,12 +7,6 @@
 			</h4>
 		<% end %>
 	</header>
-
-	<% if section.in_session %>
-		<p class=" in_progress_indicator green">In Session</p>
-	<% else %>
-		<p class="in_progress_indicator red">Not in Session</p>
-	<% end %>
 
 	<ul>
 		<li class="icon"><%= link_to [:edit, :admin, section.semester, section], {class: "icon icon-note", title: "Edit"} do %><span class="text_label">Edit</span><% end %></li>

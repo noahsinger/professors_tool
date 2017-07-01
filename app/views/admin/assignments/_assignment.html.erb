@@ -1,14 +1,10 @@
-<div class="block <%= double_width_if_main(defined? main) %> assignments">
+<div class="block <%= double_width_if_main(defined? main) %> assignments <%= (assignment.overdue? and assignment.graded?) ? "complete" : "" %>" data-active="<%= (assignment.overdue? and assignment.graded?) ? "inactive" : "active" %>">
 	<header>
 		<%= link_to admin_semester_section_assignment_works_path(assignment.section.semester,assignment.section,assignment) do %>
 			<p><%= assignment.lab.title %></p>
 			<h5><%= assignment.title %></h5>
 		<% end %>
 	</header>
-
-	<% unless assignment.graded? %>
-		<p class=" in_progress_indicator blue">Needs Grading</p>
-	<% end %>
 
 	<ul>
 		<li class="icon">
