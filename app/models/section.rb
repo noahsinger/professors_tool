@@ -225,7 +225,7 @@ class Section < ApplicationRecord
     result = agent.submit(form)
 
     # nav to ted through mytcc
-    result = result.links_with( text: 'Faculty' ).first.click
+    result = result.links_with( text: ' Faculty ' ).first.click
     result = result.links_with( text: 'Faculty Detail Class List' ).first.click
 
     #nav to detailed schedule
