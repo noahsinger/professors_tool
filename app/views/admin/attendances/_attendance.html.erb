@@ -1,7 +1,12 @@
 <div id="attendance_<%= attendance.id.to_s %>" class="block attendance_row attendances <%= attendance.attendance_status ? "attendance_taken" : "" %>"  data-active="<%= attendance.attendance_status ? "inactive" : "active" %>">
 	<header>
 		<%= link_to edit_admin_student_path(attendance.enrollment.student) do %>
-			<p><%= attendance.enrollment.student.last_name_first %></p>
+			<p>
+				<%= attendance.enrollment.student.last_name_first %>
+				<% if attendance.enrollment.student.goes_by and not attendance.enrollment.student.goes_by.blank? %>
+					"<%= attendance.enrollment.student.goes_by %>"
+				<% end %>
+			</p>
 		  <h3>
 		    <% if attendance.enrollment.enrollment_status.id == EnrollmentStatus.dropped.id %>
 			    <strike><%= attendance.enrollment.student.last_name %></strike>
@@ -9,10 +14,6 @@
 			  	<span <%= unless attendance.attendance_status then 'style="font-weight: bold;"'.html_safe end %>>
 					  <%= attendance.enrollment.student.last_name %>
 					</span>
-
-				  <% if attendance.enrollment.student.goes_by and not attendance.enrollment.student.goes_by.blank? %>
-				  	("<%= attendance.enrollment.student.goes_by %>")
-				  <% end %>
 			  <% end %>
 			</h3>
 		<% end %>
