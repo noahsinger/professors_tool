@@ -78,17 +78,17 @@ class Assignment < ApplicationRecord
 
   def to_ical_event
     event = Icalendar::Event.new
-  	event.klass       "PUBLIC"
-  	event.custom_property( "DTSTART;VALUE=DATE", self.duedate.strftime("%Y%m%d").to_i )
+  	# event.klass       "PUBLIC"
+  	event.append_custom_property( "DTSTART;VALUE=DATE", self.duedate.in_time_zone('US/Central').strftime("%Y%m%d") )
     # event.dtstart     DateTime.civil(self.duedate.strftime("%Y").to_i, self.duedate.strftime("%m").to_i, self.duedate.strftime("%d").to_i, self.duedate.strftime("%H").to_i, self.duedate.strftime("%M").to_i)
     # event.dtend       DateTime.civil(self.duedate.strftime("%Y").to_i, self.duedate.strftime("%m").to_i, (self.duedate.strftime("%d").to_i)+1, self.duedate.strftime("%H").to_i, self.duedate.strftime("%M").to_i)
-  	event.summary     self.section.course.title + " " + self.title + " due by " + self.duedate.strftime( "%I:%M %p" )
-  	event.description self.section.course.title + " " + self.title + " :: " + self.lab.title + " is due by " + self.duedate.strftime( "%I:%M %p" )
-  	event.location    ""
-  	event.dtstamp     self.created_at.to_datetime
-    event.url         "#{APP_CONFIG['site_url']}/semesters/" + self.section.semester.id.to_s + "/sections/" + self.section.id.to_s + "/assignments/" + self.id.to_s
-  	event.uid         self.section.call_number + "-assignment-#{self.id.to_s}"
-  	event.sequence    0
+  	event.summary     = self.section.course.title + " " + self.title + " due by " + self.duedate.in_time_zone('US/Central').strftime( "%I:%M %p" )
+  	event.description = self.section.course.title + " " + self.title + " :: " + self.lab.title + " is due by " + self.duedate.in_time_zone('US/Central').strftime( "%I:%M %p" )
+  	event.location    = ""
+  	event.dtstamp     = self.created_at.to_datetime
+    event.url         = "#{APP_CONFIG['site_url']}/semesters/" + self.section.semester.id.to_s + "/sections/" + self.section.id.to_s + "/assignments/" + self.id.to_s
+  	event.uid         = self.section.call_number + "-assignment-#{self.id.to_s}"
+  	event.sequence    = 0
 
   	event
   end

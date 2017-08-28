@@ -185,11 +185,11 @@ class Section < ApplicationRecord
     cal = Icalendar::Calendar.new
 
     # to appease Outlook
-    cal.custom_property("METHOD","PUBLISH")
+    cal.append_custom_property("METHOD","PUBLISH")
 
-    cal.product_id = "-//dclicio.us//iCal 1.0//EN"
-    cal.custom_property("X-WR-CALNAME;VALUE=TEXT", self.course.title + " " + self.semester.name)
-    cal.custom_property("X-WR-TIMEZONE;VALUE=TEXT", "US/Central")
+    cal.prodid = "-//dclicio.us//iCal 1.0//EN"
+    cal.append_custom_property("X-WR-CALNAME;VALUE=TEXT", self.course.title + " " + self.semester.name)
+    cal.append_custom_property("X-WR-TIMEZONE;VALUE=TEXT", "US/Central")
 
     self.assignments.each do |assignment|
       event = assignment.to_ical_event
