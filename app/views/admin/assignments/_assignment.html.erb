@@ -27,7 +27,7 @@
 	<p>
 		Due: <%= show_date_and_time assignment.duedate.in_time_zone('US/Central') %> -
 		<%= distance_of_time_in_words_to_now(assignment.duedate.in_time_zone('US/Central')) %>
-		<%= "ago" unless assignment.duedate > Time.now %>
+		<%= "ago" unless assignment.duedate.in_time_zone('US/Central') > Time.now %>
 	</p>
 
 	<p>
