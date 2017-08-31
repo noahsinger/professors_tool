@@ -2,7 +2,7 @@ NodeList.prototype.includes = function( other_node ) {
 	var match_found = false;
 	for(var x = 0 ; x < this.length ; x++) {
 		if(this[x].innerHTML == other_node.innerHTML) {
-			match_found = true;
+			match_found = this[x];
 		}
 	}
 
@@ -111,16 +111,22 @@ var FlyingBlocks = {
 		console.log("- new_blocks: " + new_blocks.length);
 
 		for(x = 0 ; x < new_blocks.length ; x++) {
-			node = new_blocks[x];
-			if(FlyingBlocks.current_blocks.includes(node)) {
+			var new_node = new_blocks[x];
+			var existing_node;
+			if(existing_node = FlyingBlocks.current_blocks.includes(new_node)) {
 				//new block is a current block that's staying
 				console.log("- node staying");
+
+				if(new_node.className != existing_node.className) {
+					console.log("-- node staying but class changing");
+					existing_node.className = new_node.className;
+				}
 			} else {
 				//new block is new
 				console.log("- new node");
-				node.style.display = "none";
-				node.className += " appear";
-				$("#page").append(node);
+				new_node.style.display = "none";
+				new_node.className += " appear";
+				$("#page").append(new_node);
 			}
 		}
 
