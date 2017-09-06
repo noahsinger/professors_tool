@@ -8,7 +8,6 @@
 <%= render partial: 'admin/homework_return_requests/homework_return_requests_header' %>
 
 <% if Semester.current %>
+  <%= render partial: 'admin/semesters/semester', locals: {semester: Semester.current} %>
   <%= render partial: 'admin/sections/section', collection: Semester.current.sections %>
 <% end %>
-
-<%= render partial: 'admin/semesters/semester', collection: @semesters %>
