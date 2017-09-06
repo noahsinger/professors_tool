@@ -7,9 +7,9 @@
 <%= render partial: 'admin/assignments/assignments_header', locals: {section: @section} %>
 <%= render partial: 'admin/assignments/assignment', locals: {assignment: @assignment, main: true} %>
 
-<%= render partial: 'work', collection: @works, cached: true %>
+<%= render partial: 'work', collection: @works %>
 
-	
+
 <% if @enrollments_without_works.size > 0 %>
 	<% @enrollments_without_works.each do |enrollment| %>
 		<%= render partial: 'admin/enrollments/enrollment', locals: {enrollment: enrollment, message: "No work for"} %>
