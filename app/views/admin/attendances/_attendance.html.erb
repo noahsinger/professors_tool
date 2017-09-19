@@ -21,10 +21,10 @@
 
 	<table>
 			<% AttendanceStatus.all.each do |status| %>
-			<tr>
+			<tr class="attendance_row">
 				<td class="<%= status.name %> attendance_cell">
 				  <% if attendance.attendance_status and attendance.attendance_status.id == status.id %>
-				    <b><%= attendance.attendance_status.name %></b>
+				    <b><a class="marked"><%= attendance.attendance_status.name %></a></b>
 				  <% else %>
 				  	<%= link_to( status.name, admin_semester_section_meeting_attendance_path( @semester, @section, @meeting, attendance, attendance: {attendance_status_id: status.id} ), id: "#{status.name}_#{attendance.id}", method: :put, remote: true, class: "#{status.name}_link attendance_link" ) %>
 				  <% end %>

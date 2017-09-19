@@ -125,6 +125,18 @@ body {
 				//ATTENDANCES
 				.attendances {
 					@include block_style($indigo_400, $amber_50);
+					table tr.attendance_row {
+						border: 1px solid $indigo_500;
+
+						td a {
+							background-color: $indigo_300;
+
+							&.marked {
+								background-color: $grey_700;
+								color: #fff;
+							}
+						}
+					}
 
 					&.attendance_taken {
 						@include block_style($indigo_50, $grey_400);
