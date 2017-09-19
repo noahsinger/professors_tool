@@ -165,10 +165,13 @@ ul:after {
 			}
 
 			&.attendance_row {
+				display: block;
 				float: left;
 				margin: 5px;
+				width: 45%;
 
 				td {
+					display: block;
 					text-align: center;
 					border: 0;
 					padding: 0;
@@ -176,7 +179,6 @@ ul:after {
 					a {
 						display: block;
 						padding: 10px;
-						width: 145px;
 					}
 				}
 			}
