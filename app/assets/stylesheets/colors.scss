@@ -126,14 +126,16 @@ body {
 				.attendances {
 					@include block_style($indigo_400, $amber_50);
 					table tr.attendance_row {
-						border: 1px solid $indigo_500;
+						border-color: $indigo_500;
 
 						td a {
-							background-color: $indigo_300;
+							// background-color: $indigo_300;
 
 							&.marked {
-								background-color: $grey_700;
-								color: #fff;
+								// background-color: $grey_700;
+								// color: #fff;
+
+								color: #333;
 							}
 						}
 					}
