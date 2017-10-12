@@ -27,7 +27,7 @@ class Admin::AssignmentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should_create_assignment" do
     # Shortly::Clients::Bitly.expects(:shorten).returns(stub(url: "http://fake.url"))
-    Google::UrlShortener.expects(:shorten!).returns("http://fake.url")
+    # Google::UrlShortener.expects(:shorten!).returns("http://fake.url")
 
     assert_difference('Assignment.count') do
       post admin_semester_section_assignments_url(sections(:jck1003_section_1).semester, sections(:jck1003_section_1)),
