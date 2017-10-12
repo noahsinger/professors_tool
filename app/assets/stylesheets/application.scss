@@ -92,7 +92,11 @@ ul:after {
 	} //end headers
 
 	header {
+		overflow:hidden;
+
 		h1, h2, h3, h4, h5, h6 {
+			white-space:nowrap;
+
 			font-weight: normal;
 			margin: 0;
 			padding: 0;
@@ -110,7 +114,7 @@ ul:after {
 			font-size: 1.5em;
 
 			position: relative;
-			top: 30px;
+			top: 25px;
 			z-index: 1;
 		}
 
