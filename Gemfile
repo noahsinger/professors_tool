@@ -48,7 +48,7 @@ gem 'premailer-rails'
 
 group :production do
   gem 'pg'
-  gem 'skylight'
+  gem 'skylight', '~> 1.5.1'
 end
 
 group :development, :test do
@@ -70,11 +70,11 @@ group :development do
   gem 'hirb'
   gem 'awesome_print'
 
-  gem 'capistrano',         require: false
-  gem 'capistrano-rvm',     require: false
-  gem 'capistrano-rails',   require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano3-puma',   require: false
+  # gem 'capistrano',         require: false
+  # gem 'capistrano-rvm',     require: false
+  # gem 'capistrano-rails',   require: false
+  # gem 'capistrano-bundler', require: false
+  # gem 'capistrano3-puma',   require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
